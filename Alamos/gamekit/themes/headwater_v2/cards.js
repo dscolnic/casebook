@@ -10,8 +10,10 @@
 export const OPENING = [
   "You are the dam release lead, which means you decide how much water can leave without "
     +   "flooding the town. At Ashfell Dam, you will use calculus to make the call. Fifteen work "
-    +   "shifts remain before the rain. The lake needs room for a storm. The people below need "
-    +   "time to get clear of each release.",
+    +   "shifts remain before the rain. The lake needs room for a storm; the people below need "
+    +   "time to get clear of each release. Mara Vale, dam operations chief, hands you the "
+    +   "release board and says, “We need room for the storm, but every gate we open sends water "
+    +   "toward someone’s home.”",
 ];
 
 export const ENDING = [

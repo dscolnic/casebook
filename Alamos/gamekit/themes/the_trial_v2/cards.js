@@ -10,8 +10,9 @@
 export const OPENING = [
   "You are the trial evidence lead, which means you check what the patient records let the "
     +   "board claim. At Fenwick, you will use statistics to make the call. The trial board meets "
-    +   "in fifteen days. A rushed choice could expose patients to harm. A bad stop could bury a "
-    +   "useful treatment.",
+    +   "in fifteen days. A rushed choice could expose patients to harm; a bad stop could bury a "
+    +   "useful treatment. Director Mara Voss hands you the empty board binder and says, “If a "
+    +   "result makes us uncomfortable, it still goes in the binder.”",
 ];
 
 export const ENDING = [

@@ -10,8 +10,10 @@
 export const OPENING = [
   "You are the island planning lead, which means you test what a second ferry would cost "
     +   "the people who live here. At Vellan Island, you will use environmental science to make "
-    +   "the call. The council votes in fifteen days. More sailings could keep the school open. "
-    +   "Too much demand could ruin the wells and reef.",
+    +   "the call. The council votes in fifteen days. More sailings could keep the school open; "
+    +   "too much demand could ruin the wells and reef. Island Resources Officer Mara Voss hands "
+    +   "you the evidence ledger and says, “I want our children to be able to stay here when "
+    +   "they’re grown.”",
 ];
 
 export const ENDING = [

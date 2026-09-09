@@ -10,8 +10,9 @@
 export const OPENING = [
   "You are the changeover analyst, which means you check the rules that turn old crowns "
     +   "into new money. At Kesteven House, you will use macroeconomics to make the call. The new "
-    +   "currency starts in fifteen days. Families need wages that buy food. Shops and banks need "
-    +   "payments that clear.",
+    +   "currency starts in fifteen days. Families need wages that buy food; shops and banks need "
+    +   "payments that clear. Board Chair Mara Venn hands you the empty Rate Book and says, “When "
+    +   "we open those counters, people will hand us their life savings.”",
 ];
 
 export const ENDING = [

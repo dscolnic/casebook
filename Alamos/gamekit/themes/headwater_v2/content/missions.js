@@ -14,168 +14,168 @@ export const MISSIONS = [
       "A hole can be repaired only when the surrounding limit exists."
     ],
     "deeper": {
-      "intro": "You completed The Broken Trace. Choose GO DEEPER to revisit the four decisions and explore related course ideas; this optional review does not change your metrics or delay the next mission.",
+      "intro": "Try six independent practice questions. Each includes its own context and any needed data; no mission records are required.",
       "concepts": [],
       "questions": [
         {
-          "prompt": "In a follow-up to The Broken Trace, the water-level prediction H(t)=(t^2-36)/(t-6) cm is undefined at minute 6 even though the surrounding readings are finite. Resolve that mismatch before the crew decides whether the recorded spike is physical or only a hole in the formula. What does the limit represent in this situation?",
-          "hint": "Use the stated evidence and the conditions for Limit; do not choose an option merely because it names a familiar term.",
+          "prompt": "Let f(t)=(t²-36)/(t-6) for t≠6. What is the limit of f(t) as t approaches 6?",
+          "hint": "Factor the numerator and simplify for t≠6.",
           "answer": "B",
           "options": [
             {
               "key": "A",
-              "text": "Having a defined value that equals the common left and right limit.",
-              "why": "This describes Continuous, not Limit. It does not account for the quantities, conditions, or evidence in this calculus case."
+              "text": "0.",
+              "why": "Both numerator and denominator approach zero, but their ratio need not approach zero."
             },
             {
               "key": "B",
-              "text": "The value a function approaches as its input nears a point.",
-              "why": "Correct. the value a function approaches as its input nears a point."
+              "text": "12.",
+              "why": "Correct. 12."
             },
             {
               "key": "C",
-              "text": "Factor, cancel for t != 6, then substitute.",
-              "why": "This describes rational limit, not Limit. It does not account for the quantities, conditions, or evidence in this calculus case."
+              "text": "6.",
+              "why": "After cancellation the expression is t+6, not t."
             },
             {
               "key": "D",
-              "text": "Conjugate converts numerator product to h.",
-              "why": "This describes radical limit, not Limit. It does not account for the quantities, conditions, or evidence in this calculus case."
+              "text": "The limit does not exist because f(6) is undefined.",
+              "why": "A limit depends on nearby values; f need not be defined at the point."
             }
           ]
         },
         {
-          "prompt": "Ashfell Dam receives a second case related to The Broken Trace: the water-level prediction H(t)=(t^2-36)/(t-6) cm is undefined at minute 6 even though the surrounding readings are finite. Resolve that mismatch before the crew decides whether the recorded spike is physical or only a hole in the formula. Which condition or conclusion correctly determines continuity here?",
-          "hint": "Use the stated evidence and the conditions for Continuous; do not choose an option merely because it names a familiar term.",
+          "prompt": "For t≠6, f(t)=(t²-36)/(t-6). Which choice of f(6) makes f continuous at t=6?",
+          "hint": "A continuous function equals its limit at the point.",
           "answer": "C",
           "options": [
             {
               "key": "A",
-              "text": "The value a function approaches as its input nears a point.",
-              "why": "This describes Limit, not Continuous. It does not account for the quantities, conditions, or evidence in this calculus case."
+              "text": "f(6)=0.",
+              "why": "The nearby values approach 12, not 0."
             },
             {
               "key": "B",
-              "text": "Factor, cancel for t != 6, then substitute.",
-              "why": "This describes rational limit, not Continuous. It does not account for the quantities, conditions, or evidence in this calculus case."
+              "text": "f(6)=6.",
+              "why": "The simplified nearby expression is t+6."
             },
             {
               "key": "C",
-              "text": "Having a defined value that equals the common left and right limit.",
-              "why": "Correct. having a defined value that equals the common left and right limit."
+              "text": "f(6)=12.",
+              "why": "Correct. f(6)=12."
             },
             {
               "key": "D",
-              "text": "Conjugate converts numerator product to h.",
-              "why": "This describes radical limit, not Continuous. It does not account for the quantities, conditions, or evidence in this calculus case."
+              "text": "No value can make f continuous.",
+              "why": "The common one-sided limit exists, so assigning that value removes the hole."
             }
           ]
         },
         {
-          "prompt": "A teammate rechecks The Broken Trace using new evidence: the water-level prediction H(t)=(t^2-36)/(t-6) cm is undefined at minute 6 even though the surrounding readings are finite. Resolve that mismatch before the crew decides whether the recorded spike is physical or only a hole in the formula. Which option correctly carries out the required rational limit reasoning?",
-          "hint": "Use the stated evidence and the conditions for rational limit; do not choose an option merely because it names a familiar term.",
+          "prompt": "Let f(t)=(t²-36)/(t-6) for t≠6. Which method evaluates the limit as t approaches 6?",
+          "hint": "Identify the defining relationship or mechanism for rational limit. All needed information is in this question.",
           "answer": "D",
           "options": [
             {
               "key": "A",
               "text": "The value a function approaches as its input nears a point.",
-              "why": "This describes Limit, not rational limit. It does not account for the quantities, conditions, or evidence in this calculus case."
+              "why": "This describes limit. It does not answer the question about rational limit."
             },
             {
               "key": "B",
               "text": "Having a defined value that equals the common left and right limit.",
-              "why": "This describes Continuous, not rational limit. It does not account for the quantities, conditions, or evidence in this calculus case."
+              "why": "This describes continuous. It does not answer the question about rational limit."
             },
             {
               "key": "C",
               "text": "Conjugate converts numerator product to h.",
-              "why": "This describes radical limit, not rational limit. It does not account for the quantities, conditions, or evidence in this calculus case."
+              "why": "This describes radical limit. It does not answer the question about rational limit."
             },
             {
               "key": "D",
-              "text": "Factor, cancel for t != 6, then substitute.",
-              "why": "Correct. factor, cancel for t != 6, then substitute."
+              "text": "Factor t²-36 as (t-6)(t+6), cancel for t≠6, and evaluate t+6 at 6.",
+              "why": "Correct. Factor t²-36 as (t-6)(t+6), cancel for t≠6, and evaluate t+6 at 6."
             }
           ]
         },
         {
-          "prompt": "An unseen case extends The Broken Trace: with the algebraic hole repaired, the float conversion still returns 0/0 near zero displacement. Which option correctly carries out the required radical limit reasoning?",
-          "hint": "Use the stated evidence and the conditions for radical limit; do not choose an option merely because it names a familiar term.",
+          "prompt": "Let g(h)=[√(16+h)-4]/h for h≠0. Which step removes the indeterminate form when finding the limit as h approaches 0?",
+          "hint": "Identify the defining relationship or mechanism for radical limit. All needed information is in this question.",
           "answer": "A",
           "options": [
             {
               "key": "A",
-              "text": "Conjugate converts numerator product to h.",
-              "why": "Correct. conjugate converts numerator product to h."
+              "text": "Multiply numerator and denominator by √(16+h)+4; the numerator becomes h, which cancels for h≠0.",
+              "why": "Correct. Multiply numerator and denominator by √(16+h)+4; the numerator becomes h, which cancels for h≠0."
             },
             {
               "key": "B",
               "text": "The value a function approaches as its input nears a point.",
-              "why": "This describes Limit, not radical limit. It does not account for the quantities, conditions, or evidence in this calculus case."
+              "why": "This describes limit. It does not answer the question about radical limit."
             },
             {
               "key": "C",
               "text": "Having a defined value that equals the common left and right limit.",
-              "why": "This describes Continuous, not radical limit. It does not account for the quantities, conditions, or evidence in this calculus case."
+              "why": "This describes continuous. It does not answer the question about radical limit."
             },
             {
               "key": "D",
               "text": "Factor, cancel for t != 6, then substitute.",
-              "why": "This describes rational limit, not radical limit. It does not account for the quantities, conditions, or evidence in this calculus case."
+              "why": "This describes rational limit. It does not answer the question about radical limit."
             }
           ]
         },
         {
-          "prompt": "Before another Rate-Limit Rule decision, the team knows this: the water-level prediction H(t)=(t^2-36)/(t-6) cm is undefined at minute 6 even though the surrounding readings are finite. Resolve that mismatch before the crew decides whether the recorded spike is physical or only a hole in the formula. Which option correctly applies the mission concept to this follow-up case?",
-          "hint": "Use the stated evidence and the conditions for the mission concept; do not choose an option merely because it names a familiar term.",
-          "answer": "A",
+          "prompt": "For F(t)=(2t²+1)/(t²-9), which are the vertical and horizontal asymptotes?",
+          "hint": "Check whether either denominator factor cancels.",
+          "answer": "B",
           "options": [
             {
               "key": "A",
-              "text": "Vertical: t=-3 and t=3; horizontal: F=2.",
-              "why": "Correct. The denominator is zero at t=-3 and t=3, and the ratio of leading coefficients is 2."
+              "text": "Vertical: t=9; horizontal: F=1/9.",
+              "why": "Solve t²-9=0 and compare the leading coefficients."
             },
             {
               "key": "B",
-              "text": "Vertical: t=9; horizontal: F=1/9.",
-              "why": "This reads constants directly instead of solving t^2-9=0 and ignores the leading terms. It does not account for the quantities, conditions, or evidence in this calculus case."
+              "text": "Vertical: t=-3 and t=3; horizontal: F=2.",
+              "why": "Correct. Vertical: t=-3 and t=3; horizontal: F=2."
             },
             {
               "key": "C",
               "text": "Vertical: t=-3 and t=3; horizontal: F=0.",
-              "why": "The vertical asymptotes are correct, but equal degrees approach the ratio 2/1, not zero. It does not account for the quantities, conditions, or evidence in this calculus case."
+              "why": "Equal-degree polynomials approach the ratio of leading coefficients, which is 2."
             },
             {
               "key": "D",
               "text": "Vertical: t=3 only; horizontal: F=2.",
-              "why": "Solving t^2=9 requires both square roots, so t=-3 is also a vertical asymptote. It does not account for the quantities, conditions, or evidence in this calculus case."
+              "why": "Both roots of t²=9 cause uncancelled denominator zeros."
             }
           ]
         },
         {
-          "prompt": "Ashfell Dam applies the lesson from The Broken Trace to this follow-up: the left and right traces now both approach 4.20 m, while the logger stores 4.68 m at 09:06. Which condition or conclusion correctly determines continuity here?",
-          "hint": "Use the stated evidence and the conditions for piecewise continuity/IVT/discontinuities; do not choose an option merely because it names a familiar term.",
+          "prompt": "A function has left and right limits of 4.20 at t=6 but f(6)=4.68. Which change makes it continuous at t=6?",
+          "hint": "Identify the defining relationship or mechanism for piecewise continuity and ivt and discontinuities. All needed information is in this question.",
           "answer": "C",
           "options": [
             {
               "key": "A",
               "text": "The value a function approaches as its input nears a point.",
-              "why": "This describes Limit, not piecewise continuity/IVT/discontinuities. It does not account for the quantities, conditions, or evidence in this calculus case."
+              "why": "This describes limit. It does not answer the question about piecewise continuity and ivt and discontinuities."
             },
             {
               "key": "B",
               "text": "Having a defined value that equals the common left and right limit.",
-              "why": "This describes Continuous, not piecewise continuity/IVT/discontinuities. It does not account for the quantities, conditions, or evidence in this calculus case."
+              "why": "This describes continuous. It does not answer the question about piecewise continuity and ivt and discontinuities."
             },
             {
               "key": "C",
-              "text": "Matching side limits establish existence; IVT may then support intermediate values locally.",
-              "why": "Correct. matching side limits establish existence; IVT may then support intermediate values locally."
+              "text": "Set f(6)=4.20, equal to the common one-sided limit.",
+              "why": "Correct. Set f(6)=4.20, equal to the common one-sided limit."
             },
             {
               "key": "D",
               "text": "Factor, cancel for t != 6, then substitute.",
-              "why": "This describes rational limit, not piecewise continuity/IVT/discontinuities. It does not account for the quantities, conditions, or evidence in this calculus case."
+              "why": "This describes rational limit. It does not answer the question about piecewise continuity and ivt and discontinuities."
             }
           ]
         }
@@ -447,168 +447,168 @@ export const MISSIONS = [
       "A tangent line gives a nearby linear estimate."
     ],
     "deeper": {
-      "intro": "You completed Faster Than the Line. Choose GO DEEPER to revisit the four decisions and explore related course ideas; this optional review does not change your metrics or delay the next mission.",
+      "intro": "Try six independent practice questions. Each includes its own context and any needed data; no mission records are required.",
       "concepts": [],
       "questions": [
         {
-          "prompt": "In a follow-up to Faster Than the Line, the level model near hour 2 is H(t)=0.03t^2+4.00 metres, and the current height alone looks safe. Which option correctly carries out the required Derivative reasoning?",
-          "hint": "Use the stated evidence and the conditions for Derivative; do not choose an option merely because it names a familiar term.",
-          "answer": "B",
+          "prompt": "Which statement best explains derivative?",
+          "hint": "Identify the defining relationship or mechanism for derivative. All needed information is in this question.",
+          "answer": "D",
           "options": [
             {
               "key": "A",
               "text": "A line matching a curve's value and slope at one point.",
-              "why": "This describes Tangent line, not Derivative. It does not account for the quantities, conditions, or evidence in this calculus case."
+              "why": "This describes tangent line. It does not answer the question about derivative."
             },
             {
               "key": "B",
-              "text": "Instantaneous output change per unit input change.",
-              "why": "Correct. instantaneous output change per unit input change."
+              "text": "Limit of secant slopes.",
+              "why": "This describes derivative definition. It does not answer the question about derivative."
             },
             {
               "key": "C",
-              "text": "Limit of secant slopes.",
-              "why": "This describes derivative definition, not Derivative. It does not account for the quantities, conditions, or evidence in this calculus case."
+              "text": "96+20cos2+1.5e^.2=89.509.",
+              "why": "This describes differentiating sums of polynomial, trigonometric, and exponential terms. It does not answer the question about derivative."
             },
             {
               "key": "D",
-              "text": "96+20cos2+1.5e^.2=89.509.",
-              "why": "This describes power/trig/exp/chain, not Derivative. It does not account for the quantities, conditions, or evidence in this calculus case."
+              "text": "Instantaneous output change per unit input change.",
+              "why": "Correct. Instantaneous output change per unit input change."
             }
           ]
         },
         {
-          "prompt": "Ashfell Dam receives a second case related to Faster Than the Line: the verified level is 4.20 m at 10:00, and the current derivative is 0.12 m/h. Write the action threshold now, before new evidence or operational pressure can move it. Which option correctly applies Tangent line to this follow-up case?",
-          "hint": "Use the stated evidence and the conditions for Tangent line; do not choose an option merely because it names a familiar term.",
+          "prompt": "Which statement best explains tangent line?",
+          "hint": "Identify the defining relationship or mechanism for tangent line. All needed information is in this question.",
+          "answer": "A",
+          "options": [
+            {
+              "key": "A",
+              "text": "A line matching a curve's value and slope at one point.",
+              "why": "Correct. A line matching a curve's value and slope at one point."
+            },
+            {
+              "key": "B",
+              "text": "Instantaneous output change per unit input change.",
+              "why": "This describes derivative. It does not answer the question about tangent line."
+            },
+            {
+              "key": "C",
+              "text": "Limit of secant slopes.",
+              "why": "This describes derivative definition. It does not answer the question about tangent line."
+            },
+            {
+              "key": "D",
+              "text": "96+20cos2+1.5e^.2=89.509.",
+              "why": "This describes differentiating sums of polynomial, trigonometric, and exponential terms. It does not answer the question about tangent line."
+            }
+          ]
+        },
+        {
+          "prompt": "Which statement best explains derivative definition?",
+          "hint": "Identify the defining relationship or mechanism for derivative definition. All needed information is in this question.",
+          "answer": "B",
+          "options": [
+            {
+              "key": "A",
+              "text": "Instantaneous output change per unit input change.",
+              "why": "This describes derivative. It does not answer the question about derivative definition."
+            },
+            {
+              "key": "B",
+              "text": "Limit of secant slopes.",
+              "why": "Correct. Limit of secant slopes."
+            },
+            {
+              "key": "C",
+              "text": "A line matching a curve's value and slope at one point.",
+              "why": "This describes tangent line. It does not answer the question about derivative definition."
+            },
+            {
+              "key": "D",
+              "text": "96+20cos2+1.5e^.2=89.509.",
+              "why": "This describes differentiating sums of polynomial, trigonometric, and exponential terms. It does not answer the question about derivative definition."
+            }
+          ]
+        },
+        {
+          "prompt": "For I(t)=120+8t³+20sin(t)+15e^(0.1t), with angles in radians, which value equals I′(2)?",
+          "hint": "Identify the defining relationship or mechanism for differentiating sums of polynomial, trigonometric, and exponential terms. All needed information is in this question.",
           "answer": "C",
           "options": [
             {
               "key": "A",
               "text": "Instantaneous output change per unit input change.",
-              "why": "This describes Derivative, not Tangent line. It does not account for the quantities, conditions, or evidence in this calculus case."
+              "why": "This describes derivative. It does not answer the question about differentiating sums of polynomial, trigonometric, and exponential terms."
             },
             {
               "key": "B",
-              "text": "Limit of secant slopes.",
-              "why": "This describes derivative definition, not Tangent line. It does not account for the quantities, conditions, or evidence in this calculus case."
+              "text": "A line matching a curve's value and slope at one point.",
+              "why": "This describes tangent line. It does not answer the question about differentiating sums of polynomial, trigonometric, and exponential terms."
             },
             {
               "key": "C",
-              "text": "A line matching a curve's value and slope at one point.",
-              "why": "Correct. a line matching a curve's value and slope at one point."
+              "text": "96+20cos(2)+1.5e^0.2≈89.509.",
+              "why": "Correct. 96+20cos(2)+1.5e^0.2≈89.509."
             },
             {
               "key": "D",
-              "text": "96+20cos2+1.5e^.2=89.509.",
-              "why": "This describes power/trig/exp/chain, not Tangent line. It does not account for the quantities, conditions, or evidence in this calculus case."
+              "text": "Limit of secant slopes.",
+              "why": "This describes derivative definition. It does not answer the question about differentiating sums of polynomial, trigonometric, and exponential terms."
             }
           ]
         },
         {
-          "prompt": "A teammate rechecks Faster Than the Line using new evidence: the level model near hour 2 is H(t)=0.03t^2+4.00 metres, and the current height alone looks safe. Which option correctly carries out the required derivative definition reasoning?",
-          "hint": "Use the stated evidence and the conditions for derivative definition; do not choose an option merely because it names a familiar term.",
+          "prompt": "Two differentiable functions c(t) and I(t) both change with time. For J(t)=c(t)I(t), which rule gives J′(t)?",
+          "hint": "Identify the defining relationship or mechanism for product and quotient rules. All needed information is in this question.",
           "answer": "D",
           "options": [
             {
               "key": "A",
               "text": "Instantaneous output change per unit input change.",
-              "why": "This describes Derivative, not derivative definition. It does not account for the quantities, conditions, or evidence in this calculus case."
+              "why": "This describes derivative. It does not answer the question about product and quotient rules."
             },
             {
               "key": "B",
               "text": "A line matching a curve's value and slope at one point.",
-              "why": "This describes Tangent line, not derivative definition. It does not account for the quantities, conditions, or evidence in this calculus case."
+              "why": "This describes tangent line. It does not answer the question about product and quotient rules."
             },
             {
               "key": "C",
-              "text": "96+20cos2+1.5e^.2=89.509.",
-              "why": "This describes power/trig/exp/chain, not derivative definition. It does not account for the quantities, conditions, or evidence in this calculus case."
+              "text": "Limit of secant slopes.",
+              "why": "This describes derivative definition. It does not answer the question about product and quotient rules."
             },
             {
               "key": "D",
-              "text": "Limit of secant slopes.",
-              "why": "Correct. limit of secant slopes."
+              "text": "J′(t)=c′(t)I(t)+c(t)I′(t); both changing factors contribute.",
+              "why": "Correct. J′(t)=c′(t)I(t)+c(t)I′(t); both changing factors contribute."
             }
           ]
         },
         {
-          "prompt": "An unseen case extends Faster Than the Line: the forecast is I(t)=120+8t^3+20sin(t)+15e^(0.1t) cubic metres per second. Which statistical conclusion or procedure correctly uses power/trig/exp/chain?",
-          "hint": "Use the stated evidence and the conditions for power/trig/exp/chain; do not choose an option merely because it names a familiar term.",
+          "prompt": "A tank's level is H(0)=4.20 m and H′(0)=0.12 m/h. An alarm is set to fire when the reading at 0.25 h meets or exceeds the tangent prediction. A reading of 4.235 m arrives. Which conclusion follows?",
+          "hint": "Identify the defining relationship or mechanism for tangent line and linear approximation. All needed information is in this question.",
           "answer": "A",
           "options": [
             {
               "key": "A",
-              "text": "96+20cos2+1.5e^.2=89.509.",
-              "why": "Correct. 96+20cos2+1.5e^.2=89.509."
+              "text": "The tangent prediction is 4.230 m, so 4.235 m triggers the alarm.",
+              "why": "Correct. The tangent prediction is 4.230 m, so 4.235 m triggers the alarm."
             },
             {
               "key": "B",
               "text": "Instantaneous output change per unit input change.",
-              "why": "This describes Derivative, not power/trig/exp/chain. It does not account for the quantities, conditions, or evidence in this calculus case."
+              "why": "This describes derivative. It does not answer the question about tangent line and linear approximation."
             },
             {
               "key": "C",
               "text": "A line matching a curve's value and slope at one point.",
-              "why": "This describes Tangent line, not power/trig/exp/chain. It does not account for the quantities, conditions, or evidence in this calculus case."
+              "why": "This describes tangent line. It does not answer the question about tangent line and linear approximation."
             },
             {
               "key": "D",
               "text": "Limit of secant slopes.",
-              "why": "This describes derivative definition, not power/trig/exp/chain. It does not account for the quantities, conditions, or evidence in this calculus case."
-            }
-          ]
-        },
-        {
-          "prompt": "Before another Rising-Fast Rule decision, the team knows this: because inflow is accelerating, the corrected signal multiplies raw inflow by calibration c(t), while turbine flow divides demand P(t) by head H(t). Which option correctly applies product/quotient rules to this follow-up case?",
-          "hint": "Use the stated evidence and the conditions for product/quotient rules; do not choose an option merely because it names a familiar term.",
-          "answer": "B",
-          "options": [
-            {
-              "key": "A",
-              "text": "Instantaneous output change per unit input change.",
-              "why": "This describes Derivative, not product/quotient rules. It does not account for the quantities, conditions, or evidence in this calculus case."
-            },
-            {
-              "key": "B",
-              "text": "Both changing factors contribute.",
-              "why": "Correct. both changing factors contribute."
-            },
-            {
-              "key": "C",
-              "text": "A line matching a curve's value and slope at one point.",
-              "why": "This describes Tangent line, not product/quotient rules. It does not account for the quantities, conditions, or evidence in this calculus case."
-            },
-            {
-              "key": "D",
-              "text": "Limit of secant slopes.",
-              "why": "This describes derivative definition, not product/quotient rules. It does not account for the quantities, conditions, or evidence in this calculus case."
-            }
-          ]
-        },
-        {
-          "prompt": "Ashfell Dam applies the lesson from Faster Than the Line to this follow-up: the verified level is 4.20 m at 10:00, and the current derivative is 0.12 m/h. Write the action threshold now, before new evidence or operational pressure can move it. Which option correctly applies tangent line/linear approximation to this follow-up case?",
-          "hint": "Use the stated evidence and the conditions for tangent line/linear approximation; do not choose an option merely because it names a familiar term.",
-          "answer": "C",
-          "options": [
-            {
-              "key": "A",
-              "text": "Instantaneous output change per unit input change.",
-              "why": "This describes Derivative, not tangent line/linear approximation. It does not account for the quantities, conditions, or evidence in this calculus case."
-            },
-            {
-              "key": "B",
-              "text": "A line matching a curve's value and slope at one point.",
-              "why": "This describes Tangent line, not tangent line/linear approximation. It does not account for the quantities, conditions, or evidence in this calculus case."
-            },
-            {
-              "key": "C",
-              "text": "4.20+0.12(0.25)=4.230 m; 4.235 >= 4.230, so the rising-fast condition is met. A precommitted threshold prevents the crew from moving the rule after seeing the data.",
-              "why": "Correct. 4.20+0.12(0.25)=4.230 m; 4.235 >= 4.230, so the rising-fast condition is met. A precommitted threshold prevents the crew from moving the rule after seeing the data."
-            },
-            {
-              "key": "D",
-              "text": "Limit of secant slopes.",
-              "why": "This describes derivative definition, not tangent line/linear approximation. It does not account for the quantities, conditions, or evidence in this calculus case."
+              "why": "This describes derivative definition. It does not answer the question about tangent line and linear approximation."
             }
           ]
         }
@@ -890,168 +890,168 @@ export const MISSIONS = [
     "briefing": "",
     "stake": "13 work shifts remain before the storm. Fresh grease marks stop short of an old notch on the hoist scale. Today you decide which gate setting can be tested and restored.",
     "deeper": {
-      "intro": "You completed The Gate That Comes Back. Choose GO DEEPER to revisit the four decisions and explore related course ideas; this optional review does not change your metrics or delay the next mission.",
+      "intro": "Try six independent practice questions. Each includes its own context and any needed data; no mission records are required.",
       "concepts": [],
       "questions": [
         {
-          "prompt": "In a follow-up to The Gate That Comes Back, gate discharge is modeled by Q(h)=40e^(0.3sqrt(h)) cubic metres per second, where h is head in metres. Which option correctly applies Chain rule to this follow-up case?",
-          "hint": "Use the stated evidence and the conditions for Chain rule; do not choose an option merely because it names a familiar term.",
+          "prompt": "Which statement best explains chain rule?",
+          "hint": "Identify the defining relationship or mechanism for chain rule. All needed information is in this question.",
           "answer": "B",
           "options": [
             {
               "key": "A",
               "text": "An equation connecting variables without isolating one.",
-              "why": "This describes Implicit relation, not Chain rule. It does not account for the quantities, conditions, or evidence in this calculus case."
+              "why": "This describes implicit relation. It does not answer the question about chain rule."
             },
             {
               "key": "B",
               "text": "Differentiate an outside function, then multiply by the derivative of its inside.",
-              "why": "Correct. differentiate an outside function, then multiply by the derivative of its inside."
+              "why": "Correct. Differentiate an outside function, then multiply by the derivative of its inside."
             },
             {
               "key": "C",
               "text": "A function that reverses another function.",
-              "why": "This describes Inverse function, not Chain rule. It does not account for the quantities, conditions, or evidence in this calculus case."
+              "why": "This describes inverse function. It does not answer the question about chain rule."
             },
             {
               "key": "D",
               "text": "DQ/dh=6e^(0.3sqrt h)/sqrt h. Multiplying every layer's derivative prevents a dangerously small sensitivity estimate.",
-              "why": "This describes chain/exp/log, not Chain rule. It does not account for the quantities, conditions, or evidence in this calculus case."
+              "why": "This describes the chain rule. It does not answer the question about chain rule."
             }
           ]
         },
         {
-          "prompt": "Ashfell Dam receives a second case related to The Gate That Comes Back: linkage tests satisfy o^2+0.5oh+h^2=9, where opening o and head h are metres. Which option correctly applies Implicit relation to this follow-up case?",
-          "hint": "Use the stated evidence and the conditions for Implicit relation; do not choose an option merely because it names a familiar term.",
+          "prompt": "Which statement best explains implicit relation?",
+          "hint": "Identify the defining relationship or mechanism for implicit relation. All needed information is in this question.",
           "answer": "C",
           "options": [
             {
               "key": "A",
               "text": "Differentiate an outside function, then multiply by the derivative of its inside.",
-              "why": "This describes Chain rule, not Implicit relation. It does not account for the quantities, conditions, or evidence in this calculus case."
+              "why": "This describes chain rule. It does not answer the question about implicit relation."
             },
             {
               "key": "B",
               "text": "A function that reverses another function.",
-              "why": "This describes Inverse function, not Implicit relation. It does not account for the quantities, conditions, or evidence in this calculus case."
+              "why": "This describes inverse function. It does not answer the question about implicit relation."
             },
             {
               "key": "C",
               "text": "An equation connecting variables without isolating one.",
-              "why": "Correct. an equation connecting variables without isolating one."
+              "why": "Correct. An equation connecting variables without isolating one."
             },
             {
               "key": "D",
               "text": "DQ/dh=6e^(0.3sqrt h)/sqrt h. Multiplying every layer's derivative prevents a dangerously small sensitivity estimate.",
-              "why": "This describes chain/exp/log, not Implicit relation. It does not account for the quantities, conditions, or evidence in this calculus case."
+              "why": "This describes the chain rule. It does not answer the question about implicit relation."
             }
           ]
         },
         {
-          "prompt": "A teammate rechecks The Gate That Comes Back using new evidence: because linkage curvature narrows the safe motion, the command map uses F(o)=100 arctan(o/2) cubic metres per second. Commit the prediction and run the test now so the measurement can fairly accept or reject the proposed model. Which option correctly applies Inverse function to this follow-up case?",
-          "hint": "Use the stated evidence and the conditions for Inverse function; do not choose an option merely because it names a familiar term.",
+          "prompt": "Which statement best explains inverse function?",
+          "hint": "Identify the defining relationship or mechanism for inverse function. All needed information is in this question.",
           "answer": "D",
           "options": [
             {
               "key": "A",
               "text": "Differentiate an outside function, then multiply by the derivative of its inside.",
-              "why": "This describes Chain rule, not Inverse function. It does not account for the quantities, conditions, or evidence in this calculus case."
+              "why": "This describes chain rule. It does not answer the question about inverse function."
             },
             {
               "key": "B",
               "text": "An equation connecting variables without isolating one.",
-              "why": "This describes Implicit relation, not Inverse function. It does not account for the quantities, conditions, or evidence in this calculus case."
+              "why": "This describes implicit relation. It does not answer the question about inverse function."
             },
             {
               "key": "C",
               "text": "DQ/dh=6e^(0.3sqrt h)/sqrt h. Multiplying every layer's derivative prevents a dangerously small sensitivity estimate.",
-              "why": "This describes chain/exp/log, not Inverse function. It does not account for the quantities, conditions, or evidence in this calculus case."
+              "why": "This describes the chain rule. It does not answer the question about inverse function."
             },
             {
               "key": "D",
               "text": "A function that reverses another function.",
-              "why": "Correct. a function that reverses another function."
+              "why": "Correct. A function that reverses another function."
             }
           ]
         },
         {
-          "prompt": "An unseen case extends The Gate That Comes Back: gate discharge is modeled by Q(h)=40e^(0.3sqrt(h)) cubic metres per second, where h is head in metres. Which option correctly applies chain/exp/log to this follow-up case?",
-          "hint": "Use the stated evidence and the conditions for chain/exp/log; do not choose an option merely because it names a familiar term.",
+          "prompt": "A flow model is Q(h)=40e^(0.3√h), where h>0. What is dQ/dh?",
+          "hint": "Identify the defining relationship or mechanism for the chain rule. All needed information is in this question.",
           "answer": "A",
           "options": [
             {
               "key": "A",
-              "text": "DQ/dh=6e^(0.3sqrt h)/sqrt h. Multiplying every layer's derivative prevents a dangerously small sensitivity estimate.",
-              "why": "Correct. dQ/dh=6e^(0.3sqrt h)/sqrt h. Multiplying every layer's derivative prevents a dangerously small sensitivity estimate."
+              "text": "dQ/dh=6e^(0.3√h)/√h.",
+              "why": "Correct. dQ/dh=6e^(0.3√h)/√h."
             },
             {
               "key": "B",
               "text": "Differentiate an outside function, then multiply by the derivative of its inside.",
-              "why": "This describes Chain rule, not chain/exp/log. It does not account for the quantities, conditions, or evidence in this calculus case."
+              "why": "This describes chain rule. It does not answer the question about the chain rule."
             },
             {
               "key": "C",
               "text": "An equation connecting variables without isolating one.",
-              "why": "This describes Implicit relation, not chain/exp/log. It does not account for the quantities, conditions, or evidence in this calculus case."
+              "why": "This describes implicit relation. It does not answer the question about the chain rule."
             },
             {
               "key": "D",
               "text": "A function that reverses another function.",
-              "why": "This describes Inverse function, not chain/exp/log. It does not account for the quantities, conditions, or evidence in this calculus case."
+              "why": "This describes inverse function. It does not answer the question about the chain rule."
             }
           ]
         },
         {
-          "prompt": "Before another Inflow Accumulation decision, the team knows this: linkage tests satisfy o^2+0.5oh+h^2=9, where opening o and head h are metres. Which option correctly applies implicit differentiation to this follow-up case?",
-          "hint": "Use the stated evidence and the conditions for implicit differentiation; do not choose an option merely because it names a familiar term.",
+          "prompt": "The variables o and h obey o²+0.5oh+h²=6. Find do/dh at o=2 and h=1.",
+          "hint": "Identify the defining relationship or mechanism for implicit differentiation. All needed information is in this question.",
           "answer": "B",
           "options": [
             {
               "key": "A",
               "text": "Differentiate an outside function, then multiply by the derivative of its inside.",
-              "why": "This describes Chain rule, not implicit differentiation. It does not account for the quantities, conditions, or evidence in this calculus case."
+              "why": "This describes chain rule. It does not answer the question about implicit differentiation."
             },
             {
               "key": "B",
-              "text": "Do/dh=-2/3. The linkage slope turns water-level motion into a required hoist correction.",
-              "why": "Correct. do/dh=-2/3. The linkage slope turns water-level motion into a required hoist correction."
+              "text": "do/dh=-(0.5o+2h)/(2o+0.5h)=-2/3.",
+              "why": "Correct. do/dh=-(0.5o+2h)/(2o+0.5h)=-2/3."
             },
             {
               "key": "C",
               "text": "An equation connecting variables without isolating one.",
-              "why": "This describes Implicit relation, not implicit differentiation. It does not account for the quantities, conditions, or evidence in this calculus case."
+              "why": "This describes implicit relation. It does not answer the question about implicit differentiation."
             },
             {
               "key": "D",
               "text": "A function that reverses another function.",
-              "why": "This describes Inverse function, not implicit differentiation. It does not account for the quantities, conditions, or evidence in this calculus case."
+              "why": "This describes inverse function. It does not answer the question about implicit differentiation."
             }
           ]
         },
         {
-          "prompt": "Ashfell Dam applies the lesson from The Gate That Comes Back to this follow-up: the linkage slope is negative at the test point, but Wilkes needs to know how that slope itself changes. Which option correctly carries out the required second implicit derivative reasoning?",
-          "hint": "Use the stated evidence and the conditions for second implicit derivative; do not choose an option merely because it names a familiar term.",
+          "prompt": "Let o(h) satisfy o²+0.5oh+h²=6. At h=1, o=2 and o′=-2/3. Differentiating twice gives (2o+0.5h)o″+2(o′)²+o′+2=0. What is o″ at that point?",
+          "hint": "Identify the defining relationship or mechanism for second implicit derivative. All needed information is in this question.",
           "answer": "C",
           "options": [
             {
               "key": "A",
               "text": "Differentiate an outside function, then multiply by the derivative of its inside.",
-              "why": "This describes Chain rule, not second implicit derivative. It does not account for the quantities, conditions, or evidence in this calculus case."
+              "why": "This describes chain rule. It does not answer the question about second implicit derivative."
             },
             {
               "key": "B",
               "text": "An equation connecting variables without isolating one.",
-              "why": "This describes Implicit relation, not second implicit derivative. It does not account for the quantities, conditions, or evidence in this calculus case."
+              "why": "This describes implicit relation. It does not answer the question about second implicit derivative."
             },
             {
               "key": "C",
-              "text": "O''=-40/81 per metre. Curvature determines whether the safe correction stays safe over a finite movement.",
-              "why": "Correct. o''=-40/81 per metre. Curvature determines whether the safe correction stays safe over a finite movement."
+              "text": "o″=-40/81.",
+              "why": "Correct. o″=-40/81."
             },
             {
               "key": "D",
               "text": "A function that reverses another function.",
-              "why": "This describes Inverse function, not second implicit derivative. It does not account for the quantities, conditions, or evidence in this calculus case."
+              "why": "This describes inverse function. It does not answer the question about second implicit derivative."
             }
           ]
         }
@@ -1329,7 +1329,7 @@ export const MISSIONS = [
     "briefing": "",
     "stake": "12 work shifts remain before the storm. A school pin sits just downstream of a road crossing. Today you decide how much warning the village needs.",
     "deeper": {
-      "intro": "You completed Before the Water Arrives. Choose GO DEEPER to revisit the four decisions and explore related course ideas; this optional review does not change your metrics or delay the next mission.",
+      "intro": "Try six independent practice questions. Each includes its own context and any needed data; no mission records are required.",
       "concepts": [
         {
           "name": "Speed",
@@ -1338,41 +1338,41 @@ export const MISSIONS = [
       ],
       "questions": [
         {
-          "prompt": "In a follow-up to Before the Water Arrives, the front's position is x(t)=2t^3-9t^2+12t kilometres after release, for 0<=t<=3 hours. Which option correctly applies Speed to this follow-up case?",
-          "hint": "Use the stated evidence and the conditions for Speed; do not choose an option merely because it names a familiar term.",
-          "answer": "B",
+          "prompt": "Which statement best explains speed?",
+          "hint": "Identify the defining relationship or mechanism for speed. All needed information is in this question.",
+          "answer": "D",
           "options": [
             {
               "key": "A",
               "text": "Location along a route.",
-              "why": "This describes Position, not Speed. It does not account for the quantities, conditions, or evidence in this calculus case."
+              "why": "This describes position. It does not answer the question about speed."
             },
             {
               "key": "B",
-              "text": "Absolute value of velocity.",
-              "why": "Correct. absolute value of velocity."
+              "text": "Signed change of position per time.",
+              "why": "This describes velocity. It does not answer the question about speed."
             },
             {
               "key": "C",
-              "text": "Signed change of position per time.",
-              "why": "This describes Velocity, not Speed. It does not account for the quantities, conditions, or evidence in this calculus case."
+              "text": "Final position minus initial position.",
+              "why": "This describes displacement. It does not answer the question about speed."
             },
             {
               "key": "D",
-              "text": "Final position minus initial position.",
-              "why": "This describes Displacement, not Speed. It does not account for the quantities, conditions, or evidence in this calculus case."
+              "text": "Absolute value of velocity.",
+              "why": "Correct. Absolute value of velocity."
             }
           ]
         },
         {
-          "prompt": "Ashfell Dam receives a second case related to Before the Water Arrives: the front's position is x(t)=2t^3-9t^2+12t kilometres after release, for 0<=t<=3 hours. Which interpretation of the displayed evidence correctly uses the mission concept?",
-          "hint": "Read the axes, units, direction, and any threshold before comparing the choices.",
-          "answer": "C",
+          "prompt": "The graph samples x(t)=2t² metres. What is the object's position at t=2 s?",
+          "hint": "Read position from the vertical axis.",
+          "answer": "A",
           "figure": {
             "kind": "line",
             "xLabel": "Time (s)",
             "yLabel": "Position (m)",
-            "caption": "Ride position increases with a changing slope.",
+            "caption": "Samples of x(t)=2t², with t in seconds",
             "series": [
               {
                 "name": "Position",
@@ -1404,38 +1404,38 @@ export const MISSIONS = [
           "options": [
             {
               "key": "A",
-              "text": "Absolute value of velocity.",
-              "why": "This describes Speed, not Position. It does not account for the quantities, conditions, or evidence in this calculus case."
+              "text": "8 m.",
+              "why": "Correct. 8 m."
             },
             {
               "key": "B",
-              "text": "Signed change of position per time.",
-              "why": "This describes Velocity, not Position. It does not account for the quantities, conditions, or evidence in this calculus case."
+              "text": "4 m.",
+              "why": "This uses 2t rather than 2t²."
             },
             {
               "key": "C",
-              "text": "Location along a route.",
-              "why": "Correct. location along a route."
+              "text": "8 m/s.",
+              "why": "That is a velocity unit, not a position unit."
             },
             {
               "key": "D",
-              "text": "Final position minus initial position.",
-              "why": "This describes Displacement, not Position. It does not account for the quantities, conditions, or evidence in this calculus case."
+              "text": "16 m.",
+              "why": "Substituting t=2 gives 2×4, not 16."
             }
           ]
         },
         {
-          "prompt": "A teammate rechecks Before the Water Arrives using new evidence: the front's position is x(t)=2t^3-9t^2+12t kilometres after release, for 0<=t<=3 hours. Which interpretation of the displayed evidence correctly uses the mission concept?",
-          "hint": "Read the axes, units, direction, and any threshold before comparing the choices.",
-          "answer": "D",
+          "prompt": "The graph samples x(t)=2t² metres. What is the instantaneous velocity at t=2 s?",
+          "hint": "Differentiate the stated position function.",
+          "answer": "B",
           "figure": {
             "kind": "line",
             "xLabel": "Time (s)",
-            "yLabel": "Velocity (m/s)",
-            "caption": "Ride velocity changes over the test interval.",
+            "yLabel": "Position (m)",
+            "caption": "Samples of x(t)=2t², with t in seconds",
             "series": [
               {
-                "name": "Velocity",
+                "name": "Position",
                 "points": [
                   [
                     0,
@@ -1443,7 +1443,7 @@ export const MISSIONS = [
                   ],
                   [
                     1,
-                    4
+                    2
                   ],
                   [
                     2,
@@ -1451,11 +1451,11 @@ export const MISSIONS = [
                   ],
                   [
                     3,
-                    8
+                    18
                   ],
                   [
                     4,
-                    4
+                    32
                   ]
                 ]
               }
@@ -1464,104 +1464,104 @@ export const MISSIONS = [
           "options": [
             {
               "key": "A",
-              "text": "Absolute value of velocity.",
-              "why": "This describes Speed, not Velocity. It does not account for the quantities, conditions, or evidence in this calculus case."
+              "text": "4 m/s.",
+              "why": "The derivative is 4t, which equals 8 at t=2."
             },
             {
               "key": "B",
-              "text": "Location along a route.",
-              "why": "This describes Position, not Velocity. It does not account for the quantities, conditions, or evidence in this calculus case."
+              "text": "8 m/s.",
+              "why": "Correct. 8 m/s."
             },
             {
               "key": "C",
-              "text": "Final position minus initial position.",
-              "why": "This describes Displacement, not Velocity. It does not account for the quantities, conditions, or evidence in this calculus case."
+              "text": "8 m.",
+              "why": "This gives position units, not velocity units."
             },
             {
               "key": "D",
-              "text": "Signed change of position per time.",
-              "why": "Correct. signed change of position per time."
+              "text": "0 m/s.",
+              "why": "The position curve has a positive slope at t=2."
             }
           ]
         },
         {
-          "prompt": "An unseen case extends Before the Water Arrives: with a stop at t=2 established, velocity factors as 6(t-1)(t-2), so direction also changes at hour 1. Which option correctly applies Displacement to this follow-up case?",
-          "hint": "Use the stated evidence and the conditions for Displacement; do not choose an option merely because it names a familiar term.",
-          "answer": "A",
-          "options": [
-            {
-              "key": "A",
-              "text": "Final position minus initial position.",
-              "why": "Correct. final position minus initial position."
-            },
-            {
-              "key": "B",
-              "text": "Absolute value of velocity.",
-              "why": "This describes Speed, not Displacement. It does not account for the quantities, conditions, or evidence in this calculus case."
-            },
-            {
-              "key": "C",
-              "text": "Location along a route.",
-              "why": "This describes Position, not Displacement. It does not account for the quantities, conditions, or evidence in this calculus case."
-            },
-            {
-              "key": "D",
-              "text": "Signed change of position per time.",
-              "why": "This describes Velocity, not Displacement. It does not account for the quantities, conditions, or evidence in this calculus case."
-            }
-          ]
-        },
-        {
-          "prompt": "Before another Two-Day Cost Note decision, the team knows this: with a stop at t=2 established, velocity factors as 6(t-1)(t-2), so direction also changes at hour 1. Which option correctly applies Total distance to this follow-up case?",
-          "hint": "Use the stated evidence and the conditions for Total distance; do not choose an option merely because it names a familiar term.",
-          "answer": "B",
-          "options": [
-            {
-              "key": "A",
-              "text": "Absolute value of velocity.",
-              "why": "This describes Speed, not Total distance. It does not account for the quantities, conditions, or evidence in this calculus case."
-            },
-            {
-              "key": "B",
-              "text": "All travel counted positively.",
-              "why": "Correct. all travel counted positively."
-            },
-            {
-              "key": "C",
-              "text": "Location along a route.",
-              "why": "This describes Position, not Total distance. It does not account for the quantities, conditions, or evidence in this calculus case."
-            },
-            {
-              "key": "D",
-              "text": "Signed change of position per time.",
-              "why": "This describes Velocity, not Total distance. It does not account for the quantities, conditions, or evidence in this calculus case."
-            }
-          ]
-        },
-        {
-          "prompt": "Ashfell Dam applies the lesson from Before the Water Arrives to this follow-up: the front's position is x(t)=2t^3-9t^2+12t kilometres after release, for 0<=t<=3 hours. Which option correctly carries out the required motion derivatives reasoning?",
-          "hint": "Use the stated evidence and the conditions for motion derivatives; do not choose an option merely because it names a familiar term.",
+          "prompt": "Which statement best explains displacement?",
+          "hint": "Identify the defining relationship or mechanism for displacement. All needed information is in this question.",
           "answer": "C",
           "options": [
             {
               "key": "A",
               "text": "Absolute value of velocity.",
-              "why": "This describes Speed, not motion derivatives. It does not account for the quantities, conditions, or evidence in this calculus case."
+              "why": "This describes speed. It does not answer the question about displacement."
             },
             {
               "key": "B",
               "text": "Location along a route.",
-              "why": "This describes Position, not motion derivatives. It does not account for the quantities, conditions, or evidence in this calculus case."
+              "why": "This describes position. It does not answer the question about displacement."
             },
             {
               "key": "C",
-              "text": "At 2 h the front momentarily stops; acceleration is +6 km/h^2. Velocity and acceleration signs show both direction and whether the front is speeding up.",
-              "why": "Correct. at 2 h the front momentarily stops; acceleration is +6 km/h^2. Velocity and acceleration signs show both direction and whether the front is speeding up."
+              "text": "Final position minus initial position.",
+              "why": "Correct. Final position minus initial position."
             },
             {
               "key": "D",
               "text": "Signed change of position per time.",
-              "why": "This describes Velocity, not motion derivatives. It does not account for the quantities, conditions, or evidence in this calculus case."
+              "why": "This describes velocity. It does not answer the question about displacement."
+            }
+          ]
+        },
+        {
+          "prompt": "Which statement best explains total distance?",
+          "hint": "Identify the defining relationship or mechanism for total distance. All needed information is in this question.",
+          "answer": "D",
+          "options": [
+            {
+              "key": "A",
+              "text": "Absolute value of velocity.",
+              "why": "This describes speed. It does not answer the question about total distance."
+            },
+            {
+              "key": "B",
+              "text": "Location along a route.",
+              "why": "This describes position. It does not answer the question about total distance."
+            },
+            {
+              "key": "C",
+              "text": "Signed change of position per time.",
+              "why": "This describes velocity. It does not answer the question about total distance."
+            },
+            {
+              "key": "D",
+              "text": "All travel counted positively.",
+              "why": "Correct. All travel counted positively."
+            }
+          ]
+        },
+        {
+          "prompt": "A particle has position x(t)=2t³-9t²+12t km, where t is in hours. What are its velocity and acceleration at t=2 h?",
+          "hint": "Identify the defining relationship or mechanism for motion derivatives. All needed information is in this question.",
+          "answer": "A",
+          "options": [
+            {
+              "key": "A",
+              "text": "Velocity is 0 km/h and acceleration is +6 km/h².",
+              "why": "Correct. Velocity is 0 km/h and acceleration is +6 km/h²."
+            },
+            {
+              "key": "B",
+              "text": "Absolute value of velocity.",
+              "why": "This describes speed. It does not answer the question about motion derivatives."
+            },
+            {
+              "key": "C",
+              "text": "Location along a route.",
+              "why": "This describes position. It does not answer the question about motion derivatives."
+            },
+            {
+              "key": "D",
+              "text": "Signed change of position per time.",
+              "why": "This describes velocity. It does not answer the question about motion derivatives."
             }
           ]
         }
@@ -1851,168 +1851,168 @@ export const MISSIONS = [
     "briefing": "",
     "stake": "11 work shifts remain before the storm. Two endpoint marks sit on opposite sides of a red line. Today you decide whether the level must cross the danger mark.",
     "deeper": {
-      "intro": "You completed The Crossing We Can Prove. Choose GO DEEPER to revisit the four decisions and explore related course ideas; this optional review does not change your metrics or delay the next mission.",
+      "intro": "Try six independent practice questions. Each includes its own context and any needed data; no mission records are required.",
       "concepts": [],
       "questions": [
         {
-          "prompt": "In a follow-up to The Crossing We Can Prove, turbine demand is D(t)=t^3-6t^2+9t+20 megawatts for 0<=t<=5 hours. Which option correctly applies Critical point to this follow-up case?",
-          "hint": "Use the stated evidence and the conditions for Critical point; do not choose an option merely because it names a familiar term.",
+          "prompt": "Which statement best explains critical point?",
+          "hint": "Identify the defining relationship or mechanism for critical point. All needed information is in this question.",
           "answer": "B",
           "options": [
             {
               "key": "A",
               "text": "Greatest value on the full interval.",
-              "why": "This describes Absolute maximum, not Critical point. It does not account for the quantities, conditions, or evidence in this calculus case."
+              "why": "This describes absolute maximum. It does not answer the question about critical point."
             },
             {
               "key": "B",
               "text": "An interior input where the derivative is zero or undefined.",
-              "why": "Correct. an interior input where the derivative is zero or undefined."
+              "why": "Correct. An interior input where the derivative is zero or undefined."
             },
             {
               "key": "C",
               "text": "The derivative of a total with respect to one more unit.",
-              "why": "This describes Marginal value, not Critical point. It does not account for the quantities, conditions, or evidence in this calculus case."
+              "why": "This describes marginal value. It does not answer the question about critical point."
             },
             {
               "key": "D",
               "text": "Critical times are 1 h and 3 h. A zero derivative can reveal a peak that sparse readings miss.",
-              "why": "This describes critical points, not Critical point. It does not account for the quantities, conditions, or evidence in this calculus case."
+              "why": "This describes critical points. It does not answer the question about critical point."
             }
           ]
         },
         {
-          "prompt": "Ashfell Dam receives a second case related to The Crossing We Can Prove: with critical times found, evaluate demand at t=0,1,3,5, then use derivative signs or D''(t)=6t-12 to justify the maximum. Which option correctly applies Absolute maximum to this follow-up case?",
-          "hint": "Use the stated evidence and the conditions for Absolute maximum; do not choose an option merely because it names a familiar term.",
+          "prompt": "Which statement best explains absolute maximum?",
+          "hint": "Identify the defining relationship or mechanism for absolute maximum. All needed information is in this question.",
           "answer": "C",
           "options": [
             {
               "key": "A",
               "text": "An interior input where the derivative is zero or undefined.",
-              "why": "This describes Critical point, not Absolute maximum. It does not account for the quantities, conditions, or evidence in this calculus case."
+              "why": "This describes critical point. It does not answer the question about absolute maximum."
             },
             {
               "key": "B",
               "text": "The derivative of a total with respect to one more unit.",
-              "why": "This describes Marginal value, not Absolute maximum. It does not account for the quantities, conditions, or evidence in this calculus case."
+              "why": "This describes marginal value. It does not answer the question about absolute maximum."
             },
             {
               "key": "C",
               "text": "Greatest value on the full interval.",
-              "why": "Correct. greatest value on the full interval."
+              "why": "Correct. Greatest value on the full interval."
             },
             {
               "key": "D",
               "text": "Critical times are 1 h and 3 h. A zero derivative can reveal a peak that sparse readings miss.",
-              "why": "This describes critical points, not Absolute maximum. It does not account for the quantities, conditions, or evidence in this calculus case."
+              "why": "This describes critical points. It does not answer the question about absolute maximum."
             }
           ]
         },
         {
-          "prompt": "A teammate rechecks The Crossing We Can Prove using new evidence: because the power peak is unsafe, test release q=180 then 200 m^3/s while forecast inflow and starting level remain fixed. Run the reversible comparison now so the crew can tell whether the proposed cause changes the measured response. Which option correctly applies Marginal value to this follow-up case?",
-          "hint": "Use the stated evidence and the conditions for Marginal value; do not choose an option merely because it names a familiar term.",
+          "prompt": "Which statement best explains marginal value?",
+          "hint": "Identify the defining relationship or mechanism for marginal value. All needed information is in this question.",
           "answer": "D",
           "options": [
             {
               "key": "A",
               "text": "An interior input where the derivative is zero or undefined.",
-              "why": "This describes Critical point, not Marginal value. It does not account for the quantities, conditions, or evidence in this calculus case."
+              "why": "This describes critical point. It does not answer the question about marginal value."
             },
             {
               "key": "B",
               "text": "Greatest value on the full interval.",
-              "why": "This describes Absolute maximum, not Marginal value. It does not account for the quantities, conditions, or evidence in this calculus case."
+              "why": "This describes absolute maximum. It does not answer the question about marginal value."
             },
             {
               "key": "C",
               "text": "Critical times are 1 h and 3 h. A zero derivative can reveal a peak that sparse readings miss.",
-              "why": "This describes critical points, not Marginal value. It does not account for the quantities, conditions, or evidence in this calculus case."
+              "why": "This describes critical points. It does not answer the question about marginal value."
             },
             {
               "key": "D",
               "text": "The derivative of a total with respect to one more unit.",
-              "why": "Correct. the derivative of a total with respect to one more unit."
+              "why": "Correct. The derivative of a total with respect to one more unit."
             }
           ]
         },
         {
-          "prompt": "An unseen case extends The Crossing We Can Prove: turbine demand is D(t)=t^3-6t^2+9t+20 megawatts for 0<=t<=5 hours. Which option correctly applies critical points to this follow-up case?",
-          "hint": "Use the stated evidence and the conditions for critical points; do not choose an option merely because it names a familiar term.",
+          "prompt": "For D(t)=t³-6t²+9t+20 on 0≤t≤5, which interior times are critical points?",
+          "hint": "Identify the defining relationship or mechanism for critical points. All needed information is in this question.",
           "answer": "A",
           "options": [
             {
               "key": "A",
-              "text": "Critical times are 1 h and 3 h. A zero derivative can reveal a peak that sparse readings miss.",
-              "why": "Correct. critical times are 1 h and 3 h. A zero derivative can reveal a peak that sparse readings miss."
+              "text": "t=1 and t=3, since D′(t)=3(t-1)(t-3).",
+              "why": "Correct. t=1 and t=3, since D′(t)=3(t-1)(t-3)."
             },
             {
               "key": "B",
               "text": "An interior input where the derivative is zero or undefined.",
-              "why": "This describes Critical point, not critical points. It does not account for the quantities, conditions, or evidence in this calculus case."
+              "why": "This describes critical point. It does not answer the question about critical points."
             },
             {
               "key": "C",
               "text": "Greatest value on the full interval.",
-              "why": "This describes Absolute maximum, not critical points. It does not account for the quantities, conditions, or evidence in this calculus case."
+              "why": "This describes absolute maximum. It does not answer the question about critical points."
             },
             {
               "key": "D",
               "text": "The derivative of a total with respect to one more unit.",
-              "why": "This describes Marginal value, not critical points. It does not account for the quantities, conditions, or evidence in this calculus case."
+              "why": "This describes marginal value. It does not answer the question about critical points."
             }
           ]
         },
         {
-          "prompt": "Before another Last-Half-Metre Relation decision, the team knows this: with critical times found, evaluate demand at t=0,1,3,5, then use derivative signs or D''(t)=6t-12 to justify the maximum. Which option correctly carries out the required EVT/first-second derivative tests reasoning?",
-          "hint": "Use the stated evidence and the conditions for EVT/first-second derivative tests; do not choose an option merely because it names a familiar term.",
+          "prompt": "A continuous function is defined on a closed interval and is differentiable except at finitely many interior points. How should its absolute maximum be found?",
+          "hint": "Identify the defining relationship or mechanism for evt and first-second derivative tests. All needed information is in this question.",
           "answer": "B",
           "options": [
             {
               "key": "A",
               "text": "An interior input where the derivative is zero or undefined.",
-              "why": "This describes Critical point, not EVT/first-second derivative tests. It does not account for the quantities, conditions, or evidence in this calculus case."
+              "why": "This describes critical point. It does not answer the question about evt and first-second derivative tests."
             },
             {
               "key": "B",
-              "text": "EVT requires endpoints plus critical points; the endpoint peak exceeds capacity. A correct maximum decides whether the two-day plan overloads the available unit.",
-              "why": "Correct. eVT requires endpoints plus critical points; the endpoint peak exceeds capacity. A correct maximum decides whether the two-day plan overloads the available unit."
+              "text": "Compare function values at both endpoints and every interior point where the derivative is zero or undefined.",
+              "why": "Correct. Compare function values at both endpoints and every interior point where the derivative is zero or undefined."
             },
             {
               "key": "C",
               "text": "Greatest value on the full interval.",
-              "why": "This describes Absolute maximum, not EVT/first-second derivative tests. It does not account for the quantities, conditions, or evidence in this calculus case."
+              "why": "This describes absolute maximum. It does not answer the question about evt and first-second derivative tests."
             },
             {
               "key": "D",
               "text": "The derivative of a total with respect to one more unit.",
-              "why": "This describes Marginal value, not EVT/first-second derivative tests. It does not account for the quantities, conditions, or evidence in this calculus case."
+              "why": "This describes marginal value. It does not answer the question about evt and first-second derivative tests."
             }
           ]
         },
         {
-          "prompt": "Ashfell Dam applies the lesson from The Crossing We Can Prove to this follow-up: because the power peak is unsafe, test release q=180 then 200 m^3/s while forecast inflow and starting level remain fixed. Run the reversible comparison now so the crew can tell whether the proposed cause changes the measured response. Which option correctly applies optimization/marginal value to this follow-up case?",
-          "hint": "Use the stated evidence and the conditions for optimization/marginal value; do not choose an option merely because it names a familiar term.",
+          "prompt": "A concave objective has derivative F′(x)=16-2x and feasible interval 0≤x≤6. Where is its maximum on the feasible interval?",
+          "hint": "Identify the defining relationship or mechanism for optimization and marginal value. All needed information is in this question.",
           "answer": "C",
           "options": [
             {
               "key": "A",
               "text": "An interior input where the derivative is zero or undefined.",
-              "why": "This describes Critical point, not optimization/marginal value. It does not account for the quantities, conditions, or evidence in this calculus case."
+              "why": "This describes critical point. It does not answer the question about optimization and marginal value."
             },
             {
               "key": "B",
               "text": "Greatest value on the full interval.",
-              "why": "This describes Absolute maximum, not optimization/marginal value. It does not account for the quantities, conditions, or evidence in this calculus case."
+              "why": "This describes absolute maximum. It does not answer the question about optimization and marginal value."
             },
             {
               "key": "C",
-              "text": "Causal; marginal gain .08/20=.004 million m^3 per (m^3/s). A controlled reversal separates the release setting's effect from a changing forecast.",
-              "why": "Correct. causal; marginal gain .08/20=.004 million m^3 per (m^3/s). A controlled reversal separates the release setting's effect from a changing forecast."
+              "text": "At x=6: F′ stays positive on the feasible interval, and the unconstrained critical point x=8 is not allowed.",
+              "why": "Correct. At x=6: F′ stays positive on the feasible interval, and the unconstrained critical point x=8 is not allowed."
             },
             {
               "key": "D",
               "text": "The derivative of a total with respect to one more unit.",
-              "why": "This describes Marginal value, not optimization/marginal value. It does not account for the quantities, conditions, or evidence in this calculus case."
+              "why": "This describes marginal value. It does not answer the question about optimization and marginal value."
             }
           ]
         }
@@ -2289,194 +2289,109 @@ export const MISSIONS = [
     "briefing": "",
     "stake": "10 work shifts remain before the storm. A sealed high-ground trace rests under the old forecast. Today you decide which forecast earns use for the storm.",
     "deeper": {
-      "intro": "You completed The Crest We Missed. Choose GO DEEPER to revisit the four decisions and explore related course ideas; this optional review does not change your metrics or delay the next mission.",
+      "intro": "Try six independent practice questions. Each includes its own context and any needed data; no mission records are required.",
       "concepts": [],
       "questions": [
         {
-          "prompt": "In a follow-up to The Crest We Missed, the earlier rational forecast was rejected because it became infinite at an ordinary time. A replacement exponential forecast is undefined at exactly zero hours, but its limiting starting rate may still be finite. Test that rate before the crew uses the model. Which interpretation of the displayed evidence correctly uses rational-function asymptotes?",
-          "hint": "Read the axes, units, direction, and any threshold before comparing the choices.",
-          "answer": "B",
+          "prompt": "For the function f(x)=2+1/(x+1), what horizontal asymptote is approached as x increases without bound?",
+          "hint": "Find the limit of the reciprocal term as x grows.",
+          "answer": "D",
           "figure": {
             "kind": "line",
-            "xLabel": "Time (h)",
-            "yLabel": "Reservoir response",
-            "caption": "The response approaches a horizontal limit.",
+            "xLabel": "x",
+            "yLabel": "f(x)",
+            "caption": "f(x)=2+1/(x+1), shown for x≥0",
             "series": [
               {
-                "name": "Model",
+                "name": "f(x)",
                 "points": [
                   [
                     0,
-                    0
+                    3
                   ],
                   [
                     1,
-                    5
+                    2.5
                   ],
                   [
                     2,
-                    7.5
+                    2.3333333333333335
                   ],
                   [
                     3,
-                    8.8
+                    2.25
                   ],
                   [
                     4,
-                    9.4
+                    2.2
                   ],
                   [
                     5,
-                    9.7
+                    2.1666666666666665
+                  ],
+                  [
+                    6,
+                    2.142857142857143
                   ]
                 ]
               }
-            ],
-            "limit": {
-              "at": 10,
-              "label": "Long-run level"
-            }
+            ]
           },
           "options": [
             {
               "key": "A",
-              "text": "Observed value minus model prediction.",
-              "why": "This describes Residual, not Asymptote. It does not account for the quantities, conditions, or evidence in this calculus case."
+              "text": "y=0.",
+              "why": "Only the reciprocal term approaches zero; the constant 2 remains."
             },
             {
               "key": "B",
-              "text": "A line a graph approaches.",
-              "why": "Correct. a line a graph approaches."
+              "text": "x=-1.",
+              "why": "That is a vertical asymptote, not a horizontal one."
             },
             {
               "key": "C",
-              "text": "Observations hidden until a model is frozen.",
-              "why": "This describes Holdout data, not Asymptote. It does not account for the quantities, conditions, or evidence in this calculus case."
+              "text": "y=3.",
+              "why": "3 is the value at x=0, not the long-run limit."
             },
             {
               "key": "D",
-              "text": "Vertical asymptotes t=+-2; horizontal asymptote R=3. Physical rainfall cannot become infinite at an ordinary forecast hour.",
-              "why": "This describes asymptotes/L'Hopital, not Asymptote. It does not account for the quantities, conditions, or evidence in this calculus case."
+              "text": "y=2.",
+              "why": "Correct. y=2."
             }
           ]
         },
         {
-          "prompt": "Ashfell Dam receives a second case related to The Crest We Missed: the earlier rational forecast was rejected because it became infinite at an ordinary time. A replacement exponential forecast is undefined at exactly zero hours, but its limiting starting rate may still be finite. Test that rate before the crew uses the model. Which interpretation of the displayed evidence correctly uses rational-function asymptotes?",
-          "hint": "Read the axes, units, direction, and any threshold before comparing the choices.",
-          "answer": "C",
+          "prompt": "A model has the residuals shown. Residual means observed value minus predicted value. Which conclusion best fits the pattern?",
+          "hint": "Use the sign of observed minus predicted and check for a pattern.",
+          "answer": "A",
           "figure": {
             "kind": "line",
-            "xLabel": "Ordered observation",
-            "yLabel": "Residual",
-            "caption": "Residuals reveal whether error is random or structured.",
+            "xLabel": "Input value",
+            "yLabel": "Observed minus predicted (units)",
+            "caption": "Residuals from a fitted model",
             "series": [
               {
                 "name": "Residual",
                 "points": [
                   [
                     0,
-                    1.5
+                    0
                   ],
                   [
                     1,
-                    -1.2
+                    2
                   ],
                   [
                     2,
-                    1
+                    4
                   ],
                   [
                     3,
-                    -0.8
+                    6
                   ],
                   [
                     4,
-                    0.6
-                  ],
-                  [
-                    5,
-                    -0.4
-                  ],
-                  [
-                    6,
-                    0.2
-                  ]
-                ]
-              }
-            ],
-            "limit": {
-              "at": 0,
-              "label": "Zero residual"
-            }
-          },
-          "options": [
-            {
-              "key": "A",
-              "text": "A line a graph approaches.",
-              "why": "This describes Asymptote, not Residual. It does not account for the quantities, conditions, or evidence in this calculus case."
-            },
-            {
-              "key": "B",
-              "text": "Observations hidden until a model is frozen.",
-              "why": "This describes Holdout data, not Residual. It does not account for the quantities, conditions, or evidence in this calculus case."
-            },
-            {
-              "key": "C",
-              "text": "Observed value minus model prediction.",
-              "why": "Correct. observed value minus model prediction."
-            },
-            {
-              "key": "D",
-              "text": "Vertical asymptotes t=+-2; horizontal asymptote R=3. Physical rainfall cannot become infinite at an ordinary forecast hour.",
-              "why": "This describes asymptotes/L'Hopital, not Residual. It does not account for the quantities, conditions, or evidence in this calculus case."
-            }
-          ]
-        },
-        {
-          "prompt": "A teammate rechecks The Crest We Missed using new evidence: the earlier rational forecast was rejected because it became infinite at an ordinary time. A replacement exponential forecast is undefined at exactly zero hours, but its limiting starting rate may still be finite. Test that rate before the crew uses the model. Which interpretation of the displayed evidence correctly uses rational-function asymptotes?",
-          "hint": "Read the axes, units, direction, and any threshold before comparing the choices.",
-          "answer": "D",
-          "figure": {
-            "kind": "line",
-            "xLabel": "Time (h)",
-            "yLabel": "Water level (m)",
-            "caption": "A fitted model is compared with later holdout measurements.",
-            "series": [
-              {
-                "name": "Model",
-                "points": [
-                  [
-                    0,
-                    10
-                  ],
-                  [
-                    1,
-                    12
-                  ],
-                  [
-                    2,
-                    15
-                  ],
-                  [
-                    3,
-                    19
-                  ],
-                  [
-                    4,
-                    24
-                  ]
-                ]
-              },
-              {
-                "name": "Holdout",
-                "points": [
-                  [
-                    3,
-                    20
-                  ],
-                  [
-                    4,
-                    27
+                    8
                   ]
                 ]
               }
@@ -2485,65 +2400,210 @@ export const MISSIONS = [
           "options": [
             {
               "key": "A",
-              "text": "A line a graph approaches.",
-              "why": "This describes Asymptote, not Holdout data. It does not account for the quantities, conditions, or evidence in this calculus case."
+              "text": "The model increasingly underpredicts as the input grows.",
+              "why": "Correct. The model increasingly underpredicts as the input grows."
             },
             {
               "key": "B",
-              "text": "Observed value minus model prediction.",
-              "why": "This describes Residual, not Holdout data. It does not account for the quantities, conditions, or evidence in this calculus case."
+              "text": "The model increasingly overpredicts.",
+              "why": "Positive residuals mean observations exceed predictions, not the reverse."
             },
             {
               "key": "C",
-              "text": "Vertical asymptotes t=+-2; horizontal asymptote R=3. Physical rainfall cannot become infinite at an ordinary forecast hour.",
-              "why": "This describes asymptotes/L'Hopital, not Holdout data. It does not account for the quantities, conditions, or evidence in this calculus case."
+              "text": "The errors have no relation to the input.",
+              "why": "Residuals rise systematically with the input."
             },
             {
               "key": "D",
-              "text": "Observations hidden until a model is frozen.",
-              "why": "Correct. observations hidden until a model is frozen."
+              "text": "The model fits every observation exactly.",
+              "why": "An exact fit would have zero residual at every point."
             }
           ]
         },
         {
-          "prompt": "An unseen case extends The Crest We Missed: the earlier rational forecast was rejected because it became infinite at an ordinary time. A replacement exponential forecast is undefined at exactly zero hours, but its limiting starting rate may still be finite. Test that rate before the crew uses the model. Which option correctly applies the mission concept to this follow-up case?",
-          "hint": "Use the stated evidence and the conditions for the mission concept; do not choose an option merely because it names a familiar term.",
-          "answer": "A",
-          "options": [
-            {
-              "key": "A",
-              "text": "The form is 0/0, so L=lim_(t->0)0.04e^(0.04t)/1=0.04.",
-              "why": "Correct. The original ratio is 0/0, and the differentiated ratio approaches 0.04."
-            },
-            {
-              "key": "B",
-              "text": "The form is 0/0, so differentiate only the numerator and use L=0.04/0.",
-              "why": "L'Hopital's rule differentiates the denominator too; the derivative of t is 1. It does not account for the quantities, conditions, or evidence in this calculus case."
-            },
-            {
-              "key": "C",
-              "text": "Substitute t=0 and report L=0 because the numerator is zero.",
-              "why": "The original 0/0 form is indeterminate, not a value of zero. It does not account for the quantities, conditions, or evidence in this calculus case."
-            },
-            {
-              "key": "D",
-              "text": "Cancel t from the exponent and denominator to obtain L=e^0-1=0.",
-              "why": "A factor outside an exponential cannot be canceled from its exponent. It does not account for the quantities, conditions, or evidence in this calculus case."
-            }
-          ]
-        },
-        {
-          "prompt": "Before another Peak Test decision, the team knows this: the earlier rational forecast was rejected because it became infinite at an ordinary time. A replacement exponential forecast is undefined at exactly zero hours, but its limiting starting rate may still be finite. Test that rate before the crew uses the model. Which interpretation of the displayed evidence correctly uses the mission concept?",
-          "hint": "Read the axes, units, direction, and any threshold before comparing the choices.",
+          "prompt": "The predictions were frozen before the plotted test observations were revealed. Why is this comparison useful?",
+          "hint": "Ask whether the model could have been tuned to these test values.",
           "answer": "B",
           "figure": {
             "kind": "line",
-            "xLabel": "Time (h)",
-            "yLabel": "Reservoir response",
-            "caption": "The response approaches a horizontal limit.",
+            "xLabel": "Input",
+            "yLabel": "Response (units)",
+            "caption": "Predictions fixed before test observations were revealed",
             "series": [
               {
-                "name": "Model",
+                "name": "Frozen prediction",
+                "points": [
+                  [
+                    0,
+                    2
+                  ],
+                  [
+                    1,
+                    4
+                  ],
+                  [
+                    2,
+                    6
+                  ]
+                ]
+              },
+              {
+                "name": "Held-out observation",
+                "points": [
+                  [
+                    0,
+                    2.1
+                  ],
+                  [
+                    1,
+                    3.9
+                  ],
+                  [
+                    2,
+                    6.2
+                  ]
+                ]
+              }
+            ]
+          },
+          "options": [
+            {
+              "key": "A",
+              "text": "It proves the model is exact for all possible inputs.",
+              "why": "Agreement at these inputs cannot establish universal correctness."
+            },
+            {
+              "key": "B",
+              "text": "It tests prediction on data that did not set the model.",
+              "why": "Correct. It tests prediction on data that did not set the model."
+            },
+            {
+              "key": "C",
+              "text": "It makes the test observations part of the training data retroactively.",
+              "why": "The prediction was fixed without using these observations."
+            },
+            {
+              "key": "D",
+              "text": "It removes all uncertainty from the observations.",
+              "why": "Withholding data does not eliminate measurement uncertainty."
+            }
+          ]
+        },
+        {
+          "prompt": "Evaluate lim(t→0)(e^(0.04t)-1)/t. If using L'Hôpital's rule, differentiate the numerator and denominator separately.",
+          "hint": "The derivative of e^(at) is ae^(at).",
+          "answer": "C",
+          "options": [
+            {
+              "key": "A",
+              "text": "0.",
+              "why": "The form 0/0 is indeterminate, not a result."
+            },
+            {
+              "key": "B",
+              "text": "1.",
+              "why": "Differentiating e^(0.04t) also gives the factor 0.04."
+            },
+            {
+              "key": "C",
+              "text": "0.04.",
+              "why": "Correct. 0.04."
+            },
+            {
+              "key": "D",
+              "text": "The limit is infinite.",
+              "why": "The numerator approaches zero at the same first-order rate as 0.04t."
+            }
+          ]
+        },
+        {
+          "prompt": "For S(t)=12 arctan(t-4), at which t is S′(t) largest?",
+          "hint": "Maximize 12/[1+(t-4)²] by minimizing its positive denominator.",
+          "answer": "D",
+          "figure": {
+            "kind": "line",
+            "xLabel": "t",
+            "yLabel": "S(t)",
+            "caption": "S(t)=12 arctan(t−4), with angles in radians",
+            "series": [
+              {
+                "name": "S(t)",
+                "points": [
+                  [
+                    0,
+                    -15.909811964016392
+                  ],
+                  [
+                    1,
+                    -14.988549268779053
+                  ],
+                  [
+                    2,
+                    -13.285784613529085
+                  ],
+                  [
+                    3,
+                    -9.42477796076938
+                  ],
+                  [
+                    4,
+                    0
+                  ],
+                  [
+                    5,
+                    9.42477796076938
+                  ],
+                  [
+                    6,
+                    13.285784613529085
+                  ],
+                  [
+                    7,
+                    14.988549268779053
+                  ],
+                  [
+                    8,
+                    15.909811964016392
+                  ]
+                ]
+              }
+            ]
+          },
+          "options": [
+            {
+              "key": "A",
+              "text": "t=0.",
+              "why": "The denominator 1+(t-4)² is not smallest at 0."
+            },
+            {
+              "key": "B",
+              "text": "t=8.",
+              "why": "At 8 the slope has already decreased from its midpoint value."
+            },
+            {
+              "key": "C",
+              "text": "The slope is constant.",
+              "why": "S′=12/[1+(t-4)²] varies with t."
+            },
+            {
+              "key": "D",
+              "text": "t=4.",
+              "why": "Correct. t=4."
+            }
+          ]
+        },
+        {
+          "prompt": "A model has the residuals shown. Residual means observed value minus predicted value. Which conclusion best fits the pattern?",
+          "hint": "Use the sign of observed minus predicted and check for a pattern.",
+          "answer": "A",
+          "figure": {
+            "kind": "line",
+            "xLabel": "Input value",
+            "yLabel": "Observed minus predicted (units)",
+            "caption": "Residuals from a fitted model",
+            "series": [
+              {
+                "name": "Residual",
                 "points": [
                   [
                     0,
@@ -2551,100 +2611,19 @@ export const MISSIONS = [
                   ],
                   [
                     1,
-                    5
+                    2
                   ],
                   [
                     2,
-                    7.5
+                    4
                   ],
                   [
                     3,
-                    8.8
+                    6
                   ],
                   [
                     4,
-                    9.4
-                  ],
-                  [
-                    5,
-                    9.7
-                  ]
-                ]
-              }
-            ],
-            "limit": {
-              "at": 10,
-              "label": "Long-run level"
-            }
-          },
-          "options": [
-            {
-              "key": "A",
-              "text": "A line a graph approaches.",
-              "why": "This describes Asymptote, not arctan derivative/asymptote. It does not account for the quantities, conditions, or evidence in this calculus case."
-            },
-            {
-              "key": "B",
-              "text": "S'=12/[1+(t-4)^2], largest at 4; arctan -> pi/2. A smooth saturating curve can represent a storm band without an artificial infinite spike.",
-              "why": "Correct. s'=12/[1+(t-4)^2], largest at 4; arctan -> pi/2. A smooth saturating curve can represent a storm band without an artificial infinite spike."
-            },
-            {
-              "key": "C",
-              "text": "Observed value minus model prediction.",
-              "why": "This describes Residual, not arctan derivative/asymptote. It does not account for the quantities, conditions, or evidence in this calculus case."
-            },
-            {
-              "key": "D",
-              "text": "Observations hidden until a model is frozen.",
-              "why": "This describes Holdout data, not arctan derivative/asymptote. It does not account for the quantities, conditions, or evidence in this calculus case."
-            }
-          ]
-        },
-        {
-          "prompt": "Ashfell Dam applies the lesson from The Crest We Missed to this follow-up: the earlier rational forecast was rejected because it became infinite at an ordinary time. A replacement exponential forecast is undefined at exactly zero hours, but its limiting starting rate may still be finite. Test that rate before the crew uses the model. Which interpretation of the displayed evidence correctly uses the mission concept?",
-          "hint": "Read the axes, units, direction, and any threshold before comparing the choices.",
-          "answer": "C",
-          "figure": {
-            "kind": "line",
-            "xLabel": "Time (h)",
-            "yLabel": "Water level (m)",
-            "caption": "A fitted model is compared with later holdout measurements.",
-            "series": [
-              {
-                "name": "Model",
-                "points": [
-                  [
-                    0,
-                    10
-                  ],
-                  [
-                    1,
-                    12
-                  ],
-                  [
-                    2,
-                    15
-                  ],
-                  [
-                    3,
-                    19
-                  ],
-                  [
-                    4,
-                    24
-                  ]
-                ]
-              },
-              {
-                "name": "Holdout",
-                "points": [
-                  [
-                    3,
-                    20
-                  ],
-                  [
-                    4,
-                    27
+                    8
                   ]
                 ]
               }
@@ -2653,23 +2632,23 @@ export const MISSIONS = [
           "options": [
             {
               "key": "A",
-              "text": "A line a graph approaches.",
-              "why": "This describes Asymptote, not curve shape/model validation. It does not account for the quantities, conditions, or evidence in this calculus case."
+              "text": "The model increasingly underpredicts as the input grows.",
+              "why": "Correct. The model increasingly underpredicts as the input grows."
             },
             {
               "key": "B",
-              "text": "Observed value minus model prediction.",
-              "why": "This describes Residual, not curve shape/model validation. It does not account for the quantities, conditions, or evidence in this calculus case."
+              "text": "The model increasingly overpredicts.",
+              "why": "Positive residuals mean observations exceed predictions, not the reverse."
             },
             {
               "key": "C",
-              "text": "B residuals [0,1,0,1]; A residuals [4,11,12,10] form a missed crest. A model that fits training data but misses a patterned holdout crest cannot guide release.",
-              "why": "Correct. b residuals [0,1,0,1]; A residuals [4,11,12,10] form a missed crest. A model that fits training data but misses a patterned holdout crest cannot guide release."
+              "text": "The errors have no relation to the input.",
+              "why": "Residuals rise systematically with the input."
             },
             {
               "key": "D",
-              "text": "Observations hidden until a model is frozen.",
-              "why": "This describes Holdout data, not curve shape/model validation. It does not account for the quantities, conditions, or evidence in this calculus case."
+              "text": "The model fits every observation exactly.",
+              "why": "An exact fit would have zero residual at every point."
             }
           ]
         }
@@ -2951,168 +2930,168 @@ export const MISSIONS = [
     "briefing": "",
     "stake": "9 work shifts remain before the storm. The storm total fills a strip longer than the storage allowance. Today you decide how much room to clear before rain.",
     "deeper": {
-      "intro": "You completed Room for the Storm. Choose GO DEEPER to revisit the four decisions and explore related course ideas; this optional review does not change your metrics or delay the next mission.",
+      "intro": "Try six independent practice questions. Each includes its own context and any needed data; no mission records are required.",
       "concepts": [],
       "questions": [
         {
-          "prompt": "In a follow-up to Room for the Storm, use I(t)=120+10t-(5/24)t^2 m3/s for 0<=t<=24 h. Which option correctly carries out the required Antiderivative reasoning?",
-          "hint": "Use the stated evidence and the conditions for Antiderivative; do not choose an option merely because it names a familiar term.",
+          "prompt": "Which statement best explains antiderivative?",
+          "hint": "Identify the defining relationship or mechanism for antiderivative. All needed information is in this question.",
           "answer": "B",
           "options": [
             {
               "key": "A",
               "text": "Rectangles approximating accumulated change.",
-              "why": "This describes Riemann sum, not Antiderivative. It does not account for the quantities, conditions, or evidence in this calculus case."
+              "why": "This describes riemann sum. It does not answer the question about antiderivative."
             },
             {
               "key": "B",
               "text": "A function whose derivative is the integrand.",
-              "why": "Correct. a function whose derivative is the integrand."
+              "why": "Correct. A function whose derivative is the integrand."
             },
             {
               "key": "C",
               "text": "Signed accumulation across bounds.",
-              "why": "This describes Definite integral, not Antiderivative. It does not account for the quantities, conditions, or evidence in this calculus case."
+              "why": "This describes definite integral. It does not answer the question about antiderivative."
             },
             {
               "key": "D",
               "text": "For this increasing curve, left underestimates and right overestimates; trapezoids average adjacent endpoints. Numerical accumulation brackets urgency before an exact model is integrated.",
-              "why": "This describes L/R/trapezoid sums, not Antiderivative. It does not account for the quantities, conditions, or evidence in this calculus case."
+              "why": "This describes l and R and trapezoid sums. It does not answer the question about antiderivative."
             }
           ]
         },
         {
-          "prompt": "Ashfell Dam receives a second case related to Room for the Storm: use I(t)=120+10t-(5/24)t^2 m3/s for 0<=t<=24 h. Which option correctly carries out the required Riemann sum reasoning?",
-          "hint": "Use the stated evidence and the conditions for Riemann sum; do not choose an option merely because it names a familiar term.",
+          "prompt": "Which statement best explains riemann sum?",
+          "hint": "Identify the defining relationship or mechanism for riemann sum. All needed information is in this question.",
           "answer": "C",
           "options": [
             {
               "key": "A",
               "text": "A function whose derivative is the integrand.",
-              "why": "This describes Antiderivative, not Riemann sum. It does not account for the quantities, conditions, or evidence in this calculus case."
+              "why": "This describes antiderivative. It does not answer the question about riemann sum."
             },
             {
               "key": "B",
               "text": "Signed accumulation across bounds.",
-              "why": "This describes Definite integral, not Riemann sum. It does not account for the quantities, conditions, or evidence in this calculus case."
+              "why": "This describes definite integral. It does not answer the question about riemann sum."
             },
             {
               "key": "C",
               "text": "Rectangles approximating accumulated change.",
-              "why": "Correct. rectangles approximating accumulated change."
+              "why": "Correct. Rectangles approximating accumulated change."
             },
             {
               "key": "D",
               "text": "For this increasing curve, left underestimates and right overestimates; trapezoids average adjacent endpoints. Numerical accumulation brackets urgency before an exact model is integrated.",
-              "why": "This describes L/R/trapezoid sums, not Riemann sum. It does not account for the quantities, conditions, or evidence in this calculus case."
+              "why": "This describes l and R and trapezoid sums. It does not answer the question about riemann sum."
             }
           ]
         },
         {
-          "prompt": "A teammate rechecks Room for the Storm using new evidence: the current empty storage is 14.0 million m^3; storm inflow is 17.28 million m^3, and the campaign safety margin is 2.00 million m^3. The next action depends on selecting the conclusion that fits all of those facts. Which option correctly carries out the required Definite integral reasoning?",
-          "hint": "Use the stated evidence and the conditions for Definite integral; do not choose an option merely because it names a familiar term.",
+          "prompt": "Which statement best explains definite integral?",
+          "hint": "Identify the defining relationship or mechanism for definite integral. All needed information is in this question.",
           "answer": "D",
           "options": [
             {
               "key": "A",
               "text": "A function whose derivative is the integrand.",
-              "why": "This describes Antiderivative, not Definite integral. It does not account for the quantities, conditions, or evidence in this calculus case."
+              "why": "This describes antiderivative. It does not answer the question about definite integral."
             },
             {
               "key": "B",
               "text": "Rectangles approximating accumulated change.",
-              "why": "This describes Riemann sum, not Definite integral. It does not account for the quantities, conditions, or evidence in this calculus case."
+              "why": "This describes riemann sum. It does not answer the question about definite integral."
             },
             {
               "key": "C",
               "text": "For this increasing curve, left underestimates and right overestimates; trapezoids average adjacent endpoints. Numerical accumulation brackets urgency before an exact model is integrated.",
-              "why": "This describes L/R/trapezoid sums, not Definite integral. It does not account for the quantities, conditions, or evidence in this calculus case."
+              "why": "This describes l and R and trapezoid sums. It does not answer the question about definite integral."
             },
             {
               "key": "D",
               "text": "Signed accumulation across bounds.",
-              "why": "Correct. signed accumulation across bounds."
+              "why": "Correct. Signed accumulation across bounds."
             }
           ]
         },
         {
-          "prompt": "An unseen case extends Room for the Storm: forecast flows at hours 0,5,10,15,20 are 100,150,200,250,300 m3/s. Which option correctly applies L/R/trapezoid sums to this follow-up case?",
-          "hint": "Use the stated evidence and the conditions for L/R/trapezoid sums; do not choose an option merely because it names a familiar term.",
+          "prompt": "A rate increases throughout an interval. Left- and right-endpoint rectangle sums use the same partition. Which comparison is guaranteed?",
+          "hint": "Identify the defining relationship or mechanism for l and r and trapezoid sums. All needed information is in this question.",
           "answer": "A",
           "options": [
             {
               "key": "A",
-              "text": "For this increasing curve, left underestimates and right overestimates; trapezoids average adjacent endpoints. Numerical accumulation brackets urgency before an exact model is integrated.",
-              "why": "Correct. for this increasing curve, left underestimates and right overestimates; trapezoids average adjacent endpoints. Numerical accumulation brackets urgency before an exact model is integrated."
+              "text": "The left sum underestimates the integral and the right sum overestimates it; their average is the trapezoidal sum for that partition.",
+              "why": "Correct. The left sum underestimates the integral and the right sum overestimates it; their average is the trapezoidal sum for that partition."
             },
             {
               "key": "B",
               "text": "A function whose derivative is the integrand.",
-              "why": "This describes Antiderivative, not L/R/trapezoid sums. It does not account for the quantities, conditions, or evidence in this calculus case."
+              "why": "This describes antiderivative. It does not answer the question about l and r and trapezoid sums."
             },
             {
               "key": "C",
               "text": "Rectangles approximating accumulated change.",
-              "why": "This describes Riemann sum, not L/R/trapezoid sums. It does not account for the quantities, conditions, or evidence in this calculus case."
+              "why": "This describes riemann sum. It does not answer the question about l and r and trapezoid sums."
             },
             {
               "key": "D",
               "text": "Signed accumulation across bounds.",
-              "why": "This describes Definite integral, not L/R/trapezoid sums. It does not account for the quantities, conditions, or evidence in this calculus case."
+              "why": "This describes definite integral. It does not answer the question about l and r and trapezoid sums."
             }
           ]
         },
         {
-          "prompt": "Before another Wall's Carrying Limit decision, the team knows this: use I(t)=120+10t-(5/24)t^2 m3/s for 0<=t<=24 h. Which option correctly carries out the required antiderivatives/linearity/FTC/Riemann limit reasoning?",
-          "hint": "Use the stated evidence and the conditions for antiderivatives/linearity/FTC/Riemann limit; do not choose an option merely because it names a familiar term.",
+          "prompt": "Water enters a tank at I(t)=120+10t-(5/24)t² m³/s for 0≤t≤24, with t measured in hours. What volume enters? Use 3600 seconds per hour.",
+          "hint": "Identify the defining relationship or mechanism for antiderivatives and linearity and ftc and riemann limit. All needed information is in this question.",
           "answer": "B",
           "options": [
             {
               "key": "A",
               "text": "A function whose derivative is the integrand.",
-              "why": "This describes Antiderivative, not antiderivatives/linearity/FTC/Riemann limit. It does not account for the quantities, conditions, or evidence in this calculus case."
+              "why": "This describes antiderivative. It does not answer the question about antiderivatives and linearity and ftc and riemann limit."
             },
             {
               "key": "B",
-              "text": "The modeled storm adds 17,280,000 m^3. FTC converts the continuous forecast rate into total incoming volume.",
-              "why": "Correct. the modeled storm adds 17,280,000 m^3. FTC converts the continuous forecast rate into total incoming volume."
+              "text": "The volume is 3600∫₀²⁴I(t)dt=17,280,000 m³.",
+              "why": "Correct. The volume is 3600∫₀²⁴I(t)dt=17,280,000 m³."
             },
             {
               "key": "C",
               "text": "Rectangles approximating accumulated change.",
-              "why": "This describes Riemann sum, not antiderivatives/linearity/FTC/Riemann limit. It does not account for the quantities, conditions, or evidence in this calculus case."
+              "why": "This describes riemann sum. It does not answer the question about antiderivatives and linearity and ftc and riemann limit."
             },
             {
               "key": "D",
               "text": "Signed accumulation across bounds.",
-              "why": "This describes Definite integral, not antiderivatives/linearity/FTC/Riemann limit. It does not account for the quantities, conditions, or evidence in this calculus case."
+              "why": "This describes definite integral. It does not answer the question about antiderivatives and linearity and ftc and riemann limit."
             }
           ]
         },
         {
-          "prompt": "Ashfell Dam applies the lesson from Room for the Storm to this follow-up: because exact total matches the numerical scale, test the live accumulator A(x)=integral0^x I(t)dt. Commit the prediction and run the test now so the measurement can fairly accept or reject the proposed model. Which option correctly carries out the required accumulation derivative reasoning?",
-          "hint": "Use the stated evidence and the conditions for accumulation derivative; do not choose an option merely because it names a familiar term.",
+          "prompt": "Let V(t)=3600∫₀ᵗ[120+10u-(5/24)u²]du m³, where t is in hours. What is the inflow rate in m³/s at t=12 h?",
+          "hint": "Identify the defining relationship or mechanism for accumulation derivative. All needed information is in this question.",
           "answer": "C",
           "options": [
             {
               "key": "A",
               "text": "A function whose derivative is the integrand.",
-              "why": "This describes Antiderivative, not accumulation derivative. It does not account for the quantities, conditions, or evidence in this calculus case."
+              "why": "This describes antiderivative. It does not answer the question about accumulation derivative."
             },
             {
               "key": "B",
               "text": "Rectangles approximating accumulated change.",
-              "why": "This describes Riemann sum, not accumulation derivative. It does not account for the quantities, conditions, or evidence in this calculus case."
+              "why": "This describes riemann sum. It does not answer the question about accumulation derivative."
             },
             {
               "key": "C",
-              "text": "120+10(12)-(5/24)(12^2)=210; both readings agree within 1 m^3/s. FTC Part 2 certifies that the totalizer and rate gauge describe the same water.",
-              "why": "Correct. 120+10(12)-(5/24)(12^2)=210; both readings agree within 1 m^3/s. FTC Part 2 certifies that the totalizer and rate gauge describe the same water."
+              "text": "Divide V′(12) by 3600 to obtain 120+120-30=210 m³/s.",
+              "why": "Correct. Divide V′(12) by 3600 to obtain 120+120-30=210 m³/s."
             },
             {
               "key": "D",
               "text": "Signed accumulation across bounds.",
-              "why": "This describes Definite integral, not accumulation derivative. It does not account for the quantities, conditions, or evidence in this calculus case."
+              "why": "This describes definite integral. It does not answer the question about accumulation derivative."
             }
           ]
         }
@@ -3421,129 +3400,129 @@ export const MISSIONS = [
     "briefing": "",
     "stake": "8 work shifts remain before the storm. The hoist rests at its baseline mark above a dry spillway. Today you decide which release mix clears enough water.",
     "deeper": {
-      "intro": "You completed The Just-Clears Release. Choose GO DEEPER to revisit the four decisions and explore related course ideas; this optional review does not change your metrics or delay the next mission.",
+      "intro": "Try six independent practice questions. Each includes its own context and any needed data; no mission records are required.",
       "concepts": [],
       "questions": [
         {
-          "prompt": "In a follow-up to The Just-Clears Release, turbine flow is Q(t)=200t(1+t^2)^2 m3/s for 0<=t<=2 h in a scaled test. Which option correctly applies Substitution to this follow-up case?",
-          "hint": "Use the stated evidence and the conditions for Substitution; do not choose an option merely because it names a familiar term.",
-          "answer": "B",
+          "prompt": "Which statement best explains substitution?",
+          "hint": "Identify the defining relationship or mechanism for substitution. All needed information is in this question.",
+          "answer": "D",
           "options": [
             {
               "key": "A",
               "text": "Positive and negative contributions retained by sign.",
-              "why": "This describes Signed accumulation, not Substitution. It does not account for the quantities, conditions, or evidence in this calculus case."
+              "why": "This describes signed accumulation. It does not answer the question about substitution."
             },
             {
               "key": "B",
-              "text": "Replacing a repeated inner expression with one variable.",
-              "why": "Correct. replacing a repeated inner expression with one variable."
+              "text": "The scaled accumulation is 12400/3. Substitution turns linked head response into a usable released volume.",
+              "why": "This describes u-substitution. It does not answer the question about substitution."
             },
             {
               "key": "C",
-              "text": "The scaled accumulation is 12400/3. Substitution turns linked head response into a usable released volume.",
-              "why": "This describes u-substitution, not Substitution. It does not account for the quantities, conditions, or evidence in this calculus case."
+              "text": "125*8*3600=3,600,000. Measured turbine volume determines the gate volume still needed.",
+              "why": "This describes definite integral and unit conversion. It does not answer the question about substitution."
             },
             {
               "key": "D",
-              "text": "125*8*3600=3,600,000. Measured turbine volume determines the gate volume still needed.",
-              "why": "This describes definite integral/unit conversion, not Substitution. It does not account for the quantities, conditions, or evidence in this calculus case."
+              "text": "Replacing a repeated inner expression with one variable.",
+              "why": "Correct. Replacing a repeated inner expression with one variable."
             }
           ]
         },
         {
-          "prompt": "Ashfell Dam receives a second case related to The Just-Clears Release: turbines clear 3.60 of the required 5.28 million m^3, leaving 1.68. Before the plan can proceed, divide the limited supply so every required use is covered. Which option correctly applies Signed accumulation to this follow-up case?",
-          "hint": "Use the stated evidence and the conditions for Signed accumulation; do not choose an option merely because it names a familiar term.",
+          "prompt": "Which statement best explains signed accumulation?",
+          "hint": "Identify the defining relationship or mechanism for signed accumulation. All needed information is in this question.",
+          "answer": "A",
+          "options": [
+            {
+              "key": "A",
+              "text": "Positive and negative contributions retained by sign.",
+              "why": "Correct. Positive and negative contributions retained by sign."
+            },
+            {
+              "key": "B",
+              "text": "Replacing a repeated inner expression with one variable.",
+              "why": "This describes substitution. It does not answer the question about signed accumulation."
+            },
+            {
+              "key": "C",
+              "text": "The scaled accumulation is 12400/3. Substitution turns linked head response into a usable released volume.",
+              "why": "This describes u-substitution. It does not answer the question about signed accumulation."
+            },
+            {
+              "key": "D",
+              "text": "125*8*3600=3,600,000. Measured turbine volume determines the gate volume still needed.",
+              "why": "This describes definite integral and unit conversion. It does not answer the question about signed accumulation."
+            }
+          ]
+        },
+        {
+          "prompt": "Evaluate ∫₀²200t(1+t²)²dt using u=1+t².",
+          "hint": "Identify the defining relationship or mechanism for u-substitution. All needed information is in this question.",
+          "answer": "B",
+          "options": [
+            {
+              "key": "A",
+              "text": "Replacing a repeated inner expression with one variable.",
+              "why": "This describes substitution. It does not answer the question about u-substitution."
+            },
+            {
+              "key": "B",
+              "text": "The integral is 100∫₁⁵u²du=12400/3.",
+              "why": "Correct. The integral is 100∫₁⁵u²du=12400/3."
+            },
+            {
+              "key": "C",
+              "text": "Positive and negative contributions retained by sign.",
+              "why": "This describes signed accumulation. It does not answer the question about u-substitution."
+            },
+            {
+              "key": "D",
+              "text": "125*8*3600=3,600,000. Measured turbine volume determines the gate volume still needed.",
+              "why": "This describes definite integral and unit conversion. It does not answer the question about u-substitution."
+            }
+          ]
+        },
+        {
+          "prompt": "Water flows at 125 m³/s for 8 hours. How much water passes? Use 3600 seconds per hour.",
+          "hint": "Identify the defining relationship or mechanism for definite integral and unit conversion. All needed information is in this question.",
           "answer": "C",
           "options": [
             {
               "key": "A",
               "text": "Replacing a repeated inner expression with one variable.",
-              "why": "This describes Substitution, not Signed accumulation. It does not account for the quantities, conditions, or evidence in this calculus case."
+              "why": "This describes substitution. It does not answer the question about definite integral and unit conversion."
             },
             {
               "key": "B",
-              "text": "The scaled accumulation is 12400/3. Substitution turns linked head response into a usable released volume.",
-              "why": "This describes u-substitution, not Signed accumulation. It does not account for the quantities, conditions, or evidence in this calculus case."
+              "text": "Positive and negative contributions retained by sign.",
+              "why": "This describes signed accumulation. It does not answer the question about definite integral and unit conversion."
             },
             {
               "key": "C",
-              "text": "Positive and negative contributions retained by sign.",
-              "why": "Correct. positive and negative contributions retained by sign."
+              "text": "125×8×3600=3,600,000 m³.",
+              "why": "Correct. 125×8×3600=3,600,000 m³."
             },
             {
               "key": "D",
-              "text": "125*8*3600=3,600,000. Measured turbine volume determines the gate volume still needed.",
-              "why": "This describes definite integral/unit conversion, not Signed accumulation. It does not account for the quantities, conditions, or evidence in this calculus case."
+              "text": "The scaled accumulation is 12400/3. Substitution turns linked head response into a usable released volume.",
+              "why": "This describes u-substitution. It does not answer the question about definite integral and unit conversion."
             }
           ]
         },
         {
-          "prompt": "A teammate rechecks The Just-Clears Release using new evidence: turbine flow is Q(t)=200t(1+t^2)^2 m3/s for 0<=t<=2 h in a scaled test. Which option correctly applies u-substitution to this follow-up case?",
-          "hint": "Use the stated evidence and the conditions for u-substitution; do not choose an option merely because it names a familiar term.",
+          "prompt": "A particle moves at 2 m/s for 1 s and then at -1 m/s for 2 s. Using these constant intervals, what are its displacement and total distance?",
+          "hint": "Add signed velocity areas for displacement and their magnitudes for distance.",
           "answer": "D",
-          "options": [
-            {
-              "key": "A",
-              "text": "Replacing a repeated inner expression with one variable.",
-              "why": "This describes Substitution, not u-substitution. It does not account for the quantities, conditions, or evidence in this calculus case."
-            },
-            {
-              "key": "B",
-              "text": "Positive and negative contributions retained by sign.",
-              "why": "This describes Signed accumulation, not u-substitution. It does not account for the quantities, conditions, or evidence in this calculus case."
-            },
-            {
-              "key": "C",
-              "text": "125*8*3600=3,600,000. Measured turbine volume determines the gate volume still needed.",
-              "why": "This describes definite integral/unit conversion, not u-substitution. It does not account for the quantities, conditions, or evidence in this calculus case."
-            },
-            {
-              "key": "D",
-              "text": "The scaled accumulation is 12400/3. Substitution turns linked head response into a usable released volume.",
-              "why": "Correct. the scaled accumulation is 12400/3. Substitution turns linked head response into a usable released volume."
-            }
-          ]
-        },
-        {
-          "prompt": "An unseen case extends The Just-Clears Release: the operational schedule predicts a constant-equivalent turbine release of 125 m^3/s for 8.0 h. Commit the prediction and run the test now so the measurement can fairly accept or reject the proposed model. Which option correctly carries out the required definite integral/unit conversion reasoning?",
-          "hint": "Use the stated evidence and the conditions for definite integral/unit conversion; do not choose an option merely because it names a familiar term.",
-          "answer": "A",
-          "options": [
-            {
-              "key": "A",
-              "text": "125*8*3600=3,600,000. Measured turbine volume determines the gate volume still needed.",
-              "why": "Correct. 125*8*3600=3,600,000. Measured turbine volume determines the gate volume still needed."
-            },
-            {
-              "key": "B",
-              "text": "Replacing a repeated inner expression with one variable.",
-              "why": "This describes Substitution, not definite integral/unit conversion. It does not account for the quantities, conditions, or evidence in this calculus case."
-            },
-            {
-              "key": "C",
-              "text": "Positive and negative contributions retained by sign.",
-              "why": "This describes Signed accumulation, not definite integral/unit conversion. It does not account for the quantities, conditions, or evidence in this calculus case."
-            },
-            {
-              "key": "D",
-              "text": "The scaled accumulation is 12400/3. Substitution turns linked head response into a usable released volume.",
-              "why": "This describes u-substitution, not definite integral/unit conversion. It does not account for the quantities, conditions, or evidence in this calculus case."
-            }
-          ]
-        },
-        {
-          "prompt": "Before another Just-Clears Release decision, the team knows this: turbine flow is Q(t)=200t(1+t^2)^2 m3/s for 0<=t<=2 h in a scaled test. Which interpretation of the displayed evidence correctly uses the mission concept?",
-          "hint": "Read the axes, units, direction, and any threshold before comparing the choices.",
-          "answer": "B",
           "figure": {
             "kind": "line",
-            "xLabel": "Time (min)",
-            "yLabel": "Flow rate (m3/min)",
-            "caption": "Signed area under the rate curve gives accumulated change.",
+            "xLabel": "Time (s)",
+            "yLabel": "Velocity (m/s)",
+            "caption": "Use v=2 for 0≤t<1 and v=−1 for 1≤t≤3; the jump is instantaneous",
             "series": [
               {
-                "name": "Net flow",
+                "name": "Velocity",
                 "points": [
                   [
                     0,
@@ -3551,79 +3530,67 @@ export const MISSIONS = [
                   ],
                   [
                     1,
-                    4
+                    2
                   ],
                   [
-                    2,
-                    3
+                    1,
+                    -1
                   ],
                   [
                     3,
-                    0
-                  ],
-                  [
-                    4,
-                    -2
-                  ],
-                  [
-                    5,
                     -1
                   ]
                 ]
               }
-            ],
-            "limit": {
-              "at": 0,
-              "label": "Zero flow"
-            }
+            ]
           },
           "options": [
             {
               "key": "A",
-              "text": "Replacing a repeated inner expression with one variable.",
-              "why": "This describes Substitution, not velocity integral/total area. It does not account for the quantities, conditions, or evidence in this calculus case."
+              "text": "Displacement 4 m; distance 4 m.",
+              "why": "Displacement retains the negative sign of the second interval."
             },
             {
               "key": "B",
-              "text": "Net=80/3; total=190/3 in scaled units. Flood exposure counts positive excess, while net signed change can hide a later reversal.",
-              "why": "Correct. net=80/3; total=190/3 in scaled units. Flood exposure counts positive excess, while net signed change can hide a later reversal."
+              "text": "Displacement 0 m; distance 0 m.",
+              "why": "Returning to the start does not erase travel."
             },
             {
               "key": "C",
-              "text": "Positive and negative contributions retained by sign.",
-              "why": "This describes Signed accumulation, not velocity integral/total area. It does not account for the quantities, conditions, or evidence in this calculus case."
+              "text": "Displacement -2 m; distance 2 m.",
+              "why": "This omits the first interval."
             },
             {
               "key": "D",
-              "text": "The scaled accumulation is 12400/3. Substitution turns linked head response into a usable released volume.",
-              "why": "This describes u-substitution, not velocity integral/total area. It does not account for the quantities, conditions, or evidence in this calculus case."
+              "text": "Displacement 0 m; total distance 4 m.",
+              "why": "Correct. Displacement 0 m; total distance 4 m."
             }
           ]
         },
         {
-          "prompt": "Ashfell Dam applies the lesson from The Just-Clears Release to this follow-up: turbines clear 3.60 of the required 5.28 million m^3, leaving 1.68. Before the plan can proceed, divide the limited supply so every required use is covered. Which option correctly applies constrained accumulation to this follow-up case?",
-          "hint": "Use the stated evidence and the conditions for constrained accumulation; do not choose an option merely because it names a familiar term.",
-          "answer": "C",
+          "prompt": "A release needs 100 work units: 40 for gates, 30 for pumps, 20 for warning, and 10 for restart reserve. None can be substituted for another. Which allocation is feasible?",
+          "hint": "Identify the defining relationship or mechanism for constrained accumulation. All needed information is in this question.",
+          "answer": "A",
           "options": [
             {
               "key": "A",
-              "text": "Replacing a repeated inner expression with one variable.",
-              "why": "This describes Substitution, not constrained accumulation. It does not account for the quantities, conditions, or evidence in this calculus case."
+              "text": "Fund all four requirements at 40, 30, 20, and 10 units respectively.",
+              "why": "Correct. Fund all four requirements at 40, 30, 20, and 10 units respectively."
             },
             {
               "key": "B",
-              "text": "Positive and negative contributions retained by sign.",
-              "why": "This describes Signed accumulation, not constrained accumulation. It does not account for the quantities, conditions, or evidence in this calculus case."
+              "text": "Replacing a repeated inner expression with one variable.",
+              "why": "This describes substitution. It does not answer the question about constrained accumulation."
             },
             {
               "key": "C",
-              "text": "All four funded exactly. A mathematically sufficient release is unusable without warning and restart capacity.",
-              "why": "Correct. all four funded exactly. A mathematically sufficient release is unusable without warning and restart capacity."
+              "text": "Positive and negative contributions retained by sign.",
+              "why": "This describes signed accumulation. It does not answer the question about constrained accumulation."
             },
             {
               "key": "D",
               "text": "The scaled accumulation is 12400/3. Substitution turns linked head response into a usable released volume.",
-              "why": "This describes u-substitution, not constrained accumulation. It does not account for the quantities, conditions, or evidence in this calculus case."
+              "why": "This describes u-substitution. It does not answer the question about constrained accumulation."
             }
           ]
         }
@@ -3882,168 +3849,168 @@ export const MISSIONS = [
     "briefing": "",
     "stake": "7 work shifts remain before the storm. Two blank gauge faces sit beside a live independent trace. Today you decide whether the quiet gauges mean wall trouble.",
     "deeper": {
-      "intro": "You completed Two Silent Gauges. Choose GO DEEPER to revisit the four decisions and explore related course ideas; this optional review does not change your metrics or delay the next mission.",
+      "intro": "Try six independent practice questions. Each includes its own context and any needed data; no mission records are required.",
       "concepts": [],
       "questions": [
         {
-          "prompt": "In a follow-up to Two Silent Gauges, uplift obeys dP/dh=0.4(8-P) in scaled units. Sample the locations in order now so the crew can identify where the system first departs from normal. Which statistical conclusion or procedure correctly uses Slope field?",
-          "hint": "Use the stated evidence and the conditions for Slope field; do not choose an option merely because it names a familiar term.",
+          "prompt": "Which statement best explains slope field?",
+          "hint": "Identify the defining relationship or mechanism for slope field. All needed information is in this question.",
           "answer": "B",
           "options": [
             {
               "key": "A",
               "text": "A constant solution where slope is zero.",
-              "why": "This describes Equilibrium solution, not Slope field. It does not account for the quantities, conditions, or evidence in this calculus case."
+              "why": "This describes equilibrium solution. It does not answer the question about slope field."
             },
             {
               "key": "B",
               "text": "Short segments showing a differential equation's slope at many points.",
-              "why": "Correct. short segments showing a differential equation's slope at many points."
+              "why": "Correct. Short segments showing a differential equation's slope at many points."
             },
             {
               "key": "C",
               "text": "Repeated tangent-line steps.",
-              "why": "This describes Euler's method, not Slope field. It does not account for the quantities, conditions, or evidence in this calculus case."
+              "why": "This describes euler's method. It does not answer the question about slope field."
             },
             {
               "key": "D",
               "text": "Toward 8; equilibrium P=8. Field direction can bound the silent readings before exact solving.",
-              "why": "This describes slope fields/equilibrium, not Slope field. It does not account for the quantities, conditions, or evidence in this calculus case."
+              "why": "This describes slope fields and equilibrium. It does not answer the question about slope field."
             }
           ]
         },
         {
-          "prompt": "Ashfell Dam receives a second case related to Two Silent Gauges: uplift obeys dP/dh=0.4(8-P) in scaled units. Sample the locations in order now so the crew can identify where the system first departs from normal. Which option correctly applies Equilibrium solution to this follow-up case?",
-          "hint": "Use the stated evidence and the conditions for Equilibrium solution; do not choose an option merely because it names a familiar term.",
+          "prompt": "Which statement best explains equilibrium solution?",
+          "hint": "Identify the defining relationship or mechanism for equilibrium solution. All needed information is in this question.",
           "answer": "C",
           "options": [
             {
               "key": "A",
               "text": "Short segments showing a differential equation's slope at many points.",
-              "why": "This describes Slope field, not Equilibrium solution. It does not account for the quantities, conditions, or evidence in this calculus case."
+              "why": "This describes slope field. It does not answer the question about equilibrium solution."
             },
             {
               "key": "B",
               "text": "Repeated tangent-line steps.",
-              "why": "This describes Euler's method, not Equilibrium solution. It does not account for the quantities, conditions, or evidence in this calculus case."
+              "why": "This describes euler's method. It does not answer the question about equilibrium solution."
             },
             {
               "key": "C",
               "text": "A constant solution where slope is zero.",
-              "why": "Correct. a constant solution where slope is zero."
+              "why": "Correct. A constant solution where slope is zero."
             },
             {
               "key": "D",
               "text": "Toward 8; equilibrium P=8. Field direction can bound the silent readings before exact solving.",
-              "why": "This describes slope fields/equilibrium, not Equilibrium solution. It does not account for the quantities, conditions, or evidence in this calculus case."
+              "why": "This describes slope fields and equilibrium. It does not answer the question about equilibrium solution."
             }
           ]
         },
         {
-          "prompt": "A teammate rechecks Two Silent Gauges using new evidence: the last live value is P(0)=4.0, and dP/dh=0.4(8-P). Which option correctly carries out the required Euler's method reasoning?",
-          "hint": "Use the stated evidence and the conditions for Euler's method; do not choose an option merely because it names a familiar term.",
+          "prompt": "Which statement best explains euler's method?",
+          "hint": "Identify the defining relationship or mechanism for euler's method. All needed information is in this question.",
           "answer": "D",
           "options": [
             {
               "key": "A",
               "text": "Short segments showing a differential equation's slope at many points.",
-              "why": "This describes Slope field, not Euler's method. It does not account for the quantities, conditions, or evidence in this calculus case."
+              "why": "This describes slope field. It does not answer the question about euler's method."
             },
             {
               "key": "B",
               "text": "A constant solution where slope is zero.",
-              "why": "This describes Equilibrium solution, not Euler's method. It does not account for the quantities, conditions, or evidence in this calculus case."
+              "why": "This describes equilibrium solution. It does not answer the question about euler's method."
             },
             {
               "key": "C",
               "text": "Toward 8; equilibrium P=8. Field direction can bound the silent readings before exact solving.",
-              "why": "This describes slope fields/equilibrium, not Euler's method. It does not account for the quantities, conditions, or evidence in this calculus case."
+              "why": "This describes slope fields and equilibrium. It does not answer the question about euler's method."
             },
             {
               "key": "D",
               "text": "Repeated tangent-line steps.",
-              "why": "Correct. repeated tangent-line steps."
+              "why": "Correct. Repeated tangent-line steps."
             }
           ]
         },
         {
-          "prompt": "An unseen case extends Two Silent Gauges: uplift obeys dP/dh=0.4(8-P) in scaled units. Sample the locations in order now so the crew can identify where the system first departs from normal. Which statistical conclusion or procedure correctly uses slope fields/equilibrium?",
-          "hint": "Use the stated evidence and the conditions for slope fields/equilibrium; do not choose an option merely because it names a familiar term.",
+          "prompt": "A pressure model obeys dP/dh=0.4(8-P). Which equilibrium and nearby direction of change does it predict?",
+          "hint": "Identify the defining relationship or mechanism for slope fields and equilibrium. All needed information is in this question.",
           "answer": "A",
           "options": [
             {
               "key": "A",
-              "text": "Toward 8; equilibrium P=8. Field direction can bound the silent readings before exact solving.",
-              "why": "Correct. toward 8; equilibrium P=8. Field direction can bound the silent readings before exact solving."
+              "text": "P=8 is an equilibrium; values below 8 rise and values above 8 fall as h increases.",
+              "why": "Correct. P=8 is an equilibrium; values below 8 rise and values above 8 fall as h increases."
             },
             {
               "key": "B",
               "text": "Short segments showing a differential equation's slope at many points.",
-              "why": "This describes Slope field, not slope fields/equilibrium. It does not account for the quantities, conditions, or evidence in this calculus case."
+              "why": "This describes slope field. It does not answer the question about slope fields and equilibrium."
             },
             {
               "key": "C",
               "text": "A constant solution where slope is zero.",
-              "why": "This describes Equilibrium solution, not slope fields/equilibrium. It does not account for the quantities, conditions, or evidence in this calculus case."
+              "why": "This describes equilibrium solution. It does not answer the question about slope fields and equilibrium."
             },
             {
               "key": "D",
               "text": "Repeated tangent-line steps.",
-              "why": "This describes Euler's method, not slope fields/equilibrium. It does not account for the quantities, conditions, or evidence in this calculus case."
+              "why": "This describes euler's method. It does not answer the question about slope fields and equilibrium."
             }
           ]
         },
         {
-          "prompt": "Before another Seepage Ledger Rule decision, the team knows this: the last live value is P(0)=4.0, and dP/dh=0.4(8-P). Which option correctly carries out the required Euler method reasoning?",
-          "hint": "Use the stated evidence and the conditions for Euler method; do not choose an option merely because it names a familiar term.",
+          "prompt": "Use Euler's method on dP/dh=0.4(8-P), starting at P(0)=4, with two steps of Δh=0.5. What is P(1)?",
+          "hint": "Identify the defining relationship or mechanism for euler method. All needed information is in this question.",
           "answer": "B",
           "options": [
             {
               "key": "A",
               "text": "Short segments showing a differential equation's slope at many points.",
-              "why": "This describes Slope field, not Euler method. It does not account for the quantities, conditions, or evidence in this calculus case."
+              "why": "This describes slope field. It does not answer the question about euler method."
             },
             {
               "key": "B",
-              "text": "Euler gives P(1.0)=5.44. A stepwise prediction can be compared with independent seepage evidence.",
-              "why": "Correct. euler gives P(1.0)=5.44. A stepwise prediction can be compared with independent seepage evidence."
+              "text": "The first step gives 4.8 and the second gives 5.44.",
+              "why": "Correct. The first step gives 4.8 and the second gives 5.44."
             },
             {
               "key": "C",
               "text": "A constant solution where slope is zero.",
-              "why": "This describes Equilibrium solution, not Euler method. It does not account for the quantities, conditions, or evidence in this calculus case."
+              "why": "This describes equilibrium solution. It does not answer the question about euler method."
             },
             {
               "key": "D",
               "text": "Repeated tangent-line steps.",
-              "why": "This describes Euler's method, not Euler method. It does not account for the quantities, conditions, or evidence in this calculus case."
+              "why": "This describes euler's method. It does not answer the question about euler method."
             }
           ]
         },
         {
-          "prompt": "Ashfell Dam applies the lesson from Two Silent Gauges to this follow-up: because two coarse Euler steps give 5.44, rerun with Delta h=0.25 m while the same equation and initial value remain fixed. Run the reversible comparison now so the crew can tell whether the proposed cause changes the measured response. Which option correctly carries out the required Euler error/control reasoning?",
-          "hint": "Use the stated evidence and the conditions for Euler error/control; do not choose an option merely because it names a familiar term.",
+          "prompt": "Two numerical runs solve the same initial-value problem on the same interval. Only the Euler step size changes, from 0.5 to 0.25. What does this comparison test?",
+          "hint": "Identify the defining relationship or mechanism for euler error and control. All needed information is in this question.",
           "answer": "C",
           "options": [
             {
               "key": "A",
               "text": "Short segments showing a differential equation's slope at many points.",
-              "why": "This describes Slope field, not Euler error/control. It does not account for the quantities, conditions, or evidence in this calculus case."
+              "why": "This describes slope field. It does not answer the question about euler error and control."
             },
             {
               "key": "B",
               "text": "A constant solution where slope is zero.",
-              "why": "This describes Equilibrium solution, not Euler error/control. It does not account for the quantities, conditions, or evidence in this calculus case."
+              "why": "This describes equilibrium solution. It does not answer the question about euler error and control."
             },
             {
               "key": "C",
-              "text": "As stated. Changing only step size tests numerical approximation rather than wall behavior.",
-              "why": "Correct. as stated. Changing only step size tests numerical approximation rather than wall behavior."
+              "text": "Sensitivity to numerical step size, while the physical model and initial condition remain fixed.",
+              "why": "Correct. Sensitivity to numerical step size, while the physical model and initial condition remain fixed."
             },
             {
               "key": "D",
               "text": "Repeated tangent-line steps.",
-              "why": "This describes Euler's method, not Euler error/control. It does not account for the quantities, conditions, or evidence in this calculus case."
+              "why": "This describes euler's method. It does not answer the question about euler error and control."
             }
           ]
         }
@@ -4306,168 +4273,168 @@ export const MISSIONS = [
     "briefing": "",
     "stake": "6 work shifts remain before the storm. Drops strike the weir bucket at a slowing pace. Today you decide whether seepage stays inside its limit.",
     "deeper": {
-      "intro": "You completed The Flow That Eases. Choose GO DEEPER to revisit the four decisions and explore related course ideas; this optional review does not change your metrics or delay the next mission.",
+      "intro": "Try six independent practice questions. Each includes its own context and any needed data; no mission records are required.",
       "concepts": [],
       "questions": [
         {
-          "prompt": "In a follow-up to The Flow That Eases, excess seepage S follows dS/dt=-0.30S per hour with S(0)=12 L/min. Which option correctly applies Differential equation to this follow-up case?",
-          "hint": "Use the stated evidence and the conditions for Differential equation; do not choose an option merely because it names a familiar term.",
-          "answer": "B",
+          "prompt": "Which statement best explains differential equation?",
+          "hint": "Identify the defining relationship or mechanism for differential equation. All needed information is in this question.",
+          "answer": "D",
           "options": [
             {
               "key": "A",
               "text": "One known point selecting a particular solution.",
-              "why": "This describes Initial condition, not Differential equation. It does not account for the quantities, conditions, or evidence in this calculus case."
+              "why": "This describes initial condition. It does not answer the question about differential equation."
             },
             {
               "key": "B",
-              "text": "An equation involving a function and its rate.",
-              "why": "Correct. an equation involving a function and its rate."
+              "text": "Limiting level in a logistic model.",
+              "why": "This describes carrying capacity. It does not answer the question about differential equation."
             },
             {
               "key": "C",
-              "text": "Limiting level in a logistic model.",
-              "why": "This describes Carrying capacity, not Differential equation. It does not account for the quantities, conditions, or evidence in this calculus case."
+              "text": "S(4)=12e^-1.2=3.614 L/min. A negative constant should produce measured decay rather than hidden growth.",
+              "why": "This describes separation and initial condition. It does not answer the question about differential equation."
             },
             {
               "key": "D",
-              "text": "S(4)=12e^-1.2=3.614 L/min. A negative constant should produce measured decay rather than hidden growth.",
-              "why": "This describes separation/initial condition, not Differential equation. It does not account for the quantities, conditions, or evidence in this calculus case."
+              "text": "An equation involving a function and its rate.",
+              "why": "Correct. An equation involving a function and its rate."
             }
           ]
         },
         {
-          "prompt": "Ashfell Dam receives a second case related to The Flow That Eases: excess seepage S follows dS/dt=-0.30S per hour with S(0)=12 L/min. Which option correctly applies Initial condition to this follow-up case?",
-          "hint": "Use the stated evidence and the conditions for Initial condition; do not choose an option merely because it names a familiar term.",
+          "prompt": "Which statement best explains initial condition?",
+          "hint": "Identify the defining relationship or mechanism for initial condition. All needed information is in this question.",
+          "answer": "A",
+          "options": [
+            {
+              "key": "A",
+              "text": "One known point selecting a particular solution.",
+              "why": "Correct. One known point selecting a particular solution."
+            },
+            {
+              "key": "B",
+              "text": "An equation involving a function and its rate.",
+              "why": "This describes differential equation. It does not answer the question about initial condition."
+            },
+            {
+              "key": "C",
+              "text": "Limiting level in a logistic model.",
+              "why": "This describes carrying capacity. It does not answer the question about initial condition."
+            },
+            {
+              "key": "D",
+              "text": "S(4)=12e^-1.2=3.614 L/min. A negative constant should produce measured decay rather than hidden growth.",
+              "why": "This describes separation and initial condition. It does not answer the question about initial condition."
+            }
+          ]
+        },
+        {
+          "prompt": "Which statement best explains carrying capacity?",
+          "hint": "Identify the defining relationship or mechanism for carrying capacity. All needed information is in this question.",
+          "answer": "B",
+          "options": [
+            {
+              "key": "A",
+              "text": "An equation involving a function and its rate.",
+              "why": "This describes differential equation. It does not answer the question about carrying capacity."
+            },
+            {
+              "key": "B",
+              "text": "Limiting level in a logistic model.",
+              "why": "Correct. Limiting level in a logistic model."
+            },
+            {
+              "key": "C",
+              "text": "One known point selecting a particular solution.",
+              "why": "This describes initial condition. It does not answer the question about carrying capacity."
+            },
+            {
+              "key": "D",
+              "text": "S(4)=12e^-1.2=3.614 L/min. A negative constant should produce measured decay rather than hidden growth.",
+              "why": "This describes separation and initial condition. It does not answer the question about carrying capacity."
+            }
+          ]
+        },
+        {
+          "prompt": "An excess flow obeys dS/dt=-0.30S per hour, with S(0)=12 L/min. What is S(4)?",
+          "hint": "Identify the defining relationship or mechanism for separation and initial condition. All needed information is in this question.",
           "answer": "C",
           "options": [
             {
               "key": "A",
               "text": "An equation involving a function and its rate.",
-              "why": "This describes Differential equation, not Initial condition. It does not account for the quantities, conditions, or evidence in this calculus case."
+              "why": "This describes differential equation. It does not answer the question about separation and initial condition."
             },
             {
               "key": "B",
-              "text": "Limiting level in a logistic model.",
-              "why": "This describes Carrying capacity, not Initial condition. It does not account for the quantities, conditions, or evidence in this calculus case."
+              "text": "One known point selecting a particular solution.",
+              "why": "This describes initial condition. It does not answer the question about separation and initial condition."
             },
             {
               "key": "C",
-              "text": "One known point selecting a particular solution.",
-              "why": "Correct. one known point selecting a particular solution."
+              "text": "S(4)=12e^(-1.2)≈3.614 L/min.",
+              "why": "Correct. S(4)=12e^(-1.2)≈3.614 L/min."
             },
             {
               "key": "D",
-              "text": "S(4)=12e^-1.2=3.614 L/min. A negative constant should produce measured decay rather than hidden growth.",
-              "why": "This describes separation/initial condition, not Initial condition. It does not account for the quantities, conditions, or evidence in this calculus case."
+              "text": "Limiting level in a logistic model.",
+              "why": "This describes carrying capacity. It does not answer the question about separation and initial condition."
             }
           ]
         },
         {
-          "prompt": "A teammate rechecks The Flow That Eases using new evidence: the observed decay constant is k=-0.30+-0.05 h^-1, and approval requires excess seepage below 5.0 L/min after 4 h, inclusive. Test the conclusion across the supported uncertainty range now, before the team treats it as robust. Which option correctly applies Carrying capacity to this follow-up case?",
-          "hint": "Use the stated evidence and the conditions for Carrying capacity; do not choose an option merely because it names a familiar term.",
+          "prompt": "A positive quantity follows S(t)=12e^(-0.30t), where t is in hours. Which statement describes successive one-hour readings and the long-run limit?",
+          "hint": "Identify the defining relationship or mechanism for exponential and logistic and newton models. All needed information is in this question.",
           "answer": "D",
           "options": [
             {
               "key": "A",
               "text": "An equation involving a function and its rate.",
-              "why": "This describes Differential equation, not Carrying capacity. It does not account for the quantities, conditions, or evidence in this calculus case."
+              "why": "This describes differential equation. It does not answer the question about exponential and logistic and newton models."
             },
             {
               "key": "B",
               "text": "One known point selecting a particular solution.",
-              "why": "This describes Initial condition, not Carrying capacity. It does not account for the quantities, conditions, or evidence in this calculus case."
+              "why": "This describes initial condition. It does not answer the question about exponential and logistic and newton models."
             },
             {
               "key": "C",
-              "text": "S(4)=12e^-1.2=3.614 L/min. A negative constant should produce measured decay rather than hidden growth.",
-              "why": "This describes separation/initial condition, not Carrying capacity. It does not account for the quantities, conditions, or evidence in this calculus case."
+              "text": "Limiting level in a logistic model.",
+              "why": "This describes carrying capacity. It does not answer the question about exponential and logistic and newton models."
             },
             {
               "key": "D",
-              "text": "Limiting level in a logistic model.",
-              "why": "Correct. limiting level in a logistic model."
+              "text": "Each reading is e^(-0.30) times the preceding one, and S(t) approaches zero.",
+              "why": "Correct. Each reading is e^(-0.30) times the preceding one, and S(t) approaches zero."
             }
           ]
         },
         {
-          "prompt": "An unseen case extends The Flow That Eases: excess seepage S follows dS/dt=-0.30S per hour with S(0)=12 L/min. Which option correctly applies separation/initial condition to this follow-up case?",
-          "hint": "Use the stated evidence and the conditions for separation/initial condition; do not choose an option merely because it names a familiar term.",
+          "prompt": "An object cools in a room held at 20°C according to T′=-k(T-20), where k>0. What temperature does the model approach?",
+          "hint": "Identify the defining relationship or mechanism for newton cooling. All needed information is in this question.",
           "answer": "A",
           "options": [
             {
               "key": "A",
-              "text": "S(4)=12e^-1.2=3.614 L/min. A negative constant should produce measured decay rather than hidden growth.",
-              "why": "Correct. s(4)=12e^-1.2=3.614 L/min. A negative constant should produce measured decay rather than hidden growth."
+              "text": "20°C, the fixed ambient temperature.",
+              "why": "Correct. 20°C, the fixed ambient temperature."
             },
             {
               "key": "B",
               "text": "An equation involving a function and its rate.",
-              "why": "This describes Differential equation, not separation/initial condition. It does not account for the quantities, conditions, or evidence in this calculus case."
+              "why": "This describes differential equation. It does not answer the question about newton cooling."
             },
             {
               "key": "C",
               "text": "One known point selecting a particular solution.",
-              "why": "This describes Initial condition, not separation/initial condition. It does not account for the quantities, conditions, or evidence in this calculus case."
+              "why": "This describes initial condition. It does not answer the question about newton cooling."
             },
             {
               "key": "D",
               "text": "Limiting level in a logistic model.",
-              "why": "This describes Carrying capacity, not separation/initial condition. It does not account for the quantities, conditions, or evidence in this calculus case."
-            }
-          ]
-        },
-        {
-          "prompt": "Before another Error Carried Into Volume decision, the team knows this: the measured excess is 12.0, 8.9, 6.6, 4.9, 3.6 L/min at hours 0-4. Which option correctly applies exponential/logistic/Newton models to this follow-up case?",
-          "hint": "Use the stated evidence and the conditions for exponential/logistic/Newton models; do not choose an option merely because it names a familiar term.",
-          "answer": "B",
-          "options": [
-            {
-              "key": "A",
-              "text": "An equation involving a function and its rate.",
-              "why": "This describes Differential equation, not exponential/logistic/Newton models. It does not account for the quantities, conditions, or evidence in this calculus case."
-            },
-            {
-              "key": "B",
-              "text": "Ratios are near e^-0.3; values approach zero. The correct mechanism determines whether continued head makes the wall safer or worse.",
-              "why": "Correct. ratios are near e^-0.3; values approach zero. The correct mechanism determines whether continued head makes the wall safer or worse."
-            },
-            {
-              "key": "C",
-              "text": "One known point selecting a particular solution.",
-              "why": "This describes Initial condition, not exponential/logistic/Newton models. It does not account for the quantities, conditions, or evidence in this calculus case."
-            },
-            {
-              "key": "D",
-              "text": "Limiting level in a logistic model.",
-              "why": "This describes Carrying capacity, not exponential/logistic/Newton models. It does not account for the quantities, conditions, or evidence in this calculus case."
-            }
-          ]
-        },
-        {
-          "prompt": "Ashfell Dam applies the lesson from The Flow That Eases to this follow-up: because seepage approaches zero, compare a sensor at 70 C cooling toward a 20 C room. Run the reversible comparison now so the crew can tell whether the proposed cause changes the measured response. Which option correctly applies Newton cooling to this follow-up case?",
-          "hint": "Use the stated evidence and the conditions for Newton cooling; do not choose an option merely because it names a familiar term.",
-          "answer": "C",
-          "options": [
-            {
-              "key": "A",
-              "text": "An equation involving a function and its rate.",
-              "why": "This describes Differential equation, not Newton cooling. It does not account for the quantities, conditions, or evidence in this calculus case."
-            },
-            {
-              "key": "B",
-              "text": "One known point selecting a particular solution.",
-              "why": "This describes Initial condition, not Newton cooling. It does not account for the quantities, conditions, or evidence in this calculus case."
-            },
-            {
-              "key": "C",
-              "text": "Ambient sets limit. A nonzero equilibrium separates Newton cooling from simple decay.",
-              "why": "Correct. ambient sets limit. A nonzero equilibrium separates Newton cooling from simple decay."
-            },
-            {
-              "key": "D",
-              "text": "Limiting level in a logistic model.",
-              "why": "This describes Carrying capacity, not Newton cooling. It does not account for the quantities, conditions, or evidence in this calculus case."
+              "why": "This describes carrying capacity. It does not answer the question about newton cooling."
             }
           ]
         }
@@ -4739,66 +4706,58 @@ export const MISSIONS = [
     "briefing": "",
     "stake": "5 work shifts remain before the storm. A fresh sonar roll crowds the old 2003 drawing. Today you decide which lake storage curve to use.",
     "deeper": {
-      "intro": "You completed The Lake Lost Its Room. Choose GO DEEPER to revisit the four decisions and explore related course ideas; this optional review does not change your metrics or delay the next mission.",
+      "intro": "Try six independent practice questions. Each includes its own context and any needed data; no mission records are required.",
       "concepts": [],
       "questions": [
         {
-          "prompt": "In a follow-up to The Lake Lost Its Room, old minus new storage density is d(h)=6-h million cubic metres per metre for 2<=h<=5, and the curves cross at h=6. Which interpretation of the displayed evidence correctly uses the mission concept?",
-          "hint": "Read the axes, units, direction, and any threshold before comparing the choices.",
+          "prompt": "The boundaries are y=6-x and y=0 on 2≤x≤5. What area lies between them?",
+          "hint": "Integrate 6−x from 2 to 5.",
           "answer": "B",
           "figure": {
             "kind": "line",
-            "xLabel": "Time (h)",
-            "yLabel": "Flow rate (m3/s)",
-            "caption": "Inflow and release cross before separating again.",
+            "xLabel": "x (m)",
+            "yLabel": "Height (m)",
+            "caption": "Upper boundary y=6−x and lower boundary y=0, for 2≤x≤5",
             "series": [
               {
-                "name": "Inflow",
+                "name": "Upper boundary",
                 "points": [
                   [
-                    0,
-                    20
-                  ],
-                  [
-                    1,
-                    28
-                  ],
-                  [
                     2,
-                    34
+                    4
                   ],
                   [
                     3,
-                    30
+                    3
                   ],
                   [
                     4,
-                    22
+                    2
+                  ],
+                  [
+                    5,
+                    1
                   ]
                 ]
               },
               {
-                "name": "Release",
+                "name": "Lower boundary",
                 "points": [
                   [
-                    0,
-                    25
-                  ],
-                  [
-                    1,
-                    26
-                  ],
-                  [
                     2,
-                    28
+                    0
                   ],
                   [
                     3,
-                    30
+                    0
                   ],
                   [
                     4,
-                    32
+                    0
+                  ],
+                  [
+                    5,
+                    0
                   ]
                 ]
               }
@@ -4807,137 +4766,129 @@ export const MISSIONS = [
           "options": [
             {
               "key": "A",
-              "text": "Constant height with the same accumulated area.",
-              "why": "This describes Average value, not Area between curves. It does not account for the quantities, conditions, or evidence in this calculus case."
+              "text": "3 m².",
+              "why": "This counts only the interval width."
             },
             {
               "key": "B",
-              "text": "Integral of top minus bottom, split at crossings.",
-              "why": "Correct. integral of top minus bottom, split at crossings."
+              "text": "7.5 m².",
+              "why": "Correct. 7.5 m²."
             },
             {
               "key": "C",
-              "text": "Cross-sectional disk with a hole.",
-              "why": "This describes Washer, not Area between curves. It does not account for the quantities, conditions, or evidence in this calculus case."
+              "text": "15 m².",
+              "why": "This doubles the integral of the height difference."
             },
             {
               "key": "D",
-              "text": "Lost capacity is 7.5 million m^3. Area between the curves is storage capacity lost to silt.",
-              "why": "This describes area between curves/crossings, not Area between curves. It does not account for the quantities, conditions, or evidence in this calculus case."
+              "text": "-7.5 m².",
+              "why": "Geometric area is nonnegative; integrate upper minus lower."
             }
           ]
         },
         {
-          "prompt": "Ashfell Dam receives a second case related to The Lake Lost Its Room: with 7.5 million m^3 lost over a 3 m operating interval, compute the average capacity error per metre. Which option correctly applies Average value to this follow-up case?",
-          "hint": "Use the stated evidence and the conditions for Average value; do not choose an option merely because it names a familiar term.",
+          "prompt": "Which statement best explains average value?",
+          "hint": "Identify the defining relationship or mechanism for average value. All needed information is in this question.",
           "answer": "C",
           "options": [
             {
               "key": "A",
               "text": "Integral of top minus bottom, split at crossings.",
-              "why": "This describes Area between curves, not Average value. It does not account for the quantities, conditions, or evidence in this calculus case."
+              "why": "This describes area between curves. It does not answer the question about average value."
             },
             {
               "key": "B",
               "text": "Cross-sectional disk with a hole.",
-              "why": "This describes Washer, not Average value. It does not account for the quantities, conditions, or evidence in this calculus case."
+              "why": "This describes washer. It does not answer the question about average value."
             },
             {
               "key": "C",
               "text": "Constant height with the same accumulated area.",
-              "why": "Correct. constant height with the same accumulated area."
+              "why": "Correct. Constant height with the same accumulated area."
             },
             {
               "key": "D",
               "text": "Lost capacity is 7.5 million m^3. Area between the curves is storage capacity lost to silt.",
-              "why": "This describes area between curves/crossings, not Average value. It does not account for the quantities, conditions, or evidence in this calculus case."
+              "why": "This describes area between curves and crossings. It does not answer the question about average value."
             }
           ]
         },
         {
-          "prompt": "A teammate rechecks The Lake Lost Its Room using new evidence: old minus new storage density is d(h)=6-h million cubic metres per metre for 2<=h<=5, and the curves cross at h=6. Which option correctly carries out the required Washer reasoning?",
-          "hint": "Use the stated evidence and the conditions for Washer; do not choose an option merely because it names a familiar term.",
+          "prompt": "Which statement best explains washer?",
+          "hint": "Identify the defining relationship or mechanism for washer. All needed information is in this question.",
           "answer": "D",
           "options": [
             {
               "key": "A",
               "text": "Integral of top minus bottom, split at crossings.",
-              "why": "This describes Area between curves, not Washer. It does not account for the quantities, conditions, or evidence in this calculus case."
+              "why": "This describes area between curves. It does not answer the question about washer."
             },
             {
               "key": "B",
               "text": "Constant height with the same accumulated area.",
-              "why": "This describes Average value, not Washer. It does not account for the quantities, conditions, or evidence in this calculus case."
+              "why": "This describes average value. It does not answer the question about washer."
             },
             {
               "key": "C",
               "text": "Lost capacity is 7.5 million m^3. Area between the curves is storage capacity lost to silt.",
-              "why": "This describes area between curves/crossings, not Washer. It does not account for the quantities, conditions, or evidence in this calculus case."
+              "why": "This describes area between curves and crossings. It does not answer the question about washer."
             },
             {
               "key": "D",
               "text": "Cross-sectional disk with a hole.",
-              "why": "Correct. cross-sectional disk with a hole."
+              "why": "Correct. Cross-sectional disk with a hole."
             }
           ]
         },
         {
-          "prompt": "An unseen case extends The Lake Lost Its Room: old minus new storage density is d(h)=6-h million cubic metres per metre for 2<=h<=5, and the curves cross at h=6. Which interpretation of the displayed evidence correctly uses the mission concept?",
-          "hint": "Read the axes, units, direction, and any threshold before comparing the choices.",
+          "prompt": "The boundaries are y=6-x and y=0 on 2≤x≤5. What area lies between them?",
+          "hint": "Integrate 6−x from 2 to 5.",
           "answer": "A",
           "figure": {
             "kind": "line",
-            "xLabel": "Time (h)",
-            "yLabel": "Flow rate (m3/s)",
-            "caption": "Inflow and release cross before separating again.",
+            "xLabel": "x (m)",
+            "yLabel": "Height (m)",
+            "caption": "Upper boundary y=6−x and lower boundary y=0, for 2≤x≤5",
             "series": [
               {
-                "name": "Inflow",
+                "name": "Upper boundary",
                 "points": [
                   [
-                    0,
-                    20
-                  ],
-                  [
-                    1,
-                    28
-                  ],
-                  [
                     2,
-                    34
+                    4
                   ],
                   [
                     3,
-                    30
+                    3
                   ],
                   [
                     4,
-                    22
+                    2
+                  ],
+                  [
+                    5,
+                    1
                   ]
                 ]
               },
               {
-                "name": "Release",
+                "name": "Lower boundary",
                 "points": [
                   [
-                    0,
-                    25
-                  ],
-                  [
-                    1,
-                    26
-                  ],
-                  [
                     2,
-                    28
+                    0
                   ],
                   [
                     3,
-                    30
+                    0
                   ],
                   [
                     4,
-                    32
+                    0
+                  ],
+                  [
+                    5,
+                    0
                   ]
                 ]
               }
@@ -4946,77 +4897,77 @@ export const MISSIONS = [
           "options": [
             {
               "key": "A",
-              "text": "Lost capacity is 7.5 million m^3. Area between the curves is storage capacity lost to silt.",
-              "why": "Correct. lost capacity is 7.5 million m^3. Area between the curves is storage capacity lost to silt."
+              "text": "7.5 m².",
+              "why": "Correct. 7.5 m²."
             },
             {
               "key": "B",
-              "text": "Integral of top minus bottom, split at crossings.",
-              "why": "This describes Area between curves, not area between curves/crossings. It does not account for the quantities, conditions, or evidence in this calculus case."
+              "text": "3 m².",
+              "why": "This counts only the interval width."
             },
             {
               "key": "C",
-              "text": "Constant height with the same accumulated area.",
-              "why": "This describes Average value, not area between curves/crossings. It does not account for the quantities, conditions, or evidence in this calculus case."
+              "text": "15 m².",
+              "why": "This doubles the integral of the height difference."
             },
             {
               "key": "D",
-              "text": "Cross-sectional disk with a hole.",
-              "why": "This describes Washer, not area between curves/crossings. It does not account for the quantities, conditions, or evidence in this calculus case."
+              "text": "-7.5 m².",
+              "why": "Geometric area is nonnegative; integrate upper minus lower."
             }
           ]
         },
         {
-          "prompt": "Before another Quiet-Day Check decision, the team knows this: with 7.5 million m^3 lost over a 3 m operating interval, compute the average capacity error per metre. Which option correctly applies average value/splitting to this follow-up case?",
-          "hint": "Use the stated evidence and the conditions for average value/splitting; do not choose an option merely because it names a familiar term.",
+          "prompt": "For a continuous function f on [a,b], let c=[1/(b-a)]∫ₐᵇf(x)dx. What does replacing f by c preserve?",
+          "hint": "Identify the defining relationship or mechanism for average value and splitting. All needed information is in this question.",
           "answer": "B",
           "options": [
             {
               "key": "A",
               "text": "Integral of top minus bottom, split at crossings.",
-              "why": "This describes Area between curves, not average value/splitting. It does not account for the quantities, conditions, or evidence in this calculus case."
+              "why": "This describes area between curves. It does not answer the question about average value and splitting."
             },
             {
               "key": "B",
-              "text": "Average preserves the integral but not pointwise change. Average value summarizes total loss but not local sensitivity.",
-              "why": "Correct. average preserves the integral but not pointwise change. Average value summarizes total loss but not local sensitivity."
+              "text": "The integral over [a,b], but not necessarily any individual function value.",
+              "why": "Correct. The integral over [a,b], but not necessarily any individual function value."
             },
             {
               "key": "C",
               "text": "Constant height with the same accumulated area.",
-              "why": "This describes Average value, not average value/splitting. It does not account for the quantities, conditions, or evidence in this calculus case."
+              "why": "This describes average value. It does not answer the question about average value and splitting."
             },
             {
               "key": "D",
               "text": "Cross-sectional disk with a hole.",
-              "why": "This describes Washer, not average value/splitting. It does not account for the quantities, conditions, or evidence in this calculus case."
+              "why": "This describes washer. It does not answer the question about average value and splitting."
             }
           ]
         },
         {
-          "prompt": "Ashfell Dam applies the lesson from The Lake Lost Its Room to this follow-up: because the integrated loss is large, verify the resurvey's identity, timing, and physical control with a limit of three record checks. Before the record can be signed, identify which claims have independent support and which must remain unverified. Which option correctly applies evidence independence to this follow-up case?",
-          "hint": "Use the stated evidence and the conditions for evidence independence; do not choose an option merely because it names a familiar term.",
+          "prompt": "Two lake-volume estimates use the same sonar file. A third uses a separate survey and calibration. Which evidence best tests whether a discrepancy reflects real change?",
+          "hint": "Identify the defining relationship or mechanism for evidence independence. All needed information is in this question.",
           "answer": "C",
           "options": [
             {
               "key": "A",
               "text": "Integral of top minus bottom, split at crossings.",
-              "why": "This describes Area between curves, not evidence independence. It does not account for the quantities, conditions, or evidence in this calculus case."
+              "why": "This describes area between curves. It does not answer the question about evidence independence."
             },
             {
               "key": "B",
               "text": "Constant height with the same accumulated area.",
-              "why": "This describes Average value, not evidence independence. It does not account for the quantities, conditions, or evidence in this calculus case."
+              "why": "This describes average value. It does not answer the question about evidence independence."
             },
             {
               "key": "C",
-              "text": "Independent transects and calibration support real silt loss. Independent physical records decide whether curve disagreement is real or clerical.",
-              "why": "Correct. independent transects and calibration support real silt loss. Independent physical records decide whether curve disagreement is real or clerical."
+              "text": "The separately surveyed and calibrated estimate provides a check that does not repeat the first file's errors.",
+              "why": "Correct. The separately surveyed and calibrated estimate provides a check that does not repeat the first file's errors."
             },
             {
               "key": "D",
               "text": "Cross-sectional disk with a hole.",
-              "why": "This describes Washer, not evidence independence. It does not account for the quantities, conditions, or evidence in this calculus case."
+              "why": "This describes washer. It does not answer the question about evidence independence."
             }
           ]
         }
@@ -5315,168 +5266,168 @@ export const MISSIONS = [
     "briefing": "",
     "stake": "4 work shifts remain before the storm. A runner crate blocks one of the two machine bays. Today you decide which machines can repeat the release.",
     "deeper": {
-      "intro": "You completed The Runner in the Crate. Choose GO DEEPER to revisit the four decisions and explore related course ideas; this optional review does not change your metrics or delay the next mission.",
+      "intro": "Try six independent practice questions. Each includes its own context and any needed data; no mission records are required.",
       "concepts": [],
       "questions": [
         {
-          "prompt": "In a follow-up to The Runner in the Crate, the runner passage is generated by rotating outer radius R(x)=2 m and inner radius r(x)=x/2 m for 0<=x<=2 m. Which option correctly applies Disk to this follow-up case?",
-          "hint": "Use the stated evidence and the conditions for Disk; do not choose an option merely because it names a familiar term.",
-          "answer": "B",
+          "prompt": "Which statement best explains disk?",
+          "hint": "Identify the defining relationship or mechanism for disk. All needed information is in this question.",
+          "answer": "D",
           "options": [
             {
               "key": "A",
               "text": "Circular cross-section with an inner hole.",
-              "why": "This describes Washer, not Disk. It does not account for the quantities, conditions, or evidence in this calculus case."
+              "why": "This describes washer. It does not answer the question about disk."
             },
             {
               "key": "B",
-              "text": "Circular cross-section with no hole.",
-              "why": "Correct. circular cross-section with no hole."
+              "text": "Thin cylindrical layer.",
+              "why": "This describes shell. It does not answer the question about disk."
             },
             {
               "key": "C",
-              "text": "Thin cylindrical layer.",
-              "why": "This describes Shell, not Disk. It does not account for the quantities, conditions, or evidence in this calculus case."
+              "text": "Accumulated force through distance.",
+              "why": "This describes work. It does not answer the question about disk."
             },
             {
               "key": "D",
-              "text": "Accumulated force through distance.",
-              "why": "This describes Work, not Disk. It does not account for the quantities, conditions, or evidence in this calculus case."
+              "text": "Circular cross-section with no hole.",
+              "why": "Correct. Circular cross-section with no hole."
             }
           ]
         },
         {
-          "prompt": "Ashfell Dam receives a second case related to The Runner in the Crate: the runner passage is generated by rotating outer radius R(x)=2 m and inner radius r(x)=x/2 m for 0<=x<=2 m. Which option correctly carries out the required Washer reasoning?",
-          "hint": "Use the stated evidence and the conditions for Washer; do not choose an option merely because it names a familiar term.",
+          "prompt": "Which statement best explains washer?",
+          "hint": "Identify the defining relationship or mechanism for washer. All needed information is in this question.",
+          "answer": "A",
+          "options": [
+            {
+              "key": "A",
+              "text": "Circular cross-section with an inner hole.",
+              "why": "Correct. Circular cross-section with an inner hole."
+            },
+            {
+              "key": "B",
+              "text": "Circular cross-section with no hole.",
+              "why": "This describes disk. It does not answer the question about washer."
+            },
+            {
+              "key": "C",
+              "text": "Thin cylindrical layer.",
+              "why": "This describes shell. It does not answer the question about washer."
+            },
+            {
+              "key": "D",
+              "text": "Accumulated force through distance.",
+              "why": "This describes work. It does not answer the question about washer."
+            }
+          ]
+        },
+        {
+          "prompt": "Which statement best explains shell?",
+          "hint": "Identify the defining relationship or mechanism for shell. All needed information is in this question.",
+          "answer": "B",
+          "options": [
+            {
+              "key": "A",
+              "text": "Circular cross-section with no hole.",
+              "why": "This describes disk. It does not answer the question about shell."
+            },
+            {
+              "key": "B",
+              "text": "Thin cylindrical layer.",
+              "why": "Correct. Thin cylindrical layer."
+            },
+            {
+              "key": "C",
+              "text": "Circular cross-section with an inner hole.",
+              "why": "This describes washer. It does not answer the question about shell."
+            },
+            {
+              "key": "D",
+              "text": "Accumulated force through distance.",
+              "why": "This describes work. It does not answer the question about shell."
+            }
+          ]
+        },
+        {
+          "prompt": "Which statement best explains work?",
+          "hint": "Identify the defining relationship or mechanism for work. All needed information is in this question.",
           "answer": "C",
           "options": [
             {
               "key": "A",
               "text": "Circular cross-section with no hole.",
-              "why": "This describes Disk, not Washer. It does not account for the quantities, conditions, or evidence in this calculus case."
+              "why": "This describes disk. It does not answer the question about work."
             },
             {
               "key": "B",
-              "text": "Thin cylindrical layer.",
-              "why": "This describes Shell, not Washer. It does not account for the quantities, conditions, or evidence in this calculus case."
+              "text": "Circular cross-section with an inner hole.",
+              "why": "This describes washer. It does not answer the question about work."
             },
             {
               "key": "C",
-              "text": "Circular cross-section with an inner hole.",
-              "why": "Correct. circular cross-section with an inner hole."
+              "text": "Accumulated force through distance.",
+              "why": "Correct. Accumulated force through distance."
             },
             {
               "key": "D",
-              "text": "Accumulated force through distance.",
-              "why": "This describes Work, not Washer. It does not account for the quantities, conditions, or evidence in this calculus case."
+              "text": "Thin cylindrical layer.",
+              "why": "This describes shell. It does not answer the question about work."
             }
           ]
         },
         {
-          "prompt": "A teammate rechecks The Runner in the Crate using new evidence: because washers quantify the runner, a cylindrical gate recess formed by rotating y=3-x about the y-axis for 0<=x<=3 now needs a setup. The next action depends on selecting the conclusion that fits all of those facts. Which option correctly carries out the required Shell reasoning?",
-          "hint": "Use the stated evidence and the conditions for Shell; do not choose an option merely because it names a familiar term.",
+          "prompt": "A solid is formed by rotating the region with outer radius R(x)=2 and inner radius r(x)=x/2 about the x-axis, for 0≤x≤2. Lengths are in metres. What is its volume?",
+          "hint": "Identify the defining relationship or mechanism for disk and washer volume. All needed information is in this question.",
           "answer": "D",
           "options": [
             {
               "key": "A",
               "text": "Circular cross-section with no hole.",
-              "why": "This describes Disk, not Shell. It does not account for the quantities, conditions, or evidence in this calculus case."
+              "why": "This describes disk. It does not answer the question about disk and washer volume."
             },
             {
               "key": "B",
               "text": "Circular cross-section with an inner hole.",
-              "why": "This describes Washer, not Shell. It does not account for the quantities, conditions, or evidence in this calculus case."
+              "why": "This describes washer. It does not answer the question about disk and washer volume."
             },
             {
               "key": "C",
-              "text": "Accumulated force through distance.",
-              "why": "This describes Work, not Shell. It does not account for the quantities, conditions, or evidence in this calculus case."
+              "text": "Thin cylindrical layer.",
+              "why": "This describes shell. It does not answer the question about disk and washer volume."
             },
             {
               "key": "D",
-              "text": "Thin cylindrical layer.",
-              "why": "Correct. thin cylindrical layer."
+              "text": "π∫₀²[4-x²/4]dx=22π/3 m³≈23.038 m³.",
+              "why": "Correct. π∫₀²[4-x²/4]dx=22π/3 m³≈23.038 m³."
             }
           ]
         },
         {
-          "prompt": "An unseen case extends The Runner in the Crate: the seal acts like a spring with campaign test stiffness k=8000 N/m over 0.30 m, plus constant 1200 N friction. Commit the prediction and run the test now so the measurement can fairly accept or reject the proposed model. Which option correctly applies Work to this follow-up case?",
-          "hint": "Use the stated evidence and the conditions for Work; do not choose an option merely because it names a familiar term.",
+          "prompt": "The region under y=3-x for 0≤x≤3 is rotated about the y-axis. Which shell integral gives its volume in cubic units?",
+          "hint": "Identify the defining relationship or mechanism for shell versus washer. All needed information is in this question.",
           "answer": "A",
           "options": [
             {
               "key": "A",
-              "text": "Accumulated force through distance.",
-              "why": "Correct. accumulated force through distance."
+              "text": "2π∫₀³x(3-x)dx=9π.",
+              "why": "Correct. 2π∫₀³x(3-x)dx=9π."
             },
             {
               "key": "B",
               "text": "Circular cross-section with no hole.",
-              "why": "This describes Disk, not Work. It does not account for the quantities, conditions, or evidence in this calculus case."
+              "why": "This describes disk. It does not answer the question about shell versus washer."
             },
             {
               "key": "C",
               "text": "Circular cross-section with an inner hole.",
-              "why": "This describes Washer, not Work. It does not account for the quantities, conditions, or evidence in this calculus case."
+              "why": "This describes washer. It does not answer the question about shell versus washer."
             },
             {
               "key": "D",
               "text": "Thin cylindrical layer.",
-              "why": "This describes Shell, not Work. It does not account for the quantities, conditions, or evidence in this calculus case."
-            }
-          ]
-        },
-        {
-          "prompt": "Before another Decay Constant, Scored decision, the team knows this: the runner passage is generated by rotating outer radius R(x)=2 m and inner radius r(x)=x/2 m for 0<=x<=2 m. Which option correctly carries out the required disk/washer volume reasoning?",
-          "hint": "Use the stated evidence and the conditions for disk/washer volume; do not choose an option merely because it names a familiar term.",
-          "answer": "B",
-          "options": [
-            {
-              "key": "A",
-              "text": "Circular cross-section with no hole.",
-              "why": "This describes Disk, not disk/washer volume. It does not account for the quantities, conditions, or evidence in this calculus case."
-            },
-            {
-              "key": "B",
-              "text": "Runner passage volume is 22pi/3 = 23.038 m^3. Passage volume quantifies the turbine capacity the revised schedule has lost.",
-              "why": "Correct. runner passage volume is 22pi/3 = 23.038 m^3. Passage volume quantifies the turbine capacity the revised schedule has lost."
-            },
-            {
-              "key": "C",
-              "text": "Circular cross-section with an inner hole.",
-              "why": "This describes Washer, not disk/washer volume. It does not account for the quantities, conditions, or evidence in this calculus case."
-            },
-            {
-              "key": "D",
-              "text": "Thin cylindrical layer.",
-              "why": "This describes Shell, not disk/washer volume. It does not account for the quantities, conditions, or evidence in this calculus case."
-            }
-          ]
-        },
-        {
-          "prompt": "Ashfell Dam applies the lesson from The Runner in the Crate to this follow-up: because washers quantify the runner, a cylindrical gate recess formed by rotating y=3-x about the y-axis for 0<=x<=3 now needs a setup. The next action depends on selecting the conclusion that fits all of those facts. Which option correctly carries out the required shell versus washer reasoning?",
-          "hint": "Use the stated evidence and the conditions for shell versus washer; do not choose an option merely because it names a familiar term.",
-          "answer": "C",
-          "options": [
-            {
-              "key": "A",
-              "text": "Circular cross-section with no hole.",
-              "why": "This describes Disk, not shell versus washer. It does not account for the quantities, conditions, or evidence in this calculus case."
-            },
-            {
-              "key": "B",
-              "text": "Circular cross-section with an inner hole.",
-              "why": "This describes Washer, not shell versus washer. It does not account for the quantities, conditions, or evidence in this calculus case."
-            },
-            {
-              "key": "C",
-              "text": "2pi integral_0^3 x(3-x)dx=9pi m^3. The correct slice orientation prevents a costly geometry error.",
-              "why": "Correct. 2pi integral_0^3 x(3-x)dx=9pi m^3. The correct slice orientation prevents a costly geometry error."
-            },
-            {
-              "key": "D",
-              "text": "Thin cylindrical layer.",
-              "why": "This describes Shell, not shell versus washer. It does not account for the quantities, conditions, or evidence in this calculus case."
+              "why": "This describes shell. It does not answer the question about shell versus washer."
             }
           ]
         }
@@ -5770,168 +5721,168 @@ export const MISSIONS = [
     "briefing": "",
     "stake": "3 work shifts remain before the storm. The new survey and old fit lie on separate hooks. Today you decide whether the corrected plan has enough margin.",
     "deeper": {
-      "intro": "You completed The Margin That Survives. Choose GO DEEPER to revisit the four decisions and explore related course ideas; this optional review does not change your metrics or delay the next mission.",
+      "intro": "Try six independent practice questions. Each includes its own context and any needed data; no mission records are required.",
       "concepts": [],
       "questions": [
         {
-          "prompt": "In a follow-up to The Margin That Survives, the corrected storage curve has dV/dh=2.0 million m3/m, and level uncertainty is ±0.015 m. Carry each uncertainty into the final result now so the team can choose the measurement that would reduce the decision risk. Which option correctly carries out the required Linearization reasoning?",
-          "hint": "Use the stated evidence and the conditions for Linearization; do not choose an option merely because it names a familiar term.",
+          "prompt": "Which statement best explains linearization?",
+          "hint": "Identify the defining relationship or mechanism for linearization. All needed information is in this question.",
           "answer": "B",
           "options": [
             {
               "key": "A",
               "text": "Output uncertainty caused by input uncertainty.",
-              "why": "This describes Propagated error, not Linearization. It does not account for the quantities, conditions, or evidence in this calculus case."
+              "why": "This describes propagated error. It does not answer the question about linearization."
             },
             {
               "key": "B",
               "text": "Tangent-line estimate of a nearby output.",
-              "why": "Correct. tangent-line estimate of a nearby output."
+              "why": "Correct. Tangent-line estimate of a nearby output."
             },
             {
               "key": "C",
               "text": "Two parameter choices fitting the same evidence.",
-              "why": "This describes Degeneracy, not Linearization. It does not account for the quantities, conditions, or evidence in this calculus case."
+              "why": "This describes degeneracy. It does not answer the question about linearization."
             },
             {
               "key": "D",
               "text": "2.0*.015=.030<.10; improve level. Only an error large enough to consume the margin can reverse authorization.",
-              "why": "This describes linear approximation/error budget, not Linearization. It does not account for the quantities, conditions, or evidence in this calculus case."
+              "why": "This describes linear approximation and error budget. It does not answer the question about linearization."
             }
           ]
         },
         {
-          "prompt": "Ashfell Dam receives a second case related to The Margin That Survives: the corrected storage curve has dV/dh=2.0 million m3/m, and level uncertainty is ±0.015 m. Carry each uncertainty into the final result now so the team can choose the measurement that would reduce the decision risk. Which statistical conclusion or procedure correctly uses Propagated error?",
-          "hint": "Use the stated evidence and the conditions for Propagated error; do not choose an option merely because it names a familiar term.",
+          "prompt": "Which statement best explains propagated error?",
+          "hint": "Identify the defining relationship or mechanism for propagated error. All needed information is in this question.",
           "answer": "C",
           "options": [
             {
               "key": "A",
               "text": "Tangent-line estimate of a nearby output.",
-              "why": "This describes Linearization, not Propagated error. It does not account for the quantities, conditions, or evidence in this calculus case."
+              "why": "This describes linearization. It does not answer the question about propagated error."
             },
             {
               "key": "B",
               "text": "Two parameter choices fitting the same evidence.",
-              "why": "This describes Degeneracy, not Propagated error. It does not account for the quantities, conditions, or evidence in this calculus case."
+              "why": "This describes degeneracy. It does not answer the question about propagated error."
             },
             {
               "key": "C",
               "text": "Output uncertainty caused by input uncertainty.",
-              "why": "Correct. output uncertainty caused by input uncertainty."
+              "why": "Correct. Output uncertainty caused by input uncertainty."
             },
             {
               "key": "D",
               "text": "2.0*.015=.030<.10; improve level. Only an error large enough to consume the margin can reverse authorization.",
-              "why": "This describes linear approximation/error budget, not Propagated error. It does not account for the quantities, conditions, or evidence in this calculus case."
+              "why": "This describes linear approximation and error budget. It does not answer the question about propagated error."
             }
           ]
         },
         {
-          "prompt": "A teammate rechecks The Margin That Survives using new evidence: trapezoidal accumulation is accepted, but storage totals can still be matched by a level offset b or scale factor s. Add the missing constraint now so the team can separate the explanations that still fit the earlier evidence. Which option correctly applies Degeneracy to this follow-up case?",
-          "hint": "Use the stated evidence and the conditions for Degeneracy; do not choose an option merely because it names a familiar term.",
+          "prompt": "Which statement best explains degeneracy?",
+          "hint": "Identify the defining relationship or mechanism for degeneracy. All needed information is in this question.",
           "answer": "D",
           "options": [
             {
               "key": "A",
               "text": "Tangent-line estimate of a nearby output.",
-              "why": "This describes Linearization, not Degeneracy. It does not account for the quantities, conditions, or evidence in this calculus case."
+              "why": "This describes linearization. It does not answer the question about degeneracy."
             },
             {
               "key": "B",
               "text": "Output uncertainty caused by input uncertainty.",
-              "why": "This describes Propagated error, not Degeneracy. It does not account for the quantities, conditions, or evidence in this calculus case."
+              "why": "This describes propagated error. It does not answer the question about degeneracy."
             },
             {
               "key": "C",
               "text": "2.0*.015=.030<.10; improve level. Only an error large enough to consume the margin can reverse authorization.",
-              "why": "This describes linear approximation/error budget, not Degeneracy. It does not account for the quantities, conditions, or evidence in this calculus case."
+              "why": "This describes linear approximation and error budget. It does not answer the question about degeneracy."
             },
             {
               "key": "D",
               "text": "Two parameter choices fitting the same evidence.",
-              "why": "Correct. two parameter choices fitting the same evidence."
+              "why": "Correct. Two parameter choices fitting the same evidence."
             }
           ]
         },
         {
-          "prompt": "An unseen case extends The Margin That Survives: the corrected storage curve has dV/dh=2.0 million m3/m, and level uncertainty is ±0.015 m. Carry each uncertainty into the final result now so the team can choose the measurement that would reduce the decision risk. Which statistical conclusion or procedure correctly uses linear approximation/error budget?",
-          "hint": "Use the stated evidence and the conditions for linear approximation/error budget; do not choose an option merely because it names a familiar term.",
+          "prompt": "A volume estimate has sensitivity dV/dh=2.0 million m³ per metre. Level uncertainty is 0.015 m and the allowed volume error is 0.10 million m³. Does the linearized error fit the allowance?",
+          "hint": "Identify the defining relationship or mechanism for linear approximation and error budget. All needed information is in this question.",
           "answer": "A",
           "options": [
             {
               "key": "A",
-              "text": "2.0*.015=.030<.10; improve level. Only an error large enough to consume the margin can reverse authorization.",
-              "why": "Correct. 2.0*.015=.030<.10; improve level. Only an error large enough to consume the margin can reverse authorization."
+              "text": "The estimated error is 2.0×0.015=0.030 million m³, below the 0.10 allowance.",
+              "why": "Correct. The estimated error is 2.0×0.015=0.030 million m³, below the 0.10 allowance."
             },
             {
               "key": "B",
               "text": "Tangent-line estimate of a nearby output.",
-              "why": "This describes Linearization, not linear approximation/error budget. It does not account for the quantities, conditions, or evidence in this calculus case."
+              "why": "This describes linearization. It does not answer the question about linear approximation and error budget."
             },
             {
               "key": "C",
               "text": "Output uncertainty caused by input uncertainty.",
-              "why": "This describes Propagated error, not linear approximation/error budget. It does not account for the quantities, conditions, or evidence in this calculus case."
+              "why": "This describes propagated error. It does not answer the question about linear approximation and error budget."
             },
             {
               "key": "D",
               "text": "Two parameter choices fitting the same evidence.",
-              "why": "This describes Degeneracy, not linear approximation/error budget. It does not account for the quantities, conditions, or evidence in this calculus case."
+              "why": "This describes degeneracy. It does not answer the question about linear approximation and error budget."
             }
           ]
         },
         {
-          "prompt": "Before another Three-Before-Nine Order decision, the team knows this: because level error is tolerable, compare residuals from left, right, and trapezoidal accumulation against independent totals. Which statistical conclusion or procedure correctly uses approximation error/sum accuracy?",
-          "hint": "Use the stated evidence and the conditions for approximation error/sum accuracy; do not choose an option merely because it names a familiar term.",
+          "prompt": "Two models are checked on data withheld from fitting. One has small errors of mixed signs; the other repeatedly underpredicts. Which result better supports an unbiased prediction?",
+          "hint": "Identify the defining relationship or mechanism for approximation error and sum accuracy. All needed information is in this question.",
           "answer": "B",
           "options": [
             {
               "key": "A",
               "text": "Tangent-line estimate of a nearby output.",
-              "why": "This describes Linearization, not approximation error/sum accuracy. It does not account for the quantities, conditions, or evidence in this calculus case."
+              "why": "This describes linearization. It does not answer the question about approximation error and sum accuracy."
             },
             {
               "key": "B",
-              "text": "Small alternating residuals survive holdout; left/right directional errors track changing curve. A repeated sign would push every release decision in the same unsafe direction.",
-              "why": "Correct. small alternating residuals survive holdout; left/right directional errors track changing curve. A repeated sign would push every release decision in the same unsafe direction."
+              "text": "The small errors of mixed signs provide better support; repeated underprediction indicates a systematic error.",
+              "why": "Correct. The small errors of mixed signs provide better support; repeated underprediction indicates a systematic error."
             },
             {
               "key": "C",
               "text": "Output uncertainty caused by input uncertainty.",
-              "why": "This describes Propagated error, not approximation error/sum accuracy. It does not account for the quantities, conditions, or evidence in this calculus case."
+              "why": "This describes propagated error. It does not answer the question about approximation error and sum accuracy."
             },
             {
               "key": "D",
               "text": "Two parameter choices fitting the same evidence.",
-              "why": "This describes Degeneracy, not approximation error/sum accuracy. It does not account for the quantities, conditions, or evidence in this calculus case."
+              "why": "This describes degeneracy. It does not answer the question about approximation error and sum accuracy."
             }
           ]
         },
         {
-          "prompt": "Ashfell Dam applies the lesson from The Margin That Survives to this follow-up: trapezoidal accumulation is accepted, but storage totals can still be matched by a level offset b or scale factor s. Add the missing constraint now so the team can separate the explanations that still fit the earlier evidence. Which option correctly applies sensitivity/systematics to this follow-up case?",
-          "hint": "Use the stated evidence and the conditions for sensitivity/systematics; do not choose an option merely because it names a familiar term.",
+          "prompt": "Two combinations of sensor offset and scale fit the same volume data. An independent pressure measurement differs between the combinations. Why collect it?",
+          "hint": "Identify the defining relationship or mechanism for sensitivity and systematics. All needed information is in this question.",
           "answer": "C",
           "options": [
             {
               "key": "A",
               "text": "Tangent-line estimate of a nearby output.",
-              "why": "This describes Linearization, not sensitivity/systematics. It does not account for the quantities, conditions, or evidence in this calculus case."
+              "why": "This describes linearization. It does not answer the question about sensitivity and systematics."
             },
             {
               "key": "B",
               "text": "Output uncertainty caused by input uncertainty.",
-              "why": "This describes Propagated error, not sensitivity/systematics. It does not account for the quantities, conditions, or evidence in this calculus case."
+              "why": "This describes propagated error. It does not answer the question about sensitivity and systematics."
             },
             {
               "key": "C",
-              "text": "Volume alone is degenerate; uplift fixes offset. A second physical constraint prevents two adjustable errors from sharing one apparent fix.",
-              "why": "Correct. volume alone is degenerate; uplift fixes offset. A second physical constraint prevents two adjustable errors from sharing one apparent fix."
+              "text": "Its different dependence on the parameters can distinguish combinations that the volume data cannot separate.",
+              "why": "Correct. Its different dependence on the parameters can distinguish combinations that the volume data cannot separate."
             },
             {
               "key": "D",
               "text": "Two parameter choices fitting the same evidence.",
-              "why": "This describes Degeneracy, not sensitivity/systematics. It does not account for the quantities, conditions, or evidence in this calculus case."
+              "why": "This describes degeneracy. It does not answer the question about sensitivity and systematics."
             }
           ]
         }
@@ -6194,168 +6145,168 @@ export const MISSIONS = [
     "briefing": "",
     "stake": "2 work shifts remain before the storm. Two acknowledgement boxes are empty beside a running clock. Today you decide which warning repairs must come first.",
     "deeper": {
-      "intro": "You completed Four Voices Back. Choose GO DEEPER to revisit the four decisions and explore related course ideas; this optional review does not change your metrics or delay the next mission.",
+      "intro": "Try six independent practice questions. Each includes its own context and any needed data; no mission records are required.",
       "concepts": [],
       "questions": [
         {
-          "prompt": "In a follow-up to Four Voices Back, repair benefit is R(x)=18x-x^2 and coordination cost is C(x)=2x+8, where x crews can range from 0 to 6. Which option correctly applies Constraint to this follow-up case?",
-          "hint": "Use the stated evidence and the conditions for Constraint; do not choose an option merely because it names a familiar term.",
-          "answer": "B",
+          "prompt": "Which statement best explains constraint?",
+          "hint": "Identify the defining relationship or mechanism for constraint. All needed information is in this question.",
+          "answer": "D",
           "options": [
             {
               "key": "A",
               "text": "The quantity optimized.",
-              "why": "This describes Objective function, not Constraint. It does not account for the quantities, conditions, or evidence in this calculus case."
+              "why": "This describes objective function. It does not answer the question about constraint."
             },
             {
               "key": "B",
-              "text": "A requirement a solution must satisfy.",
-              "why": "Correct. a requirement a solution must satisfy."
+              "text": "A choice satisfying every constraint.",
+              "why": "This describes feasible point. It does not answer the question about constraint."
             },
             {
               "key": "C",
-              "text": "A choice satisfying every constraint.",
-              "why": "This describes Feasible point, not Constraint. It does not account for the quantities, conditions, or evidence in this calculus case."
+              "text": "Unconstrained critical point 8 lies outside [0,6], so endpoints control. The optimum sets the fastest useful repair without wasting scarce operators.",
+              "why": "This describes optimization and marginal value. It does not answer the question about constraint."
             },
             {
               "key": "D",
-              "text": "Unconstrained critical point 8 lies outside [0,6], so endpoints control. The optimum sets the fastest useful repair without wasting scarce operators.",
-              "why": "This describes optimization/marginal value, not Constraint. It does not account for the quantities, conditions, or evidence in this calculus case."
+              "text": "A requirement a solution must satisfy.",
+              "why": "Correct. A requirement a solution must satisfy."
             }
           ]
         },
         {
-          "prompt": "Ashfell Dam receives a second case related to Four Voices Back: repair benefit is R(x)=18x-x^2 and coordination cost is C(x)=2x+8, where x crews can range from 0 to 6. Which option correctly applies Objective function to this follow-up case?",
-          "hint": "Use the stated evidence and the conditions for Objective function; do not choose an option merely because it names a familiar term.",
+          "prompt": "Which statement best explains objective function?",
+          "hint": "Identify the defining relationship or mechanism for objective function. All needed information is in this question.",
+          "answer": "A",
+          "options": [
+            {
+              "key": "A",
+              "text": "The quantity optimized.",
+              "why": "Correct. The quantity optimized."
+            },
+            {
+              "key": "B",
+              "text": "A requirement a solution must satisfy.",
+              "why": "This describes constraint. It does not answer the question about objective function."
+            },
+            {
+              "key": "C",
+              "text": "A choice satisfying every constraint.",
+              "why": "This describes feasible point. It does not answer the question about objective function."
+            },
+            {
+              "key": "D",
+              "text": "Unconstrained critical point 8 lies outside [0,6], so endpoints control. The optimum sets the fastest useful repair without wasting scarce operators.",
+              "why": "This describes optimization and marginal value. It does not answer the question about objective function."
+            }
+          ]
+        },
+        {
+          "prompt": "Which statement best explains feasible point?",
+          "hint": "Identify the defining relationship or mechanism for feasible point. All needed information is in this question.",
+          "answer": "B",
+          "options": [
+            {
+              "key": "A",
+              "text": "A requirement a solution must satisfy.",
+              "why": "This describes constraint. It does not answer the question about feasible point."
+            },
+            {
+              "key": "B",
+              "text": "A choice satisfying every constraint.",
+              "why": "Correct. A choice satisfying every constraint."
+            },
+            {
+              "key": "C",
+              "text": "The quantity optimized.",
+              "why": "This describes objective function. It does not answer the question about feasible point."
+            },
+            {
+              "key": "D",
+              "text": "Unconstrained critical point 8 lies outside [0,6], so endpoints control. The optimum sets the fastest useful repair without wasting scarce operators.",
+              "why": "This describes optimization and marginal value. It does not answer the question about feasible point."
+            }
+          ]
+        },
+        {
+          "prompt": "A concave objective has derivative F′(x)=16-2x and feasible interval 0≤x≤6. Where is its maximum on the feasible interval?",
+          "hint": "Identify the defining relationship or mechanism for optimization and marginal value. All needed information is in this question.",
           "answer": "C",
           "options": [
             {
               "key": "A",
               "text": "A requirement a solution must satisfy.",
-              "why": "This describes Constraint, not Objective function. It does not account for the quantities, conditions, or evidence in this calculus case."
+              "why": "This describes constraint. It does not answer the question about optimization and marginal value."
             },
             {
               "key": "B",
-              "text": "A choice satisfying every constraint.",
-              "why": "This describes Feasible point, not Objective function. It does not account for the quantities, conditions, or evidence in this calculus case."
+              "text": "The quantity optimized.",
+              "why": "This describes objective function. It does not answer the question about optimization and marginal value."
             },
             {
               "key": "C",
-              "text": "The quantity optimized.",
-              "why": "Correct. the quantity optimized."
+              "text": "At x=6: F′ stays positive on the feasible interval, and the unconstrained critical point x=8 is not allowed.",
+              "why": "Correct. At x=6: F′ stays positive on the feasible interval, and the unconstrained critical point x=8 is not allowed."
             },
             {
               "key": "D",
-              "text": "Unconstrained critical point 8 lies outside [0,6], so endpoints control. The optimum sets the fastest useful repair without wasting scarce operators.",
-              "why": "This describes optimization/marginal value, not Objective function. It does not account for the quantities, conditions, or evidence in this calculus case."
+              "text": "A choice satisfying every constraint.",
+              "why": "This describes feasible point. It does not answer the question about optimization and marginal value."
             }
           ]
         },
         {
-          "prompt": "A teammate rechecks Four Voices Back using new evidence: repair benefit is R(x)=18x-x^2 and coordination cost is C(x)=2x+8, where x crews can range from 0 to 6. Which option correctly applies Feasible point to this follow-up case?",
-          "hint": "Use the stated evidence and the conditions for Feasible point; do not choose an option merely because it names a familiar term.",
+          "prompt": "Two crews must repair three independent warning circuits. Road takes 2 h and is due in 2 h; School takes 3 h and is due in 3 h; Farm takes 1 h and is due in 5 h. What should start first?",
+          "hint": "Identify the defining relationship or mechanism for constrained decision and extrema. All needed information is in this question.",
           "answer": "D",
           "options": [
             {
               "key": "A",
               "text": "A requirement a solution must satisfy.",
-              "why": "This describes Constraint, not Feasible point. It does not account for the quantities, conditions, or evidence in this calculus case."
+              "why": "This describes constraint. It does not answer the question about constrained decision and extrema."
             },
             {
               "key": "B",
               "text": "The quantity optimized.",
-              "why": "This describes Objective function, not Feasible point. It does not account for the quantities, conditions, or evidence in this calculus case."
+              "why": "This describes objective function. It does not answer the question about constrained decision and extrema."
             },
             {
               "key": "C",
-              "text": "Unconstrained critical point 8 lies outside [0,6], so endpoints control. The optimum sets the fastest useful repair without wasting scarce operators.",
-              "why": "This describes optimization/marginal value, not Feasible point. It does not account for the quantities, conditions, or evidence in this calculus case."
+              "text": "A choice satisfying every constraint.",
+              "why": "This describes feasible point. It does not answer the question about constrained decision and extrema."
             },
             {
               "key": "D",
-              "text": "A choice satisfying every constraint.",
-              "why": "Correct. a choice satisfying every constraint."
+              "text": "Start Road and School together, then use the first available crew for Farm.",
+              "why": "Correct. Start Road and School together, then use the first available crew for Farm."
             }
           ]
         },
         {
-          "prompt": "An unseen case extends Four Voices Back: repair benefit is R(x)=18x-x^2 and coordination cost is C(x)=2x+8, where x crews can range from 0 to 6. Which option correctly applies optimization/marginal value to this follow-up case?",
-          "hint": "Use the stated evidence and the conditions for optimization/marginal value; do not choose an option merely because it names a familiar term.",
+          "prompt": "A level model has H(0)=4.00 m and dH/dt=0.1H(1-H/10) m/h. Use one Euler step of 1.5 h. What level is predicted?",
+          "hint": "Identify the defining relationship or mechanism for euler and logistic delay. All needed information is in this question.",
           "answer": "A",
           "options": [
             {
               "key": "A",
-              "text": "Unconstrained critical point 8 lies outside [0,6], so endpoints control. The optimum sets the fastest useful repair without wasting scarce operators.",
-              "why": "Correct. unconstrained critical point 8 lies outside [0,6], so endpoints control. The optimum sets the fastest useful repair without wasting scarce operators."
+              "text": "H(1.5)≈4.00+1.5×0.1×4.00×(1-4.00/10)=4.36 m.",
+              "why": "Correct. H(1.5)≈4.00+1.5×0.1×4.00×(1-4.00/10)=4.36 m."
             },
             {
               "key": "B",
               "text": "A requirement a solution must satisfy.",
-              "why": "This describes Constraint, not optimization/marginal value. It does not account for the quantities, conditions, or evidence in this calculus case."
+              "why": "This describes constraint. It does not answer the question about euler and logistic delay."
             },
             {
               "key": "C",
               "text": "The quantity optimized.",
-              "why": "This describes Objective function, not optimization/marginal value. It does not account for the quantities, conditions, or evidence in this calculus case."
+              "why": "This describes objective function. It does not answer the question about euler and logistic delay."
             },
             {
               "key": "D",
               "text": "A choice satisfying every constraint.",
-              "why": "This describes Feasible point, not optimization/marginal value. It does not account for the quantities, conditions, or evidence in this calculus case."
-            }
-          ]
-        },
-        {
-          "prompt": "Before another Lead-Time Rule decision, the team knows this: with six crews fixed, sort four dark circuits by arrival and closure: Road 280 min, School 310, Caravan 350, Village 410. Rank the cases now so limited time goes first to the failures that can change the mission decision. Which option correctly applies constrained decision/extrema to this follow-up case?",
-          "hint": "Use the stated evidence and the conditions for constrained decision/extrema; do not choose an option merely because it names a familiar term.",
-          "answer": "B",
-          "options": [
-            {
-              "key": "A",
-              "text": "A requirement a solution must satisfy.",
-              "why": "This describes Constraint, not constrained decision/extrema. It does not account for the quantities, conditions, or evidence in this calculus case."
-            },
-            {
-              "key": "B",
-              "text": "Road and School. Earliest binding deadlines determine a safe schedule.",
-              "why": "Correct. road and School. Earliest binding deadlines determine a safe schedule."
-            },
-            {
-              "key": "C",
-              "text": "The quantity optimized.",
-              "why": "This describes Objective function, not constrained decision/extrema. It does not account for the quantities, conditions, or evidence in this calculus case."
-            },
-            {
-              "key": "D",
-              "text": "A choice satisfying every constraint.",
-              "why": "This describes Feasible point, not constrained decision/extrema. It does not account for the quantities, conditions, or evidence in this calculus case."
-            }
-          ]
-        },
-        {
-          "prompt": "Ashfell Dam applies the lesson from Four Voices Back to this follow-up: repairs delay release by 1.0 h, so update dH/dt=0.20(5-H) from H(0)=4.20 m. Run the reversible comparison now so the crew can tell whether the proposed cause changes the measured response. Which option correctly carries out the required Euler/logistic delay reasoning?",
-          "hint": "Use the stated evidence and the conditions for Euler/logistic delay; do not choose an option merely because it names a familiar term.",
-          "answer": "C",
-          "options": [
-            {
-              "key": "A",
-              "text": "A requirement a solution must satisfy.",
-              "why": "This describes Constraint, not Euler/logistic delay. It does not account for the quantities, conditions, or evidence in this calculus case."
-            },
-            {
-              "key": "B",
-              "text": "The quantity optimized.",
-              "why": "This describes Objective function, not Euler/logistic delay. It does not account for the quantities, conditions, or evidence in this calculus case."
-            },
-            {
-              "key": "C",
-              "text": "4.36 m. The delayed start must use a numerical forecast consistent with the same differential model.",
-              "why": "Correct. 4.36 m. The delayed start must use a numerical forecast consistent with the same differential model."
-            },
-            {
-              "key": "D",
-              "text": "A choice satisfying every constraint.",
-              "why": "This describes Feasible point, not Euler/logistic delay. It does not account for the quantities, conditions, or evidence in this calculus case."
+              "why": "This describes feasible point. It does not answer the question about euler and logistic delay."
             }
           ]
         }
@@ -6624,60 +6575,73 @@ export const MISSIONS = [
     "briefing": "",
     "stake": "1 work shift remains before the storm. The gate order lies beside four acknowledged warning slips. Today you decide whether to carry out the final staged release.",
     "deeper": {
-      "intro": "You completed The Corrected Release Rules, Signed. Choose GO DEEPER to revisit the four decisions and explore related course ideas; this optional review does not change your metrics or delay the next mission.",
+      "intro": "Try six independent practice questions. Each includes its own context and any needed data; no mission records are required.",
       "concepts": [],
       "questions": [
         {
-          "prompt": "In a follow-up to The Corrected Release Rules, Signed, forecast level is continuous on [0,2] and differentiable inside, with H(0)=4.36 m and H(2)=4.72 m. Which option correctly carries out the required limits/MVT/derivative synthesis reasoning?",
-          "hint": "Use the stated evidence and the conditions for limits/MVT/derivative synthesis; do not choose an option merely because it names a familiar term.",
+          "prompt": "H is continuous on [0,2] and differentiable on (0,2), with H(0)=4.36 m and H(2)=4.72 m. Is the bound 0.15≤H′(t)≤0.21 m/h consistent with the mean value theorem?",
+          "hint": "Identify the defining relationship or mechanism for limits and mvt and derivative synthesis. All needed information is in this question.",
           "answer": "B",
           "options": [
             {
               "key": "A",
               "text": "The plan just clears required storage; power price is not water. The final volume balance decides whether the staged gate plan is sufficient before motion begins.",
-              "why": "This describes accumulated change/area/average, not limits/MVT/derivative synthesis. It does not account for the quantities, conditions, or evidence in this calculus case."
+              "why": "This describes accumulated change and area and average. It does not answer the question about limits and mvt and derivative synthesis."
             },
             {
               "key": "B",
-              "text": "The forecast passes MVT consistency. Continuity, differentiability, and a bounded matching derivative make the final forecast internally possible.",
-              "why": "Correct. the forecast passes MVT consistency. Continuity, differentiability, and a bounded matching derivative make the final forecast internally possible."
+              "text": "Yes. The secant slope is 0.18 m/h, which lies within the stated derivative bounds.",
+              "why": "Correct. Yes. The secant slope is 0.18 m/h, which lies within the stated derivative bounds."
             },
             {
               "key": "C",
               "text": "Q=40e^.6=72.885; Delta Q=(6e^.6/2)*.1=0.547; continue. A committed local prediction tests the steep final segment while warning and wall limits remain protected.",
-              "why": "This describes chain/related rates/Euler/work integration, not limits/MVT/derivative synthesis. It does not account for the quantities, conditions, or evidence in this calculus case."
+              "why": "This describes chain and related rates and Euler and work integration. It does not answer the question about limits and mvt and derivative synthesis."
             },
             {
               "key": "D",
               "text": "Each active limit and quiet control passes; do not broaden opening beyond the tested plan. The final verdict belongs to the complete evidence chain, not one successful gauge.",
-              "why": "This describes whole-course model selection, not limits/MVT/derivative synthesis. It does not account for the quantities, conditions, or evidence in this calculus case."
+              "why": "This describes whole-course model selection. It does not answer the question about limits and mvt and derivative synthesis."
             }
           ]
         },
         {
-          "prompt": "Ashfell Dam receives a second case related to The Corrected Release Rules, Signed: forecast level is continuous on [0,2] and differentiable inside, with H(0)=4.36 m and H(2)=4.72 m. Which interpretation of the displayed evidence correctly uses the mission concept?",
-          "hint": "Read the axes, units, direction, and any threshold before comparing the choices.",
+          "prompt": "The boundaries are y=6-x and y=0 on 2≤x≤5. What area lies between them?",
+          "hint": "Integrate 6−x from 2 to 5.",
           "answer": "C",
           "figure": {
             "kind": "line",
-            "xLabel": "Time (min)",
-            "yLabel": "Flow rate (m3/min)",
-            "caption": "Signed area under the rate curve gives accumulated change.",
+            "xLabel": "x (m)",
+            "yLabel": "Height (m)",
+            "caption": "Upper boundary y=6−x and lower boundary y=0, for 2≤x≤5",
             "series": [
               {
-                "name": "Net flow",
+                "name": "Upper boundary",
                 "points": [
                   [
-                    0,
-                    2
-                  ],
-                  [
-                    1,
+                    2,
                     4
                   ],
                   [
-                    2,
+                    3,
                     3
+                  ],
+                  [
+                    4,
+                    2
+                  ],
+                  [
+                    5,
+                    1
+                  ]
+                ]
+              },
+              {
+                "name": "Lower boundary",
+                "points": [
+                  [
+                    2,
+                    0
                   ],
                   [
                     3,
@@ -6685,148 +6649,144 @@ export const MISSIONS = [
                   ],
                   [
                     4,
-                    -2
+                    0
                   ],
                   [
                     5,
-                    -1
+                    0
                   ]
                 ]
               }
-            ],
-            "limit": {
-              "at": 0,
-              "label": "Zero flow"
-            }
+            ]
           },
           "options": [
             {
               "key": "A",
-              "text": "The forecast passes MVT consistency. Continuity, differentiability, and a bounded matching derivative make the final forecast internally possible.",
-              "why": "This describes limits/MVT/derivative synthesis, not accumulated change/area/average. It does not account for the quantities, conditions, or evidence in this calculus case."
+              "text": "3 m².",
+              "why": "This counts only the interval width."
             },
             {
               "key": "B",
-              "text": "Q=40e^.6=72.885; Delta Q=(6e^.6/2)*.1=0.547; continue. A committed local prediction tests the steep final segment while warning and wall limits remain protected.",
-              "why": "This describes chain/related rates/Euler/work integration, not accumulated change/area/average. It does not account for the quantities, conditions, or evidence in this calculus case."
+              "text": "15 m².",
+              "why": "This doubles the integral of the height difference."
             },
             {
               "key": "C",
-              "text": "The plan just clears required storage; power price is not water. The final volume balance decides whether the staged gate plan is sufficient before motion begins.",
-              "why": "Correct. the plan just clears required storage; power price is not water. The final volume balance decides whether the staged gate plan is sufficient before motion begins."
+              "text": "7.5 m².",
+              "why": "Correct. 7.5 m²."
             },
             {
               "key": "D",
-              "text": "Each active limit and quiet control passes; do not broaden opening beyond the tested plan. The final verdict belongs to the complete evidence chain, not one successful gauge.",
-              "why": "This describes whole-course model selection, not accumulated change/area/average. It does not account for the quantities, conditions, or evidence in this calculus case."
+              "text": "-7.5 m².",
+              "why": "Geometric area is nonnegative; integrate upper minus lower."
             }
           ]
         },
         {
-          "prompt": "A teammate rechecks The Corrected Release Rules, Signed using new evidence: the ledger closes, so the gate must follow the staged rule without overshoot. Commit the prediction and run the test now so the measurement can fairly accept or reject the proposed model. Which option correctly carries out the required chain/related rates/Euler/work integration reasoning?",
-          "hint": "Use the stated evidence and the conditions for chain/related rates/Euler/work integration; do not choose an option merely because it names a familiar term.",
+          "prompt": "For Q(h)=40e^(0.3√h) m³/s at h=4.0 m, estimate Q and the change caused by Δh=0.10 m using linearization.",
+          "hint": "Identify the defining relationship or mechanism for chain and related rates and euler and work integration. All needed information is in this question.",
           "answer": "D",
           "options": [
             {
               "key": "A",
               "text": "The forecast passes MVT consistency. Continuity, differentiability, and a bounded matching derivative make the final forecast internally possible.",
-              "why": "This describes limits/MVT/derivative synthesis, not chain/related rates/Euler/work integration. It does not account for the quantities, conditions, or evidence in this calculus case."
+              "why": "This describes limits and MVT and derivative synthesis. It does not answer the question about chain and related rates and euler and work integration."
             },
             {
               "key": "B",
               "text": "The plan just clears required storage; power price is not water. The final volume balance decides whether the staged gate plan is sufficient before motion begins.",
-              "why": "This describes accumulated change/area/average, not chain/related rates/Euler/work integration. It does not account for the quantities, conditions, or evidence in this calculus case."
+              "why": "This describes accumulated change and area and average. It does not answer the question about chain and related rates and euler and work integration."
             },
             {
               "key": "C",
               "text": "Each active limit and quiet control passes; do not broaden opening beyond the tested plan. The final verdict belongs to the complete evidence chain, not one successful gauge.",
-              "why": "This describes whole-course model selection, not chain/related rates/Euler/work integration. It does not account for the quantities, conditions, or evidence in this calculus case."
+              "why": "This describes whole-course model selection. It does not answer the question about chain and related rates and euler and work integration."
             },
             {
               "key": "D",
-              "text": "Q=40e^.6=72.885; Delta Q=(6e^.6/2)*.1=0.547; continue. A committed local prediction tests the steep final segment while warning and wall limits remain protected.",
-              "why": "Correct. q=40e^.6=72.885; Delta Q=(6e^.6/2)*.1=0.547; continue. A committed local prediction tests the steep final segment while warning and wall limits remain protected."
+              "text": "Q≈72.885 m³/s and ΔQ≈0.547 m³/s.",
+              "why": "Correct. Q≈72.885 m³/s and ΔQ≈0.547 m³/s."
             }
           ]
         },
         {
-          "prompt": "An unseen case extends The Corrected Release Rules, Signed: stage 2 matches predicted discharge; storage falls on the resurvey curve, uplift remains below 8, and all warnings arrive early. Which option correctly applies whole-course model selection to this follow-up case?",
-          "hint": "Use the stated evidence and the conditions for whole-course model selection; do not choose an option merely because it names a familiar term.",
+          "prompt": "A process may run only if pressure≤8 units, work≤750 J, and warning lead≥280 min. Measurements are 5.7 units, 724 J, and 294 min. What decision fits all three limits?",
+          "hint": "Identify the defining relationship or mechanism for whole-course model selection. All needed information is in this question.",
           "answer": "A",
           "options": [
             {
               "key": "A",
-              "text": "Each active limit and quiet control passes; do not broaden opening beyond the tested plan. The final verdict belongs to the complete evidence chain, not one successful gauge.",
-              "why": "Correct. each active limit and quiet control passes; do not broaden opening beyond the tested plan. The final verdict belongs to the complete evidence chain, not one successful gauge."
+              "text": "The tested process passes all three limits; this does not authorize untested settings.",
+              "why": "Correct. The tested process passes all three limits; this does not authorize untested settings."
             },
             {
               "key": "B",
               "text": "The forecast passes MVT consistency. Continuity, differentiability, and a bounded matching derivative make the final forecast internally possible.",
-              "why": "This describes limits/MVT/derivative synthesis, not whole-course model selection. It does not account for the quantities, conditions, or evidence in this calculus case."
+              "why": "This describes limits and MVT and derivative synthesis. It does not answer the question about whole-course model selection."
             },
             {
               "key": "C",
               "text": "The plan just clears required storage; power price is not water. The final volume balance decides whether the staged gate plan is sufficient before motion begins.",
-              "why": "This describes accumulated change/area/average, not whole-course model selection. It does not account for the quantities, conditions, or evidence in this calculus case."
+              "why": "This describes accumulated change and area and average. It does not answer the question about whole-course model selection."
             },
             {
               "key": "D",
               "text": "Q=40e^.6=72.885; Delta Q=(6e^.6/2)*.1=0.547; continue. A committed local prediction tests the steep final segment while warning and wall limits remain protected.",
-              "why": "This describes chain/related rates/Euler/work integration, not whole-course model selection. It does not account for the quantities, conditions, or evidence in this calculus case."
+              "why": "This describes chain and related rates and Euler and work integration. It does not answer the question about whole-course model selection."
             }
           ]
         },
         {
-          "prompt": "Before another Corrected Release Rules, Signed decision, the team knows this: forecast level is continuous on [0,2] and differentiable inside, with H(0)=4.36 m and H(2)=4.72 m. What does the limit represent in this situation?",
-          "hint": "Use the stated evidence and the conditions for Limit; do not choose an option merely because it names a familiar term.",
+          "prompt": "Which statement best explains limit?",
+          "hint": "Identify the defining relationship or mechanism for limit. All needed information is in this question.",
           "answer": "B",
           "options": [
             {
               "key": "A",
               "text": "The forecast passes MVT consistency. Continuity, differentiability, and a bounded matching derivative make the final forecast internally possible.",
-              "why": "This describes limits/MVT/derivative synthesis, not Limit. It does not account for the quantities, conditions, or evidence in this calculus case."
+              "why": "This describes limits and MVT and derivative synthesis. It does not answer the question about limit."
             },
             {
               "key": "B",
               "text": "The value a function approaches as its input nears a point.",
-              "why": "Correct. the value a function approaches as its input nears a point."
+              "why": "Correct. The value a function approaches as its input nears a point."
             },
             {
               "key": "C",
               "text": "The plan just clears required storage; power price is not water. The final volume balance decides whether the staged gate plan is sufficient before motion begins.",
-              "why": "This describes accumulated change/area/average, not Limit. It does not account for the quantities, conditions, or evidence in this calculus case."
+              "why": "This describes accumulated change and area and average. It does not answer the question about limit."
             },
             {
               "key": "D",
               "text": "Q=40e^.6=72.885; Delta Q=(6e^.6/2)*.1=0.547; continue. A committed local prediction tests the steep final segment while warning and wall limits remain protected.",
-              "why": "This describes chain/related rates/Euler/work integration, not Limit. It does not account for the quantities, conditions, or evidence in this calculus case."
+              "why": "This describes chain and related rates and Euler and work integration. It does not answer the question about limit."
             }
           ]
         },
         {
-          "prompt": "Ashfell Dam applies the lesson from The Corrected Release Rules, Signed to this follow-up: forecast level is continuous on [0,2] and differentiable inside, with H(0)=4.36 m and H(2)=4.72 m. Which condition or conclusion correctly determines continuity here?",
-          "hint": "Use the stated evidence and the conditions for Continuous; do not choose an option merely because it names a familiar term.",
+          "prompt": "Which statement best explains continuous?",
+          "hint": "Identify the defining relationship or mechanism for continuous. All needed information is in this question.",
           "answer": "C",
           "options": [
             {
               "key": "A",
               "text": "The forecast passes MVT consistency. Continuity, differentiability, and a bounded matching derivative make the final forecast internally possible.",
-              "why": "This describes limits/MVT/derivative synthesis, not Continuous. It does not account for the quantities, conditions, or evidence in this calculus case."
+              "why": "This describes limits and MVT and derivative synthesis. It does not answer the question about continuous."
             },
             {
               "key": "B",
               "text": "The plan just clears required storage; power price is not water. The final volume balance decides whether the staged gate plan is sufficient before motion begins.",
-              "why": "This describes accumulated change/area/average, not Continuous. It does not account for the quantities, conditions, or evidence in this calculus case."
+              "why": "This describes accumulated change and area and average. It does not answer the question about continuous."
             },
             {
               "key": "C",
               "text": "Having a defined value that equals the common left and right limit.",
-              "why": "Correct. having a defined value that equals the common left and right limit."
+              "why": "Correct. Having a defined value that equals the common left and right limit."
             },
             {
               "key": "D",
               "text": "Q=40e^.6=72.885; Delta Q=(6e^.6/2)*.1=0.547; continue. A committed local prediction tests the steep final segment while warning and wall limits remain protected.",
-              "why": "This describes chain/related rates/Euler/work integration, not Continuous. It does not account for the quantities, conditions, or evidence in this calculus case."
+              "why": "This describes chain and related rates and Euler and work integration. It does not answer the question about continuous."
             }
           ]
         }

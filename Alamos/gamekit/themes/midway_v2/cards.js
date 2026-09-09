@@ -10,8 +10,10 @@
 export const OPENING = [
   "You are the ride engineer, which means you prove which rides can carry people again. At "
     +   "Corbin Park, you will use physics to make the call. The inspectors return in fifteen "
-    +   "days. The park has been shut since the October test. Families need proof behind each "
-    +   "ride limit.",
+    +   "days. The park has been shut since the October test; families need proof behind each "
+    +   "ride limit. Maya Hart, the park operations lead, hands you the keys and says, “I want "
+    +   "these gates open as much as anyone, but you have my word: a ride stays shut until you’re "
+    +   "satisfied.”",
 ];
 
 export const ENDING = [

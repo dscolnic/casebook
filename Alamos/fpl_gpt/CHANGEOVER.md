@@ -1,5 +1,7 @@
 **FIRST PERSON LEARNING**
 
+**Player-copy editing rule:** Within each displayed passage, state each fact, equation, variable definition, and instruction once. Integrate new givens into the existing wording; do not append a paraphrase of the setup. A source panel may repeat essential inputs so it stands alone, but render it as its own surface rather than concatenating it with the question setup. Go Deeper questions must still supply their own context and data without referring to earlier cases.
+
 **CHANGEOVER**
 
 AP Macroeconomics Campaign Implementation Bible
@@ -48,9 +50,12 @@ The story is linear at the evidence level. Wrong answers teach, retry, and permi
 
 ### Opening sequence - no movie required, maximum five sentences
 
-You are the changeover analyst, which means you check the rules that turn old crowns into new money. At Kesteven House, you will use macroeconomics to make the call. The new currency starts in fifteen days. Families need wages that buy food. Shops and banks need payments that clear.
+You are the changeover analyst, which means you check the rules that turn old crowns into new money. At Kesteven House, you will use macroeconomics to make the call. The new currency starts in fifteen days. Families need wages that buy food; shops and banks need payments that clear. Board Chair Mara Venn hands you the empty Rate Book and says, “When we open those counters, people will hand us their life savings.”
 
-**Delivery:** Show all four sentences together on one full-screen text card over the normal Kesteven House view. Continue reveals the four-bar HUD and Mission 1 briefing.
+**Opening-card requirement:** The character quote is the final player-visible text on this card; place no explanatory sentence after it. Keep it brief and natural: it should add the speaker’s concern or commitment rather than summarize the preceding setup. Show the whole opening together with one Continue action.
+
+
+**Delivery:** Show all five sentences together on one full-screen text card over the normal Kesteven House view. Continue reveals the four-bar HUD and Mission 1 briefing.
 
 ### Concrete stakes
 
@@ -308,6 +313,11 @@ Glossary entries use compact `Term: definition` lines. Equation entries contain 
 **Ending card - exact player copy:** The first customer slides old crowns across the counter. Eli counts out the new notes. Outside, the shop boards turn to the new currency. The signed rate and its review rules stay on the wall as the next person steps forward.
 
 **Delivery:** Keep player control and normal world view. No new graded stop follows the final accepted decision. The ending card appears after the player reaches the payoff view, or through an accessible View ending control that skips movement without skipping any scientific gate. Optional review and worked examples remain available through the completed mission menu.
+
+
+### Standalone Go Deeper question contract
+
+Each optional review question must work when copied out on its own. Supply its setting, givens, units, definitions, and any required figure within that question. Do not mention a mission title, a prior case, a teammate rechecking earlier work, a completed plan, or unseen cards, observations, or results. Do not assume that another review question was read. Choices, hints, and feedback obey the same rule. Use brief conceptual questions or complete applied problems; figures must match the question rather than merely share its course.
 
 # Mission 1 - What Counts
 
@@ -778,7 +788,7 @@ Mission decision: Use the national count, not the loudest queue. Real output is 
 
 **Availability:** Reveal only after mission completion when the player selects **GO DEEPER**. This section is optional, ungraded for campaign progress, and does not change metrics, Recovery Points, or the next-mission unlock.
 
-**Secondary briefing card - exact player copy:** You completed What Counts. Choose GO DEEPER to revisit the four decisions and explore related course ideas; this optional review does not change your metrics or delay the next mission.
+**Secondary briefing card - exact player copy:** Try six independent practice questions. Each includes its own context and any needed data; no mission records are required.
 
 ### Additional concepts kept out of the required mission card
 
@@ -788,7 +798,7 @@ Mission decision: Use the national count, not the loudest queue. Real output is 
 
 ### Review question 1
 
-**Prompt - exact player copy:** Halvern can move five clerks from bank calls to exchange windows. Exchanges rise from 100 to 150 per hour while bank calls fall from 90 to 40. What is the opportunity cost of each additional exchange?
+**Prompt - exact player copy:** A country can move five clerks from bank calls to exchange windows. Exchanges rise from 100 to 150 per hour while bank calls fall from 90 to 40. What is the opportunity cost of each additional exchange?
 
 **Options - exact player copy:**
 
@@ -810,7 +820,7 @@ Mission decision: Use the national count, not the loudest queue. Real output is 
 
 ### Review question 2
 
-**Prompt - exact player copy:** A second Halvern market reports an 8% price increase, a 10% quantity decrease, unchanged household income, and delayed deliveries. Which change best explains the pattern?
+**Prompt - exact player copy:** A market reports a price increase and a quantity decrease, unchanged household income, and delayed deliveries. Which change best explains the pattern?
 
 **Figure - exact player copy:**
 
@@ -908,7 +918,7 @@ Mission decision: Use the national count, not the loudest queue. Real output is 
 
 ### Review question 3
 
-**Prompt - exact player copy:** The Exchange Counter is processing fewer customers today. Which evidence would best support a claim that the slowdown affects Halvern nationally?
+**Prompt - exact player copy:** A currency-exchange counter is processing fewer customers today. Which evidence would best support a claim that the slowdown affects the country nationally?
 
 **Options - exact player copy:**
 
@@ -995,7 +1005,7 @@ Mission decision: Use the national count, not the loudest queue. Real output is 
 
 ### Review question 5
 
-**Prompt - exact player copy:** Halvern is producing at a point inside its production possibilities curve for exchange service and bank support. What is the best interpretation?
+**Prompt - exact player copy:** A country is producing at a point inside its production possibilities curve for exchange service and bank support. What is the best interpretation?
 
 **Figure - exact player copy:**
 
@@ -1069,7 +1079,7 @@ Mission decision: Use the national count, not the loudest queue. Real output is 
 
 ### Review question 6
 
-**Prompt - exact player copy:** Halvern installs software that lets the same clerks process more exchanges and more bank calls per hour. How should the production possibilities curve change?
+**Prompt - exact player copy:** A country installs software that lets the same clerks process more exchanges and more bank calls per hour. How should the production possibilities curve change?
 
 **Figure - exact player copy:**
 
@@ -1161,7 +1171,7 @@ Mission decision: Use the national count, not the loudest queue. Real output is 
 - C: An interior point represents underuse of existing capacity, not an improvement in maximum capacity.
 - D: Because both maximum outputs can rise, the frontier itself must change.
 
-**Optional review completion - exact player copy:** Excellent work. You went beyond the required mission and strengthened the ideas behind your decision.
+**Optional review completion - exact player copy:** Good work. You have completed six independent practice questions.
 ## Quick concept review
 - The player can use today’s main model in the next decision.
 - **Mission takeaway:** Evidence must match the mechanism, units, and stated limits.
@@ -1579,7 +1589,7 @@ Mission decision: Publish real GDP of 685.2 billion base-year crowns with the no
 
 **Availability:** Reveal only after mission completion when the player selects **GO DEEPER**. This section is optional, ungraded for campaign progress, and does not change metrics, Recovery Points, or the next-mission unlock.
 
-**Secondary briefing card - exact player copy:** You completed Growth On Paper. Choose GO DEEPER to revisit the four decisions and explore related course ideas; this optional review does not change your metrics or delay the next mission.
+**Secondary briefing card - exact player copy:** Try six independent practice questions. Each includes its own context and any needed data; no mission records are required.
 
 ### Review focus
 
@@ -1587,7 +1597,31 @@ No additional prerequisite is required. These optional questions revisit the mis
 
 ### Review question 1
 
-**Prompt - exact player copy:** After Growth On Paper, a new decision at Halvern's currency changeover requires the team to distinguish Gross domestic product (GDP) from related macroeconomics ideas. Which statement correctly applies Gross domestic product (GDP)?
+
+**Prompt - exact player copy:** Which statement best explains gross domestic product (GDP)?
+
+**Options - exact player copy:**
+
+- A. Household spending on goods and services.
+- B. Business capital, inventory change, and new housing, not stock purchases.
+- C. Exports minus imports.
+- D. The market value of final goods and services produced inside a country during a stated period.
+
+**Correct answer:** D
+
+**Hint - exact player copy:** Identify the defining relationship or mechanism for gross domestic product (gdp). All needed information is in this question.
+
+**Option feedback - exact player copy:**
+
+- A: This describes consumption. It does not answer the question about gross domestic product (gdp).
+- B: This describes investment. It does not answer the question about gross domestic product (gdp).
+- C: This describes net exports (NX). It does not answer the question about gross domestic product (gdp).
+- D: Correct. The market value of final goods and services produced inside a country during a stated period.
+
+### Review question 2
+
+
+**Prompt - exact player copy:** Which statement best explains consumption?
 
 **Options - exact player copy:**
 
@@ -1596,20 +1630,21 @@ No additional prerequisite is required. These optional questions revisit the mis
 - C. Business capital, inventory change, and new housing, not stock purchases.
 - D. Exports minus imports.
 
-**Correct answer:** B
+**Correct answer:** A
 
-**Hint - exact player copy:** Identify the defining relationship, mechanism, or evidence limit for Gross domestic product (GDP); the other choices describe different course ideas.
+**Hint - exact player copy:** Identify the defining relationship or mechanism for consumption. All needed information is in this question.
 
 **Option feedback - exact player copy:**
 
-- A: This describes Consumption, not Gross domestic product (GDP). The two ideas use different relationships, mechanisms, or evidence limits.
-- B: Correct. Gross domestic product (GDP) applies because the market value of final goods and services produced inside a country during a stated period.
-- C: This describes Investment, not Gross domestic product (GDP). The two ideas use different relationships, mechanisms, or evidence limits.
-- D: This describes Net exports (NX), not Gross domestic product (GDP). The two ideas use different relationships, mechanisms, or evidence limits.
+- A: Correct. Household spending on goods and services.
+- B: This describes gross domestic product (GDP). It does not answer the question about consumption.
+- C: This describes investment. It does not answer the question about consumption.
+- D: This describes net exports (NX). It does not answer the question about consumption.
 
-### Review question 2
+### Review question 3
 
-**Prompt - exact player copy:** After Growth On Paper, a new decision at Halvern's currency changeover requires the team to distinguish Consumption from related macroeconomics ideas. Which description of Consumption should guide the team's reasoning?
+
+**Prompt - exact player copy:** Which statement best explains investment?
 
 **Options - exact player copy:**
 
@@ -1618,145 +1653,109 @@ No additional prerequisite is required. These optional questions revisit the mis
 - C. Household spending on goods and services.
 - D. Exports minus imports.
 
-**Correct answer:** C
+**Correct answer:** B
 
-**Hint - exact player copy:** Identify the defining relationship, mechanism, or evidence limit for Consumption; the other choices describe different course ideas.
-
-**Option feedback - exact player copy:**
-
-- A: This describes Gross domestic product (GDP), not Consumption. The two ideas use different relationships, mechanisms, or evidence limits.
-- B: This describes Investment, not Consumption. The two ideas use different relationships, mechanisms, or evidence limits.
-- C: Correct. Consumption applies because household spending on goods and services.
-- D: This describes Net exports (NX), not Consumption. The two ideas use different relationships, mechanisms, or evidence limits.
-
-### Review question 3
-
-**Prompt - exact player copy:** After Growth On Paper, a new decision at Halvern's currency changeover requires the team to distinguish Investment from related macroeconomics ideas. Which claim about Investment is scientifically defensible?
-
-**Options - exact player copy:**
-
-- A. The market value of final goods and services produced inside a country during a stated period.
-- B. Household spending on goods and services.
-- C. Exports minus imports.
-- D. Business capital, inventory change, and new housing, not stock purchases.
-
-**Correct answer:** D
-
-**Hint - exact player copy:** Identify the defining relationship, mechanism, or evidence limit for Investment; the other choices describe different course ideas.
+**Hint - exact player copy:** Identify the defining relationship or mechanism for investment. All needed information is in this question.
 
 **Option feedback - exact player copy:**
 
-- A: This describes Gross domestic product (GDP), not Investment. The two ideas use different relationships, mechanisms, or evidence limits.
-- B: This describes Consumption, not Investment. The two ideas use different relationships, mechanisms, or evidence limits.
-- C: This describes Net exports (NX), not Investment. The two ideas use different relationships, mechanisms, or evidence limits.
-- D: Correct. Investment applies because business capital, inventory change, and new housing, not stock purchases.
+- A: This describes gross domestic product (GDP). It does not answer the question about investment.
+- B: Correct. Business capital, inventory change, and new housing, not stock purchases.
+- C: This describes consumption. It does not answer the question about investment.
+- D: This describes net exports (NX). It does not answer the question about investment.
 
 ### Review question 4
 
-**Prompt - exact player copy:** After Growth On Paper, a new decision at Halvern's currency changeover requires the team to distinguish Net exports (NX) from related macroeconomics ideas. Which interpretation of Net exports (NX) is correct?
+
+**Prompt - exact player copy:** Exports are 90 billion and imports are 110 billion currency units. What are net exports?
 
 **Figure - exact player copy:**
 
 ```json
 {
-  "kind": "line",
-  "xLabel": "Value of RATE",
-  "yLabel": "Net exports",
-  "caption": "A stronger RATE reduces Halvern's net exports.",
-  "series": [
+  "kind": "bars",
+  "xLabel": "Category",
+  "yLabel": "Billions of currency units",
+  "caption": "Trade during one year",
+  "bars": [
     {
-      "name": "NX",
-      "points": [
-        [
-          2,
-          80
-        ],
-        [
-          3,
-          65
-        ],
-        [
-          4,
-          50
-        ],
-        [
-          5,
-          35
-        ],
-        [
-          6,
-          20
-        ]
-      ]
+      "name": "Exports",
+      "value": 90
+    },
+    {
+      "name": "Imports",
+      "value": 110
     }
   ]
 }
 ```
 
+**Options - exact player copy:**
+
+- A. 200 billion.
+- B. 20 billion.
+- C. -20 billion currency units.
+- D. 90 billion.
+
+**Correct answer:** C
+
+**Hint - exact player copy:** Identify the defining relationship or mechanism for net exports (nx). All needed information is in this question.
+
+**Option feedback - exact player copy:**
+
+- A: Net exports subtract imports from exports; they do not add them.
+- B: Imports exceed exports, so the balance is negative.
+- C: Correct. -20 billion currency units.
+- D: This omits imports.
+
+### Review question 5
+
+
+**Prompt - exact player copy:** Why must transfers and purchases of existing financial assets be distinguished from newly produced goods and services when measuring gross domestic product?
 
 **Options - exact player copy:**
 
-- A. Exports minus imports.
+- A. The market value of final goods and services produced inside a country during a stated period.
+- B. Household spending on goods and services.
+- C. Business capital, inventory change, and new housing, not stock purchases.
+- D. Transfers and existing-asset trades are not themselves current production, so counting them as output would distort GDP.
+
+**Correct answer:** D
+
+**Hint - exact player copy:** Identify the defining relationship or mechanism for the components of gross domestic product. All needed information is in this question.
+
+**Option feedback - exact player copy:**
+
+- A: This describes gross domestic product (GDP). It does not answer the question about the components of gross domestic product.
+- B: This describes consumption. It does not answer the question about the components of gross domestic product.
+- C: This describes investment. It does not answer the question about the components of gross domestic product.
+- D: Correct. Transfers and existing-asset trades are not themselves current production, so counting them as output would distort GDP.
+
+### Review question 6
+
+
+**Prompt - exact player copy:** Which statement best explains the expenditure approach to gross domestic product?
+
+**Options - exact player copy:**
+
+- A. The component labels reveal which spending changed, not merely that “spending” changed.
 - B. The market value of final goods and services produced inside a country during a stated period.
 - C. Household spending on goods and services.
 - D. Business capital, inventory change, and new housing, not stock purchases.
 
 **Correct answer:** A
 
-**Hint - exact player copy:** Identify the defining relationship, mechanism, or evidence limit for Net exports (NX); the other choices describe different course ideas.
+**Hint - exact player copy:** Identify the defining relationship or mechanism for the expenditure approach to gross domestic product. All needed information is in this question.
 
 **Option feedback - exact player copy:**
 
-- A: Correct. Net exports (NX) applies because exports minus imports.
-- B: This describes Gross domestic product (GDP), not Net exports (NX). The two ideas use different relationships, mechanisms, or evidence limits.
-- C: This describes Consumption, not Net exports (NX). The two ideas use different relationships, mechanisms, or evidence limits.
-- D: This describes Investment, not Net exports (NX). The two ideas use different relationships, mechanisms, or evidence limits.
+- A: Correct. The component labels reveal which spending changed, not merely that “spending” changed.
+- B: This describes gross domestic product (GDP). It does not answer the question about the expenditure approach to gross domestic product.
+- C: This describes consumption. It does not answer the question about the expenditure approach to gross domestic product.
+- D: This describes investment. It does not answer the question about the expenditure approach to gross domestic product.
 
-### Review question 5
+**Optional review completion - exact player copy:** Good work. You have completed six independent practice questions.
 
-**Prompt - exact player copy:** After Growth On Paper, a new decision at Halvern's currency changeover requires the team to distinguish GDP components from related macroeconomics ideas. Which statement about GDP components would earn course credit?
-
-**Options - exact player copy:**
-
-- A. The market value of final goods and services produced inside a country during a stated period.
-- B. Correct labels prevent transfers and asset trades from masquerading as current production.
-- C. Household spending on goods and services.
-- D. Business capital, inventory change, and new housing, not stock purchases.
-
-**Correct answer:** B
-
-**Hint - exact player copy:** Identify the defining relationship, mechanism, or evidence limit for GDP components; the other choices describe different course ideas.
-
-**Option feedback - exact player copy:**
-
-- A: This describes Gross domestic product (GDP), not GDP components. The two ideas use different relationships, mechanisms, or evidence limits.
-- B: Correct. GDP components applies because correct labels prevent transfers and asset trades from masquerading as current production.
-- C: This describes Consumption, not GDP components. The two ideas use different relationships, mechanisms, or evidence limits.
-- D: This describes Investment, not GDP components. The two ideas use different relationships, mechanisms, or evidence limits.
-
-### Review question 6
-
-**Prompt - exact player copy:** After Growth On Paper, a new decision at Halvern's currency changeover requires the team to distinguish expenditure GDP from related macroeconomics ideas. Which use of expenditure GDP gives the strongest basis for a decision?
-
-**Options - exact player copy:**
-
-- A. The market value of final goods and services produced inside a country during a stated period.
-- B. Household spending on goods and services.
-- C. The component labels reveal which spending changed, not merely that “spending” changed.
-- D. Business capital, inventory change, and new housing, not stock purchases.
-
-**Correct answer:** C
-
-**Hint - exact player copy:** Identify the defining relationship, mechanism, or evidence limit for expenditure GDP; the other choices describe different course ideas.
-
-**Option feedback - exact player copy:**
-
-- A: This describes Gross domestic product (GDP), not expenditure GDP. The two ideas use different relationships, mechanisms, or evidence limits.
-- B: This describes Consumption, not expenditure GDP. The two ideas use different relationships, mechanisms, or evidence limits.
-- C: Correct. expenditure GDP applies because the component labels reveal which spending changed, not merely that “spending” changed.
-- D: This describes Investment, not expenditure GDP. The two ideas use different relationships, mechanisms, or evidence limits.
-
-**Optional review completion - exact player copy:** Excellent work. You went beyond the required mission and strengthened the ideas behind your decision.
 ## Quick concept review
 - The player can use today’s main model in the next decision.
 - **Mission takeaway:** Evidence must match the mechanism, units, and stated limits.
@@ -2214,7 +2213,7 @@ Mission decision: Preserve the historical fixed-basket price series and publish 
 
 **Availability:** Reveal only after mission completion when the player selects **GO DEEPER**. This section is optional, ungraded for campaign progress, and does not change metrics, Recovery Points, or the next-mission unlock.
 
-**Secondary briefing card - exact player copy:** You completed The Basket. Choose GO DEEPER to revisit the four decisions and explore related course ideas; this optional review does not change your metrics or delay the next mission.
+**Secondary briefing card - exact player copy:** Try six independent practice questions. Each includes its own context and any needed data; no mission records are required.
 
 ### Review focus
 
@@ -2222,7 +2221,8 @@ No additional prerequisite is required. These optional questions revisit the mis
 
 ### Review question 1
 
-**Prompt - exact player copy:** After The Basket, a new decision at Halvern's currency changeover requires the team to distinguish Consumer price index (CPI) from related macroeconomics ideas. Which statement correctly applies Consumer price index (CPI)?
+
+**Prompt - exact player copy:** Which statement best explains consumer price index (CPI)?
 
 **Options - exact player copy:**
 
@@ -2233,18 +2233,19 @@ No additional prerequisite is required. These optional questions revisit the mis
 
 **Correct answer:** B
 
-**Hint - exact player copy:** Identify the defining relationship, mechanism, or evidence limit for Consumer price index (CPI); the other choices describe different course ideas.
+**Hint - exact player copy:** Identify the defining relationship or mechanism for consumer price index (cpi). All needed information is in this question.
 
 **Option feedback - exact player copy:**
 
-- A: This describes Inflation rate, not Consumer price index (CPI). The two ideas use different relationships, mechanisms, or evidence limits.
-- B: Correct. Consumer price index (CPI) applies because the current cost of a fixed consumer basket relative to its base-year cost, times 100.
-- C: This describes Substitution bias, not Consumer price index (CPI). The two ideas use different relationships, mechanisms, or evidence limits.
-- D: This describes CPI, not Consumer price index (CPI). The two ideas use different relationships, mechanisms, or evidence limits.
+- A: This describes inflation rate. It does not answer the question about consumer price index (cpi).
+- B: Correct. The current cost of a fixed consumer basket relative to its base-year cost, times 100.
+- C: This describes substitution bias. It does not answer the question about consumer price index (cpi).
+- D: This describes the consumer price index. It does not answer the question about consumer price index (cpi).
 
 ### Review question 2
 
-**Prompt - exact player copy:** After The Basket, a new decision at Halvern's currency changeover requires the team to distinguish Inflation rate from related macroeconomics ideas. Which description of Inflation rate should guide the team's reasoning?
+
+**Prompt - exact player copy:** Which statement best explains inflation rate?
 
 **Options - exact player copy:**
 
@@ -2255,18 +2256,19 @@ No additional prerequisite is required. These optional questions revisit the mis
 
 **Correct answer:** C
 
-**Hint - exact player copy:** Identify the defining relationship, mechanism, or evidence limit for Inflation rate; the other choices describe different course ideas.
+**Hint - exact player copy:** Identify the defining relationship or mechanism for inflation rate. All needed information is in this question.
 
 **Option feedback - exact player copy:**
 
-- A: This describes Consumer price index (CPI), not Inflation rate. The two ideas use different relationships, mechanisms, or evidence limits.
-- B: This describes Substitution bias, not Inflation rate. The two ideas use different relationships, mechanisms, or evidence limits.
-- C: Correct. Inflation rate applies because the percent change in a price index.
-- D: This describes CPI, not Inflation rate. The two ideas use different relationships, mechanisms, or evidence limits.
+- A: This describes consumer price index (CPI). It does not answer the question about inflation rate.
+- B: This describes substitution bias. It does not answer the question about inflation rate.
+- C: Correct. The percent change in a price index.
+- D: This describes the consumer price index. It does not answer the question about inflation rate.
 
 ### Review question 3
 
-**Prompt - exact player copy:** After The Basket, a new decision at Halvern's currency changeover requires the team to distinguish Substitution bias from related macroeconomics ideas. Which claim about Substitution bias is scientifically defensible?
+
+**Prompt - exact player copy:** Which statement best explains substitution bias?
 
 **Options - exact player copy:**
 
@@ -2277,18 +2279,19 @@ No additional prerequisite is required. These optional questions revisit the mis
 
 **Correct answer:** D
 
-**Hint - exact player copy:** Identify the defining relationship, mechanism, or evidence limit for Substitution bias; the other choices describe different course ideas.
+**Hint - exact player copy:** Identify the defining relationship or mechanism for substitution bias. All needed information is in this question.
 
 **Option feedback - exact player copy:**
 
-- A: This describes Consumer price index (CPI), not Substitution bias. The two ideas use different relationships, mechanisms, or evidence limits.
-- B: This describes Inflation rate, not Substitution bias. The two ideas use different relationships, mechanisms, or evidence limits.
-- C: This describes CPI, not Substitution bias. The two ideas use different relationships, mechanisms, or evidence limits.
-- D: Correct. Substitution bias applies because cPI overstatement when consumers switch away from goods whose prices rise.
+- A: This describes consumer price index (CPI). It does not answer the question about substitution bias.
+- B: This describes inflation rate. It does not answer the question about substitution bias.
+- C: This describes the consumer price index. It does not answer the question about substitution bias.
+- D: Correct. CPI overstatement when consumers switch away from goods whose prices rise.
 
 ### Review question 4
 
-**Prompt - exact player copy:** After The Basket, a new decision at Halvern's currency changeover requires the team to distinguish CPI from related macroeconomics ideas. Which interpretation of CPI is correct?
+
+**Prompt - exact player copy:** Which statement best explains the consumer price index?
 
 **Options - exact player copy:**
 
@@ -2299,18 +2302,19 @@ No additional prerequisite is required. These optional questions revisit the mis
 
 **Correct answer:** A
 
-**Hint - exact player copy:** Identify the defining relationship, mechanism, or evidence limit for CPI; the other choices describe different course ideas.
+**Hint - exact player copy:** Identify the defining relationship or mechanism for the consumer price index. All needed information is in this question.
 
 **Option feedback - exact player copy:**
 
-- A: Correct. CPI applies because reproducing the index separates a calculation error from a design problem.
-- B: This describes Consumer price index (CPI), not CPI. The two ideas use different relationships, mechanisms, or evidence limits.
-- C: This describes Inflation rate, not CPI. The two ideas use different relationships, mechanisms, or evidence limits.
-- D: This describes Substitution bias, not CPI. The two ideas use different relationships, mechanisms, or evidence limits.
+- A: Correct. Reproducing the index separates a calculation error from a design problem.
+- B: This describes consumer price index (CPI). It does not answer the question about the consumer price index.
+- C: This describes inflation rate. It does not answer the question about the consumer price index.
+- D: This describes substitution bias. It does not answer the question about the consumer price index.
 
 ### Review question 5
 
-**Prompt - exact player copy:** After The Basket, a new decision at Halvern's currency changeover requires the team to distinguish CPI bias/weights from related macroeconomics ideas. Which statement about CPI bias/weights would earn course credit?
+
+**Prompt - exact player copy:** Which statement best explains the effect of basket weights on a consumer price index?
 
 **Options - exact player copy:**
 
@@ -2321,38 +2325,40 @@ No additional prerequisite is required. These optional questions revisit the mis
 
 **Correct answer:** B
 
-**Hint - exact player copy:** Identify the defining relationship, mechanism, or evidence limit for CPI bias/weights; the other choices describe different course ideas.
+**Hint - exact player copy:** Identify the defining relationship or mechanism for the effect of basket weights on a consumer price index. All needed information is in this question.
 
 **Option feedback - exact player copy:**
 
-- A: This describes Consumer price index (CPI), not CPI bias/weights. The two ideas use different relationships, mechanisms, or evidence limits.
-- B: Correct. CPI bias/weights applies because sensitivity to a stale weight requires disclosure and a companion measure, not silent replacement.
-- C: This describes Inflation rate, not CPI bias/weights. The two ideas use different relationships, mechanisms, or evidence limits.
-- D: This describes Substitution bias, not CPI bias/weights. The two ideas use different relationships, mechanisms, or evidence limits.
+- A: This describes consumer price index (CPI). It does not answer the question about the effect of basket weights on a consumer price index.
+- B: Correct. Sensitivity to a stale weight requires disclosure and a companion measure, not silent replacement.
+- C: This describes inflation rate. It does not answer the question about the effect of basket weights on a consumer price index.
+- D: This describes substitution bias. It does not answer the question about the effect of basket weights on a consumer price index.
 
 ### Review question 6
 
-**Prompt - exact player copy:** After The Basket, a new decision at Halvern's currency changeover requires the team to distinguish index publication from related macroeconomics ideas. Which use of index publication gives the strongest basis for a decision?
+
+**Prompt - exact player copy:** Which statement best explains index publication?
 
 **Options - exact player copy:**
 
 - A. The current cost of a fixed consumer basket relative to its base-year cost, times 100.
 - B. The percent change in a price index.
-- C. Publishing both measures prevents a convenient revision from erasing history or a stale basket from hiding bias.
+- C. Publishing the historical price index alongside a clearly labeled revised index preserves continuity while exposing the effect of changed weights.
 - D. CPI overstatement when consumers switch away from goods whose prices rise.
 
 **Correct answer:** C
 
-**Hint - exact player copy:** Identify the defining relationship, mechanism, or evidence limit for index publication; the other choices describe different course ideas.
+**Hint - exact player copy:** Identify the defining relationship or mechanism for index publication. All needed information is in this question.
 
 **Option feedback - exact player copy:**
 
-- A: This describes Consumer price index (CPI), not index publication. The two ideas use different relationships, mechanisms, or evidence limits.
-- B: This describes Inflation rate, not index publication. The two ideas use different relationships, mechanisms, or evidence limits.
-- C: Correct. index publication applies because publishing both measures prevents a convenient revision from erasing history or a stale basket from hiding bias.
-- D: This describes Substitution bias, not index publication. The two ideas use different relationships, mechanisms, or evidence limits.
+- A: This describes consumer price index (CPI). It does not answer the question about index publication.
+- B: This describes inflation rate. It does not answer the question about index publication.
+- C: Correct. Publishing the historical price index alongside a clearly labeled revised index preserves continuity while exposing the effect of changed weights.
+- D: This describes substitution bias. It does not answer the question about index publication.
 
-**Optional review completion - exact player copy:** Excellent work. You went beyond the required mission and strengthened the ideas behind your decision.
+**Optional review completion - exact player copy:** Good work. You have completed six independent practice questions.
+
 ## Quick concept review
 - The player can use today’s main model in the next decision.
 - **Mission takeaway:** Evidence must match the mechanism, units, and stated limits.
@@ -2773,7 +2779,7 @@ Mission decision: Treat the job data as a recession warning. The output gap is 3
 
 **Availability:** Reveal only after mission completion when the player selects **GO DEEPER**. This section is optional, ungraded for campaign progress, and does not change metrics, Recovery Points, or the next-mission unlock.
 
-**Secondary briefing card - exact player copy:** You completed Jobs Behind The Number. Choose GO DEEPER to revisit the four decisions and explore related course ideas; this optional review does not change your metrics or delay the next mission.
+**Secondary briefing card - exact player copy:** Try six independent practice questions. Each includes its own context and any needed data; no mission records are required.
 
 ### Review focus
 
@@ -2781,7 +2787,31 @@ No additional prerequisite is required. These optional questions revisit the mis
 
 ### Review question 1
 
-**Prompt - exact player copy:** After Jobs Behind The Number, a new decision at Halvern's currency changeover requires the team to distinguish Labor force from related macroeconomics ideas. Which statement correctly applies Labor force?
+
+**Prompt - exact player copy:** Which statement best explains labor force?
+
+**Options - exact player copy:**
+
+- A. A person who wants work but stopped searching and is outside the labor force.
+- B. Frictional plus structural unemployment.
+- C. Real output below full-employment output.
+- D. Employed people plus unemployed people actively seeking work.
+
+**Correct answer:** D
+
+**Hint - exact player copy:** Identify the defining relationship or mechanism for labor force. All needed information is in this question.
+
+**Option feedback - exact player copy:**
+
+- A: This describes discouraged worker. It does not answer the question about labor force.
+- B: This describes natural unemployment. It does not answer the question about labor force.
+- C: This describes recessionary gap. It does not answer the question about labor force.
+- D: Correct. Employed people plus unemployed people actively seeking work.
+
+### Review question 2
+
+
+**Prompt - exact player copy:** Which statement best explains discouraged worker?
 
 **Options - exact player copy:**
 
@@ -2790,20 +2820,21 @@ No additional prerequisite is required. These optional questions revisit the mis
 - C. Frictional plus structural unemployment.
 - D. Real output below full-employment output.
 
-**Correct answer:** B
+**Correct answer:** A
 
-**Hint - exact player copy:** Identify the defining relationship, mechanism, or evidence limit for Labor force; the other choices describe different course ideas.
+**Hint - exact player copy:** Identify the defining relationship or mechanism for discouraged worker. All needed information is in this question.
 
 **Option feedback - exact player copy:**
 
-- A: This describes Discouraged worker, not Labor force. The two ideas use different relationships, mechanisms, or evidence limits.
-- B: Correct. Labor force applies because employed people plus unemployed people actively seeking work.
-- C: This describes Natural unemployment, not Labor force. The two ideas use different relationships, mechanisms, or evidence limits.
-- D: This describes Recessionary gap, not Labor force. The two ideas use different relationships, mechanisms, or evidence limits.
+- A: Correct. A person who wants work but stopped searching and is outside the labor force.
+- B: This describes labor force. It does not answer the question about discouraged worker.
+- C: This describes natural unemployment. It does not answer the question about discouraged worker.
+- D: This describes recessionary gap. It does not answer the question about discouraged worker.
 
-### Review question 2
+### Review question 3
 
-**Prompt - exact player copy:** After Jobs Behind The Number, a new decision at Halvern's currency changeover requires the team to distinguish Discouraged worker from related macroeconomics ideas. Which description of Discouraged worker should guide the team's reasoning?
+
+**Prompt - exact player copy:** Which statement best explains natural unemployment?
 
 **Options - exact player copy:**
 
@@ -2812,20 +2843,21 @@ No additional prerequisite is required. These optional questions revisit the mis
 - C. A person who wants work but stopped searching and is outside the labor force.
 - D. Real output below full-employment output.
 
-**Correct answer:** C
+**Correct answer:** B
 
-**Hint - exact player copy:** Identify the defining relationship, mechanism, or evidence limit for Discouraged worker; the other choices describe different course ideas.
+**Hint - exact player copy:** Identify the defining relationship or mechanism for natural unemployment. All needed information is in this question.
 
 **Option feedback - exact player copy:**
 
-- A: This describes Labor force, not Discouraged worker. The two ideas use different relationships, mechanisms, or evidence limits.
-- B: This describes Natural unemployment, not Discouraged worker. The two ideas use different relationships, mechanisms, or evidence limits.
-- C: Correct. Discouraged worker applies because a person who wants work but stopped searching and is outside the labor force.
-- D: This describes Recessionary gap, not Discouraged worker. The two ideas use different relationships, mechanisms, or evidence limits.
+- A: This describes labor force. It does not answer the question about natural unemployment.
+- B: Correct. Frictional plus structural unemployment.
+- C: This describes discouraged worker. It does not answer the question about natural unemployment.
+- D: This describes recessionary gap. It does not answer the question about natural unemployment.
 
-### Review question 3
+### Review question 4
 
-**Prompt - exact player copy:** After Jobs Behind The Number, a new decision at Halvern's currency changeover requires the team to distinguish Natural unemployment from related macroeconomics ideas. Which claim about Natural unemployment is scientifically defensible?
+
+**Prompt - exact player copy:** Which statement best explains recessionary gap?
 
 **Options - exact player copy:**
 
@@ -2834,84 +2866,65 @@ No additional prerequisite is required. These optional questions revisit the mis
 - C. Real output below full-employment output.
 - D. Frictional plus structural unemployment.
 
-**Correct answer:** D
+**Correct answer:** C
 
-**Hint - exact player copy:** Identify the defining relationship, mechanism, or evidence limit for Natural unemployment; the other choices describe different course ideas.
+**Hint - exact player copy:** Identify the defining relationship or mechanism for recessionary gap. All needed information is in this question.
 
 **Option feedback - exact player copy:**
 
-- A: This describes Labor force, not Natural unemployment. The two ideas use different relationships, mechanisms, or evidence limits.
-- B: This describes Discouraged worker, not Natural unemployment. The two ideas use different relationships, mechanisms, or evidence limits.
-- C: This describes Recessionary gap, not Natural unemployment. The two ideas use different relationships, mechanisms, or evidence limits.
-- D: Correct. Natural unemployment applies because frictional plus structural unemployment.
+- A: This describes labor force. It does not answer the question about recessionary gap.
+- B: This describes discouraged worker. It does not answer the question about recessionary gap.
+- C: Correct. Real output below full-employment output.
+- D: This describes natural unemployment. It does not answer the question about recessionary gap.
 
-### Review question 4
+### Review question 5
 
-**Prompt - exact player copy:** After Jobs Behind The Number, a new decision at Halvern's currency changeover requires the team to distinguish Recessionary gap from related macroeconomics ideas. Which interpretation of Recessionary gap is correct?
+
+**Prompt - exact player copy:** Which statement best explains unemployment rate?
 
 **Options - exact player copy:**
 
-- A. Real output below full-employment output.
+- A. Employed people plus unemployed people actively seeking work.
+- B. A person who wants work but stopped searching and is outside the labor force.
+- C. Frictional plus structural unemployment.
+- D. Excluding discouraged workers follows the definition but can hide worsening conditions when read alone.
+
+**Correct answer:** D
+
+**Hint - exact player copy:** Identify the defining relationship or mechanism for unemployment rate. All needed information is in this question.
+
+**Option feedback - exact player copy:**
+
+- A: This describes labor force. It does not answer the question about unemployment rate.
+- B: This describes discouraged worker. It does not answer the question about unemployment rate.
+- C: This describes natural unemployment. It does not answer the question about unemployment rate.
+- D: Correct. Excluding discouraged workers follows the definition but can hide worsening conditions when read alone.
+
+### Review question 6
+
+
+**Prompt - exact player copy:** Which statement best explains unemployment types?
+
+**Options - exact player copy:**
+
+- A. Only cyclical unemployment signals output below its demand-supported potential.
 - B. Employed people plus unemployed people actively seeking work.
 - C. A person who wants work but stopped searching and is outside the labor force.
 - D. Frictional plus structural unemployment.
 
 **Correct answer:** A
 
-**Hint - exact player copy:** Identify the defining relationship, mechanism, or evidence limit for Recessionary gap; the other choices describe different course ideas.
+**Hint - exact player copy:** Identify the defining relationship or mechanism for unemployment types. All needed information is in this question.
 
 **Option feedback - exact player copy:**
 
-- A: Correct. Recessionary gap applies because real output below full-employment output.
-- B: This describes Labor force, not Recessionary gap. The two ideas use different relationships, mechanisms, or evidence limits.
-- C: This describes Discouraged worker, not Recessionary gap. The two ideas use different relationships, mechanisms, or evidence limits.
-- D: This describes Natural unemployment, not Recessionary gap. The two ideas use different relationships, mechanisms, or evidence limits.
+- A: Correct. Only cyclical unemployment signals output below its demand-supported potential.
+- B: This describes labor force. It does not answer the question about unemployment types.
+- C: This describes discouraged worker. It does not answer the question about unemployment types.
+- D: This describes natural unemployment. It does not answer the question about unemployment types.
 
-### Review question 5
+**Optional review completion - exact player copy:** Good work. You have completed six independent practice questions.
 
-**Prompt - exact player copy:** After Jobs Behind The Number, a new decision at Halvern's currency changeover requires the team to distinguish unemployment rate from related macroeconomics ideas. Which statement about unemployment rate would earn course credit?
-
-**Options - exact player copy:**
-
-- A. Employed people plus unemployed people actively seeking work.
-- B. Excluding discouraged workers follows the definition but can hide worsening conditions when read alone.
-- C. A person who wants work but stopped searching and is outside the labor force.
-- D. Frictional plus structural unemployment.
-
-**Correct answer:** B
-
-**Hint - exact player copy:** Identify the defining relationship, mechanism, or evidence limit for unemployment rate; the other choices describe different course ideas.
-
-**Option feedback - exact player copy:**
-
-- A: This describes Labor force, not unemployment rate. The two ideas use different relationships, mechanisms, or evidence limits.
-- B: Correct. unemployment rate applies because excluding discouraged workers follows the definition but can hide worsening conditions when read alone.
-- C: This describes Discouraged worker, not unemployment rate. The two ideas use different relationships, mechanisms, or evidence limits.
-- D: This describes Natural unemployment, not unemployment rate. The two ideas use different relationships, mechanisms, or evidence limits.
-
-### Review question 6
-
-**Prompt - exact player copy:** After Jobs Behind The Number, a new decision at Halvern's currency changeover requires the team to distinguish unemployment types from related macroeconomics ideas. Which use of unemployment types gives the strongest basis for a decision?
-
-**Options - exact player copy:**
-
-- A. Employed people plus unemployed people actively seeking work.
-- B. A person who wants work but stopped searching and is outside the labor force.
-- C. Only cyclical unemployment signals output below its demand-supported potential.
-- D. Frictional plus structural unemployment.
-
-**Correct answer:** C
-
-**Hint - exact player copy:** Identify the defining relationship, mechanism, or evidence limit for unemployment types; the other choices describe different course ideas.
-
-**Option feedback - exact player copy:**
-
-- A: This describes Labor force, not unemployment types. The two ideas use different relationships, mechanisms, or evidence limits.
-- B: This describes Discouraged worker, not unemployment types. The two ideas use different relationships, mechanisms, or evidence limits.
-- C: Correct. unemployment types applies because only cyclical unemployment signals output below its demand-supported potential.
-- D: This describes Natural unemployment, not unemployment types. The two ideas use different relationships, mechanisms, or evidence limits.
-
-**Optional review completion - exact player copy:** Excellent work. You went beyond the required mission and strengthened the ideas behind your decision.
 ## Quick concept review
 - The player can use today’s main model in the next decision.
 - **Mission takeaway:** Evidence must match the mechanism, units, and stated limits.
@@ -3240,7 +3253,7 @@ derive:
 
 **Question card story-science connection - exact player copy:** The purchase increase and tax-cut size let the board compare two ways to close the same modeled gap.
 
-**Fixture source panel - exact player copy:** Because the recessionary gap is 34.8 billion and the spending multiplier is 4, calculate the government-purchase increase that closes it. Also calculate the tax cut using multiplier −3, reporting a positive cut size. Start with gap=k_GΔG for a purchase change and gap=k_TΔT for a tax change, where the gap is 34.8 billion crowns, k_G=4, and k_T=-3.
+**Fixture source panel - exact player copy:** The recessionary gap is 34.8 billion crowns. Use gap=k_GΔG with spending multiplier k_G=4 to find the government-purchase increase that closes it. Then use gap=k_TΔT with tax multiplier k_T=-3 to find the alternative tax cut; report the cut as a positive size.
 
 **Source-panel timing:** Show at this stop’s declared fixture before its DERIVE choices unlock. Keep visible while the player works. These are model inputs and prior observations, not new measurements or an accepted answer. Symbolic derivations stay symbolic; do not invent a number merely to force substitution.
 
@@ -3350,7 +3363,7 @@ Mission decision: Prepare an 8.7-billion purchase increase, and keep the supply-
 
 **Availability:** Reveal only after mission completion when the player selects **GO DEEPER**. This section is optional, ungraded for campaign progress, and does not change metrics, Recovery Points, or the next-mission unlock.
 
-**Secondary briefing card - exact player copy:** You completed The First Round. Choose GO DEEPER to revisit the four decisions and explore related course ideas; this optional review does not change your metrics or delay the next mission.
+**Secondary briefing card - exact player copy:** Try six independent practice questions. Each includes its own context and any needed data; no mission records are required.
 
 ### Review focus
 
@@ -3358,7 +3371,8 @@ No additional prerequisite is required. These optional questions revisit the mis
 
 ### Review question 1
 
-**Prompt - exact player copy:** After The First Round, a new decision at Halvern's currency changeover requires the team to distinguish Marginal propensity to consume (MPC) from related macroeconomics ideas. Which statement correctly applies Marginal propensity to consume (MPC)?
+
+**Prompt - exact player copy:** Which statement best explains marginal propensity to consume (MPC)?
 
 **Options - exact player copy:**
 
@@ -3369,18 +3383,19 @@ No additional prerequisite is required. These optional questions revisit the mis
 
 **Correct answer:** B
 
-**Hint - exact player copy:** Identify the defining relationship, mechanism, or evidence limit for Marginal propensity to consume (MPC); the other choices describe different course ideas.
+**Hint - exact player copy:** Identify the defining relationship or mechanism for marginal propensity to consume (mpc). All needed information is in this question.
 
 **Option feedback - exact player copy:**
 
-- A: This describes Marginal propensity to save (MPS), not Marginal propensity to consume (MPC). The two ideas use different relationships, mechanisms, or evidence limits.
-- B: Correct. Marginal propensity to consume (MPC) applies because the fraction of an extra dollar of income consumed.
-- C: This describes Multiplier, not Marginal propensity to consume (MPC). The two ideas use different relationships, mechanisms, or evidence limits.
-- D: This describes MPC/MPS, not Marginal propensity to consume (MPC). The two ideas use different relationships, mechanisms, or evidence limits.
+- A: This describes marginal propensity to save (MPS). It does not answer the question about marginal propensity to consume (mpc).
+- B: Correct. The fraction of an extra dollar of income consumed.
+- C: This describes multiplier. It does not answer the question about marginal propensity to consume (mpc).
+- D: This describes the marginal propensities to consume and save. It does not answer the question about marginal propensity to consume (mpc).
 
 ### Review question 2
 
-**Prompt - exact player copy:** After The First Round, a new decision at Halvern's currency changeover requires the team to distinguish Marginal propensity to save (MPS) from related macroeconomics ideas. Which description of Marginal propensity to save (MPS) should guide the team's reasoning?
+
+**Prompt - exact player copy:** Which statement best explains marginal propensity to save (MPS)?
 
 **Options - exact player copy:**
 
@@ -3391,18 +3406,19 @@ No additional prerequisite is required. These optional questions revisit the mis
 
 **Correct answer:** C
 
-**Hint - exact player copy:** Identify the defining relationship, mechanism, or evidence limit for Marginal propensity to save (MPS); the other choices describe different course ideas.
+**Hint - exact player copy:** Identify the defining relationship or mechanism for marginal propensity to save (mps). All needed information is in this question.
 
 **Option feedback - exact player copy:**
 
-- A: This describes Marginal propensity to consume (MPC), not Marginal propensity to save (MPS). The two ideas use different relationships, mechanisms, or evidence limits.
-- B: This describes Multiplier, not Marginal propensity to save (MPS). The two ideas use different relationships, mechanisms, or evidence limits.
-- C: Correct. Marginal propensity to save (MPS) applies because the fraction saved; MPC plus MPS equals one.
-- D: This describes MPC/MPS, not Marginal propensity to save (MPS). The two ideas use different relationships, mechanisms, or evidence limits.
+- A: This describes marginal propensity to consume (MPC). It does not answer the question about marginal propensity to save (mps).
+- B: This describes multiplier. It does not answer the question about marginal propensity to save (mps).
+- C: Correct. The fraction saved; MPC plus MPS equals one.
+- D: This describes the marginal propensities to consume and save. It does not answer the question about marginal propensity to save (mps).
 
 ### Review question 3
 
-**Prompt - exact player copy:** After The First Round, a new decision at Halvern's currency changeover requires the team to distinguish Multiplier from related macroeconomics ideas. Which claim about Multiplier is scientifically defensible?
+
+**Prompt - exact player copy:** Which statement best explains multiplier?
 
 **Options - exact player copy:**
 
@@ -3413,18 +3429,19 @@ No additional prerequisite is required. These optional questions revisit the mis
 
 **Correct answer:** D
 
-**Hint - exact player copy:** Identify the defining relationship, mechanism, or evidence limit for Multiplier; the other choices describe different course ideas.
+**Hint - exact player copy:** Identify the defining relationship or mechanism for multiplier. All needed information is in this question.
 
 **Option feedback - exact player copy:**
 
-- A: This describes Marginal propensity to consume (MPC), not Multiplier. The two ideas use different relationships, mechanisms, or evidence limits.
-- B: This describes Marginal propensity to save (MPS), not Multiplier. The two ideas use different relationships, mechanisms, or evidence limits.
-- C: This describes MPC/MPS, not Multiplier. The two ideas use different relationships, mechanisms, or evidence limits.
-- D: Correct. Multiplier applies because total demand change divided by the initial policy change.
+- A: This describes marginal propensity to consume (MPC). It does not answer the question about multiplier.
+- B: This describes marginal propensity to save (MPS). It does not answer the question about multiplier.
+- C: This describes the marginal propensities to consume and save. It does not answer the question about multiplier.
+- D: Correct. Total demand change divided by the initial policy change.
 
 ### Review question 4
 
-**Prompt - exact player copy:** After The First Round, a new decision at Halvern's currency changeover requires the team to distinguish MPC/MPS from related macroeconomics ideas. Which interpretation of MPC/MPS is correct?
+
+**Prompt - exact player copy:** Which statement best explains the marginal propensities to consume and save?
 
 **Options - exact player copy:**
 
@@ -3435,60 +3452,63 @@ No additional prerequisite is required. These optional questions revisit the mis
 
 **Correct answer:** A
 
-**Hint - exact player copy:** Identify the defining relationship, mechanism, or evidence limit for MPC/MPS; the other choices describe different course ideas.
+**Hint - exact player copy:** Identify the defining relationship or mechanism for the marginal propensities to consume and save. All needed information is in this question.
 
 **Option feedback - exact player copy:**
 
-- A: Correct. MPC/MPS applies because saving is the leakage that limits the total demand response.
-- B: This describes Marginal propensity to consume (MPC), not MPC/MPS. The two ideas use different relationships, mechanisms, or evidence limits.
-- C: This describes Marginal propensity to save (MPS), not MPC/MPS. The two ideas use different relationships, mechanisms, or evidence limits.
-- D: This describes Multiplier, not MPC/MPS. The two ideas use different relationships, mechanisms, or evidence limits.
+- A: Correct. Saving is the leakage that limits the total demand response.
+- B: This describes marginal propensity to consume (MPC). It does not answer the question about the marginal propensities to consume and save.
+- C: This describes marginal propensity to save (MPS). It does not answer the question about the marginal propensities to consume and save.
+- D: This describes multiplier. It does not answer the question about the marginal propensities to consume and save.
 
 ### Review question 5
 
-**Prompt - exact player copy:** After The First Round, a new decision at Halvern's currency changeover requires the team to distinguish spending/tax multipliers from related macroeconomics ideas. Which statement about spending/tax multipliers would earn course credit?
+
+**Prompt - exact player copy:** In a simple closed-economy model with no proportional taxes, the marginal propensity to consume is 0.75. How do the spending and tax multipliers compare?
 
 **Options - exact player copy:**
 
 - A. The fraction of an extra dollar of income consumed.
-- B. Choosing the wrong multiplier would miss the output target before conversion day.
+- B. The spending multiplier is 4 and the tax multiplier is -3.
 - C. The fraction saved; MPC plus MPS equals one.
 - D. Total demand change divided by the initial policy change.
 
 **Correct answer:** B
 
-**Hint - exact player copy:** Identify the defining relationship, mechanism, or evidence limit for spending/tax multipliers; the other choices describe different course ideas.
+**Hint - exact player copy:** Identify the defining relationship or mechanism for spending and tax multipliers. All needed information is in this question.
 
 **Option feedback - exact player copy:**
 
-- A: This describes Marginal propensity to consume (MPC), not spending/tax multipliers. The two ideas use different relationships, mechanisms, or evidence limits.
-- B: Correct. spending/tax multipliers applies because choosing the wrong multiplier would miss the output target before conversion day.
-- C: This describes Marginal propensity to save (MPS), not spending/tax multipliers. The two ideas use different relationships, mechanisms, or evidence limits.
-- D: This describes Multiplier, not spending/tax multipliers. The two ideas use different relationships, mechanisms, or evidence limits.
+- A: This describes marginal propensity to consume (MPC). It does not answer the question about spending and tax multipliers.
+- B: Correct. The spending multiplier is 4 and the tax multiplier is -3.
+- C: This describes marginal propensity to save (MPS). It does not answer the question about spending and tax multipliers.
+- D: This describes multiplier. It does not answer the question about spending and tax multipliers.
 
 ### Review question 6
 
-**Prompt - exact player copy:** After The First Round, a new decision at Halvern's currency changeover requires the team to distinguish gap closing from related macroeconomics ideas. Which use of gap closing gives the strongest basis for a decision?
+
+**Prompt - exact player copy:** Which statement best explains gap closing?
 
 **Options - exact player copy:**
 
 - A. The fraction of an extra dollar of income consumed.
 - B. The fraction saved; MPC plus MPS equals one.
-- C. The gap determines the package; the package should not determine the claimed gap.
+- C. The gap determines the reportage; the reportage should not determine the claimed gap.
 - D. Total demand change divided by the initial policy change.
 
 **Correct answer:** C
 
-**Hint - exact player copy:** Identify the defining relationship, mechanism, or evidence limit for gap closing; the other choices describe different course ideas.
+**Hint - exact player copy:** Identify the defining relationship or mechanism for gap closing. All needed information is in this question.
 
 **Option feedback - exact player copy:**
 
-- A: This describes Marginal propensity to consume (MPC), not gap closing. The two ideas use different relationships, mechanisms, or evidence limits.
-- B: This describes Marginal propensity to save (MPS), not gap closing. The two ideas use different relationships, mechanisms, or evidence limits.
-- C: Correct. gap closing applies because the gap determines the package; the package should not determine the claimed gap.
-- D: This describes Multiplier, not gap closing. The two ideas use different relationships, mechanisms, or evidence limits.
+- A: This describes marginal propensity to consume (MPC). It does not answer the question about gap closing.
+- B: This describes marginal propensity to save (MPS). It does not answer the question about gap closing.
+- C: Correct. The gap determines the reportage; the reportage should not determine the claimed gap.
+- D: This describes multiplier. It does not answer the question about gap closing.
 
-**Optional review completion - exact player copy:** Excellent work. You went beyond the required mission and strengthened the ideas behind your decision.
+**Optional review completion - exact player copy:** Good work. You have completed six independent practice questions.
+
 ## Quick concept review
 - The player can use today’s main model in the next decision.
 - **Mission takeaway:** Evidence must match the mechanism, units, and stated limits.
@@ -4004,7 +4024,7 @@ Mission decision: Aim policy at the weak demand gap. Treat the energy shock on i
 
 **Availability:** Reveal only after mission completion when the player selects **GO DEEPER**. This section is optional, ungraded for campaign progress, and does not change metrics, Recovery Points, or the next-mission unlock.
 
-**Secondary briefing card - exact player copy:** You completed Two Shifts. Choose GO DEEPER to revisit the four decisions and explore related course ideas; this optional review does not change your metrics or delay the next mission.
+**Secondary briefing card - exact player copy:** Try six independent practice questions. Each includes its own context and any needed data; no mission records are required.
 
 ### Additional concepts kept out of the required mission card
 
@@ -4012,7 +4032,8 @@ Mission decision: Aim policy at the weak demand gap. Treat the energy shock on i
 
 ### Review question 1
 
-**Prompt - exact player copy:** After Two Shifts, a new decision at Halvern's currency changeover requires the team to distinguish Long-run aggregate supply (LRAS) from related macroeconomics ideas. Which statement correctly applies Long-run aggregate supply (LRAS)?
+
+**Prompt - exact player copy:** Which statement best explains long-run aggregate supply (LRAS)?
 
 **Figure - exact player copy:**
 
@@ -4040,67 +4061,110 @@ Mission decision: Aim policy at the weak demand gap. Treat the energy shock on i
 }
 ```
 
-
 **Options - exact player copy:**
 
 - A. Exports minus imports.
-- B. Full-employment output, vertical at Yf.
-- C. Consumption plus investment plus government purchases plus net exports (C+I+G+NX) at each price level.
-- D. Short-run production supplied at each price level.
+- B. Consumption plus investment plus government purchases plus net exports (C+I+G+NX) at each price level.
+- C. Short-run production supplied at each price level.
+- D. Full-employment output, vertical at Yf.
 
-**Correct answer:** B
+**Correct answer:** D
 
-**Hint - exact player copy:** Identify the defining relationship, mechanism, or evidence limit for Long-run aggregate supply (LRAS); the other choices describe different course ideas.
+**Hint - exact player copy:** Identify the defining relationship or mechanism for long-run aggregate supply (lras). All needed information is in this question.
 
 **Option feedback - exact player copy:**
 
-- A: This describes Net exports (NX), not Long-run aggregate supply (LRAS). The two ideas use different relationships, mechanisms, or evidence limits.
-- B: Correct. Long-run aggregate supply (LRAS) applies because full-employment output, vertical at Yf.
-- C: This describes Aggregate demand (AD), not Long-run aggregate supply (LRAS). The two ideas use different relationships, mechanisms, or evidence limits.
-- D: This describes Short-run aggregate supply (SRAS), not Long-run aggregate supply (LRAS). The two ideas use different relationships, mechanisms, or evidence limits.
+- A: This describes net exports (NX). It does not answer the question about long-run aggregate supply (lras).
+- B: This describes aggregate demand (AD). It does not answer the question about long-run aggregate supply (lras).
+- C: This describes short-run aggregate supply (SRAS). It does not answer the question about long-run aggregate supply (lras).
+- D: Correct. Full-employment output, vertical at Yf.
 
 ### Review question 2
 
-**Prompt - exact player copy:** After Two Shifts, a new decision at Halvern's currency changeover requires the team to distinguish Net exports (NX) from related macroeconomics ideas. Which description of Net exports (NX) should guide the team's reasoning?
+
+**Prompt - exact player copy:** Exports are 90 billion and imports are 110 billion currency units. What are net exports?
+
+**Figure - exact player copy:**
+
+```json
+{
+  "kind": "bars",
+  "xLabel": "Category",
+  "yLabel": "Billions of currency units",
+  "caption": "Trade during one year",
+  "bars": [
+    {
+      "name": "Exports",
+      "value": 90
+    },
+    {
+      "name": "Imports",
+      "value": 110
+    }
+  ]
+}
+```
+
+**Options - exact player copy:**
+
+- A. -20 billion currency units.
+- B. 200 billion.
+- C. 20 billion.
+- D. 90 billion.
+
+**Correct answer:** A
+
+**Hint - exact player copy:** Identify the defining relationship or mechanism for net exports (nx). All needed information is in this question.
+
+**Option feedback - exact player copy:**
+
+- A: Correct. -20 billion currency units.
+- B: Net exports subtract imports from exports; they do not add them.
+- C: Imports exceed exports, so the balance is negative.
+- D: This omits imports.
+
+### Review question 3
+
+
+**Prompt - exact player copy:** Which statement best explains aggregate demand (AD)?
 
 **Figure - exact player copy:**
 
 ```json
 {
   "kind": "line",
-  "xLabel": "Value of RATE",
-  "yLabel": "Net exports",
-  "caption": "A stronger RATE reduces Halvern's net exports.",
+  "xLabel": "Real output",
+  "yLabel": "Price level",
+  "caption": "Aggregate demand slopes downward.",
   "series": [
     {
-      "name": "NX",
+      "name": "AD",
       "points": [
         [
-          2,
+          20,
+          95
+        ],
+        [
+          40,
           80
         ],
         [
-          3,
-          65
+          60,
+          64
         ],
         [
-          4,
-          50
+          80,
+          49
         ],
         [
-          5,
+          100,
           35
-        ],
-        [
-          6,
-          20
         ]
       ]
     }
   ]
 }
 ```
-
 
 **Options - exact player copy:**
 
@@ -4109,20 +4173,21 @@ Mission decision: Aim policy at the weak demand gap. Treat the energy shock on i
 - C. Exports minus imports.
 - D. Short-run production supplied at each price level.
 
-**Correct answer:** C
+**Correct answer:** B
 
-**Hint - exact player copy:** Identify the defining relationship, mechanism, or evidence limit for Net exports (NX); the other choices describe different course ideas.
+**Hint - exact player copy:** Identify the defining relationship or mechanism for aggregate demand (ad). All needed information is in this question.
 
 **Option feedback - exact player copy:**
 
-- A: This describes Long-run aggregate supply (LRAS), not Net exports (NX). The two ideas use different relationships, mechanisms, or evidence limits.
-- B: This describes Aggregate demand (AD), not Net exports (NX). The two ideas use different relationships, mechanisms, or evidence limits.
-- C: Correct. Net exports (NX) applies because exports minus imports.
-- D: This describes Short-run aggregate supply (SRAS), not Net exports (NX). The two ideas use different relationships, mechanisms, or evidence limits.
+- A: This describes long-run aggregate supply (LRAS). It does not answer the question about aggregate demand (ad).
+- B: Correct. Consumption plus investment plus government purchases plus net exports (C+I+G+NX) at each price level.
+- C: This describes net exports (NX). It does not answer the question about aggregate demand (ad).
+- D: This describes short-run aggregate supply (SRAS). It does not answer the question about aggregate demand (ad).
 
-### Review question 3
+### Review question 4
 
-**Prompt - exact player copy:** After Two Shifts, a new decision at Halvern's currency changeover requires the team to distinguish Aggregate demand (AD) from related macroeconomics ideas. Which claim about Aggregate demand (AD) is scientifically defensible?
+
+**Prompt - exact player copy:** Which statement best explains short-run aggregate supply (SRAS)?
 
 **Figure - exact player copy:**
 
@@ -4131,37 +4196,53 @@ Mission decision: Aim policy at the weak demand gap. Treat the energy shock on i
   "kind": "line",
   "xLabel": "Real output",
   "yLabel": "Price level",
-  "caption": "Aggregate demand slopes downward.",
+  "caption": "An adverse supply shock shifts short-run aggregate supply left.",
   "series": [
     {
-      "name": "AD",
+      "name": "Before",
       "points": [
         [
-          20,
-          95
-        ],
-        [
-          40,
-          80
-        ],
-        [
-          60,
-          64
-        ],
-        [
-          80,
-          49
-        ],
-        [
-          100,
+          25,
           35
+        ],
+        [
+          45,
+          48
+        ],
+        [
+          65,
+          63
+        ],
+        [
+          85,
+          82
+        ]
+      ]
+    },
+    {
+      "name": "After shock",
+      "points": [
+        [
+          15,
+          48
+        ],
+        [
+          35,
+          61
+        ],
+        [
+          55,
+          76
+        ],
+        [
+          75,
+          95
         ]
       ]
     }
   ]
 }
 ```
-
 
 **Options - exact player copy:**
 
@@ -4170,98 +4251,21 @@ Mission decision: Aim policy at the weak demand gap. Treat the energy shock on i
 - C. Short-run production supplied at each price level.
 - D. Consumption plus investment plus government purchases plus net exports (C+I+G+NX) at each price level.
 
-**Correct answer:** D
+**Correct answer:** C
 
-**Hint - exact player copy:** Identify the defining relationship, mechanism, or evidence limit for Aggregate demand (AD); the other choices describe different course ideas.
-
-**Option feedback - exact player copy:**
-
-- A: This describes Long-run aggregate supply (LRAS), not Aggregate demand (AD). The two ideas use different relationships, mechanisms, or evidence limits.
-- B: This describes Net exports (NX), not Aggregate demand (AD). The two ideas use different relationships, mechanisms, or evidence limits.
-- C: This describes Short-run aggregate supply (SRAS), not Aggregate demand (AD). The two ideas use different relationships, mechanisms, or evidence limits.
-- D: Correct. Aggregate demand (AD) applies because consumption plus investment plus government purchases plus net exports (C+I+G+NX) at each price level.
-
-### Review question 4
-
-**Prompt - exact player copy:** After Two Shifts, a new decision at Halvern's currency changeover requires the team to distinguish Short-run aggregate supply (SRAS) from related macroeconomics ideas. Which interpretation of Short-run aggregate supply (SRAS) is correct?
-
-**Figure - exact player copy:**
-
-```json
-{
-  "kind": "line",
-  "xLabel": "Real output",
-  "yLabel": "Price level",
-  "caption": "An adverse supply shock shifts short-run aggregate supply left.",
-  "series": [
-    {
-      "name": "Before",
-      "points": [
-        [
-          25,
-          35
-        ],
-        [
-          45,
-          48
-        ],
-        [
-          65,
-          63
-        ],
-        [
-          85,
-          82
-        ]
-      ]
-    },
-    {
-      "name": "After shock",
-      "points": [
-        [
-          15,
-          48
-        ],
-        [
-          35,
-          61
-        ],
-        [
-          55,
-          76
-        ],
-        [
-          75,
-          95
-        ]
-      ]
-    }
-  ]
-}
-```
-
-
-**Options - exact player copy:**
-
-- A. Short-run production supplied at each price level.
-- B. Full-employment output, vertical at Yf.
-- C. Exports minus imports.
-- D. Consumption plus investment plus government purchases plus net exports (C+I+G+NX) at each price level.
-
-**Correct answer:** A
-
-**Hint - exact player copy:** Identify the defining relationship, mechanism, or evidence limit for Short-run aggregate supply (SRAS); the other choices describe different course ideas.
+**Hint - exact player copy:** Identify the defining relationship or mechanism for short-run aggregate supply (sras). All needed information is in this question.
 
 **Option feedback - exact player copy:**
 
-- A: Correct. Short-run aggregate supply (SRAS) applies because short-run production supplied at each price level.
-- B: This describes Long-run aggregate supply (LRAS), not Short-run aggregate supply (SRAS). The two ideas use different relationships, mechanisms, or evidence limits.
-- C: This describes Net exports (NX), not Short-run aggregate supply (SRAS). The two ideas use different relationships, mechanisms, or evidence limits.
-- D: This describes Aggregate demand (AD), not Short-run aggregate supply (SRAS). The two ideas use different relationships, mechanisms, or evidence limits.
+- A: This describes long-run aggregate supply (LRAS). It does not answer the question about short-run aggregate supply (sras).
+- B: This describes net exports (NX). It does not answer the question about short-run aggregate supply (sras).
+- C: Correct. Short-run production supplied at each price level.
+- D: This describes aggregate demand (AD). It does not answer the question about short-run aggregate supply (sras).
 
 ### Review question 5
 
-**Prompt - exact player copy:** After Two Shifts, a new decision at Halvern's currency changeover requires the team to distinguish Stagflation from related macroeconomics ideas. Which statement about Stagflation would earn course credit?
+
+**Prompt - exact player copy:** Which statement best explains stagflation?
 
 **Figure - exact player copy:**
 
@@ -4317,29 +4321,29 @@ Mission decision: Aim policy at the weak demand gap. Treat the energy shock on i
   ]
 }
 ```
-
 
 **Options - exact player copy:**
 
 - A. Full-employment output, vertical at Yf.
-- B. Higher prices with lower output.
-- C. Exports minus imports.
-- D. Consumption plus investment plus government purchases plus net exports (C+I+G+NX) at each price level.
+- B. Exports minus imports.
+- C. Consumption plus investment plus government purchases plus net exports (C+I+G+NX) at each price level.
+- D. Higher prices with lower output.
 
-**Correct answer:** B
+**Correct answer:** D
 
-**Hint - exact player copy:** Identify the defining relationship, mechanism, or evidence limit for Stagflation; the other choices describe different course ideas.
+**Hint - exact player copy:** Identify the defining relationship or mechanism for stagflation. All needed information is in this question.
 
 **Option feedback - exact player copy:**
 
-- A: This describes Long-run aggregate supply (LRAS), not Stagflation. The two ideas use different relationships, mechanisms, or evidence limits.
-- B: Correct. Stagflation applies because higher prices with lower output.
-- C: This describes Net exports (NX), not Stagflation. The two ideas use different relationships, mechanisms, or evidence limits.
-- D: This describes Aggregate demand (AD), not Stagflation. The two ideas use different relationships, mechanisms, or evidence limits.
+- A: This describes long-run aggregate supply (LRAS). It does not answer the question about stagflation.
+- B: This describes net exports (NX). It does not answer the question about stagflation.
+- C: This describes aggregate demand (AD). It does not answer the question about stagflation.
+- D: Correct. Higher prices with lower output.
 
 ### Review question 6
 
-**Prompt - exact player copy:** After Two Shifts, a new decision at Halvern's currency changeover requires the team to distinguish AD slope from related macroeconomics ideas. Which use of AD slope gives the strongest basis for a decision?
+
+**Prompt - exact player copy:** Which statement best explains the slope of aggregate demand?
 
 **Figure - exact player copy:**
 
@@ -4379,26 +4383,26 @@ Mission decision: Aim policy at the weak demand gap. Treat the energy shock on i
 }
 ```
 
-
 **Options - exact player copy:**
 
-- A. Full-employment output, vertical at Yf.
-- B. Exports minus imports.
-- C. A price-level change moves along AD; spending conditions shift AD.
+- A. A price-level change moves along AD; spending conditions shift AD.
+- B. Full-employment output, vertical at Yf.
+- C. Exports minus imports.
 - D. Consumption plus investment plus government purchases plus net exports (C+I+G+NX) at each price level.
 
-**Correct answer:** C
+**Correct answer:** A
 
-**Hint - exact player copy:** Identify the defining relationship, mechanism, or evidence limit for AD slope; the other choices describe different course ideas.
+**Hint - exact player copy:** Identify the defining relationship or mechanism for the slope of aggregate demand. All needed information is in this question.
 
 **Option feedback - exact player copy:**
 
-- A: This describes Long-run aggregate supply (LRAS), not AD slope. The two ideas use different relationships, mechanisms, or evidence limits.
-- B: This describes Net exports (NX), not AD slope. The two ideas use different relationships, mechanisms, or evidence limits.
-- C: Correct. AD slope applies because a price-level change moves along AD; spending conditions shift AD.
-- D: This describes Aggregate demand (AD), not AD slope. The two ideas use different relationships, mechanisms, or evidence limits.
+- A: Correct. A price-level change moves along AD; spending conditions shift AD.
+- B: This describes long-run aggregate supply (LRAS). It does not answer the question about the slope of aggregate demand.
+- C: This describes net exports (NX). It does not answer the question about the slope of aggregate demand.
+- D: This describes aggregate demand (AD). It does not answer the question about the slope of aggregate demand.
 
-**Optional review completion - exact player copy:** Excellent work. You went beyond the required mission and strengthened the ideas behind your decision.
+**Optional review completion - exact player copy:** Good work. You have completed six independent practice questions.
+
 ## Quick concept review
 - The player can use today’s main model in the next decision.
 - **Mission takeaway:** Evidence must match the mechanism, units, and stated limits.
@@ -4593,11 +4597,11 @@ NOTES→BANKS, unlocked when S2 traces sacks to deposits. Tomas stops a truck fr
 
 **Stop reason - exact player copy:** Returned-note sacks are arriving, but the money aggregates need a baseline before interpreting them.
 
-**Question card story setup - exact player copy:** Halvern records cash 80, checking 220, savings 140, and money-market funds 60 billion crowns. Build M1 and M2 before interpreting the returned-note sacks clearly in the Rate Book before proceeding.
+**Question card story setup - exact player copy:** Halvern records cash 80, checking deposits 220, savings 140, and small time deposits 60 billion crowns. Calculate M1 and M2 in the Rate Book before interpreting the returned-note sacks.
 
 **Question card story-science connection - exact player copy:** The two money totals distinguish spendable balances from the broader stock that includes savings instruments.
 
-**Fixture source panel - exact player copy:** Halvern records cash 80, checking 220, savings 140, and money-market funds 60 billion crowns. Build M1 and M2 before interpreting the returned-note sacks clearly in the Rate Book before proceeding. currency=80 checking deposits=220 savings=140 small time deposits=60
+**Fixture source panel - exact player copy:** Halvern records cash 80, checking deposits 220, savings 140, and small time deposits 60 billion crowns. Calculate M1 and M2 in the Rate Book before interpreting the returned-note sacks.
 
 **Source-panel timing:** Show at this stop’s declared fixture before its DERIVE choices unlock. Keep visible while the player works. These are model inputs and prior observations, not new measurements or an accepted answer. Symbolic derivations stay symbolic; do not invent a number merely to force substitution.
 
@@ -4712,7 +4716,7 @@ trace:
 
 **Question card story-science connection - exact player copy:** Required and excess reserves determine the simplified maximum deposit expansion, not a promise of actual lending.
 
-**Fixture source panel - exact player copy:** Because 100 billion in deposits reached the banks, total reserves are 18 billion and the required reserve ratio is 10%. Derive required reserves, excess reserves, multiplier, and maximum system creation. deposits=100 billion actual reserves=18 billion reserve ratio=0.10
+**Fixture source panel - exact player copy:** Because 100 billion in deposits reached the banks, total reserves are 18 billion and the required reserve ratio is 10%. Derive required reserves, excess reserves, multiplier, and maximum system creation.
 
 **Source-panel timing:** Show at this stop’s declared fixture before its DERIVE choices unlock. Keep visible while the player works. These are model inputs and prior observations, not new measurements or an accepted answer. Symbolic derivations stay symbolic; do not invent a number merely to force substitution.
 
@@ -4828,7 +4832,7 @@ Mission decision: Returned notes moved into bank deposits. They did not vanish f
 
 **Availability:** Reveal only after mission completion when the player selects **GO DEEPER**. This section is optional, ungraded for campaign progress, and does not change metrics, Recovery Points, or the next-mission unlock.
 
-**Secondary briefing card - exact player copy:** You completed Money That Moved. Choose GO DEEPER to revisit the four decisions and explore related course ideas; this optional review does not change your metrics or delay the next mission.
+**Secondary briefing card - exact player copy:** Try six independent practice questions. Each includes its own context and any needed data; no mission records are required.
 
 ### Review focus
 
@@ -4836,7 +4840,8 @@ No additional prerequisite is required. These optional questions revisit the mis
 
 ### Review question 1
 
-**Prompt - exact player copy:** After Money That Moved, a new decision at Halvern's currency changeover requires the team to distinguish Narrow money (M1) from related macroeconomics ideas. Which statement correctly applies Narrow money (M1)?
+
+**Prompt - exact player copy:** Which statement best explains narrow money (M1)?
 
 **Options - exact player copy:**
 
@@ -4847,18 +4852,19 @@ No additional prerequisite is required. These optional questions revisit the mis
 
 **Correct answer:** B
 
-**Hint - exact player copy:** Identify the defining relationship, mechanism, or evidence limit for Narrow money (M1); the other choices describe different course ideas.
+**Hint - exact player copy:** Identify the defining relationship or mechanism for narrow money (m1). All needed information is in this question.
 
 **Option feedback - exact player copy:**
 
-- A: This describes Required reserves, not Narrow money (M1). The two ideas use different relationships, mechanisms, or evidence limits.
-- B: Correct. Narrow money (M1) applies because cash plus checking deposits. Broad money (M2): M1 plus savings and money-market funds.
-- C: This describes Excess reserves, not Narrow money (M1). The two ideas use different relationships, mechanisms, or evidence limits.
-- D: This describes aggregates, not Narrow money (M1). The two ideas use different relationships, mechanisms, or evidence limits.
+- A: This describes required reserves. It does not answer the question about narrow money (m1).
+- B: Correct. Cash plus checking deposits. Broad money (M2): M1 plus savings and money-market funds.
+- C: This describes excess reserves. It does not answer the question about narrow money (m1).
+- D: This describes aggregates. It does not answer the question about narrow money (m1).
 
 ### Review question 2
 
-**Prompt - exact player copy:** After Money That Moved, a new decision at Halvern's currency changeover requires the team to distinguish Required reserves from related macroeconomics ideas. Which description of Required reserves should guide the team's reasoning?
+
+**Prompt - exact player copy:** Which statement best explains required reserves?
 
 **Options - exact player copy:**
 
@@ -4869,18 +4875,19 @@ No additional prerequisite is required. These optional questions revisit the mis
 
 **Correct answer:** C
 
-**Hint - exact player copy:** Identify the defining relationship, mechanism, or evidence limit for Required reserves; the other choices describe different course ideas.
+**Hint - exact player copy:** Identify the defining relationship or mechanism for required reserves. All needed information is in this question.
 
 **Option feedback - exact player copy:**
 
-- A: This describes Narrow money (M1), not Required reserves. The two ideas use different relationships, mechanisms, or evidence limits.
-- B: This describes Excess reserves, not Required reserves. The two ideas use different relationships, mechanisms, or evidence limits.
-- C: Correct. Required reserves applies because deposits times reserve ratio.
-- D: This describes aggregates, not Required reserves. The two ideas use different relationships, mechanisms, or evidence limits.
+- A: This describes narrow money (M1). It does not answer the question about required reserves.
+- B: This describes excess reserves. It does not answer the question about required reserves.
+- C: Correct. Deposits times reserve ratio.
+- D: This describes aggregates. It does not answer the question about required reserves.
 
 ### Review question 3
 
-**Prompt - exact player copy:** After Money That Moved, a new decision at Halvern's currency changeover requires the team to distinguish Excess reserves from related macroeconomics ideas. Which claim about Excess reserves is scientifically defensible?
+
+**Prompt - exact player copy:** Which statement best explains excess reserves?
 
 **Options - exact player copy:**
 
@@ -4891,18 +4898,19 @@ No additional prerequisite is required. These optional questions revisit the mis
 
 **Correct answer:** D
 
-**Hint - exact player copy:** Identify the defining relationship, mechanism, or evidence limit for Excess reserves; the other choices describe different course ideas.
+**Hint - exact player copy:** Identify the defining relationship or mechanism for excess reserves. All needed information is in this question.
 
 **Option feedback - exact player copy:**
 
-- A: This describes Narrow money (M1), not Excess reserves. The two ideas use different relationships, mechanisms, or evidence limits.
-- B: This describes Required reserves, not Excess reserves. The two ideas use different relationships, mechanisms, or evidence limits.
-- C: This describes aggregates, not Excess reserves. The two ideas use different relationships, mechanisms, or evidence limits.
-- D: Correct. Excess reserves applies because total minus required reserves.
+- A: This describes narrow money (M1). It does not answer the question about excess reserves.
+- B: This describes required reserves. It does not answer the question about excess reserves.
+- C: This describes aggregates. It does not answer the question about excess reserves.
+- D: Correct. Total minus required reserves.
 
 ### Review question 4
 
-**Prompt - exact player copy:** After Money That Moved, a new decision at Halvern's currency changeover requires the team to distinguish aggregates from related macroeconomics ideas. Which interpretation of aggregates is correct?
+
+**Prompt - exact player copy:** Which statement best explains aggregates?
 
 **Options - exact player copy:**
 
@@ -4913,18 +4921,19 @@ No additional prerequisite is required. These optional questions revisit the mis
 
 **Correct answer:** A
 
-**Hint - exact player copy:** Identify the defining relationship, mechanism, or evidence limit for aggregates; the other choices describe different course ideas.
+**Hint - exact player copy:** Identify the defining relationship or mechanism for aggregates. All needed information is in this question.
 
 **Option feedback - exact player copy:**
 
-- A: Correct. aggregates applies because cash can fall while deposits keep broader money available.
-- B: This describes Narrow money (M1), not aggregates. The two ideas use different relationships, mechanisms, or evidence limits.
-- C: This describes Required reserves, not aggregates. The two ideas use different relationships, mechanisms, or evidence limits.
-- D: This describes Excess reserves, not aggregates. The two ideas use different relationships, mechanisms, or evidence limits.
+- A: Correct. Cash can fall while deposits keep broader money available.
+- B: This describes narrow money (M1). It does not answer the question about aggregates.
+- C: This describes required reserves. It does not answer the question about aggregates.
+- D: This describes excess reserves. It does not answer the question about aggregates.
 
 ### Review question 5
 
-**Prompt - exact player copy:** After Money That Moved, a new decision at Halvern's currency changeover requires the team to distinguish money functions from related macroeconomics ideas. Which statement about money functions would earn course credit?
+
+**Prompt - exact player copy:** Which statement best explains money functions?
 
 **Options - exact player copy:**
 
@@ -4935,38 +4944,40 @@ No additional prerequisite is required. These optional questions revisit the mis
 
 **Correct answer:** B
 
-**Hint - exact player copy:** Identify the defining relationship, mechanism, or evidence limit for money functions; the other choices describe different course ideas.
+**Hint - exact player copy:** Identify the defining relationship or mechanism for money functions. All needed information is in this question.
 
 **Option feedback - exact player copy:**
 
-- A: This describes Narrow money (M1), not money functions. The two ideas use different relationships, mechanisms, or evidence limits.
-- B: Correct. money functions applies because agreement among cash-return channels is not independent proof of contraction.
-- C: This describes Required reserves, not money functions. The two ideas use different relationships, mechanisms, or evidence limits.
-- D: This describes Excess reserves, not money functions. The two ideas use different relationships, mechanisms, or evidence limits.
+- A: This describes narrow money (M1). It does not answer the question about money functions.
+- B: Correct. Agreement among cash-return channels is not independent proof of contraction.
+- C: This describes required reserves. It does not answer the question about money functions.
+- D: This describes excess reserves. It does not answer the question about money functions.
 
 ### Review question 6
 
-**Prompt - exact player copy:** After Money That Moved, a new decision at Halvern's currency changeover requires the team to distinguish reserves/multiplier from related macroeconomics ideas. Which use of reserves/multiplier gives the strongest basis for a decision?
+
+**Prompt - exact player copy:** A simple deposit-multiplier model gives a maximum possible expansion under its assumptions. Must actual lending reach that maximum?
 
 **Options - exact player copy:**
 
 - A. Cash plus checking deposits. Broad money (M2): M1 plus savings and money-market funds.
 - B. Deposits times reserve ratio.
-- C. The maximum is a capacity ceiling, not a promise that borrowers will demand every loan.
+- C. No. It is a capacity ceiling; bank choices, borrower demand, and other constraints may reduce actual expansion.
 - D. Total minus required reserves.
 
 **Correct answer:** C
 
-**Hint - exact player copy:** Identify the defining relationship, mechanism, or evidence limit for reserves/multiplier; the other choices describe different course ideas.
+**Hint - exact player copy:** Identify the defining relationship or mechanism for reserves and multiplier. All needed information is in this question.
 
 **Option feedback - exact player copy:**
 
-- A: This describes Narrow money (M1), not reserves/multiplier. The two ideas use different relationships, mechanisms, or evidence limits.
-- B: This describes Required reserves, not reserves/multiplier. The two ideas use different relationships, mechanisms, or evidence limits.
-- C: Correct. reserves/multiplier applies because the maximum is a capacity ceiling, not a promise that borrowers will demand every loan.
-- D: This describes Excess reserves, not reserves/multiplier. The two ideas use different relationships, mechanisms, or evidence limits.
+- A: This describes narrow money (M1). It does not answer the question about reserves and multiplier.
+- B: This describes required reserves. It does not answer the question about reserves and multiplier.
+- C: Correct. No. It is a capacity ceiling; bank choices, borrower demand, and other constraints may reduce actual expansion.
+- D: This describes excess reserves. It does not answer the question about reserves and multiplier.
 
-**Optional review completion - exact player copy:** Excellent work. You went beyond the required mission and strengthened the ideas behind your decision.
+**Optional review completion - exact player copy:** Good work. You have completed six independent practice questions.
+
 ## Quick concept review
 - The player can use today’s main model in the next decision.
 - **Mission takeaway:** Evidence must match the mechanism, units, and stated limits.
@@ -5193,7 +5204,7 @@ BANKS→RATE after the equilibrium simulation. Tomas wants a cushion; Mara wants
 
 **Question card story-science connection - exact player copy:** The real interest rate shows whether borrowing became more restrictive despite the nominal headline.
 
-**Fixture source panel - exact player copy:** With equilibrium nominal interest at 4.0% and expected inflation at 2.5%, rearrange Fisher's equation and calculate the real rate. Compare it with last month's 1.0% real rate. nominal rate=4.0% expected inflation=2.5% last real rate=1.0%
+**Fixture source panel - exact player copy:** With equilibrium nominal interest at 4.0% and expected inflation at 2.5%, rearrange Fisher's equation and calculate the real rate. Compare it with last month's 1.0% real rate.
 
 **Source-panel timing:** Show at this stop’s declared fixture before its DERIVE choices unlock. Keep visible while the player works. These are model inputs and prior observations, not new measurements or an accepted answer. Symbolic derivations stay symbolic; do not invent a number merely to force substitution.
 
@@ -5373,7 +5384,7 @@ Mission decision: Do not raise rates now. The real rate is already 1.5%, and a h
 
 **Availability:** Reveal only after mission completion when the player selects **GO DEEPER**. This section is optional, ungraded for campaign progress, and does not change metrics, Recovery Points, or the next-mission unlock.
 
-**Secondary briefing card - exact player copy:** You completed The Rate People Feel. Choose GO DEEPER to revisit the four decisions and explore related course ideas; this optional review does not change your metrics or delay the next mission.
+**Secondary briefing card - exact player copy:** Try six independent practice questions. Each includes its own context and any needed data; no mission records are required.
 
 ### Review focus
 
@@ -5381,7 +5392,8 @@ No additional prerequisite is required. These optional questions revisit the mis
 
 ### Review question 1
 
-**Prompt - exact player copy:** After The Rate People Feel, a new decision at Halvern's currency changeover requires the team to distinguish Money demand from related macroeconomics ideas. Which statement correctly applies Money demand?
+
+**Prompt - exact player copy:** Which statement best explains money demand?
 
 **Figure - exact player copy:**
 
@@ -5430,6 +5442,75 @@ No additional prerequisite is required. These optional questions revisit the mis
 }
 ```
 
+**Options - exact player copy:**
+
+- A. Central-bank-set quantity, vertical in the model.
+- B. Nominal interest minus expected inflation.
+- C. A money surplus produces bond buying, higher bond prices, and a lower nominal rate.
+- D. Desired liquid balances, lower at higher nominal interest.
+
+**Correct answer:** D
+
+**Hint - exact player copy:** Identify the defining relationship or mechanism for money demand. All needed information is in this question.
+
+**Option feedback - exact player copy:**
+
+- A: This describes money supply. It does not answer the question about money demand.
+- B: This describes real interest. It does not answer the question about money demand.
+- C: This describes money market. It does not answer the question about money demand.
+- D: Correct. Desired liquid balances, lower at higher nominal interest.
+
+### Review question 2
+
+
+**Prompt - exact player copy:** Which statement best explains money supply?
+
+**Figure - exact player copy:**
+
+```json
+{
+  "kind": "line",
+  "xLabel": "Quantity of money",
+  "yLabel": "Nominal interest rate (%)",
+  "caption": "Money demand and the fixed money supply.",
+  "series": [
+    {
+      "name": "Money demand",
+      "points": [
+        [
+          20,
+          8
+        ],
+        [
+          40,
+          6
+        ],
+        [
+          60,
+          4
+        ],
+        [
+          80,
+          2
+        ]
+      ]
+    },
+    {
+      "name": "Money supply",
+      "points": [
+        [
+          55,
+          1
+        ],
+        [
+          55,
+          9
+        ]
+      ]
+    }
+  ]
+}
+```
 
 **Options - exact player copy:**
 
@@ -5438,68 +5519,21 @@ No additional prerequisite is required. These optional questions revisit the mis
 - C. Nominal interest minus expected inflation.
 - D. A money surplus produces bond buying, higher bond prices, and a lower nominal rate.
 
-**Correct answer:** B
+**Correct answer:** A
 
-**Hint - exact player copy:** Identify the defining relationship, mechanism, or evidence limit for Money demand; the other choices describe different course ideas.
+**Hint - exact player copy:** Identify the defining relationship or mechanism for money supply. All needed information is in this question.
 
 **Option feedback - exact player copy:**
 
-- A: This describes Money supply, not Money demand. The two ideas use different relationships, mechanisms, or evidence limits.
-- B: Correct. Money demand applies because desired liquid balances, lower at higher nominal interest.
-- C: This describes Real interest, not Money demand. The two ideas use different relationships, mechanisms, or evidence limits.
-- D: This describes money market, not Money demand. The two ideas use different relationships, mechanisms, or evidence limits.
+- A: Correct. Central-bank-set quantity, vertical in the model.
+- B: This describes money demand. It does not answer the question about money supply.
+- C: This describes real interest. It does not answer the question about money supply.
+- D: This describes money market. It does not answer the question about money supply.
 
-### Review question 2
+### Review question 3
 
-**Prompt - exact player copy:** After The Rate People Feel, a new decision at Halvern's currency changeover requires the team to distinguish Money supply from related macroeconomics ideas. Which description of Money supply should guide the team's reasoning?
 
-**Figure - exact player copy:**
-
-```json
-{
-  "kind": "line",
-  "xLabel": "Quantity of money",
-  "yLabel": "Nominal interest rate (%)",
-  "caption": "Money demand and the fixed money supply.",
-  "series": [
-    {
-      "name": "Money demand",
-      "points": [
-        [
-          20,
-          8
-        ],
-        [
-          40,
-          6
-        ],
-        [
-          60,
-          4
-        ],
-        [
-          80,
-          2
-        ]
-      ]
-    },
-    {
-      "name": "Money supply",
-      "points": [
-        [
-          55,
-          1
-        ],
-        [
-          55,
-          9
-        ]
-      ]
-    }
-  ]
-}
-```
-
+**Prompt - exact player copy:** Which statement best explains real interest?
 
 **Options - exact player copy:**
 
@@ -5508,20 +5542,21 @@ No additional prerequisite is required. These optional questions revisit the mis
 - C. Central-bank-set quantity, vertical in the model.
 - D. A money surplus produces bond buying, higher bond prices, and a lower nominal rate.
 
-**Correct answer:** C
+**Correct answer:** B
 
-**Hint - exact player copy:** Identify the defining relationship, mechanism, or evidence limit for Money supply; the other choices describe different course ideas.
+**Hint - exact player copy:** Identify the defining relationship or mechanism for real interest. All needed information is in this question.
 
 **Option feedback - exact player copy:**
 
-- A: This describes Money demand, not Money supply. The two ideas use different relationships, mechanisms, or evidence limits.
-- B: This describes Real interest, not Money supply. The two ideas use different relationships, mechanisms, or evidence limits.
-- C: Correct. Money supply applies because central-bank-set quantity, vertical in the model.
-- D: This describes money market, not Money supply. The two ideas use different relationships, mechanisms, or evidence limits.
+- A: This describes money demand. It does not answer the question about real interest.
+- B: Correct. Nominal interest minus expected inflation.
+- C: This describes money supply. It does not answer the question about real interest.
+- D: This describes money market. It does not answer the question about real interest.
 
-### Review question 3
+### Review question 4
 
-**Prompt - exact player copy:** After The Rate People Feel, a new decision at Halvern's currency changeover requires the team to distinguish Real interest from related macroeconomics ideas. Which claim about Real interest is scientifically defensible?
+
+**Prompt - exact player copy:** Which statement best explains money market?
 
 **Options - exact player copy:**
 
@@ -5530,84 +5565,65 @@ No additional prerequisite is required. These optional questions revisit the mis
 - C. A money surplus produces bond buying, higher bond prices, and a lower nominal rate.
 - D. Nominal interest minus expected inflation.
 
-**Correct answer:** D
+**Correct answer:** C
 
-**Hint - exact player copy:** Identify the defining relationship, mechanism, or evidence limit for Real interest; the other choices describe different course ideas.
+**Hint - exact player copy:** Identify the defining relationship or mechanism for money market. All needed information is in this question.
 
 **Option feedback - exact player copy:**
 
-- A: This describes Money demand, not Real interest. The two ideas use different relationships, mechanisms, or evidence limits.
-- B: This describes Money supply, not Real interest. The two ideas use different relationships, mechanisms, or evidence limits.
-- C: This describes money market, not Real interest. The two ideas use different relationships, mechanisms, or evidence limits.
-- D: Correct. Real interest applies because nominal interest minus expected inflation.
+- A: This describes money demand. It does not answer the question about money market.
+- B: This describes money supply. It does not answer the question about money market.
+- C: Correct. A money surplus produces bond buying, higher bond prices, and a lower nominal rate.
+- D: This describes real interest. It does not answer the question about money market.
 
-### Review question 4
+### Review question 5
 
-**Prompt - exact player copy:** After The Rate People Feel, a new decision at Halvern's currency changeover requires the team to distinguish money market from related macroeconomics ideas. Which interpretation of money market is correct?
+
+**Prompt - exact player copy:** Which statement best explains the relationship between nominal interest, expected inflation, and real interest?
 
 **Options - exact player copy:**
 
-- A. A money surplus produces bond buying, higher bond prices, and a lower nominal rate.
+- A. Desired liquid balances, lower at higher nominal interest.
+- B. Central-bank-set quantity, vertical in the model.
+- C. Nominal interest minus expected inflation.
+- D. Tightness depends on the real rate, not on whether the nominal number looks high or low.
+
+**Correct answer:** D
+
+**Hint - exact player copy:** Identify the defining relationship or mechanism for the relationship between nominal interest, expected inflation, and real interest. All needed information is in this question.
+
+**Option feedback - exact player copy:**
+
+- A: This describes money demand. It does not answer the question about the relationship between nominal interest, expected inflation, and real interest.
+- B: This describes money supply. It does not answer the question about the relationship between nominal interest, expected inflation, and real interest.
+- C: This describes real interest. It does not answer the question about the relationship between nominal interest, expected inflation, and real interest.
+- D: Correct. Tightness depends on the real rate, not on whether the nominal number looks high or low.
+
+### Review question 6
+
+
+**Prompt - exact player copy:** Which statement best explains monetary chain?
+
+**Options - exact player copy:**
+
+- A. A tool matters only through the chain it sets off.
 - B. Desired liquid balances, lower at higher nominal interest.
 - C. Central-bank-set quantity, vertical in the model.
 - D. Nominal interest minus expected inflation.
 
 **Correct answer:** A
 
-**Hint - exact player copy:** Identify the defining relationship, mechanism, or evidence limit for money market; the other choices describe different course ideas.
+**Hint - exact player copy:** Identify the defining relationship or mechanism for monetary chain. All needed information is in this question.
 
 **Option feedback - exact player copy:**
 
-- A: Correct. money market applies because a money surplus produces bond buying, higher bond prices, and a lower nominal rate.
-- B: This describes Money demand, not money market. The two ideas use different relationships, mechanisms, or evidence limits.
-- C: This describes Money supply, not money market. The two ideas use different relationships, mechanisms, or evidence limits.
-- D: This describes Real interest, not money market. The two ideas use different relationships, mechanisms, or evidence limits.
+- A: Correct. A tool matters only through the chain it sets off.
+- B: This describes money demand. It does not answer the question about monetary chain.
+- C: This describes money supply. It does not answer the question about monetary chain.
+- D: This describes real interest. It does not answer the question about monetary chain.
 
-### Review question 5
+**Optional review completion - exact player copy:** Good work. You have completed six independent practice questions.
 
-**Prompt - exact player copy:** After The Rate People Feel, a new decision at Halvern's currency changeover requires the team to distinguish Fisher from related macroeconomics ideas. Which statement about Fisher would earn course credit?
-
-**Options - exact player copy:**
-
-- A. Desired liquid balances, lower at higher nominal interest.
-- B. Tightness depends on the real rate, not on whether the nominal number looks high or low.
-- C. Central-bank-set quantity, vertical in the model.
-- D. Nominal interest minus expected inflation.
-
-**Correct answer:** B
-
-**Hint - exact player copy:** Identify the defining relationship, mechanism, or evidence limit for Fisher; the other choices describe different course ideas.
-
-**Option feedback - exact player copy:**
-
-- A: This describes Money demand, not Fisher. The two ideas use different relationships, mechanisms, or evidence limits.
-- B: Correct. Fisher applies because tightness depends on the real rate, not on whether the nominal number looks high or low.
-- C: This describes Money supply, not Fisher. The two ideas use different relationships, mechanisms, or evidence limits.
-- D: This describes Real interest, not Fisher. The two ideas use different relationships, mechanisms, or evidence limits.
-
-### Review question 6
-
-**Prompt - exact player copy:** After The Rate People Feel, a new decision at Halvern's currency changeover requires the team to distinguish monetary chain from related macroeconomics ideas. Which use of monetary chain gives the strongest basis for a decision?
-
-**Options - exact player copy:**
-
-- A. Desired liquid balances, lower at higher nominal interest.
-- B. Central-bank-set quantity, vertical in the model.
-- C. A tool matters only through the chain it sets off.
-- D. Nominal interest minus expected inflation.
-
-**Correct answer:** C
-
-**Hint - exact player copy:** Identify the defining relationship, mechanism, or evidence limit for monetary chain; the other choices describe different course ideas.
-
-**Option feedback - exact player copy:**
-
-- A: This describes Money demand, not monetary chain. The two ideas use different relationships, mechanisms, or evidence limits.
-- B: This describes Money supply, not monetary chain. The two ideas use different relationships, mechanisms, or evidence limits.
-- C: Correct. monetary chain applies because a tool matters only through the chain it sets off.
-- D: This describes Real interest, not monetary chain. The two ideas use different relationships, mechanisms, or evidence limits.
-
-**Optional review completion - exact player copy:** Excellent work. You went beyond the required mission and strengthened the ideas behind your decision.
 ## Quick concept review
 - The player can use today’s main model in the next decision.
 - **Mission takeaway:** Evidence must match the mechanism, units, and stated limits.
@@ -6011,7 +6027,7 @@ Mission decision: Do not call the cash inflow pure good news. It pays for the tr
 
 **Availability:** Reveal only after mission completion when the player selects **GO DEEPER**. This section is optional, ungraded for campaign progress, and does not change metrics, Recovery Points, or the next-mission unlock.
 
-**Secondary briefing card - exact player copy:** You completed Two Accounts. Choose GO DEEPER to revisit the four decisions and explore related course ideas; this optional review does not change your metrics or delay the next mission.
+**Secondary briefing card - exact player copy:** Try six independent practice questions. Each includes its own context and any needed data; no mission records are required.
 
 ### Review focus
 
@@ -6019,7 +6035,8 @@ No additional prerequisite is required. These optional questions revisit the mis
 
 ### Review question 1
 
-**Prompt - exact player copy:** After Two Accounts, a new decision at Halvern's currency changeover requires the team to distinguish Appreciation from related macroeconomics ideas. Which statement correctly applies Appreciation?
+
+**Prompt - exact player copy:** Which statement best explains appreciation?
 
 **Options - exact player copy:**
 
@@ -6030,18 +6047,19 @@ No additional prerequisite is required. These optional questions revisit the mis
 
 **Correct answer:** B
 
-**Hint - exact player copy:** Identify the defining relationship, mechanism, or evidence limit for Appreciation; the other choices describe different course ideas.
+**Hint - exact player copy:** Identify the defining relationship or mechanism for appreciation. All needed information is in this question.
 
 **Option feedback - exact player copy:**
 
-- A: This describes Current account, not Appreciation. The two ideas use different relationships, mechanisms, or evidence limits.
-- B: Correct. Appreciation applies because a currency buys more foreign currency.
-- C: This describes Financial account, not Appreciation. The two ideas use different relationships, mechanisms, or evidence limits.
-- D: This describes BOP, not Appreciation. The two ideas use different relationships, mechanisms, or evidence limits.
+- A: This describes current account. It does not answer the question about appreciation.
+- B: Correct. A currency buys more foreign currency.
+- C: This describes financial account. It does not answer the question about appreciation.
+- D: This describes the balance of payments. It does not answer the question about appreciation.
 
 ### Review question 2
 
-**Prompt - exact player copy:** After Two Accounts, a new decision at Halvern's currency changeover requires the team to distinguish Current account from related macroeconomics ideas. Which description of Current account should guide the team's reasoning?
+
+**Prompt - exact player copy:** Which statement best explains current account?
 
 **Options - exact player copy:**
 
@@ -6052,18 +6070,19 @@ No additional prerequisite is required. These optional questions revisit the mis
 
 **Correct answer:** C
 
-**Hint - exact player copy:** Identify the defining relationship, mechanism, or evidence limit for Current account; the other choices describe different course ideas.
+**Hint - exact player copy:** Identify the defining relationship or mechanism for current account. All needed information is in this question.
 
 **Option feedback - exact player copy:**
 
-- A: This describes Appreciation, not Current account. The two ideas use different relationships, mechanisms, or evidence limits.
-- B: This describes Financial account, not Current account. The two ideas use different relationships, mechanisms, or evidence limits.
-- C: Correct. Current account applies because net exports (NX) plus net income and net transfers.
-- D: This describes BOP, not Current account. The two ideas use different relationships, mechanisms, or evidence limits.
+- A: This describes appreciation. It does not answer the question about current account.
+- B: This describes financial account. It does not answer the question about current account.
+- C: Correct. Net exports (NX) plus net income and net transfers.
+- D: This describes the balance of payments. It does not answer the question about current account.
 
 ### Review question 3
 
-**Prompt - exact player copy:** After Two Accounts, a new decision at Halvern's currency changeover requires the team to distinguish Financial account from related macroeconomics ideas. Which claim about Financial account is scientifically defensible?
+
+**Prompt - exact player copy:** Which statement best explains financial account?
 
 **Options - exact player copy:**
 
@@ -6074,18 +6093,19 @@ No additional prerequisite is required. These optional questions revisit the mis
 
 **Correct answer:** D
 
-**Hint - exact player copy:** Identify the defining relationship, mechanism, or evidence limit for Financial account; the other choices describe different course ideas.
+**Hint - exact player copy:** Identify the defining relationship or mechanism for financial account. All needed information is in this question.
 
 **Option feedback - exact player copy:**
 
-- A: This describes Appreciation, not Financial account. The two ideas use different relationships, mechanisms, or evidence limits.
-- B: This describes Current account, not Financial account. The two ideas use different relationships, mechanisms, or evidence limits.
-- C: This describes BOP, not Financial account. The two ideas use different relationships, mechanisms, or evidence limits.
-- D: Correct. Financial account applies because cross-border asset purchases and sales.
+- A: This describes appreciation. It does not answer the question about financial account.
+- B: This describes current account. It does not answer the question about financial account.
+- C: This describes the balance of payments. It does not answer the question about financial account.
+- D: Correct. Cross-border asset purchases and sales.
 
 ### Review question 4
 
-**Prompt - exact player copy:** After Two Accounts, a new decision at Halvern's currency changeover requires the team to distinguish BOP from related macroeconomics ideas. Which interpretation of BOP is correct?
+
+**Prompt - exact player copy:** Which statement best explains the balance of payments?
 
 **Options - exact player copy:**
 
@@ -6096,30 +6116,31 @@ No additional prerequisite is required. These optional questions revisit the mis
 
 **Correct answer:** A
 
-**Hint - exact player copy:** Identify the defining relationship, mechanism, or evidence limit for BOP; the other choices describe different course ideas.
+**Hint - exact player copy:** Identify the defining relationship or mechanism for the balance of payments. All needed information is in this question.
 
 **Option feedback - exact player copy:**
 
-- A: Correct. BOP applies because a current deficit is financed by a financial surplus, not free money.
-- B: This describes Appreciation, not BOP. The two ideas use different relationships, mechanisms, or evidence limits.
-- C: This describes Current account, not BOP. The two ideas use different relationships, mechanisms, or evidence limits.
-- D: This describes Financial account, not BOP. The two ideas use different relationships, mechanisms, or evidence limits.
+- A: Correct. A current deficit is financed by a financial surplus, not free money.
+- B: This describes appreciation. It does not answer the question about the balance of payments.
+- C: This describes current account. It does not answer the question about the balance of payments.
+- D: This describes financial account. It does not answer the question about the balance of payments.
 
 ### Review question 5
 
-**Prompt - exact player copy:** After Two Accounts, a new decision at Halvern's currency changeover requires the team to distinguish currency demand from related macroeconomics ideas. Which statement about currency demand would earn course credit?
+
+**Prompt - exact player copy:** Which statement best explains currency demand?
 
 **Figure - exact player copy:**
 
 ```json
 {
   "kind": "line",
-  "xLabel": "Quantity of RATE",
-  "yLabel": "Crowns per RATE",
-  "caption": "Demand for RATE in the foreign-exchange market.",
+  "xLabel": "Quantity of currency A",
+  "yLabel": "Units of currency B per unit of A",
+  "caption": "Demand for currency A in the foreign-exchange market.",
   "series": [
     {
-      "name": "Demand for RATE",
+      "name": "Demand for currency A",
       "points": [
         [
           20,
@@ -6147,7 +6168,6 @@ No additional prerequisite is required. These optional questions revisit the mis
 }
 ```
 
-
 **Options - exact player copy:**
 
 - A. A currency buys more foreign currency.
@@ -6157,18 +6177,19 @@ No additional prerequisite is required. These optional questions revisit the mis
 
 **Correct answer:** B
 
-**Hint - exact player copy:** Identify the defining relationship, mechanism, or evidence limit for currency demand; the other choices describe different course ideas.
+**Hint - exact player copy:** Identify the defining relationship or mechanism for currency demand. All needed information is in this question.
 
 **Option feedback - exact player copy:**
 
-- A: This describes Appreciation, not currency demand. The two ideas use different relationships, mechanisms, or evidence limits.
-- B: Correct. currency demand applies because appreciation makes exports dearer and imports cheaper.
-- C: This describes Current account, not currency demand. The two ideas use different relationships, mechanisms, or evidence limits.
-- D: This describes Financial account, not currency demand. The two ideas use different relationships, mechanisms, or evidence limits.
+- A: This describes appreciation. It does not answer the question about currency demand.
+- B: Correct. Appreciation makes exports dearer and imports cheaper.
+- C: This describes current account. It does not answer the question about currency demand.
+- D: This describes financial account. It does not answer the question about currency demand.
 
 ### Review question 6
 
-**Prompt - exact player copy:** After Two Accounts, a new decision at Halvern's currency changeover requires the team to distinguish appreciation/NX from related macroeconomics ideas. Which use of appreciation/NX gives the strongest basis for a decision?
+
+**Prompt - exact player copy:** Which statement best explains appreciation and NX?
 
 **Options - exact player copy:**
 
@@ -6179,16 +6200,17 @@ No additional prerequisite is required. These optional questions revisit the mis
 
 **Correct answer:** C
 
-**Hint - exact player copy:** Identify the defining relationship, mechanism, or evidence limit for appreciation/NX; the other choices describe different course ideas.
+**Hint - exact player copy:** Identify the defining relationship or mechanism for appreciation and nx. All needed information is in this question.
 
 **Option feedback - exact player copy:**
 
-- A: This describes Appreciation, not appreciation/NX. The two ideas use different relationships, mechanisms, or evidence limits.
-- B: This describes Current account, not appreciation/NX. The two ideas use different relationships, mechanisms, or evidence limits.
-- C: Correct. appreciation/NX applies because reversing the quote tests whether currency value changes the export margin.
-- D: This describes Financial account, not appreciation/NX. The two ideas use different relationships, mechanisms, or evidence limits.
+- A: This describes appreciation. It does not answer the question about appreciation and nx.
+- B: This describes current account. It does not answer the question about appreciation and nx.
+- C: Correct. Reversing the quote tests whether currency value changes the export margin.
+- D: This describes financial account. It does not answer the question about appreciation and nx.
 
-**Optional review completion - exact player copy:** Excellent work. You went beyond the required mission and strengthened the ideas behind your decision.
+**Optional review completion - exact player copy:** Good work. You have completed six independent practice questions.
+
 ## Quick concept review
 - The player can use today’s main model in the next decision.
 - **Mission takeaway:** Evidence must match the mechanism, units, and stated limits.
@@ -6720,7 +6742,7 @@ Mission decision: Do not tighten policy for a short price shock. New data suppor
 
 **Availability:** Reveal only after mission completion when the player selects **GO DEEPER**. This section is optional, ungraded for campaign progress, and does not change metrics, Recovery Points, or the next-mission unlock.
 
-**Secondary briefing card - exact player copy:** You completed The Temporary Tradeoff. Choose GO DEEPER to revisit the four decisions and explore related course ideas; this optional review does not change your metrics or delay the next mission.
+**Secondary briefing card - exact player copy:** Try six independent practice questions. Each includes its own context and any needed data; no mission records are required.
 
 ### Review focus
 
@@ -6728,7 +6750,8 @@ No additional prerequisite is required. These optional questions revisit the mis
 
 ### Review question 1
 
-**Prompt - exact player copy:** After The Temporary Tradeoff, a new decision at Halvern's currency changeover requires the team to distinguish Short-run Phillips curve (SRPC) from related macroeconomics ideas. Which statement correctly applies Short-run Phillips curve (SRPC)?
+
+**Prompt - exact player copy:** Which statement best explains short-run Phillips curve (SRPC)?
 
 **Figure - exact player copy:**
 
@@ -6768,28 +6791,28 @@ No additional prerequisite is required. These optional questions revisit the mis
 }
 ```
 
-
 **Options - exact player copy:**
 
 - A. Vertical curve at the natural rate.
-- B. Short-run inverse inflation-unemployment relation.
-- C. Long-run money changes alter prices, not real output.
-- D. Adverse supply shifts SRPC right; AD changes move along it.
+- B. Long-run money changes alter prices, not real output.
+- C. Adverse supply shifts SRPC right; AD changes move along it.
+- D. Short-run inverse inflation-unemployment relation.
 
-**Correct answer:** B
+**Correct answer:** D
 
-**Hint - exact player copy:** Identify the defining relationship, mechanism, or evidence limit for Short-run Phillips curve (SRPC); the other choices describe different course ideas.
+**Hint - exact player copy:** Identify the defining relationship or mechanism for short-run phillips curve (srpc). All needed information is in this question.
 
 **Option feedback - exact player copy:**
 
-- A: This describes Long-run Phillips curve (LRPC), not Short-run Phillips curve (SRPC). The two ideas use different relationships, mechanisms, or evidence limits.
-- B: Correct. Short-run Phillips curve (SRPC) applies because short-run inverse inflation-unemployment relation.
-- C: This describes Money neutrality, not Short-run Phillips curve (SRPC). The two ideas use different relationships, mechanisms, or evidence limits.
-- D: This describes Phillips curves, not Short-run Phillips curve (SRPC). The two ideas use different relationships, mechanisms, or evidence limits.
+- A: This describes long-run Phillips curve (LRPC). It does not answer the question about short-run phillips curve (srpc).
+- B: This describes money neutrality. It does not answer the question about short-run phillips curve (srpc).
+- C: This describes phillips curves. It does not answer the question about short-run phillips curve (srpc).
+- D: Correct. Short-run inverse inflation-unemployment relation.
 
 ### Review question 2
 
-**Prompt - exact player copy:** After The Temporary Tradeoff, a new decision at Halvern's currency changeover requires the team to distinguish Long-run Phillips curve (LRPC) from related macroeconomics ideas. Which description of Long-run Phillips curve (LRPC) should guide the team's reasoning?
+
+**Prompt - exact player copy:** Which statement best explains long-run Phillips curve (LRPC)?
 
 **Figure - exact player copy:**
 
@@ -6817,6 +6840,28 @@ No additional prerequisite is required. These optional questions revisit the mis
 }
 ```
 
+**Options - exact player copy:**
+
+- A. Vertical curve at the natural rate.
+- B. Short-run inverse inflation-unemployment relation.
+- C. Long-run money changes alter prices, not real output.
+- D. Adverse supply shifts SRPC right; AD changes move along it.
+
+**Correct answer:** A
+
+**Hint - exact player copy:** Identify the defining relationship or mechanism for long-run phillips curve (lrpc). All needed information is in this question.
+
+**Option feedback - exact player copy:**
+
+- A: Correct. Vertical curve at the natural rate.
+- B: This describes short-run Phillips curve (SRPC). It does not answer the question about long-run phillips curve (lrpc).
+- C: This describes money neutrality. It does not answer the question about long-run phillips curve (lrpc).
+- D: This describes phillips curves. It does not answer the question about long-run phillips curve (lrpc).
+
+### Review question 3
+
+
+**Prompt - exact player copy:** Which statement best explains money neutrality?
 
 **Options - exact player copy:**
 
@@ -6825,42 +6870,21 @@ No additional prerequisite is required. These optional questions revisit the mis
 - C. Vertical curve at the natural rate.
 - D. Adverse supply shifts SRPC right; AD changes move along it.
 
-**Correct answer:** C
+**Correct answer:** B
 
-**Hint - exact player copy:** Identify the defining relationship, mechanism, or evidence limit for Long-run Phillips curve (LRPC); the other choices describe different course ideas.
-
-**Option feedback - exact player copy:**
-
-- A: This describes Short-run Phillips curve (SRPC), not Long-run Phillips curve (LRPC). The two ideas use different relationships, mechanisms, or evidence limits.
-- B: This describes Money neutrality, not Long-run Phillips curve (LRPC). The two ideas use different relationships, mechanisms, or evidence limits.
-- C: Correct. Long-run Phillips curve (LRPC) applies because vertical curve at the natural rate.
-- D: This describes Phillips curves, not Long-run Phillips curve (LRPC). The two ideas use different relationships, mechanisms, or evidence limits.
-
-### Review question 3
-
-**Prompt - exact player copy:** After The Temporary Tradeoff, a new decision at Halvern's currency changeover requires the team to distinguish Money neutrality from related macroeconomics ideas. Which claim about Money neutrality is scientifically defensible?
-
-**Options - exact player copy:**
-
-- A. Short-run inverse inflation-unemployment relation.
-- B. Vertical curve at the natural rate.
-- C. Adverse supply shifts SRPC right; AD changes move along it.
-- D. Long-run money changes alter prices, not real output.
-
-**Correct answer:** D
-
-**Hint - exact player copy:** Identify the defining relationship, mechanism, or evidence limit for Money neutrality; the other choices describe different course ideas.
+**Hint - exact player copy:** Identify the defining relationship or mechanism for money neutrality. All needed information is in this question.
 
 **Option feedback - exact player copy:**
 
-- A: This describes Short-run Phillips curve (SRPC), not Money neutrality. The two ideas use different relationships, mechanisms, or evidence limits.
-- B: This describes Long-run Phillips curve (LRPC), not Money neutrality. The two ideas use different relationships, mechanisms, or evidence limits.
-- C: This describes Phillips curves, not Money neutrality. The two ideas use different relationships, mechanisms, or evidence limits.
-- D: Correct. Money neutrality applies because long-run money changes alter prices, not real output.
+- A: This describes short-run Phillips curve (SRPC). It does not answer the question about money neutrality.
+- B: Correct. Long-run money changes alter prices, not real output.
+- C: This describes long-run Phillips curve (LRPC). It does not answer the question about money neutrality.
+- D: This describes phillips curves. It does not answer the question about money neutrality.
 
 ### Review question 4
 
-**Prompt - exact player copy:** After The Temporary Tradeoff, a new decision at Halvern's currency changeover requires the team to distinguish Phillips curves from related macroeconomics ideas. Which interpretation of Phillips curves is correct?
+
+**Prompt - exact player copy:** Which statement best explains phillips curves?
 
 **Figure - exact player copy:**
 
@@ -6900,70 +6924,72 @@ No additional prerequisite is required. These optional questions revisit the mis
 }
 ```
 
+**Options - exact player copy:**
+
+- A. Short-run inverse inflation-unemployment relation.
+- B. Vertical curve at the natural rate.
+- C. Adverse supply shifts SRPC right; AD changes move along it.
+- D. Long-run money changes alter prices, not real output.
+
+**Correct answer:** C
+
+**Hint - exact player copy:** Identify the defining relationship or mechanism for phillips curves. All needed information is in this question.
+
+**Option feedback - exact player copy:**
+
+- A: This describes short-run Phillips curve (SRPC). It does not answer the question about phillips curves.
+- B: This describes long-run Phillips curve (LRPC). It does not answer the question about phillips curves.
+- C: Correct. Adverse supply shifts SRPC right; AD changes move along it.
+- D: This describes money neutrality. It does not answer the question about phillips curves.
+
+### Review question 5
+
+
+**Prompt - exact player copy:** Which statement best explains quantity theory?
 
 **Options - exact player copy:**
 
-- A. Adverse supply shifts SRPC right; AD changes move along it.
+- A. Short-run inverse inflation-unemployment relation.
+- B. Vertical curve at the natural rate.
+- C. Long-run money changes alter prices, not real output.
+- D. Money growth above real growth sets long-run inflation when velocity is stable.
+
+**Correct answer:** D
+
+**Hint - exact player copy:** Identify the defining relationship or mechanism for quantity theory. All needed information is in this question.
+
+**Option feedback - exact player copy:**
+
+- A: This describes short-run Phillips curve (SRPC). It does not answer the question about quantity theory.
+- B: This describes long-run Phillips curve (LRPC). It does not answer the question about quantity theory.
+- C: This describes money neutrality. It does not answer the question about quantity theory.
+- D: Correct. Money growth above real growth sets long-run inflation when velocity is stable.
+
+### Review question 6
+
+
+**Prompt - exact player copy:** Which statement best explains temporary vs persistent inflation?
+
+**Options - exact player copy:**
+
+- A. If a temporary supply disruption ends and price growth slows in new data, that evidence weakens a claim of permanently elevated inflation.
 - B. Short-run inverse inflation-unemployment relation.
 - C. Vertical curve at the natural rate.
 - D. Long-run money changes alter prices, not real output.
 
 **Correct answer:** A
 
-**Hint - exact player copy:** Identify the defining relationship, mechanism, or evidence limit for Phillips curves; the other choices describe different course ideas.
+**Hint - exact player copy:** Identify the defining relationship or mechanism for temporary vs persistent inflation. All needed information is in this question.
 
 **Option feedback - exact player copy:**
 
-- A: Correct. Phillips curves applies because adverse supply shifts SRPC right; AD changes move along it.
-- B: This describes Short-run Phillips curve (SRPC), not Phillips curves. The two ideas use different relationships, mechanisms, or evidence limits.
-- C: This describes Long-run Phillips curve (LRPC), not Phillips curves. The two ideas use different relationships, mechanisms, or evidence limits.
-- D: This describes Money neutrality, not Phillips curves. The two ideas use different relationships, mechanisms, or evidence limits.
+- A: Correct. If a temporary supply disruption ends and price growth slows in new data, that evidence weakens a claim of permanently elevated inflation.
+- B: This describes short-run Phillips curve (SRPC). It does not answer the question about temporary vs persistent inflation.
+- C: This describes long-run Phillips curve (LRPC). It does not answer the question about temporary vs persistent inflation.
+- D: This describes money neutrality. It does not answer the question about temporary vs persistent inflation.
 
-### Review question 5
+**Optional review completion - exact player copy:** Good work. You have completed six independent practice questions.
 
-**Prompt - exact player copy:** After The Temporary Tradeoff, a new decision at Halvern's currency changeover requires the team to distinguish quantity theory from related macroeconomics ideas. Which statement about quantity theory would earn course credit?
-
-**Options - exact player copy:**
-
-- A. Short-run inverse inflation-unemployment relation.
-- B. Money growth above real growth sets long-run inflation when velocity is stable.
-- C. Vertical curve at the natural rate.
-- D. Long-run money changes alter prices, not real output.
-
-**Correct answer:** B
-
-**Hint - exact player copy:** Identify the defining relationship, mechanism, or evidence limit for quantity theory; the other choices describe different course ideas.
-
-**Option feedback - exact player copy:**
-
-- A: This describes Short-run Phillips curve (SRPC), not quantity theory. The two ideas use different relationships, mechanisms, or evidence limits.
-- B: Correct. quantity theory applies because money growth above real growth sets long-run inflation when velocity is stable.
-- C: This describes Long-run Phillips curve (LRPC), not quantity theory. The two ideas use different relationships, mechanisms, or evidence limits.
-- D: This describes Money neutrality, not quantity theory. The two ideas use different relationships, mechanisms, or evidence limits.
-
-### Review question 6
-
-**Prompt - exact player copy:** After The Temporary Tradeoff, a new decision at Halvern's currency changeover requires the team to distinguish temporary vs persistent inflation from related macroeconomics ideas. Which use of temporary vs persistent inflation gives the strongest basis for a decision?
-
-**Options - exact player copy:**
-
-- A. Short-run inverse inflation-unemployment relation.
-- B. Vertical curve at the natural rate.
-- C. Unseen normalization can reject a permanent-inflation story.
-- D. Long-run money changes alter prices, not real output.
-
-**Correct answer:** C
-
-**Hint - exact player copy:** Identify the defining relationship, mechanism, or evidence limit for temporary vs persistent inflation; the other choices describe different course ideas.
-
-**Option feedback - exact player copy:**
-
-- A: This describes Short-run Phillips curve (SRPC), not temporary vs persistent inflation. The two ideas use different relationships, mechanisms, or evidence limits.
-- B: This describes Long-run Phillips curve (LRPC), not temporary vs persistent inflation. The two ideas use different relationships, mechanisms, or evidence limits.
-- C: Correct. temporary vs persistent inflation applies because unseen normalization can reject a permanent-inflation story.
-- D: This describes Money neutrality, not temporary vs persistent inflation. The two ideas use different relationships, mechanisms, or evidence limits.
-
-**Optional review completion - exact player copy:** Excellent work. You went beyond the required mission and strengthened the ideas behind your decision.
 ## Quick concept review
 - The player can use today’s main model in the next decision.
 - **Mission takeaway:** Evidence must match the mechanism, units, and stated limits.
@@ -7350,7 +7376,7 @@ Mission decision: Self-correction is too slow. Use automatic stabilizers and a s
 
 **Availability:** Reveal only after mission completion when the player selects **GO DEEPER**. This section is optional, ungraded for campaign progress, and does not change metrics, Recovery Points, or the next-mission unlock.
 
-**Secondary briefing card - exact player copy:** You completed Too Late By Itself. Choose GO DEEPER to revisit the four decisions and explore related course ideas; this optional review does not change your metrics or delay the next mission.
+**Secondary briefing card - exact player copy:** Try six independent practice questions. Each includes its own context and any needed data; no mission records are required.
 
 ### Review focus
 
@@ -7358,7 +7384,8 @@ No additional prerequisite is required. These optional questions revisit the mis
 
 ### Review question 1
 
-**Prompt - exact player copy:** After Too Late By Itself, a new decision at Halvern's currency changeover requires the team to distinguish Self-correction from related macroeconomics ideas. Which statement correctly applies Self-correction?
+
+**Prompt - exact player copy:** Which statement best explains self-correction?
 
 **Options - exact player copy:**
 
@@ -7369,18 +7396,19 @@ No additional prerequisite is required. These optional questions revisit the mis
 
 **Correct answer:** B
 
-**Hint - exact player copy:** Identify the defining relationship, mechanism, or evidence limit for Self-correction; the other choices describe different course ideas.
+**Hint - exact player copy:** Identify the defining relationship or mechanism for self-correction. All needed information is in this question.
 
 **Option feedback - exact player copy:**
 
-- A: This describes Automatic stabilizer, not Self-correction. The two ideas use different relationships, mechanisms, or evidence limits.
-- B: Correct. Self-correction applies because wage and input-cost adjustment that shifts short-run aggregate supply (SRAS) toward long-run equilibrium.
-- C: This describes Economic growth, not Self-correction. The two ideas use different relationships, mechanisms, or evidence limits.
-- D: This describes automatic stabilizers, not Self-correction. The two ideas use different relationships, mechanisms, or evidence limits.
+- A: This describes automatic stabilizer. It does not answer the question about self-correction.
+- B: Correct. Wage and input-cost adjustment that shifts short-run aggregate supply (SRAS) toward long-run equilibrium.
+- C: This describes economic growth. It does not answer the question about self-correction.
+- D: This describes automatic stabilizers. It does not answer the question about self-correction.
 
 ### Review question 2
 
-**Prompt - exact player copy:** After Too Late By Itself, a new decision at Halvern's currency changeover requires the team to distinguish Automatic stabilizer from related macroeconomics ideas. Which description of Automatic stabilizer should guide the team's reasoning?
+
+**Prompt - exact player copy:** Which statement best explains automatic stabilizer?
 
 **Options - exact player copy:**
 
@@ -7391,18 +7419,19 @@ No additional prerequisite is required. These optional questions revisit the mis
 
 **Correct answer:** C
 
-**Hint - exact player copy:** Identify the defining relationship, mechanism, or evidence limit for Automatic stabilizer; the other choices describe different course ideas.
+**Hint - exact player copy:** Identify the defining relationship or mechanism for automatic stabilizer. All needed information is in this question.
 
 **Option feedback - exact player copy:**
 
-- A: This describes Self-correction, not Automatic stabilizer. The two ideas use different relationships, mechanisms, or evidence limits.
-- B: This describes Economic growth, not Automatic stabilizer. The two ideas use different relationships, mechanisms, or evidence limits.
-- C: Correct. Automatic stabilizer applies because taxes or transfers that change without a new law.
-- D: This describes automatic stabilizers, not Automatic stabilizer. The two ideas use different relationships, mechanisms, or evidence limits.
+- A: This describes self-correction. It does not answer the question about automatic stabilizer.
+- B: This describes economic growth. It does not answer the question about automatic stabilizer.
+- C: Correct. Taxes or transfers that change without a new law.
+- D: This describes automatic stabilizers. It does not answer the question about automatic stabilizer.
 
 ### Review question 3
 
-**Prompt - exact player copy:** After Too Late By Itself, a new decision at Halvern's currency changeover requires the team to distinguish Economic growth from related macroeconomics ideas. Which claim about Economic growth is scientifically defensible?
+
+**Prompt - exact player copy:** Which statement best explains economic growth?
 
 **Options - exact player copy:**
 
@@ -7413,18 +7442,19 @@ No additional prerequisite is required. These optional questions revisit the mis
 
 **Correct answer:** D
 
-**Hint - exact player copy:** Identify the defining relationship, mechanism, or evidence limit for Economic growth; the other choices describe different course ideas.
+**Hint - exact player copy:** Identify the defining relationship or mechanism for economic growth. All needed information is in this question.
 
 **Option feedback - exact player copy:**
 
-- A: This describes Self-correction, not Economic growth. The two ideas use different relationships, mechanisms, or evidence limits.
-- B: This describes Automatic stabilizer, not Economic growth. The two ideas use different relationships, mechanisms, or evidence limits.
-- C: This describes automatic stabilizers, not Economic growth. The two ideas use different relationships, mechanisms, or evidence limits.
-- D: Correct. Economic growth applies because rising real gross domestic product (GDP) per person.
+- A: This describes self-correction. It does not answer the question about economic growth.
+- B: This describes automatic stabilizer. It does not answer the question about economic growth.
+- C: This describes automatic stabilizers. It does not answer the question about economic growth.
+- D: Correct. Rising real gross domestic product (GDP) per person.
 
 ### Review question 4
 
-**Prompt - exact player copy:** After Too Late By Itself, a new decision at Halvern's currency changeover requires the team to distinguish automatic stabilizers from related macroeconomics ideas. Which interpretation of automatic stabilizers is correct?
+
+**Prompt - exact player copy:** Which statement best explains automatic stabilizers?
 
 **Options - exact player copy:**
 
@@ -7435,18 +7465,19 @@ No additional prerequisite is required. These optional questions revisit the mis
 
 **Correct answer:** A
 
-**Hint - exact player copy:** Identify the defining relationship, mechanism, or evidence limit for automatic stabilizers; the other choices describe different course ideas.
+**Hint - exact player copy:** Identify the defining relationship or mechanism for automatic stabilizers. All needed information is in this question.
 
 **Option feedback - exact player copy:**
 
-- A: Correct. automatic stabilizers applies because stabilizers reduce the initial shock without a new vote.
-- B: This describes Self-correction, not automatic stabilizers. The two ideas use different relationships, mechanisms, or evidence limits.
-- C: This describes Automatic stabilizer, not automatic stabilizers. The two ideas use different relationships, mechanisms, or evidence limits.
-- D: This describes Economic growth, not automatic stabilizers. The two ideas use different relationships, mechanisms, or evidence limits.
+- A: Correct. Stabilizers reduce the initial shock without a new vote.
+- B: This describes self-correction. It does not answer the question about automatic stabilizers.
+- C: This describes automatic stabilizer. It does not answer the question about automatic stabilizers.
+- D: This describes economic growth. It does not answer the question about automatic stabilizers.
 
 ### Review question 5
 
-**Prompt - exact player copy:** After Too Late By Itself, a new decision at Halvern's currency changeover requires the team to distinguish growth resources from related macroeconomics ideas. Which statement about growth resources would earn course credit?
+
+**Prompt - exact player copy:** Which statement best explains growth resources?
 
 **Options - exact player copy:**
 
@@ -7457,18 +7488,19 @@ No additional prerequisite is required. These optional questions revisit the mis
 
 **Correct answer:** B
 
-**Hint - exact player copy:** Identify the defining relationship, mechanism, or evidence limit for growth resources; the other choices describe different course ideas.
+**Hint - exact player copy:** Identify the defining relationship or mechanism for growth resources. All needed information is in this question.
 
 **Option feedback - exact player copy:**
 
-- A: This describes Self-correction, not growth resources. The two ideas use different relationships, mechanisms, or evidence limits.
-- B: Correct. growth resources applies because human capital, physical capital, and technology shift productive capacity; publicity does not.
-- C: This describes Automatic stabilizer, not growth resources. The two ideas use different relationships, mechanisms, or evidence limits.
-- D: This describes Economic growth, not growth resources. The two ideas use different relationships, mechanisms, or evidence limits.
+- A: This describes self-correction. It does not answer the question about growth resources.
+- B: Correct. Human capital, physical capital, and technology shift productive capacity; publicity does not.
+- C: This describes automatic stabilizer. It does not answer the question about growth resources.
+- D: This describes economic growth. It does not answer the question about growth resources.
 
 ### Review question 6
 
-**Prompt - exact player copy:** After Too Late By Itself, a new decision at Halvern's currency changeover requires the team to distinguish stabilization timing from related macroeconomics ideas. Which use of stabilization timing gives the strongest basis for a decision?
+
+**Prompt - exact player copy:** Which statement best explains stabilization timing?
 
 **Options - exact player copy:**
 
@@ -7479,16 +7511,17 @@ No additional prerequisite is required. These optional questions revisit the mis
 
 **Correct answer:** C
 
-**Hint - exact player copy:** Identify the defining relationship, mechanism, or evidence limit for stabilization timing; the other choices describe different course ideas.
+**Hint - exact player copy:** Identify the defining relationship or mechanism for stabilization timing. All needed information is in this question.
 
 **Option feedback - exact player copy:**
 
-- A: This describes Self-correction, not stabilization timing. The two ideas use different relationships, mechanisms, or evidence limits.
-- B: This describes Automatic stabilizer, not stabilization timing. The two ideas use different relationships, mechanisms, or evidence limits.
-- C: Correct. stabilization timing applies because temporary support can span a lag without becoming a permanent demand expansion.
-- D: This describes Economic growth, not stabilization timing. The two ideas use different relationships, mechanisms, or evidence limits.
+- A: This describes self-correction. It does not answer the question about stabilization timing.
+- B: This describes automatic stabilizer. It does not answer the question about stabilization timing.
+- C: Correct. Temporary support can span a lag without becoming a permanent demand expansion.
+- D: This describes economic growth. It does not answer the question about stabilization timing.
 
-**Optional review completion - exact player copy:** Excellent work. You went beyond the required mission and strengthened the ideas behind your decision.
+**Optional review completion - exact player copy:** Good work. You have completed six independent practice questions.
+
 ## Quick concept review
 - The player can use today’s main model in the next decision.
 - **Mission takeaway:** Evidence must match the mechanism, units, and stated limits.
@@ -7685,7 +7718,7 @@ NOTES→BANKS→TRADE. Converted tray result opens bank clock; verified reserve 
 
 **Question card story-science connection - exact player copy:** The converted balance prevents the custody transfer from changing the tray's lawful value.
 
-**Fixture source panel - exact player copy:** A tray contains 41,500 old crowns, and the legal ratio is 4.15 crowns per RATE. Calculate the new balance before the notes can leave custody in the Rate Book. old balance=41,500 crowns conversion=4.15 crowns per RATE
+**Fixture source panel - exact player copy:** A tray contains 41,500 old crowns, and the legal ratio is 4.15 crowns per RATE. Calculate the new balance before the notes can leave custody in the Rate Book.
 
 **Source-panel timing:** Show at this stop’s declared fixture before its DERIVE choices unlock. Keep visible while the player works. These are model inputs and prior observations, not new measurements or an accepted answer. Symbolic derivations stay symbolic; do not invent a number merely to force substitution.
 
@@ -7886,7 +7919,7 @@ Mission decision: Use the 4.15 exchange rate. Exact tray math, reserve timing, a
 
 **Availability:** Reveal only after mission completion when the player selects **GO DEEPER**. This section is optional, ungraded for campaign progress, and does not change metrics, Recovery Points, or the next-mission unlock.
 
-**Secondary briefing card - exact player copy:** You completed 4.15 On The Clock. Choose GO DEEPER to revisit the four decisions and explore related course ideas; this optional review does not change your metrics or delay the next mission.
+**Secondary briefing card - exact player copy:** Try six independent practice questions. Each includes its own context and any needed data; no mission records are required.
 
 ### Review focus
 
@@ -7894,7 +7927,31 @@ No additional prerequisite is required. These optional questions revisit the mis
 
 ### Review question 1
 
-**Prompt - exact player copy:** After 4.15 On The Clock, a new decision at Halvern's currency changeover requires the team to distinguish Conversion ratio from related macroeconomics ideas. Which statement correctly applies Conversion ratio?
+
+**Prompt - exact player copy:** Which statement best explains conversion ratio?
+
+**Options - exact player copy:**
+
+- A. Timed schedule that keeps required reserves available.
+- B. Exact conversion prevents rounding from creating a false price jump.
+- C. Correct totals can still fail when their timing differs.
+- D. Old currency units exchanged for one new unit.
+
+**Correct answer:** D
+
+**Hint - exact player copy:** Identify the defining relationship or mechanism for conversion ratio. All needed information is in this question.
+
+**Option feedback - exact player copy:**
+
+- A: This describes reserve clock. It does not answer the question about conversion ratio.
+- B: This describes conversion arithmetic. It does not answer the question about conversion ratio.
+- C: This describes reserve timing. It does not answer the question about conversion ratio.
+- D: Correct. Old currency units exchanged for one new unit.
+
+### Review question 2
+
+
+**Prompt - exact player copy:** Which statement best explains reserve clock?
 
 **Options - exact player copy:**
 
@@ -7903,20 +7960,21 @@ No additional prerequisite is required. These optional questions revisit the mis
 - C. Exact conversion prevents rounding from creating a false price jump.
 - D. Correct totals can still fail when their timing differs.
 
-**Correct answer:** B
+**Correct answer:** A
 
-**Hint - exact player copy:** Identify the defining relationship, mechanism, or evidence limit for Conversion ratio; the other choices describe different course ideas.
+**Hint - exact player copy:** Identify the defining relationship or mechanism for reserve clock. All needed information is in this question.
 
 **Option feedback - exact player copy:**
 
-- A: This describes Reserve clock, not Conversion ratio. The two ideas use different relationships, mechanisms, or evidence limits.
-- B: Correct. Conversion ratio applies because old currency units exchanged for one new unit.
-- C: This describes conversion arithmetic, not Conversion ratio. The two ideas use different relationships, mechanisms, or evidence limits.
-- D: This describes reserve timing, not Conversion ratio. The two ideas use different relationships, mechanisms, or evidence limits.
+- A: Correct. Timed schedule that keeps required reserves available.
+- B: This describes conversion ratio. It does not answer the question about reserve clock.
+- C: This describes conversion arithmetic. It does not answer the question about reserve clock.
+- D: This describes reserve timing. It does not answer the question about reserve clock.
 
-### Review question 2
+### Review question 3
 
-**Prompt - exact player copy:** After 4.15 On The Clock, a new decision at Halvern's currency changeover requires the team to distinguish Reserve clock from related macroeconomics ideas. Which description of Reserve clock should guide the team's reasoning?
+
+**Prompt - exact player copy:** Which statement best explains conversion arithmetic?
 
 **Options - exact player copy:**
 
@@ -7925,20 +7983,21 @@ No additional prerequisite is required. These optional questions revisit the mis
 - C. Timed schedule that keeps required reserves available.
 - D. Correct totals can still fail when their timing differs.
 
-**Correct answer:** C
+**Correct answer:** B
 
-**Hint - exact player copy:** Identify the defining relationship, mechanism, or evidence limit for Reserve clock; the other choices describe different course ideas.
+**Hint - exact player copy:** Identify the defining relationship or mechanism for conversion arithmetic. All needed information is in this question.
 
 **Option feedback - exact player copy:**
 
-- A: This describes Conversion ratio, not Reserve clock. The two ideas use different relationships, mechanisms, or evidence limits.
-- B: This describes conversion arithmetic, not Reserve clock. The two ideas use different relationships, mechanisms, or evidence limits.
-- C: Correct. Reserve clock applies because timed schedule that keeps required reserves available.
-- D: This describes reserve timing, not Reserve clock. The two ideas use different relationships, mechanisms, or evidence limits.
+- A: This describes conversion ratio. It does not answer the question about conversion arithmetic.
+- B: Correct. Exact conversion prevents rounding from creating a false price jump.
+- C: This describes reserve clock. It does not answer the question about conversion arithmetic.
+- D: This describes reserve timing. It does not answer the question about conversion arithmetic.
 
-### Review question 3
+### Review question 4
 
-**Prompt - exact player copy:** After 4.15 On The Clock, a new decision at Halvern's currency changeover requires the team to distinguish conversion arithmetic from related macroeconomics ideas. Which claim about conversion arithmetic is scientifically defensible?
+
+**Prompt - exact player copy:** Which statement best explains reserve timing?
 
 **Options - exact player copy:**
 
@@ -7947,84 +8006,65 @@ No additional prerequisite is required. These optional questions revisit the mis
 - C. Correct totals can still fail when their timing differs.
 - D. Exact conversion prevents rounding from creating a false price jump.
 
-**Correct answer:** D
+**Correct answer:** C
 
-**Hint - exact player copy:** Identify the defining relationship, mechanism, or evidence limit for conversion arithmetic; the other choices describe different course ideas.
+**Hint - exact player copy:** Identify the defining relationship or mechanism for reserve timing. All needed information is in this question.
 
 **Option feedback - exact player copy:**
 
-- A: This describes Conversion ratio, not conversion arithmetic. The two ideas use different relationships, mechanisms, or evidence limits.
-- B: This describes Reserve clock, not conversion arithmetic. The two ideas use different relationships, mechanisms, or evidence limits.
-- C: This describes reserve timing, not conversion arithmetic. The two ideas use different relationships, mechanisms, or evidence limits.
-- D: Correct. conversion arithmetic applies because exact conversion prevents rounding from creating a false price jump.
+- A: This describes conversion ratio. It does not answer the question about reserve timing.
+- B: This describes reserve clock. It does not answer the question about reserve timing.
+- C: Correct. Correct totals can still fail when their timing differs.
+- D: This describes conversion arithmetic. It does not answer the question about reserve timing.
 
-### Review question 4
+### Review question 5
 
-**Prompt - exact player copy:** After 4.15 On The Clock, a new decision at Halvern's currency changeover requires the team to distinguish reserve timing from related macroeconomics ideas. Which interpretation of reserve timing is correct?
+
+**Prompt - exact player copy:** Which statement best explains conversion and forex?
 
 **Options - exact player copy:**
 
-- A. Correct totals can still fail when their timing differs.
+- A. Old currency units exchanged for one new unit.
+- B. Timed schedule that keeps required reserves available.
+- C. Exact conversion prevents rounding from creating a false price jump.
+- D. Shared conversion dependence can manufacture agreement across prices and assets.
+
+**Correct answer:** D
+
+**Hint - exact player copy:** Identify the defining relationship or mechanism for conversion and forex. All needed information is in this question.
+
+**Option feedback - exact player copy:**
+
+- A: This describes conversion ratio. It does not answer the question about conversion and forex.
+- B: This describes reserve clock. It does not answer the question about conversion and forex.
+- C: This describes conversion arithmetic. It does not answer the question about conversion and forex.
+- D: Correct. Shared conversion dependence can manufacture agreement across prices and assets.
+
+### Review question 6
+
+
+**Prompt - exact player copy:** Which statement best explains certification?
+
+**Options - exact player copy:**
+
+- A. Operational safety requires arithmetic, timing, and independent market evidence.
 - B. Old currency units exchanged for one new unit.
 - C. Timed schedule that keeps required reserves available.
 - D. Exact conversion prevents rounding from creating a false price jump.
 
 **Correct answer:** A
 
-**Hint - exact player copy:** Identify the defining relationship, mechanism, or evidence limit for reserve timing; the other choices describe different course ideas.
+**Hint - exact player copy:** Identify the defining relationship or mechanism for certification. All needed information is in this question.
 
 **Option feedback - exact player copy:**
 
-- A: Correct. reserve timing applies because correct totals can still fail when their timing differs.
-- B: This describes Conversion ratio, not reserve timing. The two ideas use different relationships, mechanisms, or evidence limits.
-- C: This describes Reserve clock, not reserve timing. The two ideas use different relationships, mechanisms, or evidence limits.
-- D: This describes conversion arithmetic, not reserve timing. The two ideas use different relationships, mechanisms, or evidence limits.
+- A: Correct. Operational safety requires arithmetic, timing, and independent market evidence.
+- B: This describes conversion ratio. It does not answer the question about certification.
+- C: This describes reserve clock. It does not answer the question about certification.
+- D: This describes conversion arithmetic. It does not answer the question about certification.
 
-### Review question 5
+**Optional review completion - exact player copy:** Good work. You have completed six independent practice questions.
 
-**Prompt - exact player copy:** After 4.15 On The Clock, a new decision at Halvern's currency changeover requires the team to distinguish conversion/forex from related macroeconomics ideas. Which statement about conversion/forex would earn course credit?
-
-**Options - exact player copy:**
-
-- A. Old currency units exchanged for one new unit.
-- B. Shared conversion dependence can manufacture agreement across prices and assets.
-- C. Timed schedule that keeps required reserves available.
-- D. Exact conversion prevents rounding from creating a false price jump.
-
-**Correct answer:** B
-
-**Hint - exact player copy:** Identify the defining relationship, mechanism, or evidence limit for conversion/forex; the other choices describe different course ideas.
-
-**Option feedback - exact player copy:**
-
-- A: This describes Conversion ratio, not conversion/forex. The two ideas use different relationships, mechanisms, or evidence limits.
-- B: Correct. conversion/forex applies because shared conversion dependence can manufacture agreement across prices and assets.
-- C: This describes Reserve clock, not conversion/forex. The two ideas use different relationships, mechanisms, or evidence limits.
-- D: This describes conversion arithmetic, not conversion/forex. The two ideas use different relationships, mechanisms, or evidence limits.
-
-### Review question 6
-
-**Prompt - exact player copy:** After 4.15 On The Clock, a new decision at Halvern's currency changeover requires the team to distinguish certification from related macroeconomics ideas. Which use of certification gives the strongest basis for a decision?
-
-**Options - exact player copy:**
-
-- A. Old currency units exchanged for one new unit.
-- B. Timed schedule that keeps required reserves available.
-- C. Operational safety requires arithmetic, timing, and independent market evidence.
-- D. Exact conversion prevents rounding from creating a false price jump.
-
-**Correct answer:** C
-
-**Hint - exact player copy:** Identify the defining relationship, mechanism, or evidence limit for certification; the other choices describe different course ideas.
-
-**Option feedback - exact player copy:**
-
-- A: This describes Conversion ratio, not certification. The two ideas use different relationships, mechanisms, or evidence limits.
-- B: This describes Reserve clock, not certification. The two ideas use different relationships, mechanisms, or evidence limits.
-- C: Correct. certification applies because operational safety requires arithmetic, timing, and independent market evidence.
-- D: This describes conversion arithmetic, not certification. The two ideas use different relationships, mechanisms, or evidence limits.
-
-**Optional review completion - exact player copy:** Excellent work. You went beyond the required mission and strengthened the ideas behind your decision.
 ## Quick concept review
 - The player can use today’s main model in the next decision.
 - **Mission takeaway:** Evidence must match the mechanism, units, and stated limits.
@@ -8466,7 +8506,7 @@ Mission decision: Replace the full bridge with a smaller short-term plan. The fu
 
 **Availability:** Reveal only after mission completion when the player selects **GO DEEPER**. This section is optional, ungraded for campaign progress, and does not change metrics, Recovery Points, or the next-mission unlock.
 
-**Secondary briefing card - exact player copy:** You completed Crowded Out Twice. Choose GO DEEPER to revisit the four decisions and explore related course ideas; this optional review does not change your metrics or delay the next mission.
+**Secondary briefing card - exact player copy:** Try six independent practice questions. Each includes its own context and any needed data; no mission records are required.
 
 ### Review focus
 
@@ -8474,7 +8514,8 @@ No additional prerequisite is required. These optional questions revisit the mis
 
 ### Review question 1
 
-**Prompt - exact player copy:** After Crowded Out Twice, a new decision at Halvern's currency changeover requires the team to distinguish Budget deficit from related macroeconomics ideas. Which statement correctly applies Budget deficit?
+
+**Prompt - exact player copy:** Which statement best explains budget deficit?
 
 **Options - exact player copy:**
 
@@ -8485,18 +8526,19 @@ No additional prerequisite is required. These optional questions revisit the mis
 
 **Correct answer:** B
 
-**Hint - exact player copy:** Identify the defining relationship, mechanism, or evidence limit for Budget deficit; the other choices describe different course ideas.
+**Hint - exact player copy:** Identify the defining relationship or mechanism for budget deficit. All needed information is in this question.
 
 **Option feedback - exact player copy:**
 
-- A: This describes Crowding out, not Budget deficit. The two ideas use different relationships, mechanisms, or evidence limits.
-- B: Correct. Budget deficit applies because government spending above tax revenue.
-- C: This describes loanable funds, not Budget deficit. The two ideas use different relationships, mechanisms, or evidence limits.
-- D: This describes fiscal/forex, not Budget deficit. The two ideas use different relationships, mechanisms, or evidence limits.
+- A: This describes crowding out. It does not answer the question about budget deficit.
+- B: Correct. Government spending above tax revenue.
+- C: This describes loanable funds. It does not answer the question about budget deficit.
+- D: This describes fiscal and forex. It does not answer the question about budget deficit.
 
 ### Review question 2
 
-**Prompt - exact player copy:** After Crowded Out Twice, a new decision at Halvern's currency changeover requires the team to distinguish Crowding out from related macroeconomics ideas. Which description of Crowding out should guide the team's reasoning?
+
+**Prompt - exact player copy:** Which statement best explains crowding out?
 
 **Options - exact player copy:**
 
@@ -8507,18 +8549,19 @@ No additional prerequisite is required. These optional questions revisit the mis
 
 **Correct answer:** C
 
-**Hint - exact player copy:** Identify the defining relationship, mechanism, or evidence limit for Crowding out; the other choices describe different course ideas.
+**Hint - exact player copy:** Identify the defining relationship or mechanism for crowding out. All needed information is in this question.
 
 **Option feedback - exact player copy:**
 
-- A: This describes Budget deficit, not Crowding out. The two ideas use different relationships, mechanisms, or evidence limits.
-- B: This describes loanable funds, not Crowding out. The two ideas use different relationships, mechanisms, or evidence limits.
-- C: Correct. Crowding out applies because government borrowing raises real interest and reduces private investment.
-- D: This describes fiscal/forex, not Crowding out. The two ideas use different relationships, mechanisms, or evidence limits.
+- A: This describes budget deficit. It does not answer the question about crowding out.
+- B: This describes loanable funds. It does not answer the question about crowding out.
+- C: Correct. Government borrowing raises real interest and reduces private investment.
+- D: This describes fiscal and forex. It does not answer the question about crowding out.
 
 ### Review question 3
 
-**Prompt - exact player copy:** After Crowded Out Twice, a new decision at Halvern's currency changeover requires the team to distinguish loanable funds from related macroeconomics ideas. Which claim about loanable funds is scientifically defensible?
+
+**Prompt - exact player copy:** Which statement best explains loanable funds?
 
 **Options - exact player copy:**
 
@@ -8529,18 +8572,19 @@ No additional prerequisite is required. These optional questions revisit the mis
 
 **Correct answer:** D
 
-**Hint - exact player copy:** Identify the defining relationship, mechanism, or evidence limit for loanable funds; the other choices describe different course ideas.
+**Hint - exact player copy:** Identify the defining relationship or mechanism for loanable funds. All needed information is in this question.
 
 **Option feedback - exact player copy:**
 
-- A: This describes Budget deficit, not loanable funds. The two ideas use different relationships, mechanisms, or evidence limits.
-- B: This describes Crowding out, not loanable funds. The two ideas use different relationships, mechanisms, or evidence limits.
-- C: This describes fiscal/forex, not loanable funds. The two ideas use different relationships, mechanisms, or evidence limits.
-- D: Correct. loanable funds applies because a rightward loan-demand shift raises real interest and crowds out private investment.
+- A: This describes budget deficit. It does not answer the question about loanable funds.
+- B: This describes crowding out. It does not answer the question about loanable funds.
+- C: This describes fiscal and forex. It does not answer the question about loanable funds.
+- D: Correct. A rightward loan-demand shift raises real interest and crowds out private investment.
 
 ### Review question 4
 
-**Prompt - exact player copy:** After Crowded Out Twice, a new decision at Halvern's currency changeover requires the team to distinguish fiscal/forex from related macroeconomics ideas. Which interpretation of fiscal/forex is correct?
+
+**Prompt - exact player copy:** Which statement best explains fiscal and forex?
 
 **Options - exact player copy:**
 
@@ -8551,18 +8595,19 @@ No additional prerequisite is required. These optional questions revisit the mis
 
 **Correct answer:** A
 
-**Hint - exact player copy:** Identify the defining relationship, mechanism, or evidence limit for fiscal/forex; the other choices describe different course ideas.
+**Hint - exact player copy:** Identify the defining relationship or mechanism for fiscal and forex. All needed information is in this question.
 
 **Option feedback - exact player copy:**
 
-- A: Correct. fiscal/forex applies because fiscal expansion crowds out NX as well as private investment.
-- B: This describes Budget deficit, not fiscal/forex. The two ideas use different relationships, mechanisms, or evidence limits.
-- C: This describes Crowding out, not fiscal/forex. The two ideas use different relationships, mechanisms, or evidence limits.
-- D: This describes loanable funds, not fiscal/forex. The two ideas use different relationships, mechanisms, or evidence limits.
+- A: Correct. Fiscal expansion crowds out NX as well as private investment.
+- B: This describes budget deficit. It does not answer the question about fiscal and forex.
+- C: This describes crowding out. It does not answer the question about fiscal and forex.
+- D: This describes loanable funds. It does not answer the question about fiscal and forex.
 
 ### Review question 5
 
-**Prompt - exact player copy:** After Crowded Out Twice, a new decision at Halvern's currency changeover requires the team to distinguish fiscal redesign from related macroeconomics ideas. Which statement about fiscal redesign would earn course credit?
+
+**Prompt - exact player copy:** Which statement best explains fiscal redesign?
 
 **Options - exact player copy:**
 
@@ -8573,18 +8618,19 @@ No additional prerequisite is required. These optional questions revisit the mis
 
 **Correct answer:** B
 
-**Hint - exact player copy:** Identify the defining relationship, mechanism, or evidence limit for fiscal redesign; the other choices describe different course ideas.
+**Hint - exact player copy:** Identify the defining relationship or mechanism for fiscal redesign. All needed information is in this question.
 
 **Option feedback - exact player copy:**
 
-- A: This describes Budget deficit, not fiscal redesign. The two ideas use different relationships, mechanisms, or evidence limits.
-- B: Correct. fiscal redesign applies because targeted temporary support reduces crowding out while preserving long-run growth.
-- C: This describes Crowding out, not fiscal redesign. The two ideas use different relationships, mechanisms, or evidence limits.
-- D: This describes loanable funds, not fiscal redesign. The two ideas use different relationships, mechanisms, or evidence limits.
+- A: This describes budget deficit. It does not answer the question about fiscal redesign.
+- B: Correct. Targeted temporary support reduces crowding out while preserving long-run growth.
+- C: This describes crowding out. It does not answer the question about fiscal redesign.
+- D: This describes loanable funds. It does not answer the question about fiscal redesign.
 
 ### Review question 6
 
-**Prompt - exact player copy:** After Crowded Out Twice, a new decision at Halvern's currency changeover requires the team to distinguish Production possibilities curve (PPC) from related macroeconomics ideas. Which use of Production possibilities curve (PPC) gives the strongest basis for a decision?
+
+**Prompt - exact player copy:** Which statement best explains production possibilities curve (PPC)?
 
 **Figure - exact player copy:**
 
@@ -8628,7 +8674,6 @@ No additional prerequisite is required. These optional questions revisit the mis
 }
 ```
 
-
 **Options - exact player copy:**
 
 - A. Government spending above tax revenue.
@@ -8638,16 +8683,17 @@ No additional prerequisite is required. These optional questions revisit the mis
 
 **Correct answer:** C
 
-**Hint - exact player copy:** Identify the defining relationship, mechanism, or evidence limit for Production possibilities curve (PPC); the other choices describe different course ideas.
+**Hint - exact player copy:** Identify the defining relationship or mechanism for production possibilities curve (ppc). All needed information is in this question.
 
 **Option feedback - exact player copy:**
 
-- A: This describes Budget deficit, not Production possibilities curve (PPC). The two ideas use different relationships, mechanisms, or evidence limits.
-- B: This describes Crowding out, not Production possibilities curve (PPC). The two ideas use different relationships, mechanisms, or evidence limits.
-- C: Correct. Production possibilities curve (PPC) applies because a graph of the maximum combinations of two outputs an economy can produce with current resources and technology.
-- D: This describes loanable funds, not Production possibilities curve (PPC). The two ideas use different relationships, mechanisms, or evidence limits.
+- A: This describes budget deficit. It does not answer the question about production possibilities curve (ppc).
+- B: This describes crowding out. It does not answer the question about production possibilities curve (ppc).
+- C: Correct. A graph of the maximum combinations of two outputs an economy can produce with current resources and technology.
+- D: This describes loanable funds. It does not answer the question about production possibilities curve (ppc).
 
-**Optional review completion - exact player copy:** Excellent work. You went beyond the required mission and strengthened the ideas behind your decision.
+**Optional review completion - exact player copy:** Good work. You have completed six independent practice questions.
+
 ## Quick concept review
 - The player can use today’s main model in the next decision.
 - **Mission takeaway:** Evidence must match the mechanism, units, and stated limits.
@@ -9053,7 +9099,7 @@ Mission decision: Do not delay conversion. add temporary first-week cover. The f
 
 **Availability:** Reveal only after mission completion when the player selects **GO DEEPER**. This section is optional, ungraded for campaign progress, and does not change metrics, Recovery Points, or the next-mission unlock.
 
-**Secondary briefing card - exact player copy:** You completed First-Week Cover. Choose GO DEEPER to revisit the four decisions and explore related course ideas; this optional review does not change your metrics or delay the next mission.
+**Secondary briefing card - exact player copy:** Try six independent practice questions. Each includes its own context and any needed data; no mission records are required.
 
 ### Review focus
 
@@ -9061,7 +9107,31 @@ No additional prerequisite is required. These optional questions revisit the mis
 
 ### Review question 1
 
-**Prompt - exact player copy:** After First-Week Cover, a new decision at Halvern's currency changeover requires the team to distinguish Policy lag from related macroeconomics ideas. Which statement correctly applies Policy lag?
+
+**Prompt - exact player copy:** Which statement best explains policy lag?
+
+**Options - exact player copy:**
+
+- A. A precommitted threshold that activates action.
+- B. Total planned spending at each price level.
+- C. A real supply shock can hurt output without invalidating the currency conversion.
+- D. Delay between action and full economic effect.
+
+**Correct answer:** D
+
+**Hint - exact player copy:** Identify the defining relationship or mechanism for policy lag. All needed information is in this question.
+
+**Option feedback - exact player copy:**
+
+- A: This describes trigger. It does not answer the question about policy lag.
+- B: This describes aggregate demand (AD). It does not answer the question about policy lag.
+- C: This describes supply shock. It does not answer the question about policy lag.
+- D: Correct. Delay between action and full economic effect.
+
+### Review question 2
+
+
+**Prompt - exact player copy:** Which statement best explains trigger?
 
 **Options - exact player copy:**
 
@@ -9070,42 +9140,21 @@ No additional prerequisite is required. These optional questions revisit the mis
 - C. Total planned spending at each price level.
 - D. A real supply shock can hurt output without invalidating the currency conversion.
 
-**Correct answer:** B
+**Correct answer:** A
 
-**Hint - exact player copy:** Identify the defining relationship, mechanism, or evidence limit for Policy lag; the other choices describe different course ideas.
-
-**Option feedback - exact player copy:**
-
-- A: This describes Trigger, not Policy lag. The two ideas use different relationships, mechanisms, or evidence limits.
-- B: Correct. Policy lag applies because delay between action and full economic effect.
-- C: This describes Aggregate demand (AD), not Policy lag. The two ideas use different relationships, mechanisms, or evidence limits.
-- D: This describes supply shock, not Policy lag. The two ideas use different relationships, mechanisms, or evidence limits.
-
-### Review question 2
-
-**Prompt - exact player copy:** After First-Week Cover, a new decision at Halvern's currency changeover requires the team to distinguish Trigger from related macroeconomics ideas. Which description of Trigger should guide the team's reasoning?
-
-**Options - exact player copy:**
-
-- A. Delay between action and full economic effect.
-- B. Total planned spending at each price level.
-- C. A precommitted threshold that activates action.
-- D. A real supply shock can hurt output without invalidating the currency conversion.
-
-**Correct answer:** C
-
-**Hint - exact player copy:** Identify the defining relationship, mechanism, or evidence limit for Trigger; the other choices describe different course ideas.
+**Hint - exact player copy:** Identify the defining relationship or mechanism for trigger. All needed information is in this question.
 
 **Option feedback - exact player copy:**
 
-- A: This describes Policy lag, not Trigger. The two ideas use different relationships, mechanisms, or evidence limits.
-- B: This describes Aggregate demand (AD), not Trigger. The two ideas use different relationships, mechanisms, or evidence limits.
-- C: Correct. Trigger applies because a precommitted threshold that activates action.
-- D: This describes supply shock, not Trigger. The two ideas use different relationships, mechanisms, or evidence limits.
+- A: Correct. A precommitted threshold that activates action.
+- B: This describes policy lag. It does not answer the question about trigger.
+- C: This describes aggregate demand (AD). It does not answer the question about trigger.
+- D: This describes supply shock. It does not answer the question about trigger.
 
 ### Review question 3
 
-**Prompt - exact player copy:** After First-Week Cover, a new decision at Halvern's currency changeover requires the team to distinguish Aggregate demand (AD) from related macroeconomics ideas. Which claim about Aggregate demand (AD) is scientifically defensible?
+
+**Prompt - exact player copy:** Which statement best explains aggregate demand (AD)?
 
 **Figure - exact player copy:**
 
@@ -9145,28 +9194,28 @@ No additional prerequisite is required. These optional questions revisit the mis
 }
 ```
 
-
 **Options - exact player copy:**
 
 - A. Delay between action and full economic effect.
-- B. A precommitted threshold that activates action.
-- C. A real supply shock can hurt output without invalidating the currency conversion.
-- D. Total planned spending at each price level.
+- B. Total planned spending at each price level.
+- C. A precommitted threshold that activates action.
+- D. A real supply shock can hurt output without invalidating the currency conversion.
 
-**Correct answer:** D
+**Correct answer:** B
 
-**Hint - exact player copy:** Identify the defining relationship, mechanism, or evidence limit for Aggregate demand (AD); the other choices describe different course ideas.
+**Hint - exact player copy:** Identify the defining relationship or mechanism for aggregate demand (ad). All needed information is in this question.
 
 **Option feedback - exact player copy:**
 
-- A: This describes Policy lag, not Aggregate demand (AD). The two ideas use different relationships, mechanisms, or evidence limits.
-- B: This describes Trigger, not Aggregate demand (AD). The two ideas use different relationships, mechanisms, or evidence limits.
-- C: This describes supply shock, not Aggregate demand (AD). The two ideas use different relationships, mechanisms, or evidence limits.
-- D: Correct. Aggregate demand (AD) applies because total planned spending at each price level.
+- A: This describes policy lag. It does not answer the question about aggregate demand (ad).
+- B: Correct. Total planned spending at each price level.
+- C: This describes trigger. It does not answer the question about aggregate demand (ad).
+- D: This describes supply shock. It does not answer the question about aggregate demand (ad).
 
 ### Review question 4
 
-**Prompt - exact player copy:** After First-Week Cover, a new decision at Halvern's currency changeover requires the team to distinguish supply shock from related macroeconomics ideas. Which interpretation of supply shock is correct?
+
+**Prompt - exact player copy:** A currency conversion is arithmetically correct and payments clear, but a shortage raises imported fuel prices. What follows?
 
 **Figure - exact player copy:**
 
@@ -9223,126 +9272,127 @@ No additional prerequisite is required. These optional questions revisit the mis
 }
 ```
 
+**Options - exact player copy:**
+
+- A. Delay between action and full economic effect.
+- B. A precommitted threshold that activates action.
+- C. The real supply shock can hurt output without proving that the currency conversion is wrong.
+- D. Total planned spending at each price level.
+
+**Correct answer:** C
+
+**Hint - exact player copy:** Identify the defining relationship or mechanism for supply shock. All needed information is in this question.
+
+**Option feedback - exact player copy:**
+
+- A: This describes policy lag. It does not answer the question about supply shock.
+- B: This describes trigger. It does not answer the question about supply shock.
+- C: Correct. The real supply shock can hurt output without proving that the currency conversion is wrong.
+- D: This describes aggregate demand (AD). It does not answer the question about supply shock.
+
+### Review question 5
+
+
+**Prompt - exact player copy:** Which statement best explains CPI and supply?
+
+**Figure - exact player copy:**
+
+```json
+{
+  "kind": "line",
+  "xLabel": "Real output",
+  "yLabel": "Price level",
+  "caption": "An adverse supply shock shifts short-run aggregate supply left.",
+  "series": [
+    {
+      "name": "Before",
+      "points": [
+        [
+          25,
+          35
+        ],
+        [
+          45,
+          48
+        ],
+        [
+          65,
+          63
+        ],
+        [
+          85,
+          82
+        ]
+      ]
+    },
+    {
+      "name": "After shock",
+      "points": [
+        [
+          15,
+          48
+        ],
+        [
+          35,
+          61
+        ],
+        [
+          55,
+          76
+        ],
+        [
+          75,
+          95
+        ]
+      ]
+    }
+  ]
+}
+```
 
 **Options - exact player copy:**
 
-- A. A real supply shock can hurt output without invalidating the currency conversion.
+- A. Delay between action and full economic effect.
+- B. A precommitted threshold that activates action.
+- C. Total planned spending at each price level.
+- D. A bounded relative-price shock should not be mistaken for unlimited inflation.
+
+**Correct answer:** D
+
+**Hint - exact player copy:** Identify the defining relationship or mechanism for cpi and supply. All needed information is in this question.
+
+**Option feedback - exact player copy:**
+
+- A: This describes policy lag. It does not answer the question about cpi and supply.
+- B: This describes trigger. It does not answer the question about cpi and supply.
+- C: This describes aggregate demand (AD). It does not answer the question about cpi and supply.
+- D: Correct. A bounded relative-price shock should not be mistaken for unlimited inflation.
+
+### Review question 6
+
+
+**Prompt - exact player copy:** A currency conversion passes independent arithmetic and payment tests, but imported fuel becomes more expensive. Which policy distinction matters?
+
+**Options - exact player copy:**
+
+- A. A valid conversion can be retained while the separate supply shock is addressed on its own evidence.
 - B. Delay between action and full economic effect.
 - C. A precommitted threshold that activates action.
 - D. Total planned spending at each price level.
 
 **Correct answer:** A
 
-**Hint - exact player copy:** Identify the defining relationship, mechanism, or evidence limit for supply shock; the other choices describe different course ideas.
+**Hint - exact player copy:** Identify the defining relationship or mechanism for integrated policy. All needed information is in this question.
 
 **Option feedback - exact player copy:**
 
-- A: Correct. supply shock applies because a real supply shock can hurt output without invalidating the currency conversion.
-- B: This describes Policy lag, not supply shock. The two ideas use different relationships, mechanisms, or evidence limits.
-- C: This describes Trigger, not supply shock. The two ideas use different relationships, mechanisms, or evidence limits.
-- D: This describes Aggregate demand (AD), not supply shock. The two ideas use different relationships, mechanisms, or evidence limits.
+- A: Correct. A valid conversion can be retained while the separate supply shock is addressed on its own evidence.
+- B: This describes policy lag. It does not answer the question about integrated policy.
+- C: This describes trigger. It does not answer the question about integrated policy.
+- D: This describes aggregate demand (AD). It does not answer the question about integrated policy.
 
-### Review question 5
+**Optional review completion - exact player copy:** Good work. You have completed six independent practice questions.
 
-**Prompt - exact player copy:** After First-Week Cover, a new decision at Halvern's currency changeover requires the team to distinguish CPI/supply from related macroeconomics ideas. Which statement about CPI/supply would earn course credit?
-
-**Figure - exact player copy:**
-
-```json
-{
-  "kind": "line",
-  "xLabel": "Real output",
-  "yLabel": "Price level",
-  "caption": "An adverse supply shock shifts short-run aggregate supply left.",
-  "series": [
-    {
-      "name": "Before",
-      "points": [
-        [
-          25,
-          35
-        ],
-        [
-          45,
-          48
-        ],
-        [
-          65,
-          63
-        ],
-        [
-          85,
-          82
-        ]
-      ]
-    },
-    {
-      "name": "After shock",
-      "points": [
-        [
-          15,
-          48
-        ],
-        [
-          35,
-          61
-        ],
-        [
-          55,
-          76
-        ],
-        [
-          75,
-          95
-        ]
-      ]
-    }
-  ]
-}
-```
-
-
-**Options - exact player copy:**
-
-- A. Delay between action and full economic effect.
-- B. A bounded relative-price shock should not be mistaken for unlimited inflation.
-- C. A precommitted threshold that activates action.
-- D. Total planned spending at each price level.
-
-**Correct answer:** B
-
-**Hint - exact player copy:** Identify the defining relationship, mechanism, or evidence limit for CPI/supply; the other choices describe different course ideas.
-
-**Option feedback - exact player copy:**
-
-- A: This describes Policy lag, not CPI/supply. The two ideas use different relationships, mechanisms, or evidence limits.
-- B: Correct. CPI/supply applies because a bounded relative-price shock should not be mistaken for unlimited inflation.
-- C: This describes Trigger, not CPI/supply. The two ideas use different relationships, mechanisms, or evidence limits.
-- D: This describes Aggregate demand (AD), not CPI/supply. The two ideas use different relationships, mechanisms, or evidence limits.
-
-### Review question 6
-
-**Prompt - exact player copy:** After First-Week Cover, a new decision at Halvern's currency changeover requires the team to distinguish integrated policy from related macroeconomics ideas. Which use of integrated policy gives the strongest basis for a decision?
-
-**Options - exact player copy:**
-
-- A. Delay between action and full economic effect.
-- B. A precommitted threshold that activates action.
-- C. Robust policy preserves the sound ratio while treating the separate real shock.
-- D. Total planned spending at each price level.
-
-**Correct answer:** C
-
-**Hint - exact player copy:** Identify the defining relationship, mechanism, or evidence limit for integrated policy; the other choices describe different course ideas.
-
-**Option feedback - exact player copy:**
-
-- A: This describes Policy lag, not integrated policy. The two ideas use different relationships, mechanisms, or evidence limits.
-- B: This describes Trigger, not integrated policy. The two ideas use different relationships, mechanisms, or evidence limits.
-- C: Correct. integrated policy applies because robust policy preserves the sound ratio while treating the separate real shock.
-- D: This describes Aggregate demand (AD), not integrated policy. The two ideas use different relationships, mechanisms, or evidence limits.
-
-**Optional review completion - exact player copy:** Excellent work. You went beyond the required mission and strengthened the ideas behind your decision.
 ## Quick concept review
 - The player can use today’s main model in the next decision.
 - **Mission takeaway:** Evidence must match the mechanism, units, and stated limits.
@@ -9600,7 +9650,7 @@ estimate:
 
 **Question card story-science connection - exact player copy:** The rate-reserve pair tests the policy stance and bank liquidity using today's actual inputs.
 
-**Fixture source panel - exact player copy:** Expected inflation is 2.25%, the proposed nominal rate is 3.25%, deposits are 120 billion, reserves are 14 billion, and rr is 10%. Derive real rate and excess reserves. nominal rate=3.25% expected inflation=2.25% deposits=120 billion reserve ratio=10% actual reserves=14 billion
+**Fixture source panel - exact player copy:** Expected inflation is 2.25%, the proposed nominal rate is 3.25%, deposits are 120 billion, reserves are 14 billion, and rr is 10%. Derive real rate and excess reserves.
 
 **Source-panel timing:** Show at this stop’s declared fixture before its DERIVE choices unlock. Keep visible while the player works. These are model inputs and prior observations, not new measurements or an accepted answer. Symbolic derivations stay symbolic; do not invent a number merely to force substitution.
 
@@ -9806,7 +9856,7 @@ The first customer slides old crowns across the counter. Eli counts out the new 
 
 **Availability:** Reveal only after mission completion when the player selects **GO DEEPER**. This section is optional, ungraded for campaign progress, and does not change metrics, Recovery Points, or the next-mission unlock.
 
-**Secondary briefing card - exact player copy:** You completed Sign With Conditions. Choose GO DEEPER to revisit the four decisions and explore related course ideas; this optional review does not change your metrics or delay the next mission.
+**Secondary briefing card - exact player copy:** Try six independent practice questions. Each includes its own context and any needed data; no mission records are required.
 
 ### Review focus
 
@@ -9814,95 +9864,100 @@ No additional prerequisite is required. These optional questions revisit the mis
 
 ### Review question 1
 
-**Prompt - exact player copy:** After Sign With Conditions, a new decision at Halvern's currency changeover requires the team to distinguish national snapshot from related macroeconomics ideas. Which statement correctly applies national snapshot?
+
+**Prompt - exact player copy:** Real output is below potential. Payment failures remain below an announced action threshold, and inflation remains below its intervention limit. Which summary matches these facts?
 
 **Options - exact player copy:**
 
 - A. A workable stance needs both borrowing conditions and bank capacity.
-- B. Output is weak, but the payment trigger has not fired and inflation is below its stop limit.
-- C. The final rate is credible only if domestic and foreign consequences remain visible.
+- B. Output is weak, but neither the payment nor inflation trigger has fired.
+- C. An interest-rate assessment should include domestic investment and international capital and trade effects.
 - D. Conditions turn one rate choice into a testable policy rather than a guess.
 
 **Correct answer:** B
 
-**Hint - exact player copy:** Identify the defining relationship, mechanism, or evidence limit for national snapshot; the other choices describe different course ideas.
+**Hint - exact player copy:** Identify the defining relationship or mechanism for national snapshot. All needed information is in this question.
 
 **Option feedback - exact player copy:**
 
-- A: This describes Fisher and reserves, not national snapshot. The two ideas use different relationships, mechanisms, or evidence limits.
-- B: Correct. national snapshot applies because output is weak, but the payment trigger has not fired and inflation is below its stop limit.
-- C: This describes linked policy consequences, not national snapshot. The two ideas use different relationships, mechanisms, or evidence limits.
-- D: This describes final policy, not national snapshot. The two ideas use different relationships, mechanisms, or evidence limits.
+- A: This describes fisher and reserves. It does not answer the question about national snapshot.
+- B: Correct. Output is weak, but neither the payment nor inflation trigger has fired.
+- C: This describes linked policy consequences. It does not answer the question about national snapshot.
+- D: This describes final policy. It does not answer the question about national snapshot.
 
 ### Review question 2
 
-**Prompt - exact player copy:** After Sign With Conditions, a new decision at Halvern's currency changeover requires the team to distinguish Fisher and reserves from related macroeconomics ideas. Which description of Fisher and reserves should guide the team's reasoning?
+
+**Prompt - exact player copy:** Why should a credit-policy assessment consider both the real interest rate and banks' available reserves?
 
 **Options - exact player copy:**
 
 - A. Output is weak, but the payment trigger has not fired and inflation is below its stop limit.
-- B. The final rate is credible only if domestic and foreign consequences remain visible.
-- C. A workable stance needs both borrowing conditions and bank capacity.
+- B. An interest-rate assessment should include domestic investment and international capital and trade effects.
+- C. Borrowing conditions and banking capacity are separate constraints on lending.
 - D. Conditions turn one rate choice into a testable policy rather than a guess.
 
 **Correct answer:** C
 
-**Hint - exact player copy:** Identify the defining relationship, mechanism, or evidence limit for Fisher and reserves; the other choices describe different course ideas.
+**Hint - exact player copy:** Identify the defining relationship or mechanism for fisher and reserves. All needed information is in this question.
 
 **Option feedback - exact player copy:**
 
-- A: This describes national snapshot, not Fisher and reserves. The two ideas use different relationships, mechanisms, or evidence limits.
-- B: This describes linked policy consequences, not Fisher and reserves. The two ideas use different relationships, mechanisms, or evidence limits.
-- C: Correct. Fisher and reserves applies because a workable stance needs both borrowing conditions and bank capacity.
-- D: This describes final policy, not Fisher and reserves. The two ideas use different relationships, mechanisms, or evidence limits.
+- A: This describes national snapshot. It does not answer the question about fisher and reserves.
+- B: This describes linked policy consequences. It does not answer the question about fisher and reserves.
+- C: Correct. Borrowing conditions and banking capacity are separate constraints on lending.
+- D: This describes final policy. It does not answer the question about fisher and reserves.
 
 ### Review question 3
 
-**Prompt - exact player copy:** After Sign With Conditions, a new decision at Halvern's currency changeover requires the team to distinguish linked policy consequences from related macroeconomics ideas. Which claim about linked policy consequences is scientifically defensible?
+
+**Prompt - exact player copy:** Which statement best explains linked policy consequences?
 
 **Options - exact player copy:**
 
 - A. Output is weak, but the payment trigger has not fired and inflation is below its stop limit.
 - B. A workable stance needs both borrowing conditions and bank capacity.
 - C. Conditions turn one rate choice into a testable policy rather than a guess.
-- D. The final rate is credible only if domestic and foreign consequences remain visible.
+- D. An interest-rate assessment should include domestic investment and international capital and trade effects.
 
 **Correct answer:** D
 
-**Hint - exact player copy:** Identify the defining relationship, mechanism, or evidence limit for linked policy consequences; the other choices describe different course ideas.
+**Hint - exact player copy:** Identify the defining relationship or mechanism for linked policy consequences. All needed information is in this question.
 
 **Option feedback - exact player copy:**
 
-- A: This describes national snapshot, not linked policy consequences. The two ideas use different relationships, mechanisms, or evidence limits.
-- B: This describes Fisher and reserves, not linked policy consequences. The two ideas use different relationships, mechanisms, or evidence limits.
-- C: This describes final policy, not linked policy consequences. The two ideas use different relationships, mechanisms, or evidence limits.
-- D: Correct. linked policy consequences applies because the final rate is credible only if domestic and foreign consequences remain visible.
+- A: This describes national snapshot. It does not answer the question about linked policy consequences.
+- B: This describes fisher and reserves. It does not answer the question about linked policy consequences.
+- C: This describes final policy. It does not answer the question about linked policy consequences.
+- D: Correct. An interest-rate assessment should include domestic investment and international capital and trade effects.
 
 ### Review question 4
 
-**Prompt - exact player copy:** After Sign With Conditions, a new decision at Halvern's currency changeover requires the team to distinguish final policy from related macroeconomics ideas. Which interpretation of final policy is correct?
+
+**Prompt - exact player copy:** Why state the evidence conditions that would cause an interest-rate decision to be revised?
 
 **Options - exact player copy:**
 
-- A. Conditions turn one rate choice into a testable policy rather than a guess.
+- A. They make the policy testable and revisable instead of leaving its continuation to an unstated preference.
 - B. Output is weak, but the payment trigger has not fired and inflation is below its stop limit.
 - C. A workable stance needs both borrowing conditions and bank capacity.
-- D. The final rate is credible only if domestic and foreign consequences remain visible.
+- D. An interest-rate assessment should include domestic investment and international capital and trade effects.
 
 **Correct answer:** A
 
-**Hint - exact player copy:** Identify the defining relationship, mechanism, or evidence limit for final policy; the other choices describe different course ideas.
+**Hint - exact player copy:** Identify the defining relationship or mechanism for final policy. All needed information is in this question.
 
 **Option feedback - exact player copy:**
 
-- A: Correct. final policy applies because conditions turn one rate choice into a testable policy rather than a guess.
-- B: This describes national snapshot, not final policy. The two ideas use different relationships, mechanisms, or evidence limits.
-- C: This describes Fisher and reserves, not final policy. The two ideas use different relationships, mechanisms, or evidence limits.
-- D: This describes linked policy consequences, not final policy. The two ideas use different relationships, mechanisms, or evidence limits.
+- A: Correct. They make the policy testable and revisable instead of leaving its continuation to an unstated preference.
+- B: This describes national snapshot. It does not answer the question about final policy.
+- C: This describes fisher and reserves. It does not answer the question about final policy.
+- D: This describes linked policy consequences. It does not answer the question about final policy.
 
 ### Review question 5
 
-**Prompt - exact player copy:** After Sign With Conditions, a new decision at Halvern's currency changeover requires the team to distinguish Production possibilities curve (PPC) from related macroeconomics ideas. Which statement about Production possibilities curve (PPC) would earn course credit?
+
+**Prompt - exact player copy:** Which statement best explains production possibilities curve (PPC)?
 
 **Figure - exact player copy:**
 
@@ -9946,48 +10001,49 @@ No additional prerequisite is required. These optional questions revisit the mis
 }
 ```
 
-
 **Options - exact player copy:**
 
 - A. Output is weak, but the payment trigger has not fired and inflation is below its stop limit.
 - B. A graph of the maximum combinations of two outputs an economy can produce with current resources and technology.
 - C. A workable stance needs both borrowing conditions and bank capacity.
-- D. The final rate is credible only if domestic and foreign consequences remain visible.
+- D. An interest-rate assessment should include domestic investment and international capital and trade effects.
 
 **Correct answer:** B
 
-**Hint - exact player copy:** Identify the defining relationship, mechanism, or evidence limit for Production possibilities curve (PPC); the other choices describe different course ideas.
+**Hint - exact player copy:** Identify the defining relationship or mechanism for production possibilities curve (ppc). All needed information is in this question.
 
 **Option feedback - exact player copy:**
 
-- A: This describes national snapshot, not Production possibilities curve (PPC). The two ideas use different relationships, mechanisms, or evidence limits.
-- B: Correct. Production possibilities curve (PPC) applies because a graph of the maximum combinations of two outputs an economy can produce with current resources and technology.
-- C: This describes Fisher and reserves, not Production possibilities curve (PPC). The two ideas use different relationships, mechanisms, or evidence limits.
-- D: This describes linked policy consequences, not Production possibilities curve (PPC). The two ideas use different relationships, mechanisms, or evidence limits.
+- A: This describes national snapshot. It does not answer the question about production possibilities curve (ppc).
+- B: Correct. A graph of the maximum combinations of two outputs an economy can produce with current resources and technology.
+- C: This describes fisher and reserves. It does not answer the question about production possibilities curve (ppc).
+- D: This describes linked policy consequences. It does not answer the question about production possibilities curve (ppc).
 
 ### Review question 6
 
-**Prompt - exact player copy:** After Sign With Conditions, a new decision at Halvern's currency changeover requires the team to distinguish Scarcity from related macroeconomics ideas. Which use of Scarcity gives the strongest basis for a decision?
+
+**Prompt - exact player copy:** Which statement best explains scarcity?
 
 **Options - exact player copy:**
 
 - A. Output is weak, but the payment trigger has not fired and inflation is below its stop limit.
 - B. A workable stance needs both borrowing conditions and bank capacity.
 - C. Limited resources cannot satisfy every want, so every choice gives up an alternative.
-- D. The final rate is credible only if domestic and foreign consequences remain visible.
+- D. An interest-rate assessment should include domestic investment and international capital and trade effects.
 
 **Correct answer:** C
 
-**Hint - exact player copy:** Identify the defining relationship, mechanism, or evidence limit for Scarcity; the other choices describe different course ideas.
+**Hint - exact player copy:** Identify the defining relationship or mechanism for scarcity. All needed information is in this question.
 
 **Option feedback - exact player copy:**
 
-- A: This describes national snapshot, not Scarcity. The two ideas use different relationships, mechanisms, or evidence limits.
-- B: This describes Fisher and reserves, not Scarcity. The two ideas use different relationships, mechanisms, or evidence limits.
-- C: Correct. Scarcity applies because limited resources cannot satisfy every want, so every choice gives up an alternative.
-- D: This describes linked policy consequences, not Scarcity. The two ideas use different relationships, mechanisms, or evidence limits.
+- A: This describes national snapshot. It does not answer the question about scarcity.
+- B: This describes fisher and reserves. It does not answer the question about scarcity.
+- C: Correct. Limited resources cannot satisfy every want, so every choice gives up an alternative.
+- D: This describes linked policy consequences. It does not answer the question about scarcity.
 
-**Optional review completion - exact player copy:** Excellent work. You went beyond the required mission and strengthened the ideas behind your decision.
+**Optional review completion - exact player copy:** Good work. You have completed six independent practice questions.
+
 ## Quick concept review
 - The player can use today’s main model in the next decision.
 - **Mission takeaway:** Evidence must match the mechanism, units, and stated limits.

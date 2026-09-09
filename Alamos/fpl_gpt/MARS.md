@@ -1,5 +1,7 @@
 **FIRST PERSON LEARNING**
 
+**Player-copy editing rule:** Within each displayed passage, state each fact, equation, variable definition, and instruction once. Integrate new givens into the existing wording; do not append a paraphrase of the setup. A source panel may repeat essential inputs so it stands alone, but render it as its own surface rather than concatenating it with the question setup. Go Deeper questions must still supply their own context and data without referring to earlier cases.
+
 **RED SAND: FULL TANK**
 
 AP Chemistry Campaign Implementation Bible
@@ -106,9 +108,12 @@ student reaches the three scientific reversals.
 
 ### Opening sequence - no movie required, maximum five sentences
 
-You are the fuel plant lead, which means you must make clean fuel for the crew to leave Mars. At Arcadia Rise, you will use chemistry to make the call. Fifteen work shifts remain before launch. The plant turns air and ice into fuel. If it cannot finish safely, the crew misses its ride home.
+You are the fuel plant lead, which means you must make clean fuel for the crew to leave Mars. At Arcadia Rise, you will use chemistry to make the call. Fifteen work shifts remain before launch. The plant turns air and ice into fuel; if it cannot finish safely, the crew misses its ride home. Commander Laila Abiola gives you the plant key and says, “Tell me what you need to get this crew off the planet.”
 
-**Delivery:** Show all four opening sentences together on one
+**Opening-card requirement:** The character quote is the final player-visible text on this card; place no explanatory sentence after it. Keep it brief and natural: it should add the speaker’s concern or commitment rather than summarize the preceding setup. Show the whole opening together with one Continue action.
+
+
+**Delivery:** Show all five opening sentences together on one
 full-screen text card over the normal Plant Control view. The player
 dismisses the card once with Continue; the sentences do not advance
 individually. When the card clears, reveal the four-bar HUD at its
@@ -698,6 +703,11 @@ Define a term before a briefing, bubble, setup, or question assumes it. Definiti
 
 **Delivery:** Keep player control and normal world view. No new graded stop follows the final accepted decision. The ending card appears after the player reaches the payoff view, or through an accessible View ending control that skips movement without skipping any scientific gate. Optional review and worked examples remain available through the completed mission menu.
 
+
+### Standalone Go Deeper question contract
+
+Each optional review question must work when copied out on its own. Supply its setting, givens, units, definitions, and any required figure within that question. Do not mention a mission title, a prior case, a teammate rechecking earlier work, a completed plan, or unseen cards, observations, or results. Do not assume that another review question was read. Choices, hints, and feedback obey the same rule. Use brief conceptual questions or complete applied problems; figures must match the question rather than merely share its course.
+
 # Mission 1 - The Shortfall
 
 **MISSION BRIEFING CARD - EXACT PLAYER COPY**
@@ -1134,7 +1144,7 @@ awarded. Spend: Methane +4; Power +6. Result: METHANE 84% \| OXYGEN 88%
 
 **Availability:** Reveal only after mission completion when the player selects **GO DEEPER**. This section is optional, ungraded for campaign progress, and does not change metrics, Recovery Points, or the next-mission unlock.
 
-**Secondary briefing card - exact player copy:** You completed The Shortfall. Choose GO DEEPER to revisit the four decisions and explore related course ideas; this optional review does not change your metrics or delay the next mission.
+**Secondary briefing card - exact player copy:** Try six independent practice questions. Each includes its own context and any needed data; no mission records are required.
 
 ### Additional concepts kept out of the required mission card
 
@@ -1147,7 +1157,8 @@ awarded. Spend: Methane +4; Power +6. Result: METHANE 84% \| OXYGEN 88%
 
 ### Review question 1
 
-**Prompt - exact player copy:** In a follow-up to The Shortfall, before the plant can compare its records, classify the four sample symbols so the ledger counts atoms, molecules, and ions correctly. The next action depends on selecting the conclusion that fits all of those facts. Which calculation or chemical interpretation correctly applies Electric charge?
+
+**Prompt - exact player copy:** Which statement best explains electric charge?
 
 **Options - exact player copy:**
 
@@ -1158,17 +1169,19 @@ awarded. Spend: Methane +4; Power +6. Result: METHANE 84% \| OXYGEN 88%
 
 **Correct answer:** B
 
-**Hint - exact player copy:** Use the stated evidence and the conditions for Electric charge; do not choose an option merely because it names a familiar term.
+**Hint - exact player copy:** Identify the defining relationship or mechanism for electric charge. All needed information is in this question.
 
 **Option feedback - exact player copy:**
 
-- A: This describes Electron, not Electric charge. It does not account for the quantities, conditions, or evidence in this chemistry case.
-- B: Correct. a property that can be positive or negative and makes particles attract or repel. An object with equal positive and negative charge is neutral.
-- C: This describes Chemical bond, not Electric charge. It does not account for the quantities, conditions, or evidence in this chemistry case.
-- D: This describes Chemical reaction, not Electric charge. It does not account for the quantities, conditions, or evidence in this chemistry case.
+- A: This describes electron. It does not answer the question about electric charge.
+- B: Correct. A property that can be positive or negative and makes particles attract or repel. An object with equal positive and negative charge is neutral.
+- C: This describes chemical bond. It does not answer the question about electric charge.
+- D: This describes chemical reaction. It does not answer the question about electric charge.
+
 ### Review question 2
 
-**Prompt - exact player copy:** the Mars return mission receives a second case related to The Shortfall: before the plant can compare its records, classify the four sample symbols so the ledger counts atoms, molecules, and ions correctly. The next action depends on selecting the conclusion that fits all of those facts. Which calculation or chemical interpretation correctly applies Electron?
+
+**Prompt - exact player copy:** Which statement best explains electron?
 
 **Options - exact player copy:**
 
@@ -1179,17 +1192,19 @@ awarded. Spend: Methane +4; Power +6. Result: METHANE 84% \| OXYGEN 88%
 
 **Correct answer:** C
 
-**Hint - exact player copy:** Use the stated evidence and the conditions for Electron; do not choose an option merely because it names a familiar term.
+**Hint - exact player copy:** Identify the defining relationship or mechanism for electron. All needed information is in this question.
 
 **Option feedback - exact player copy:**
 
-- A: This describes Electric charge, not Electron. It does not account for the quantities, conditions, or evidence in this chemistry case.
-- B: This describes Chemical bond, not Electron. It does not account for the quantities, conditions, or evidence in this chemistry case.
-- C: Correct. a particle with negative electric charge found in atoms. Electron arrangement helps determine how atoms join and whether a particle has a net charge.
-- D: This describes Chemical reaction, not Electron. It does not account for the quantities, conditions, or evidence in this chemistry case.
+- A: This describes electric charge. It does not answer the question about electron.
+- B: This describes chemical bond. It does not answer the question about electron.
+- C: Correct. A particle with negative electric charge found in atoms. Electron arrangement helps determine how atoms join and whether a particle has a net charge.
+- D: This describes chemical reaction. It does not answer the question about electron.
+
 ### Review question 3
 
-**Prompt - exact player copy:** A teammate rechecks The Shortfall using new evidence: before the plant can compare its records, classify the four sample symbols so the ledger counts atoms, molecules, and ions correctly. The next action depends on selecting the conclusion that fits all of those facts. Which calculation or chemical interpretation correctly applies Chemical bond?
+
+**Prompt - exact player copy:** Which statement best explains chemical bond?
 
 **Options - exact player copy:**
 
@@ -1200,17 +1215,19 @@ awarded. Spend: Methane +4; Power +6. Result: METHANE 84% \| OXYGEN 88%
 
 **Correct answer:** D
 
-**Hint - exact player copy:** Use the stated evidence and the conditions for Chemical bond; do not choose an option merely because it names a familiar term.
+**Hint - exact player copy:** Identify the defining relationship or mechanism for chemical bond. All needed information is in this question.
 
 **Option feedback - exact player copy:**
 
-- A: This describes Electric charge, not Chemical bond. It does not account for the quantities, conditions, or evidence in this chemistry case.
-- B: This describes Electron, not Chemical bond. It does not account for the quantities, conditions, or evidence in this chemistry case.
-- C: This describes Chemical reaction, not Chemical bond. It does not account for the quantities, conditions, or evidence in this chemistry case.
-- D: Correct. a strong connection that holds atoms together inside a molecule. Breaking or making bonds changes how atoms are grouped but does not create or destroy the atoms.
+- A: This describes electric charge. It does not answer the question about chemical bond.
+- B: This describes electron. It does not answer the question about chemical bond.
+- C: This describes chemical reaction. It does not answer the question about chemical bond.
+- D: Correct. A strong connection that holds atoms together inside a molecule. Breaking or making bonds changes how atoms are grouped but does not create or destroy the atoms.
+
 ### Review question 4
 
-**Prompt - exact player copy:** An unseen case extends The Shortfall: before the plant can compare its records, classify the four sample symbols so the ledger counts atoms, molecules, and ions correctly. The next action depends on selecting the conclusion that fits all of those facts. Which calculation or chemical interpretation correctly applies Chemical reaction?
+
+**Prompt - exact player copy:** Which statement best explains chemical reaction?
 
 **Options - exact player copy:**
 
@@ -1221,17 +1238,19 @@ awarded. Spend: Methane +4; Power +6. Result: METHANE 84% \| OXYGEN 88%
 
 **Correct answer:** A
 
-**Hint - exact player copy:** Use the stated evidence and the conditions for Chemical reaction; do not choose an option merely because it names a familiar term.
+**Hint - exact player copy:** Identify the defining relationship or mechanism for chemical reaction. All needed information is in this question.
 
 **Option feedback - exact player copy:**
 
-- A: Correct. rearranges atoms by breaking or making chemical bonds. The kinds and counts of atoms remain the same before and after the change.
-- B: This describes Electric charge, not Chemical reaction. It does not account for the quantities, conditions, or evidence in this chemistry case.
-- C: This describes Electron, not Chemical reaction. It does not account for the quantities, conditions, or evidence in this chemistry case.
-- D: This describes Chemical bond, not Chemical reaction. It does not account for the quantities, conditions, or evidence in this chemistry case.
+- A: Correct. Rearranges atoms by breaking or making chemical bonds. The kinds and counts of atoms remain the same before and after the change.
+- B: This describes electric charge. It does not answer the question about chemical reaction.
+- C: This describes electron. It does not answer the question about chemical reaction.
+- D: This describes chemical bond. It does not answer the question about chemical reaction.
+
 ### Review question 5
 
-**Prompt - exact player copy:** Before another Shortfall decision, the team knows this: before the plant can compare its records, classify the four sample symbols so the ledger counts atoms, molecules, and ions correctly. The next action depends on selecting the conclusion that fits all of those facts. Which calculation or chemical interpretation correctly applies Molecule?
+
+**Prompt - exact player copy:** Which statement best explains molecule?
 
 **Options - exact player copy:**
 
@@ -1242,17 +1261,19 @@ awarded. Spend: Methane +4; Power +6. Result: METHANE 84% \| OXYGEN 88%
 
 **Correct answer:** B
 
-**Hint - exact player copy:** Use the stated evidence and the conditions for Molecule; do not choose an option merely because it names a familiar term.
+**Hint - exact player copy:** Identify the defining relationship or mechanism for molecule. All needed information is in this question.
 
 **Option feedback - exact player copy:**
 
-- A: This describes Electric charge, not Molecule. It does not account for the quantities, conditions, or evidence in this chemistry case.
-- B: Correct. two or more atoms joined by chemical bonds. Methane and carbon dioxide are molecules, so one molecule contains several atoms.
-- C: This describes Electron, not Molecule. It does not account for the quantities, conditions, or evidence in this chemistry case.
-- D: This describes Chemical bond, not Molecule. It does not account for the quantities, conditions, or evidence in this chemistry case.
+- A: This describes electric charge. It does not answer the question about molecule.
+- B: Correct. Two or more atoms joined by chemical bonds. Methane and carbon dioxide are molecules, so one molecule contains several atoms.
+- C: This describes electron. It does not answer the question about molecule.
+- D: This describes chemical bond. It does not answer the question about molecule.
+
 ### Review question 6
 
-**Prompt - exact player copy:** the Mars return mission applies the lesson from The Shortfall to this follow-up: before the plant can compare its records, classify the four sample symbols so the ledger counts atoms, molecules, and ions correctly. The next action depends on selecting the conclusion that fits all of those facts. Which calculation or chemical interpretation correctly applies Molar mass?
+
+**Prompt - exact player copy:** Which statement best explains molar mass?
 
 **Options - exact player copy:**
 
@@ -1263,15 +1284,17 @@ awarded. Spend: Methane +4; Power +6. Result: METHANE 84% \| OXYGEN 88%
 
 **Correct answer:** C
 
-**Hint - exact player copy:** Use the stated evidence and the conditions for Molar mass; do not choose an option merely because it names a familiar term.
+**Hint - exact player copy:** Identify the defining relationship or mechanism for molar mass. All needed information is in this question.
 
 **Option feedback - exact player copy:**
 
-- A: This describes Electric charge, not Molar mass. It does not account for the quantities, conditions, or evidence in this chemistry case.
-- B: This describes Electron, not Molar mass. It does not account for the quantities, conditions, or evidence in this chemistry case.
-- C: Correct. the mass of one mole of a substance. It connects a mass on a scale to the number of particles in the plant.
-- D: This describes Chemical bond, not Molar mass. It does not account for the quantities, conditions, or evidence in this chemistry case.
-**Optional review completion - exact player copy:** Excellent work. You went beyond the required mission and strengthened the ideas behind your decision.
+- A: This describes electric charge. It does not answer the question about molar mass.
+- B: This describes electron. It does not answer the question about molar mass.
+- C: Correct. The mass of one mole of a substance. It connects a mass on a scale to the number of particles in the plant.
+- D: This describes chemical bond. It does not answer the question about molar mass.
+
+**Optional review completion - exact player copy:** Good work. You have completed six independent practice questions.
+
 ## Quick concept review
 
 - Atom, molecule, and ion describe different kinds of particles.
@@ -1717,7 +1740,7 @@ awarded. Spend: Methane +4; Power +6. Result: METHANE 88% \| OXYGEN 88%
 
 **Availability:** Reveal only after mission completion when the player selects **GO DEEPER**. This section is optional, ungraded for campaign progress, and does not change metrics, Recovery Points, or the next-mission unlock.
 
-**Secondary briefing card - exact player copy:** You completed The Feedstock Problem. Choose GO DEEPER to revisit the four decisions and explore related course ideas; this optional review does not change your metrics or delay the next mission.
+**Secondary briefing card - exact player copy:** Try six independent practice questions. Each includes its own context and any needed data; no mission records are required.
 
 ### Additional concepts kept out of the required mission card
 
@@ -1727,131 +1750,144 @@ awarded. Spend: Methane +4; Power +6. Result: METHANE 88% \| OXYGEN 88%
 
 ### Review question 1
 
-**Prompt - exact player copy:** In a follow-up to The Feedstock Problem, to test whether the air intake causes the shortage, first arrange the Sabatier conversion from captured carbon-dioxide mass to possible methane mass. Which calculation or chemical interpretation correctly applies Sabatier reaction?
+
+**Prompt - exact player copy:** Which statement best explains sabatier reaction?
 
 **Options - exact player copy:**
 
 - A. A starting substance left after the limiting reactant runs out. Its presence does not mean the reaction can continue.
-- B. Combines carbon dioxide and hydrogen to make methane and water. It is the reaction Arcadia Rise uses to make the crew's fuel.
-- C. The greatest product amount allowed by the measured reactants and balanced equation. It is a ceiling, not a promise that the plant reaches it.
-- D. A starting substance used by a chemical reaction. Carbon dioxide and hydrogen are the two reactants in the plant's methane reactor.
+- B. The greatest product amount allowed by the measured reactants and balanced equation. It is a ceiling, not a promise that the plant reaches it.
+- C. A starting substance used by a chemical reaction. Carbon dioxide and hydrogen are the two reactants in the plant's methane reactor.
+- D. Combines carbon dioxide and hydrogen to make methane and water. It is the reaction a fuel plant uses to make the operator's fuel.
 
-**Correct answer:** B
+**Correct answer:** D
 
-**Hint - exact player copy:** Use the stated evidence and the conditions for Sabatier reaction; do not choose an option merely because it names a familiar term.
+**Hint - exact player copy:** Identify the defining relationship or mechanism for sabatier reaction. All needed information is in this question.
 
 **Option feedback - exact player copy:**
 
-- A: This describes Excess reactant, not Sabatier reaction. It does not account for the quantities, conditions, or evidence in this chemistry case.
-- B: Correct. combines carbon dioxide and hydrogen to make methane and water. It is the reaction Arcadia Rise uses to make the crew's fuel.
-- C: This describes Theoretical yield, not Sabatier reaction. It does not account for the quantities, conditions, or evidence in this chemistry case.
-- D: This describes Reactant, not Sabatier reaction. It does not account for the quantities, conditions, or evidence in this chemistry case.
+- A: This describes excess reactant. It does not answer the question about sabatier reaction.
+- B: This describes theoretical yield. It does not answer the question about sabatier reaction.
+- C: This describes reactant. It does not answer the question about sabatier reaction.
+- D: Correct. Combines carbon dioxide and hydrogen to make methane and water. It is the reaction a fuel plant uses to make the operator's fuel.
+
 ### Review question 2
 
-**Prompt - exact player copy:** the Mars return mission receives a second case related to The Feedstock Problem: because the carbon-dioxide supply could meet the target, compare carbon dioxide and hydrogen to find which ingredient stops methane production first. The next action depends on selecting the conclusion that fits all of those facts. Which calculation or chemical interpretation correctly applies Excess reactant?
+
+**Prompt - exact player copy:** Which statement best explains excess reactant?
 
 **Options - exact player copy:**
 
-- A. Combines carbon dioxide and hydrogen to make methane and water. It is the reaction Arcadia Rise uses to make the crew's fuel.
+- A. A starting substance left after the limiting reactant runs out. Its presence does not mean the reaction can continue.
+- B. Combines carbon dioxide and hydrogen to make methane and water. It is the reaction a fuel plant uses to make the operator's fuel.
+- C. The greatest product amount allowed by the measured reactants and balanced equation. It is a ceiling, not a promise that the plant reaches it.
+- D. A starting substance used by a chemical reaction. Carbon dioxide and hydrogen are the two reactants in the plant's methane reactor.
+
+**Correct answer:** A
+
+**Hint - exact player copy:** Identify the defining relationship or mechanism for excess reactant. All needed information is in this question.
+
+**Option feedback - exact player copy:**
+
+- A: Correct. A starting substance left after the limiting reactant runs out. Its presence does not mean the reaction can continue.
+- B: This describes sabatier reaction. It does not answer the question about excess reactant.
+- C: This describes theoretical yield. It does not answer the question about excess reactant.
+- D: This describes reactant. It does not answer the question about excess reactant.
+
+### Review question 3
+
+
+**Prompt - exact player copy:** Which statement best explains theoretical yield?
+
+**Options - exact player copy:**
+
+- A. Combines carbon dioxide and hydrogen to make methane and water. It is the reaction a fuel plant uses to make the operator's fuel.
 - B. The greatest product amount allowed by the measured reactants and balanced equation. It is a ceiling, not a promise that the plant reaches it.
 - C. A starting substance left after the limiting reactant runs out. Its presence does not mean the reaction can continue.
 - D. A starting substance used by a chemical reaction. Carbon dioxide and hydrogen are the two reactants in the plant's methane reactor.
 
-**Correct answer:** C
+**Correct answer:** B
 
-**Hint - exact player copy:** Use the stated evidence and the conditions for Excess reactant; do not choose an option merely because it names a familiar term.
+**Hint - exact player copy:** Identify the defining relationship or mechanism for theoretical yield. All needed information is in this question.
 
 **Option feedback - exact player copy:**
 
-- A: This describes Sabatier reaction, not Excess reactant. It does not account for the quantities, conditions, or evidence in this chemistry case.
-- B: This describes Theoretical yield, not Excess reactant. It does not account for the quantities, conditions, or evidence in this chemistry case.
-- C: Correct. a starting substance left after the limiting reactant runs out. Its presence does not mean the reaction can continue.
-- D: This describes Reactant, not Excess reactant. It does not account for the quantities, conditions, or evidence in this chemistry case.
-### Review question 3
+- A: This describes sabatier reaction. It does not answer the question about theoretical yield.
+- B: Correct. The greatest product amount allowed by the measured reactants and balanced equation. It is a ceiling, not a promise that the plant reaches it.
+- C: This describes excess reactant. It does not answer the question about theoretical yield.
+- D: This describes reactant. It does not answer the question about theoretical yield.
 
-**Prompt - exact player copy:** A teammate rechecks The Feedstock Problem using new evidence: use that conversion to calculate the most methane the captured carbon dioxide could make before Sundqvist increases compressor power. Which calculation or chemical interpretation correctly applies Theoretical yield?
+### Review question 4
+
+
+**Prompt - exact player copy:** Which statement best explains reactant?
 
 **Options - exact player copy:**
 
-- A. Combines carbon dioxide and hydrogen to make methane and water. It is the reaction Arcadia Rise uses to make the crew's fuel.
+- A. Combines carbon dioxide and hydrogen to make methane and water. It is the reaction a fuel plant uses to make the operator's fuel.
 - B. A starting substance left after the limiting reactant runs out. Its presence does not mean the reaction can continue.
 - C. A starting substance used by a chemical reaction. Carbon dioxide and hydrogen are the two reactants in the plant's methane reactor.
 - D. The greatest product amount allowed by the measured reactants and balanced equation. It is a ceiling, not a promise that the plant reaches it.
 
-**Correct answer:** D
+**Correct answer:** C
 
-**Hint - exact player copy:** Use the stated evidence and the conditions for Theoretical yield; do not choose an option merely because it names a familiar term.
+**Hint - exact player copy:** Identify the defining relationship or mechanism for reactant. All needed information is in this question.
 
 **Option feedback - exact player copy:**
 
-- A: This describes Sabatier reaction, not Theoretical yield. It does not account for the quantities, conditions, or evidence in this chemistry case.
-- B: This describes Excess reactant, not Theoretical yield. It does not account for the quantities, conditions, or evidence in this chemistry case.
-- C: This describes Reactant, not Theoretical yield. It does not account for the quantities, conditions, or evidence in this chemistry case.
-- D: Correct. the greatest product amount allowed by the measured reactants and balanced equation. It is a ceiling, not a promise that the plant reaches it.
-### Review question 4
+- A: This describes sabatier reaction. It does not answer the question about reactant.
+- B: This describes excess reactant. It does not answer the question about reactant.
+- C: Correct. A starting substance used by a chemical reaction. Carbon dioxide and hydrogen are the two reactants in the plant's methane reactor.
+- D: This describes theoretical yield. It does not answer the question about reactant.
 
-**Prompt - exact player copy:** An unseen case extends The Feedstock Problem: because the carbon-dioxide supply could meet the target, compare carbon dioxide and hydrogen to find which ingredient stops methane production first. The next action depends on selecting the conclusion that fits all of those facts. Which calculation or chemical interpretation correctly applies Reactant?
+### Review question 5
+
+
+**Prompt - exact player copy:** Which statement best explains product?
 
 **Options - exact player copy:**
 
-- A. A starting substance used by a chemical reaction. Carbon dioxide and hydrogen are the two reactants in the plant's methane reactor.
-- B. Combines carbon dioxide and hydrogen to make methane and water. It is the reaction Arcadia Rise uses to make the crew's fuel.
+- A. Combines carbon dioxide and hydrogen to make methane and water. It is the reaction a fuel plant uses to make the operator's fuel.
+- B. A starting substance left after the limiting reactant runs out. Its presence does not mean the reaction can continue.
+- C. The greatest product amount allowed by the measured reactants and balanced equation. It is a ceiling, not a promise that the plant reaches it.
+- D. A substance made by a chemical reaction. Methane and water are the products of the Sabatier reaction.
+
+**Correct answer:** D
+
+**Hint - exact player copy:** Identify the defining relationship or mechanism for product. All needed information is in this question.
+
+**Option feedback - exact player copy:**
+
+- A: This describes sabatier reaction. It does not answer the question about product.
+- B: This describes excess reactant. It does not answer the question about product.
+- C: This describes theoretical yield. It does not answer the question about product.
+- D: Correct. A substance made by a chemical reaction. Methane and water are the products of the Sabatier reaction.
+
+### Review question 6
+
+
+**Prompt - exact player copy:** Which statement best explains coefficient?
+
+**Options - exact player copy:**
+
+- A. The number written before a chemical formula in a balanced equation. Coefficients compare particle counts and mole amounts, not masses.
+- B. Combines carbon dioxide and hydrogen to make methane and water. It is the reaction a fuel plant uses to make the operator's fuel.
 - C. A starting substance left after the limiting reactant runs out. Its presence does not mean the reaction can continue.
 - D. The greatest product amount allowed by the measured reactants and balanced equation. It is a ceiling, not a promise that the plant reaches it.
 
 **Correct answer:** A
 
-**Hint - exact player copy:** Use the stated evidence and the conditions for Reactant; do not choose an option merely because it names a familiar term.
+**Hint - exact player copy:** Identify the defining relationship or mechanism for coefficient. All needed information is in this question.
 
 **Option feedback - exact player copy:**
 
-- A: Correct. a starting substance used by a chemical reaction. Carbon dioxide and hydrogen are the two reactants in the plant's methane reactor.
-- B: This describes Sabatier reaction, not Reactant. It does not account for the quantities, conditions, or evidence in this chemistry case.
-- C: This describes Excess reactant, not Reactant. It does not account for the quantities, conditions, or evidence in this chemistry case.
-- D: This describes Theoretical yield, not Reactant. It does not account for the quantities, conditions, or evidence in this chemistry case.
-### Review question 5
+- A: Correct. The number written before a chemical formula in a balanced equation. Coefficients compare particle counts and mole amounts, not masses.
+- B: This describes sabatier reaction. It does not answer the question about coefficient.
+- C: This describes excess reactant. It does not answer the question about coefficient.
+- D: This describes theoretical yield. It does not answer the question about coefficient.
 
-**Prompt - exact player copy:** Before another Feedstock Problem decision, the team knows this: to test whether the air intake causes the shortage, first arrange the Sabatier conversion from captured carbon-dioxide mass to possible methane mass. Which calculation or chemical interpretation correctly applies Product?
+**Optional review completion - exact player copy:** Good work. You have completed six independent practice questions.
 
-**Options - exact player copy:**
-
-- A. Combines carbon dioxide and hydrogen to make methane and water. It is the reaction Arcadia Rise uses to make the crew's fuel.
-- B. A substance made by a chemical reaction. Methane and water are the products of the Sabatier reaction.
-- C. A starting substance left after the limiting reactant runs out. Its presence does not mean the reaction can continue.
-- D. The greatest product amount allowed by the measured reactants and balanced equation. It is a ceiling, not a promise that the plant reaches it.
-
-**Correct answer:** B
-
-**Hint - exact player copy:** Use the stated evidence and the conditions for Product; do not choose an option merely because it names a familiar term.
-
-**Option feedback - exact player copy:**
-
-- A: This describes Sabatier reaction, not Product. It does not account for the quantities, conditions, or evidence in this chemistry case.
-- B: Correct. a substance made by a chemical reaction. Methane and water are the products of the Sabatier reaction.
-- C: This describes Excess reactant, not Product. It does not account for the quantities, conditions, or evidence in this chemistry case.
-- D: This describes Theoretical yield, not Product. It does not account for the quantities, conditions, or evidence in this chemistry case.
-### Review question 6
-
-**Prompt - exact player copy:** the Mars return mission applies the lesson from The Feedstock Problem to this follow-up: to test whether the air intake causes the shortage, first arrange the Sabatier conversion from captured carbon-dioxide mass to possible methane mass. Which calculation or chemical interpretation correctly applies Coefficient?
-
-**Options - exact player copy:**
-
-- A. Combines carbon dioxide and hydrogen to make methane and water. It is the reaction Arcadia Rise uses to make the crew's fuel.
-- B. A starting substance left after the limiting reactant runs out. Its presence does not mean the reaction can continue.
-- C. The number written before a chemical formula in a balanced equation. Coefficients compare particle counts and mole amounts, not masses.
-- D. The greatest product amount allowed by the measured reactants and balanced equation. It is a ceiling, not a promise that the plant reaches it.
-
-**Correct answer:** C
-
-**Hint - exact player copy:** Use the stated evidence and the conditions for Coefficient; do not choose an option merely because it names a familiar term.
-
-**Option feedback - exact player copy:**
-
-- A: This describes Sabatier reaction, not Coefficient. It does not account for the quantities, conditions, or evidence in this chemistry case.
-- B: This describes Excess reactant, not Coefficient. It does not account for the quantities, conditions, or evidence in this chemistry case.
-- C: Correct. the number written before a chemical formula in a balanced equation. Coefficients compare particle counts and mole amounts, not masses.
-- D: This describes Theoretical yield, not Coefficient. It does not account for the quantities, conditions, or evidence in this chemistry case.
-**Optional review completion - exact player copy:** Excellent work. You went beyond the required mission and strengthened the ideas behind your decision.
 ## Quick concept review
 
 - Equation coefficients are mole ratios, not mass ratios.
@@ -2335,7 +2371,7 @@ awarded. Spend: Methane +4; Power +6. Result: METHANE 90% \| OXYGEN 88%
 
 **Availability:** Reveal only after mission completion when the player selects **GO DEEPER**. This section is optional, ungraded for campaign progress, and does not change metrics, Recovery Points, or the next-mission unlock.
 
-**Secondary briefing card - exact player copy:** You completed Pressure Does Not Lie. Or Does It?. Choose GO DEEPER to revisit the four decisions and explore related course ideas; this optional review does not change your metrics or delay the next mission.
+**Secondary briefing card - exact player copy:** Try six independent practice questions. Each includes its own context and any needed data; no mission records are required.
 
 ### Additional concepts kept out of the required mission card
 
@@ -2346,7 +2382,8 @@ awarded. Spend: Methane +4; Power +6. Result: METHANE 90% \| OXYGEN 88%
 
 ### Review question 1
 
-**Prompt - exact player copy:** In a follow-up to Pressure Does Not Lie. Or Does It?, before trusting the full-pressure gauge, determine what equal temperature reveals about hydrogen and nitrogen and what it cannot reveal about gas identity. The next action depends on selecting the conclusion that fits all of those facts. Which calculation or chemical interpretation correctly applies Absolute temperature?
+
+**Prompt - exact player copy:** Which statement best explains absolute temperature?
 
 **Options - exact player copy:**
 
@@ -2357,17 +2394,19 @@ awarded. Spend: Methane +4; Power +6. Result: METHANE 90% \| OXYGEN 88%
 
 **Correct answer:** B
 
-**Hint - exact player copy:** Use the stated evidence and the conditions for Absolute temperature; do not choose an option merely because it names a familiar term.
+**Hint - exact player copy:** Identify the defining relationship or mechanism for absolute temperature. All needed information is in this question.
 
 **Option feedback - exact player copy:**
 
-- A: This describes Mixture, not Absolute temperature. It does not account for the quantities, conditions, or evidence in this chemistry case.
-- B: Correct. measures thermal motion from the lowest possible temperature. Gas-law calculations use kelvin rather than degrees Celsius.
-- C: This describes Composition, not Absolute temperature. It does not account for the quantities, conditions, or evidence in this chemistry case.
-- D: This describes Mole fraction, not Absolute temperature. It does not account for the quantities, conditions, or evidence in this chemistry case.
+- A: This describes mixture. It does not answer the question about absolute temperature.
+- B: Correct. Measures thermal motion from the lowest possible temperature. Gas-law calculations use kelvin rather than degrees Celsius.
+- C: This describes composition. It does not answer the question about absolute temperature.
+- D: This describes mole fraction. It does not answer the question about absolute temperature.
+
 ### Review question 2
 
-**Prompt - exact player copy:** the Mars return mission receives a second case related to Pressure Does Not Lie. Or Does It?: warm the suspect branch and compare prediction with measurement to decide whether a simple leak or a contaminated mixture explains the alarm. Commit the prediction and run the test now so the measurement can fairly accept or reject the proposed model. Which calculation or chemical interpretation correctly applies Mixture?
+
+**Prompt - exact player copy:** Which statement best explains mixture?
 
 **Options - exact player copy:**
 
@@ -2378,64 +2417,67 @@ awarded. Spend: Methane +4; Power +6. Result: METHANE 90% \| OXYGEN 88%
 
 **Correct answer:** C
 
-**Hint - exact player copy:** Use the stated evidence and the conditions for Mixture; do not choose an option merely because it names a familiar term.
+**Hint - exact player copy:** Identify the defining relationship or mechanism for mixture. All needed information is in this question.
 
 **Option feedback - exact player copy:**
 
-- A: This describes Absolute temperature, not Mixture. It does not account for the quantities, conditions, or evidence in this chemistry case.
-- B: This describes Composition, not Mixture. It does not account for the quantities, conditions, or evidence in this chemistry case.
-- C: Correct. contains more than one substance without joining them into a new substance. Each gas in a mixture contributes part of the total pressure.
-- D: This describes Mole fraction, not Mixture. It does not account for the quantities, conditions, or evidence in this chemistry case.
+- A: This describes absolute temperature. It does not answer the question about mixture.
+- B: This describes composition. It does not answer the question about mixture.
+- C: Correct. Contains more than one substance without joining them into a new substance. Each gas in a mixture contributes part of the total pressure.
+- D: This describes mole fraction. It does not answer the question about mixture.
+
 ### Review question 3
 
-**Prompt - exact player copy:** A teammate rechecks Pressure Does Not Lie. Or Does It? using new evidence: before trusting the full-pressure gauge, determine what equal temperature reveals about hydrogen and nitrogen and what it cannot reveal about gas identity. The next action depends on selecting the conclusion that fits all of those facts. Which interpretation of the displayed evidence correctly uses the mission concept?
+
+**Prompt - exact player copy:** The gas mixture contains only the three species shown. What percentage of its molecules are nitrogen?
 
 **Figure - exact player copy:**
 
 ```json
 {
   "kind": "bars",
-  "xLabel": "Gas",
+  "xLabel": "Category",
   "yLabel": "Mole fraction",
-  "caption": "Composition of a suspect Mars gas sample.",
+  "caption": "Composition of a three-gas mixture",
   "bars": [
     {
-      "name": "Gas 1",
+      "name": "Hydrogen",
       "value": 0.72
     },
     {
-      "name": "Gas 2",
+      "name": "Nitrogen",
       "value": 0.18
     },
     {
-      "name": "Gas 3",
+      "name": "Carbon dioxide",
       "value": 0.1
     }
   ]
 }
 ```
 
-
 **Options - exact player copy:**
 
-- A. Measures thermal motion from the lowest possible temperature. Gas-law calculations use kelvin rather than degrees Celsius.
-- B. Contains more than one substance without joining them into a new substance. Each gas in a mixture contributes part of the total pressure.
-- C. The part of all gas particles belonging to one gas. A value of 0.68 means 68 out of every 100 gas particles are that gas.
-- D. States which substances are present and how much of each one the mixture contains. It can change even while total pressure stays the same.
+- A. 72%.
+- B. 10%.
+- C. 28%.
+- D. 18%.
 
 **Correct answer:** D
 
-**Hint - exact player copy:** Read the axes, units, direction, and any threshold before comparing the choices.
+**Hint - exact player copy:** Convert the nitrogen mole fraction to a percentage.
 
 **Option feedback - exact player copy:**
 
-- A: This describes Absolute temperature, not Composition. It does not account for the quantities, conditions, or evidence in this chemistry case.
-- B: This describes Mixture, not Composition. It does not account for the quantities, conditions, or evidence in this chemistry case.
-- C: This describes Mole fraction, not Composition. It does not account for the quantities, conditions, or evidence in this chemistry case.
-- D: Correct. states which substances are present and how much of each one the mixture contains. It can change even while total pressure stays the same.
+- A: 72% is the hydrogen fraction.
+- B: 10% is the carbon-dioxide fraction.
+- C: 28% combines nitrogen and carbon dioxide.
+- D: Correct. 18%.
+
 ### Review question 4
 
-**Prompt - exact player copy:** An unseen case extends Pressure Does Not Lie. Or Does It?: before trusting the full-pressure gauge, determine what equal temperature reveals about hydrogen and nitrogen and what it cannot reveal about gas identity. The next action depends on selecting the conclusion that fits all of those facts. Which calculation or chemical interpretation correctly applies Mole fraction?
+
+**Prompt - exact player copy:** Which statement best explains mole fraction?
 
 **Options - exact player copy:**
 
@@ -2446,38 +2488,42 @@ awarded. Spend: Methane +4; Power +6. Result: METHANE 90% \| OXYGEN 88%
 
 **Correct answer:** A
 
-**Hint - exact player copy:** Use the stated evidence and the conditions for Mole fraction; do not choose an option merely because it names a familiar term.
+**Hint - exact player copy:** Identify the defining relationship or mechanism for mole fraction. All needed information is in this question.
 
 **Option feedback - exact player copy:**
 
-- A: Correct. the part of all gas particles belonging to one gas. A value of 0.68 means 68 out of every 100 gas particles are that gas.
-- B: This describes Absolute temperature, not Mole fraction. It does not account for the quantities, conditions, or evidence in this chemistry case.
-- C: This describes Mixture, not Mole fraction. It does not account for the quantities, conditions, or evidence in this chemistry case.
-- D: This describes Composition, not Mole fraction. It does not account for the quantities, conditions, or evidence in this chemistry case.
+- A: Correct. The part of all gas particles belonging to one gas. A value of 0.68 means 68 out of every 100 gas particles are that gas.
+- B: This describes absolute temperature. It does not answer the question about mole fraction.
+- C: This describes mixture. It does not answer the question about mole fraction.
+- D: This describes composition. It does not answer the question about mole fraction.
+
 ### Review question 5
 
-**Prompt - exact player copy:** Before another Pressure Does Not Lie. Or Does It? decision, the team knows this: before trusting the full-pressure gauge, determine what equal temperature reveals about hydrogen and nitrogen and what it cannot reveal about gas identity. The next action depends on selecting the conclusion that fits all of those facts. Which calculation or chemical interpretation correctly applies Pressure?
+
+**Prompt - exact player copy:** Which statement best explains pressure?
 
 **Options - exact player copy:**
 
 - A. Measures thermal motion from the lowest possible temperature. Gas-law calculations use kelvin rather than degrees Celsius.
-- B. Force spread over an area, caused here by gas particles striking the tank walls. Total pressure can stay high even when the wrong gas is inside.
+- B. Force spread over an area, caused in a gas by particles striking the container walls. Total pressure can stay high even when the wrong gas is inside.
 - C. Contains more than one substance without joining them into a new substance. Each gas in a mixture contributes part of the total pressure.
 - D. States which substances are present and how much of each one the mixture contains. It can change even while total pressure stays the same.
 
 **Correct answer:** B
 
-**Hint - exact player copy:** Use the stated evidence and the conditions for Pressure; do not choose an option merely because it names a familiar term.
+**Hint - exact player copy:** Identify the defining relationship or mechanism for pressure. All needed information is in this question.
 
 **Option feedback - exact player copy:**
 
-- A: This describes Absolute temperature, not Pressure. It does not account for the quantities, conditions, or evidence in this chemistry case.
-- B: Correct. force spread over an area, caused here by gas particles striking the tank walls. Total pressure can stay high even when the wrong gas is inside.
-- C: This describes Mixture, not Pressure. It does not account for the quantities, conditions, or evidence in this chemistry case.
-- D: This describes Composition, not Pressure. It does not account for the quantities, conditions, or evidence in this chemistry case.
+- A: This describes absolute temperature. It does not answer the question about pressure.
+- B: Correct. Force spread over an area, caused in a gas by particles striking the container walls. Total pressure can stay high even when the wrong gas is inside.
+- C: This describes mixture. It does not answer the question about pressure.
+- D: This describes composition. It does not answer the question about pressure.
+
 ### Review question 6
 
-**Prompt - exact player copy:** the Mars return mission applies the lesson from Pressure Does Not Lie. Or Does It? to this follow-up: now use pressure, volume, and temperature to calculate the total gas amount, knowing that a correct total still cannot prove the gas is hydrogen. Which calculation or chemical interpretation correctly applies Volume?
+
+**Prompt - exact player copy:** Which statement best explains volume?
 
 **Options - exact player copy:**
 
@@ -2488,15 +2534,17 @@ awarded. Spend: Methane +4; Power +6. Result: METHANE 90% \| OXYGEN 88%
 
 **Correct answer:** C
 
-**Hint - exact player copy:** Use the stated evidence and the conditions for Volume; do not choose an option merely because it names a familiar term.
+**Hint - exact player copy:** Identify the defining relationship or mechanism for volume. All needed information is in this question.
 
 **Option feedback - exact player copy:**
 
-- A: This describes Absolute temperature, not Volume. It does not account for the quantities, conditions, or evidence in this chemistry case.
-- B: This describes Mixture, not Volume. It does not account for the quantities, conditions, or evidence in this chemistry case.
-- C: Correct. the amount of space occupied by the gas. A sealed tank gives the gas a fixed space unless the hardware changes.
-- D: This describes Composition, not Volume. It does not account for the quantities, conditions, or evidence in this chemistry case.
-**Optional review completion - exact player copy:** Excellent work. You went beyond the required mission and strengthened the ideas behind your decision.
+- A: This describes absolute temperature. It does not answer the question about volume.
+- B: This describes mixture. It does not answer the question about volume.
+- C: Correct. The amount of space occupied by the gas. A sealed tank gives the gas a fixed space unless the hardware changes.
+- D: This describes composition. It does not answer the question about volume.
+
+**Optional review completion - exact player copy:** Good work. You have completed six independent practice questions.
+
 ## Quick concept review
 
 - Equal temperature means equal average kinetic energy, not equal
@@ -2985,7 +3033,7 @@ awarded. Spend: Methane +4; Power +6. Result: METHANE 92% \| OXYGEN 88%
 
 **Availability:** Reveal only after mission completion when the player selects **GO DEEPER**. This section is optional, ungraded for campaign progress, and does not change metrics, Recovery Points, or the next-mission unlock.
 
-**Secondary briefing card - exact player copy:** You completed What Can Travel Where?. Choose GO DEEPER to revisit the four decisions and explore related course ideas; this optional review does not change your metrics or delay the next mission.
+**Secondary briefing card - exact player copy:** Try six independent practice questions. Each includes its own context and any needed data; no mission records are required.
 
 ### Additional concepts kept out of the required mission card
 
@@ -3000,7 +3048,31 @@ awarded. Spend: Methane +4; Power +6. Result: METHANE 92% \| OXYGEN 88%
 
 ### Review question 1
 
-**Prompt - exact player copy:** In a follow-up to What Can Travel Where?, to test whether the residue could share methane's path, first choose the valid Lewis structure that determines methane's shape. The next action depends on selecting the conclusion that fits all of those facts. Which calculation or chemical interpretation correctly applies Lewis structure?
+
+**Prompt - exact player copy:** Which statement best explains lewis structure?
+
+**Options - exact player copy:**
+
+- A. The three-dimensional arrangement of atoms in a molecule. The shape determines whether bond effects reinforce or cancel.
+- B. Predicts molecular shape by placing groups of valence electrons as far apart as possible. Lone pairs and bonds both count as electron groups.
+- C. An attraction caused by brief shifts in electron location. Every atom and molecule has it, and particles with more electrons usually have a stronger one.
+- D. A drawing that shows atoms, bonds, and unshared valence electrons. It is the starting map for predicting a molecule's shape.
+
+**Correct answer:** D
+
+**Hint - exact player copy:** Identify the defining relationship or mechanism for lewis structure. All needed information is in this question.
+
+**Option feedback - exact player copy:**
+
+- A: This describes molecular geometry. It does not answer the question about lewis structure.
+- B: This describes valence-shell electron-pair repulsion (VSEPR) model. It does not answer the question about lewis structure.
+- C: This describes london dispersion force. It does not answer the question about lewis structure.
+- D: Correct. A drawing that shows atoms, bonds, and unshared valence electrons. It is the starting map for predicting a molecule's shape.
+
+### Review question 2
+
+
+**Prompt - exact player copy:** Which statement best explains molecular geometry?
 
 **Options - exact player copy:**
 
@@ -3009,19 +3081,21 @@ awarded. Spend: Methane +4; Power +6. Result: METHANE 92% \| OXYGEN 88%
 - C. Predicts molecular shape by placing groups of valence electrons as far apart as possible. Lone pairs and bonds both count as electron groups.
 - D. An attraction caused by brief shifts in electron location. Every atom and molecule has it, and particles with more electrons usually have a stronger one.
 
-**Correct answer:** B
+**Correct answer:** A
 
-**Hint - exact player copy:** Use the stated evidence and the conditions for Lewis structure; do not choose an option merely because it names a familiar term.
+**Hint - exact player copy:** Identify the defining relationship or mechanism for molecular geometry. All needed information is in this question.
 
 **Option feedback - exact player copy:**
 
-- A: This describes Molecular geometry, not Lewis structure. It does not account for the quantities, conditions, or evidence in this chemistry case.
-- B: Correct. a drawing that shows atoms, bonds, and unshared valence electrons. It is the starting map for predicting a molecule's shape.
-- C: This describes Valence-shell electron-pair repulsion (VSEPR) model, not Lewis structure. It does not account for the quantities, conditions, or evidence in this chemistry case.
-- D: This describes London dispersion force, not Lewis structure. It does not account for the quantities, conditions, or evidence in this chemistry case.
-### Review question 2
+- A: Correct. The three-dimensional arrangement of atoms in a molecule. The shape determines whether bond effects reinforce or cancel.
+- B: This describes lewis structure. It does not answer the question about molecular geometry.
+- C: This describes valence-shell electron-pair repulsion (VSEPR) model. It does not answer the question about molecular geometry.
+- D: This describes london dispersion force. It does not answer the question about molecular geometry.
 
-**Prompt - exact player copy:** the Mars return mission receives a second case related to What Can Travel Where?: to test whether the residue could share methane's path, first choose the valid Lewis structure that determines methane's shape. The next action depends on selecting the conclusion that fits all of those facts. Which calculation or chemical interpretation correctly applies Molecular geometry?
+### Review question 3
+
+
+**Prompt - exact player copy:** Which statement best explains valence-shell electron-pair repulsion (VSEPR) model?
 
 **Options - exact player copy:**
 
@@ -3030,19 +3104,21 @@ awarded. Spend: Methane +4; Power +6. Result: METHANE 92% \| OXYGEN 88%
 - C. The three-dimensional arrangement of atoms in a molecule. The shape determines whether bond effects reinforce or cancel.
 - D. An attraction caused by brief shifts in electron location. Every atom and molecule has it, and particles with more electrons usually have a stronger one.
 
-**Correct answer:** C
+**Correct answer:** B
 
-**Hint - exact player copy:** Use the stated evidence and the conditions for Molecular geometry; do not choose an option merely because it names a familiar term.
+**Hint - exact player copy:** Identify the defining relationship or mechanism for valence-shell electron-pair repulsion (vsepr) model. All needed information is in this question.
 
 **Option feedback - exact player copy:**
 
-- A: This describes Lewis structure, not Molecular geometry. It does not account for the quantities, conditions, or evidence in this chemistry case.
-- B: This describes Valence-shell electron-pair repulsion (VSEPR) model, not Molecular geometry. It does not account for the quantities, conditions, or evidence in this chemistry case.
-- C: Correct. the three-dimensional arrangement of atoms in a molecule. The shape determines whether bond effects reinforce or cancel.
-- D: This describes London dispersion force, not Molecular geometry. It does not account for the quantities, conditions, or evidence in this chemistry case.
-### Review question 3
+- A: This describes lewis structure. It does not answer the question about valence-shell electron-pair repulsion (vsepr) model.
+- B: Correct. Predicts molecular shape by placing groups of valence electrons as far apart as possible. Lone pairs and bonds both count as electron groups.
+- C: This describes molecular geometry. It does not answer the question about valence-shell electron-pair repulsion (vsepr) model.
+- D: This describes london dispersion force. It does not answer the question about valence-shell electron-pair repulsion (vsepr) model.
 
-**Prompt - exact player copy:** A teammate rechecks What Can Travel Where? using new evidence: apply that chain to methane, carbon dioxide, water, and ammonia to identify which substances behave alike and could travel together. Assign a response to each condition now so the crew has an action rule it can follow under pressure. Which option correctly carries out the required Valence-shell electron-pair repulsion (VSEPR) model reasoning?
+### Review question 4
+
+
+**Prompt - exact player copy:** Which statement best explains london dispersion force?
 
 **Options - exact player copy:**
 
@@ -3051,80 +3127,65 @@ awarded. Spend: Methane +4; Power +6. Result: METHANE 92% \| OXYGEN 88%
 - C. An attraction caused by brief shifts in electron location. Every atom and molecule has it, and particles with more electrons usually have a stronger one.
 - D. Predicts molecular shape by placing groups of valence electrons as far apart as possible. Lone pairs and bonds both count as electron groups.
 
-**Correct answer:** D
+**Correct answer:** C
 
-**Hint - exact player copy:** Use the stated evidence and the conditions for Valence-shell electron-pair repulsion (VSEPR) model; do not choose an option merely because it names a familiar term.
+**Hint - exact player copy:** Identify the defining relationship or mechanism for london dispersion force. All needed information is in this question.
 
 **Option feedback - exact player copy:**
 
-- A: This describes Lewis structure, not Valence-shell electron-pair repulsion (VSEPR) model. It does not account for the quantities, conditions, or evidence in this chemistry case.
-- B: This describes Molecular geometry, not Valence-shell electron-pair repulsion (VSEPR) model. It does not account for the quantities, conditions, or evidence in this chemistry case.
-- C: This describes London dispersion force, not Valence-shell electron-pair repulsion (VSEPR) model. It does not account for the quantities, conditions, or evidence in this chemistry case.
-- D: Correct. predicts molecular shape by placing groups of valence electrons as far apart as possible. Lone pairs and bonds both count as electron groups.
-### Review question 4
+- A: This describes lewis structure. It does not answer the question about london dispersion force.
+- B: This describes molecular geometry. It does not answer the question about london dispersion force.
+- C: Correct. An attraction caused by brief shifts in electron location. Every atom and molecule has it, and particles with more electrons usually have a stronger one.
+- D: This describes valence-shell electron-pair repulsion (VSEPR) model. It does not answer the question about london dispersion force.
 
-**Prompt - exact player copy:** An unseen case extends What Can Travel Where?: to test whether the residue could share methane's path, first choose the valid Lewis structure that determines methane's shape. The next action depends on selecting the conclusion that fits all of those facts. Which calculation or chemical interpretation correctly applies London dispersion force?
+### Review question 5
+
+
+**Prompt - exact player copy:** Which statement best explains hydrogen bonding?
 
 **Options - exact player copy:**
 
-- A. An attraction caused by brief shifts in electron location. Every atom and molecule has it, and particles with more electrons usually have a stronger one.
+- A. A drawing that shows atoms, bonds, and unshared valence electrons. It is the starting map for predicting a molecule's shape.
+- B. The three-dimensional arrangement of atoms in a molecule. The shape determines whether bond effects reinforce or cancel.
+- C. Predicts molecular shape by placing groups of valence electrons as far apart as possible. Lone pairs and bonds both count as electron groups.
+- D. A strong attraction involving hydrogen bonded to nitrogen, oxygen, or fluorine and a nearby particle. It is an attraction between particles, not a new bond inside one molecule.
+
+**Correct answer:** D
+
+**Hint - exact player copy:** Identify the defining relationship or mechanism for hydrogen bonding. All needed information is in this question.
+
+**Option feedback - exact player copy:**
+
+- A: This describes lewis structure. It does not answer the question about hydrogen bonding.
+- B: This describes molecular geometry. It does not answer the question about hydrogen bonding.
+- C: This describes valence-shell electron-pair repulsion (VSEPR) model. It does not answer the question about hydrogen bonding.
+- D: Correct. A strong attraction involving hydrogen bonded to nitrogen, oxygen, or fluorine and a nearby particle. It is an attraction between particles, not a new bond inside one molecule.
+
+### Review question 6
+
+
+**Prompt - exact player copy:** Which statement best explains boiling?
+
+**Options - exact player copy:**
+
+- A. A change in which bubbles of gas form throughout a liquid. It begins when gas pushing outward from the liquid can match the outside pressure.
 - B. A drawing that shows atoms, bonds, and unshared valence electrons. It is the starting map for predicting a molecule's shape.
 - C. The three-dimensional arrangement of atoms in a molecule. The shape determines whether bond effects reinforce or cancel.
 - D. Predicts molecular shape by placing groups of valence electrons as far apart as possible. Lone pairs and bonds both count as electron groups.
 
 **Correct answer:** A
 
-**Hint - exact player copy:** Use the stated evidence and the conditions for London dispersion force; do not choose an option merely because it names a familiar term.
+**Hint - exact player copy:** Identify the defining relationship or mechanism for boiling. All needed information is in this question.
 
 **Option feedback - exact player copy:**
 
-- A: Correct. an attraction caused by brief shifts in electron location. Every atom and molecule has it, and particles with more electrons usually have a stronger one.
-- B: This describes Lewis structure, not London dispersion force. It does not account for the quantities, conditions, or evidence in this chemistry case.
-- C: This describes Molecular geometry, not London dispersion force. It does not account for the quantities, conditions, or evidence in this chemistry case.
-- D: This describes Valence-shell electron-pair repulsion (VSEPR) model, not London dispersion force. It does not account for the quantities, conditions, or evidence in this chemistry case.
-### Review question 5
+- A: Correct. A change in which bubbles of gas form throughout a liquid. It begins when gas pushing outward from the liquid can match the outside pressure.
+- B: This describes lewis structure. It does not answer the question about boiling.
+- C: This describes molecular geometry. It does not answer the question about boiling.
+- D: This describes valence-shell electron-pair repulsion (VSEPR) model. It does not answer the question about boiling.
 
-**Prompt - exact player copy:** Before another What Can Travel Where? decision, the team knows this: to test whether the residue could share methane's path, first choose the valid Lewis structure that determines methane's shape. The next action depends on selecting the conclusion that fits all of those facts. Which calculation or chemical interpretation correctly applies Hydrogen bonding?
+**Optional review completion - exact player copy:** Good work. You have completed six independent practice questions.
 
-**Options - exact player copy:**
-
-- A. A drawing that shows atoms, bonds, and unshared valence electrons. It is the starting map for predicting a molecule's shape.
-- B. A strong attraction involving hydrogen bonded to nitrogen, oxygen, or fluorine and a nearby particle. It is an attraction between particles, not a new bond inside one molecule.
-- C. The three-dimensional arrangement of atoms in a molecule. The shape determines whether bond effects reinforce or cancel.
-- D. Predicts molecular shape by placing groups of valence electrons as far apart as possible. Lone pairs and bonds both count as electron groups.
-
-**Correct answer:** B
-
-**Hint - exact player copy:** Use the stated evidence and the conditions for Hydrogen bonding; do not choose an option merely because it names a familiar term.
-
-**Option feedback - exact player copy:**
-
-- A: This describes Lewis structure, not Hydrogen bonding. It does not account for the quantities, conditions, or evidence in this chemistry case.
-- B: Correct. a strong attraction involving hydrogen bonded to nitrogen, oxygen, or fluorine and a nearby particle. It is an attraction between particles, not a new bond inside one molecule.
-- C: This describes Molecular geometry, not Hydrogen bonding. It does not account for the quantities, conditions, or evidence in this chemistry case.
-- D: This describes Valence-shell electron-pair repulsion (VSEPR) model, not Hydrogen bonding. It does not account for the quantities, conditions, or evidence in this chemistry case.
-### Review question 6
-
-**Prompt - exact player copy:** the Mars return mission applies the lesson from What Can Travel Where? to this follow-up: to test whether the residue could share methane's path, first choose the valid Lewis structure that determines methane's shape. The next action depends on selecting the conclusion that fits all of those facts. Which calculation or chemical interpretation correctly applies Boiling?
-
-**Options - exact player copy:**
-
-- A. A drawing that shows atoms, bonds, and unshared valence electrons. It is the starting map for predicting a molecule's shape.
-- B. The three-dimensional arrangement of atoms in a molecule. The shape determines whether bond effects reinforce or cancel.
-- C. A change in which bubbles of gas form throughout a liquid. It begins when gas pushing outward from the liquid can match the outside pressure.
-- D. Predicts molecular shape by placing groups of valence electrons as far apart as possible. Lone pairs and bonds both count as electron groups.
-
-**Correct answer:** C
-
-**Hint - exact player copy:** Use the stated evidence and the conditions for Boiling; do not choose an option merely because it names a familiar term.
-
-**Option feedback - exact player copy:**
-
-- A: This describes Lewis structure, not Boiling. It does not account for the quantities, conditions, or evidence in this chemistry case.
-- B: This describes Molecular geometry, not Boiling. It does not account for the quantities, conditions, or evidence in this chemistry case.
-- C: Correct. a change in which bubbles of gas form throughout a liquid. It begins when gas pushing outward from the liquid can match the outside pressure.
-- D: This describes Valence-shell electron-pair repulsion (VSEPR) model, not Boiling. It does not account for the quantities, conditions, or evidence in this chemistry case.
-**Optional review completion - exact player copy:** Excellent work. You went beyond the required mission and strengthened the ideas behind your decision.
 ## Quick concept review
 
 - Lewis structures account for valence electrons and valid bonds.
@@ -3583,7 +3644,7 @@ awarded. Spend: Methane +4; Power +5. Result: METHANE 94% \| OXYGEN 86%
 
 **Availability:** Reveal only after mission completion when the player selects **GO DEEPER**. This section is optional, ungraded for campaign progress, and does not change metrics, Recovery Points, or the next-mission unlock.
 
-**Secondary briefing card - exact player copy:** You completed The Water Account. Choose GO DEEPER to revisit the four decisions and explore related course ideas; this optional review does not change your metrics or delay the next mission.
+**Secondary briefing card - exact player copy:** Try six independent practice questions. Each includes its own context and any needed data; no mission records are required.
 
 ### Additional concepts kept out of the required mission card
 
@@ -3597,131 +3658,144 @@ awarded. Spend: Methane +4; Power +5. Result: METHANE 94% \| OXYGEN 86%
 
 ### Review question 1
 
-**Prompt - exact player copy:** In a follow-up to The Water Account, before treating the alarm as water loss, compare sample volume and concentration to determine which container actually holds more chloride. The next action depends on selecting the conclusion that fits all of those facts. Which calculation or chemical interpretation correctly applies Absorbance?
+
+**Prompt - exact player copy:** Which statement best explains absorbance?
 
 **Options - exact player copy:**
 
-- A. Says absorbance rises predictably with concentration and with the distance light travels through a sample. This mission uses the relationship to choose a sensitive, unsaturated measurement setting.
+- A. Says absorbance rises predictably with concentration and with the distance light travels through a sample. A measurement uses the relationship to choose a sensitive, unsaturated measurement setting.
 - B. Measures how much light a sample removes from a beam. A useful wavelength gives a strong response without saturating the instrument.
 - C. The distance from one repeating part of a wave to the next. Different substances absorb different wavelengths of light.
 - D. A sample with a trusted value used to set an instrument's scale. If several instruments share one bad standard, their agreement is not independent evidence.
 
 **Correct answer:** B
 
-**Hint - exact player copy:** Use the stated evidence and the conditions for Absorbance; do not choose an option merely because it names a familiar term.
+**Hint - exact player copy:** Identify the defining relationship or mechanism for absorbance. All needed information is in this question.
 
 **Option feedback - exact player copy:**
 
-- A: This describes Beer-Lambert relationship, not Absorbance. It does not account for the quantities, conditions, or evidence in this chemistry case.
-- B: Correct. measures how much light a sample removes from a beam. A useful wavelength gives a strong response without saturating the instrument.
-- C: This describes Wavelength, not Absorbance. It does not account for the quantities, conditions, or evidence in this chemistry case.
-- D: This describes Calibration standard, not Absorbance. It does not account for the quantities, conditions, or evidence in this chemistry case.
+- A: This describes beer-Lambert relationship. It does not answer the question about absorbance.
+- B: Correct. Measures how much light a sample removes from a beam. A useful wavelength gives a strong response without saturating the instrument.
+- C: This describes wavelength. It does not answer the question about absorbance.
+- D: This describes calibration standard. It does not answer the question about absorbance.
+
 ### Review question 2
 
-**Prompt - exact player copy:** the Mars return mission receives a second case related to The Water Account: choose the wavelength where the colored complex responds most strongly so an independent sample can confirm or reject the alarm. Which calculation or chemical interpretation correctly applies Beer-Lambert relationship?
+
+**Prompt - exact player copy:** Which statement best explains beer-Lambert relationship?
 
 **Options - exact player copy:**
 
 - A. Measures how much light a sample removes from a beam. A useful wavelength gives a strong response without saturating the instrument.
 - B. The distance from one repeating part of a wave to the next. Different substances absorb different wavelengths of light.
-- C. Says absorbance rises predictably with concentration and with the distance light travels through a sample. This mission uses the relationship to choose a sensitive, unsaturated measurement setting.
+- C. Says absorbance rises predictably with concentration and with the distance light travels through a sample. A measurement uses the relationship to choose a sensitive, unsaturated measurement setting.
 - D. A sample with a trusted value used to set an instrument's scale. If several instruments share one bad standard, their agreement is not independent evidence.
 
 **Correct answer:** C
 
-**Hint - exact player copy:** Use the stated evidence and the conditions for Beer-Lambert relationship; do not choose an option merely because it names a familiar term.
+**Hint - exact player copy:** Identify the defining relationship or mechanism for beer-lambert relationship. All needed information is in this question.
 
 **Option feedback - exact player copy:**
 
-- A: This describes Absorbance, not Beer-Lambert relationship. It does not account for the quantities, conditions, or evidence in this chemistry case.
-- B: This describes Wavelength, not Beer-Lambert relationship. It does not account for the quantities, conditions, or evidence in this chemistry case.
-- C: Correct. says absorbance rises predictably with concentration and with the distance light travels through a sample. This mission uses the relationship to choose a sensitive, unsaturated measurement setting.
-- D: This describes Calibration standard, not Beer-Lambert relationship. It does not account for the quantities, conditions, or evidence in this chemistry case.
+- A: This describes absorbance. It does not answer the question about beer-lambert relationship.
+- B: This describes wavelength. It does not answer the question about beer-lambert relationship.
+- C: Correct. Says absorbance rises predictably with concentration and with the distance light travels through a sample. A measurement uses the relationship to choose a sensitive, unsaturated measurement setting.
+- D: This describes calibration standard. It does not answer the question about beer-lambert relationship.
+
 ### Review question 3
 
-**Prompt - exact player copy:** A teammate rechecks The Water Account using new evidence: choose the wavelength where the colored complex responds most strongly so an independent sample can confirm or reject the alarm. Which calculation or chemical interpretation correctly applies Wavelength?
+
+**Prompt - exact player copy:** Which statement best explains wavelength?
 
 **Options - exact player copy:**
 
 - A. Measures how much light a sample removes from a beam. A useful wavelength gives a strong response without saturating the instrument.
-- B. Says absorbance rises predictably with concentration and with the distance light travels through a sample. This mission uses the relationship to choose a sensitive, unsaturated measurement setting.
+- B. Says absorbance rises predictably with concentration and with the distance light travels through a sample. A measurement uses the relationship to choose a sensitive, unsaturated measurement setting.
 - C. A sample with a trusted value used to set an instrument's scale. If several instruments share one bad standard, their agreement is not independent evidence.
 - D. The distance from one repeating part of a wave to the next. Different substances absorb different wavelengths of light.
 
 **Correct answer:** D
 
-**Hint - exact player copy:** Use the stated evidence and the conditions for Wavelength; do not choose an option merely because it names a familiar term.
+**Hint - exact player copy:** Identify the defining relationship or mechanism for wavelength. All needed information is in this question.
 
 **Option feedback - exact player copy:**
 
-- A: This describes Absorbance, not Wavelength. It does not account for the quantities, conditions, or evidence in this chemistry case.
-- B: This describes Beer-Lambert relationship, not Wavelength. It does not account for the quantities, conditions, or evidence in this chemistry case.
-- C: This describes Calibration standard, not Wavelength. It does not account for the quantities, conditions, or evidence in this chemistry case.
-- D: Correct. the distance from one repeating part of a wave to the next. Different substances absorb different wavelengths of light.
+- A: This describes absorbance. It does not answer the question about wavelength.
+- B: This describes beer-Lambert relationship. It does not answer the question about wavelength.
+- C: This describes calibration standard. It does not answer the question about wavelength.
+- D: Correct. The distance from one repeating part of a wave to the next. Different substances absorb different wavelengths of light.
+
 ### Review question 4
 
-**Prompt - exact player copy:** An unseen case extends The Water Account: the field sample is normal while three displays still agree, so trace their calibrations to decide whether the agreement comes from independent evidence or shared error. Open the dependencies now so the team can distinguish independent evidence from readings that repeat one source. Which calculation or chemical interpretation correctly applies Calibration standard?
+
+**Prompt - exact player copy:** Which statement best explains calibration standard?
 
 **Options - exact player copy:**
 
 - A. A sample with a trusted value used to set an instrument's scale. If several instruments share one bad standard, their agreement is not independent evidence.
 - B. Measures how much light a sample removes from a beam. A useful wavelength gives a strong response without saturating the instrument.
-- C. Says absorbance rises predictably with concentration and with the distance light travels through a sample. This mission uses the relationship to choose a sensitive, unsaturated measurement setting.
+- C. Says absorbance rises predictably with concentration and with the distance light travels through a sample. A measurement uses the relationship to choose a sensitive, unsaturated measurement setting.
 - D. The distance from one repeating part of a wave to the next. Different substances absorb different wavelengths of light.
 
 **Correct answer:** A
 
-**Hint - exact player copy:** Use the stated evidence and the conditions for Calibration standard; do not choose an option merely because it names a familiar term.
+**Hint - exact player copy:** Identify the defining relationship or mechanism for calibration standard. All needed information is in this question.
 
 **Option feedback - exact player copy:**
 
-- A: Correct. a sample with a trusted value used to set an instrument's scale. If several instruments share one bad standard, their agreement is not independent evidence.
-- B: This describes Absorbance, not Calibration standard. It does not account for the quantities, conditions, or evidence in this chemistry case.
-- C: This describes Beer-Lambert relationship, not Calibration standard. It does not account for the quantities, conditions, or evidence in this chemistry case.
-- D: This describes Wavelength, not Calibration standard. It does not account for the quantities, conditions, or evidence in this chemistry case.
+- A: Correct. A sample with a trusted value used to set an instrument's scale. If several instruments share one bad standard, their agreement is not independent evidence.
+- B: This describes absorbance. It does not answer the question about calibration standard.
+- C: This describes beer-Lambert relationship. It does not answer the question about calibration standard.
+- D: This describes wavelength. It does not answer the question about calibration standard.
+
 ### Review question 5
 
-**Prompt - exact player copy:** Before another Water Account decision, the team knows this: the field sample is normal while three displays still agree, so trace their calibrations to decide whether the agreement comes from independent evidence or shared error. Open the dependencies now so the team can distinguish independent evidence from readings that repeat one source. Which statistical conclusion or procedure correctly uses Error?
+
+**Prompt - exact player copy:** Which statement best explains error?
 
 **Options - exact player copy:**
 
 - A. Measures how much light a sample removes from a beam. A useful wavelength gives a strong response without saturating the instrument.
 - B. The difference between a measured value and the value a perfect measurement would give. It does not necessarily mean a person made a careless mistake.
-- C. Says absorbance rises predictably with concentration and with the distance light travels through a sample. This mission uses the relationship to choose a sensitive, unsaturated measurement setting.
+- C. Says absorbance rises predictably with concentration and with the distance light travels through a sample. A measurement uses the relationship to choose a sensitive, unsaturated measurement setting.
 - D. The distance from one repeating part of a wave to the next. Different substances absorb different wavelengths of light.
 
 **Correct answer:** B
 
-**Hint - exact player copy:** Use the stated evidence and the conditions for Error; do not choose an option merely because it names a familiar term.
+**Hint - exact player copy:** Identify the defining relationship or mechanism for error. All needed information is in this question.
 
 **Option feedback - exact player copy:**
 
-- A: This describes Absorbance, not Error. It does not account for the quantities, conditions, or evidence in this chemistry case.
-- B: Correct. the difference between a measured value and the value a perfect measurement would give. It does not necessarily mean a person made a careless mistake.
-- C: This describes Beer-Lambert relationship, not Error. It does not account for the quantities, conditions, or evidence in this chemistry case.
-- D: This describes Wavelength, not Error. It does not account for the quantities, conditions, or evidence in this chemistry case.
+- A: This describes absorbance. It does not answer the question about error.
+- B: Correct. The difference between a measured value and the value a perfect measurement would give. It does not necessarily mean a person made a careless mistake.
+- C: This describes beer-Lambert relationship. It does not answer the question about error.
+- D: This describes wavelength. It does not answer the question about error.
+
 ### Review question 6
 
-**Prompt - exact player copy:** the Mars return mission applies the lesson from The Water Account to this follow-up: before treating the alarm as water loss, compare sample volume and concentration to determine which container actually holds more chloride. The next action depends on selecting the conclusion that fits all of those facts. Which calculation or chemical interpretation correctly applies Instrument saturation?
+
+**Prompt - exact player copy:** Which statement best explains instrument saturation?
 
 **Options - exact player copy:**
 
 - A. Measures how much light a sample removes from a beam. A useful wavelength gives a strong response without saturating the instrument.
-- B. Says absorbance rises predictably with concentration and with the distance light travels through a sample. This mission uses the relationship to choose a sensitive, unsaturated measurement setting.
+- B. Says absorbance rises predictably with concentration and with the distance light travels through a sample. A measurement uses the relationship to choose a sensitive, unsaturated measurement setting.
 - C. Occurs when a signal is too large for the instrument's useful range. Once saturated, a larger signal may no longer produce a meaningfully larger reading.
 - D. The distance from one repeating part of a wave to the next. Different substances absorb different wavelengths of light.
 
 **Correct answer:** C
 
-**Hint - exact player copy:** Use the stated evidence and the conditions for Instrument saturation; do not choose an option merely because it names a familiar term.
+**Hint - exact player copy:** Identify the defining relationship or mechanism for instrument saturation. All needed information is in this question.
 
 **Option feedback - exact player copy:**
 
-- A: This describes Absorbance, not Instrument saturation. It does not account for the quantities, conditions, or evidence in this chemistry case.
-- B: This describes Beer-Lambert relationship, not Instrument saturation. It does not account for the quantities, conditions, or evidence in this chemistry case.
-- C: Correct. occurs when a signal is too large for the instrument's useful range. Once saturated, a larger signal may no longer produce a meaningfully larger reading.
-- D: This describes Wavelength, not Instrument saturation. It does not account for the quantities, conditions, or evidence in this chemistry case.
-**Optional review completion - exact player copy:** Excellent work. You went beyond the required mission and strengthened the ideas behind your decision.
+- A: This describes absorbance. It does not answer the question about instrument saturation.
+- B: This describes beer-Lambert relationship. It does not answer the question about instrument saturation.
+- C: Correct. Occurs when a signal is too large for the instrument's useful range. Once saturated, a larger signal may no longer produce a meaningfully larger reading.
+- D: This describes wavelength. It does not answer the question about instrument saturation.
+
+**Optional review completion - exact player copy:** Good work. You have completed six independent practice questions.
+
 ## Quick concept review
 
 - Concentration is amount per volume; total amount also depends on
@@ -4288,7 +4362,7 @@ awarded. Spend: Methane +4. Result: METHANE 94% \| OXYGEN 86% \| POWER
 
 **Availability:** Reveal only after mission completion when the player selects **GO DEEPER**. This section is optional, ungraded for campaign progress, and does not change metrics, Recovery Points, or the next-mission unlock.
 
-**Secondary briefing card - exact player copy:** You completed The Leak That Was Not. Choose GO DEEPER to revisit the four decisions and explore related course ideas; this optional review does not change your metrics or delay the next mission.
+**Secondary briefing card - exact player copy:** Try six independent practice questions. Each includes its own context and any needed data; no mission records are required.
 
 ### Additional concepts kept out of the required mission card
 
@@ -4297,7 +4371,31 @@ awarded. Spend: Methane +4. Result: METHANE 94% \| OXYGEN 86% \| POWER
 
 ### Review question 1
 
-**Prompt - exact player copy:** In a follow-up to The Leak That Was Not, vary the intake calibration through its allowed uncertainty to see whether the hydrogen-delivery diagnosis survives measurement error. Test the conclusion across the supported uncertainty range now, before the team treats it as robust. Which statistical conclusion or procedure correctly uses Sensitivity test?
+
+**Prompt - exact player copy:** Which statement best explains sensitivity test?
+
+**Options - exact player copy:**
+
+- A. Support from an evidence path that does not repeat the same source. Shared calibration errors can make several displays agree without true corroboration.
+- B. The proposed cause that explains the full pattern of observations. A strong diagnosis must explain quiet readings as well as alarms.
+- C. The range of values that could reasonably match a measurement. A conclusion is stronger when it survives every value in that allowed range.
+- D. Changes an uncertain input across its allowed range and checks whether the decision changes. It reveals whether a conclusion rests on a fragile number.
+
+**Correct answer:** D
+
+**Hint - exact player copy:** Identify the defining relationship or mechanism for sensitivity test. All needed information is in this question.
+
+**Option feedback - exact player copy:**
+
+- A: This describes corroboration. It does not answer the question about sensitivity test.
+- B: This describes diagnosis. It does not answer the question about sensitivity test.
+- C: This describes uncertainty. It does not answer the question about sensitivity test.
+- D: Correct. Changes an uncertain input across its allowed range and checks whether the decision changes. It reveals whether a conclusion rests on a fragile number.
+
+### Review question 2
+
+
+**Prompt - exact player copy:** Which statement best explains corroboration?
 
 **Options - exact player copy:**
 
@@ -4306,19 +4404,21 @@ awarded. Spend: Methane +4. Result: METHANE 94% \| OXYGEN 86% \| POWER
 - C. The proposed cause that explains the full pattern of observations. A strong diagnosis must explain quiet readings as well as alarms.
 - D. The range of values that could reasonably match a measurement. A conclusion is stronger when it survives every value in that allowed range.
 
-**Correct answer:** B
+**Correct answer:** A
 
-**Hint - exact player copy:** Use the stated evidence and the conditions for Sensitivity test; do not choose an option merely because it names a familiar term.
+**Hint - exact player copy:** Identify the defining relationship or mechanism for corroboration. All needed information is in this question.
 
 **Option feedback - exact player copy:**
 
-- A: This describes Corroboration, not Sensitivity test. It does not account for the quantities, conditions, or evidence in this chemistry case.
-- B: Correct. changes an uncertain input across its allowed range and checks whether the decision changes. It reveals whether a conclusion rests on a fragile number.
-- C: This describes Diagnosis, not Sensitivity test. It does not account for the quantities, conditions, or evidence in this chemistry case.
-- D: This describes Uncertainty, not Sensitivity test. It does not account for the quantities, conditions, or evidence in this chemistry case.
-### Review question 2
+- A: Correct. Support from an evidence path that does not repeat the same source. Shared calibration errors can make several displays agree without true corroboration.
+- B: This describes sensitivity test. It does not answer the question about corroboration.
+- C: This describes diagnosis. It does not answer the question about corroboration.
+- D: This describes uncertainty. It does not answer the question about corroboration.
 
-**Prompt - exact player copy:** the Mars return mission receives a second case related to The Leak That Was Not: place every clue on one board and choose the cause that explains sufficient carbon dioxide, diluted hydrogen, false residue, and shared water error together. Which calculation or chemical interpretation correctly applies Corroboration?
+### Review question 3
+
+
+**Prompt - exact player copy:** Which statement best explains diagnosis?
 
 **Options - exact player copy:**
 
@@ -4327,19 +4427,21 @@ awarded. Spend: Methane +4. Result: METHANE 94% \| OXYGEN 86% \| POWER
 - C. Support from an evidence path that does not repeat the same source. Shared calibration errors can make several displays agree without true corroboration.
 - D. The range of values that could reasonably match a measurement. A conclusion is stronger when it survives every value in that allowed range.
 
-**Correct answer:** C
+**Correct answer:** B
 
-**Hint - exact player copy:** Use the stated evidence and the conditions for Corroboration; do not choose an option merely because it names a familiar term.
+**Hint - exact player copy:** Identify the defining relationship or mechanism for diagnosis. All needed information is in this question.
 
 **Option feedback - exact player copy:**
 
-- A: This describes Sensitivity test, not Corroboration. It does not account for the quantities, conditions, or evidence in this chemistry case.
-- B: This describes Diagnosis, not Corroboration. It does not account for the quantities, conditions, or evidence in this chemistry case.
-- C: Correct. support from an evidence path that does not repeat the same source. Shared calibration errors can make several displays agree without true corroboration.
-- D: This describes Uncertainty, not Corroboration. It does not account for the quantities, conditions, or evidence in this chemistry case.
-### Review question 3
+- A: This describes sensitivity test. It does not answer the question about diagnosis.
+- B: Correct. The proposed cause that explains the full pattern of observations. A strong diagnosis must explain quiet readings as well as alarms.
+- C: This describes corroboration. It does not answer the question about diagnosis.
+- D: This describes uncertainty. It does not answer the question about diagnosis.
 
-**Prompt - exact player copy:** A teammate rechecks The Leak That Was Not using new evidence: place every clue on one board and choose the cause that explains sufficient carbon dioxide, diluted hydrogen, false residue, and shared water error together. Which calculation or chemical interpretation correctly applies Diagnosis?
+### Review question 4
+
+
+**Prompt - exact player copy:** Which statement best explains uncertainty?
 
 **Options - exact player copy:**
 
@@ -4348,80 +4450,65 @@ awarded. Spend: Methane +4. Result: METHANE 94% \| OXYGEN 86% \| POWER
 - C. The range of values that could reasonably match a measurement. A conclusion is stronger when it survives every value in that allowed range.
 - D. The proposed cause that explains the full pattern of observations. A strong diagnosis must explain quiet readings as well as alarms.
 
-**Correct answer:** D
+**Correct answer:** C
 
-**Hint - exact player copy:** Use the stated evidence and the conditions for Diagnosis; do not choose an option merely because it names a familiar term.
+**Hint - exact player copy:** Identify the defining relationship or mechanism for uncertainty. All needed information is in this question.
 
 **Option feedback - exact player copy:**
 
-- A: This describes Sensitivity test, not Diagnosis. It does not account for the quantities, conditions, or evidence in this chemistry case.
-- B: This describes Corroboration, not Diagnosis. It does not account for the quantities, conditions, or evidence in this chemistry case.
-- C: This describes Uncertainty, not Diagnosis. It does not account for the quantities, conditions, or evidence in this chemistry case.
-- D: Correct. the proposed cause that explains the full pattern of observations. A strong diagnosis must explain quiet readings as well as alarms.
-### Review question 4
+- A: This describes sensitivity test. It does not answer the question about uncertainty.
+- B: This describes corroboration. It does not answer the question about uncertainty.
+- C: Correct. The range of values that could reasonably match a measurement. A conclusion is stronger when it survives every value in that allowed range.
+- D: This describes diagnosis. It does not answer the question about uncertainty.
 
-**Prompt - exact player copy:** An unseen case extends The Leak That Was Not: vary the intake calibration through its allowed uncertainty to see whether the hydrogen-delivery diagnosis survives measurement error. Test the conclusion across the supported uncertainty range now, before the team treats it as robust. Which calculation or chemical interpretation correctly applies Uncertainty?
+### Review question 5
+
+
+**Prompt - exact player copy:** Which statement best explains error?
 
 **Options - exact player copy:**
 
-- A. The range of values that could reasonably match a measurement. A conclusion is stronger when it survives every value in that allowed range.
+- A. Changes an uncertain input across its allowed range and checks whether the decision changes. It reveals whether a conclusion rests on a fragile number.
+- B. Support from an evidence path that does not repeat the same source. Shared calibration errors can make several displays agree without true corroboration.
+- C. The proposed cause that explains the full pattern of observations. A strong diagnosis must explain quiet readings as well as alarms.
+- D. The difference between a measured value and the value a perfect measurement would give. It does not necessarily mean a person made a careless mistake.
+
+**Correct answer:** D
+
+**Hint - exact player copy:** Identify the defining relationship or mechanism for error. All needed information is in this question.
+
+**Option feedback - exact player copy:**
+
+- A: This describes sensitivity test. It does not answer the question about error.
+- B: This describes corroboration. It does not answer the question about error.
+- C: This describes diagnosis. It does not answer the question about error.
+- D: Correct. The difference between a measured value and the value a perfect measurement would give. It does not necessarily mean a person made a careless mistake.
+
+### Review question 6
+
+
+**Prompt - exact player copy:** Which statement best explains atom balance?
+
+**Options - exact player copy:**
+
+- A. Counts each element entering, leaving, and remaining in a system. Every atom must appear somewhere even when the desired product was never made.
 - B. Changes an uncertain input across its allowed range and checks whether the decision changes. It reveals whether a conclusion rests on a fragile number.
 - C. Support from an evidence path that does not repeat the same source. Shared calibration errors can make several displays agree without true corroboration.
 - D. The proposed cause that explains the full pattern of observations. A strong diagnosis must explain quiet readings as well as alarms.
 
 **Correct answer:** A
 
-**Hint - exact player copy:** Use the stated evidence and the conditions for Uncertainty; do not choose an option merely because it names a familiar term.
+**Hint - exact player copy:** Identify the defining relationship or mechanism for atom balance. All needed information is in this question.
 
 **Option feedback - exact player copy:**
 
-- A: Correct. the range of values that could reasonably match a measurement. A conclusion is stronger when it survives every value in that allowed range.
-- B: This describes Sensitivity test, not Uncertainty. It does not account for the quantities, conditions, or evidence in this chemistry case.
-- C: This describes Corroboration, not Uncertainty. It does not account for the quantities, conditions, or evidence in this chemistry case.
-- D: This describes Diagnosis, not Uncertainty. It does not account for the quantities, conditions, or evidence in this chemistry case.
-### Review question 5
+- A: Correct. Counts each element entering, leaving, and remaining in a system. Every atom must appear somewhere even when the desired product was never made.
+- B: This describes sensitivity test. It does not answer the question about atom balance.
+- C: This describes corroboration. It does not answer the question about atom balance.
+- D: This describes diagnosis. It does not answer the question about atom balance.
 
-**Prompt - exact player copy:** Before another Leak That Was Not decision, the team knows this: place every clue on one board and choose the cause that explains sufficient carbon dioxide, diluted hydrogen, false residue, and shared water error together. Which statistical conclusion or procedure correctly uses Error?
+**Optional review completion - exact player copy:** Good work. You have completed six independent practice questions.
 
-**Options - exact player copy:**
-
-- A. Changes an uncertain input across its allowed range and checks whether the decision changes. It reveals whether a conclusion rests on a fragile number.
-- B. The difference between a measured value and the value a perfect measurement would give. It does not necessarily mean a person made a careless mistake.
-- C. Support from an evidence path that does not repeat the same source. Shared calibration errors can make several displays agree without true corroboration.
-- D. The proposed cause that explains the full pattern of observations. A strong diagnosis must explain quiet readings as well as alarms.
-
-**Correct answer:** B
-
-**Hint - exact player copy:** Use the stated evidence and the conditions for Error; do not choose an option merely because it names a familiar term.
-
-**Option feedback - exact player copy:**
-
-- A: This describes Sensitivity test, not Error. It does not account for the quantities, conditions, or evidence in this chemistry case.
-- B: Correct. the difference between a measured value and the value a perfect measurement would give. It does not necessarily mean a person made a careless mistake.
-- C: This describes Corroboration, not Error. It does not account for the quantities, conditions, or evidence in this chemistry case.
-- D: This describes Diagnosis, not Error. It does not account for the quantities, conditions, or evidence in this chemistry case.
-### Review question 6
-
-**Prompt - exact player copy:** the Mars return mission applies the lesson from The Leak That Was Not to this follow-up: take that prediction to the Tank Farm and close the carbon, hydrogen, and oxygen ledgers to test whether the methane was never produced. Which calculation or chemical interpretation correctly applies Atom balance?
-
-**Options - exact player copy:**
-
-- A. Changes an uncertain input across its allowed range and checks whether the decision changes. It reveals whether a conclusion rests on a fragile number.
-- B. Support from an evidence path that does not repeat the same source. Shared calibration errors can make several displays agree without true corroboration.
-- C. Counts each element entering, leaving, and remaining in a system. Every atom must appear somewhere even when the desired product was never made.
-- D. The proposed cause that explains the full pattern of observations. A strong diagnosis must explain quiet readings as well as alarms.
-
-**Correct answer:** C
-
-**Hint - exact player copy:** Use the stated evidence and the conditions for Atom balance; do not choose an option merely because it names a familiar term.
-
-**Option feedback - exact player copy:**
-
-- A: This describes Sensitivity test, not Atom balance. It does not account for the quantities, conditions, or evidence in this chemistry case.
-- B: This describes Corroboration, not Atom balance. It does not account for the quantities, conditions, or evidence in this chemistry case.
-- C: Correct. counts each element entering, leaving, and remaining in a system. Every atom must appear somewhere even when the desired product was never made.
-- D: This describes Diagnosis, not Atom balance. It does not account for the quantities, conditions, or evidence in this chemistry case.
-**Optional review completion - exact player copy:** Excellent work. You went beyond the required mission and strengthened the ideas behind your decision.
 ## Quick concept review
 
 - The best diagnosis explains quiet readings and alarms together.
@@ -4883,7 +4970,7 @@ awarded. Spend: Methane +3; Power +6; Integrity +6. Result: METHANE 94%
 
 **Availability:** Reveal only after mission completion when the player selects **GO DEEPER**. This section is optional, ungraded for campaign progress, and does not change metrics, Recovery Points, or the next-mission unlock.
 
-**Secondary briefing card - exact player copy:** You completed Heat. Choose GO DEEPER to revisit the four decisions and explore related course ideas; this optional review does not change your metrics or delay the next mission.
+**Secondary briefing card - exact player copy:** Try six independent practice questions. Each includes its own context and any needed data; no mission records are required.
 
 ### Additional concepts kept out of the required mission card
 
@@ -4893,7 +4980,8 @@ awarded. Spend: Methane +3; Power +6; Integrity +6. Result: METHANE 94%
 
 ### Review question 1
 
-**Prompt - exact player copy:** In a follow-up to Heat, to decide whether lowering the temperature was reckless or protective, first establish whether the Sabatier reaction releases heat as methane production rises. The next action depends on selecting the conclusion that fits all of those facts. Which calculation or chemical interpretation correctly applies Endothermic?
+
+**Prompt - exact player copy:** Which statement best explains endothermic?
 
 **Options - exact player copy:**
 
@@ -4904,17 +4992,19 @@ awarded. Spend: Methane +3; Power +6; Integrity +6. Result: METHANE 94%
 
 **Correct answer:** B
 
-**Hint - exact player copy:** Use the stated evidence and the conditions for Endothermic; do not choose an option merely because it names a familiar term.
+**Hint - exact player copy:** Identify the defining relationship or mechanism for endothermic. All needed information is in this question.
 
 **Option feedback - exact player copy:**
 
-- A: This describes Enthalpy change, not Endothermic. It does not account for the quantities, conditions, or evidence in this chemistry case.
-- B: Correct. process absorbs heat from its surroundings. Its heat sign is opposite that of an exothermic process.
-- C: This describes Energy ledger, not Endothermic. It does not account for the quantities, conditions, or evidence in this chemistry case.
-- D: This describes Heat, not Endothermic. It does not account for the quantities, conditions, or evidence in this chemistry case.
+- A: This describes enthalpy change. It does not answer the question about endothermic.
+- B: Correct. Process absorbs heat from its surroundings. Its heat sign is opposite that of an exothermic process.
+- C: This describes energy ledger. It does not answer the question about endothermic.
+- D: This describes heat. It does not answer the question about endothermic.
+
 ### Review question 2
 
-**Prompt - exact player copy:** the Mars return mission receives a second case related to Heat: use the corrected timeline to close the radiator energy ledger and determine whether cooling loss preceded Herrera's temperature change. Close the ledger now so the next decision uses every real input and output exactly once. Which calculation or chemical interpretation correctly applies Enthalpy change?
+
+**Prompt - exact player copy:** Which statement best explains enthalpy change?
 
 **Options - exact player copy:**
 
@@ -4925,17 +5015,19 @@ awarded. Spend: Methane +3; Power +6; Integrity +6. Result: METHANE 94%
 
 **Correct answer:** C
 
-**Hint - exact player copy:** Use the stated evidence and the conditions for Enthalpy change; do not choose an option merely because it names a familiar term.
+**Hint - exact player copy:** Identify the defining relationship or mechanism for enthalpy change. All needed information is in this question.
 
 **Option feedback - exact player copy:**
 
-- A: This describes Endothermic, not Enthalpy change. It does not account for the quantities, conditions, or evidence in this chemistry case.
-- B: This describes Energy ledger, not Enthalpy change. It does not account for the quantities, conditions, or evidence in this chemistry case.
-- C: Correct. records heat released or absorbed by a process at constant pressure. A negative value means the process releases heat.
-- D: This describes Heat, not Enthalpy change. It does not account for the quantities, conditions, or evidence in this chemistry case.
+- A: This describes endothermic. It does not answer the question about enthalpy change.
+- B: This describes energy ledger. It does not answer the question about enthalpy change.
+- C: Correct. Records heat released or absorbed by a process at constant pressure. A negative value means the process releases heat.
+- D: This describes heat. It does not answer the question about enthalpy change.
+
 ### Review question 3
 
-**Prompt - exact player copy:** A teammate rechecks Heat using new evidence: use the corrected timeline to close the radiator energy ledger and determine whether cooling loss preceded Herrera's temperature change. Close the ledger now so the next decision uses every real input and output exactly once. Which calculation or chemical interpretation correctly applies Energy ledger?
+
+**Prompt - exact player copy:** Which statement best explains energy ledger?
 
 **Options - exact player copy:**
 
@@ -4946,17 +5038,19 @@ awarded. Spend: Methane +3; Power +6; Integrity +6. Result: METHANE 94%
 
 **Correct answer:** D
 
-**Hint - exact player copy:** Use the stated evidence and the conditions for Energy ledger; do not choose an option merely because it names a familiar term.
+**Hint - exact player copy:** Identify the defining relationship or mechanism for energy ledger. All needed information is in this question.
 
 **Option feedback - exact player copy:**
 
-- A: This describes Endothermic, not Energy ledger. It does not account for the quantities, conditions, or evidence in this chemistry case.
-- B: This describes Enthalpy change, not Energy ledger. It does not account for the quantities, conditions, or evidence in this chemistry case.
-- C: This describes Heat, not Energy ledger. It does not account for the quantities, conditions, or evidence in this chemistry case.
-- D: Correct. counts energy generated, removed, carried away, and stored. An unaccounted positive amount can appear as a dangerous hot spot.
+- A: This describes endothermic. It does not answer the question about energy ledger.
+- B: This describes enthalpy change. It does not answer the question about energy ledger.
+- C: This describes heat. It does not answer the question about energy ledger.
+- D: Correct. Counts energy generated, removed, carried away, and stored. An unaccounted positive amount can appear as a dangerous hot spot.
+
 ### Review question 4
 
-**Prompt - exact player copy:** An unseen case extends Heat: account for the delay caused by warming and melting so the thermal timeline does not mistake a late signal for the first failure. Which calculation or chemical interpretation correctly applies Heat?
+
+**Prompt - exact player copy:** Which statement best explains heat?
 
 **Options - exact player copy:**
 
@@ -4967,17 +5061,19 @@ awarded. Spend: Methane +3; Power +6; Integrity +6. Result: METHANE 94%
 
 **Correct answer:** A
 
-**Hint - exact player copy:** Use the stated evidence and the conditions for Heat; do not choose an option merely because it names a familiar term.
+**Hint - exact player copy:** Identify the defining relationship or mechanism for heat. All needed information is in this question.
 
 **Option feedback - exact player copy:**
 
-- A: Correct. energy transferred because two regions have different temperatures. It moves from a hotter region toward a colder one.
-- B: This describes Endothermic, not Heat. It does not account for the quantities, conditions, or evidence in this chemistry case.
-- C: This describes Enthalpy change, not Heat. It does not account for the quantities, conditions, or evidence in this chemistry case.
-- D: This describes Energy ledger, not Heat. It does not account for the quantities, conditions, or evidence in this chemistry case.
+- A: Correct. Energy transferred because two regions have different temperatures. It moves from a hotter region toward a colder one.
+- B: This describes endothermic. It does not answer the question about heat.
+- C: This describes enthalpy change. It does not answer the question about heat.
+- D: This describes energy ledger. It does not answer the question about heat.
+
 ### Review question 5
 
-**Prompt - exact player copy:** Before another Heat decision, the team knows this: to decide whether lowering the temperature was reckless or protective, first establish whether the Sabatier reaction releases heat as methane production rises. The next action depends on selecting the conclusion that fits all of those facts. Which calculation or chemical interpretation correctly applies Exothermic?
+
+**Prompt - exact player copy:** Which statement best explains exothermic?
 
 **Options - exact player copy:**
 
@@ -4988,17 +5084,19 @@ awarded. Spend: Methane +3; Power +6; Integrity +6. Result: METHANE 94%
 
 **Correct answer:** B
 
-**Hint - exact player copy:** Use the stated evidence and the conditions for Exothermic; do not choose an option merely because it names a familiar term.
+**Hint - exact player copy:** Identify the defining relationship or mechanism for exothermic. All needed information is in this question.
 
 **Option feedback - exact player copy:**
 
-- A: This describes Endothermic, not Exothermic. It does not account for the quantities, conditions, or evidence in this chemistry case.
-- B: Correct. process releases heat to its surroundings. Increasing an exothermic reaction's production also increases the heat the plant must remove.
-- C: This describes Enthalpy change, not Exothermic. It does not account for the quantities, conditions, or evidence in this chemistry case.
-- D: This describes Energy ledger, not Exothermic. It does not account for the quantities, conditions, or evidence in this chemistry case.
+- A: This describes endothermic. It does not answer the question about exothermic.
+- B: Correct. Process releases heat to its surroundings. Increasing an exothermic reaction's production also increases the heat the plant must remove.
+- C: This describes enthalpy change. It does not answer the question about exothermic.
+- D: This describes energy ledger. It does not answer the question about exothermic.
+
 ### Review question 6
 
-**Prompt - exact player copy:** the Mars return mission applies the lesson from Heat to this follow-up: account for the delay caused by warming and melting so the thermal timeline does not mistake a late signal for the first failure. Which calculation or chemical interpretation correctly applies Specific heat capacity?
+
+**Prompt - exact player copy:** Which statement best explains specific heat capacity?
 
 **Options - exact player copy:**
 
@@ -5009,15 +5107,17 @@ awarded. Spend: Methane +3; Power +6; Integrity +6. Result: METHANE 94%
 
 **Correct answer:** C
 
-**Hint - exact player copy:** Use the stated evidence and the conditions for Specific heat capacity; do not choose an option merely because it names a familiar term.
+**Hint - exact player copy:** Identify the defining relationship or mechanism for specific heat capacity. All needed information is in this question.
 
 **Option feedback - exact player copy:**
 
-- A: This describes Endothermic, not Specific heat capacity. It does not account for the quantities, conditions, or evidence in this chemistry case.
-- B: This describes Enthalpy change, not Specific heat capacity. It does not account for the quantities, conditions, or evidence in this chemistry case.
-- C: Correct. the heat needed to raise one unit of mass by one degree. It connects a measured temperature change to an amount of heat.
-- D: This describes Energy ledger, not Specific heat capacity. It does not account for the quantities, conditions, or evidence in this chemistry case.
-**Optional review completion - exact player copy:** Excellent work. You went beyond the required mission and strengthened the ideas behind your decision.
+- A: This describes endothermic. It does not answer the question about specific heat capacity.
+- B: This describes enthalpy change. It does not answer the question about specific heat capacity.
+- C: Correct. The heat needed to raise one unit of mass by one degree. It connects a measured temperature change to an amount of heat.
+- D: This describes energy ledger. It does not answer the question about specific heat capacity.
+
+**Optional review completion - exact player copy:** Good work. You have completed six independent practice questions.
+
 ## Quick concept review
 
 - Negative Delta H means the reaction releases heat.
@@ -5470,7 +5570,7 @@ awarded. Spend: Methane +3; Power +6; Integrity +6. Result: METHANE 94%
 
 **Availability:** Reveal only after mission completion when the player selects **GO DEEPER**. This section is optional, ungraded for campaign progress, and does not change metrics, Recovery Points, or the next-mission unlock.
 
-**Secondary briefing card - exact player copy:** You completed The Override. Choose GO DEEPER to revisit the four decisions and explore related course ideas; this optional review does not change your metrics or delay the next mission.
+**Secondary briefing card - exact player copy:** Try six independent practice questions. Each includes its own context and any needed data; no mission records are required.
 
 ### Additional concepts kept out of the required mission card
 
@@ -5479,7 +5579,31 @@ awarded. Spend: Methane +3; Power +6; Integrity +6. Result: METHANE 94%
 
 ### Review question 1
 
-**Prompt - exact player copy:** In a follow-up to The Override, to measure the override's effect, use initial-rate trials to determine how methane production responds to carbon-dioxide and hydrogen concentration. The next action depends on selecting the conclusion that fits all of those facts. Which calculation or chemical interpretation correctly applies Controlled experiment?
+
+**Prompt - exact player copy:** Which statement best explains controlled experiment?
+
+**Options - exact player copy:**
+
+- A. The small variation expected when the real condition has not changed. A response must clearly exceed this band before it counts as evidence of cause.
+- B. Measures how quickly reactants are consumed or products are formed. An initial rate is measured before the concentrations have changed much.
+- C. Describes how measured reaction rate depends on reactant concentrations. Its exponents must come from experiment, not from the balanced equation.
+- D. Changes one candidate cause while holding other important conditions fixed. Reversing the change helps separate causation from drift.
+
+**Correct answer:** D
+
+**Hint - exact player copy:** Identify the defining relationship or mechanism for controlled experiment. All needed information is in this question.
+
+**Option feedback - exact player copy:**
+
+- A: This describes noise band. It does not answer the question about controlled experiment.
+- B: This describes reaction rate. It does not answer the question about controlled experiment.
+- C: This describes rate law. It does not answer the question about controlled experiment.
+- D: Correct. Changes one candidate cause while holding other important conditions fixed. Reversing the change helps separate causation from drift.
+
+### Review question 2
+
+
+**Prompt - exact player copy:** Which statement best explains noise band?
 
 **Options - exact player copy:**
 
@@ -5488,19 +5612,21 @@ awarded. Spend: Methane +3; Power +6; Integrity +6. Result: METHANE 94%
 - C. Measures how quickly reactants are consumed or products are formed. An initial rate is measured before the concentrations have changed much.
 - D. Describes how measured reaction rate depends on reactant concentrations. Its exponents must come from experiment, not from the balanced equation.
 
-**Correct answer:** B
+**Correct answer:** A
 
-**Hint - exact player copy:** Use the stated evidence and the conditions for Controlled experiment; do not choose an option merely because it names a familiar term.
+**Hint - exact player copy:** Identify the defining relationship or mechanism for noise band. All needed information is in this question.
 
 **Option feedback - exact player copy:**
 
-- A: This describes Noise band, not Controlled experiment. It does not account for the quantities, conditions, or evidence in this chemistry case.
-- B: Correct. changes one candidate cause while holding other important conditions fixed. Reversing the change helps separate causation from drift.
-- C: This describes Reaction rate, not Controlled experiment. It does not account for the quantities, conditions, or evidence in this chemistry case.
-- D: This describes Rate law, not Controlled experiment. It does not account for the quantities, conditions, or evidence in this chemistry case.
-### Review question 2
+- A: Correct. The small variation expected when the real condition has not changed. A response must clearly exceed this band before it counts as evidence of cause.
+- B: This describes controlled experiment. It does not answer the question about noise band.
+- C: This describes reaction rate. It does not answer the question about noise band.
+- D: This describes rate law. It does not answer the question about noise band.
 
-**Prompt - exact player copy:** the Mars return mission receives a second case related to The Override: to measure the override's effect, use initial-rate trials to determine how methane production responds to carbon-dioxide and hydrogen concentration. The next action depends on selecting the conclusion that fits all of those facts. Which calculation or chemical interpretation correctly applies Noise band?
+### Review question 3
+
+
+**Prompt - exact player copy:** Which statement best explains reaction rate?
 
 **Options - exact player copy:**
 
@@ -5509,19 +5635,21 @@ awarded. Spend: Methane +3; Power +6; Integrity +6. Result: METHANE 94%
 - C. The small variation expected when the real condition has not changed. A response must clearly exceed this band before it counts as evidence of cause.
 - D. Describes how measured reaction rate depends on reactant concentrations. Its exponents must come from experiment, not from the balanced equation.
 
-**Correct answer:** C
+**Correct answer:** B
 
-**Hint - exact player copy:** Use the stated evidence and the conditions for Noise band; do not choose an option merely because it names a familiar term.
+**Hint - exact player copy:** Identify the defining relationship or mechanism for reaction rate. All needed information is in this question.
 
 **Option feedback - exact player copy:**
 
-- A: This describes Controlled experiment, not Noise band. It does not account for the quantities, conditions, or evidence in this chemistry case.
-- B: This describes Reaction rate, not Noise band. It does not account for the quantities, conditions, or evidence in this chemistry case.
-- C: Correct. the small variation expected when the real condition has not changed. A response must clearly exceed this band before it counts as evidence of cause.
-- D: This describes Rate law, not Noise band. It does not account for the quantities, conditions, or evidence in this chemistry case.
-### Review question 3
+- A: This describes controlled experiment. It does not answer the question about reaction rate.
+- B: Correct. Measures how quickly reactants are consumed or products are formed. An initial rate is measured before the concentrations have changed much.
+- C: This describes noise band. It does not answer the question about reaction rate.
+- D: This describes rate law. It does not answer the question about reaction rate.
 
-**Prompt - exact player copy:** A teammate rechecks The Override using new evidence: to measure the override's effect, use initial-rate trials to determine how methane production responds to carbon-dioxide and hydrogen concentration. The next action depends on selecting the conclusion that fits all of those facts. Which calculation or chemical interpretation correctly applies Reaction rate?
+### Review question 4
+
+
+**Prompt - exact player copy:** Which statement best explains rate law?
 
 **Options - exact player copy:**
 
@@ -5530,80 +5658,65 @@ awarded. Spend: Methane +3; Power +6; Integrity +6. Result: METHANE 94%
 - C. Describes how measured reaction rate depends on reactant concentrations. Its exponents must come from experiment, not from the balanced equation.
 - D. Measures how quickly reactants are consumed or products are formed. An initial rate is measured before the concentrations have changed much.
 
-**Correct answer:** D
+**Correct answer:** C
 
-**Hint - exact player copy:** Use the stated evidence and the conditions for Reaction rate; do not choose an option merely because it names a familiar term.
+**Hint - exact player copy:** Identify the defining relationship or mechanism for rate law. All needed information is in this question.
 
 **Option feedback - exact player copy:**
 
-- A: This describes Controlled experiment, not Reaction rate. It does not account for the quantities, conditions, or evidence in this chemistry case.
-- B: This describes Noise band, not Reaction rate. It does not account for the quantities, conditions, or evidence in this chemistry case.
-- C: This describes Rate law, not Reaction rate. It does not account for the quantities, conditions, or evidence in this chemistry case.
-- D: Correct. measures how quickly reactants are consumed or products are formed. An initial rate is measured before the concentrations have changed much.
-### Review question 4
+- A: This describes controlled experiment. It does not answer the question about rate law.
+- B: This describes noise band. It does not answer the question about rate law.
+- C: Correct. Describes how measured reaction rate depends on reactant concentrations. Its exponents must come from experiment, not from the balanced equation.
+- D: This describes reaction rate. It does not answer the question about rate law.
 
-**Prompt - exact player copy:** An unseen case extends The Override: to measure the override's effect, use initial-rate trials to determine how methane production responds to carbon-dioxide and hydrogen concentration. The next action depends on selecting the conclusion that fits all of those facts. Which calculation or chemical interpretation correctly applies Rate law?
+### Review question 5
+
+
+**Prompt - exact player copy:** Which statement best explains reaction order?
 
 **Options - exact player copy:**
 
-- A. Describes how measured reaction rate depends on reactant concentrations. Its exponents must come from experiment, not from the balanced equation.
+- A. Changes one candidate cause while holding other important conditions fixed. Reversing the change helps separate causation from drift.
+- B. The small variation expected when the real condition has not changed. A response must clearly exceed this band before it counts as evidence of cause.
+- C. Measures how quickly reactants are consumed or products are formed. An initial rate is measured before the concentrations have changed much.
+- D. The exponent showing how strongly rate responds to one concentration. Doubling a first-order reactant doubles rate; doubling a second-order reactant multiplies rate by four.
+
+**Correct answer:** D
+
+**Hint - exact player copy:** Identify the defining relationship or mechanism for reaction order. All needed information is in this question.
+
+**Option feedback - exact player copy:**
+
+- A: This describes controlled experiment. It does not answer the question about reaction order.
+- B: This describes noise band. It does not answer the question about reaction order.
+- C: This describes reaction rate. It does not answer the question about reaction order.
+- D: Correct. The exponent showing how strongly rate responds to one concentration. Doubling a first-order reactant doubles rate; doubling a second-order reactant multiplies rate by four.
+
+### Review question 6
+
+
+**Prompt - exact player copy:** Which statement best explains rate constant?
+
+**Options - exact player copy:**
+
+- A. The proportional number in a rate law at a particular temperature. Its units depend on the total reaction order.
 - B. Changes one candidate cause while holding other important conditions fixed. Reversing the change helps separate causation from drift.
 - C. The small variation expected when the real condition has not changed. A response must clearly exceed this band before it counts as evidence of cause.
 - D. Measures how quickly reactants are consumed or products are formed. An initial rate is measured before the concentrations have changed much.
 
 **Correct answer:** A
 
-**Hint - exact player copy:** Use the stated evidence and the conditions for Rate law; do not choose an option merely because it names a familiar term.
+**Hint - exact player copy:** Identify the defining relationship or mechanism for rate constant. All needed information is in this question.
 
 **Option feedback - exact player copy:**
 
-- A: Correct. describes how measured reaction rate depends on reactant concentrations. Its exponents must come from experiment, not from the balanced equation.
-- B: This describes Controlled experiment, not Rate law. It does not account for the quantities, conditions, or evidence in this chemistry case.
-- C: This describes Noise band, not Rate law. It does not account for the quantities, conditions, or evidence in this chemistry case.
-- D: This describes Reaction rate, not Rate law. It does not account for the quantities, conditions, or evidence in this chemistry case.
-### Review question 5
+- A: Correct. The proportional number in a rate law at a particular temperature. Its units depend on the total reaction order.
+- B: This describes controlled experiment. It does not answer the question about rate constant.
+- C: This describes noise band. It does not answer the question about rate constant.
+- D: This describes reaction rate. It does not answer the question about rate constant.
 
-**Prompt - exact player copy:** Before another Override decision, the team knows this: to measure the override's effect, use initial-rate trials to determine how methane production responds to carbon-dioxide and hydrogen concentration. The next action depends on selecting the conclusion that fits all of those facts. Which calculation or chemical interpretation correctly applies Reaction order?
+**Optional review completion - exact player copy:** Good work. You have completed six independent practice questions.
 
-**Options - exact player copy:**
-
-- A. Changes one candidate cause while holding other important conditions fixed. Reversing the change helps separate causation from drift.
-- B. The exponent showing how strongly rate responds to one concentration. Doubling a first-order reactant doubles rate; doubling a second-order reactant multiplies rate by four.
-- C. The small variation expected when the real condition has not changed. A response must clearly exceed this band before it counts as evidence of cause.
-- D. Measures how quickly reactants are consumed or products are formed. An initial rate is measured before the concentrations have changed much.
-
-**Correct answer:** B
-
-**Hint - exact player copy:** Use the stated evidence and the conditions for Reaction order; do not choose an option merely because it names a familiar term.
-
-**Option feedback - exact player copy:**
-
-- A: This describes Controlled experiment, not Reaction order. It does not account for the quantities, conditions, or evidence in this chemistry case.
-- B: Correct. the exponent showing how strongly rate responds to one concentration. Doubling a first-order reactant doubles rate; doubling a second-order reactant multiplies rate by four.
-- C: This describes Noise band, not Reaction order. It does not account for the quantities, conditions, or evidence in this chemistry case.
-- D: This describes Reaction rate, not Reaction order. It does not account for the quantities, conditions, or evidence in this chemistry case.
-### Review question 6
-
-**Prompt - exact player copy:** the Mars return mission applies the lesson from The Override to this follow-up: calculate the rate constant from one trial so the controlled temperature test has a quantitative baseline. Which calculation or chemical interpretation correctly applies Rate constant?
-
-**Options - exact player copy:**
-
-- A. Changes one candidate cause while holding other important conditions fixed. Reversing the change helps separate causation from drift.
-- B. The small variation expected when the real condition has not changed. A response must clearly exceed this band before it counts as evidence of cause.
-- C. The proportional number in a rate law at a particular temperature. Its units depend on the total reaction order.
-- D. Measures how quickly reactants are consumed or products are formed. An initial rate is measured before the concentrations have changed much.
-
-**Correct answer:** C
-
-**Hint - exact player copy:** Use the stated evidence and the conditions for Rate constant; do not choose an option merely because it names a familiar term.
-
-**Option feedback - exact player copy:**
-
-- A: This describes Controlled experiment, not Rate constant. It does not account for the quantities, conditions, or evidence in this chemistry case.
-- B: This describes Noise band, not Rate constant. It does not account for the quantities, conditions, or evidence in this chemistry case.
-- C: Correct. the proportional number in a rate law at a particular temperature. Its units depend on the total reaction order.
-- D: This describes Reaction rate, not Rate constant. It does not account for the quantities, conditions, or evidence in this chemistry case.
-**Optional review completion - exact player copy:** Excellent work. You went beyond the required mission and strengthened the ideas behind your decision.
 ## Quick concept review
 
 - Reaction orders come from controlled rate data, not usually
@@ -6066,7 +6179,7 @@ awarded. Spend: Methane +4; Power +4; Integrity +4. Result: METHANE 88%
 
 **Availability:** Reveal only after mission completion when the player selects **GO DEEPER**. This section is optional, ungraded for campaign progress, and does not change metrics, Recovery Points, or the next-mission unlock.
 
-**Secondary briefing card - exact player copy:** You completed The Catalyst Bed. Choose GO DEEPER to revisit the four decisions and explore related course ideas; this optional review does not change your metrics or delay the next mission.
+**Secondary briefing card - exact player copy:** Try six independent practice questions. Each includes its own context and any needed data; no mission records are required.
 
 ### Additional concepts kept out of the required mission card
 
@@ -6078,7 +6191,8 @@ awarded. Spend: Methane +4; Power +4; Integrity +4. Result: METHANE 88%
 
 ### Review question 1
 
-**Prompt - exact player copy:** In a follow-up to The Catalyst Bed, sample the inlet, inlet shoulder, middle, and outlet to determine whether the loss is uniform or concentrated beside a hidden hot spot. Sample the locations in order now so the crew can identify where the system first departs from normal. Which calculation or chemical interpretation correctly applies Activation energy?
+
+**Prompt - exact player copy:** Which statement best explains activation energy?
 
 **Options - exact player copy:**
 
@@ -6089,17 +6203,19 @@ awarded. Spend: Methane +4; Power +4; Integrity +4. Result: METHANE 88%
 
 **Correct answer:** B
 
-**Hint - exact player copy:** Use the stated evidence and the conditions for Activation energy; do not choose an option merely because it names a familiar term.
+**Hint - exact player copy:** Identify the defining relationship or mechanism for activation energy. All needed information is in this question.
 
 **Option feedback - exact player copy:**
 
-- A: This describes Reaction mechanism, not Activation energy. It does not account for the quantities, conditions, or evidence in this chemistry case.
-- B: Correct. the minimum energy needed for particles to follow a reaction path. Lowering this barrier lets more collisions produce reaction.
-- C: This describes Rate-determining step, not Activation energy. It does not account for the quantities, conditions, or evidence in this chemistry case.
-- D: This describes Active site, not Activation energy. It does not account for the quantities, conditions, or evidence in this chemistry case.
+- A: This describes reaction mechanism. It does not answer the question about activation energy.
+- B: Correct. The minimum energy needed for particles to follow a reaction path. Lowering this barrier lets more collisions produce reaction.
+- C: This describes rate-determining step. It does not answer the question about activation energy.
+- D: This describes active site. It does not answer the question about activation energy.
+
 ### Review question 2
 
-**Prompt - exact player copy:** the Mars return mission receives a second case related to The Catalyst Bed: build the surface mechanism to show how blocking nickel sites could slow the reaction where a contaminant first enters. Which calculation or chemical interpretation correctly applies Reaction mechanism?
+
+**Prompt - exact player copy:** Which statement best explains reaction mechanism?
 
 **Options - exact player copy:**
 
@@ -6110,17 +6226,19 @@ awarded. Spend: Methane +4; Power +4; Integrity +4. Result: METHANE 88%
 
 **Correct answer:** C
 
-**Hint - exact player copy:** Use the stated evidence and the conditions for Reaction mechanism; do not choose an option merely because it names a familiar term.
+**Hint - exact player copy:** Identify the defining relationship or mechanism for reaction mechanism. All needed information is in this question.
 
 **Option feedback - exact player copy:**
 
-- A: This describes Activation energy, not Reaction mechanism. It does not account for the quantities, conditions, or evidence in this chemistry case.
-- B: This describes Rate-determining step, not Reaction mechanism. It does not account for the quantities, conditions, or evidence in this chemistry case.
-- C: Correct. a sequence of smaller steps that together produce the overall reaction. It can reveal intermediates, a catalyst, and the slow controlling step.
-- D: This describes Active site, not Reaction mechanism. It does not account for the quantities, conditions, or evidence in this chemistry case.
+- A: This describes activation energy. It does not answer the question about reaction mechanism.
+- B: This describes rate-determining step. It does not answer the question about reaction mechanism.
+- C: Correct. A sequence of smaller steps that together produce the overall reaction. It can reveal intermediates, a catalyst, and the slow controlling step.
+- D: This describes active site. It does not answer the question about reaction mechanism.
+
 ### Review question 3
 
-**Prompt - exact player copy:** A teammate rechecks The Catalyst Bed using new evidence: sample the inlet, inlet shoulder, middle, and outlet to determine whether the loss is uniform or concentrated beside a hidden hot spot. Sample the locations in order now so the crew can identify where the system first departs from normal. Which calculation or chemical interpretation correctly applies Rate-determining step?
+
+**Prompt - exact player copy:** Which statement best explains rate-determining step?
 
 **Options - exact player copy:**
 
@@ -6131,17 +6249,19 @@ awarded. Spend: Methane +4; Power +4; Integrity +4. Result: METHANE 88%
 
 **Correct answer:** D
 
-**Hint - exact player copy:** Use the stated evidence and the conditions for Rate-determining step; do not choose an option merely because it names a familiar term.
+**Hint - exact player copy:** Identify the defining relationship or mechanism for rate-determining step. All needed information is in this question.
 
 **Option feedback - exact player copy:**
 
-- A: This describes Activation energy, not Rate-determining step. It does not account for the quantities, conditions, or evidence in this chemistry case.
-- B: This describes Reaction mechanism, not Rate-determining step. It does not account for the quantities, conditions, or evidence in this chemistry case.
-- C: This describes Active site, not Rate-determining step. It does not account for the quantities, conditions, or evidence in this chemistry case.
-- D: Correct. the slow mechanism step that most strongly limits the overall rate. Blocking that step can reduce production even when other steps remain possible.
+- A: This describes activation energy. It does not answer the question about rate-determining step.
+- B: This describes reaction mechanism. It does not answer the question about rate-determining step.
+- C: This describes active site. It does not answer the question about rate-determining step.
+- D: Correct. The slow mechanism step that most strongly limits the overall rate. Blocking that step can reduce production even when other steps remain possible.
+
 ### Review question 4
 
-**Prompt - exact player copy:** An unseen case extends The Catalyst Bed: build the surface mechanism to show how blocking nickel sites could slow the reaction where a contaminant first enters. Which calculation or chemical interpretation correctly applies Active site?
+
+**Prompt - exact player copy:** Which statement best explains active site?
 
 **Options - exact player copy:**
 
@@ -6152,81 +6272,67 @@ awarded. Spend: Methane +4; Power +4; Integrity +4. Result: METHANE 88%
 
 **Correct answer:** A
 
-**Hint - exact player copy:** Use the stated evidence and the conditions for Active site; do not choose an option merely because it names a familiar term.
+**Hint - exact player copy:** Identify the defining relationship or mechanism for active site. All needed information is in this question.
 
 **Option feedback - exact player copy:**
 
-- A: Correct. a location on a catalyst surface where reactants can attach and react. The number of available sites affects how much catalyst activity remains.
-- B: This describes Activation energy, not Active site. It does not account for the quantities, conditions, or evidence in this chemistry case.
-- C: This describes Reaction mechanism, not Active site. It does not account for the quantities, conditions, or evidence in this chemistry case.
-- D: This describes Rate-determining step, not Active site. It does not account for the quantities, conditions, or evidence in this chemistry case.
+- A: Correct. A location on a catalyst surface where reactants can attach and react. The number of available sites affects how much catalyst activity remains.
+- B: This describes activation energy. It does not answer the question about active site.
+- C: This describes reaction mechanism. It does not answer the question about active site.
+- D: This describes rate-determining step. It does not answer the question about active site.
+
 ### Review question 5
 
-**Prompt - exact player copy:** Before another Catalyst Bed decision, the team knows this: before replacing the bed, determine exactly what a fresh catalyst can change and what it cannot fix about equilibrium or heat. The next action depends on selecting the conclusion that fits all of those facts. Which interpretation of the displayed evidence correctly uses the mission concept?
+
+**Prompt - exact player copy:** The activity measurements use the same procedure at each position. Where is activity lowest?
 
 **Figure - exact player copy:**
 
 ```json
 {
-  "kind": "line",
-  "xLabel": "Distance along catalyst bed (m)",
-  "yLabel": "Temperature (K)",
-  "caption": "Temperature rises sharply near the catalyst-bed inlet.",
-  "series": [
+  "kind": "bars",
+  "xLabel": "Category",
+  "yLabel": "Relative catalyst activity",
+  "caption": "Activity measured at three bed positions under the same test conditions",
+  "bars": [
     {
-      "name": "Measured profile",
-      "points": [
-        [
-          0,
-          520
-        ],
-        [
-          1,
-          535
-        ],
-        [
-          2,
-          590
-        ],
-        [
-          3,
-          625
-        ],
-        [
-          4,
-          600
-        ],
-        [
-          5,
-          570
-        ]
-      ]
+      "name": "Inlet",
+      "value": 0.2
+    },
+    {
+      "name": "Middle",
+      "value": 0.6
+    },
+    {
+      "name": "Outlet",
+      "value": 0.9
     }
   ]
 }
 ```
 
-
 **Options - exact player copy:**
 
-- A. The minimum energy needed for particles to follow a reaction path. Lowering this barrier lets more collisions produce reaction.
-- B. Shows how a reading changes from one location to another. It can reveal a local hot spot or inlet-first failure hidden by an average.
-- C. A sequence of smaller steps that together produce the overall reaction. It can reveal intermediates, a catalyst, and the slow controlling step.
-- D. The slow mechanism step that most strongly limits the overall rate. Blocking that step can reduce production even when other steps remain possible.
+- A. At the outlet.
+- B. At the inlet.
+- C. At all positions equally.
+- D. The average identifies no spatial difference.
 
 **Correct answer:** B
 
-**Hint - exact player copy:** Read the axes, units, direction, and any threshold before comparing the choices.
+**Hint - exact player copy:** Compare the heights for the individual positions.
 
 **Option feedback - exact player copy:**
 
-- A: This describes Activation energy, not Spatial profile. It does not account for the quantities, conditions, or evidence in this chemistry case.
-- B: Correct. shows how a reading changes from one location to another. It can reveal a local hot spot or inlet-first failure hidden by an average.
-- C: This describes Reaction mechanism, not Spatial profile. It does not account for the quantities, conditions, or evidence in this chemistry case.
-- D: This describes Rate-determining step, not Spatial profile. It does not account for the quantities, conditions, or evidence in this chemistry case.
+- A: The outlet has the highest plotted activity.
+- B: Correct. At the inlet.
+- C: The three values differ.
+- D: An average would hide the differences shown by position.
+
 ### Review question 6
 
-**Prompt - exact player copy:** the Mars return mission applies the lesson from The Catalyst Bed to this follow-up: before replacing the bed, determine exactly what a fresh catalyst can change and what it cannot fix about equilibrium or heat. The next action depends on selecting the conclusion that fits all of those facts. Which calculation or chemical interpretation correctly applies Catalyst?
+
+**Prompt - exact player copy:** Which statement best explains catalyst?
 
 **Options - exact player copy:**
 
@@ -6237,15 +6343,17 @@ awarded. Spend: Methane +4; Power +4; Integrity +4. Result: METHANE 88%
 
 **Correct answer:** C
 
-**Hint - exact player copy:** Use the stated evidence and the conditions for Catalyst; do not choose an option merely because it names a familiar term.
+**Hint - exact player copy:** Identify the defining relationship or mechanism for catalyst. All needed information is in this question.
 
 **Option feedback - exact player copy:**
 
-- A: This describes Activation energy, not Catalyst. It does not account for the quantities, conditions, or evidence in this chemistry case.
-- B: This describes Reaction mechanism, not Catalyst. It does not account for the quantities, conditions, or evidence in this chemistry case.
-- C: Correct. speeds a reaction by providing a different path with a lower activation barrier. It is regenerated and does not change reaction enthalpy or the final equilibrium composition.
-- D: This describes Rate-determining step, not Catalyst. It does not account for the quantities, conditions, or evidence in this chemistry case.
-**Optional review completion - exact player copy:** Excellent work. You went beyond the required mission and strengthened the ideas behind your decision.
+- A: This describes activation energy. It does not answer the question about catalyst.
+- B: This describes reaction mechanism. It does not answer the question about catalyst.
+- C: Correct. Speeds a reaction by providing a different path with a lower activation barrier. It is regenerated and does not change reaction enthalpy or the final equilibrium composition.
+- D: This describes rate-determining step. It does not answer the question about catalyst.
+
+**Optional review completion - exact player copy:** Good work. You have completed six independent practice questions.
+
 ## Quick concept review
 
 - Catalysts lower activation energy and speed approach to equilibrium.
@@ -6798,7 +6906,7 @@ closed-padlock icon; this bar can no longer fall.
 
 **Availability:** Reveal only after mission completion when the player selects **GO DEEPER**. This section is optional, ungraded for campaign progress, and does not change metrics, Recovery Points, or the next-mission unlock.
 
-**Secondary briefing card - exact player copy:** You completed The Saboteur. Choose GO DEEPER to revisit the four decisions and explore related course ideas; this optional review does not change your metrics or delay the next mission.
+**Secondary briefing card - exact player copy:** Try six independent practice questions. Each includes its own context and any needed data; no mission records are required.
 
 ### Additional concepts kept out of the required mission card
 
@@ -6808,52 +6916,49 @@ closed-padlock icon; this bar can no longer fall.
 
 ### Review question 1
 
-**Prompt - exact player copy:** In a follow-up to The Saboteur, freeze the accusation built from the visible runs, then test it on the hidden hot interval to see whether it predicts unseen evidence. Which interpretation of the displayed evidence correctly uses the mission concept?
+
+**Prompt - exact player copy:** The predictions were frozen before the plotted test observations were revealed. Why is this comparison useful?
 
 **Figure - exact player copy:**
 
 ```json
 {
   "kind": "line",
-  "xLabel": "Time (h)",
-  "yLabel": "Water level (m)",
-  "caption": "A fitted model is compared with later holdout measurements.",
+  "xLabel": "Input",
+  "yLabel": "Response (units)",
+  "caption": "Predictions fixed before test observations were revealed",
   "series": [
     {
-      "name": "Model",
+      "name": "Frozen prediction",
       "points": [
         [
           0,
-          10
+          2
         ],
         [
           1,
-          12
+          4
         ],
         [
           2,
-          15
-        ],
-        [
-          3,
-          19
-        ],
-        [
-          4,
-          24
+          6
         ]
       ]
     },
     {
-      "name": "Holdout",
+      "name": "Held-out observation",
       "points": [
         [
-          3,
-          20
+          0,
+          2.1
         ],
         [
-          4,
-          27
+          1,
+          3.9
+        ],
+        [
+          2,
+          6.2
         ]
       ]
     }
@@ -6861,6 +6966,28 @@ closed-padlock icon; this bar can no longer fall.
 }
 ```
 
+**Options - exact player copy:**
+
+- A. It proves the model is exact for all possible inputs.
+- B. It makes the test observations part of the training data retroactively.
+- C. It removes all uncertainty from the observations.
+- D. It tests prediction on data that did not set the model.
+
+**Correct answer:** D
+
+**Hint - exact player copy:** Ask whether the model could have been tuned to these test values.
+
+**Option feedback - exact player copy:**
+
+- A: Agreement at these inputs cannot establish universal correctness.
+- B: The prediction was fixed without using these observations.
+- C: Withholding data does not eliminate measurement uncertainty.
+- D: Correct. It tests prediction on data that did not set the model.
+
+### Review question 2
+
+
+**Prompt - exact player copy:** Which statement best explains systematic pattern?
 
 **Options - exact player copy:**
 
@@ -6869,19 +6996,21 @@ closed-padlock icon; this bar can no longer fall.
 - C. States which physical event occurred first and which changes followed. Timing alone does not prove cause, but a cause cannot occur after its effect.
 - D. A simplified explanation that makes testable predictions. A model is useful only where its predictions survive evidence it did not use for fitting.
 
-**Correct answer:** B
+**Correct answer:** A
 
-**Hint - exact player copy:** Read the axes, units, direction, and any threshold before comparing the choices.
+**Hint - exact player copy:** Identify the defining relationship or mechanism for systematic pattern. All needed information is in this question.
 
 **Option feedback - exact player copy:**
 
-- A: This describes Systematic pattern, not Holdout data. It does not account for the quantities, conditions, or evidence in this chemistry case.
-- B: Correct. measurements kept hidden while a model is chosen. Revealing them tests whether the model predicts rather than memorizes known observations.
-- C: This describes Causal order, not Holdout data. It does not account for the quantities, conditions, or evidence in this chemistry case.
-- D: This describes Model, not Holdout data. It does not account for the quantities, conditions, or evidence in this chemistry case.
-### Review question 2
+- A: Correct. An error that repeats with condition, place, or time. It is more dangerous than random scatter when it occurs near a safety limit.
+- B: This describes holdout data. It does not answer the question about systematic pattern.
+- C: This describes causal order. It does not answer the question about systematic pattern.
+- D: This describes model. It does not answer the question about systematic pattern.
 
-**Prompt - exact player copy:** the Mars return mission receives a second case related to The Saboteur: freeze the accusation built from the visible runs, then test it on the hidden hot interval to see whether it predicts unseen evidence. Which calculation or chemical interpretation correctly applies Systematic pattern?
+### Review question 3
+
+
+**Prompt - exact player copy:** Which statement best explains causal order?
 
 **Options - exact player copy:**
 
@@ -6890,19 +7019,21 @@ closed-padlock icon; this bar can no longer fall.
 - C. An error that repeats with condition, place, or time. It is more dangerous than random scatter when it occurs near a safety limit.
 - D. A simplified explanation that makes testable predictions. A model is useful only where its predictions survive evidence it did not use for fitting.
 
-**Correct answer:** C
+**Correct answer:** B
 
-**Hint - exact player copy:** Use the stated evidence and the conditions for Systematic pattern; do not choose an option merely because it names a familiar term.
+**Hint - exact player copy:** Identify the defining relationship or mechanism for causal order. All needed information is in this question.
 
 **Option feedback - exact player copy:**
 
-- A: This describes Holdout data, not Systematic pattern. It does not account for the quantities, conditions, or evidence in this chemistry case.
-- B: This describes Causal order, not Systematic pattern. It does not account for the quantities, conditions, or evidence in this chemistry case.
-- C: Correct. an error that repeats with condition, place, or time. It is more dangerous than random scatter when it occurs near a safety limit.
-- D: This describes Model, not Systematic pattern. It does not account for the quantities, conditions, or evidence in this chemistry case.
-### Review question 3
+- A: This describes holdout data. It does not answer the question about causal order.
+- B: Correct. States which physical event occurred first and which changes followed. Timing alone does not prove cause, but a cause cannot occur after its effect.
+- C: This describes systematic pattern. It does not answer the question about causal order.
+- D: This describes model. It does not answer the question about causal order.
 
-**Prompt - exact player copy:** A teammate rechecks The Saboteur using new evidence: reconstruct the chain from radiator loss through override and production fall to determine whether Herrera created or interrupted the danger. Match the evidence to the live explanations now so the investigation carries forward only supported claims. Which calculation or chemical interpretation correctly applies Causal order?
+### Review question 4
+
+
+**Prompt - exact player copy:** Which statement best explains model?
 
 **Options - exact player copy:**
 
@@ -6911,131 +7042,103 @@ closed-padlock icon; this bar can no longer fall.
 - C. A simplified explanation that makes testable predictions. A model is useful only where its predictions survive evidence it did not use for fitting.
 - D. States which physical event occurred first and which changes followed. Timing alone does not prove cause, but a cause cannot occur after its effect.
 
-**Correct answer:** D
+**Correct answer:** C
 
-**Hint - exact player copy:** Use the stated evidence and the conditions for Causal order; do not choose an option merely because it names a familiar term.
-
-**Option feedback - exact player copy:**
-
-- A: This describes Holdout data, not Causal order. It does not account for the quantities, conditions, or evidence in this chemistry case.
-- B: This describes Systematic pattern, not Causal order. It does not account for the quantities, conditions, or evidence in this chemistry case.
-- C: This describes Model, not Causal order. It does not account for the quantities, conditions, or evidence in this chemistry case.
-- D: Correct. states which physical event occurred first and which changes followed. Timing alone does not prove cause, but a cause cannot occur after its effect.
-### Review question 4
-
-**Prompt - exact player copy:** An unseen case extends The Saboteur: freeze the accusation built from the visible runs, then test it on the hidden hot interval to see whether it predicts unseen evidence. Which calculation or chemical interpretation correctly applies Model?
-
-**Options - exact player copy:**
-
-- A. A simplified explanation that makes testable predictions. A model is useful only where its predictions survive evidence it did not use for fitting.
-- B. Measurements kept hidden while a model is chosen. Revealing them tests whether the model predicts rather than memorizes known observations.
-- C. An error that repeats with condition, place, or time. It is more dangerous than random scatter when it occurs near a safety limit.
-- D. States which physical event occurred first and which changes followed. Timing alone does not prove cause, but a cause cannot occur after its effect.
-
-**Correct answer:** A
-
-**Hint - exact player copy:** Use the stated evidence and the conditions for Model; do not choose an option merely because it names a familiar term.
+**Hint - exact player copy:** Identify the defining relationship or mechanism for model. All needed information is in this question.
 
 **Option feedback - exact player copy:**
 
-- A: Correct. a simplified explanation that makes testable predictions. A model is useful only where its predictions survive evidence it did not use for fitting.
-- B: This describes Holdout data, not Model. It does not account for the quantities, conditions, or evidence in this chemistry case.
-- C: This describes Systematic pattern, not Model. It does not account for the quantities, conditions, or evidence in this chemistry case.
-- D: This describes Causal order, not Model. It does not account for the quantities, conditions, or evidence in this chemistry case.
+- A: This describes holdout data. It does not answer the question about model.
+- B: This describes systematic pattern. It does not answer the question about model.
+- C: Correct. A simplified explanation that makes testable predictions. A model is useful only where its predictions survive evidence it did not use for fitting.
+- D: This describes causal order. It does not answer the question about model.
+
 ### Review question 5
 
-**Prompt - exact player copy:** Before another Saboteur decision, the team knows this: freeze the accusation built from the visible runs, then test it on the hidden hot interval to see whether it predicts unseen evidence. Which interpretation of the displayed evidence correctly uses the mission concept?
+
+**Prompt - exact player copy:** A model has the residuals shown. Residual means observed value minus predicted value. Which conclusion best fits the pattern?
 
 **Figure - exact player copy:**
 
 ```json
 {
   "kind": "line",
-  "xLabel": "Ordered observation",
-  "yLabel": "Residual",
-  "caption": "Residuals reveal whether error is random or structured.",
+  "xLabel": "Input value",
+  "yLabel": "Observed minus predicted (units)",
+  "caption": "Residuals from a fitted model",
   "series": [
     {
       "name": "Residual",
       "points": [
         [
           0,
-          1.5
+          0
         ],
         [
           1,
-          -1.2
+          2
         ],
         [
           2,
-          1.0
+          4
         ],
         [
           3,
-          -0.8
+          6
         ],
         [
           4,
-          0.6
-        ],
-        [
-          5,
-          -0.4
-        ],
-        [
-          6,
-          0.2
+          8
         ]
       ]
     }
-  ],
-  "limit": {
-    "at": 0,
-    "label": "Zero residual"
-  }
+  ]
 }
 ```
 
+**Options - exact player copy:**
+
+- A. The model increasingly overpredicts.
+- B. The errors have no relation to the input.
+- C. The model fits every observation exactly.
+- D. The model increasingly underpredicts as the input grows.
+
+**Correct answer:** D
+
+**Hint - exact player copy:** Use the sign of observed minus predicted and check for a pattern.
+
+**Option feedback - exact player copy:**
+
+- A: Positive residuals mean observations exceed predictions, not the reverse.
+- B: Residuals rise systematically with the input.
+- C: An exact fit would have zero residual at every point.
+- D: Correct. The model increasingly underpredicts as the input grows.
+
+### Review question 6
+
+
+**Prompt - exact player copy:** Which statement best explains sensor bias?
 
 **Options - exact player copy:**
 
-- A. Measurements kept hidden while a model is chosen. Revealing them tests whether the model predicts rather than memorizes known observations.
-- B. The measured value minus the model's predicted value. A repeated pattern in residuals can reveal a missing cause even when average error is small.
+- A. A measurement error that tends to shift readings in one direction. Stressing the allowed bias shows whether a safety decision is robust.
+- B. Measurements kept hidden while a model is chosen. Revealing them tests whether the model predicts rather than memorizes known observations.
 - C. An error that repeats with condition, place, or time. It is more dangerous than random scatter when it occurs near a safety limit.
 - D. States which physical event occurred first and which changes followed. Timing alone does not prove cause, but a cause cannot occur after its effect.
 
-**Correct answer:** B
+**Correct answer:** A
 
-**Hint - exact player copy:** Read the axes, units, direction, and any threshold before comparing the choices.
-
-**Option feedback - exact player copy:**
-
-- A: This describes Holdout data, not Residual. It does not account for the quantities, conditions, or evidence in this chemistry case.
-- B: Correct. the measured value minus the model's predicted value. A repeated pattern in residuals can reveal a missing cause even when average error is small.
-- C: This describes Systematic pattern, not Residual. It does not account for the quantities, conditions, or evidence in this chemistry case.
-- D: This describes Causal order, not Residual. It does not account for the quantities, conditions, or evidence in this chemistry case.
-### Review question 6
-
-**Prompt - exact player copy:** the Mars return mission applies the lesson from The Saboteur to this follow-up: move the sensor bias across its allowed range to decide whether the old setting remains safe when the temperature reading is slightly wrong. Test the conclusion across the supported uncertainty range now, before the team treats it as robust. Which calculation or chemical interpretation correctly applies Sensor bias?
-
-**Options - exact player copy:**
-
-- A. Measurements kept hidden while a model is chosen. Revealing them tests whether the model predicts rather than memorizes known observations.
-- B. An error that repeats with condition, place, or time. It is more dangerous than random scatter when it occurs near a safety limit.
-- C. A measurement error that tends to shift readings in one direction. Stressing the allowed bias shows whether a safety decision is robust.
-- D. States which physical event occurred first and which changes followed. Timing alone does not prove cause, but a cause cannot occur after its effect.
-
-**Correct answer:** C
-
-**Hint - exact player copy:** Use the stated evidence and the conditions for Sensor bias; do not choose an option merely because it names a familiar term.
+**Hint - exact player copy:** Identify the defining relationship or mechanism for sensor bias. All needed information is in this question.
 
 **Option feedback - exact player copy:**
 
-- A: This describes Holdout data, not Sensor bias. It does not account for the quantities, conditions, or evidence in this chemistry case.
-- B: This describes Systematic pattern, not Sensor bias. It does not account for the quantities, conditions, or evidence in this chemistry case.
-- C: Correct. a measurement error that tends to shift readings in one direction. Stressing the allowed bias shows whether a safety decision is robust.
-- D: This describes Causal order, not Sensor bias. It does not account for the quantities, conditions, or evidence in this chemistry case.
-**Optional review completion - exact player copy:** Excellent work. You went beyond the required mission and strengthened the ideas behind your decision.
+- A: Correct. A measurement error that tends to shift readings in one direction. Stressing the allowed bias shows whether a safety decision is robust.
+- B: This describes holdout data. It does not answer the question about sensor bias.
+- C: This describes systematic pattern. It does not answer the question about sensor bias.
+- D: This describes causal order. It does not answer the question about sensor bias.
+
+**Optional review completion - exact player copy:** Good work. You have completed six independent practice questions.
+
 ## Quick concept review
 
 - Holdout data tests whether a model predicts evidence it did not fit.
@@ -7542,7 +7645,7 @@ awarded. Spend: Power +6. Result: METHANE 94% \| OXYGEN 86% \| POWER
 
 **Availability:** Reveal only after mission completion when the player selects **GO DEEPER**. This section is optional, ungraded for campaign progress, and does not change metrics, Recovery Points, or the next-mission unlock.
 
-**Secondary briefing card - exact player copy:** You completed Fast Is Not the Same as More. Choose GO DEEPER to revisit the four decisions and explore related course ideas; this optional review does not change your metrics or delay the next mission.
+**Secondary briefing card - exact player copy:** Try six independent practice questions. Each includes its own context and any needed data; no mission records are required.
 
 ### Additional concepts kept out of the required mission card
 
@@ -7552,7 +7655,8 @@ awarded. Spend: Power +6. Result: METHANE 94% \| OXYGEN 86% \| POWER
 
 ### Review question 1
 
-**Prompt - exact player copy:** In a follow-up to Fast Is Not the Same as More, to replace the unsafe setting, first write the equilibrium expression that describes the final balance among the four Sabatier gases. The next action depends on selecting the conclusion that fits all of those facts. Which calculation or chemical interpretation correctly applies Dynamic equilibrium?
+
+**Prompt - exact player copy:** Which statement best explains dynamic equilibrium?
 
 **Options - exact player copy:**
 
@@ -7563,17 +7667,19 @@ awarded. Spend: Power +6. Result: METHANE 94% \| OXYGEN 86% \| POWER
 
 **Correct answer:** B
 
-**Hint - exact player copy:** Use the stated evidence and the conditions for Dynamic equilibrium; do not choose an option merely because it names a familiar term.
+**Hint - exact player copy:** Identify the defining relationship or mechanism for dynamic equilibrium. All needed information is in this question.
 
 **Option feedback - exact player copy:**
 
-- A: This describes Le Chatelier's principle, not Dynamic equilibrium. It does not account for the quantities, conditions, or evidence in this chemistry case.
-- B: Correct. a state where forward and reverse reactions continue at equal rates. The amounts remain steady even though particles still react.
-- C: This describes Degeneracy, not Dynamic equilibrium. It does not account for the quantities, conditions, or evidence in this chemistry case.
-- D: This describes Equilibrium constant, not Dynamic equilibrium. It does not account for the quantities, conditions, or evidence in this chemistry case.
+- A: This describes le Chatelier's principle. It does not answer the question about dynamic equilibrium.
+- B: Correct. A state where forward and reverse reactions continue at equal rates. The amounts remain steady even though particles still react.
+- C: This describes degeneracy. It does not answer the question about dynamic equilibrium.
+- D: This describes equilibrium constant. It does not answer the question about dynamic equilibrium.
+
 ### Review question 2
 
-**Prompt - exact player copy:** the Mars return mission receives a second case related to Fast Is Not the Same as More: to replace the unsafe setting, first write the equilibrium expression that describes the final balance among the four Sabatier gases. The next action depends on selecting the conclusion that fits all of those facts. Which calculation or chemical interpretation correctly applies Le Chatelier's principle?
+
+**Prompt - exact player copy:** Which statement best explains le Chatelier's principle?
 
 **Options - exact player copy:**
 
@@ -7584,17 +7690,19 @@ awarded. Spend: Power +6. Result: METHANE 94% \| OXYGEN 86% \| POWER
 
 **Correct answer:** C
 
-**Hint - exact player copy:** Use the stated evidence and the conditions for Le Chatelier's principle; do not choose an option merely because it names a familiar term.
+**Hint - exact player copy:** Identify the defining relationship or mechanism for le chatelier's principle. All needed information is in this question.
 
 **Option feedback - exact player copy:**
 
-- A: This describes Dynamic equilibrium, not Le Chatelier's principle. It does not account for the quantities, conditions, or evidence in this chemistry case.
-- B: This describes Degeneracy, not Le Chatelier's principle. It does not account for the quantities, conditions, or evidence in this chemistry case.
-- C: Correct. predicts how an equilibrium system responds to a changed condition. The response reduces part of the imposed change but does not restore every original value.
-- D: This describes Equilibrium constant, not Le Chatelier's principle. It does not account for the quantities, conditions, or evidence in this chemistry case.
+- A: This describes dynamic equilibrium. It does not answer the question about le chatelier's principle.
+- B: This describes degeneracy. It does not answer the question about le chatelier's principle.
+- C: Correct. Predicts how an equilibrium system responds to a changed condition. The response reduces part of the imposed change but does not restore every original value.
+- D: This describes equilibrium constant. It does not answer the question about le chatelier's principle.
+
 ### Review question 3
 
-**Prompt - exact player copy:** A teammate rechecks Fast Is Not the Same as More using new evidence: to replace the unsafe setting, first write the equilibrium expression that describes the final balance among the four Sabatier gases. The next action depends on selecting the conclusion that fits all of those facts. Which calculation or chemical interpretation correctly applies Degeneracy?
+
+**Prompt - exact player copy:** Which statement best explains degeneracy?
 
 **Options - exact player copy:**
 
@@ -7605,17 +7713,19 @@ awarded. Spend: Power +6. Result: METHANE 94% \| OXYGEN 86% \| POWER
 
 **Correct answer:** D
 
-**Hint - exact player copy:** Use the stated evidence and the conditions for Degeneracy; do not choose an option merely because it names a familiar term.
+**Hint - exact player copy:** Identify the defining relationship or mechanism for degeneracy. All needed information is in this question.
 
 **Option feedback - exact player copy:**
 
-- A: This describes Dynamic equilibrium, not Degeneracy. It does not account for the quantities, conditions, or evidence in this chemistry case.
-- B: This describes Le Chatelier's principle, not Degeneracy. It does not account for the quantities, conditions, or evidence in this chemistry case.
-- C: This describes Equilibrium constant, not Degeneracy. It does not account for the quantities, conditions, or evidence in this chemistry case.
-- D: Correct. occurs when two different explanations or plans match the same current evidence. A new physical constraint or measurement is needed to separate them.
+- A: This describes dynamic equilibrium. It does not answer the question about degeneracy.
+- B: This describes le Chatelier's principle. It does not answer the question about degeneracy.
+- C: This describes equilibrium constant. It does not answer the question about degeneracy.
+- D: Correct. Occurs when two different explanations or plans match the same current evidence. A new physical constraint or measurement is needed to separate them.
+
 ### Review question 4
 
-**Prompt - exact player copy:** An unseen case extends Fast Is Not the Same as More: to replace the unsafe setting, first write the equilibrium expression that describes the final balance among the four Sabatier gases. The next action depends on selecting the conclusion that fits all of those facts. Which calculation or chemical interpretation correctly applies Equilibrium constant?
+
+**Prompt - exact player copy:** Which statement best explains equilibrium constant?
 
 **Options - exact player copy:**
 
@@ -7626,17 +7736,19 @@ awarded. Spend: Power +6. Result: METHANE 94% \| OXYGEN 86% \| POWER
 
 **Correct answer:** A
 
-**Hint - exact player copy:** Use the stated evidence and the conditions for Equilibrium constant; do not choose an option merely because it names a familiar term.
+**Hint - exact player copy:** Identify the defining relationship or mechanism for equilibrium constant. All needed information is in this question.
 
 **Option feedback - exact player copy:**
 
-- A: Correct. compares product and reactant concentrations at equilibrium for one temperature. Its value changes when temperature changes.
-- B: This describes Dynamic equilibrium, not Equilibrium constant. It does not account for the quantities, conditions, or evidence in this chemistry case.
-- C: This describes Le Chatelier's principle, not Equilibrium constant. It does not account for the quantities, conditions, or evidence in this chemistry case.
-- D: This describes Degeneracy, not Equilibrium constant. It does not account for the quantities, conditions, or evidence in this chemistry case.
+- A: Correct. Compares product and reactant concentrations at equilibrium for one temperature. Its value changes when temperature changes.
+- B: This describes dynamic equilibrium. It does not answer the question about equilibrium constant.
+- C: This describes le Chatelier's principle. It does not answer the question about equilibrium constant.
+- D: This describes degeneracy. It does not answer the question about equilibrium constant.
+
 ### Review question 5
 
-**Prompt - exact player copy:** Before another Fast Is Not the Same as More decision, the team knows this: to replace the unsafe setting, first write the equilibrium expression that describes the final balance among the four Sabatier gases. The next action depends on selecting the conclusion that fits all of those facts. Which calculation or chemical interpretation correctly applies Reaction quotient?
+
+**Prompt - exact player copy:** Which statement best explains reaction quotient?
 
 **Options - exact player copy:**
 
@@ -7647,17 +7759,19 @@ awarded. Spend: Power +6. Result: METHANE 94% \| OXYGEN 86% \| POWER
 
 **Correct answer:** B
 
-**Hint - exact player copy:** Use the stated evidence and the conditions for Reaction quotient; do not choose an option merely because it names a familiar term.
+**Hint - exact player copy:** Identify the defining relationship or mechanism for reaction quotient. All needed information is in this question.
 
 **Option feedback - exact player copy:**
 
-- A: This describes Dynamic equilibrium, not Reaction quotient. It does not account for the quantities, conditions, or evidence in this chemistry case.
-- B: Correct. uses the same concentration form as the equilibrium constant but can be calculated before equilibrium. Comparing Q with K predicts the direction of net change.
-- C: This describes Le Chatelier's principle, not Reaction quotient. It does not account for the quantities, conditions, or evidence in this chemistry case.
-- D: This describes Degeneracy, not Reaction quotient. It does not account for the quantities, conditions, or evidence in this chemistry case.
+- A: This describes dynamic equilibrium. It does not answer the question about reaction quotient.
+- B: Correct. Uses the same concentration form as the equilibrium constant but can be calculated before equilibrium. Comparing Q with K predicts the direction of net change.
+- C: This describes le Chatelier's principle. It does not answer the question about reaction quotient.
+- D: This describes degeneracy. It does not answer the question about reaction quotient.
+
 ### Review question 6
 
-**Prompt - exact player copy:** the Mars return mission applies the lesson from Fast Is Not the Same as More to this follow-up: use the measured changes in an ICE table to calculate the current equilibrium and the methane-yield ceiling at the safe temperature. Which calculation or chemical interpretation correctly applies Initial-change-equilibrium (ICE) table?
+
+**Prompt - exact player copy:** Which statement best explains initial-change-equilibrium (ICE) table?
 
 **Options - exact player copy:**
 
@@ -7668,15 +7782,17 @@ awarded. Spend: Power +6. Result: METHANE 94% \| OXYGEN 86% \| POWER
 
 **Correct answer:** C
 
-**Hint - exact player copy:** Use the stated evidence and the conditions for Initial-change-equilibrium (ICE) table; do not choose an option merely because it names a familiar term.
+**Hint - exact player copy:** Identify the defining relationship or mechanism for initial-change-equilibrium (ice) table. All needed information is in this question.
 
 **Option feedback - exact player copy:**
 
-- A: This describes Dynamic equilibrium, not Initial-change-equilibrium (ICE) table. It does not account for the quantities, conditions, or evidence in this chemistry case.
-- B: This describes Le Chatelier's principle, not Initial-change-equilibrium (ICE) table. It does not account for the quantities, conditions, or evidence in this chemistry case.
-- C: Correct. organizes initial concentrations, their linked changes, and equilibrium concentrations. One reaction extent controls every change through the balanced coefficients.
-- D: This describes Degeneracy, not Initial-change-equilibrium (ICE) table. It does not account for the quantities, conditions, or evidence in this chemistry case.
-**Optional review completion - exact player copy:** Excellent work. You went beyond the required mission and strengthened the ideas behind your decision.
+- A: This describes dynamic equilibrium. It does not answer the question about initial-change-equilibrium (ice) table.
+- B: This describes le Chatelier's principle. It does not answer the question about initial-change-equilibrium (ice) table.
+- C: Correct. Organizes initial concentrations, their linked changes, and equilibrium concentrations. One reaction extent controls every change through the balanced coefficients.
+- D: This describes degeneracy. It does not answer the question about initial-change-equilibrium (ice) table.
+
+**Optional review completion - exact player copy:** Good work. You have completed six independent practice questions.
+
 ## Quick concept review
 
 - K describes an equilibrium ratio at a particular temperature.
@@ -8163,7 +8279,7 @@ awarded. Spend: Power +8. Result: METHANE 100% \| OXYGEN 91% \| POWER
 
 **Availability:** Reveal only after mission completion when the player selects **GO DEEPER**. This section is optional, ungraded for campaign progress, and does not change metrics, Recovery Points, or the next-mission unlock.
 
-**Secondary briefing card - exact player copy:** You completed The Loop. Choose GO DEEPER to revisit the four decisions and explore related course ideas; this optional review does not change your metrics or delay the next mission.
+**Secondary briefing card - exact player copy:** Try six independent practice questions. Each includes its own context and any needed data; no mission records are required.
 
 ### Additional concepts kept out of the required mission card
 
@@ -8175,131 +8291,144 @@ awarded. Spend: Power +8. Result: METHANE 100% \| OXYGEN 91% \| POWER
 
 ### Review question 1
 
-**Prompt - exact player copy:** In a follow-up to The Loop, trace water from Martian ice through cleanup, electrolysis, the reactor, and return to locate every link that must close before hydrogen can be replenished. Build the causal path now so the crew knows which step changes the material or signal before it reaches the next location. Which calculation or chemical interpretation correctly applies Coupled system?
+
+**Prompt - exact player copy:** Which statement best explains coupled system?
 
 **Options - exact player copy:**
 
-- A. Returns useful material to an earlier process instead of discarding it. The plant returns water so it can recover hydrogen and oxygen.
+- A. Returns useful material to an earlier process instead of discarding it. For example, water can be returned to an electrolyzer to recover hydrogen and oxygen.
+- B. The reaction of acid and base amounts. Equal reactive amounts remove each other; any excess determines the final acidity.
+- C. Reports the power needed to produce a number from a chosen base. For pH, a change of one unit means a tenfold change in hydrogen-ion concentration.
+- D. Contains parts whose outputs become other parts' inputs. A fault can appear far from the place where its missing material was first noticed.
+
+**Correct answer:** D
+
+**Hint - exact player copy:** Identify the defining relationship or mechanism for coupled system. All needed information is in this question.
+
+**Option feedback - exact player copy:**
+
+- A: This describes recycle loop. It does not answer the question about coupled system.
+- B: This describes neutralization. It does not answer the question about coupled system.
+- C: This describes logarithm. It does not answer the question about coupled system.
+- D: Correct. Contains parts whose outputs become other parts' inputs. A fault can appear far from the place where its missing material was first noticed.
+
+### Review question 2
+
+
+**Prompt - exact player copy:** Which statement best explains recycle loop?
+
+**Options - exact player copy:**
+
+- A. Returns useful material to an earlier process instead of discarding it. For example, water can be returned to an electrolyzer to recover hydrogen and oxygen.
 - B. Contains parts whose outputs become other parts' inputs. A fault can appear far from the place where its missing material was first noticed.
 - C. The reaction of acid and base amounts. Equal reactive amounts remove each other; any excess determines the final acidity.
 - D. Reports the power needed to produce a number from a chosen base. For pH, a change of one unit means a tenfold change in hydrogen-ion concentration.
 
-**Correct answer:** B
+**Correct answer:** A
 
-**Hint - exact player copy:** Use the stated evidence and the conditions for Coupled system; do not choose an option merely because it names a familiar term.
+**Hint - exact player copy:** Identify the defining relationship or mechanism for recycle loop. All needed information is in this question.
 
 **Option feedback - exact player copy:**
 
-- A: This describes Recycle loop, not Coupled system. It does not account for the quantities, conditions, or evidence in this chemistry case.
-- B: Correct. contains parts whose outputs become other parts' inputs. A fault can appear far from the place where its missing material was first noticed.
-- C: This describes Neutralization, not Coupled system. It does not account for the quantities, conditions, or evidence in this chemistry case.
-- D: This describes Logarithm, not Coupled system. It does not account for the quantities, conditions, or evidence in this chemistry case.
-### Review question 2
+- A: Correct. Returns useful material to an earlier process instead of discarding it. For example, water can be returned to an electrolyzer to recover hydrogen and oxygen.
+- B: This describes coupled system. It does not answer the question about recycle loop.
+- C: This describes neutralization. It does not answer the question about recycle loop.
+- D: This describes logarithm. It does not answer the question about recycle loop.
 
-**Prompt - exact player copy:** the Mars return mission receives a second case related to The Loop: trace water from Martian ice through cleanup, electrolysis, the reactor, and return to locate every link that must close before hydrogen can be replenished. Build the causal path now so the crew knows which step changes the material or signal before it reaches the next location. Which calculation or chemical interpretation correctly applies Recycle loop?
+### Review question 3
+
+
+**Prompt - exact player copy:** Which statement best explains neutralization?
 
 **Options - exact player copy:**
 
 - A. Contains parts whose outputs become other parts' inputs. A fault can appear far from the place where its missing material was first noticed.
 - B. The reaction of acid and base amounts. Equal reactive amounts remove each other; any excess determines the final acidity.
-- C. Returns useful material to an earlier process instead of discarding it. The plant returns water so it can recover hydrogen and oxygen.
+- C. Returns useful material to an earlier process instead of discarding it. For example, water can be returned to an electrolyzer to recover hydrogen and oxygen.
 - D. Reports the power needed to produce a number from a chosen base. For pH, a change of one unit means a tenfold change in hydrogen-ion concentration.
 
-**Correct answer:** C
+**Correct answer:** B
 
-**Hint - exact player copy:** Use the stated evidence and the conditions for Recycle loop; do not choose an option merely because it names a familiar term.
+**Hint - exact player copy:** Identify the defining relationship or mechanism for neutralization. All needed information is in this question.
 
 **Option feedback - exact player copy:**
 
-- A: This describes Coupled system, not Recycle loop. It does not account for the quantities, conditions, or evidence in this chemistry case.
-- B: This describes Neutralization, not Recycle loop. It does not account for the quantities, conditions, or evidence in this chemistry case.
-- C: Correct. returns useful material to an earlier process instead of discarding it. The plant returns water so it can recover hydrogen and oxygen.
-- D: This describes Logarithm, not Recycle loop. It does not account for the quantities, conditions, or evidence in this chemistry case.
-### Review question 3
+- A: This describes coupled system. It does not answer the question about neutralization.
+- B: Correct. The reaction of acid and base amounts. Equal reactive amounts remove each other; any excess determines the final acidity.
+- C: This describes recycle loop. It does not answer the question about neutralization.
+- D: This describes logarithm. It does not answer the question about neutralization.
 
-**Prompt - exact player copy:** A teammate rechecks The Loop using new evidence: trace water from Martian ice through cleanup, electrolysis, the reactor, and return to locate every link that must close before hydrogen can be replenished. Build the causal path now so the crew knows which step changes the material or signal before it reaches the next location. Which calculation or chemical interpretation correctly applies Neutralization?
+### Review question 4
+
+
+**Prompt - exact player copy:** Which statement best explains logarithm?
 
 **Options - exact player copy:**
 
 - A. Contains parts whose outputs become other parts' inputs. A fault can appear far from the place where its missing material was first noticed.
-- B. Returns useful material to an earlier process instead of discarding it. The plant returns water so it can recover hydrogen and oxygen.
+- B. Returns useful material to an earlier process instead of discarding it. For example, water can be returned to an electrolyzer to recover hydrogen and oxygen.
 - C. Reports the power needed to produce a number from a chosen base. For pH, a change of one unit means a tenfold change in hydrogen-ion concentration.
 - D. The reaction of acid and base amounts. Equal reactive amounts remove each other; any excess determines the final acidity.
 
-**Correct answer:** D
+**Correct answer:** C
 
-**Hint - exact player copy:** Use the stated evidence and the conditions for Neutralization; do not choose an option merely because it names a familiar term.
+**Hint - exact player copy:** Identify the defining relationship or mechanism for logarithm. All needed information is in this question.
 
 **Option feedback - exact player copy:**
 
-- A: This describes Coupled system, not Neutralization. It does not account for the quantities, conditions, or evidence in this chemistry case.
-- B: This describes Recycle loop, not Neutralization. It does not account for the quantities, conditions, or evidence in this chemistry case.
-- C: This describes Logarithm, not Neutralization. It does not account for the quantities, conditions, or evidence in this chemistry case.
-- D: Correct. the reaction of acid and base amounts. Equal reactive amounts remove each other; any excess determines the final acidity.
-### Review question 4
+- A: This describes coupled system. It does not answer the question about logarithm.
+- B: This describes recycle loop. It does not answer the question about logarithm.
+- C: Correct. Reports the power needed to produce a number from a chosen base. For pH, a change of one unit means a tenfold change in hydrogen-ion concentration.
+- D: This describes neutralization. It does not answer the question about logarithm.
 
-**Prompt - exact player copy:** An unseen case extends The Loop: trace water from Martian ice through cleanup, electrolysis, the reactor, and return to locate every link that must close before hydrogen can be replenished. Build the causal path now so the crew knows which step changes the material or signal before it reaches the next location. Which calculation or chemical interpretation correctly applies Logarithm?
+### Review question 5
+
+
+**Prompt - exact player copy:** Which statement best explains inventory?
 
 **Options - exact player copy:**
 
-- A. Reports the power needed to produce a number from a chosen base. For pH, a change of one unit means a tenfold change in hydrogen-ion concentration.
+- A. Contains parts whose outputs become other parts' inputs. A fault can appear far from the place where its missing material was first noticed.
+- B. Returns useful material to an earlier process instead of discarding it. For example, water can be returned to an electrolyzer to recover hydrogen and oxygen.
+- C. The reaction of acid and base amounts. Equal reactive amounts remove each other; any excess determines the final acidity.
+- D. The amount of material stored in a system at a chosen time. A whole-plant inventory includes material moving between rooms as well as material in tanks.
+
+**Correct answer:** D
+
+**Hint - exact player copy:** Identify the defining relationship or mechanism for inventory. All needed information is in this question.
+
+**Option feedback - exact player copy:**
+
+- A: This describes coupled system. It does not answer the question about inventory.
+- B: This describes recycle loop. It does not answer the question about inventory.
+- C: This describes neutralization. It does not answer the question about inventory.
+- D: Correct. The amount of material stored in a system at a chosen time. A whole-plant inventory includes material moving between rooms as well as material in tanks.
+
+### Review question 6
+
+
+**Prompt - exact player copy:** Which statement best explains electrolysis?
+
+**Options - exact player copy:**
+
+- A. Uses electrical energy to drive a chemical change that would not proceed on its own. Splitting water into hydrogen and oxygen is one example.
 - B. Contains parts whose outputs become other parts' inputs. A fault can appear far from the place where its missing material was first noticed.
-- C. Returns useful material to an earlier process instead of discarding it. The plant returns water so it can recover hydrogen and oxygen.
+- C. Returns useful material to an earlier process instead of discarding it. For example, water can be returned to an electrolyzer to recover hydrogen and oxygen.
 - D. The reaction of acid and base amounts. Equal reactive amounts remove each other; any excess determines the final acidity.
 
 **Correct answer:** A
 
-**Hint - exact player copy:** Use the stated evidence and the conditions for Logarithm; do not choose an option merely because it names a familiar term.
+**Hint - exact player copy:** Identify the defining relationship or mechanism for electrolysis. All needed information is in this question.
 
 **Option feedback - exact player copy:**
 
-- A: Correct. reports the power needed to produce a number from a chosen base. For pH, a change of one unit means a tenfold change in hydrogen-ion concentration.
-- B: This describes Coupled system, not Logarithm. It does not account for the quantities, conditions, or evidence in this chemistry case.
-- C: This describes Recycle loop, not Logarithm. It does not account for the quantities, conditions, or evidence in this chemistry case.
-- D: This describes Neutralization, not Logarithm. It does not account for the quantities, conditions, or evidence in this chemistry case.
-### Review question 5
+- A: Correct. Uses electrical energy to drive a chemical change that would not proceed on its own. Splitting water into hydrogen and oxygen is one example.
+- B: This describes coupled system. It does not answer the question about electrolysis.
+- C: This describes recycle loop. It does not answer the question about electrolysis.
+- D: This describes neutralization. It does not answer the question about electrolysis.
 
-**Prompt - exact player copy:** Before another Loop decision, the team knows this: with clean water flowing, total hydrogen across the entire plant to identify the missing return and close the recycling loop. Close the ledger now so the next decision uses every real input and output exactly once. Which calculation or chemical interpretation correctly applies Inventory?
+**Optional review completion - exact player copy:** Good work. You have completed six independent practice questions.
 
-**Options - exact player copy:**
-
-- A. Contains parts whose outputs become other parts' inputs. A fault can appear far from the place where its missing material was first noticed.
-- B. The amount of material stored in a system at a chosen time. A whole-plant inventory includes material moving between rooms as well as material in tanks.
-- C. Returns useful material to an earlier process instead of discarding it. The plant returns water so it can recover hydrogen and oxygen.
-- D. The reaction of acid and base amounts. Equal reactive amounts remove each other; any excess determines the final acidity.
-
-**Correct answer:** B
-
-**Hint - exact player copy:** Use the stated evidence and the conditions for Inventory; do not choose an option merely because it names a familiar term.
-
-**Option feedback - exact player copy:**
-
-- A: This describes Coupled system, not Inventory. It does not account for the quantities, conditions, or evidence in this chemistry case.
-- B: Correct. the amount of material stored in a system at a chosen time. A whole-plant inventory includes material moving between rooms as well as material in tanks.
-- C: This describes Recycle loop, not Inventory. It does not account for the quantities, conditions, or evidence in this chemistry case.
-- D: This describes Neutralization, not Inventory. It does not account for the quantities, conditions, or evidence in this chemistry case.
-### Review question 6
-
-**Prompt - exact player copy:** the Mars return mission applies the lesson from The Loop to this follow-up: trace water from Martian ice through cleanup, electrolysis, the reactor, and return to locate every link that must close before hydrogen can be replenished. Build the causal path now so the crew knows which step changes the material or signal before it reaches the next location. Which calculation or chemical interpretation correctly applies Electrolysis?
-
-**Options - exact player copy:**
-
-- A. Contains parts whose outputs become other parts' inputs. A fault can appear far from the place where its missing material was first noticed.
-- B. Returns useful material to an earlier process instead of discarding it. The plant returns water so it can recover hydrogen and oxygen.
-- C. Uses electrical energy to drive a chemical change that would not proceed on its own. Here it splits treated water into hydrogen and oxygen.
-- D. The reaction of acid and base amounts. Equal reactive amounts remove each other; any excess determines the final acidity.
-
-**Correct answer:** C
-
-**Hint - exact player copy:** Use the stated evidence and the conditions for Electrolysis; do not choose an option merely because it names a familiar term.
-
-**Option feedback - exact player copy:**
-
-- A: This describes Coupled system, not Electrolysis. It does not account for the quantities, conditions, or evidence in this chemistry case.
-- B: This describes Recycle loop, not Electrolysis. It does not account for the quantities, conditions, or evidence in this chemistry case.
-- C: Correct. uses electrical energy to drive a chemical change that would not proceed on its own. Here it splits treated water into hydrogen and oxygen.
-- D: This describes Neutralization, not Electrolysis. It does not account for the quantities, conditions, or evidence in this chemistry case.
-**Optional review completion - exact player copy:** Excellent work. You went beyond the required mission and strengthened the ideas behind your decision.
 ## Quick concept review
 
 - Coupled equations share and cancel intermediates.
@@ -8797,7 +8926,7 @@ COLLAPSED THE POWER BUS.
 
 **Availability:** Reveal only after mission completion when the player selects **GO DEEPER**. This section is optional, ungraded for campaign progress, and does not change metrics, Recovery Points, or the next-mission unlock.
 
-**Secondary briefing card - exact player copy:** You completed Power. Choose GO DEEPER to revisit the four decisions and explore related course ideas; this optional review does not change your metrics or delay the next mission.
+**Secondary briefing card - exact player copy:** Try six independent practice questions. Each includes its own context and any needed data; no mission records are required.
 
 ### Additional concepts kept out of the required mission card
 
@@ -8813,7 +8942,8 @@ COLLAPSED THE POWER BUS.
 
 ### Review question 1
 
-**Prompt - exact player copy:** In a follow-up to Power, assemble the electron and ion paths to confirm that the powered cell can split water without shorting or mixing products. Which calculation or chemical interpretation correctly applies Electrical circuit?
+
+**Prompt - exact player copy:** Which statement best explains electrical circuit?
 
 **Options - exact player copy:**
 
@@ -8824,17 +8954,19 @@ COLLAPSED THE POWER BUS.
 
 **Correct answer:** B
 
-**Hint - exact player copy:** Use the stated evidence and the conditions for Electrical circuit; do not choose an option merely because it names a familiar term.
+**Hint - exact player copy:** Identify the defining relationship or mechanism for electrical circuit. All needed information is in this question.
 
 **Option feedback - exact player copy:**
 
-- A: This describes Oxidation, not Electrical circuit. It does not account for the quantities, conditions, or evidence in this chemistry case.
-- B: Correct. a connected path through which electric charge can move. The outer wires carry electrons while the liquid path carries ions.
-- C: This describes Reduction, not Electrical circuit. It does not account for the quantities, conditions, or evidence in this chemistry case.
-- D: This describes Electric current, not Electrical circuit. It does not account for the quantities, conditions, or evidence in this chemistry case.
+- A: This describes oxidation. It does not answer the question about electrical circuit.
+- B: Correct. A connected path through which electric charge can move. The outer wires carry electrons while the liquid path carries ions.
+- C: This describes reduction. It does not answer the question about electrical circuit.
+- D: This describes electric current. It does not answer the question about electrical circuit.
+
 ### Review question 2
 
-**Prompt - exact player copy:** the Mars return mission receives a second case related to Power: before committing limited electricity, identify oxidation and reduction in the electrolyzer so the predicted gases match the electrode reactions. The next action depends on selecting the conclusion that fits all of those facts. Which calculation or chemical interpretation correctly applies Oxidation?
+
+**Prompt - exact player copy:** Which statement best explains oxidation?
 
 **Options - exact player copy:**
 
@@ -8845,17 +8977,19 @@ COLLAPSED THE POWER BUS.
 
 **Correct answer:** C
 
-**Hint - exact player copy:** Use the stated evidence and the conditions for Oxidation; do not choose an option merely because it names a familiar term.
+**Hint - exact player copy:** Identify the defining relationship or mechanism for oxidation. All needed information is in this question.
 
 **Option feedback - exact player copy:**
 
-- A: This describes Electrical circuit, not Oxidation. It does not account for the quantities, conditions, or evidence in this chemistry case.
-- B: This describes Reduction, not Oxidation. It does not account for the quantities, conditions, or evidence in this chemistry case.
-- C: Correct. the loss of electrons by a substance. In the water cell, oxidation occurs at the anode and helps form oxygen gas.
-- D: This describes Electric current, not Oxidation. It does not account for the quantities, conditions, or evidence in this chemistry case.
+- A: This describes electrical circuit. It does not answer the question about oxidation.
+- B: This describes reduction. It does not answer the question about oxidation.
+- C: Correct. The loss of electrons by a substance. In the water cell, oxidation occurs at the anode and helps form oxygen gas.
+- D: This describes electric current. It does not answer the question about oxidation.
+
 ### Review question 3
 
-**Prompt - exact player copy:** A teammate rechecks Power using new evidence: before committing limited electricity, identify oxidation and reduction in the electrolyzer so the predicted gases match the electrode reactions. The next action depends on selecting the conclusion that fits all of those facts. Which calculation or chemical interpretation correctly applies Reduction?
+
+**Prompt - exact player copy:** Which statement best explains reduction?
 
 **Options - exact player copy:**
 
@@ -8866,17 +9000,19 @@ COLLAPSED THE POWER BUS.
 
 **Correct answer:** D
 
-**Hint - exact player copy:** Use the stated evidence and the conditions for Reduction; do not choose an option merely because it names a familiar term.
+**Hint - exact player copy:** Identify the defining relationship or mechanism for reduction. All needed information is in this question.
 
 **Option feedback - exact player copy:**
 
-- A: This describes Electrical circuit, not Reduction. It does not account for the quantities, conditions, or evidence in this chemistry case.
-- B: This describes Oxidation, not Reduction. It does not account for the quantities, conditions, or evidence in this chemistry case.
-- C: This describes Electric current, not Reduction. It does not account for the quantities, conditions, or evidence in this chemistry case.
-- D: Correct. the gain of electrons by a substance. In the water cell, reduction occurs at the cathode and forms hydrogen gas.
+- A: This describes electrical circuit. It does not answer the question about reduction.
+- B: This describes oxidation. It does not answer the question about reduction.
+- C: This describes electric current. It does not answer the question about reduction.
+- D: Correct. The gain of electrons by a substance. In the water cell, reduction occurs at the cathode and forms hydrogen gas.
+
 ### Review question 4
 
-**Prompt - exact player copy:** An unseen case extends Power: convert the available current and time into hydrogen yield so the allocation uses actual gas production rather than electrical power alone. Which calculation or chemical interpretation correctly applies Electric current?
+
+**Prompt - exact player copy:** Which statement best explains electric current?
 
 **Options - exact player copy:**
 
@@ -8887,17 +9023,19 @@ COLLAPSED THE POWER BUS.
 
 **Correct answer:** A
 
-**Hint - exact player copy:** Use the stated evidence and the conditions for Electric current; do not choose an option merely because it names a familiar term.
+**Hint - exact player copy:** Identify the defining relationship or mechanism for electric current. All needed information is in this question.
 
 **Option feedback - exact player copy:**
 
-- A: Correct. the rate at which electric charge moves. One ampere is one coulomb of charge per second.
-- B: This describes Electrical circuit, not Electric current. It does not account for the quantities, conditions, or evidence in this chemistry case.
-- C: This describes Oxidation, not Electric current. It does not account for the quantities, conditions, or evidence in this chemistry case.
-- D: This describes Reduction, not Electric current. It does not account for the quantities, conditions, or evidence in this chemistry case.
+- A: Correct. The rate at which electric charge moves. One ampere is one coulomb of charge per second.
+- B: This describes electrical circuit. It does not answer the question about electric current.
+- C: This describes oxidation. It does not answer the question about electric current.
+- D: This describes reduction. It does not answer the question about electric current.
+
 ### Review question 5
 
-**Prompt - exact player copy:** Before another Power decision, the team knows this: before committing limited electricity, identify oxidation and reduction in the electrolyzer so the predicted gases match the electrode reactions. The next action depends on selecting the conclusion that fits all of those facts. Which calculation or chemical interpretation correctly applies Coulomb?
+
+**Prompt - exact player copy:** Which statement best explains coulomb?
 
 **Options - exact player copy:**
 
@@ -8908,17 +9046,19 @@ COLLAPSED THE POWER BUS.
 
 **Correct answer:** B
 
-**Hint - exact player copy:** Use the stated evidence and the conditions for Coulomb; do not choose an option merely because it names a familiar term.
+**Hint - exact player copy:** Identify the defining relationship or mechanism for coulomb. All needed information is in this question.
 
 **Option feedback - exact player copy:**
 
-- A: This describes Electrical circuit, not Coulomb. It does not account for the quantities, conditions, or evidence in this chemistry case.
-- B: Correct. a unit used to count electric charge. Current multiplied by time in seconds gives charge in coulombs.
-- C: This describes Oxidation, not Coulomb. It does not account for the quantities, conditions, or evidence in this chemistry case.
-- D: This describes Reduction, not Coulomb. It does not account for the quantities, conditions, or evidence in this chemistry case.
+- A: This describes electrical circuit. It does not answer the question about coulomb.
+- B: Correct. A unit used to count electric charge. Current multiplied by time in seconds gives charge in coulombs.
+- C: This describes oxidation. It does not answer the question about coulomb.
+- D: This describes reduction. It does not answer the question about coulomb.
+
 ### Review question 6
 
-**Prompt - exact player copy:** the Mars return mission applies the lesson from Power to this follow-up: before committing limited electricity, identify oxidation and reduction in the electrolyzer so the predicted gases match the electrode reactions. The next action depends on selecting the conclusion that fits all of those facts. Which calculation or chemical interpretation correctly applies Electric charge?
+
+**Prompt - exact player copy:** Which statement best explains electric charge?
 
 **Options - exact player copy:**
 
@@ -8929,15 +9069,17 @@ COLLAPSED THE POWER BUS.
 
 **Correct answer:** C
 
-**Hint - exact player copy:** Use the stated evidence and the conditions for Electric charge; do not choose an option merely because it names a familiar term.
+**Hint - exact player copy:** Identify the defining relationship or mechanism for electric charge. All needed information is in this question.
 
 **Option feedback - exact player copy:**
 
-- A: This describes Electrical circuit, not Electric charge. It does not account for the quantities, conditions, or evidence in this chemistry case.
-- B: This describes Oxidation, not Electric charge. It does not account for the quantities, conditions, or evidence in this chemistry case.
-- C: Correct. a property that can be positive or negative and makes particles attract or repel. An object with equal positive and negative charge is neutral.
-- D: This describes Reduction, not Electric charge. It does not account for the quantities, conditions, or evidence in this chemistry case.
-**Optional review completion - exact player copy:** Excellent work. You went beyond the required mission and strengthened the ideas behind your decision.
+- A: This describes electrical circuit. It does not answer the question about electric charge.
+- B: This describes oxidation. It does not answer the question about electric charge.
+- C: Correct. A property that can be positive or negative and makes particles attract or repel. An object with equal positive and negative charge is neutral.
+- D: This describes reduction. It does not answer the question about electric charge.
+
+**Optional review completion - exact player copy:** Good work. You have completed six independent practice questions.
+
 ## Quick concept review
 
 - Oxidation loses electrons; reduction gains them.
@@ -9508,7 +9650,7 @@ awarded. Spend: Methane +8; Power +8. Result: METHANE 86% \| OXYGEN 100%
 
 **Availability:** Reveal only after mission completion when the player selects **GO DEEPER**. This section is optional, ungraded for campaign progress, and does not change metrics, Recovery Points, or the next-mission unlock.
 
-**Secondary briefing card - exact player copy:** You completed FULL. Choose GO DEEPER to revisit the four decisions and explore related course ideas; this optional review does not change your metrics or delay the next mission.
+**Secondary briefing card - exact player copy:** Try six independent practice questions. Each includes its own context and any needed data; no mission records are required.
 
 ### Additional concepts kept out of the required mission card
 
@@ -9519,174 +9661,178 @@ awarded. Spend: Methane +8; Power +8. Result: METHANE 86% \| OXYGEN 100%
 
 ### Review question 1
 
-**Prompt - exact player copy:** In a follow-up to FULL, the tanks read full, so trace pressure, mass, composition, and the READY light to see whether the green signals are truly independent. Open the dependencies now so the team can distinguish independent evidence from readings that repeat one source. Which calculation or chemical interpretation correctly applies Contaminant?
+
+**Prompt - exact player copy:** Which statement best explains contaminant?
 
 **Options - exact player copy:**
 
 - A. A value chosen to separate acceptable from unacceptable results. It should be committed before a blind result is revealed.
-- B. An unwanted substance in a material or sample. Carbon dioxide and water become contaminants when their amounts exceed the flight limits.
-- C. States the measurement condition that causes an action. One clear rule prevents the crew from moving the acceptance line after seeing an inconvenient sample.
-- D. Occurs when a display claims success without evidence for the property that matters. Full mass and normal pressure can still hide unsafe composition.
+- B. States the measurement condition that causes an action. One clear rule prevents the operator from moving the acceptance line after seeing an inconvenient sample.
+- C. Occurs when a display claims success without evidence for the property that matters. Full mass and normal pressure can still hide unsafe composition.
+- D. An unwanted substance in a material or sample. Carbon dioxide and water become contaminants when their amounts exceed the flight limits.
 
-**Correct answer:** B
+**Correct answer:** D
 
-**Hint - exact player copy:** Use the stated evidence and the conditions for Contaminant; do not choose an option merely because it names a familiar term.
+**Hint - exact player copy:** Identify the defining relationship or mechanism for contaminant. All needed information is in this question.
 
 **Option feedback - exact player copy:**
 
-- A: This describes Threshold, not Contaminant. It does not account for the quantities, conditions, or evidence in this chemistry case.
-- B: Correct. an unwanted substance in a material or sample. Carbon dioxide and water become contaminants when their amounts exceed the flight limits.
-- C: This describes Trigger rule, not Contaminant. It does not account for the quantities, conditions, or evidence in this chemistry case.
-- D: This describes False-ready state, not Contaminant. It does not account for the quantities, conditions, or evidence in this chemistry case.
+- A: This describes threshold. It does not answer the question about contaminant.
+- B: This describes trigger rule. It does not answer the question about contaminant.
+- C: This describes false-ready state. It does not answer the question about contaminant.
+- D: Correct. An unwanted substance in a material or sample. Carbon dioxide and water become contaminants when their amounts exceed the flight limits.
+
 ### Review question 2
 
-**Prompt - exact player copy:** the Mars return mission receives a second case related to FULL: the tanks read full, so trace pressure, mass, composition, and the READY light to see whether the green signals are truly independent. Open the dependencies now so the team can distinguish independent evidence from readings that repeat one source. Which interpretation of the displayed evidence correctly uses the mission concept?
+
+**Prompt - exact player copy:** A rule is fixed in advance: stop at the first check with a reading of at least 5 units. At which plotted time should the stop occur?
 
 **Figure - exact player copy:**
 
 ```json
 {
   "kind": "line",
-  "xLabel": "Ordered measurement",
-  "yLabel": "Decision quantity",
-  "caption": "Measurements approach and then cross the action threshold.",
+  "xLabel": "Time (min)",
+  "yLabel": "Reading (units)",
+  "caption": "Readings at four successive checks",
   "series": [
     {
-      "name": "Measured",
+      "name": "Reading",
       "points": [
         [
+          0,
+          2
+        ],
+        [
           1,
-          42
+          3
         ],
         [
           2,
-          48
+          5
         ],
         [
           3,
-          55
-        ],
-        [
-          4,
-          63
-        ],
-        [
-          5,
-          71
+          6
         ]
       ]
     }
-  ],
-  "limit": {
-    "at": 60,
-    "label": "Action threshold"
-  }
+  ]
 }
 ```
 
+**Options - exact player copy:**
+
+- A. 2 minutes.
+- B. 1 minute.
+- C. 3 minutes.
+- D. No stop is needed because the average is below 5.
+
+**Correct answer:** A
+
+**Hint - exact player copy:** At least includes equality.
+
+**Option feedback - exact player copy:**
+
+- A: Correct. 2 minutes.
+- B: The reading is only 3 units at 1 minute.
+- C: Waiting until 3 minutes misses the first qualifying check.
+- D: The rule applies to each reading, not the average.
+
+### Review question 3
+
+
+**Prompt - exact player copy:** Which statement best explains trigger rule?
 
 **Options - exact player copy:**
 
 - A. An unwanted substance in a material or sample. Carbon dioxide and water become contaminants when their amounts exceed the flight limits.
-- B. States the measurement condition that causes an action. One clear rule prevents the crew from moving the acceptance line after seeing an inconvenient sample.
+- B. States the measurement condition that causes an action. One clear rule prevents the operator from moving the acceptance line after seeing an inconvenient sample.
 - C. A value chosen to separate acceptable from unacceptable results. It should be committed before a blind result is revealed.
 - D. Occurs when a display claims success without evidence for the property that matters. Full mass and normal pressure can still hide unsafe composition.
 
-**Correct answer:** C
+**Correct answer:** B
 
-**Hint - exact player copy:** Read the axes, units, direction, and any threshold before comparing the choices.
+**Hint - exact player copy:** Identify the defining relationship or mechanism for trigger rule. All needed information is in this question.
 
 **Option feedback - exact player copy:**
 
-- A: This describes Contaminant, not Threshold. It does not account for the quantities, conditions, or evidence in this chemistry case.
-- B: This describes Trigger rule, not Threshold. It does not account for the quantities, conditions, or evidence in this chemistry case.
-- C: Correct. a value chosen to separate acceptable from unacceptable results. It should be committed before a blind result is revealed.
-- D: This describes False-ready state, not Threshold. It does not account for the quantities, conditions, or evidence in this chemistry case.
-### Review question 3
+- A: This describes contaminant. It does not answer the question about trigger rule.
+- B: Correct. States the measurement condition that causes an action. One clear rule prevents the operator from moving the acceptance line after seeing an inconvenient sample.
+- C: This describes threshold. It does not answer the question about trigger rule.
+- D: This describes false-ready state. It does not answer the question about trigger rule.
 
-**Prompt - exact player copy:** A teammate rechecks FULL using new evidence: commit the acceptance and abort limits before the blind samples appear so the decision cannot move after the result is known. Write the action threshold now, before new evidence or operational pressure can move it. Which calculation or chemical interpretation correctly applies Trigger rule?
+### Review question 4
+
+
+**Prompt - exact player copy:** Which statement best explains false-ready state?
 
 **Options - exact player copy:**
 
 - A. An unwanted substance in a material or sample. Carbon dioxide and water become contaminants when their amounts exceed the flight limits.
 - B. A value chosen to separate acceptable from unacceptable results. It should be committed before a blind result is revealed.
 - C. Occurs when a display claims success without evidence for the property that matters. Full mass and normal pressure can still hide unsafe composition.
-- D. States the measurement condition that causes an action. One clear rule prevents the crew from moving the acceptance line after seeing an inconvenient sample.
+- D. States the measurement condition that causes an action. One clear rule prevents the operator from moving the acceptance line after seeing an inconvenient sample.
 
-**Correct answer:** D
+**Correct answer:** C
 
-**Hint - exact player copy:** Use the stated evidence and the conditions for Trigger rule; do not choose an option merely because it names a familiar term.
-
-**Option feedback - exact player copy:**
-
-- A: This describes Contaminant, not Trigger rule. It does not account for the quantities, conditions, or evidence in this chemistry case.
-- B: This describes Threshold, not Trigger rule. It does not account for the quantities, conditions, or evidence in this chemistry case.
-- C: This describes False-ready state, not Trigger rule. It does not account for the quantities, conditions, or evidence in this chemistry case.
-- D: Correct. states the measurement condition that causes an action. One clear rule prevents the crew from moving the acceptance line after seeing an inconvenient sample.
-### Review question 4
-
-**Prompt - exact player copy:** An unseen case extends FULL: the tanks read full, so trace pressure, mass, composition, and the READY light to see whether the green signals are truly independent. Open the dependencies now so the team can distinguish independent evidence from readings that repeat one source. Which calculation or chemical interpretation correctly applies False-ready state?
-
-**Options - exact player copy:**
-
-- A. Occurs when a display claims success without evidence for the property that matters. Full mass and normal pressure can still hide unsafe composition.
-- B. An unwanted substance in a material or sample. Carbon dioxide and water become contaminants when their amounts exceed the flight limits.
-- C. A value chosen to separate acceptable from unacceptable results. It should be committed before a blind result is revealed.
-- D. States the measurement condition that causes an action. One clear rule prevents the crew from moving the acceptance line after seeing an inconvenient sample.
-
-**Correct answer:** A
-
-**Hint - exact player copy:** Use the stated evidence and the conditions for False-ready state; do not choose an option merely because it names a familiar term.
+**Hint - exact player copy:** Identify the defining relationship or mechanism for false-ready state. All needed information is in this question.
 
 **Option feedback - exact player copy:**
 
-- A: Correct. occurs when a display claims success without evidence for the property that matters. Full mass and normal pressure can still hide unsafe composition.
-- B: This describes Contaminant, not False-ready state. It does not account for the quantities, conditions, or evidence in this chemistry case.
-- C: This describes Threshold, not False-ready state. It does not account for the quantities, conditions, or evidence in this chemistry case.
-- D: This describes Trigger rule, not False-ready state. It does not account for the quantities, conditions, or evidence in this chemistry case.
+- A: This describes contaminant. It does not answer the question about false-ready state.
+- B: This describes threshold. It does not answer the question about false-ready state.
+- C: Correct. Occurs when a display claims success without evidence for the property that matters. Full mass and normal pressure can still hide unsafe composition.
+- D: This describes trigger rule. It does not answer the question about false-ready state.
+
 ### Review question 5
 
-**Prompt - exact player copy:** Before another FULL decision, the team knows this: the tanks read full, so trace pressure, mass, composition, and the READY light to see whether the green signals are truly independent. Open the dependencies now so the team can distinguish independent evidence from readings that repeat one source. Which calculation or chemical interpretation correctly applies Specification?
 
-**Options - exact player copy:**
-
-- A. An unwanted substance in a material or sample. Carbon dioxide and water become contaminants when their amounts exceed the flight limits.
-- B. A measurable requirement a material must pass before use. A full tank can fail if its composition lies outside even one required limit.
-- C. A value chosen to separate acceptable from unacceptable results. It should be committed before a blind result is revealed.
-- D. States the measurement condition that causes an action. One clear rule prevents the crew from moving the acceptance line after seeing an inconvenient sample.
-
-**Correct answer:** B
-
-**Hint - exact player copy:** Use the stated evidence and the conditions for Specification; do not choose an option merely because it names a familiar term.
-
-**Option feedback - exact player copy:**
-
-- A: This describes Contaminant, not Specification. It does not account for the quantities, conditions, or evidence in this chemistry case.
-- B: Correct. a measurable requirement a material must pass before use. A full tank can fail if its composition lies outside even one required limit.
-- C: This describes Threshold, not Specification. It does not account for the quantities, conditions, or evidence in this chemistry case.
-- D: This describes Trigger rule, not Specification. It does not account for the quantities, conditions, or evidence in this chemistry case.
-### Review question 6
-
-**Prompt - exact player copy:** the Mars return mission applies the lesson from FULL to this follow-up: the tanks read full, so trace pressure, mass, composition, and the READY light to see whether the green signals are truly independent. Open the dependencies now so the team can distinguish independent evidence from readings that repeat one source. Which calculation or chemical interpretation correctly applies Purity?
+**Prompt - exact player copy:** Which statement best explains specification?
 
 **Options - exact player copy:**
 
 - A. An unwanted substance in a material or sample. Carbon dioxide and water become contaminants when their amounts exceed the flight limits.
 - B. A value chosen to separate acceptable from unacceptable results. It should be committed before a blind result is revealed.
-- C. The fraction of a sample made of the desired substance. High total mass does not guarantee high purity.
-- D. States the measurement condition that causes an action. One clear rule prevents the crew from moving the acceptance line after seeing an inconvenient sample.
+- C. States the measurement condition that causes an action. One clear rule prevents the operator from moving the acceptance line after seeing an inconvenient sample.
+- D. A measurable requirement a material must pass before use. A full tank can fail if its composition lies outside even one required limit.
 
-**Correct answer:** C
+**Correct answer:** D
 
-**Hint - exact player copy:** Use the stated evidence and the conditions for Purity; do not choose an option merely because it names a familiar term.
+**Hint - exact player copy:** Identify the defining relationship or mechanism for specification. All needed information is in this question.
 
 **Option feedback - exact player copy:**
 
-- A: This describes Contaminant, not Purity. It does not account for the quantities, conditions, or evidence in this chemistry case.
-- B: This describes Threshold, not Purity. It does not account for the quantities, conditions, or evidence in this chemistry case.
-- C: Correct. the fraction of a sample made of the desired substance. High total mass does not guarantee high purity.
-- D: This describes Trigger rule, not Purity. It does not account for the quantities, conditions, or evidence in this chemistry case.
-**Optional review completion - exact player copy:** Excellent work. You went beyond the required mission and strengthened the ideas behind your decision.
+- A: This describes contaminant. It does not answer the question about specification.
+- B: This describes threshold. It does not answer the question about specification.
+- C: This describes trigger rule. It does not answer the question about specification.
+- D: Correct. A measurable requirement a material must pass before use. A full tank can fail if its composition lies outside even one required limit.
+
+### Review question 6
+
+
+**Prompt - exact player copy:** Which statement best explains purity?
+
+**Options - exact player copy:**
+
+- A. The fraction of a sample made of the desired substance. High total mass does not guarantee high purity.
+- B. An unwanted substance in a material or sample. Carbon dioxide and water become contaminants when their amounts exceed the flight limits.
+- C. A value chosen to separate acceptable from unacceptable results. It should be committed before a blind result is revealed.
+- D. States the measurement condition that causes an action. One clear rule prevents the operator from moving the acceptance line after seeing an inconvenient sample.
+
+**Correct answer:** A
+
+**Hint - exact player copy:** Identify the defining relationship or mechanism for purity. All needed information is in this question.
+
+**Option feedback - exact player copy:**
+
+- A: Correct. The fraction of a sample made of the desired substance. High total mass does not guarantee high purity.
+- B: This describes contaminant. It does not answer the question about purity.
+- C: This describes threshold. It does not answer the question about purity.
+- D: This describes trigger rule. It does not answer the question about purity.
+
+**Optional review completion - exact player copy:** Good work. You have completed six independent practice questions.
+
 ## Quick concept review
 
 - Pressure and mass do not uniquely determine composition.
@@ -10239,7 +10385,7 @@ From the cabin window, the pad lights shrink below. The full fuel gauge sits bes
 
 **Availability:** Reveal only after mission completion when the player selects **GO DEEPER**. This section is optional, ungraded for campaign progress, and does not change metrics, Recovery Points, or the next-mission unlock.
 
-**Secondary briefing card - exact player copy:** You completed GO / NO-GO. Choose GO DEEPER to revisit the four decisions and explore related course ideas; this optional review does not change your metrics or delay the next mission.
+**Secondary briefing card - exact player copy:** Try six independent practice questions. Each includes its own context and any needed data; no mission records are required.
 
 ### Additional concepts kept out of the required mission card
 
@@ -10251,131 +10397,144 @@ From the cabin window, the pad lights shrink below. The full fuel gauge sits bes
 
 ### Review question 1
 
-**Prompt - exact player copy:** In a follow-up to GO / NO-GO, with Batch C quarantined and one shift left, spend the final test on the measurement that could actually change GO or NO-GO. Choose the next measurement now based on whether its result could change the decision. Which calculation or chemical interpretation correctly applies Value of information?
+
+**Prompt - exact player copy:** Which statement best explains value of information?
 
 **Options - exact player copy:**
 
 - A. A requirement that actively limits the available plans. Ignoring one can make an attractive plan impossible or unsafe.
 - B. The usefulness of a new measurement for changing a decision. A precise reading has little value if every possible result leads to the same action.
-- C. Occurs when improving one goal uses time, material, or power needed by another. The final plan must decide which gains are worth their costs.
+- C. Occurs when improving one goal uses time, material, or power needed by another. A decision must weigh the gains against their costs.
 - D. GO means every binding requirement has passed and launch may proceed. NO-GO means at least one requirement has failed or lacks trustworthy evidence.
 
 **Correct answer:** B
 
-**Hint - exact player copy:** Use the stated evidence and the conditions for Value of information; do not choose an option merely because it names a familiar term.
+**Hint - exact player copy:** Identify the defining relationship or mechanism for value of information. All needed information is in this question.
 
 **Option feedback - exact player copy:**
 
-- A: This describes Binding constraint, not Value of information. It does not account for the quantities, conditions, or evidence in this chemistry case.
-- B: Correct. the usefulness of a new measurement for changing a decision. A precise reading has little value if every possible result leads to the same action.
-- C: This describes Tradeoff, not Value of information. It does not account for the quantities, conditions, or evidence in this chemistry case.
-- D: This describes Go/no-go decision, not Value of information. It does not account for the quantities, conditions, or evidence in this chemistry case.
+- A: This describes binding constraint. It does not answer the question about value of information.
+- B: Correct. The usefulness of a new measurement for changing a decision. A precise reading has little value if every possible result leads to the same action.
+- C: This describes tradeoff. It does not answer the question about value of information.
+- D: This describes go and no-go decision. It does not answer the question about value of information.
+
 ### Review question 2
 
-**Prompt - exact player copy:** the Mars return mission receives a second case related to GO / NO-GO: use the independent assay and hardware limits to eliminate the plan that reaches gross mass but not certified methane. Add the missing constraint now so the team can separate the explanations that still fit the earlier evidence. Which calculation or chemical interpretation correctly applies Binding constraint?
+
+**Prompt - exact player copy:** Which statement best explains binding constraint?
 
 **Options - exact player copy:**
 
 - A. The usefulness of a new measurement for changing a decision. A precise reading has little value if every possible result leads to the same action.
-- B. Occurs when improving one goal uses time, material, or power needed by another. The final plan must decide which gains are worth their costs.
+- B. Occurs when improving one goal uses time, material, or power needed by another. A decision must weigh the gains against their costs.
 - C. A requirement that actively limits the available plans. Ignoring one can make an attractive plan impossible or unsafe.
 - D. GO means every binding requirement has passed and launch may proceed. NO-GO means at least one requirement has failed or lacks trustworthy evidence.
 
 **Correct answer:** C
 
-**Hint - exact player copy:** Use the stated evidence and the conditions for Binding constraint; do not choose an option merely because it names a familiar term.
+**Hint - exact player copy:** Identify the defining relationship or mechanism for binding constraint. All needed information is in this question.
 
 **Option feedback - exact player copy:**
 
-- A: This describes Value of information, not Binding constraint. It does not account for the quantities, conditions, or evidence in this chemistry case.
-- B: This describes Tradeoff, not Binding constraint. It does not account for the quantities, conditions, or evidence in this chemistry case.
-- C: Correct. a requirement that actively limits the available plans. Ignoring one can make an attractive plan impossible or unsafe.
-- D: This describes Go/no-go decision, not Binding constraint. It does not account for the quantities, conditions, or evidence in this chemistry case.
+- A: This describes value of information. It does not answer the question about binding constraint.
+- B: This describes tradeoff. It does not answer the question about binding constraint.
+- C: Correct. A requirement that actively limits the available plans. Ignoring one can make an attractive plan impossible or unsafe.
+- D: This describes go and no-go decision. It does not answer the question about binding constraint.
+
 ### Review question 3
 
-**Prompt - exact player copy:** A teammate rechecks GO / NO-GO using new evidence: with Batch C quarantined and one shift left, spend the final test on the measurement that could actually change GO or NO-GO. Choose the next measurement now based on whether its result could change the decision. Which calculation or chemical interpretation correctly applies Tradeoff?
+
+**Prompt - exact player copy:** Which statement best explains tradeoff?
 
 **Options - exact player copy:**
 
 - A. The usefulness of a new measurement for changing a decision. A precise reading has little value if every possible result leads to the same action.
 - B. A requirement that actively limits the available plans. Ignoring one can make an attractive plan impossible or unsafe.
 - C. GO means every binding requirement has passed and launch may proceed. NO-GO means at least one requirement has failed or lacks trustworthy evidence.
-- D. Occurs when improving one goal uses time, material, or power needed by another. The final plan must decide which gains are worth their costs.
+- D. Occurs when improving one goal uses time, material, or power needed by another. A decision must weigh the gains against their costs.
 
 **Correct answer:** D
 
-**Hint - exact player copy:** Use the stated evidence and the conditions for Tradeoff; do not choose an option merely because it names a familiar term.
+**Hint - exact player copy:** Identify the defining relationship or mechanism for tradeoff. All needed information is in this question.
 
 **Option feedback - exact player copy:**
 
-- A: This describes Value of information, not Tradeoff. It does not account for the quantities, conditions, or evidence in this chemistry case.
-- B: This describes Binding constraint, not Tradeoff. It does not account for the quantities, conditions, or evidence in this chemistry case.
-- C: This describes Go/no-go decision, not Tradeoff. It does not account for the quantities, conditions, or evidence in this chemistry case.
-- D: Correct. occurs when improving one goal uses time, material, or power needed by another. The final plan must decide which gains are worth their costs.
+- A: This describes value of information. It does not answer the question about tradeoff.
+- B: This describes binding constraint. It does not answer the question about tradeoff.
+- C: This describes go and no-go decision. It does not answer the question about tradeoff.
+- D: Correct. Occurs when improving one goal uses time, material, or power needed by another. A decision must weigh the gains against their costs.
+
 ### Review question 4
 
-**Prompt - exact player copy:** An unseen case extends GO / NO-GO: with Batch C quarantined and one shift left, spend the final test on the measurement that could actually change GO or NO-GO. Choose the next measurement now based on whether its result could change the decision. Which calculation or chemical interpretation correctly applies Go/no-go decision?
+
+**Prompt - exact player copy:** Which statement best explains go and no-go decision?
 
 **Options - exact player copy:**
 
 - A. GO means every binding requirement has passed and launch may proceed. NO-GO means at least one requirement has failed or lacks trustworthy evidence.
 - B. The usefulness of a new measurement for changing a decision. A precise reading has little value if every possible result leads to the same action.
 - C. A requirement that actively limits the available plans. Ignoring one can make an attractive plan impossible or unsafe.
-- D. Occurs when improving one goal uses time, material, or power needed by another. The final plan must decide which gains are worth their costs.
+- D. Occurs when improving one goal uses time, material, or power needed by another. A decision must weigh the gains against their costs.
 
 **Correct answer:** A
 
-**Hint - exact player copy:** Use the stated evidence and the conditions for Go/no-go decision; do not choose an option merely because it names a familiar term.
+**Hint - exact player copy:** Identify the defining relationship or mechanism for go and no-go decision. All needed information is in this question.
 
 **Option feedback - exact player copy:**
 
-- A: Correct. gO means every binding requirement has passed and launch may proceed. NO-GO means at least one requirement has failed or lacks trustworthy evidence.
-- B: This describes Value of information, not Go/no-go decision. It does not account for the quantities, conditions, or evidence in this chemistry case.
-- C: This describes Binding constraint, not Go/no-go decision. It does not account for the quantities, conditions, or evidence in this chemistry case.
-- D: This describes Tradeoff, not Go/no-go decision. It does not account for the quantities, conditions, or evidence in this chemistry case.
+- A: Correct. GO means every binding requirement has passed and launch may proceed. NO-GO means at least one requirement has failed or lacks trustworthy evidence.
+- B: This describes value of information. It does not answer the question about go and no-go decision.
+- C: This describes binding constraint. It does not answer the question about go and no-go decision.
+- D: This describes tradeoff. It does not answer the question about go and no-go decision.
+
 ### Review question 5
 
-**Prompt - exact player copy:** Before another GO / NO-GO decision, the team knows this: use the independent assay and hardware limits to eliminate the plan that reaches gross mass but not certified methane. Add the missing constraint now so the team can separate the explanations that still fit the earlier evidence. Which calculation or chemical interpretation correctly applies Certified methane?
+
+**Prompt - exact player copy:** Which statement best explains certified methane?
 
 **Options - exact player copy:**
 
 - A. The usefulness of a new measurement for changing a decision. A precise reading has little value if every possible result leads to the same action.
 - B. Methane whose amount and composition have passed the fixed flight rules through independent testing. Gross tank mass does not count as certified methane by itself.
 - C. A requirement that actively limits the available plans. Ignoring one can make an attractive plan impossible or unsafe.
-- D. Occurs when improving one goal uses time, material, or power needed by another. The final plan must decide which gains are worth their costs.
+- D. Occurs when improving one goal uses time, material, or power needed by another. A decision must weigh the gains against their costs.
 
 **Correct answer:** B
 
-**Hint - exact player copy:** Use the stated evidence and the conditions for Certified methane; do not choose an option merely because it names a familiar term.
+**Hint - exact player copy:** Identify the defining relationship or mechanism for certified methane. All needed information is in this question.
 
 **Option feedback - exact player copy:**
 
-- A: This describes Value of information, not Certified methane. It does not account for the quantities, conditions, or evidence in this chemistry case.
-- B: Correct. methane whose amount and composition have passed the fixed flight rules through independent testing. Gross tank mass does not count as certified methane by itself.
-- C: This describes Binding constraint, not Certified methane. It does not account for the quantities, conditions, or evidence in this chemistry case.
-- D: This describes Tradeoff, not Certified methane. It does not account for the quantities, conditions, or evidence in this chemistry case.
+- A: This describes value of information. It does not answer the question about certified methane.
+- B: Correct. Methane whose amount and composition have passed the fixed flight rules through independent testing. Gross tank mass does not count as certified methane by itself.
+- C: This describes binding constraint. It does not answer the question about certified methane.
+- D: This describes tradeoff. It does not answer the question about certified methane.
+
 ### Review question 6
 
-**Prompt - exact player copy:** the Mars return mission applies the lesson from GO / NO-GO to this follow-up: fund reprocessing, electrolysis, validated reactor operation, verification, and safety so the surviving recovery plan can be executed. Spend the evidence budget now on tests that can distinguish the explanations still in play. Which calculation or chemical interpretation correctly applies Verification?
+
+**Prompt - exact player copy:** Which statement best explains verification?
 
 **Options - exact player copy:**
 
 - A. The usefulness of a new measurement for changing a decision. A precise reading has little value if every possible result leads to the same action.
 - B. A requirement that actively limits the available plans. Ignoring one can make an attractive plan impossible or unsafe.
 - C. Checks whether a prediction or claim matches a measurement obtained through a suitable evidence path. It is different from repeating the same derived display.
-- D. Occurs when improving one goal uses time, material, or power needed by another. The final plan must decide which gains are worth their costs.
+- D. Occurs when improving one goal uses time, material, or power needed by another. A decision must weigh the gains against their costs.
 
 **Correct answer:** C
 
-**Hint - exact player copy:** Use the stated evidence and the conditions for Verification; do not choose an option merely because it names a familiar term.
+**Hint - exact player copy:** Identify the defining relationship or mechanism for verification. All needed information is in this question.
 
 **Option feedback - exact player copy:**
 
-- A: This describes Value of information, not Verification. It does not account for the quantities, conditions, or evidence in this chemistry case.
-- B: This describes Binding constraint, not Verification. It does not account for the quantities, conditions, or evidence in this chemistry case.
-- C: Correct. checks whether a prediction or claim matches a measurement obtained through a suitable evidence path. It is different from repeating the same derived display.
-- D: This describes Tradeoff, not Verification. It does not account for the quantities, conditions, or evidence in this chemistry case.
-**Optional review completion - exact player copy:** Excellent work. You went beyond the required mission and strengthened the ideas behind your decision.
+- A: This describes value of information. It does not answer the question about verification.
+- B: This describes binding constraint. It does not answer the question about verification.
+- C: Correct. Checks whether a prediction or claim matches a measurement obtained through a suitable evidence path. It is different from repeating the same derived display.
+- D: This describes tradeoff. It does not answer the question about verification.
+
+**Optional review completion - exact player copy:** Good work. You have completed six independent practice questions.
+
 ## Quick concept review
 
 - Measure the uncertainty that can change the decision, not the number

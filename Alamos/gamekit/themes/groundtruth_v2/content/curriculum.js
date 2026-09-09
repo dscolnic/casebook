@@ -801,10 +801,10 @@ export const CURRICULUM = {
     {
       "day": 2,
       "title": "Derive voltage from uniform field",
-      "scene": "The layer model gives a uniform vertical field Ey=-9.0 kV/m from ground at y=0 to cloud at y=40 km. The layer model gives a uniform vertical field E_y=-9.0 kV/m from ground at y=0 to cloud at y=40 km. Derive V_cloud-V_ground with the sign intact.",
+      "scene": "The layer model gives a uniform vertical field E_y=-9.0 kV/m from ground at y=0 to cloud at y=40 km. Derive V_cloud-V_ground with the sign intact.",
       "place": "",
       "at": "mill-array",
-      "story": "The layer model gives a uniform vertical field Ey=-9.0 kV/m from ground at y=0 to cloud at y=40 km. The layer model gives a uniform vertical field E_y=-9.0 kV/m from ground at y=0 to cloud at y=40 km. Derive V_cloud-V_ground with the sign intact.",
+      "story": "The layer model gives a uniform vertical field E_y=-9.0 kV/m from ground at y=0 to cloud at y=40 km. Derive V_cloud-V_ground with the sign intact.",
       "game": {
         "type": "DERIVE",
         "title": "Derive voltage from uniform field",
@@ -3748,10 +3748,10 @@ export const CURRICULUM = {
     {
       "day": 33,
       "title": "Derive RC Response",
-      "scene": "Channel A has resistance R=1.0 kilohm and capacitance C=100 pF, giving a resistance-capacitance (RC) time constant of 100 ns. Channel A has resistance R=1.0 kilohm and capacitance C=100 pF, so its resistance-capacitance time constant is tau=RC=100 ns. Derive the charging fraction after one and five time constants to test its response speed.",
+      "scene": "Channel A has resistance R=1.0 kilohm and capacitance C=100 pF, so its resistance-capacitance (RC) time constant is tau=RC=100 ns. Derive the charging fraction after one and five time constants to test its response speed.",
       "place": "",
       "at": "recorder-rack",
-      "story": "Channel A has resistance R=1.0 kilohm and capacitance C=100 pF, giving a resistance-capacitance (RC) time constant of 100 ns. Channel A has resistance R=1.0 kilohm and capacitance C=100 pF, so its resistance-capacitance time constant is tau=RC=100 ns. Derive the charging fraction after one and five time constants to test its response speed.",
+      "story": "Channel A has resistance R=1.0 kilohm and capacitance C=100 pF, so its resistance-capacitance (RC) time constant is tau=RC=100 ns. Derive the charging fraction after one and five time constants to test its response speed.",
       "game": {
         "type": "DERIVE",
         "title": "Derive RC Response",
@@ -3922,10 +3922,10 @@ export const CURRICULUM = {
     {
       "day": 35,
       "title": "Diagnose Frequency Response",
-      "scene": "The upgraded channel captures damped ringing near 1/√(LC), while the April test used steady current. The upgraded channel captures damped ringing near 1/sqrt(LC), where L is inductance and C is capacitance, while the April test used steady current. Diagnose why its 0.42-ohm result and fast waveform can both be correct.",
+      "scene": "The upgraded channel captures damped ringing near angular frequency 1/sqrt(LC), where L is inductance and C is capacitance. The April test used steady current. Diagnose why its 0.42-ohm result and fast waveform can both be correct.",
       "place": "",
       "at": "earth-cert",
-      "story": "The upgraded channel captures damped ringing near 1/√(LC), while the April test used steady current. The upgraded channel captures damped ringing near 1/sqrt(LC), where L is inductance and C is capacitance, while the April test used steady current. Diagnose why its 0.42-ohm result and fast waveform can both be correct.",
+      "story": "The upgraded channel captures damped ringing near angular frequency 1/sqrt(LC), where L is inductance and C is capacitance. The April test used steady current. Diagnose why its 0.42-ohm result and fast waveform can both be correct.",
       "game": {
         "type": "DIAGNOSIS",
         "title": "Diagnose Frequency Response",

@@ -14,45 +14,45 @@ export const MISSIONS = [
       "A claim written after seeing results has a different false-alarm risk."
     ],
     "deeper": {
-      "intro": "You completed What Was Promised. Choose GO DEEPER to revisit the four decisions and explore related course ideas; this optional review does not change your metrics or delay the next mission.",
+      "intro": "Try six independent practice questions. Each includes its own context and any needed data; no mission records are required.",
       "concepts": [],
       "questions": [
         {
-          "prompt": "In a follow-up to What Was Promised, the registry lists treatment arm, serious-event grade, recovery days, and whether each patient improved. The next action depends on selecting the conclusion that fits all of those facts. Which option correctly applies Variable to this follow-up case?",
-          "hint": "Use the stated evidence and the conditions for Variable; do not choose an option merely because it names a familiar term.",
+          "prompt": "Which statement best explains variable?",
+          "hint": "Identify the defining relationship or mechanism for variable. All needed information is in this question.",
           "answer": "B",
           "options": [
             {
               "key": "A",
-              "text": "Treating category labels as quantities could create a meaningless average and mislead the board.",
-              "why": "This describes variable type and graph choice, not Variable. It does not account for the quantities, conditions, or evidence in this statistics case."
+              "text": "Treating category labels as quantities could create a meaningless average and mislead the researchers.",
+              "why": "This describes variable type and graph choice. It does not answer the question about variable."
             },
             {
               "key": "B",
-              "text": "A characteristic recorded for each patient. Categorical variable: a variable placing a patient into a group. Quantitative variable: a variable recorded as a meaningful number. Parameter: a fixed but usually unknown number describing a population. Statistic: a number computed from a sample.",
-              "why": "Correct. a characteristic recorded for each patient. Categorical variable: a variable placing a patient into a group. Quantitative variable: a variable recorded as a meaningful number. Parameter: a fixed but usually unknown number describing a population. Statistic: a number computed from a sample."
+              "text": "A characteristic recorded for each patient.",
+              "why": "Correct. A characteristic recorded for each patient."
             },
             {
               "key": "C",
               "text": "Shape determines whether mean and standard deviation or median and IQR best summarize what patients experienced.",
-              "why": "This describes SOCS and graph uses, not Variable. It does not account for the quantities, conditions, or evidence in this statistics case."
+              "why": "This describes describing a distribution by shape, outliers, center, and spread. It does not answer the question about variable."
             },
             {
               "key": "D",
               "text": "An outlier flag triggers source review; it does not grant permission to delete a patient.",
-              "why": "This describes IQR outlier rule, not Variable. It does not account for the quantities, conditions, or evidence in this statistics case."
+              "why": "This describes iQR outlier rule. It does not answer the question about variable."
             }
           ]
         },
         {
-          "prompt": "the Fenwick trial receives a second case related to What Was Promised: the registry lists treatment arm, serious-event grade, recovery days, and whether each patient improved. The next action depends on selecting the conclusion that fits all of those facts. Which interpretation of the displayed evidence correctly uses the mission concept?",
-          "hint": "Read the axes, units, direction, and any threshold before comparing the choices.",
+          "prompt": "The distribution has a long right tail. Which pair of summaries is least affected by unusually long recovery times?",
+          "hint": "Choose summaries based on middle positions rather than extremes.",
           "answer": "C",
           "figure": {
             "kind": "bars",
-            "xLabel": "Recovery-time bin (days)",
+            "xLabel": "Recovery time",
             "yLabel": "Patients",
-            "caption": "Recovery times are right-skewed with two unusually high values.",
+            "caption": "Recovery-time counts in one study",
             "bars": [
               {
                 "name": "2 days",
@@ -71,10 +71,6 @@ export const MISSIONS = [
                 "value": 3
               },
               {
-                "name": "14 days",
-                "value": 1
-              },
-              {
                 "name": "20 days",
                 "value": 2
               }
@@ -83,35 +79,35 @@ export const MISSIONS = [
           "options": [
             {
               "key": "A",
-              "text": "A characteristic recorded for each patient. Categorical variable: a variable placing a patient into a group. Quantitative variable: a variable recorded as a meaningful number. Parameter: a fixed but usually unknown number describing a population. Statistic: a number computed from a sample.",
-              "why": "This describes Variable, not variable type and graph choice. It does not account for the quantities, conditions, or evidence in this statistics case."
+              "text": "The mean and range.",
+              "why": "Both can be strongly influenced by extreme values."
             },
             {
               "key": "B",
-              "text": "Shape determines whether mean and standard deviation or median and IQR best summarize what patients experienced.",
-              "why": "This describes SOCS and graph uses, not variable type and graph choice. It does not account for the quantities, conditions, or evidence in this statistics case."
+              "text": "The maximum and minimum.",
+              "why": "These summaries depend entirely on extreme observations."
             },
             {
               "key": "C",
-              "text": "Treating category labels as quantities could create a meaningless average and mislead the board.",
-              "why": "Correct. treating category labels as quantities could create a meaningless average and mislead the board."
+              "text": "The median and interquartile range.",
+              "why": "Correct. The median and interquartile range."
             },
             {
               "key": "D",
-              "text": "An outlier flag triggers source review; it does not grant permission to delete a patient.",
-              "why": "This describes IQR outlier rule, not variable type and graph choice. It does not account for the quantities, conditions, or evidence in this statistics case."
+              "text": "The average of category codes.",
+              "why": "Recovery-time summaries must use the measured times, not arbitrary codes."
             }
           ]
         },
         {
-          "prompt": "A teammate rechecks What Was Promised using new evidence: the registry lists treatment arm, serious-event grade, recovery days, and whether each patient improved. The next action depends on selecting the conclusion that fits all of those facts. Which interpretation of the displayed evidence correctly uses the mission concept?",
-          "hint": "Read the axes, units, direction, and any threshold before comparing the choices.",
+          "prompt": "The distribution has a long right tail. Which pair of summaries is least affected by unusually long recovery times?",
+          "hint": "Choose summaries based on middle positions rather than extremes.",
           "answer": "D",
           "figure": {
             "kind": "bars",
-            "xLabel": "Recovery-time bin (days)",
+            "xLabel": "Recovery time",
             "yLabel": "Patients",
-            "caption": "Recovery times are right-skewed with two unusually high values.",
+            "caption": "Recovery-time counts in one study",
             "bars": [
               {
                 "name": "2 days",
@@ -130,10 +126,6 @@ export const MISSIONS = [
                 "value": 3
               },
               {
-                "name": "14 days",
-                "value": 1
-              },
-              {
                 "name": "20 days",
                 "value": 2
               }
@@ -142,104 +134,104 @@ export const MISSIONS = [
           "options": [
             {
               "key": "A",
-              "text": "A characteristic recorded for each patient. Categorical variable: a variable placing a patient into a group. Quantitative variable: a variable recorded as a meaningful number. Parameter: a fixed but usually unknown number describing a population. Statistic: a number computed from a sample.",
-              "why": "This describes Variable, not SOCS and graph uses. It does not account for the quantities, conditions, or evidence in this statistics case."
+              "text": "The mean and range.",
+              "why": "Both can be strongly influenced by extreme values."
             },
             {
               "key": "B",
-              "text": "Treating category labels as quantities could create a meaningless average and mislead the board.",
-              "why": "This describes variable type and graph choice, not SOCS and graph uses. It does not account for the quantities, conditions, or evidence in this statistics case."
+              "text": "The maximum and minimum.",
+              "why": "These summaries depend entirely on extreme observations."
             },
             {
               "key": "C",
-              "text": "An outlier flag triggers source review; it does not grant permission to delete a patient.",
-              "why": "This describes IQR outlier rule, not SOCS and graph uses. It does not account for the quantities, conditions, or evidence in this statistics case."
+              "text": "The average of category codes.",
+              "why": "Recovery-time summaries must use the measured times, not arbitrary codes."
             },
             {
               "key": "D",
-              "text": "Shape determines whether mean and standard deviation or median and IQR best summarize what patients experienced.",
-              "why": "Correct. shape determines whether mean and standard deviation or median and IQR best summarize what patients experienced."
+              "text": "The median and interquartile range.",
+              "why": "Correct. The median and interquartile range."
             }
           ]
         },
         {
-          "prompt": "An unseen case extends What Was Promised: the right-skewed shape makes median and IQR the safer summary, but the two high recovery times still need an objective check. Which option correctly applies IQR outlier rule to this follow-up case?",
-          "hint": "Use the stated evidence and the conditions for IQR outlier rule; do not choose an option merely because it names a familiar term.",
+          "prompt": "Which statement best explains iQR outlier rule?",
+          "hint": "Identify the defining relationship or mechanism for iqr outlier rule. All needed information is in this question.",
           "answer": "A",
           "options": [
             {
               "key": "A",
               "text": "An outlier flag triggers source review; it does not grant permission to delete a patient.",
-              "why": "Correct. an outlier flag triggers source review; it does not grant permission to delete a patient."
+              "why": "Correct. An outlier flag triggers source review; it does not grant permission to delete a patient."
             },
             {
               "key": "B",
-              "text": "A characteristic recorded for each patient. Categorical variable: a variable placing a patient into a group. Quantitative variable: a variable recorded as a meaningful number. Parameter: a fixed but usually unknown number describing a population. Statistic: a number computed from a sample.",
-              "why": "This describes Variable, not IQR outlier rule. It does not account for the quantities, conditions, or evidence in this statistics case."
+              "text": "A characteristic recorded for each patient.",
+              "why": "This describes variable. It does not answer the question about iqr outlier rule."
             },
             {
               "key": "C",
-              "text": "Treating category labels as quantities could create a meaningless average and mislead the board.",
-              "why": "This describes variable type and graph choice, not IQR outlier rule. It does not account for the quantities, conditions, or evidence in this statistics case."
+              "text": "Treating category labels as quantities could create a meaningless average and mislead the researchers.",
+              "why": "This describes variable type and graph choice. It does not answer the question about iqr outlier rule."
             },
             {
               "key": "D",
               "text": "Shape determines whether mean and standard deviation or median and IQR best summarize what patients experienced.",
-              "why": "This describes SOCS and graph uses, not IQR outlier rule. It does not account for the quantities, conditions, or evidence in this statistics case."
+              "why": "This describes describing a distribution by shape, outliers, center, and spread. It does not answer the question about iqr outlier rule."
             }
           ]
         },
         {
-          "prompt": "Before another What Was Promised decision, the team knows this: the variables and summaries are now defined, but only claims fixed before enrollment can keep their planned error rates. Before the record can be signed, identify which claims have independent support and which must remain unverified. Which option correctly applies pre-specification and scope to this follow-up case?",
-          "hint": "Use the stated evidence and the conditions for pre-specification and scope; do not choose an option merely because it names a familiar term.",
+          "prompt": "Which statement best explains pre-specification and scope?",
+          "hint": "Identify the defining relationship or mechanism for pre-specification and scope. All needed information is in this question.",
           "answer": "B",
           "options": [
             {
               "key": "A",
-              "text": "A characteristic recorded for each patient. Categorical variable: a variable placing a patient into a group. Quantitative variable: a variable recorded as a meaningful number. Parameter: a fixed but usually unknown number describing a population. Statistic: a number computed from a sample.",
-              "why": "This describes Variable, not pre-specification and scope. It does not account for the quantities, conditions, or evidence in this statistics case."
+              "text": "A characteristic recorded for each patient.",
+              "why": "This describes variable. It does not answer the question about pre-specification and scope."
             },
             {
               "key": "B",
               "text": "A clear sample statistic cannot turn an unregistered observation into a pre-specified population claim.",
-              "why": "Correct. a clear sample statistic cannot turn an unregistered observation into a pre-specified population claim."
+              "why": "Correct. A clear sample statistic cannot turn an unregistered observation into a pre-specified population claim."
             },
             {
               "key": "C",
-              "text": "Treating category labels as quantities could create a meaningless average and mislead the board.",
-              "why": "This describes variable type and graph choice, not pre-specification and scope. It does not account for the quantities, conditions, or evidence in this statistics case."
+              "text": "Treating category labels as quantities could create a meaningless average and mislead the researchers.",
+              "why": "This describes variable type and graph choice. It does not answer the question about pre-specification and scope."
             },
             {
               "key": "D",
               "text": "Shape determines whether mean and standard deviation or median and IQR best summarize what patients experienced.",
-              "why": "This describes SOCS and graph uses, not pre-specification and scope. It does not account for the quantities, conditions, or evidence in this statistics case."
+              "why": "This describes describing a distribution by shape, outliers, center, and spread. It does not answer the question about pre-specification and scope."
             }
           ]
         },
         {
-          "prompt": "the Fenwick trial applies the lesson from What Was Promised to this follow-up: the registry lists treatment arm, serious-event grade, recovery days, and whether each patient improved. The next action depends on selecting the conclusion that fits all of those facts. Which option correctly applies Resistant statistic to this follow-up case?",
-          "hint": "Use the stated evidence and the conditions for Resistant statistic; do not choose an option merely because it names a familiar term.",
+          "prompt": "Which statement best explains resistant statistic?",
+          "hint": "Identify the defining relationship or mechanism for resistant statistic. All needed information is in this question.",
           "answer": "C",
           "options": [
             {
               "key": "A",
-              "text": "A characteristic recorded for each patient. Categorical variable: a variable placing a patient into a group. Quantitative variable: a variable recorded as a meaningful number. Parameter: a fixed but usually unknown number describing a population. Statistic: a number computed from a sample.",
-              "why": "This describes Variable, not Resistant statistic. It does not account for the quantities, conditions, or evidence in this statistics case."
+              "text": "A characteristic recorded for each patient.",
+              "why": "This describes variable. It does not answer the question about resistant statistic."
             },
             {
               "key": "B",
-              "text": "Treating category labels as quantities could create a meaningless average and mislead the board.",
-              "why": "This describes variable type and graph choice, not Resistant statistic. It does not account for the quantities, conditions, or evidence in this statistics case."
+              "text": "Treating category labels as quantities could create a meaningless average and mislead the researchers.",
+              "why": "This describes variable type and graph choice. It does not answer the question about resistant statistic."
             },
             {
               "key": "C",
-              "text": "A summary changed little by extreme values. Standard deviation: typical distance of values from their mean. Percentile: the percent of observations at or below a value. Normal model: a symmetric bell-shaped model described by mean and standard deviation.",
-              "why": "Correct. a summary changed little by extreme values. Standard deviation: typical distance of values from their mean. Percentile: the percent of observations at or below a value. Normal model: a symmetric bell-shaped model described by mean and standard deviation."
+              "text": "A summary changed little by extreme values.",
+              "why": "Correct. A summary changed little by extreme values."
             },
             {
               "key": "D",
               "text": "Shape determines whether mean and standard deviation or median and IQR best summarize what patients experienced.",
-              "why": "This describes SOCS and graph uses, not Resistant statistic. It does not account for the quantities, conditions, or evidence in this statistics case."
+              "why": "This describes describing a distribution by shape, outliers, center, and spread. It does not answer the question about resistant statistic."
             }
           ]
         }
@@ -538,126 +530,126 @@ export const MISSIONS = [
       "Standardizing places different measurements on a common scale."
     ],
     "deeper": {
-      "intro": "You completed What Was Measured. Choose GO DEEPER to revisit the four decisions and explore related course ideas; this optional review does not change your metrics or delay the next mission.",
+      "intro": "Try six independent practice questions. Each includes its own context and any needed data; no mission records are required.",
       "concepts": [],
       "questions": [
         {
-          "prompt": "In a follow-up to What Was Measured, with the resistant center chosen, one hospital's delay must still be compared with its own baseline. Which option correctly applies Resistant statistic to this follow-up case?",
-          "hint": "Use the stated evidence and the conditions for Resistant statistic; do not choose an option merely because it names a familiar term.",
-          "answer": "B",
-          "options": [
-            {
-              "key": "A",
-              "text": "A treatment claim built on a pulled mean may exaggerate what a typical patient gains.",
-              "why": "This describes mean, median, skew, not Resistant statistic. It does not account for the quantities, conditions, or evidence in this statistics case."
-            },
-            {
-              "key": "B",
-              "text": "A summary changed little by extreme values. Standard deviation: typical distance of values from their mean. Percentile: the percent of observations at or below a value. Normal model: a symmetric bell-shaped model described by mean and standard deviation.",
-              "why": "Correct. a summary changed little by extreme values. Standard deviation: typical distance of values from their mean. Percentile: the percent of observations at or below a value. Normal model: a symmetric bell-shaped model described by mean and standard deviation."
-            },
-            {
-              "key": "C",
-              "text": "A common z-scale identifies which record deserves the first source check.",
-              "why": "This describes z-score and percentile meaning, not Resistant statistic. It does not account for the quantities, conditions, or evidence in this statistics case."
-            },
-            {
-              "key": "D",
-              "text": "If observed coverage differs sharply from 95%, normal-model tail claims cannot govern source review.",
-              "why": "This describes 68-95-99.7 rule, not Resistant statistic. It does not account for the quantities, conditions, or evidence in this statistics case."
-            }
-          ]
-        },
-        {
-          "prompt": "the Fenwick trial receives a second case related to What Was Measured: the verified sample contains recovery times of 4, 5, 5, 6, and 20 days. Which statistical conclusion or procedure correctly uses mean, median, skew?",
-          "hint": "Use the stated evidence and the conditions for mean, median, skew; do not choose an option merely because it names a familiar term.",
-          "answer": "C",
-          "options": [
-            {
-              "key": "A",
-              "text": "A summary changed little by extreme values. Standard deviation: typical distance of values from their mean. Percentile: the percent of observations at or below a value. Normal model: a symmetric bell-shaped model described by mean and standard deviation.",
-              "why": "This describes Resistant statistic, not mean, median, skew. It does not account for the quantities, conditions, or evidence in this statistics case."
-            },
-            {
-              "key": "B",
-              "text": "A common z-scale identifies which record deserves the first source check.",
-              "why": "This describes z-score and percentile meaning, not mean, median, skew. It does not account for the quantities, conditions, or evidence in this statistics case."
-            },
-            {
-              "key": "C",
-              "text": "A treatment claim built on a pulled mean may exaggerate what a typical patient gains.",
-              "why": "Correct. a treatment claim built on a pulled mean may exaggerate what a typical patient gains."
-            },
-            {
-              "key": "D",
-              "text": "If observed coverage differs sharply from 95%, normal-model tail claims cannot govern source review.",
-              "why": "This describes 68-95-99.7 rule, not mean, median, skew. It does not account for the quantities, conditions, or evidence in this statistics case."
-            }
-          ]
-        },
-        {
-          "prompt": "A teammate rechecks What Was Measured using new evidence: with the resistant center chosen, one hospital's delay must still be compared with its own baseline. Which statistical conclusion or procedure correctly uses z-score and percentile meaning?",
-          "hint": "Use the stated evidence and the conditions for z-score and percentile meaning; do not choose an option merely because it names a familiar term.",
+          "prompt": "Which statement best explains resistant statistic?",
+          "hint": "Identify the defining relationship or mechanism for resistant statistic. All needed information is in this question.",
           "answer": "D",
           "options": [
             {
               "key": "A",
-              "text": "A summary changed little by extreme values. Standard deviation: typical distance of values from their mean. Percentile: the percent of observations at or below a value. Normal model: a symmetric bell-shaped model described by mean and standard deviation.",
-              "why": "This describes Resistant statistic, not z-score and percentile meaning. It does not account for the quantities, conditions, or evidence in this statistics case."
+              "text": "A treatment claim built on a pulled mean may exaggerate what a typical patient gains.",
+              "why": "This describes mean, median, skew. It does not answer the question about resistant statistic."
             },
             {
               "key": "B",
-              "text": "A treatment claim built on a pulled mean may exaggerate what a typical patient gains.",
-              "why": "This describes mean, median, skew, not z-score and percentile meaning. It does not account for the quantities, conditions, or evidence in this statistics case."
+              "text": "A common z-scale identifies which record deserves the first source check.",
+              "why": "This describes z-score and percentile meaning. It does not answer the question about resistant statistic."
             },
             {
               "key": "C",
               "text": "If observed coverage differs sharply from 95%, normal-model tail claims cannot govern source review.",
-              "why": "This describes 68-95-99.7 rule, not z-score and percentile meaning. It does not account for the quantities, conditions, or evidence in this statistics case."
+              "why": "This describes 68-95-99.7 rule. It does not answer the question about resistant statistic."
             },
             {
               "key": "D",
-              "text": "A common z-scale identifies which record deserves the first source check.",
-              "why": "Correct. a common z-scale identifies which record deserves the first source check."
+              "text": "A summary changed little by extreme values.",
+              "why": "Correct. A summary changed little by extreme values."
             }
           ]
         },
         {
-          "prompt": "An unseen case extends What Was Measured: the standardized record lies two deviations high, so the viewer can test the model against the full verified sample. Commit the prediction and run the test now so the measurement can fairly accept or reject the proposed model. Which option correctly applies 68-95-99.7 rule to this follow-up case?",
-          "hint": "Use the stated evidence and the conditions for 68-95-99.7 rule; do not choose an option merely because it names a familiar term.",
+          "prompt": "Which statement best explains mean, median, skew?",
+          "hint": "Identify the defining relationship or mechanism for mean, median, skew. All needed information is in this question.",
           "answer": "A",
           "options": [
             {
               "key": "A",
-              "text": "If observed coverage differs sharply from 95%, normal-model tail claims cannot govern source review.",
-              "why": "Correct. if observed coverage differs sharply from 95%, normal-model tail claims cannot govern source review."
+              "text": "A treatment claim built on a pulled mean may exaggerate what a typical patient gains.",
+              "why": "Correct. A treatment claim built on a pulled mean may exaggerate what a typical patient gains."
             },
             {
               "key": "B",
-              "text": "A summary changed little by extreme values. Standard deviation: typical distance of values from their mean. Percentile: the percent of observations at or below a value. Normal model: a symmetric bell-shaped model described by mean and standard deviation.",
-              "why": "This describes Resistant statistic, not 68-95-99.7 rule. It does not account for the quantities, conditions, or evidence in this statistics case."
+              "text": "A summary changed little by extreme values.",
+              "why": "This describes resistant statistic. It does not answer the question about mean, median, skew."
             },
             {
               "key": "C",
-              "text": "A treatment claim built on a pulled mean may exaggerate what a typical patient gains.",
-              "why": "This describes mean, median, skew, not 68-95-99.7 rule. It does not account for the quantities, conditions, or evidence in this statistics case."
+              "text": "A common z-scale identifies which record deserves the first source check.",
+              "why": "This describes z-score and percentile meaning. It does not answer the question about mean, median, skew."
             },
             {
               "key": "D",
-              "text": "A common z-scale identifies which record deserves the first source check.",
-              "why": "This describes z-score and percentile meaning, not 68-95-99.7 rule. It does not account for the quantities, conditions, or evidence in this statistics case."
+              "text": "If observed coverage differs sharply from 95%, normal-model tail claims cannot govern source review.",
+              "why": "This describes 68-95-99.7 rule. It does not answer the question about mean, median, skew."
             }
           ]
         },
         {
-          "prompt": "Before another What Was Measured decision, the team knows this: the verified sample contains recovery times of 4, 5, 5, 6, and 20 days. Which interpretation of the displayed evidence correctly uses the mission concept?",
-          "hint": "Read the axes, units, direction, and any threshold before comparing the choices.",
+          "prompt": "Which statement best explains z-score and percentile meaning?",
+          "hint": "Identify the defining relationship or mechanism for z-score and percentile meaning. All needed information is in this question.",
           "answer": "B",
+          "options": [
+            {
+              "key": "A",
+              "text": "A summary changed little by extreme values.",
+              "why": "This describes resistant statistic. It does not answer the question about z-score and percentile meaning."
+            },
+            {
+              "key": "B",
+              "text": "A common z-scale identifies which record deserves the first source check.",
+              "why": "Correct. A common z-scale identifies which record deserves the first source check."
+            },
+            {
+              "key": "C",
+              "text": "A treatment claim built on a pulled mean may exaggerate what a typical patient gains.",
+              "why": "This describes mean, median, skew. It does not answer the question about z-score and percentile meaning."
+            },
+            {
+              "key": "D",
+              "text": "If observed coverage differs sharply from 95%, normal-model tail claims cannot govern source review.",
+              "why": "This describes 68-95-99.7 rule. It does not answer the question about z-score and percentile meaning."
+            }
+          ]
+        },
+        {
+          "prompt": "Which statement best explains 68-95-99.7 rule?",
+          "hint": "Identify the defining relationship or mechanism for 68-95-99.7 rule. All needed information is in this question.",
+          "answer": "C",
+          "options": [
+            {
+              "key": "A",
+              "text": "A summary changed little by extreme values.",
+              "why": "This describes resistant statistic. It does not answer the question about 68-95-99.7 rule."
+            },
+            {
+              "key": "B",
+              "text": "A treatment claim built on a pulled mean may exaggerate what a typical patient gains.",
+              "why": "This describes mean, median, skew. It does not answer the question about 68-95-99.7 rule."
+            },
+            {
+              "key": "C",
+              "text": "If observed coverage differs sharply from 95%, normal-model tail claims cannot govern source review.",
+              "why": "Correct. If observed coverage differs sharply from 95%, normal-model tail claims cannot govern source review."
+            },
+            {
+              "key": "D",
+              "text": "A common z-scale identifies which record deserves the first source check.",
+              "why": "This describes z-score and percentile meaning. It does not answer the question about 68-95-99.7 rule."
+            }
+          ]
+        },
+        {
+          "prompt": "The distribution has a long right tail. Which pair of summaries is least affected by unusually long recovery times?",
+          "hint": "Choose summaries based on middle positions rather than extremes.",
+          "answer": "D",
           "figure": {
             "kind": "bars",
-            "xLabel": "Recovery-time bin (days)",
+            "xLabel": "Recovery time",
             "yLabel": "Patients",
-            "caption": "Recovery times are right-skewed with two unusually high values.",
+            "caption": "Recovery-time counts in one study",
             "bars": [
               {
                 "name": "2 days",
@@ -676,10 +668,6 @@ export const MISSIONS = [
                 "value": 3
               },
               {
-                "name": "14 days",
-                "value": 1
-              },
-              {
                 "name": "20 days",
                 "value": 2
               }
@@ -688,50 +676,50 @@ export const MISSIONS = [
           "options": [
             {
               "key": "A",
-              "text": "A summary changed little by extreme values. Standard deviation: typical distance of values from their mean. Percentile: the percent of observations at or below a value. Normal model: a symmetric bell-shaped model described by mean and standard deviation.",
-              "why": "This describes Resistant statistic, not graph choice, resistance, outlier treatment. It does not account for the quantities, conditions, or evidence in this statistics case."
+              "text": "The mean and range.",
+              "why": "Both can be strongly influenced by extreme values."
             },
             {
               "key": "B",
-              "text": "The measurement rule determines whether later treatment comparisons answer the registered patient question.",
-              "why": "Correct. the measurement rule determines whether later treatment comparisons answer the registered patient question."
+              "text": "The maximum and minimum.",
+              "why": "These summaries depend entirely on extreme observations."
             },
             {
               "key": "C",
-              "text": "A treatment claim built on a pulled mean may exaggerate what a typical patient gains.",
-              "why": "This describes mean, median, skew, not graph choice, resistance, outlier treatment. It does not account for the quantities, conditions, or evidence in this statistics case."
+              "text": "The average of category codes.",
+              "why": "Recovery-time summaries must use the measured times, not arbitrary codes."
             },
             {
               "key": "D",
-              "text": "A common z-scale identifies which record deserves the first source check.",
-              "why": "This describes z-score and percentile meaning, not graph choice, resistance, outlier treatment. It does not account for the quantities, conditions, or evidence in this statistics case."
+              "text": "The median and interquartile range.",
+              "why": "Correct. The median and interquartile range."
             }
           ]
         },
         {
-          "prompt": "the Fenwick trial applies the lesson from What Was Measured to this follow-up: the verified sample contains recovery times of 4, 5, 5, 6, and 20 days. Which option correctly applies Variable to this follow-up case?",
-          "hint": "Use the stated evidence and the conditions for Variable; do not choose an option merely because it names a familiar term.",
-          "answer": "C",
+          "prompt": "Which statement best explains variable?",
+          "hint": "Identify the defining relationship or mechanism for variable. All needed information is in this question.",
+          "answer": "A",
           "options": [
             {
               "key": "A",
-              "text": "A summary changed little by extreme values. Standard deviation: typical distance of values from their mean. Percentile: the percent of observations at or below a value. Normal model: a symmetric bell-shaped model described by mean and standard deviation.",
-              "why": "This describes Resistant statistic, not Variable. It does not account for the quantities, conditions, or evidence in this statistics case."
+              "text": "A characteristic recorded for each patient.",
+              "why": "Correct. A characteristic recorded for each patient."
             },
             {
               "key": "B",
-              "text": "A treatment claim built on a pulled mean may exaggerate what a typical patient gains.",
-              "why": "This describes mean, median, skew, not Variable. It does not account for the quantities, conditions, or evidence in this statistics case."
+              "text": "A summary changed little by extreme values.",
+              "why": "This describes resistant statistic. It does not answer the question about variable."
             },
             {
               "key": "C",
-              "text": "A characteristic recorded for each patient. Categorical variable: a variable placing a patient into a group. Quantitative variable: a variable recorded as a meaningful number. Parameter: a fixed but usually unknown number describing a population. Statistic: a number computed from a sample.",
-              "why": "Correct. a characteristic recorded for each patient. Categorical variable: a variable placing a patient into a group. Quantitative variable: a variable recorded as a meaningful number. Parameter: a fixed but usually unknown number describing a population. Statistic: a number computed from a sample."
+              "text": "A treatment claim built on a pulled mean may exaggerate what a typical patient gains.",
+              "why": "This describes mean, median, skew. It does not answer the question about variable."
             },
             {
               "key": "D",
               "text": "A common z-scale identifies which record deserves the first source check.",
-              "why": "This describes z-score and percentile meaning, not Variable. It does not account for the quantities, conditions, or evidence in this statistics case."
+              "why": "This describes z-score and percentile meaning. It does not answer the question about variable."
             }
           ]
         }
@@ -1011,168 +999,168 @@ export const MISSIONS = [
       "Rates need denominators; counts alone can hide exposure."
     ],
     "deeper": {
-      "intro": "You completed The Two-Site Alarm. Choose GO DEEPER to revisit the four decisions and explore related course ideas; this optional review does not change your metrics or delay the next mission.",
+      "intro": "Try six independent practice questions. Each includes its own context and any needed data; no mission records are required.",
       "concepts": [],
       "questions": [
         {
-          "prompt": "In a follow-up to The Two-Site Alarm, eight percent of patients had a serious event, five percent had a shipment flag, and two percent had both. Which option correctly applies Union to this follow-up case?",
-          "hint": "Use the stated evidence and the conditions for Union; do not choose an option merely because it names a familiar term.",
+          "prompt": "Which statement best explains union?",
+          "hint": "Identify the defining relationship or mechanism for union. All needed information is in this question.",
           "answer": "B",
           "options": [
             {
               "key": "A",
               "text": "Double-counting overlap would exaggerate the apparent size of the safety problem.",
-              "why": "This describes addition rule, not Union. It does not account for the quantities, conditions, or evidence in this statistics case."
+              "why": "This describes addition rule. It does not answer the question about union."
             },
             {
               "key": "B",
-              "text": "The event that A or B or both occur. Intersection: the event that A and B both occur. Conditional probability: the probability of A among cases where B occurred. Independent events: events for which knowing one occurred does not change the probability of the other. Mutually exclusive events: events that cannot occur together.",
-              "why": "Correct. the event that A or B or both occur. Intersection: the event that A and B both occur. Conditional probability: the probability of A among cases where B occurred. Independent events: events for which knowing one occurred does not change the probability of the other. Mutually exclusive events: events that cannot occur together."
+              "text": "The event that A or B or both occur.",
+              "why": "Correct. The event that A or B or both occur."
             },
             {
               "key": "C",
-              "text": "A high conditional rate directs the next inspection toward handling without proving that handling caused harm.",
-              "why": "This describes conditional probability, not Union. It does not account for the quantities, conditions, or evidence in this statistics case."
+              "text": "A higher event rate within a shipment subgroup can motivate a handling investigation without proving that handling caused the events.",
+              "why": "This describes conditional probability. It does not answer the question about union."
             },
             {
               "key": "D",
               "text": "A failed independence prediction justifies a targeted pause, not a claim that shipment handling caused every event.",
-              "why": "This describes multiplication rule and independence, not Union. It does not account for the quantities, conditions, or evidence in this statistics case."
+              "why": "This describes multiplication rule and independence. It does not answer the question about union."
             }
           ]
         },
         {
-          "prompt": "the Fenwick trial receives a second case related to The Two-Site Alarm: eight percent of patients had a serious event, five percent had a shipment flag, and two percent had both. Which option correctly applies addition rule to this follow-up case?",
-          "hint": "Use the stated evidence and the conditions for addition rule; do not choose an option merely because it names a familiar term.",
+          "prompt": "Which statement best explains addition rule?",
+          "hint": "Identify the defining relationship or mechanism for addition rule. All needed information is in this question.",
           "answer": "C",
           "options": [
             {
               "key": "A",
-              "text": "The event that A or B or both occur. Intersection: the event that A and B both occur. Conditional probability: the probability of A among cases where B occurred. Independent events: events for which knowing one occurred does not change the probability of the other. Mutually exclusive events: events that cannot occur together.",
-              "why": "This describes Union, not addition rule. It does not account for the quantities, conditions, or evidence in this statistics case."
+              "text": "The event that A or B or both occur.",
+              "why": "This describes union. It does not answer the question about addition rule."
             },
             {
               "key": "B",
-              "text": "A high conditional rate directs the next inspection toward handling without proving that handling caused harm.",
-              "why": "This describes conditional probability, not addition rule. It does not account for the quantities, conditions, or evidence in this statistics case."
+              "text": "A higher event rate within a shipment subgroup can motivate a handling investigation without proving that handling caused the events.",
+              "why": "This describes conditional probability. It does not answer the question about addition rule."
             },
             {
               "key": "C",
               "text": "Double-counting overlap would exaggerate the apparent size of the safety problem.",
-              "why": "Correct. double-counting overlap would exaggerate the apparent size of the safety problem."
+              "why": "Correct. Double-counting overlap would exaggerate the apparent size of the safety problem."
             },
             {
               "key": "D",
               "text": "A failed independence prediction justifies a targeted pause, not a claim that shipment handling caused every event.",
-              "why": "This describes multiplication rule and independence, not addition rule. It does not account for the quantities, conditions, or evidence in this statistics case."
+              "why": "This describes multiplication rule and independence. It does not answer the question about addition rule."
             }
           ]
         },
         {
-          "prompt": "A teammate rechecks The Two-Site Alarm using new evidence: with duplicate reports removed, the shipment flag can become the conditioning group rather than another headline count. Which statistical conclusion or procedure correctly uses conditional probability?",
-          "hint": "Use the stated evidence and the conditions for conditional probability; do not choose an option merely because it names a familiar term.",
+          "prompt": "Which statement best explains conditional probability?",
+          "hint": "Identify the defining relationship or mechanism for conditional probability. All needed information is in this question.",
           "answer": "D",
           "options": [
             {
               "key": "A",
-              "text": "The event that A or B or both occur. Intersection: the event that A and B both occur. Conditional probability: the probability of A among cases where B occurred. Independent events: events for which knowing one occurred does not change the probability of the other. Mutually exclusive events: events that cannot occur together.",
-              "why": "This describes Union, not conditional probability. It does not account for the quantities, conditions, or evidence in this statistics case."
+              "text": "The event that A or B or both occur.",
+              "why": "This describes union. It does not answer the question about conditional probability."
             },
             {
               "key": "B",
               "text": "Double-counting overlap would exaggerate the apparent size of the safety problem.",
-              "why": "This describes addition rule, not conditional probability. It does not account for the quantities, conditions, or evidence in this statistics case."
+              "why": "This describes addition rule. It does not answer the question about conditional probability."
             },
             {
               "key": "C",
               "text": "A failed independence prediction justifies a targeted pause, not a claim that shipment handling caused every event.",
-              "why": "This describes multiplication rule and independence, not conditional probability. It does not account for the quantities, conditions, or evidence in this statistics case."
+              "why": "This describes multiplication rule and independence. It does not answer the question about conditional probability."
             },
             {
               "key": "D",
-              "text": "A high conditional rate directs the next inspection toward handling without proving that handling caused harm.",
-              "why": "Correct. a high conditional rate directs the next inspection toward handling without proving that handling caused harm."
+              "text": "A higher event rate within a shipment subgroup can motivate a handling investigation without proving that handling caused the events.",
+              "why": "Correct. A higher event rate within a shipment subgroup can motivate a handling investigation without proving that handling caused the events."
             }
           ]
         },
         {
-          "prompt": "An unseen case extends The Two-Site Alarm: the conditional rate is high, but concentration alone does not show whether shipment flags and serious events move independently. Run the reversible comparison now so the crew can tell whether the proposed cause changes the measured response. Which option correctly applies multiplication rule and independence to this follow-up case?",
-          "hint": "Use the stated evidence and the conditions for multiplication rule and independence; do not choose an option merely because it names a familiar term.",
+          "prompt": "Which statement best explains multiplication rule and independence?",
+          "hint": "Identify the defining relationship or mechanism for multiplication rule and independence. All needed information is in this question.",
           "answer": "A",
           "options": [
             {
               "key": "A",
               "text": "A failed independence prediction justifies a targeted pause, not a claim that shipment handling caused every event.",
-              "why": "Correct. a failed independence prediction justifies a targeted pause, not a claim that shipment handling caused every event."
+              "why": "Correct. A failed independence prediction justifies a targeted pause, not a claim that shipment handling caused every event."
             },
             {
               "key": "B",
-              "text": "The event that A or B or both occur. Intersection: the event that A and B both occur. Conditional probability: the probability of A among cases where B occurred. Independent events: events for which knowing one occurred does not change the probability of the other. Mutually exclusive events: events that cannot occur together.",
-              "why": "This describes Union, not multiplication rule and independence. It does not account for the quantities, conditions, or evidence in this statistics case."
+              "text": "The event that A or B or both occur.",
+              "why": "This describes union. It does not answer the question about multiplication rule and independence."
             },
             {
               "key": "C",
               "text": "Double-counting overlap would exaggerate the apparent size of the safety problem.",
-              "why": "This describes addition rule, not multiplication rule and independence. It does not account for the quantities, conditions, or evidence in this statistics case."
+              "why": "This describes addition rule. It does not answer the question about multiplication rule and independence."
             },
             {
               "key": "D",
-              "text": "A high conditional rate directs the next inspection toward handling without proving that handling caused harm.",
-              "why": "This describes conditional probability, not multiplication rule and independence. It does not account for the quantities, conditions, or evidence in this statistics case."
+              "text": "A higher event rate within a shipment subgroup can motivate a handling investigation without proving that handling caused the events.",
+              "why": "This describes conditional probability. It does not answer the question about multiplication rule and independence."
             }
           ]
         },
         {
-          "prompt": "Before another Two-Site Alarm decision, the team knows this: the unique warning rate is 11%, flagged shipments have a 40% serious-event rate, and observed overlap is five times the independent prediction. Which option correctly applies complement, independence versus exclusivity, exposure denominators to this follow-up case?",
-          "hint": "Use the stated evidence and the conditions for complement, independence versus exclusivity, exposure denominators; do not choose an option merely because it names a familiar term.",
+          "prompt": "Which statement best explains complement, independence versus exclusivity, exposure denominators?",
+          "hint": "Identify the defining relationship or mechanism for complement, independence versus exclusivity, exposure denominators. All needed information is in this question.",
           "answer": "B",
           "options": [
             {
               "key": "A",
-              "text": "The event that A or B or both occur. Intersection: the event that A and B both occur. Conditional probability: the probability of A among cases where B occurred. Independent events: events for which knowing one occurred does not change the probability of the other. Mutually exclusive events: events that cannot occur together.",
-              "why": "This describes Union, not complement, independence versus exclusivity, exposure denominators. It does not account for the quantities, conditions, or evidence in this statistics case."
+              "text": "The event that A or B or both occur.",
+              "why": "This describes union. It does not answer the question about complement, independence versus exclusivity, exposure denominators."
             },
             {
               "key": "B",
               "text": "The narrowest safe action preserves evidence while preventing more exposure where the signal is concentrated.",
-              "why": "Correct. the narrowest safe action preserves evidence while preventing more exposure where the signal is concentrated."
+              "why": "Correct. The narrowest safe action preserves evidence while preventing more exposure where the signal is concentrated."
             },
             {
               "key": "C",
               "text": "Double-counting overlap would exaggerate the apparent size of the safety problem.",
-              "why": "This describes addition rule, not complement, independence versus exclusivity, exposure denominators. It does not account for the quantities, conditions, or evidence in this statistics case."
+              "why": "This describes addition rule. It does not answer the question about complement, independence versus exclusivity, exposure denominators."
             },
             {
               "key": "D",
-              "text": "A high conditional rate directs the next inspection toward handling without proving that handling caused harm.",
-              "why": "This describes conditional probability, not complement, independence versus exclusivity, exposure denominators. It does not account for the quantities, conditions, or evidence in this statistics case."
+              "text": "A higher event rate within a shipment subgroup can motivate a handling investigation without proving that handling caused the events.",
+              "why": "This describes conditional probability. It does not answer the question about complement, independence versus exclusivity, exposure denominators."
             }
           ]
         },
         {
-          "prompt": "the Fenwick trial applies the lesson from The Two-Site Alarm to this follow-up: eight percent of patients had a serious event, five percent had a shipment flag, and two percent had both. Which option correctly applies Variable to this follow-up case?",
-          "hint": "Use the stated evidence and the conditions for Variable; do not choose an option merely because it names a familiar term.",
+          "prompt": "Which statement best explains variable?",
+          "hint": "Identify the defining relationship or mechanism for variable. All needed information is in this question.",
           "answer": "C",
           "options": [
             {
               "key": "A",
-              "text": "The event that A or B or both occur. Intersection: the event that A and B both occur. Conditional probability: the probability of A among cases where B occurred. Independent events: events for which knowing one occurred does not change the probability of the other. Mutually exclusive events: events that cannot occur together.",
-              "why": "This describes Union, not Variable. It does not account for the quantities, conditions, or evidence in this statistics case."
+              "text": "The event that A or B or both occur.",
+              "why": "This describes union. It does not answer the question about variable."
             },
             {
               "key": "B",
               "text": "Double-counting overlap would exaggerate the apparent size of the safety problem.",
-              "why": "This describes addition rule, not Variable. It does not account for the quantities, conditions, or evidence in this statistics case."
+              "why": "This describes addition rule. It does not answer the question about variable."
             },
             {
               "key": "C",
-              "text": "A characteristic recorded for each patient. Categorical variable: a variable placing a patient into a group. Quantitative variable: a variable recorded as a meaningful number. Parameter: a fixed but usually unknown number describing a population. Statistic: a number computed from a sample.",
-              "why": "Correct. a characteristic recorded for each patient. Categorical variable: a variable placing a patient into a group. Quantitative variable: a variable recorded as a meaningful number. Parameter: a fixed but usually unknown number describing a population. Statistic: a number computed from a sample."
+              "text": "A characteristic recorded for each patient.",
+              "why": "Correct. A characteristic recorded for each patient."
             },
             {
               "key": "D",
-              "text": "A high conditional rate directs the next inspection toward handling without proving that handling caused harm.",
-              "why": "This describes conditional probability, not Variable. It does not account for the quantities, conditions, or evidence in this statistics case."
+              "text": "A higher event rate within a shipment subgroup can motivate a handling investigation without proving that handling caused the events.",
+              "why": "This describes conditional probability. It does not answer the question about variable."
             }
           ]
         }
@@ -1459,168 +1447,168 @@ export const MISSIONS = [
       "More unplanned tests create more chances for a false positive."
     ],
     "deeper": {
-      "intro": "You completed The Opened Envelope. Choose GO DEEPER to revisit the four decisions and explore related course ideas; this optional review does not change your metrics or delay the next mission.",
+      "intro": "Try six independent practice questions. Each includes its own context and any needed data; no mission records are required.",
       "concepts": [],
       "questions": [
         {
-          "prompt": "In a follow-up to The Opened Envelope, a site-day produces 0 reports with probability 0.70, 1 with probability 0.25, and 2 with probability 0.05. Which statistical conclusion or procedure correctly uses Random variable?",
-          "hint": "Use the stated evidence and the conditions for Random variable; do not choose an option merely because it names a familiar term.",
-          "answer": "B",
-          "options": [
-            {
-              "key": "A",
-              "text": "Expected workload controls whether delayed review could create a safety blind spot.",
-              "why": "This describes expected value, not Random variable. It does not account for the quantities, conditions, or evidence in this statistics case."
-            },
-            {
-              "key": "B",
-              "text": "A numerical outcome determined by chance. Expected value: the long-run average value of a random variable. Type I error: rejecting a true null hypothesis. Type II error: failing to reject a false null hypothesis. Power: the probability that a test rejects a false null hypothesis.",
-              "why": "Correct. a numerical outcome determined by chance. Expected value: the long-run average value of a random variable. Type I error: rejecting a true null hypothesis. Type II error: failing to reject a false null hypothesis. Power: the probability that a test rejects a false null hypothesis."
-            },
-            {
-              "key": "C",
-              "text": "Understating spread could leave serious reports waiting beyond the review limit.",
-              "why": "This describes independent sums of RVs and linear transforms, not Random variable. It does not account for the quantities, conditions, or evidence in this statistics case."
-            },
-            {
-              "key": "D",
-              "text": "The result prevents one event from being treated as impossible while the audit is open.",
-              "why": "This describes binomial complement, not Random variable. It does not account for the quantities, conditions, or evidence in this statistics case."
-            }
-          ]
-        },
-        {
-          "prompt": "the Fenwick trial receives a second case related to The Opened Envelope: a site-day produces 0 reports with probability 0.70, 1 with probability 0.25, and 2 with probability 0.05. Which option correctly applies expected value to this follow-up case?",
-          "hint": "Use the stated evidence and the conditions for expected value; do not choose an option merely because it names a familiar term.",
-          "answer": "C",
-          "options": [
-            {
-              "key": "A",
-              "text": "A numerical outcome determined by chance. Expected value: the long-run average value of a random variable. Type I error: rejecting a true null hypothesis. Type II error: failing to reject a false null hypothesis. Power: the probability that a test rejects a false null hypothesis.",
-              "why": "This describes Random variable, not expected value. It does not account for the quantities, conditions, or evidence in this statistics case."
-            },
-            {
-              "key": "B",
-              "text": "Understating spread could leave serious reports waiting beyond the review limit.",
-              "why": "This describes independent sums of RVs and linear transforms, not expected value. It does not account for the quantities, conditions, or evidence in this statistics case."
-            },
-            {
-              "key": "C",
-              "text": "Expected workload controls whether delayed review could create a safety blind spot.",
-              "why": "Correct. expected workload controls whether delayed review could create a safety blind spot."
-            },
-            {
-              "key": "D",
-              "text": "The result prevents one event from being treated as impossible while the audit is open.",
-              "why": "This describes binomial complement, not expected value. It does not account for the quantities, conditions, or evidence in this statistics case."
-            }
-          ]
-        },
-        {
-          "prompt": "A teammate rechecks The Opened Envelope using new evidence: region A has mean 10 reports and SD 3; Region B has mean 8 and SD 4. Which option correctly applies independent sums of RVs and linear transforms to this follow-up case?",
-          "hint": "Use the stated evidence and the conditions for independent sums of RVs and linear transforms; do not choose an option merely because it names a familiar term.",
+          "prompt": "Which statement best explains random variable?",
+          "hint": "Identify the defining relationship or mechanism for random variable. All needed information is in this question.",
           "answer": "D",
           "options": [
             {
               "key": "A",
-              "text": "A numerical outcome determined by chance. Expected value: the long-run average value of a random variable. Type I error: rejecting a true null hypothesis. Type II error: failing to reject a false null hypothesis. Power: the probability that a test rejects a false null hypothesis.",
-              "why": "This describes Random variable, not independent sums of RVs and linear transforms. It does not account for the quantities, conditions, or evidence in this statistics case."
+              "text": "Expected workload controls whether delayed review could create a safety blind spot.",
+              "why": "This describes expected value. It does not answer the question about random variable."
             },
             {
               "key": "B",
-              "text": "Expected workload controls whether delayed review could create a safety blind spot.",
-              "why": "This describes expected value, not independent sums of RVs and linear transforms. It does not account for the quantities, conditions, or evidence in this statistics case."
+              "text": "Understating spread could leave serious reports waiting beyond the review limit.",
+              "why": "This describes independent sums of RVs and linear transforms. It does not answer the question about random variable."
             },
             {
               "key": "C",
               "text": "The result prevents one event from being treated as impossible while the audit is open.",
-              "why": "This describes binomial complement, not independent sums of RVs and linear transforms. It does not account for the quantities, conditions, or evidence in this statistics case."
+              "why": "This describes binomial complement. It does not answer the question about random variable."
             },
             {
               "key": "D",
-              "text": "Understating spread could leave serious reports waiting beyond the review limit.",
-              "why": "Correct. understating spread could leave serious reports waiting beyond the review limit."
+              "text": "A numerical outcome determined by chance.",
+              "why": "Correct. A numerical outcome determined by chance."
             }
           ]
         },
         {
-          "prompt": "An unseen case extends The Opened Envelope: with queue uncertainty sized, the board asks whether another event during review would be surprising. The next action depends on selecting the conclusion that fits all of those facts. Which option correctly applies binomial complement to this follow-up case?",
-          "hint": "Use the stated evidence and the conditions for binomial complement; do not choose an option merely because it names a familiar term.",
+          "prompt": "Which statement best explains expected value?",
+          "hint": "Identify the defining relationship or mechanism for expected value. All needed information is in this question.",
           "answer": "A",
           "options": [
             {
               "key": "A",
-              "text": "The result prevents one event from being treated as impossible while the audit is open.",
-              "why": "Correct. the result prevents one event from being treated as impossible while the audit is open."
+              "text": "Expected workload controls whether delayed review could create a safety blind spot.",
+              "why": "Correct. Expected workload controls whether delayed review could create a safety blind spot."
             },
             {
               "key": "B",
-              "text": "A numerical outcome determined by chance. Expected value: the long-run average value of a random variable. Type I error: rejecting a true null hypothesis. Type II error: failing to reject a false null hypothesis. Power: the probability that a test rejects a false null hypothesis.",
-              "why": "This describes Random variable, not binomial complement. It does not account for the quantities, conditions, or evidence in this statistics case."
+              "text": "A numerical outcome determined by chance.",
+              "why": "This describes random variable. It does not answer the question about expected value."
             },
             {
               "key": "C",
-              "text": "Expected workload controls whether delayed review could create a safety blind spot.",
-              "why": "This describes expected value, not binomial complement. It does not account for the quantities, conditions, or evidence in this statistics case."
+              "text": "Understating spread could leave serious reports waiting beyond the review limit.",
+              "why": "This describes independent sums of RVs and linear transforms. It does not answer the question about expected value."
             },
             {
               "key": "D",
-              "text": "Understating spread could leave serious reports waiting beyond the review limit.",
-              "why": "This describes independent sums of RVs and linear transforms, not binomial complement. It does not account for the quantities, conditions, or evidence in this statistics case."
+              "text": "The result prevents one event from being treated as impossible while the audit is open.",
+              "why": "This describes binomial complement. It does not answer the question about expected value."
             }
           ]
         },
         {
-          "prompt": "Before another Opened Envelope decision, the team knows this: the unplanned look spent one chance to make a false claim, while a delayed true warning could also harm patients. Write the action threshold now, before new evidence or operational pressure can move it. Which statistical conclusion or procedure correctly uses Type I/II, alpha, power?",
-          "hint": "Use the stated evidence and the conditions for Type I/II, alpha, power; do not choose an option merely because it names a familiar term.",
+          "prompt": "Which statement best explains independent sums of RVs and linear transforms?",
+          "hint": "Identify the defining relationship or mechanism for independent sums of rvs and linear transforms. All needed information is in this question.",
           "answer": "B",
           "options": [
             {
               "key": "A",
-              "text": "A numerical outcome determined by chance. Expected value: the long-run average value of a random variable. Type I error: rejecting a true null hypothesis. Type II error: failing to reject a false null hypothesis. Power: the probability that a test rejects a false null hypothesis.",
-              "why": "This describes Random variable, not Type I/II, alpha, power. It does not account for the quantities, conditions, or evidence in this statistics case."
+              "text": "A numerical outcome determined by chance.",
+              "why": "This describes random variable. It does not answer the question about independent sums of rvs and linear transforms."
             },
             {
               "key": "B",
-              "text": "A transparent rule keeps urgency from moving the decision line after results are known.",
-              "why": "Correct. a transparent rule keeps urgency from moving the decision line after results are known."
+              "text": "Understating spread could leave serious reports waiting beyond the review limit.",
+              "why": "Correct. Understating spread could leave serious reports waiting beyond the review limit."
             },
             {
               "key": "C",
               "text": "Expected workload controls whether delayed review could create a safety blind spot.",
-              "why": "This describes expected value, not Type I/II, alpha, power. It does not account for the quantities, conditions, or evidence in this statistics case."
+              "why": "This describes expected value. It does not answer the question about independent sums of rvs and linear transforms."
             },
             {
               "key": "D",
-              "text": "Understating spread could leave serious reports waiting beyond the review limit.",
-              "why": "This describes independent sums of RVs and linear transforms, not Type I/II, alpha, power. It does not account for the quantities, conditions, or evidence in this statistics case."
+              "text": "The result prevents one event from being treated as impossible while the audit is open.",
+              "why": "This describes binomial complement. It does not answer the question about independent sums of rvs and linear transforms."
             }
           ]
         },
         {
-          "prompt": "the Fenwick trial applies the lesson from The Opened Envelope to this follow-up: a site-day produces 0 reports with probability 0.70, 1 with probability 0.25, and 2 with probability 0.05. Which option correctly applies Variable to this follow-up case?",
-          "hint": "Use the stated evidence and the conditions for Variable; do not choose an option merely because it names a familiar term.",
+          "prompt": "Which statement best explains binomial complement?",
+          "hint": "Identify the defining relationship or mechanism for binomial complement. All needed information is in this question.",
           "answer": "C",
           "options": [
             {
               "key": "A",
-              "text": "A numerical outcome determined by chance. Expected value: the long-run average value of a random variable. Type I error: rejecting a true null hypothesis. Type II error: failing to reject a false null hypothesis. Power: the probability that a test rejects a false null hypothesis.",
-              "why": "This describes Random variable, not Variable. It does not account for the quantities, conditions, or evidence in this statistics case."
+              "text": "A numerical outcome determined by chance.",
+              "why": "This describes random variable. It does not answer the question about binomial complement."
             },
             {
               "key": "B",
               "text": "Expected workload controls whether delayed review could create a safety blind spot.",
-              "why": "This describes expected value, not Variable. It does not account for the quantities, conditions, or evidence in this statistics case."
+              "why": "This describes expected value. It does not answer the question about binomial complement."
             },
             {
               "key": "C",
-              "text": "A characteristic recorded for each patient. Categorical variable: a variable placing a patient into a group. Quantitative variable: a variable recorded as a meaningful number. Parameter: a fixed but usually unknown number describing a population. Statistic: a number computed from a sample.",
-              "why": "Correct. a characteristic recorded for each patient. Categorical variable: a variable placing a patient into a group. Quantitative variable: a variable recorded as a meaningful number. Parameter: a fixed but usually unknown number describing a population. Statistic: a number computed from a sample."
+              "text": "The result prevents one event from being treated as impossible while the audit is open.",
+              "why": "Correct. The result prevents one event from being treated as impossible while the audit is open."
             },
             {
               "key": "D",
               "text": "Understating spread could leave serious reports waiting beyond the review limit.",
-              "why": "This describes independent sums of RVs and linear transforms, not Variable. It does not account for the quantities, conditions, or evidence in this statistics case."
+              "why": "This describes independent sums of RVs and linear transforms. It does not answer the question about binomial complement."
+            }
+          ]
+        },
+        {
+          "prompt": "Which statement best explains false positives, false negatives, significance level, and statistical power?",
+          "hint": "Identify the defining relationship or mechanism for false positives, false negatives, significance level, and statistical power. All needed information is in this question.",
+          "answer": "D",
+          "options": [
+            {
+              "key": "A",
+              "text": "A numerical outcome determined by chance.",
+              "why": "This describes random variable. It does not answer the question about false positives, false negatives, significance level, and statistical power."
+            },
+            {
+              "key": "B",
+              "text": "Expected workload controls whether delayed review could create a safety blind spot.",
+              "why": "This describes expected value. It does not answer the question about false positives, false negatives, significance level, and statistical power."
+            },
+            {
+              "key": "C",
+              "text": "Understating spread could leave serious reports waiting beyond the review limit.",
+              "why": "This describes independent sums of RVs and linear transforms. It does not answer the question about false positives, false negatives, significance level, and statistical power."
+            },
+            {
+              "key": "D",
+              "text": "A transparent rule keeps urgency from moving the decision line after results are known.",
+              "why": "Correct. A transparent rule keeps urgency from moving the decision line after results are known."
+            }
+          ]
+        },
+        {
+          "prompt": "Which statement best explains variable?",
+          "hint": "Identify the defining relationship or mechanism for variable. All needed information is in this question.",
+          "answer": "A",
+          "options": [
+            {
+              "key": "A",
+              "text": "A characteristic recorded for each patient.",
+              "why": "Correct. A characteristic recorded for each patient."
+            },
+            {
+              "key": "B",
+              "text": "A numerical outcome determined by chance.",
+              "why": "This describes random variable. It does not answer the question about variable."
+            },
+            {
+              "key": "C",
+              "text": "Expected workload controls whether delayed review could create a safety blind spot.",
+              "why": "This describes expected value. It does not answer the question about variable."
+            },
+            {
+              "key": "D",
+              "text": "Understating spread could leave serious reports waiting beyond the review limit.",
+              "why": "This describes independent sums of RVs and linear transforms. It does not answer the question about variable."
             }
           ]
         }
@@ -1915,168 +1903,168 @@ export const MISSIONS = [
       "Random assignment supports causal conclusions."
     ],
     "deeper": {
-      "intro": "You completed The Fast Site. Choose GO DEEPER to revisit the four decisions and explore related course ideas; this optional review does not change your metrics or delay the next mission.",
+      "intro": "Try six independent practice questions. Each includes its own context and any needed data; no mission records are required.",
       "concepts": [],
       "questions": [
         {
-          "prompt": "In a follow-up to The Fast Site, random assignment inside the trial supports a treatment comparison, but the fast site's enrollment frame omitted many rural patients. Which option correctly applies Sampling frame to this follow-up case?",
-          "hint": "Use the stated evidence and the conditions for Sampling frame; do not choose an option merely because it names a familiar term.",
+          "prompt": "Which statement best explains sampling frame?",
+          "hint": "Identify the defining relationship or mechanism for sampling frame. All needed information is in this question.",
           "answer": "B",
           "options": [
             {
               "key": "A",
               "text": "A chance mechanism prevents staff from selecting only easy or complete charts.",
-              "why": "This describes SRS/RNG, not Sampling frame. It does not account for the quantities, conditions, or evidence in this statistics case."
+              "why": "This describes selection using a simple random sample. It does not answer the question about sampling frame."
             },
             {
               "key": "B",
-              "text": "The list or process from which a sample is selected. Simple random sample: a sample for which every set of size n is equally likely. Stratified sample: separate random samples drawn within defined groups. Cluster sample: randomly selected whole groups. Systematic sample: a random start followed by every kth item. Undercoverage: members of the population are absent from the frame.",
-              "why": "Correct. the list or process from which a sample is selected. Simple random sample: a sample for which every set of size n is equally likely. Stratified sample: separate random samples drawn within defined groups. Cluster sample: randomly selected whole groups. Systematic sample: a random start followed by every kth item. Undercoverage: members of the population are absent from the frame."
+              "text": "The list or process from which a sample is selected.",
+              "why": "Correct. The list or process from which a sample is selected."
             },
             {
               "key": "C",
               "text": "Stratification protects comparison across important groups while keeping selection random.",
-              "why": "This describes stratified/cluster/systematic, not Sampling frame. It does not account for the quantities, conditions, or evidence in this statistics case."
+              "why": "This describes stratified and cluster and systematic. It does not answer the question about sampling frame."
             },
             {
               "key": "D",
               "text": "Different bias mechanisms require different repairs and support different claims.",
-              "why": "This describes undercoverage/nonresponse/response bias, not Sampling frame. It does not account for the quantities, conditions, or evidence in this statistics case."
+              "why": "This describes undercoverage and nonresponse and response bias. It does not answer the question about sampling frame."
             }
           ]
         },
         {
-          "prompt": "the Fenwick trial receives a second case related to The Fast Site: the site has charts numbered 001 through 240, and the audit needs 12 without replacement. Assign a response to each condition now so the crew has an action rule it can follow under pressure. Which option correctly applies SRS/RNG to this follow-up case?",
-          "hint": "Use the stated evidence and the conditions for SRS/RNG; do not choose an option merely because it names a familiar term.",
+          "prompt": "Which statement best explains selection using a simple random sample?",
+          "hint": "Identify the defining relationship or mechanism for selection using a simple random sample. All needed information is in this question.",
           "answer": "C",
           "options": [
             {
               "key": "A",
-              "text": "The list or process from which a sample is selected. Simple random sample: a sample for which every set of size n is equally likely. Stratified sample: separate random samples drawn within defined groups. Cluster sample: randomly selected whole groups. Systematic sample: a random start followed by every kth item. Undercoverage: members of the population are absent from the frame.",
-              "why": "This describes Sampling frame, not SRS/RNG. It does not account for the quantities, conditions, or evidence in this statistics case."
+              "text": "The list or process from which a sample is selected.",
+              "why": "This describes sampling frame. It does not answer the question about selection using a simple random sample."
             },
             {
               "key": "B",
               "text": "Stratification protects comparison across important groups while keeping selection random.",
-              "why": "This describes stratified/cluster/systematic, not SRS/RNG. It does not account for the quantities, conditions, or evidence in this statistics case."
+              "why": "This describes stratified and cluster and systematic. It does not answer the question about selection using a simple random sample."
             },
             {
               "key": "C",
               "text": "A chance mechanism prevents staff from selecting only easy or complete charts.",
-              "why": "Correct. a chance mechanism prevents staff from selecting only easy or complete charts."
+              "why": "Correct. A chance mechanism prevents staff from selecting only easy or complete charts."
             },
             {
               "key": "D",
               "text": "Different bias mechanisms require different repairs and support different claims.",
-              "why": "This describes undercoverage/nonresponse/response bias, not SRS/RNG. It does not account for the quantities, conditions, or evidence in this statistics case."
+              "why": "This describes undercoverage and nonresponse and response bias. It does not answer the question about selection using a simple random sample."
             }
           ]
         },
         {
-          "prompt": "A teammate rechecks The Fast Site using new evidence: the chance audit works, but a plain SRS could include too few rural patients to check travel barriers. The next action depends on selecting the conclusion that fits all of those facts. Which option correctly applies stratified/cluster/systematic to this follow-up case?",
-          "hint": "Use the stated evidence and the conditions for stratified/cluster/systematic; do not choose an option merely because it names a familiar term.",
+          "prompt": "Which statement best explains stratified and cluster and systematic?",
+          "hint": "Identify the defining relationship or mechanism for stratified and cluster and systematic. All needed information is in this question.",
           "answer": "D",
           "options": [
             {
               "key": "A",
-              "text": "The list or process from which a sample is selected. Simple random sample: a sample for which every set of size n is equally likely. Stratified sample: separate random samples drawn within defined groups. Cluster sample: randomly selected whole groups. Systematic sample: a random start followed by every kth item. Undercoverage: members of the population are absent from the frame.",
-              "why": "This describes Sampling frame, not stratified/cluster/systematic. It does not account for the quantities, conditions, or evidence in this statistics case."
+              "text": "The list or process from which a sample is selected.",
+              "why": "This describes sampling frame. It does not answer the question about stratified and cluster and systematic."
             },
             {
               "key": "B",
               "text": "A chance mechanism prevents staff from selecting only easy or complete charts.",
-              "why": "This describes SRS/RNG, not stratified/cluster/systematic. It does not account for the quantities, conditions, or evidence in this statistics case."
+              "why": "This describes selection using a simple random sample. It does not answer the question about stratified and cluster and systematic."
             },
             {
               "key": "C",
               "text": "Different bias mechanisms require different repairs and support different claims.",
-              "why": "This describes undercoverage/nonresponse/response bias, not stratified/cluster/systematic. It does not account for the quantities, conditions, or evidence in this statistics case."
+              "why": "This describes undercoverage and nonresponse and response bias. It does not answer the question about stratified and cluster and systematic."
             },
             {
               "key": "D",
               "text": "Stratification protects comparison across important groups while keeping selection random.",
-              "why": "Correct. stratification protects comparison across important groups while keeping selection random."
+              "why": "Correct. Stratification protects comparison across important groups while keeping selection random."
             }
           ]
         },
         {
-          "prompt": "An unseen case extends The Fast Site: the stratified roster exposes a sharp drop before enrollment, not only after questionnaires were sent. Sample the locations in order now so the crew can identify where the system first departs from normal. Which option correctly applies undercoverage/nonresponse/response bias to this follow-up case?",
-          "hint": "Use the stated evidence and the conditions for undercoverage/nonresponse/response bias; do not choose an option merely because it names a familiar term.",
+          "prompt": "Which statement best explains undercoverage and nonresponse and response bias?",
+          "hint": "Identify the defining relationship or mechanism for undercoverage and nonresponse and response bias. All needed information is in this question.",
           "answer": "A",
           "options": [
             {
               "key": "A",
               "text": "Different bias mechanisms require different repairs and support different claims.",
-              "why": "Correct. different bias mechanisms require different repairs and support different claims."
+              "why": "Correct. Different bias mechanisms require different repairs and support different claims."
             },
             {
               "key": "B",
-              "text": "The list or process from which a sample is selected. Simple random sample: a sample for which every set of size n is equally likely. Stratified sample: separate random samples drawn within defined groups. Cluster sample: randomly selected whole groups. Systematic sample: a random start followed by every kth item. Undercoverage: members of the population are absent from the frame.",
-              "why": "This describes Sampling frame, not undercoverage/nonresponse/response bias. It does not account for the quantities, conditions, or evidence in this statistics case."
+              "text": "The list or process from which a sample is selected.",
+              "why": "This describes sampling frame. It does not answer the question about undercoverage and nonresponse and response bias."
             },
             {
               "key": "C",
               "text": "A chance mechanism prevents staff from selecting only easy or complete charts.",
-              "why": "This describes SRS/RNG, not undercoverage/nonresponse/response bias. It does not account for the quantities, conditions, or evidence in this statistics case."
+              "why": "This describes selection using a simple random sample. It does not answer the question about undercoverage and nonresponse and response bias."
             },
             {
               "key": "D",
               "text": "Stratification protects comparison across important groups while keeping selection random.",
-              "why": "This describes stratified/cluster/systematic, not undercoverage/nonresponse/response bias. It does not account for the quantities, conditions, or evidence in this statistics case."
+              "why": "This describes stratified and cluster and systematic. It does not answer the question about undercoverage and nonresponse and response bias."
             }
           ]
         },
         {
-          "prompt": "Before another Fast Site decision, the team knows this: random assignment inside the trial supports a treatment comparison, but the fast site's enrollment frame omitted many rural patients. Which option correctly applies observational/experiment and inference scope to this follow-up case?",
-          "hint": "Use the stated evidence and the conditions for observational/experiment and inference scope; do not choose an option merely because it names a familiar term.",
+          "prompt": "Which statement best explains observational and experiment and inference scope?",
+          "hint": "Identify the defining relationship or mechanism for observational and experiment and inference scope. All needed information is in this question.",
           "answer": "B",
           "options": [
             {
               "key": "A",
-              "text": "The list or process from which a sample is selected. Simple random sample: a sample for which every set of size n is equally likely. Stratified sample: separate random samples drawn within defined groups. Cluster sample: randomly selected whole groups. Systematic sample: a random start followed by every kth item. Undercoverage: members of the population are absent from the frame.",
-              "why": "This describes Sampling frame, not observational/experiment and inference scope. It does not account for the quantities, conditions, or evidence in this statistics case."
+              "text": "The list or process from which a sample is selected.",
+              "why": "This describes sampling frame. It does not answer the question about observational and experiment and inference scope."
             },
             {
               "key": "B",
               "text": "A randomized experiment can support causation for studied participants without representing everyone the treatment may reach.",
-              "why": "Correct. a randomized experiment can support causation for studied participants without representing everyone the treatment may reach."
+              "why": "Correct. A randomized experiment can support causation for studied participants without representing everyone the treatment may reach."
             },
             {
               "key": "C",
               "text": "A chance mechanism prevents staff from selecting only easy or complete charts.",
-              "why": "This describes SRS/RNG, not observational/experiment and inference scope. It does not account for the quantities, conditions, or evidence in this statistics case."
+              "why": "This describes selection using a simple random sample. It does not answer the question about observational and experiment and inference scope."
             },
             {
               "key": "D",
               "text": "Stratification protects comparison across important groups while keeping selection random.",
-              "why": "This describes stratified/cluster/systematic, not observational/experiment and inference scope. It does not account for the quantities, conditions, or evidence in this statistics case."
+              "why": "This describes stratified and cluster and systematic. It does not answer the question about observational and experiment and inference scope."
             }
           ]
         },
         {
-          "prompt": "the Fenwick trial applies the lesson from The Fast Site to this follow-up: the site has charts numbered 001 through 240, and the audit needs 12 without replacement. Assign a response to each condition now so the crew has an action rule it can follow under pressure. Which option correctly applies Variable to this follow-up case?",
-          "hint": "Use the stated evidence and the conditions for Variable; do not choose an option merely because it names a familiar term.",
+          "prompt": "Which statement best explains variable?",
+          "hint": "Identify the defining relationship or mechanism for variable. All needed information is in this question.",
           "answer": "C",
           "options": [
             {
               "key": "A",
-              "text": "The list or process from which a sample is selected. Simple random sample: a sample for which every set of size n is equally likely. Stratified sample: separate random samples drawn within defined groups. Cluster sample: randomly selected whole groups. Systematic sample: a random start followed by every kth item. Undercoverage: members of the population are absent from the frame.",
-              "why": "This describes Sampling frame, not Variable. It does not account for the quantities, conditions, or evidence in this statistics case."
+              "text": "The list or process from which a sample is selected.",
+              "why": "This describes sampling frame. It does not answer the question about variable."
             },
             {
               "key": "B",
               "text": "A chance mechanism prevents staff from selecting only easy or complete charts.",
-              "why": "This describes SRS/RNG, not Variable. It does not account for the quantities, conditions, or evidence in this statistics case."
+              "why": "This describes selection using a simple random sample. It does not answer the question about variable."
             },
             {
               "key": "C",
-              "text": "A characteristic recorded for each patient. Categorical variable: a variable placing a patient into a group. Quantitative variable: a variable recorded as a meaningful number. Parameter: a fixed but usually unknown number describing a population. Statistic: a number computed from a sample.",
-              "why": "Correct. a characteristic recorded for each patient. Categorical variable: a variable placing a patient into a group. Quantitative variable: a variable recorded as a meaningful number. Parameter: a fixed but usually unknown number describing a population. Statistic: a number computed from a sample."
+              "text": "A characteristic recorded for each patient.",
+              "why": "Correct. A characteristic recorded for each patient."
             },
             {
               "key": "D",
               "text": "Stratification protects comparison across important groups while keeping selection random.",
-              "why": "This describes stratified/cluster/systematic, not Variable. It does not account for the quantities, conditions, or evidence in this statistics case."
+              "why": "This describes stratified and cluster and systematic. It does not answer the question about variable."
             }
           ]
         }
@@ -2341,237 +2329,204 @@ export const MISSIONS = [
       "Standard error estimates sampling spread from sample data."
     ],
     "deeper": {
-      "intro": "You completed The Amendment Price. Choose GO DEEPER to revisit the four decisions and explore related course ideas; this optional review does not change your metrics or delay the next mission.",
+      "intro": "Try six independent practice questions. Each includes its own context and any needed data; no mission records are required.",
       "concepts": [],
       "questions": [
         {
-          "prompt": "In a follow-up to The Amendment Price, the new frame includes rural patients, but assignment must still separate treatment effects from site differences. Which option correctly applies Control to this follow-up case?",
-          "hint": "Use the stated evidence and the conditions for Control; do not choose an option merely because it names a familiar term.",
-          "answer": "B",
-          "options": [
-            {
-              "key": "A",
-              "text": "Correct order prevents site mix from becoming a confounder.",
-              "why": "This describes experiment principles, not Control. It does not account for the quantities, conditions, or evidence in this statistics case."
-            },
-            {
-              "key": "B",
-              "text": "Keeping conditions comparable except for the treatment. Random assignment: using chance to place experimental units into treatments. Replication: applying treatments to enough independent units. Blocking: grouping similar units before random assignment. Sampling distribution: distribution of a statistic across repeated samples.",
-              "why": "Correct. keeping conditions comparable except for the treatment. Random assignment: using chance to place experimental units into treatments. Replication: applying treatments to enough independent units. Blocking: grouping similar units before random assignment. Sampling distribution: distribution of a statistic across repeated samples."
-            },
-            {
-              "key": "C",
-              "text": "Calling loose similarity a pair could understate variability and overstate precision.",
-              "why": "This describes matched pairs/blinding, not Control. It does not account for the quantities, conditions, or evidence in this statistics case."
-            },
-            {
-              "key": "D",
-              "text": "Precision, not the observed sample center, determines whether the board can separate benefit from noise.",
-              "why": "This describes sampling distribution/CLT/10% idea, not Control. It does not account for the quantities, conditions, or evidence in this statistics case."
-            }
-          ]
-        },
-        {
-          "prompt": "the Fenwick trial receives a second case related to The Amendment Price: the new frame includes rural patients, but assignment must still separate treatment effects from site differences. Which option correctly applies experiment principles to this follow-up case?",
-          "hint": "Use the stated evidence and the conditions for experiment principles; do not choose an option merely because it names a familiar term.",
-          "answer": "C",
-          "options": [
-            {
-              "key": "A",
-              "text": "Keeping conditions comparable except for the treatment. Random assignment: using chance to place experimental units into treatments. Replication: applying treatments to enough independent units. Blocking: grouping similar units before random assignment. Sampling distribution: distribution of a statistic across repeated samples.",
-              "why": "This describes Control, not experiment principles. It does not account for the quantities, conditions, or evidence in this statistics case."
-            },
-            {
-              "key": "B",
-              "text": "Calling loose similarity a pair could understate variability and overstate precision.",
-              "why": "This describes matched pairs/blinding, not experiment principles. It does not account for the quantities, conditions, or evidence in this statistics case."
-            },
-            {
-              "key": "C",
-              "text": "Correct order prevents site mix from becoming a confounder.",
-              "why": "Correct. correct order prevents site mix from becoming a confounder."
-            },
-            {
-              "key": "D",
-              "text": "Precision, not the observed sample center, determines whether the board can separate benefit from noise.",
-              "why": "This describes sampling distribution/CLT/10% idea, not experiment principles. It does not account for the quantities, conditions, or evidence in this statistics case."
-            }
-          ]
-        },
-        {
-          "prompt": "A teammate rechecks The Amendment Price using new evidence: with the design order fixed, one proposal pairs unrelated patients from different sites solely because their ages match. The next action depends on selecting the conclusion that fits all of those facts. Which option correctly applies matched pairs/blinding to this follow-up case?",
-          "hint": "Use the stated evidence and the conditions for matched pairs/blinding; do not choose an option merely because it names a familiar term.",
+          "prompt": "Which statement best explains control?",
+          "hint": "Identify the defining relationship or mechanism for control. All needed information is in this question.",
           "answer": "D",
           "options": [
             {
               "key": "A",
-              "text": "Keeping conditions comparable except for the treatment. Random assignment: using chance to place experimental units into treatments. Replication: applying treatments to enough independent units. Blocking: grouping similar units before random assignment. Sampling distribution: distribution of a statistic across repeated samples.",
-              "why": "This describes Control, not matched pairs/blinding. It does not account for the quantities, conditions, or evidence in this statistics case."
+              "text": "Correct order prevents site mix from becoming a confounder.",
+              "why": "This describes experiment principles. It does not answer the question about control."
             },
             {
               "key": "B",
-              "text": "Correct order prevents site mix from becoming a confounder.",
-              "why": "This describes experiment principles, not matched pairs/blinding. It does not account for the quantities, conditions, or evidence in this statistics case."
+              "text": "Calling loose similarity a pair could understate variability and overstate precision.",
+              "why": "This describes matched pairs and blinding. It does not answer the question about control."
             },
             {
               "key": "C",
-              "text": "Precision, not the observed sample center, determines whether the board can separate benefit from noise.",
-              "why": "This describes sampling distribution/CLT/10% idea, not matched pairs/blinding. It does not account for the quantities, conditions, or evidence in this statistics case."
+              "text": "Precision, not the observed sample center, determines whether the researchers can separate benefit from noise.",
+              "why": "This describes sampling distribution and CLT and 10% idea. It does not answer the question about control."
             },
             {
               "key": "D",
-              "text": "Calling loose similarity a pair could understate variability and overstate precision.",
-              "why": "Correct. calling loose similarity a pair could understate variability and overstate precision."
+              "text": "Keeping conditions comparable except for the treatment.",
+              "why": "Correct. Keeping conditions comparable except for the treatment."
             }
           ]
         },
         {
-          "prompt": "An unseen case extends The Amendment Price: the new frame includes rural patients, but assignment must still separate treatment effects from site differences. Which interpretation of the displayed evidence correctly uses the mission concept?",
-          "hint": "Read the axes, units, direction, and any threshold before comparing the choices.",
+          "prompt": "Which statement best explains experiment principles?",
+          "hint": "Identify the defining relationship or mechanism for experiment principles. All needed information is in this question.",
           "answer": "A",
-          "figure": {
-            "kind": "line",
-            "xLabel": "Standardized estimate",
-            "yLabel": "Relative frequency",
-            "caption": "A centered sampling distribution with symmetric tails.",
-            "series": [
-              {
-                "name": "Distribution",
-                "points": [
-                  [
-                    -3,
-                    0.01
-                  ],
-                  [
-                    -2,
-                    0.06
-                  ],
-                  [
-                    -1,
-                    0.24
-                  ],
-                  [
-                    0,
-                    0.4
-                  ],
-                  [
-                    1,
-                    0.24
-                  ],
-                  [
-                    2,
-                    0.06
-                  ],
-                  [
-                    3,
-                    0.01
-                  ]
-                ]
-              }
-            ]
-          },
           "options": [
             {
               "key": "A",
-              "text": "Precision, not the observed sample center, determines whether the board can separate benefit from noise.",
-              "why": "Correct. precision, not the observed sample center, determines whether the board can separate benefit from noise."
+              "text": "Correct order prevents site mix from becoming a confounder.",
+              "why": "Correct. Correct order prevents site mix from becoming a confounder."
             },
             {
               "key": "B",
-              "text": "Keeping conditions comparable except for the treatment. Random assignment: using chance to place experimental units into treatments. Replication: applying treatments to enough independent units. Blocking: grouping similar units before random assignment. Sampling distribution: distribution of a statistic across repeated samples.",
-              "why": "This describes Control, not sampling distribution/CLT/10% idea. It does not account for the quantities, conditions, or evidence in this statistics case."
+              "text": "Keeping conditions comparable except for the treatment.",
+              "why": "This describes control. It does not answer the question about experiment principles."
             },
             {
               "key": "C",
-              "text": "Correct order prevents site mix from becoming a confounder.",
-              "why": "This describes experiment principles, not sampling distribution/CLT/10% idea. It does not account for the quantities, conditions, or evidence in this statistics case."
+              "text": "Calling loose similarity a pair could understate variability and overstate precision.",
+              "why": "This describes matched pairs and blinding. It does not answer the question about experiment principles."
             },
             {
               "key": "D",
-              "text": "Calling loose similarity a pair could understate variability and overstate precision.",
-              "why": "This describes matched pairs/blinding, not sampling distribution/CLT/10% idea. It does not account for the quantities, conditions, or evidence in this statistics case."
+              "text": "Precision, not the observed sample center, determines whether the researchers can separate benefit from noise.",
+              "why": "This describes sampling distribution and CLT and 10% idea. It does not answer the question about experiment principles."
             }
           ]
         },
         {
-          "prompt": "Before another Amendment Price decision, the team knows this: the new frame includes rural patients, but assignment must still separate treatment effects from site differences. Which interpretation of the displayed evidence correctly uses the mission concept?",
-          "hint": "Read the axes, units, direction, and any threshold before comparing the choices.",
+          "prompt": "Which statement best explains matched pairs and blinding?",
+          "hint": "Identify the defining relationship or mechanism for matched pairs and blinding. All needed information is in this question.",
           "answer": "B",
+          "options": [
+            {
+              "key": "A",
+              "text": "Keeping conditions comparable except for the treatment.",
+              "why": "This describes control. It does not answer the question about matched pairs and blinding."
+            },
+            {
+              "key": "B",
+              "text": "Calling loose similarity a pair could understate variability and overstate precision.",
+              "why": "Correct. Calling loose similarity a pair could understate variability and overstate precision."
+            },
+            {
+              "key": "C",
+              "text": "Correct order prevents site mix from becoming a confounder.",
+              "why": "This describes experiment principles. It does not answer the question about matched pairs and blinding."
+            },
+            {
+              "key": "D",
+              "text": "Precision, not the observed sample center, determines whether the researchers can separate benefit from noise.",
+              "why": "This describes sampling distribution and CLT and 10% idea. It does not answer the question about matched pairs and blinding."
+            }
+          ]
+        },
+        {
+          "prompt": "For independent samples from a population with p=0.50, how does increasing n from 100 to 400 change the sampling distribution?",
+          "hint": "Use SD=√[p(1−p)/n].",
+          "answer": "C",
           "figure": {
             "kind": "bars",
-            "xLabel": "Trial number",
-            "yLabel": "Probability",
-            "caption": "Probability that the first success occurs on each trial.",
+            "xLabel": "Category",
+            "yLabel": "Standard deviation of sample proportion",
+            "caption": "Independent sampling from a population with p=0.50",
             "bars": [
               {
-                "name": "Trial 1",
-                "value": 0.3
+                "name": "n=100",
+                "value": 0.05
               },
               {
-                "name": "Trial 2",
-                "value": 0.21
-              },
-              {
-                "name": "Trial 3",
-                "value": 0.147
-              },
-              {
-                "name": "Trial 4",
-                "value": 0.103
-              },
-              {
-                "name": "Trial 5",
-                "value": 0.072
+                "name": "n=400",
+                "value": 0.025
               }
             ]
           },
           "options": [
             {
               "key": "A",
-              "text": "Keeping conditions comparable except for the treatment. Random assignment: using chance to place experimental units into treatments. Replication: applying treatments to enough independent units. Blocking: grouping similar units before random assignment. Sampling distribution: distribution of a statistic across repeated samples.",
-              "why": "This describes Control, not geometric versus binomial. It does not account for the quantities, conditions, or evidence in this statistics case."
+              "text": "Its mean halves.",
+              "why": "Sample size changes precision, not the population proportion."
             },
             {
               "key": "B",
-              "text": "The waiting-time estimate turns a statistical repair into a calendar cost.",
-              "why": "Correct. the waiting-time estimate turns a statistical repair into a calendar cost."
+              "text": "Its standard deviation doubles.",
+              "why": "The standard deviation scales as 1/√n."
             },
             {
               "key": "C",
-              "text": "Correct order prevents site mix from becoming a confounder.",
-              "why": "This describes experiment principles, not geometric versus binomial. It does not account for the quantities, conditions, or evidence in this statistics case."
+              "text": "Its standard deviation halves while its mean stays at 0.50.",
+              "why": "Correct. Its standard deviation halves while its mean stays at 0.50."
             },
             {
               "key": "D",
-              "text": "Calling loose similarity a pair could understate variability and overstate precision.",
-              "why": "This describes matched pairs/blinding, not geometric versus binomial. It does not account for the quantities, conditions, or evidence in this statistics case."
+              "text": "It removes sampling variability entirely.",
+              "why": "The standard deviation remains positive at finite n."
             }
           ]
         },
         {
-          "prompt": "the Fenwick trial applies the lesson from The Amendment Price to this follow-up: the new frame includes rural patients, but assignment must still separate treatment effects from site differences. Which option correctly applies Variable to this follow-up case?",
-          "hint": "Use the stated evidence and the conditions for Variable; do not choose an option merely because it names a familiar term.",
-          "answer": "C",
+          "prompt": "Each independent screen has a 0.20 chance of enrollment. Screening stops at the first enrollment. Which model describes the number of screens?",
+          "hint": "Check whether the number of trials is fixed or stops at first success.",
+          "answer": "D",
+          "figure": {
+            "kind": "bars",
+            "xLabel": "Category",
+            "yLabel": "Probability of first enrollment",
+            "caption": "Independent screens, each with enrollment probability 0.20",
+            "bars": [
+              {
+                "name": "First screen",
+                "value": 0.2
+              },
+              {
+                "name": "Second screen",
+                "value": 0.16
+              },
+              {
+                "name": "Third screen",
+                "value": 0.128
+              }
+            ]
+          },
           "options": [
             {
               "key": "A",
-              "text": "Keeping conditions comparable except for the treatment. Random assignment: using chance to place experimental units into treatments. Replication: applying treatments to enough independent units. Blocking: grouping similar units before random assignment. Sampling distribution: distribution of a statistic across repeated samples.",
-              "why": "This describes Control, not Variable. It does not account for the quantities, conditions, or evidence in this statistics case."
+              "text": "A binomial distribution with a fixed trial count.",
+              "why": "Here the trial count is not fixed in advance."
             },
             {
               "key": "B",
-              "text": "Correct order prevents site mix from becoming a confounder.",
-              "why": "This describes experiment principles, not Variable. It does not account for the quantities, conditions, or evidence in this statistics case."
+              "text": "A uniform distribution.",
+              "why": "The probabilities of first success at successive counts are not equal."
             },
             {
               "key": "C",
-              "text": "A characteristic recorded for each patient. Categorical variable: a variable placing a patient into a group. Quantitative variable: a variable recorded as a meaningful number. Parameter: a fixed but usually unknown number describing a population. Statistic: a number computed from a sample.",
-              "why": "Correct. a characteristic recorded for each patient. Categorical variable: a variable placing a patient into a group. Quantitative variable: a variable recorded as a meaningful number. Parameter: a fixed but usually unknown number describing a population. Statistic: a number computed from a sample."
+              "text": "A Normal distribution exactly.",
+              "why": "The count is discrete and right-skewed, not exactly Normal."
+            },
+            {
+              "key": "D",
+              "text": "A geometric distribution.",
+              "why": "Correct. A geometric distribution."
+            }
+          ]
+        },
+        {
+          "prompt": "Which statement best explains variable?",
+          "hint": "Identify the defining relationship or mechanism for variable. All needed information is in this question.",
+          "answer": "A",
+          "options": [
+            {
+              "key": "A",
+              "text": "A characteristic recorded for each patient.",
+              "why": "Correct. A characteristic recorded for each patient."
+            },
+            {
+              "key": "B",
+              "text": "Keeping conditions comparable except for the treatment.",
+              "why": "This describes control. It does not answer the question about variable."
+            },
+            {
+              "key": "C",
+              "text": "Correct order prevents site mix from becoming a confounder.",
+              "why": "This describes experiment principles. It does not answer the question about variable."
             },
             {
               "key": "D",
               "text": "Calling loose similarity a pair could understate variability and overstate precision.",
-              "why": "This describes matched pairs/blinding, not Variable. It does not account for the quantities, conditions, or evidence in this statistics case."
+              "why": "This describes matched pairs and blinding. It does not answer the question about variable."
             }
           ]
         }
@@ -2856,45 +2811,37 @@ export const MISSIONS = [
       "Extrapolation beyond observed x-values is unreliable."
     ],
     "deeper": {
-      "intro": "You completed The Missing Outcomes. Choose GO DEEPER to revisit the four decisions and explore related course ideas; this optional review does not change your metrics or delay the next mission.",
+      "intro": "Try six independent practice questions. Each includes its own context and any needed data; no mission records are required.",
       "concepts": [],
       "questions": [
         {
-          "prompt": "In a follow-up to The Missing Outcomes, rural travel distance and follow-up delay form a tight upward cloud, while one fast-site point sits far to the right. The next action depends on selecting the conclusion that fits all of those facts. Which interpretation of the displayed evidence correctly uses the mission concept?",
-          "hint": "Read the axes, units, direction, and any threshold before comparing the choices.",
+          "prompt": "Which description fits the paired observations?",
+          "hint": "Describe the direction, then separate association from causation.",
           "answer": "B",
           "figure": {
             "kind": "line",
-            "xLabel": "Distance from clinic (km)",
-            "yLabel": "Follow-up delay (days)",
-            "caption": "Paired observations show a positive association.",
+            "xLabel": "Distance (km)",
+            "yLabel": "Delay (days)",
+            "caption": "Paired distance and delay observations; points are individual cases",
             "series": [
               {
-                "name": "Patients",
+                "name": "Paired observations",
                 "points": [
                   [
-                    10,
+                    1,
                     2
                   ],
                   [
-                    22,
+                    2,
                     3
                   ],
                   [
-                    35,
-                    4
+                    3,
+                    5
                   ],
                   [
-                    48,
+                    4,
                     6
-                  ],
-                  [
-                    61,
-                    7
-                  ],
-                  [
-                    75,
-                    9
                   ]
                 ]
               }
@@ -2903,62 +2850,54 @@ export const MISSIONS = [
           "options": [
             {
               "key": "A",
-              "text": "If delay is associated with distance, complete cases may systematically omit remote patients.",
-              "why": "This describes scatterplot/correlation, not Scatterplot. It does not account for the quantities, conditions, or evidence in this statistics case."
+              "text": "Greater distance is associated with shorter delay.",
+              "why": "The plotted association is positive."
             },
             {
               "key": "B",
-              "text": "A graph of paired quantitative values. Correlation: the strength and direction of a linear relationship between two quantitative variables. Least-squares regression line: the line minimizing squared vertical residuals. Residual: observed y minus predicted y. Influential point: a point whose removal substantially changes the fitted line.",
-              "why": "Correct. a graph of paired quantitative values. Correlation: the strength and direction of a linear relationship between two quantitative variables. Least-squares regression line: the line minimizing squared vertical residuals. Residual: observed y minus predicted y. Influential point: a point whose removal substantially changes the fitted line."
+              "text": "Greater distance is associated with longer delay; the plot alone does not establish causation.",
+              "why": "Correct. Greater distance is associated with longer delay; the plot alone does not establish causation."
             },
             {
               "key": "C",
-              "text": "A contextual line can direct calls, but its intercept and extrapolated values may lack meaning.",
-              "why": "This describes LSRL, not Scatterplot. It does not account for the quantities, conditions, or evidence in this statistics case."
+              "text": "The graph proves distance causes every delay.",
+              "why": "Association alone does not rule out other explanations."
             },
             {
               "key": "D",
-              "text": "Random residual scatter supports linear form; structure means the missingness rule remains incomplete.",
-              "why": "This describes residual plots/nonlinearity, not Scatterplot. It does not account for the quantities, conditions, or evidence in this statistics case."
+              "text": "Neither variable is quantitative.",
+              "why": "Both distance and delay have meaningful numerical units."
             }
           ]
         },
         {
-          "prompt": "the Fenwick trial receives a second case related to The Missing Outcomes: rural travel distance and follow-up delay form a tight upward cloud, while one fast-site point sits far to the right. The next action depends on selecting the conclusion that fits all of those facts. Which interpretation of the displayed evidence correctly uses the mission concept?",
-          "hint": "Read the axes, units, direction, and any threshold before comparing the choices.",
+          "prompt": "Which description fits the paired observations?",
+          "hint": "Describe the direction, then separate association from causation.",
           "answer": "C",
           "figure": {
             "kind": "line",
-            "xLabel": "Distance from clinic (km)",
-            "yLabel": "Follow-up delay (days)",
-            "caption": "Paired observations show a positive association.",
+            "xLabel": "Distance (km)",
+            "yLabel": "Delay (days)",
+            "caption": "Paired distance and delay observations; points are individual cases",
             "series": [
               {
-                "name": "Patients",
+                "name": "Paired observations",
                 "points": [
                   [
-                    10,
+                    1,
                     2
                   ],
                   [
-                    22,
+                    2,
                     3
                   ],
                   [
-                    35,
-                    4
+                    3,
+                    5
                   ],
                   [
-                    48,
+                    4,
                     6
-                  ],
-                  [
-                    61,
-                    7
-                  ],
-                  [
-                    75,
-                    9
                   ]
                 ]
               }
@@ -2967,176 +2906,164 @@ export const MISSIONS = [
           "options": [
             {
               "key": "A",
-              "text": "A graph of paired quantitative values. Correlation: the strength and direction of a linear relationship between two quantitative variables. Least-squares regression line: the line minimizing squared vertical residuals. Residual: observed y minus predicted y. Influential point: a point whose removal substantially changes the fitted line.",
-              "why": "This describes Scatterplot, not scatterplot/correlation. It does not account for the quantities, conditions, or evidence in this statistics case."
+              "text": "Greater distance is associated with shorter delay.",
+              "why": "The plotted association is positive."
             },
             {
               "key": "B",
-              "text": "A contextual line can direct calls, but its intercept and extrapolated values may lack meaning.",
-              "why": "This describes LSRL, not scatterplot/correlation. It does not account for the quantities, conditions, or evidence in this statistics case."
+              "text": "The graph proves distance causes every delay.",
+              "why": "Association alone does not rule out other explanations."
             },
             {
               "key": "C",
-              "text": "If delay is associated with distance, complete cases may systematically omit remote patients.",
-              "why": "Correct. if delay is associated with distance, complete cases may systematically omit remote patients."
+              "text": "Greater distance is associated with longer delay; the plot alone does not establish causation.",
+              "why": "Correct. Greater distance is associated with longer delay; the plot alone does not establish causation."
             },
             {
               "key": "D",
-              "text": "Random residual scatter supports linear form; structure means the missingness rule remains incomplete.",
-              "why": "This describes residual plots/nonlinearity, not scatterplot/correlation. It does not account for the quantities, conditions, or evidence in this statistics case."
+              "text": "Neither variable is quantitative.",
+              "why": "Both distance and delay have meaningful numerical units."
             }
           ]
         },
         {
-          "prompt": "A teammate rechecks The Missing Outcomes using new evidence: the scatterplot supports a linear model with r=0.80, x-bar=50 km, sx=20 km, y-bar=6 days, and sy=4 days. Which option correctly applies LSRL to this follow-up case?",
-          "hint": "Use the stated evidence and the conditions for LSRL; do not choose an option merely because it names a familiar term.",
+          "prompt": "Which statement best explains the least-squares regression line?",
+          "hint": "Identify the defining relationship or mechanism for the least-squares regression line. All needed information is in this question.",
           "answer": "D",
           "options": [
             {
               "key": "A",
-              "text": "A graph of paired quantitative values. Correlation: the strength and direction of a linear relationship between two quantitative variables. Least-squares regression line: the line minimizing squared vertical residuals. Residual: observed y minus predicted y. Influential point: a point whose removal substantially changes the fitted line.",
-              "why": "This describes Scatterplot, not LSRL. It does not account for the quantities, conditions, or evidence in this statistics case."
+              "text": "A graph of paired quantitative values.",
+              "why": "This describes scatterplot. It does not answer the question about the least-squares regression line."
             },
             {
               "key": "B",
               "text": "If delay is associated with distance, complete cases may systematically omit remote patients.",
-              "why": "This describes scatterplot/correlation, not LSRL. It does not account for the quantities, conditions, or evidence in this statistics case."
+              "why": "This describes scatterplot and correlation. It does not answer the question about the least-squares regression line."
             },
             {
               "key": "C",
               "text": "Random residual scatter supports linear form; structure means the missingness rule remains incomplete.",
-              "why": "This describes residual plots/nonlinearity, not LSRL. It does not account for the quantities, conditions, or evidence in this statistics case."
+              "why": "This describes residual plots and nonlinearity. It does not answer the question about the least-squares regression line."
             },
             {
               "key": "D",
               "text": "A contextual line can direct calls, but its intercept and extrapolated values may lack meaning.",
-              "why": "Correct. a contextual line can direct calls, but its intercept and extrapolated values may lack meaning."
+              "why": "Correct. A contextual line can direct calls, but its intercept and extrapolated values may lack meaning."
             }
           ]
         },
         {
-          "prompt": "An unseen case extends The Missing Outcomes: rural travel distance and follow-up delay form a tight upward cloud, while one fast-site point sits far to the right. The next action depends on selecting the conclusion that fits all of those facts. Which interpretation of the displayed evidence correctly uses the mission concept?",
-          "hint": "Read the axes, units, direction, and any threshold before comparing the choices.",
+          "prompt": "A model has the residuals shown. Residual means observed value minus predicted value. Which conclusion best fits the pattern?",
+          "hint": "Use the sign of observed minus predicted and check for a pattern.",
           "answer": "A",
           "figure": {
             "kind": "line",
-            "xLabel": "Ordered observation",
-            "yLabel": "Residual",
-            "caption": "Residuals reveal whether error is random or structured.",
+            "xLabel": "Input value",
+            "yLabel": "Observed minus predicted (units)",
+            "caption": "Residuals from a fitted model",
             "series": [
               {
                 "name": "Residual",
                 "points": [
                   [
                     0,
-                    2.2
+                    0
                   ],
                   [
                     1,
-                    0.8
+                    2
                   ],
                   [
                     2,
-                    -0.6
+                    4
                   ],
                   [
                     3,
-                    -1.4
+                    6
                   ],
                   [
                     4,
-                    -0.5
-                  ],
-                  [
-                    5,
-                    0.9
-                  ],
-                  [
-                    6,
-                    2.1
+                    8
                   ]
                 ]
               }
-            ],
-            "limit": {
-              "at": 0,
-              "label": "Zero residual"
-            }
+            ]
           },
           "options": [
             {
               "key": "A",
-              "text": "Random residual scatter supports linear form; structure means the missingness rule remains incomplete.",
-              "why": "Correct. random residual scatter supports linear form; structure means the missingness rule remains incomplete."
+              "text": "The model increasingly underpredicts as the input grows.",
+              "why": "Correct. The model increasingly underpredicts as the input grows."
             },
             {
               "key": "B",
-              "text": "A graph of paired quantitative values. Correlation: the strength and direction of a linear relationship between two quantitative variables. Least-squares regression line: the line minimizing squared vertical residuals. Residual: observed y minus predicted y. Influential point: a point whose removal substantially changes the fitted line.",
-              "why": "This describes Scatterplot, not residual plots/nonlinearity. It does not account for the quantities, conditions, or evidence in this statistics case."
+              "text": "The model increasingly overpredicts.",
+              "why": "Positive residuals mean observations exceed predictions, not the reverse."
             },
             {
               "key": "C",
-              "text": "If delay is associated with distance, complete cases may systematically omit remote patients.",
-              "why": "This describes scatterplot/correlation, not residual plots/nonlinearity. It does not account for the quantities, conditions, or evidence in this statistics case."
+              "text": "The errors have no relation to the input.",
+              "why": "Residuals rise systematically with the input."
             },
             {
               "key": "D",
-              "text": "A contextual line can direct calls, but its intercept and extrapolated values may lack meaning.",
-              "why": "This describes LSRL, not residual plots/nonlinearity. It does not account for the quantities, conditions, or evidence in this statistics case."
+              "text": "The model fits every observation exactly.",
+              "why": "An exact fit would have zero residual at every point."
             }
           ]
         },
         {
-          "prompt": "Before another Missing Outcomes decision, the team knows this: the residual field is acceptable, but the far-right fast-site point may pull the fitted slope. Run the reversible comparison now so the crew can tell whether the proposed cause changes the measured response. Which option correctly applies outlier/leverage/influence and missingness to this follow-up case?",
-          "hint": "Use the stated evidence and the conditions for outlier/leverage/influence and missingness; do not choose an option merely because it names a familiar term.",
+          "prompt": "Which statement best explains outlier and leverage and influence and missingness?",
+          "hint": "Identify the defining relationship or mechanism for outlier and leverage and influence and missingness. All needed information is in this question.",
           "answer": "B",
           "options": [
             {
               "key": "A",
-              "text": "A graph of paired quantitative values. Correlation: the strength and direction of a linear relationship between two quantitative variables. Least-squares regression line: the line minimizing squared vertical residuals. Residual: observed y minus predicted y. Influential point: a point whose removal substantially changes the fitted line.",
-              "why": "This describes Scatterplot, not outlier/leverage/influence and missingness. It does not account for the quantities, conditions, or evidence in this statistics case."
+              "text": "A graph of paired quantitative values.",
+              "why": "This describes scatterplot. It does not answer the question about outlier and leverage and influence and missingness."
             },
             {
               "key": "B",
               "text": "A substantial line change makes the point influential and blocks an unqualified complete-case analysis.",
-              "why": "Correct. a substantial line change makes the point influential and blocks an unqualified complete-case analysis."
+              "why": "Correct. A substantial line change makes the point influential and blocks an unqualified complete-case analysis."
             },
             {
               "key": "C",
               "text": "If delay is associated with distance, complete cases may systematically omit remote patients.",
-              "why": "This describes scatterplot/correlation, not outlier/leverage/influence and missingness. It does not account for the quantities, conditions, or evidence in this statistics case."
+              "why": "This describes scatterplot and correlation. It does not answer the question about outlier and leverage and influence and missingness."
             },
             {
               "key": "D",
               "text": "A contextual line can direct calls, but its intercept and extrapolated values may lack meaning.",
-              "why": "This describes LSRL, not outlier/leverage/influence and missingness. It does not account for the quantities, conditions, or evidence in this statistics case."
+              "why": "This describes the least-squares regression line. It does not answer the question about outlier and leverage and influence and missingness."
             }
           ]
         },
         {
-          "prompt": "the Fenwick trial applies the lesson from The Missing Outcomes to this follow-up: rural travel distance and follow-up delay form a tight upward cloud, while one fast-site point sits far to the right. The next action depends on selecting the conclusion that fits all of those facts. Which option correctly applies Variable to this follow-up case?",
-          "hint": "Use the stated evidence and the conditions for Variable; do not choose an option merely because it names a familiar term.",
+          "prompt": "Which statement best explains variable?",
+          "hint": "Identify the defining relationship or mechanism for variable. All needed information is in this question.",
           "answer": "C",
           "options": [
             {
               "key": "A",
-              "text": "A graph of paired quantitative values. Correlation: the strength and direction of a linear relationship between two quantitative variables. Least-squares regression line: the line minimizing squared vertical residuals. Residual: observed y minus predicted y. Influential point: a point whose removal substantially changes the fitted line.",
-              "why": "This describes Scatterplot, not Variable. It does not account for the quantities, conditions, or evidence in this statistics case."
+              "text": "A graph of paired quantitative values.",
+              "why": "This describes scatterplot. It does not answer the question about variable."
             },
             {
               "key": "B",
               "text": "If delay is associated with distance, complete cases may systematically omit remote patients.",
-              "why": "This describes scatterplot/correlation, not Variable. It does not account for the quantities, conditions, or evidence in this statistics case."
+              "why": "This describes scatterplot and correlation. It does not answer the question about variable."
             },
             {
               "key": "C",
-              "text": "A characteristic recorded for each patient. Categorical variable: a variable placing a patient into a group. Quantitative variable: a variable recorded as a meaningful number. Parameter: a fixed but usually unknown number describing a population. Statistic: a number computed from a sample.",
-              "why": "Correct. a characteristic recorded for each patient. Categorical variable: a variable placing a patient into a group. Quantitative variable: a variable recorded as a meaningful number. Parameter: a fixed but usually unknown number describing a population. Statistic: a number computed from a sample."
+              "text": "A characteristic recorded for each patient.",
+              "why": "Correct. A characteristic recorded for each patient."
             },
             {
               "key": "D",
               "text": "A contextual line can direct calls, but its intercept and extrapolated values may lack meaning.",
-              "why": "This describes LSRL, not Variable. It does not account for the quantities, conditions, or evidence in this statistics case."
+              "why": "This describes the least-squares regression line. It does not answer the question about variable."
             }
           ]
         }
@@ -3441,193 +3368,202 @@ export const MISSIONS = [
       "Reject when p<alpha; otherwise fail to reject."
     ],
     "deeper": {
-      "intro": "You completed The Cold-Room Rate. Choose GO DEEPER to revisit the four decisions and explore related course ideas; this optional review does not change your metrics or delay the next mission.",
+      "intro": "Try six independent practice questions. Each includes its own context and any needed data; no mission records are required.",
       "concepts": [],
       "questions": [
         {
-          "prompt": "In a follow-up to The Cold-Room Rate, the warehouse randomly selected 200 of more than 2,000 exposed kits and found 30 failures. Assign a response to each condition now so the crew has an action rule it can follow under pressure. Which interpretation of the displayed evidence correctly uses the mission concept?",
-          "hint": "Read the axes, units, direction, and any threshold before comparing the choices.",
-          "answer": "B",
+          "prompt": "Interval A is [1,3] and interval B is [-1,2]. Which excludes a zero mean difference?",
+          "hint": "Check whether zero lies between each pair of endpoints.",
+          "answer": "D",
           "figure": {
             "kind": "line",
-            "xLabel": "Treatment effect",
-            "yLabel": "Interval marker",
-            "caption": "The confidence interval lies entirely above no effect.",
+            "xLabel": "Interval label (0=A, 1=B)",
+            "yLabel": "Estimated mean difference (units)",
+            "caption": "Two 95% confidence intervals for separate studies",
             "series": [
               {
-                "name": "95% interval",
+                "name": "Interval A",
                 "points": [
                   [
-                    1.2,
+                    0,
                     1
                   ],
                   [
-                    4.8,
-                    1
+                    0,
+                    3
+                  ]
+                ]
+              },
+              {
+                "name": "Interval B",
+                "points": [
+                  [
+                    1,
+                    -1
+                  ],
+                  [
+                    1,
+                    2
                   ]
                 ]
               }
-            ],
-            "limit": {
-              "at": 0,
-              "label": "No effect"
-            }
+            ]
           },
           "options": [
             {
               "key": "A",
-              "text": "Conditions connect the formula to a sampling process the board can trust.",
-              "why": "This describes one-proportion conditions, not Confidence interval. It does not account for the quantities, conditions, or evidence in this statistics case."
+              "text": "B only.",
+              "why": "B includes zero, while A does not."
             },
             {
               "key": "B",
-              "text": "A range from a method that captures the true parameter at a stated long-run rate. Margin of error: the critical value times standard error. Null hypothesis: the benchmark claim tested. P-value: probability, assuming the null, of a result at least as extreme as observed.",
-              "why": "Correct. a range from a method that captures the true parameter at a stated long-run rate. Margin of error: the critical value times standard error. Null hypothesis: the benchmark claim tested. P-value: probability, assuming the null, of a result at least as extreme as observed."
+              "text": "Both.",
+              "why": "Zero lies within interval B."
             },
             {
               "key": "C",
-              "text": "If the whole interval lies near or above the 10% benchmark, the observed excess is not merely a headline percentage.",
-              "why": "This describes one-proportion CI, not Confidence interval. It does not account for the quantities, conditions, or evidence in this statistics case."
+              "text": "Neither.",
+              "why": "All values in interval A are positive."
             },
             {
               "key": "D",
-              "text": "The test decides whether the excess warrants quarantine under the prewritten safety rule.",
-              "why": "This describes one-proportion z test/conclusion, not Confidence interval. It does not account for the quantities, conditions, or evidence in this statistics case."
+              "text": "A only.",
+              "why": "Correct. A only."
             }
           ]
         },
         {
-          "prompt": "the Fenwick trial receives a second case related to The Cold-Room Rate: the warehouse randomly selected 200 of more than 2,000 exposed kits and found 30 failures. Assign a response to each condition now so the crew has an action rule it can follow under pressure. Which option correctly applies one-proportion conditions to this follow-up case?",
-          "hint": "Use the stated evidence and the conditions for one-proportion conditions; do not choose an option merely because it names a familiar term.",
-          "answer": "C",
-          "options": [
-            {
-              "key": "A",
-              "text": "A range from a method that captures the true parameter at a stated long-run rate. Margin of error: the critical value times standard error. Null hypothesis: the benchmark claim tested. P-value: probability, assuming the null, of a result at least as extreme as observed.",
-              "why": "This describes Confidence interval, not one-proportion conditions. It does not account for the quantities, conditions, or evidence in this statistics case."
-            },
-            {
-              "key": "B",
-              "text": "If the whole interval lies near or above the 10% benchmark, the observed excess is not merely a headline percentage.",
-              "why": "This describes one-proportion CI, not one-proportion conditions. It does not account for the quantities, conditions, or evidence in this statistics case."
-            },
-            {
-              "key": "C",
-              "text": "Conditions connect the formula to a sampling process the board can trust.",
-              "why": "Correct. conditions connect the formula to a sampling process the board can trust."
-            },
-            {
-              "key": "D",
-              "text": "The test decides whether the excess warrants quarantine under the prewritten safety rule.",
-              "why": "This describes one-proportion z test/conclusion, not one-proportion conditions. It does not account for the quantities, conditions, or evidence in this statistics case."
-            }
-          ]
-        },
-        {
-          "prompt": "A teammate rechecks The Cold-Room Rate using new evidence: the warehouse randomly selected 200 of more than 2,000 exposed kits and found 30 failures. Assign a response to each condition now so the crew has an action rule it can follow under pressure. Which option correctly applies one-proportion CI to this follow-up case?",
-          "hint": "Use the stated evidence and the conditions for one-proportion CI; do not choose an option merely because it names a familiar term.",
-          "answer": "D",
-          "options": [
-            {
-              "key": "A",
-              "text": "A range from a method that captures the true parameter at a stated long-run rate. Margin of error: the critical value times standard error. Null hypothesis: the benchmark claim tested. P-value: probability, assuming the null, of a result at least as extreme as observed.",
-              "why": "This describes Confidence interval, not one-proportion CI. It does not account for the quantities, conditions, or evidence in this statistics case."
-            },
-            {
-              "key": "B",
-              "text": "Conditions connect the formula to a sampling process the board can trust.",
-              "why": "This describes one-proportion conditions, not one-proportion CI. It does not account for the quantities, conditions, or evidence in this statistics case."
-            },
-            {
-              "key": "C",
-              "text": "The test decides whether the excess warrants quarantine under the prewritten safety rule.",
-              "why": "This describes one-proportion z test/conclusion, not one-proportion CI. It does not account for the quantities, conditions, or evidence in this statistics case."
-            },
-            {
-              "key": "D",
-              "text": "If the whole interval lies near or above the 10% benchmark, the observed excess is not merely a headline percentage.",
-              "why": "Correct. if the whole interval lies near or above the 10% benchmark, the observed excess is not merely a headline percentage."
-            }
-          ]
-        },
-        {
-          "prompt": "An unseen case extends The Cold-Room Rate: the interval barely clears the benchmark, so the registered test now asks whether the true failure rate exceeds 10%. Which statistical conclusion or procedure correctly uses one-proportion z test/conclusion?",
-          "hint": "Use the stated evidence and the conditions for one-proportion z test/conclusion; do not choose an option merely because it names a familiar term.",
+          "prompt": "Which statement best explains one-proportion conditions?",
+          "hint": "Identify the defining relationship or mechanism for one-proportion conditions. All needed information is in this question.",
           "answer": "A",
           "options": [
             {
               "key": "A",
-              "text": "The test decides whether the excess warrants quarantine under the prewritten safety rule.",
-              "why": "Correct. the test decides whether the excess warrants quarantine under the prewritten safety rule."
+              "text": "Conditions connect the formula to a sampling process the researchers can trust.",
+              "why": "Correct. Conditions connect the formula to a sampling process the researchers can trust."
             },
             {
               "key": "B",
-              "text": "A range from a method that captures the true parameter at a stated long-run rate. Margin of error: the critical value times standard error. Null hypothesis: the benchmark claim tested. P-value: probability, assuming the null, of a result at least as extreme as observed.",
-              "why": "This describes Confidence interval, not one-proportion z test/conclusion. It does not account for the quantities, conditions, or evidence in this statistics case."
+              "text": "A range from a method that captures the true parameter at a stated long-run rate.",
+              "why": "This describes confidence interval. It does not answer the question about one-proportion conditions."
             },
             {
               "key": "C",
-              "text": "Conditions connect the formula to a sampling process the board can trust.",
-              "why": "This describes one-proportion conditions, not one-proportion z test/conclusion. It does not account for the quantities, conditions, or evidence in this statistics case."
+              "text": "If the whole interval lies near or above the 10% benchmark, the observed excess is not merely a headline percentage.",
+              "why": "This describes one-proportion CI. It does not answer the question about one-proportion conditions."
             },
             {
               "key": "D",
-              "text": "If the whole interval lies near or above the 10% benchmark, the observed excess is not merely a headline percentage.",
-              "why": "This describes one-proportion CI, not one-proportion z test/conclusion. It does not account for the quantities, conditions, or evidence in this statistics case."
+              "text": "The test decides whether the excess warrants quarantine under the prewritten safety rule.",
+              "why": "This describes one-proportion z test and conclusion. It does not answer the question about one-proportion conditions."
             }
           ]
         },
         {
-          "prompt": "Before another Cold-Room Rate decision, the team knows this: the exposed cohort exceeds the benchmark, and the replacement audit must be precise before release. Which statistical conclusion or procedure correctly uses margin of error/sample size?",
-          "hint": "Use the stated evidence and the conditions for margin of error/sample size; do not choose an option merely because it names a familiar term.",
+          "prompt": "Which statement best explains one-proportion CI?",
+          "hint": "Identify the defining relationship or mechanism for one-proportion ci. All needed information is in this question.",
           "answer": "B",
           "options": [
             {
               "key": "A",
-              "text": "A range from a method that captures the true parameter at a stated long-run rate. Margin of error: the critical value times standard error. Null hypothesis: the benchmark claim tested. P-value: probability, assuming the null, of a result at least as extreme as observed.",
-              "why": "This describes Confidence interval, not margin of error/sample size. It does not account for the quantities, conditions, or evidence in this statistics case."
+              "text": "A range from a method that captures the true parameter at a stated long-run rate.",
+              "why": "This describes confidence interval. It does not answer the question about one-proportion ci."
             },
             {
               "key": "B",
-              "text": "Rounding down would promise precision the audit cannot deliver.",
-              "why": "Correct. rounding down would promise precision the audit cannot deliver."
+              "text": "If the whole interval lies near or above the 10% benchmark, the observed excess is not merely a headline percentage.",
+              "why": "Correct. If the whole interval lies near or above the 10% benchmark, the observed excess is not merely a headline percentage."
             },
             {
               "key": "C",
-              "text": "Conditions connect the formula to a sampling process the board can trust.",
-              "why": "This describes one-proportion conditions, not margin of error/sample size. It does not account for the quantities, conditions, or evidence in this statistics case."
+              "text": "Conditions connect the formula to a sampling process the researchers can trust.",
+              "why": "This describes one-proportion conditions. It does not answer the question about one-proportion ci."
             },
             {
               "key": "D",
-              "text": "If the whole interval lies near or above the 10% benchmark, the observed excess is not merely a headline percentage.",
-              "why": "This describes one-proportion CI, not margin of error/sample size. It does not account for the quantities, conditions, or evidence in this statistics case."
+              "text": "The test decides whether the excess warrants quarantine under the prewritten safety rule.",
+              "why": "This describes one-proportion z test and conclusion. It does not answer the question about one-proportion ci."
             }
           ]
         },
         {
-          "prompt": "the Fenwick trial applies the lesson from The Cold-Room Rate to this follow-up: the warehouse randomly selected 200 of more than 2,000 exposed kits and found 30 failures. Assign a response to each condition now so the crew has an action rule it can follow under pressure. Which option correctly applies Variable to this follow-up case?",
-          "hint": "Use the stated evidence and the conditions for Variable; do not choose an option merely because it names a familiar term.",
+          "prompt": "Which statement best explains one-proportion z test and conclusion?",
+          "hint": "Identify the defining relationship or mechanism for one-proportion z test and conclusion. All needed information is in this question.",
           "answer": "C",
           "options": [
             {
               "key": "A",
-              "text": "A range from a method that captures the true parameter at a stated long-run rate. Margin of error: the critical value times standard error. Null hypothesis: the benchmark claim tested. P-value: probability, assuming the null, of a result at least as extreme as observed.",
-              "why": "This describes Confidence interval, not Variable. It does not account for the quantities, conditions, or evidence in this statistics case."
+              "text": "A range from a method that captures the true parameter at a stated long-run rate.",
+              "why": "This describes confidence interval. It does not answer the question about one-proportion z test and conclusion."
             },
             {
               "key": "B",
-              "text": "Conditions connect the formula to a sampling process the board can trust.",
-              "why": "This describes one-proportion conditions, not Variable. It does not account for the quantities, conditions, or evidence in this statistics case."
+              "text": "Conditions connect the formula to a sampling process the researchers can trust.",
+              "why": "This describes one-proportion conditions. It does not answer the question about one-proportion z test and conclusion."
             },
             {
               "key": "C",
-              "text": "A characteristic recorded for each patient. Categorical variable: a variable placing a patient into a group. Quantitative variable: a variable recorded as a meaningful number. Parameter: a fixed but usually unknown number describing a population. Statistic: a number computed from a sample.",
-              "why": "Correct. a characteristic recorded for each patient. Categorical variable: a variable placing a patient into a group. Quantitative variable: a variable recorded as a meaningful number. Parameter: a fixed but usually unknown number describing a population. Statistic: a number computed from a sample."
+              "text": "The test decides whether the excess warrants quarantine under the prewritten safety rule.",
+              "why": "Correct. The test decides whether the excess warrants quarantine under the prewritten safety rule."
             },
             {
               "key": "D",
               "text": "If the whole interval lies near or above the 10% benchmark, the observed excess is not merely a headline percentage.",
-              "why": "This describes one-proportion CI, not Variable. It does not account for the quantities, conditions, or evidence in this statistics case."
+              "why": "This describes one-proportion CI. It does not answer the question about one-proportion z test and conclusion."
+            }
+          ]
+        },
+        {
+          "prompt": "Which statement best explains margin of error and sample size?",
+          "hint": "Identify the defining relationship or mechanism for margin of error and sample size. All needed information is in this question.",
+          "answer": "D",
+          "options": [
+            {
+              "key": "A",
+              "text": "A range from a method that captures the true parameter at a stated long-run rate.",
+              "why": "This describes confidence interval. It does not answer the question about margin of error and sample size."
+            },
+            {
+              "key": "B",
+              "text": "Conditions connect the formula to a sampling process the researchers can trust.",
+              "why": "This describes one-proportion conditions. It does not answer the question about margin of error and sample size."
+            },
+            {
+              "key": "C",
+              "text": "If the whole interval lies near or above the 10% benchmark, the observed excess is not merely a headline percentage.",
+              "why": "This describes one-proportion CI. It does not answer the question about margin of error and sample size."
+            },
+            {
+              "key": "D",
+              "text": "Rounding down would promise precision the audit cannot deliver.",
+              "why": "Correct. Rounding down would promise precision the audit cannot deliver."
+            }
+          ]
+        },
+        {
+          "prompt": "Which statement best explains variable?",
+          "hint": "Identify the defining relationship or mechanism for variable. All needed information is in this question.",
+          "answer": "A",
+          "options": [
+            {
+              "key": "A",
+              "text": "A characteristic recorded for each patient.",
+              "why": "Correct. A characteristic recorded for each patient."
+            },
+            {
+              "key": "B",
+              "text": "A range from a method that captures the true parameter at a stated long-run rate.",
+              "why": "This describes confidence interval. It does not answer the question about variable."
+            },
+            {
+              "key": "C",
+              "text": "Conditions connect the formula to a sampling process the researchers can trust.",
+              "why": "This describes one-proportion conditions. It does not answer the question about variable."
+            },
+            {
+              "key": "D",
+              "text": "If the whole interval lies near or above the 10% benchmark, the observed excess is not merely a headline percentage.",
+              "why": "This describes one-proportion CI. It does not answer the question about variable."
             }
           ]
         }
@@ -3930,168 +3866,168 @@ export const MISSIONS = [
       "A random sample plus random assignment supports cause and generalization."
     ],
     "deeper": {
-      "intro": "You completed Could Anyone Tell. Choose GO DEEPER to revisit the four decisions and explore related course ideas; this optional review does not change your metrics or delay the next mission.",
+      "intro": "Try six independent practice questions. Each includes its own context and any needed data; no mission records are required.",
       "concepts": [],
       "questions": [
         {
-          "prompt": "In a follow-up to Could Anyone Tell, the cold-room failure made Priya's records look suspicious, but assignment concealment uses a different path. Open the dependencies now so the team can distinguish independent evidence from readings that repeat one source. Which option correctly applies Single blind to this follow-up case?",
-          "hint": "Use the stated evidence and the conditions for Single blind; do not choose an option merely because it names a familiar term.",
+          "prompt": "Which statement best explains single blind?",
+          "hint": "Identify the defining relationship or mechanism for single blind. All needed information is in this question.",
           "answer": "B",
           "options": [
             {
               "key": "A",
               "text": "Agreement among shared displays cannot count as independent proof that nobody could predict the next kit.",
-              "why": "This describes blinding versus randomisation records, not Single blind. It does not account for the quantities, conditions, or evidence in this statistics case."
+              "why": "This describes blinding versus randomisation records. It does not answer the question about single blind."
             },
             {
               "key": "B",
-              "text": "Either subjects or researchers do not know assignments. Double blind: neither subjects nor researchers know assignments. Pooled proportion: combined success proportion used in a two-proportion null test. Homogeneity: equal distribution of one categorical variable across populations or treatments.",
-              "why": "Correct. either subjects or researchers do not know assignments. Double blind: neither subjects nor researchers know assignments. Pooled proportion: combined success proportion used in a two-proportion null test. Homogeneity: equal distribution of one categorical variable across populations or treatments."
+              "text": "Either subjects or researchers do not know assignments.",
+              "why": "Correct. Either subjects or researchers do not know assignments."
             },
             {
               "key": "C",
               "text": "An interval shows whether the observed seven-point gap could plausibly be near zero.",
-              "why": "This describes two-proportion CI/conditions, not Single blind. It does not account for the quantities, conditions, or evidence in this statistics case."
+              "why": "This describes two-proportion CI and conditions. It does not answer the question about single blind."
             },
             {
               "key": "D",
               "text": "Correct pooling prevents the same data from receiving incompatible standards.",
-              "why": "This describes two-proportion z test, not Single blind. It does not account for the quantities, conditions, or evidence in this statistics case."
+              "why": "This describes two-proportion z test. It does not answer the question about single blind."
             }
           ]
         },
         {
-          "prompt": "the Fenwick trial receives a second case related to Could Anyone Tell: the cold-room failure made Priya's records look suspicious, but assignment concealment uses a different path. Open the dependencies now so the team can distinguish independent evidence from readings that repeat one source. Which statistical conclusion or procedure correctly uses blinding versus randomisation records?",
-          "hint": "Use the stated evidence and the conditions for blinding versus randomisation records; do not choose an option merely because it names a familiar term.",
+          "prompt": "Which statement best explains blinding versus randomisation records?",
+          "hint": "Identify the defining relationship or mechanism for blinding versus randomisation records. All needed information is in this question.",
           "answer": "C",
           "options": [
             {
               "key": "A",
-              "text": "Either subjects or researchers do not know assignments. Double blind: neither subjects nor researchers know assignments. Pooled proportion: combined success proportion used in a two-proportion null test. Homogeneity: equal distribution of one categorical variable across populations or treatments.",
-              "why": "This describes Single blind, not blinding versus randomisation records. It does not account for the quantities, conditions, or evidence in this statistics case."
+              "text": "Either subjects or researchers do not know assignments.",
+              "why": "This describes single blind. It does not answer the question about blinding versus randomisation records."
             },
             {
               "key": "B",
               "text": "An interval shows whether the observed seven-point gap could plausibly be near zero.",
-              "why": "This describes two-proportion CI/conditions, not blinding versus randomisation records. It does not account for the quantities, conditions, or evidence in this statistics case."
+              "why": "This describes two-proportion CI and conditions. It does not answer the question about blinding versus randomisation records."
             },
             {
               "key": "C",
               "text": "Agreement among shared displays cannot count as independent proof that nobody could predict the next kit.",
-              "why": "Correct. agreement among shared displays cannot count as independent proof that nobody could predict the next kit."
+              "why": "Correct. Agreement among shared displays cannot count as independent proof that nobody could predict the next kit."
             },
             {
               "key": "D",
               "text": "Correct pooling prevents the same data from receiving incompatible standards.",
-              "why": "This describes two-proportion z test, not blinding versus randomisation records. It does not account for the quantities, conditions, or evidence in this statistics case."
+              "why": "This describes two-proportion z test. It does not answer the question about blinding versus randomisation records."
             }
           ]
         },
         {
-          "prompt": "A teammate rechecks Could Anyone Tell using new evidence: the audit path is intact; the survey has 30 correct guesses among 200 treatment staff and 16 among 200 placebo staff. Which option correctly applies two-proportion CI/conditions to this follow-up case?",
-          "hint": "Use the stated evidence and the conditions for two-proportion CI/conditions; do not choose an option merely because it names a familiar term.",
+          "prompt": "Which statement best explains two-proportion CI and conditions?",
+          "hint": "Identify the defining relationship or mechanism for two-proportion ci and conditions. All needed information is in this question.",
           "answer": "D",
           "options": [
             {
               "key": "A",
-              "text": "Either subjects or researchers do not know assignments. Double blind: neither subjects nor researchers know assignments. Pooled proportion: combined success proportion used in a two-proportion null test. Homogeneity: equal distribution of one categorical variable across populations or treatments.",
-              "why": "This describes Single blind, not two-proportion CI/conditions. It does not account for the quantities, conditions, or evidence in this statistics case."
+              "text": "Either subjects or researchers do not know assignments.",
+              "why": "This describes single blind. It does not answer the question about two-proportion ci and conditions."
             },
             {
               "key": "B",
               "text": "Agreement among shared displays cannot count as independent proof that nobody could predict the next kit.",
-              "why": "This describes blinding versus randomisation records, not two-proportion CI/conditions. It does not account for the quantities, conditions, or evidence in this statistics case."
+              "why": "This describes blinding versus randomisation records. It does not answer the question about two-proportion ci and conditions."
             },
             {
               "key": "C",
               "text": "Correct pooling prevents the same data from receiving incompatible standards.",
-              "why": "This describes two-proportion z test, not two-proportion CI/conditions. It does not account for the quantities, conditions, or evidence in this statistics case."
+              "why": "This describes two-proportion z test. It does not answer the question about two-proportion ci and conditions."
             },
             {
               "key": "D",
               "text": "An interval shows whether the observed seven-point gap could plausibly be near zero.",
-              "why": "Correct. an interval shows whether the observed seven-point gap could plausibly be near zero."
+              "why": "Correct. An interval shows whether the observed seven-point gap could plausibly be near zero."
             }
           ]
         },
         {
-          "prompt": "An unseen case extends Could Anyone Tell: the confidence interval barely excludes zero, so test H0:p1=p2 against Ha:p1 not equal p2. Which statistical conclusion or procedure correctly uses two-proportion z test?",
-          "hint": "Use the stated evidence and the conditions for two-proportion z test; do not choose an option merely because it names a familiar term.",
+          "prompt": "Which statement best explains two-proportion z test?",
+          "hint": "Identify the defining relationship or mechanism for two-proportion z test. All needed information is in this question.",
           "answer": "A",
           "options": [
             {
               "key": "A",
               "text": "Correct pooling prevents the same data from receiving incompatible standards.",
-              "why": "Correct. correct pooling prevents the same data from receiving incompatible standards."
+              "why": "Correct. Correct pooling prevents the same data from receiving incompatible standards."
             },
             {
               "key": "B",
-              "text": "Either subjects or researchers do not know assignments. Double blind: neither subjects nor researchers know assignments. Pooled proportion: combined success proportion used in a two-proportion null test. Homogeneity: equal distribution of one categorical variable across populations or treatments.",
-              "why": "This describes Single blind, not two-proportion z test. It does not account for the quantities, conditions, or evidence in this statistics case."
+              "text": "Either subjects or researchers do not know assignments.",
+              "why": "This describes single blind. It does not answer the question about two-proportion z test."
             },
             {
               "key": "C",
               "text": "Agreement among shared displays cannot count as independent proof that nobody could predict the next kit.",
-              "why": "This describes blinding versus randomisation records, not two-proportion z test. It does not account for the quantities, conditions, or evidence in this statistics case."
+              "why": "This describes blinding versus randomisation records. It does not answer the question about two-proportion z test."
             },
             {
               "key": "D",
               "text": "An interval shows whether the observed seven-point gap could plausibly be near zero.",
-              "why": "This describes two-proportion CI/conditions, not two-proportion z test. It does not account for the quantities, conditions, or evidence in this statistics case."
+              "why": "This describes two-proportion CI and conditions. It does not answer the question about two-proportion z test."
             }
           ]
         },
         {
-          "prompt": "Before another Could Anyone Tell decision, the team knows this: the arm difference is statistically detectable, but the sealed-box audit remained intact and both correct-guess rates are low. Test the conclusion across the supported uncertainty range now, before the team treats it as robust. Which option correctly applies practical scope and blinding to this follow-up case?",
-          "hint": "Use the stated evidence and the conditions for practical scope and blinding; do not choose an option merely because it names a familiar term.",
+          "prompt": "Which statement best explains practical scope and blinding?",
+          "hint": "Identify the defining relationship or mechanism for practical scope and blinding. All needed information is in this question.",
           "answer": "B",
           "options": [
             {
               "key": "A",
-              "text": "Either subjects or researchers do not know assignments. Double blind: neither subjects nor researchers know assignments. Pooled proportion: combined success proportion used in a two-proportion null test. Homogeneity: equal distribution of one categorical variable across populations or treatments.",
-              "why": "This describes Single blind, not practical scope and blinding. It does not account for the quantities, conditions, or evidence in this statistics case."
+              "text": "Either subjects or researchers do not know assignments.",
+              "why": "This describes single blind. It does not answer the question about practical scope and blinding."
             },
             {
               "key": "B",
               "text": "The board must separate evidence of unequal guessing from proof that allocation was exposed.",
-              "why": "Correct. the board must separate evidence of unequal guessing from proof that allocation was exposed."
+              "why": "Correct. The board must separate evidence of unequal guessing from proof that allocation was exposed."
             },
             {
               "key": "C",
               "text": "Agreement among shared displays cannot count as independent proof that nobody could predict the next kit.",
-              "why": "This describes blinding versus randomisation records, not practical scope and blinding. It does not account for the quantities, conditions, or evidence in this statistics case."
+              "why": "This describes blinding versus randomisation records. It does not answer the question about practical scope and blinding."
             },
             {
               "key": "D",
               "text": "An interval shows whether the observed seven-point gap could plausibly be near zero.",
-              "why": "This describes two-proportion CI/conditions, not practical scope and blinding. It does not account for the quantities, conditions, or evidence in this statistics case."
+              "why": "This describes two-proportion CI and conditions. It does not answer the question about practical scope and blinding."
             }
           ]
         },
         {
-          "prompt": "the Fenwick trial applies the lesson from Could Anyone Tell to this follow-up: the cold-room failure made Priya's records look suspicious, but assignment concealment uses a different path. Open the dependencies now so the team can distinguish independent evidence from readings that repeat one source. Which option correctly applies Variable to this follow-up case?",
-          "hint": "Use the stated evidence and the conditions for Variable; do not choose an option merely because it names a familiar term.",
+          "prompt": "Which statement best explains variable?",
+          "hint": "Identify the defining relationship or mechanism for variable. All needed information is in this question.",
           "answer": "C",
           "options": [
             {
               "key": "A",
-              "text": "Either subjects or researchers do not know assignments. Double blind: neither subjects nor researchers know assignments. Pooled proportion: combined success proportion used in a two-proportion null test. Homogeneity: equal distribution of one categorical variable across populations or treatments.",
-              "why": "This describes Single blind, not Variable. It does not account for the quantities, conditions, or evidence in this statistics case."
+              "text": "Either subjects or researchers do not know assignments.",
+              "why": "This describes single blind. It does not answer the question about variable."
             },
             {
               "key": "B",
               "text": "Agreement among shared displays cannot count as independent proof that nobody could predict the next kit.",
-              "why": "This describes blinding versus randomisation records, not Variable. It does not account for the quantities, conditions, or evidence in this statistics case."
+              "why": "This describes blinding versus randomisation records. It does not answer the question about variable."
             },
             {
               "key": "C",
-              "text": "A characteristic recorded for each patient. Categorical variable: a variable placing a patient into a group. Quantitative variable: a variable recorded as a meaningful number. Parameter: a fixed but usually unknown number describing a population. Statistic: a number computed from a sample.",
-              "why": "Correct. a characteristic recorded for each patient. Categorical variable: a variable placing a patient into a group. Quantitative variable: a variable recorded as a meaningful number. Parameter: a fixed but usually unknown number describing a population. Statistic: a number computed from a sample."
+              "text": "A characteristic recorded for each patient.",
+              "why": "Correct. A characteristic recorded for each patient."
             },
             {
               "key": "D",
               "text": "An interval shows whether the observed seven-point gap could plausibly be near zero.",
-              "why": "This describes two-proportion CI/conditions, not Variable. It does not account for the quantities, conditions, or evidence in this statistics case."
+              "why": "This describes two-proportion CI and conditions. It does not answer the question about variable."
             }
           ]
         }
@@ -4385,209 +4321,184 @@ export const MISSIONS = [
       "Never pool variances for the AP two-sample t procedure."
     ],
     "deeper": {
-      "intro": "You completed The Smaller Benefit. Choose GO DEEPER to revisit the four decisions and explore related course ideas; this optional review does not change your metrics or delay the next mission.",
+      "intro": "Try six independent practice questions. Each includes its own context and any needed data; no mission records are required.",
       "concepts": [],
       "questions": [
         {
-          "prompt": "In a follow-up to The Smaller Benefit, after recovering missing outcomes, n=25 patients have mean score 72 and sample SD 10; the null mean is 68. Which interpretation of the displayed evidence correctly uses the mission concept?",
-          "hint": "Read the axes, units, direction, and any threshold before comparing the choices.",
-          "answer": "B",
+          "prompt": "What feature of the t distribution with 5 degrees of freedom is shown?",
+          "hint": "Compare probability outside the same pair of cutoffs.",
+          "answer": "D",
           "figure": {
-            "kind": "line",
-            "xLabel": "Standardized estimate",
-            "yLabel": "Relative frequency",
-            "caption": "A centered sampling distribution with symmetric tails.",
-            "series": [
+            "kind": "bars",
+            "xLabel": "Category",
+            "yLabel": "Probability in both tails",
+            "caption": "Tail probabilities for two symmetric distributions",
+            "bars": [
               {
-                "name": "Distribution",
-                "points": [
-                  [
-                    -3,
-                    0.01
-                  ],
-                  [
-                    -2,
-                    0.06
-                  ],
-                  [
-                    -1,
-                    0.24
-                  ],
-                  [
-                    0,
-                    0.4
-                  ],
-                  [
-                    1,
-                    0.24
-                  ],
-                  [
-                    2,
-                    0.06
-                  ],
-                  [
-                    3,
-                    0.01
-                  ]
-                ]
+                "name": "Normal, beyond ±2",
+                "value": 0.0455
+              },
+              {
+                "name": "t with 5 df, beyond ±2",
+                "value": 0.1019
               }
             ]
           },
           "options": [
             {
               "key": "A",
-              "text": "The heavier-tailed t model reflects that population SD is estimated rather than known.",
-              "why": "This describes one-sample t/conditions, not T distribution. It does not account for the quantities, conditions, or evidence in this statistics case."
+              "text": "It assigns no probability outside ±2.",
+              "why": "The plotted tail probability is positive."
             },
             {
               "key": "B",
-              "text": "A bell-shaped distribution with heavier tails used when the population standard deviation (SD) is unknown. Degrees of freedom: a number controlling the t distribution's shape. Paired data: linked measurements analyzed through within-pair differences. Two-sample data: measurements from two independent groups.",
-              "why": "Correct. a bell-shaped distribution with heavier tails used when the population standard deviation (SD) is unknown. Degrees of freedom: a number controlling the t distribution's shape. Paired data: linked measurements analyzed through within-pair differences. Two-sample data: measurements from two independent groups."
+              "text": "It has lighter tails than the Normal.",
+              "why": "Its tail probability is larger."
             },
             {
               "key": "C",
-              "text": "Pairing removes between-patient variation and tests the mean change actually experienced.",
-              "why": "This describes paired t and CI, not T distribution. It does not account for the quantities, conditions, or evidence in this statistics case."
+              "text": "It can never take negative values.",
+              "why": "Both distributions are symmetric about zero."
             },
             {
               "key": "D",
-              "text": "Using the right data structure keeps a precise-looking but invalid estimate out of the pack.",
-              "why": "This describes two-sample t, not T distribution. It does not account for the quantities, conditions, or evidence in this statistics case."
+              "text": "It has heavier tails than the standard Normal distribution.",
+              "why": "Correct. It has heavier tails than the standard Normal distribution."
             }
           ]
         },
         {
-          "prompt": "the Fenwick trial receives a second case related to The Smaller Benefit: after recovering missing outcomes, n=25 patients have mean score 72 and sample SD 10; the null mean is 68. Which statistical conclusion or procedure correctly uses one-sample t/conditions?",
-          "hint": "Use the stated evidence and the conditions for one-sample t/conditions; do not choose an option merely because it names a familiar term.",
-          "answer": "C",
-          "options": [
-            {
-              "key": "A",
-              "text": "A bell-shaped distribution with heavier tails used when the population standard deviation (SD) is unknown. Degrees of freedom: a number controlling the t distribution's shape. Paired data: linked measurements analyzed through within-pair differences. Two-sample data: measurements from two independent groups.",
-              "why": "This describes T distribution, not one-sample t/conditions. It does not account for the quantities, conditions, or evidence in this statistics case."
-            },
-            {
-              "key": "B",
-              "text": "Pairing removes between-patient variation and tests the mean change actually experienced.",
-              "why": "This describes paired t and CI, not one-sample t/conditions. It does not account for the quantities, conditions, or evidence in this statistics case."
-            },
-            {
-              "key": "C",
-              "text": "The heavier-tailed t model reflects that population SD is estimated rather than known.",
-              "why": "Correct. the heavier-tailed t model reflects that population SD is estimated rather than known."
-            },
-            {
-              "key": "D",
-              "text": "Using the right data structure keeps a precise-looking but invalid estimate out of the pack.",
-              "why": "This describes two-sample t, not one-sample t/conditions. It does not account for the quantities, conditions, or evidence in this statistics case."
-            }
-          ]
-        },
-        {
-          "prompt": "A teammate rechecks The Smaller Benefit using new evidence: the adjusted mean is inconclusive, but 16 same-patient differences defined as after minus before have mean -3 days and SD 4 days. Which option correctly applies paired t and CI to this follow-up case?",
-          "hint": "Use the stated evidence and the conditions for paired t and CI; do not choose an option merely because it names a familiar term.",
-          "answer": "D",
-          "options": [
-            {
-              "key": "A",
-              "text": "A bell-shaped distribution with heavier tails used when the population standard deviation (SD) is unknown. Degrees of freedom: a number controlling the t distribution's shape. Paired data: linked measurements analyzed through within-pair differences. Two-sample data: measurements from two independent groups.",
-              "why": "This describes T distribution, not paired t and CI. It does not account for the quantities, conditions, or evidence in this statistics case."
-            },
-            {
-              "key": "B",
-              "text": "The heavier-tailed t model reflects that population SD is estimated rather than known.",
-              "why": "This describes one-sample t/conditions, not paired t and CI. It does not account for the quantities, conditions, or evidence in this statistics case."
-            },
-            {
-              "key": "C",
-              "text": "Using the right data structure keeps a precise-looking but invalid estimate out of the pack.",
-              "why": "This describes two-sample t, not paired t and CI. It does not account for the quantities, conditions, or evidence in this statistics case."
-            },
-            {
-              "key": "D",
-              "text": "Pairing removes between-patient variation and tests the mean change actually experienced.",
-              "why": "Correct. pairing removes between-patient variation and tests the mean change actually experienced."
-            }
-          ]
-        },
-        {
-          "prompt": "An unseen case extends The Smaller Benefit: after recovering missing outcomes, n=25 patients have mean score 72 and sample SD 10; the null mean is 68. Which statistical conclusion or procedure correctly uses two-sample t?",
-          "hint": "Use the stated evidence and the conditions for two-sample t; do not choose an option merely because it names a familiar term.",
+          "prompt": "Which statement best explains one-sample t and conditions?",
+          "hint": "Identify the defining relationship or mechanism for one-sample t and conditions. All needed information is in this question.",
           "answer": "A",
           "options": [
             {
               "key": "A",
-              "text": "Using the right data structure keeps a precise-looking but invalid estimate out of the pack.",
-              "why": "Correct. using the right data structure keeps a precise-looking but invalid estimate out of the pack."
+              "text": "The heavier-tailed t model reflects that population SD is estimated rather than known.",
+              "why": "Correct. The heavier-tailed t model reflects that population SD is estimated rather than known."
             },
             {
               "key": "B",
-              "text": "A bell-shaped distribution with heavier tails used when the population standard deviation (SD) is unknown. Degrees of freedom: a number controlling the t distribution's shape. Paired data: linked measurements analyzed through within-pair differences. Two-sample data: measurements from two independent groups.",
-              "why": "This describes T distribution, not two-sample t. It does not account for the quantities, conditions, or evidence in this statistics case."
+              "text": "A bell-shaped distribution with heavier tails used when the population standard deviation (SD) is unknown.",
+              "why": "This describes t distribution. It does not answer the question about one-sample t and conditions."
             },
             {
               "key": "C",
-              "text": "The heavier-tailed t model reflects that population SD is estimated rather than known.",
-              "why": "This describes one-sample t/conditions, not two-sample t. It does not account for the quantities, conditions, or evidence in this statistics case."
+              "text": "Pairing removes between-patient variation and tests the mean change actually experienced.",
+              "why": "This describes paired t and CI. It does not answer the question about one-sample t and conditions."
             },
             {
               "key": "D",
-              "text": "Pairing removes between-patient variation and tests the mean change actually experienced.",
-              "why": "This describes paired t and CI, not two-sample t. It does not account for the quantities, conditions, or evidence in this statistics case."
+              "text": "Using the right data structure keeps a precise-looking but invalid estimate out of the report.",
+              "why": "This describes two-sample t. It does not answer the question about one-sample t and conditions."
             }
           ]
         },
         {
-          "prompt": "Before another Smaller Benefit decision, the team knows this: the three analyses now disagree in strength, so Statistics compares residual fields after distance adjustment. Which option correctly applies adjustment diagnostics to this follow-up case?",
-          "hint": "Use the stated evidence and the conditions for adjustment diagnostics; do not choose an option merely because it names a familiar term.",
+          "prompt": "Which statement best explains paired t and CI?",
+          "hint": "Identify the defining relationship or mechanism for paired t and ci. All needed information is in this question.",
           "answer": "B",
           "options": [
             {
               "key": "A",
-              "text": "A bell-shaped distribution with heavier tails used when the population standard deviation (SD) is unknown. Degrees of freedom: a number controlling the t distribution's shape. Paired data: linked measurements analyzed through within-pair differences. Two-sample data: measurements from two independent groups.",
-              "why": "This describes T distribution, not adjustment diagnostics. It does not account for the quantities, conditions, or evidence in this statistics case."
+              "text": "A bell-shaped distribution with heavier tails used when the population standard deviation (SD) is unknown.",
+              "why": "This describes t distribution. It does not answer the question about paired t and ci."
             },
             {
               "key": "B",
-              "text": "A smaller well-diagnosed effect is more defensible than a larger biased headline.",
-              "why": "Correct. a smaller well-diagnosed effect is more defensible than a larger biased headline."
+              "text": "Pairing removes between-patient variation and tests the mean change actually experienced.",
+              "why": "Correct. Pairing removes between-patient variation and tests the mean change actually experienced."
             },
             {
               "key": "C",
               "text": "The heavier-tailed t model reflects that population SD is estimated rather than known.",
-              "why": "This describes one-sample t/conditions, not adjustment diagnostics. It does not account for the quantities, conditions, or evidence in this statistics case."
+              "why": "This describes one-sample t and conditions. It does not answer the question about paired t and ci."
             },
             {
               "key": "D",
-              "text": "Pairing removes between-patient variation and tests the mean change actually experienced.",
-              "why": "This describes paired t and CI, not adjustment diagnostics. It does not account for the quantities, conditions, or evidence in this statistics case."
+              "text": "Using the right data structure keeps a precise-looking but invalid estimate out of the report.",
+              "why": "This describes two-sample t. It does not answer the question about paired t and ci."
             }
           ]
         },
         {
-          "prompt": "the Fenwick trial applies the lesson from The Smaller Benefit to this follow-up: after recovering missing outcomes, n=25 patients have mean score 72 and sample SD 10; the null mean is 68. Which option correctly applies Variable to this follow-up case?",
-          "hint": "Use the stated evidence and the conditions for Variable; do not choose an option merely because it names a familiar term.",
+          "prompt": "Which statement best explains two-sample t?",
+          "hint": "Identify the defining relationship or mechanism for two-sample t. All needed information is in this question.",
           "answer": "C",
           "options": [
             {
               "key": "A",
-              "text": "A bell-shaped distribution with heavier tails used when the population standard deviation (SD) is unknown. Degrees of freedom: a number controlling the t distribution's shape. Paired data: linked measurements analyzed through within-pair differences. Two-sample data: measurements from two independent groups.",
-              "why": "This describes T distribution, not Variable. It does not account for the quantities, conditions, or evidence in this statistics case."
+              "text": "A bell-shaped distribution with heavier tails used when the population standard deviation (SD) is unknown.",
+              "why": "This describes t distribution. It does not answer the question about two-sample t."
             },
             {
               "key": "B",
               "text": "The heavier-tailed t model reflects that population SD is estimated rather than known.",
-              "why": "This describes one-sample t/conditions, not Variable. It does not account for the quantities, conditions, or evidence in this statistics case."
+              "why": "This describes one-sample t and conditions. It does not answer the question about two-sample t."
             },
             {
               "key": "C",
-              "text": "A characteristic recorded for each patient. Categorical variable: a variable placing a patient into a group. Quantitative variable: a variable recorded as a meaningful number. Parameter: a fixed but usually unknown number describing a population. Statistic: a number computed from a sample.",
-              "why": "Correct. a characteristic recorded for each patient. Categorical variable: a variable placing a patient into a group. Quantitative variable: a variable recorded as a meaningful number. Parameter: a fixed but usually unknown number describing a population. Statistic: a number computed from a sample."
+              "text": "Using the right data structure keeps a precise-looking but invalid estimate out of the report.",
+              "why": "Correct. Using the right data structure keeps a precise-looking but invalid estimate out of the report."
             },
             {
               "key": "D",
               "text": "Pairing removes between-patient variation and tests the mean change actually experienced.",
-              "why": "This describes paired t and CI, not Variable. It does not account for the quantities, conditions, or evidence in this statistics case."
+              "why": "This describes paired t and CI. It does not answer the question about two-sample t."
+            }
+          ]
+        },
+        {
+          "prompt": "Which statement best explains adjustment diagnostics?",
+          "hint": "Identify the defining relationship or mechanism for adjustment diagnostics. All needed information is in this question.",
+          "answer": "D",
+          "options": [
+            {
+              "key": "A",
+              "text": "A bell-shaped distribution with heavier tails used when the population standard deviation (SD) is unknown.",
+              "why": "This describes t distribution. It does not answer the question about adjustment diagnostics."
+            },
+            {
+              "key": "B",
+              "text": "The heavier-tailed t model reflects that population SD is estimated rather than known.",
+              "why": "This describes one-sample t and conditions. It does not answer the question about adjustment diagnostics."
+            },
+            {
+              "key": "C",
+              "text": "Pairing removes between-patient variation and tests the mean change actually experienced.",
+              "why": "This describes paired t and CI. It does not answer the question about adjustment diagnostics."
+            },
+            {
+              "key": "D",
+              "text": "A smaller well-diagnosed effect is more defensible than a larger biased headline.",
+              "why": "Correct. A smaller well-diagnosed effect is more defensible than a larger biased headline."
+            }
+          ]
+        },
+        {
+          "prompt": "Which statement best explains variable?",
+          "hint": "Identify the defining relationship or mechanism for variable. All needed information is in this question.",
+          "answer": "A",
+          "options": [
+            {
+              "key": "A",
+              "text": "A characteristic recorded for each patient.",
+              "why": "Correct. A characteristic recorded for each patient."
+            },
+            {
+              "key": "B",
+              "text": "A bell-shaped distribution with heavier tails used when the population standard deviation (SD) is unknown.",
+              "why": "This describes t distribution. It does not answer the question about variable."
+            },
+            {
+              "key": "C",
+              "text": "The heavier-tailed t model reflects that population SD is estimated rather than known.",
+              "why": "This describes one-sample t and conditions. It does not answer the question about variable."
+            },
+            {
+              "key": "D",
+              "text": "Pairing removes between-patient variation and tests the mean change actually experienced.",
+              "why": "This describes paired t and CI. It does not answer the question about variable."
             }
           ]
         }
@@ -4867,168 +4778,168 @@ export const MISSIONS = [
       "Exact agreement can signal a shared dependency rather than confirmation."
     ],
     "deeper": {
-      "intro": "You completed Lock the File. Choose GO DEEPER to revisit the four decisions and explore related course ideas; this optional review does not change your metrics or delay the next mission.",
+      "intro": "Try six independent practice questions. Each includes its own context and any needed data; no mission records are required.",
       "concepts": [],
       "questions": [
         {
-          "prompt": "In a follow-up to Lock the File, the source population has mean 70, SD 12, and each extraction averages n=36 independent records. Which option correctly applies Central Limit Theorem to this follow-up case?",
-          "hint": "Use the stated evidence and the conditions for Central Limit Theorem; do not choose an option merely because it names a familiar term.",
+          "prompt": "Which statement best explains central Limit Theorem?",
+          "hint": "Identify the defining relationship or mechanism for central limit theorem. All needed information is in this question.",
           "answer": "B",
           "options": [
             {
               "key": "A",
               "text": "A discrepancy far beyond expected spread points to pipeline error rather than ordinary sampling fluctuation.",
-              "why": "This describes CLT/unbiasedness/SE, not Central Limit Theorem. It does not account for the quantities, conditions, or evidence in this statistics case."
+              "why": "This describes cLT and unbiasedness and SE. It does not answer the question about central limit theorem."
             },
             {
               "key": "B",
-              "text": "For large n, the sampling distribution of a sample mean is approximately Normal. Standard error: an estimate of a statistic's sampling spread. Unbiased estimator: an estimator whose sampling-distribution mean equals the parameter.",
-              "why": "Correct. for large n, the sampling distribution of a sample mean is approximately Normal. Standard error: an estimate of a statistic's sampling spread. Unbiased estimator: an estimator whose sampling-distribution mean equals the parameter."
+              "text": "For large n, the sampling distribution of a sample mean is approximately Normal.",
+              "why": "Correct. For large n, the sampling distribution of a sample mean is approximately Normal."
             },
             {
               "key": "C",
               "text": "A holdout prevents the rule from being rewarded for memorizing the same anomalies it must predict.",
-              "why": "This describes model validation, not Central Limit Theorem. It does not account for the quantities, conditions, or evidence in this statistics case."
+              "why": "This describes model validation. It does not answer the question about central limit theorem."
             },
             {
               "key": "D",
-              "text": "Shared inputs make agreement redundant; only the source rerun can validate the final table.",
-              "why": "This describes dependence, not Central Limit Theorem. It does not account for the quantities, conditions, or evidence in this statistics case."
+              "text": "Shared inputs make agreement redundant; a separately checked source calculation provides a stronger validation of the table.",
+              "why": "This describes dependence. It does not answer the question about central limit theorem."
             }
           ]
         },
         {
-          "prompt": "the Fenwick trial receives a second case related to Lock the File: the source population has mean 70, SD 12, and each extraction averages n=36 independent records. Which option correctly applies CLT/unbiasedness/SE to this follow-up case?",
-          "hint": "Use the stated evidence and the conditions for CLT/unbiasedness/SE; do not choose an option merely because it names a familiar term.",
+          "prompt": "Which statement best explains cLT and unbiasedness and SE?",
+          "hint": "Identify the defining relationship or mechanism for clt and unbiasedness and se. All needed information is in this question.",
           "answer": "C",
           "options": [
             {
               "key": "A",
-              "text": "For large n, the sampling distribution of a sample mean is approximately Normal. Standard error: an estimate of a statistic's sampling spread. Unbiased estimator: an estimator whose sampling-distribution mean equals the parameter.",
-              "why": "This describes Central Limit Theorem, not CLT/unbiasedness/SE. It does not account for the quantities, conditions, or evidence in this statistics case."
+              "text": "For large n, the sampling distribution of a sample mean is approximately Normal.",
+              "why": "This describes central Limit Theorem. It does not answer the question about clt and unbiasedness and se."
             },
             {
               "key": "B",
               "text": "A holdout prevents the rule from being rewarded for memorizing the same anomalies it must predict.",
-              "why": "This describes model validation, not CLT/unbiasedness/SE. It does not account for the quantities, conditions, or evidence in this statistics case."
+              "why": "This describes model validation. It does not answer the question about clt and unbiasedness and se."
             },
             {
               "key": "C",
               "text": "A discrepancy far beyond expected spread points to pipeline error rather than ordinary sampling fluctuation.",
-              "why": "Correct. a discrepancy far beyond expected spread points to pipeline error rather than ordinary sampling fluctuation."
+              "why": "Correct. A discrepancy far beyond expected spread points to pipeline error rather than ordinary sampling fluctuation."
             },
             {
               "key": "D",
-              "text": "Shared inputs make agreement redundant; only the source rerun can validate the final table.",
-              "why": "This describes dependence, not CLT/unbiasedness/SE. It does not account for the quantities, conditions, or evidence in this statistics case."
+              "text": "Shared inputs make agreement redundant; a separately checked source calculation provides a stronger validation of the table.",
+              "why": "This describes dependence. It does not answer the question about clt and unbiasedness and se."
             }
           ]
         },
         {
-          "prompt": "A teammate rechecks Lock the File using new evidence: the expected spread is two units, and three candidate cleaning rules fit the development rows. Which option correctly applies model validation to this follow-up case?",
-          "hint": "Use the stated evidence and the conditions for model validation; do not choose an option merely because it names a familiar term.",
+          "prompt": "Which statement best explains model validation?",
+          "hint": "Identify the defining relationship or mechanism for model validation. All needed information is in this question.",
           "answer": "D",
           "options": [
             {
               "key": "A",
-              "text": "For large n, the sampling distribution of a sample mean is approximately Normal. Standard error: an estimate of a statistic's sampling spread. Unbiased estimator: an estimator whose sampling-distribution mean equals the parameter.",
-              "why": "This describes Central Limit Theorem, not model validation. It does not account for the quantities, conditions, or evidence in this statistics case."
+              "text": "For large n, the sampling distribution of a sample mean is approximately Normal.",
+              "why": "This describes central Limit Theorem. It does not answer the question about model validation."
             },
             {
               "key": "B",
               "text": "A discrepancy far beyond expected spread points to pipeline error rather than ordinary sampling fluctuation.",
-              "why": "This describes CLT/unbiasedness/SE, not model validation. It does not account for the quantities, conditions, or evidence in this statistics case."
+              "why": "This describes cLT and unbiasedness and SE. It does not answer the question about model validation."
             },
             {
               "key": "C",
-              "text": "Shared inputs make agreement redundant; only the source rerun can validate the final table.",
-              "why": "This describes dependence, not model validation. It does not account for the quantities, conditions, or evidence in this statistics case."
+              "text": "Shared inputs make agreement redundant; a separately checked source calculation provides a stronger validation of the table.",
+              "why": "This describes dependence. It does not answer the question about model validation."
             },
             {
               "key": "D",
               "text": "A holdout prevents the rule from being rewarded for memorizing the same anomalies it must predict.",
-              "why": "Correct. a holdout prevents the rule from being rewarded for memorizing the same anomalies it must predict."
+              "why": "Correct. A holdout prevents the rule from being rewarded for memorizing the same anomalies it must predict."
             }
           ]
         },
         {
-          "prompt": "An unseen case extends Lock the File: the held-out rule produced an independent hash, while efficacy, safety, and registry reports agree digit for digit. Open the dependencies now so the team can distinguish independent evidence from readings that repeat one source. Which option correctly applies dependence to this follow-up case?",
-          "hint": "Use the stated evidence and the conditions for dependence; do not choose an option merely because it names a familiar term.",
+          "prompt": "Which statement best explains dependence?",
+          "hint": "Identify the defining relationship or mechanism for dependence. All needed information is in this question.",
           "answer": "A",
           "options": [
             {
               "key": "A",
-              "text": "Shared inputs make agreement redundant; only the source rerun can validate the final table.",
-              "why": "Correct. shared inputs make agreement redundant; only the source rerun can validate the final table."
+              "text": "Shared inputs make agreement redundant; a separately checked source calculation provides a stronger validation of the table.",
+              "why": "Correct. Shared inputs make agreement redundant; a separately checked source calculation provides a stronger validation of the table."
             },
             {
               "key": "B",
-              "text": "For large n, the sampling distribution of a sample mean is approximately Normal. Standard error: an estimate of a statistic's sampling spread. Unbiased estimator: an estimator whose sampling-distribution mean equals the parameter.",
-              "why": "This describes Central Limit Theorem, not dependence. It does not account for the quantities, conditions, or evidence in this statistics case."
+              "text": "For large n, the sampling distribution of a sample mean is approximately Normal.",
+              "why": "This describes central Limit Theorem. It does not answer the question about dependence."
             },
             {
               "key": "C",
               "text": "A discrepancy far beyond expected spread points to pipeline error rather than ordinary sampling fluctuation.",
-              "why": "This describes CLT/unbiasedness/SE, not dependence. It does not account for the quantities, conditions, or evidence in this statistics case."
+              "why": "This describes cLT and unbiasedness and SE. It does not answer the question about dependence."
             },
             {
               "key": "D",
               "text": "A holdout prevents the rule from being rewarded for memorizing the same anomalies it must predict.",
-              "why": "This describes model validation, not dependence. It does not account for the quantities, conditions, or evidence in this statistics case."
+              "why": "This describes model validation. It does not answer the question about dependence."
             }
           ]
         },
         {
-          "prompt": "Before another Lock the File decision, the team knows this: the independent extraction survives its holdout and dependency audit. Before the record can be signed, identify which claims have independent support and which must remain unverified. Which option correctly applies file integrity to this follow-up case?",
-          "hint": "Use the stated evidence and the conditions for file integrity; do not choose an option merely because it names a familiar term.",
+          "prompt": "Which statement best explains file integrity?",
+          "hint": "Identify the defining relationship or mechanism for file integrity. All needed information is in this question.",
           "answer": "B",
           "options": [
             {
               "key": "A",
-              "text": "For large n, the sampling distribution of a sample mean is approximately Normal. Standard error: an estimate of a statistic's sampling spread. Unbiased estimator: an estimator whose sampling-distribution mean equals the parameter.",
-              "why": "This describes Central Limit Theorem, not file integrity. It does not account for the quantities, conditions, or evidence in this statistics case."
+              "text": "For large n, the sampling distribution of a sample mean is approximately Normal.",
+              "why": "This describes central Limit Theorem. It does not answer the question about file integrity."
             },
             {
               "key": "B",
               "text": "A lock preserves the analysis boundary only if its evidence and permissions are independently backed.",
-              "why": "Correct. a lock preserves the analysis boundary only if its evidence and permissions are independently backed."
+              "why": "Correct. A lock preserves the analysis boundary only if its evidence and permissions are independently backed."
             },
             {
               "key": "C",
               "text": "A discrepancy far beyond expected spread points to pipeline error rather than ordinary sampling fluctuation.",
-              "why": "This describes CLT/unbiasedness/SE, not file integrity. It does not account for the quantities, conditions, or evidence in this statistics case."
+              "why": "This describes cLT and unbiasedness and SE. It does not answer the question about file integrity."
             },
             {
               "key": "D",
               "text": "A holdout prevents the rule from being rewarded for memorizing the same anomalies it must predict.",
-              "why": "This describes model validation, not file integrity. It does not account for the quantities, conditions, or evidence in this statistics case."
+              "why": "This describes model validation. It does not answer the question about file integrity."
             }
           ]
         },
         {
-          "prompt": "the Fenwick trial applies the lesson from Lock the File to this follow-up: the source population has mean 70, SD 12, and each extraction averages n=36 independent records. Which option correctly applies Variable to this follow-up case?",
-          "hint": "Use the stated evidence and the conditions for Variable; do not choose an option merely because it names a familiar term.",
+          "prompt": "Which statement best explains variable?",
+          "hint": "Identify the defining relationship or mechanism for variable. All needed information is in this question.",
           "answer": "C",
           "options": [
             {
               "key": "A",
-              "text": "For large n, the sampling distribution of a sample mean is approximately Normal. Standard error: an estimate of a statistic's sampling spread. Unbiased estimator: an estimator whose sampling-distribution mean equals the parameter.",
-              "why": "This describes Central Limit Theorem, not Variable. It does not account for the quantities, conditions, or evidence in this statistics case."
+              "text": "For large n, the sampling distribution of a sample mean is approximately Normal.",
+              "why": "This describes central Limit Theorem. It does not answer the question about variable."
             },
             {
               "key": "B",
               "text": "A discrepancy far beyond expected spread points to pipeline error rather than ordinary sampling fluctuation.",
-              "why": "This describes CLT/unbiasedness/SE, not Variable. It does not account for the quantities, conditions, or evidence in this statistics case."
+              "why": "This describes cLT and unbiasedness and SE. It does not answer the question about variable."
             },
             {
               "key": "C",
-              "text": "A characteristic recorded for each patient. Categorical variable: a variable placing a patient into a group. Quantitative variable: a variable recorded as a meaningful number. Parameter: a fixed but usually unknown number describing a population. Statistic: a number computed from a sample.",
-              "why": "Correct. a characteristic recorded for each patient. Categorical variable: a variable placing a patient into a group. Quantitative variable: a variable recorded as a meaningful number. Parameter: a fixed but usually unknown number describing a population. Statistic: a number computed from a sample."
+              "text": "A characteristic recorded for each patient.",
+              "why": "Correct. A characteristic recorded for each patient."
             },
             {
               "key": "D",
               "text": "A holdout prevents the rule from being rewarded for memorizing the same anomalies it must predict.",
-              "why": "This describes model validation, not Variable. It does not account for the quantities, conditions, or evidence in this statistics case."
+              "why": "This describes model validation. It does not answer the question about variable."
             }
           ]
         }
@@ -5298,188 +5209,192 @@ export const MISSIONS = [
       "Independence and homogeneity use the same arithmetic but different designs."
     ],
     "deeper": {
-      "intro": "You completed Three Different Tables. Choose GO DEEPER to revisit the four decisions and explore related course ideas; this optional review does not change your metrics or delay the next mission.",
+      "intro": "Try six independent practice questions. Each includes its own context and any needed data; no mission records are required.",
       "concepts": [],
       "questions": [
         {
-          "prompt": "In a follow-up to Three Different Tables, the table has 30 events and 170 non-events in treatment, versus 16 and 184 in placebo. Which statistical conclusion or procedure correctly uses Goodness-of-fit test?",
-          "hint": "Use the stated evidence and the conditions for Goodness-of-fit test; do not choose an option merely because it names a familiar term.",
-          "answer": "B",
-          "options": [
-            {
-              "key": "A",
-              "text": "This asks whether one variable follows a claimed distribution, not whether two variables are associated.",
-              "why": "This describes chi-square GOF, not Goodness-of-fit test. It does not account for the quantities, conditions, or evidence in this statistics case."
-            },
-            {
-              "key": "B",
-              "text": "Compares one categorical variable with a claimed distribution. Independence test: tests association between two categorical variables in one population. Homogeneity test: compares one categorical distribution across two or more populations or treatments. Expected count: count predicted under the null model.",
-              "why": "Correct. compares one categorical variable with a claimed distribution. Independence test: tests association between two categorical variables in one population. Homogeneity test: compares one categorical distribution across two or more populations or treatments. Expected count: count predicted under the null model."
-            },
-            {
-              "key": "C",
-              "text": "Same arithmetic cannot erase the difference between one sample with two variables and several populations with one variable.",
-              "why": "This describes independence versus homogeneity, not Goodness-of-fit test. It does not account for the quantities, conditions, or evidence in this statistics case."
-            },
-            {
-              "key": "D",
-              "text": "Association by arm is a different question from the outcome-grade distribution.",
-              "why": "This describes chi-square independence, not Goodness-of-fit test. It does not account for the quantities, conditions, or evidence in this statistics case."
-            }
-          ]
-        },
-        {
-          "prompt": "the Fenwick trial receives a second case related to Three Different Tables: the locked file observes 50 mild, 30 moderate, and 20 severe events among 100 reports. Which option correctly applies chi-square GOF to this follow-up case?",
-          "hint": "Use the stated evidence and the conditions for chi-square GOF; do not choose an option merely because it names a familiar term.",
-          "answer": "C",
-          "options": [
-            {
-              "key": "A",
-              "text": "Compares one categorical variable with a claimed distribution. Independence test: tests association between two categorical variables in one population. Homogeneity test: compares one categorical distribution across two or more populations or treatments. Expected count: count predicted under the null model.",
-              "why": "This describes Goodness-of-fit test, not chi-square GOF. It does not account for the quantities, conditions, or evidence in this statistics case."
-            },
-            {
-              "key": "B",
-              "text": "Same arithmetic cannot erase the difference between one sample with two variables and several populations with one variable.",
-              "why": "This describes independence versus homogeneity, not chi-square GOF. It does not account for the quantities, conditions, or evidence in this statistics case."
-            },
-            {
-              "key": "C",
-              "text": "This asks whether one variable follows a claimed distribution, not whether two variables are associated.",
-              "why": "Correct. this asks whether one variable follows a claimed distribution, not whether two variables are associated."
-            },
-            {
-              "key": "D",
-              "text": "Association by arm is a different question from the outcome-grade distribution.",
-              "why": "This describes chi-square independence, not chi-square GOF. It does not account for the quantities, conditions, or evidence in this statistics case."
-            }
-          ]
-        },
-        {
-          "prompt": "A teammate rechecks Three Different Tables using new evidence: the locked file observes 50 mild, 30 moderate, and 20 severe events among 100 reports. Which interpretation of the displayed evidence correctly uses the mission concept?",
-          "hint": "Read the axes, units, direction, and any threshold before comparing the choices.",
+          "prompt": "Which statement best explains goodness-of-fit test?",
+          "hint": "Identify the defining relationship or mechanism for goodness-of-fit test. All needed information is in this question.",
           "answer": "D",
+          "options": [
+            {
+              "key": "A",
+              "text": "This asks whether one variable follows a claimed distribution, not whether two variables are associated.",
+              "why": "This describes chi-square GOF. It does not answer the question about goodness-of-fit test."
+            },
+            {
+              "key": "B",
+              "text": "Same arithmetic cannot erase the difference between one sample with two variables and several populations with one variable.",
+              "why": "This describes independence versus homogeneity. It does not answer the question about goodness-of-fit test."
+            },
+            {
+              "key": "C",
+              "text": "Association by arm is a different question from the outcome-grade distribution.",
+              "why": "This describes chi-square independence. It does not answer the question about goodness-of-fit test."
+            },
+            {
+              "key": "D",
+              "text": "Compares one categorical variable with a claimed distribution.",
+              "why": "Correct. Compares one categorical variable with a claimed distribution."
+            }
+          ]
+        },
+        {
+          "prompt": "Which statement best explains chi-square GOF?",
+          "hint": "Identify the defining relationship or mechanism for chi-square gof. All needed information is in this question.",
+          "answer": "A",
+          "options": [
+            {
+              "key": "A",
+              "text": "This asks whether one variable follows a claimed distribution, not whether two variables are associated.",
+              "why": "Correct. This asks whether one variable follows a claimed distribution, not whether two variables are associated."
+            },
+            {
+              "key": "B",
+              "text": "Compares one categorical variable with a claimed distribution.",
+              "why": "This describes goodness-of-fit test. It does not answer the question about chi-square gof."
+            },
+            {
+              "key": "C",
+              "text": "Same arithmetic cannot erase the difference between one sample with two variables and several populations with one variable.",
+              "why": "This describes independence versus homogeneity. It does not answer the question about chi-square gof."
+            },
+            {
+              "key": "D",
+              "text": "Association by arm is a different question from the outcome-grade distribution.",
+              "why": "This describes chi-square independence. It does not answer the question about chi-square gof."
+            }
+          ]
+        },
+        {
+          "prompt": "Researchers independently sample students from each of two schools and compare the yes/no response distributions. Which chi-square procedure fits this design?",
+          "hint": "Identify how many populations were sampled and the response type.",
+          "answer": "B",
           "figure": {
             "kind": "bars",
-            "xLabel": "Site",
-            "yLabel": "Improvement rate (%)",
-            "caption": "Improvement rates differ across three trial sites.",
+            "xLabel": "Category",
+            "yLabel": "Students",
+            "caption": "Separate random samples of 50 students at each school",
             "bars": [
               {
-                "name": "Site 1",
-                "value": 62
+                "name": "School A: yes",
+                "value": 30
               },
               {
-                "name": "Site 2",
-                "value": 48
+                "name": "School A: no",
+                "value": 20
               },
               {
-                "name": "Site 3",
-                "value": 35
+                "name": "School B: yes",
+                "value": 20
+              },
+              {
+                "name": "School B: no",
+                "value": 30
               }
             ]
           },
           "options": [
             {
               "key": "A",
-              "text": "Compares one categorical variable with a claimed distribution. Independence test: tests association between two categorical variables in one population. Homogeneity test: compares one categorical distribution across two or more populations or treatments. Expected count: count predicted under the null model.",
-              "why": "This describes Goodness-of-fit test, not independence versus homogeneity. It does not account for the quantities, conditions, or evidence in this statistics case."
+              "text": "A one-sample goodness-of-fit test against fixed proportions.",
+              "why": "The question compares two sampled populations rather than one to a specified distribution."
             },
             {
               "key": "B",
-              "text": "This asks whether one variable follows a claimed distribution, not whether two variables are associated.",
-              "why": "This describes chi-square GOF, not independence versus homogeneity. It does not account for the quantities, conditions, or evidence in this statistics case."
+              "text": "A test of homogeneity.",
+              "why": "Correct. A test of homogeneity."
             },
             {
               "key": "C",
-              "text": "Association by arm is a different question from the outcome-grade distribution.",
-              "why": "This describes chi-square independence, not independence versus homogeneity. It does not account for the quantities, conditions, or evidence in this statistics case."
+              "text": "A paired t test.",
+              "why": "The responses are categorical and the samples are independent."
             },
             {
               "key": "D",
-              "text": "Same arithmetic cannot erase the difference between one sample with two variables and several populations with one variable.",
-              "why": "Correct. same arithmetic cannot erase the difference between one sample with two variables and several populations with one variable."
+              "text": "A test for a numerical regression slope.",
+              "why": "No quantitative response and predictor are being modeled."
             }
           ]
         },
         {
-          "prompt": "An unseen case extends Three Different Tables: the table has 30 events and 170 non-events in treatment, versus 16 and 184 in placebo. Which option correctly applies chi-square independence to this follow-up case?",
-          "hint": "Use the stated evidence and the conditions for chi-square independence; do not choose an option merely because it names a familiar term.",
-          "answer": "A",
-          "options": [
-            {
-              "key": "A",
-              "text": "Association by arm is a different question from the outcome-grade distribution.",
-              "why": "Correct. association by arm is a different question from the outcome-grade distribution."
-            },
-            {
-              "key": "B",
-              "text": "Compares one categorical variable with a claimed distribution. Independence test: tests association between two categorical variables in one population. Homogeneity test: compares one categorical distribution across two or more populations or treatments. Expected count: count predicted under the null model.",
-              "why": "This describes Goodness-of-fit test, not chi-square independence. It does not account for the quantities, conditions, or evidence in this statistics case."
-            },
-            {
-              "key": "C",
-              "text": "This asks whether one variable follows a claimed distribution, not whether two variables are associated.",
-              "why": "This describes chi-square GOF, not chi-square independence. It does not account for the quantities, conditions, or evidence in this statistics case."
-            },
-            {
-              "key": "D",
-              "text": "Same arithmetic cannot erase the difference between one sample with two variables and several populations with one variable.",
-              "why": "This describes independence versus homogeneity, not chi-square independence. It does not account for the quantities, conditions, or evidence in this statistics case."
-            }
-          ]
-        },
-        {
-          "prompt": "Before another Three Different Tables decision, the team knows this: three site samples report events 18/100, 30/100, and 12/100; chi-square is 10.50 with df=2 and p=.0053. Which option correctly applies chi-square homogeneity and integrated design to this follow-up case?",
-          "hint": "Use the stated evidence and the conditions for chi-square homogeneity and integrated design; do not choose an option merely because it names a familiar term.",
-          "answer": "B",
-          "options": [
-            {
-              "key": "A",
-              "text": "Compares one categorical variable with a claimed distribution. Independence test: tests association between two categorical variables in one population. Homogeneity test: compares one categorical distribution across two or more populations or treatments. Expected count: count predicted under the null model.",
-              "why": "This describes Goodness-of-fit test, not chi-square homogeneity and integrated design. It does not account for the quantities, conditions, or evidence in this statistics case."
-            },
-            {
-              "key": "B",
-              "text": "Different null questions can yield different decisions even when every display uses counts.",
-              "why": "Correct. different null questions can yield different decisions even when every display uses counts."
-            },
-            {
-              "key": "C",
-              "text": "This asks whether one variable follows a claimed distribution, not whether two variables are associated.",
-              "why": "This describes chi-square GOF, not chi-square homogeneity and integrated design. It does not account for the quantities, conditions, or evidence in this statistics case."
-            },
-            {
-              "key": "D",
-              "text": "Same arithmetic cannot erase the difference between one sample with two variables and several populations with one variable.",
-              "why": "This describes independence versus homogeneity, not chi-square homogeneity and integrated design. It does not account for the quantities, conditions, or evidence in this statistics case."
-            }
-          ]
-        },
-        {
-          "prompt": "the Fenwick trial applies the lesson from Three Different Tables to this follow-up: the locked file observes 50 mild, 30 moderate, and 20 severe events among 100 reports. Which option correctly applies Variable to this follow-up case?",
-          "hint": "Use the stated evidence and the conditions for Variable; do not choose an option merely because it names a familiar term.",
+          "prompt": "Which statement best explains chi-square independence?",
+          "hint": "Identify the defining relationship or mechanism for chi-square independence. All needed information is in this question.",
           "answer": "C",
           "options": [
             {
               "key": "A",
-              "text": "Compares one categorical variable with a claimed distribution. Independence test: tests association between two categorical variables in one population. Homogeneity test: compares one categorical distribution across two or more populations or treatments. Expected count: count predicted under the null model.",
-              "why": "This describes Goodness-of-fit test, not Variable. It does not account for the quantities, conditions, or evidence in this statistics case."
+              "text": "Compares one categorical variable with a claimed distribution.",
+              "why": "This describes goodness-of-fit test. It does not answer the question about chi-square independence."
             },
             {
               "key": "B",
               "text": "This asks whether one variable follows a claimed distribution, not whether two variables are associated.",
-              "why": "This describes chi-square GOF, not Variable. It does not account for the quantities, conditions, or evidence in this statistics case."
+              "why": "This describes chi-square GOF. It does not answer the question about chi-square independence."
             },
             {
               "key": "C",
-              "text": "A characteristic recorded for each patient. Categorical variable: a variable placing a patient into a group. Quantitative variable: a variable recorded as a meaningful number. Parameter: a fixed but usually unknown number describing a population. Statistic: a number computed from a sample.",
-              "why": "Correct. a characteristic recorded for each patient. Categorical variable: a variable placing a patient into a group. Quantitative variable: a variable recorded as a meaningful number. Parameter: a fixed but usually unknown number describing a population. Statistic: a number computed from a sample."
+              "text": "Association by arm is a different question from the outcome-grade distribution.",
+              "why": "Correct. Association by arm is a different question from the outcome-grade distribution."
             },
             {
               "key": "D",
               "text": "Same arithmetic cannot erase the difference between one sample with two variables and several populations with one variable.",
-              "why": "This describes independence versus homogeneity, not Variable. It does not account for the quantities, conditions, or evidence in this statistics case."
+              "why": "This describes independence versus homogeneity. It does not answer the question about chi-square independence."
+            }
+          ]
+        },
+        {
+          "prompt": "Which statement best explains chi-square homogeneity and integrated design?",
+          "hint": "Identify the defining relationship or mechanism for chi-square homogeneity and integrated design. All needed information is in this question.",
+          "answer": "D",
+          "options": [
+            {
+              "key": "A",
+              "text": "Compares one categorical variable with a claimed distribution.",
+              "why": "This describes goodness-of-fit test. It does not answer the question about chi-square homogeneity and integrated design."
+            },
+            {
+              "key": "B",
+              "text": "This asks whether one variable follows a claimed distribution, not whether two variables are associated.",
+              "why": "This describes chi-square GOF. It does not answer the question about chi-square homogeneity and integrated design."
+            },
+            {
+              "key": "C",
+              "text": "Same arithmetic cannot erase the difference between one sample with two variables and several populations with one variable.",
+              "why": "This describes independence versus homogeneity. It does not answer the question about chi-square homogeneity and integrated design."
+            },
+            {
+              "key": "D",
+              "text": "Different null questions can yield different decisions even when every display uses counts.",
+              "why": "Correct. Different null questions can yield different decisions even when every display uses counts."
+            }
+          ]
+        },
+        {
+          "prompt": "Which statement best explains variable?",
+          "hint": "Identify the defining relationship or mechanism for variable. All needed information is in this question.",
+          "answer": "A",
+          "options": [
+            {
+              "key": "A",
+              "text": "A characteristic recorded for each patient.",
+              "why": "Correct. A characteristic recorded for each patient."
+            },
+            {
+              "key": "B",
+              "text": "Compares one categorical variable with a claimed distribution.",
+              "why": "This describes goodness-of-fit test. It does not answer the question about variable."
+            },
+            {
+              "key": "C",
+              "text": "This asks whether one variable follows a claimed distribution, not whether two variables are associated.",
+              "why": "This describes chi-square GOF. It does not answer the question about variable."
+            },
+            {
+              "key": "D",
+              "text": "Same arithmetic cannot erase the difference between one sample with two variables and several populations with one variable.",
+              "why": "This describes independence versus homogeneity. It does not answer the question about variable."
             }
           ]
         }
@@ -5751,168 +5666,168 @@ export const MISSIONS = [
       "A correction changes the claim threshold, not the observed effect."
     ],
     "deeper": {
-      "intro": "You completed Too Many Wins. Choose GO DEEPER to revisit the four decisions and explore related course ideas; this optional review does not change your metrics or delay the next mission.",
+      "intro": "Try six independent practice questions. Each includes its own context and any needed data; no mission records are required.",
       "concepts": [],
       "questions": [
         {
-          "prompt": "In a follow-up to Too Many Wins, the model passes LINE; output gives b=-0.80 recovery day per dose unit, SE(b)=0.25, and n=30. Which statistical conclusion or procedure correctly uses Population slope?",
-          "hint": "Use the stated evidence and the conditions for Population slope; do not choose an option merely because it names a familiar term.",
+          "prompt": "Which statement best explains population slope?",
+          "hint": "Identify the defining relationship or mechanism for population slope. All needed information is in this question.",
           "answer": "B",
           "options": [
             {
               "key": "A",
               "text": "A small slope p-value cannot repair nonlinearity or a fan-shaped residual field.",
-              "why": "This describes LINE, not Population slope. It does not account for the quantities, conditions, or evidence in this statistics case."
+              "why": "This describes the linearity, independence, Normal-residual, and equal-variance conditions for slope inference. It does not answer the question about population slope."
             },
             {
               "key": "B",
-              "text": "The true change in mean response per unit x in the population. LINE conditions: linearity, independence, Normal residuals, and equal residual variance. Multiplicity: increased false-positive opportunity from testing many claims.",
-              "why": "Correct. the true change in mean response per unit x in the population. LINE conditions: linearity, independence, Normal residuals, and equal residual variance. Multiplicity: increased false-positive opportunity from testing many claims."
+              "text": "The true change in mean response per unit x in the population.",
+              "why": "Correct. The true change in mean response per unit x in the population."
             },
             {
               "key": "C",
               "text": "Direction, units, and uncertainty determine whether the trend is useful rather than merely significant.",
-              "why": "This describes slope test/CI and one-tail trap, not Population slope. It does not account for the quantities, conditions, or evidence in this statistics case."
+              "why": "This describes slope test and CI and one-tail trap. It does not answer the question about population slope."
             },
             {
               "key": "D",
               "text": "Counting only significant results would hide the number of chances that produced them.",
-              "why": "This describes registered tests, not Population slope. It does not account for the quantities, conditions, or evidence in this statistics case."
+              "why": "This describes registered tests. It does not answer the question about population slope."
             }
           ]
         },
         {
-          "prompt": "the Fenwick trial receives a second case related to Too Many Wins: the dose-response scatterplot looks linear, but inference needs more than the fitted line. Which option correctly applies LINE to this follow-up case?",
-          "hint": "Use the stated evidence and the conditions for LINE; do not choose an option merely because it names a familiar term.",
+          "prompt": "Which statement best explains the linearity, independence, Normal-residual, and equal-variance conditions for slope inference?",
+          "hint": "Identify the defining relationship or mechanism for the linearity, independence, normal-residual, and equal-variance conditions for slope inference. All needed information is in this question.",
           "answer": "C",
           "options": [
             {
               "key": "A",
-              "text": "The true change in mean response per unit x in the population. LINE conditions: linearity, independence, Normal residuals, and equal residual variance. Multiplicity: increased false-positive opportunity from testing many claims.",
-              "why": "This describes Population slope, not LINE. It does not account for the quantities, conditions, or evidence in this statistics case."
+              "text": "The true change in mean response per unit x in the population.",
+              "why": "This describes population slope. It does not answer the question about the linearity, independence, normal-residual, and equal-variance conditions for slope inference."
             },
             {
               "key": "B",
               "text": "Direction, units, and uncertainty determine whether the trend is useful rather than merely significant.",
-              "why": "This describes slope test/CI and one-tail trap, not LINE. It does not account for the quantities, conditions, or evidence in this statistics case."
+              "why": "This describes slope test and CI and one-tail trap. It does not answer the question about the linearity, independence, normal-residual, and equal-variance conditions for slope inference."
             },
             {
               "key": "C",
               "text": "A small slope p-value cannot repair nonlinearity or a fan-shaped residual field.",
-              "why": "Correct. a small slope p-value cannot repair nonlinearity or a fan-shaped residual field."
+              "why": "Correct. A small slope p-value cannot repair nonlinearity or a fan-shaped residual field."
             },
             {
               "key": "D",
               "text": "Counting only significant results would hide the number of chances that produced them.",
-              "why": "This describes registered tests, not LINE. It does not account for the quantities, conditions, or evidence in this statistics case."
+              "why": "This describes registered tests. It does not answer the question about the linearity, independence, normal-residual, and equal-variance conditions for slope inference."
             }
           ]
         },
         {
-          "prompt": "A teammate rechecks Too Many Wins using new evidence: the model passes LINE; output gives b=-0.80 recovery day per dose unit, SE(b)=0.25, and n=30. Which statistical conclusion or procedure correctly uses slope test/CI and one-tail trap?",
-          "hint": "Use the stated evidence and the conditions for slope test/CI and one-tail trap; do not choose an option merely because it names a familiar term.",
+          "prompt": "Which statement best explains slope test and CI and one-tail trap?",
+          "hint": "Identify the defining relationship or mechanism for slope test and ci and one-tail trap. All needed information is in this question.",
           "answer": "D",
           "options": [
             {
               "key": "A",
-              "text": "The true change in mean response per unit x in the population. LINE conditions: linearity, independence, Normal residuals, and equal residual variance. Multiplicity: increased false-positive opportunity from testing many claims.",
-              "why": "This describes Population slope, not slope test/CI and one-tail trap. It does not account for the quantities, conditions, or evidence in this statistics case."
+              "text": "The true change in mean response per unit x in the population.",
+              "why": "This describes population slope. It does not answer the question about slope test and ci and one-tail trap."
             },
             {
               "key": "B",
               "text": "A small slope p-value cannot repair nonlinearity or a fan-shaped residual field.",
-              "why": "This describes LINE, not slope test/CI and one-tail trap. It does not account for the quantities, conditions, or evidence in this statistics case."
+              "why": "This describes the linearity, independence, Normal-residual, and equal-variance conditions for slope inference. It does not answer the question about slope test and ci and one-tail trap."
             },
             {
               "key": "C",
               "text": "Counting only significant results would hide the number of chances that produced them.",
-              "why": "This describes registered tests, not slope test/CI and one-tail trap. It does not account for the quantities, conditions, or evidence in this statistics case."
+              "why": "This describes registered tests. It does not answer the question about slope test and ci and one-tail trap."
             },
             {
               "key": "D",
               "text": "Direction, units, and uncertainty determine whether the trend is useful rather than merely significant.",
-              "why": "Correct. direction, units, and uncertainty determine whether the trend is useful rather than merely significant."
+              "why": "Correct. Direction, units, and uncertainty determine whether the trend is useful rather than merely significant."
             }
           ]
         },
         {
-          "prompt": "An unseen case extends Too Many Wins: the slope survives its own test, but the registry lists ten secondary analyses sharing one family. Before the record can be signed, identify which claims have independent support and which must remain unverified. Which statistical conclusion or procedure correctly uses registered tests?",
-          "hint": "Use the stated evidence and the conditions for registered tests; do not choose an option merely because it names a familiar term.",
+          "prompt": "Which statement best explains registered tests?",
+          "hint": "Identify the defining relationship or mechanism for registered tests. All needed information is in this question.",
           "answer": "A",
           "options": [
             {
               "key": "A",
               "text": "Counting only significant results would hide the number of chances that produced them.",
-              "why": "Correct. counting only significant results would hide the number of chances that produced them."
+              "why": "Correct. Counting only significant results would hide the number of chances that produced them."
             },
             {
               "key": "B",
-              "text": "The true change in mean response per unit x in the population. LINE conditions: linearity, independence, Normal residuals, and equal residual variance. Multiplicity: increased false-positive opportunity from testing many claims.",
-              "why": "This describes Population slope, not registered tests. It does not account for the quantities, conditions, or evidence in this statistics case."
+              "text": "The true change in mean response per unit x in the population.",
+              "why": "This describes population slope. It does not answer the question about registered tests."
             },
             {
               "key": "C",
               "text": "A small slope p-value cannot repair nonlinearity or a fan-shaped residual field.",
-              "why": "This describes LINE, not registered tests. It does not account for the quantities, conditions, or evidence in this statistics case."
+              "why": "This describes the linearity, independence, Normal-residual, and equal-variance conditions for slope inference. It does not answer the question about registered tests."
             },
             {
               "key": "D",
               "text": "Direction, units, and uncertainty determine whether the trend is useful rather than merely significant.",
-              "why": "This describes slope test/CI and one-tail trap, not registered tests. It does not account for the quantities, conditions, or evidence in this statistics case."
+              "why": "This describes slope test and CI and one-tail trap. It does not answer the question about registered tests."
             }
           ]
         },
         {
-          "prompt": "Before another Too Many Wins decision, the team knows this: ten independent null tests at alpha=.05 create about a 40% chance of at least one false positive. Write the action threshold now, before new evidence or operational pressure can move it. Which statistical conclusion or procedure correctly uses familywise error/complement/power?",
-          "hint": "Use the stated evidence and the conditions for familywise error/complement/power; do not choose an option merely because it names a familiar term.",
+          "prompt": "Which statement best explains familywise error and complement and power?",
+          "hint": "Identify the defining relationship or mechanism for familywise error and complement and power. All needed information is in this question.",
           "answer": "B",
           "options": [
             {
               "key": "A",
-              "text": "The true change in mean response per unit x in the population. LINE conditions: linearity, independence, Normal residuals, and equal residual variance. Multiplicity: increased false-positive opportunity from testing many claims.",
-              "why": "This describes Population slope, not familywise error/complement/power. It does not account for the quantities, conditions, or evidence in this statistics case."
+              "text": "The true change in mean response per unit x in the population.",
+              "why": "This describes population slope. It does not answer the question about familywise error and complement and power."
             },
             {
               "key": "B",
               "text": "Correction protects the family claim while preserving the observed effect sizes for transparent reporting.",
-              "why": "Correct. correction protects the family claim while preserving the observed effect sizes for transparent reporting."
+              "why": "Correct. Correction protects the family claim while preserving the observed effect sizes for transparent reporting."
             },
             {
               "key": "C",
               "text": "A small slope p-value cannot repair nonlinearity or a fan-shaped residual field.",
-              "why": "This describes LINE, not familywise error/complement/power. It does not account for the quantities, conditions, or evidence in this statistics case."
+              "why": "This describes the linearity, independence, Normal-residual, and equal-variance conditions for slope inference. It does not answer the question about familywise error and complement and power."
             },
             {
               "key": "D",
               "text": "Direction, units, and uncertainty determine whether the trend is useful rather than merely significant.",
-              "why": "This describes slope test/CI and one-tail trap, not familywise error/complement/power. It does not account for the quantities, conditions, or evidence in this statistics case."
+              "why": "This describes slope test and CI and one-tail trap. It does not answer the question about familywise error and complement and power."
             }
           ]
         },
         {
-          "prompt": "the Fenwick trial applies the lesson from Too Many Wins to this follow-up: the dose-response scatterplot looks linear, but inference needs more than the fitted line. Which option correctly applies Variable to this follow-up case?",
-          "hint": "Use the stated evidence and the conditions for Variable; do not choose an option merely because it names a familiar term.",
+          "prompt": "Which statement best explains variable?",
+          "hint": "Identify the defining relationship or mechanism for variable. All needed information is in this question.",
           "answer": "C",
           "options": [
             {
               "key": "A",
-              "text": "The true change in mean response per unit x in the population. LINE conditions: linearity, independence, Normal residuals, and equal residual variance. Multiplicity: increased false-positive opportunity from testing many claims.",
-              "why": "This describes Population slope, not Variable. It does not account for the quantities, conditions, or evidence in this statistics case."
+              "text": "The true change in mean response per unit x in the population.",
+              "why": "This describes population slope. It does not answer the question about variable."
             },
             {
               "key": "B",
               "text": "A small slope p-value cannot repair nonlinearity or a fan-shaped residual field.",
-              "why": "This describes LINE, not Variable. It does not account for the quantities, conditions, or evidence in this statistics case."
+              "why": "This describes the linearity, independence, Normal-residual, and equal-variance conditions for slope inference. It does not answer the question about variable."
             },
             {
               "key": "C",
-              "text": "A characteristic recorded for each patient. Categorical variable: a variable placing a patient into a group. Quantitative variable: a variable recorded as a meaningful number. Parameter: a fixed but usually unknown number describing a population. Statistic: a number computed from a sample.",
-              "why": "Correct. a characteristic recorded for each patient. Categorical variable: a variable placing a patient into a group. Quantitative variable: a variable recorded as a meaningful number. Parameter: a fixed but usually unknown number describing a population. Statistic: a number computed from a sample."
+              "text": "A characteristic recorded for each patient.",
+              "why": "Correct. A characteristic recorded for each patient."
             },
             {
               "key": "D",
               "text": "Direction, units, and uncertainty determine whether the trend is useful rather than merely significant.",
-              "why": "This describes slope test/CI and one-tail trap, not Variable. It does not account for the quantities, conditions, or evidence in this statistics case."
+              "why": "This describes slope test and CI and one-tail trap. It does not answer the question about variable."
             }
           ]
         }
@@ -6186,205 +6101,197 @@ export const MISSIONS = [
       "Failure to reject is not evidence that the null is true."
     ],
     "deeper": {
-      "intro": "You completed Stop or Continue. Choose GO DEEPER to revisit the four decisions and explore related course ideas; this optional review does not change your metrics or delay the next mission.",
+      "intro": "Try six independent practice questions. Each includes its own context and any needed data; no mission records are required.",
       "concepts": [],
       "questions": [
         {
-          "prompt": "In a follow-up to Stop or Continue, the primary benefit interval excludes zero, while late harm ranges from -1 to +5 events per 1,000. Test the conclusion across the supported uncertainty range now, before the team treats it as robust. Which option correctly applies Practical significance to this follow-up case?",
-          "hint": "Use the stated evidence and the conditions for Practical significance; do not choose an option merely because it names a familiar term.",
-          "answer": "B",
-          "options": [
-            {
-              "key": "A",
-              "text": "Crossing a safety boundary under plausible assumptions blocks unconditional continuation.",
-              "why": "This describes interval sensitivity/practical significance, not Practical significance. It does not account for the quantities, conditions, or evidence in this statistics case."
-            },
-            {
-              "key": "B",
-              "text": "Whether an effect is large enough to matter in context. False-positive family rate: chance of at least one Type I error across a group of tests. Decision rule: a threshold and action written before new data arrive.",
-              "why": "Correct. whether an effect is large enough to matter in context. False-positive family rate: chance of at least one Type I error across a group of tests. Decision rule: a threshold and action written before new data arrive."
-            },
-            {
-              "key": "C",
-              "text": "More data are not automatically valuable; useful evidence must alter the stop-or-continue decision.",
-              "why": "This describes value of information, not Practical significance. It does not account for the quantities, conditions, or evidence in this statistics case."
-            },
-            {
-              "key": "D",
-              "text": "A narrower sampling distribution increases power and makes the final trigger informative.",
-              "why": "This describes power/sample size/effect/alpha/sigma, not Practical significance. It does not account for the quantities, conditions, or evidence in this statistics case."
-            }
-          ]
-        },
-        {
-          "prompt": "the Fenwick trial receives a second case related to Stop or Continue: the primary benefit interval excludes zero, while late harm ranges from -1 to +5 events per 1,000. Test the conclusion across the supported uncertainty range now, before the team treats it as robust. Which statistical conclusion or procedure correctly uses interval sensitivity/practical significance?",
-          "hint": "Use the stated evidence and the conditions for interval sensitivity/practical significance; do not choose an option merely because it names a familiar term.",
-          "answer": "C",
-          "options": [
-            {
-              "key": "A",
-              "text": "Whether an effect is large enough to matter in context. False-positive family rate: chance of at least one Type I error across a group of tests. Decision rule: a threshold and action written before new data arrive.",
-              "why": "This describes Practical significance, not interval sensitivity/practical significance. It does not account for the quantities, conditions, or evidence in this statistics case."
-            },
-            {
-              "key": "B",
-              "text": "More data are not automatically valuable; useful evidence must alter the stop-or-continue decision.",
-              "why": "This describes value of information, not interval sensitivity/practical significance. It does not account for the quantities, conditions, or evidence in this statistics case."
-            },
-            {
-              "key": "C",
-              "text": "Crossing a safety boundary under plausible assumptions blocks unconditional continuation.",
-              "why": "Correct. crossing a safety boundary under plausible assumptions blocks unconditional continuation."
-            },
-            {
-              "key": "D",
-              "text": "A narrower sampling distribution increases power and makes the final trigger informative.",
-              "why": "This describes power/sample size/effect/alpha/sigma, not interval sensitivity/practical significance. It does not account for the quantities, conditions, or evidence in this statistics case."
-            }
-          ]
-        },
-        {
-          "prompt": "A teammate rechecks Stop or Continue using new evidence: the stress test leaves one uncertain harm boundary, while efficacy and file integrity are already locked. Choose the next measurement now based on whether its result could change the decision. Which option correctly applies value of information to this follow-up case?",
-          "hint": "Use the stated evidence and the conditions for value of information; do not choose an option merely because it names a familiar term.",
+          "prompt": "Which statement best explains practical significance?",
+          "hint": "Identify the defining relationship or mechanism for practical significance. All needed information is in this question.",
           "answer": "D",
           "options": [
             {
               "key": "A",
-              "text": "Whether an effect is large enough to matter in context. False-positive family rate: chance of at least one Type I error across a group of tests. Decision rule: a threshold and action written before new data arrive.",
-              "why": "This describes Practical significance, not value of information. It does not account for the quantities, conditions, or evidence in this statistics case."
+              "text": "Crossing a safety boundary under plausible assumptions blocks unconditional continuation.",
+              "why": "This describes interval sensitivity and practical significance. It does not answer the question about practical significance."
             },
             {
               "key": "B",
-              "text": "Crossing a safety boundary under plausible assumptions blocks unconditional continuation.",
-              "why": "This describes interval sensitivity/practical significance, not value of information. It does not account for the quantities, conditions, or evidence in this statistics case."
+              "text": "More data are not automatically valuable; useful evidence must alter the stop-or-continue decision.",
+              "why": "This describes value of information. It does not answer the question about practical significance."
             },
             {
               "key": "C",
-              "text": "A narrower sampling distribution increases power and makes the final trigger informative.",
-              "why": "This describes power/sample size/effect/alpha/sigma, not value of information. It does not account for the quantities, conditions, or evidence in this statistics case."
+              "text": "For a fixed nonzero effect, significance level, and valid test, reducing sampling variability generally increases statistical power.",
+              "why": "This describes power and sample size and effect and alpha and sigma. It does not answer the question about practical significance."
             },
             {
               "key": "D",
-              "text": "More data are not automatically valuable; useful evidence must alter the stop-or-continue decision.",
-              "why": "Correct. more data are not automatically valuable; useful evidence must alter the stop-or-continue decision."
+              "text": "Whether an effect is large enough to matter in context.",
+              "why": "Correct. Whether an effect is large enough to matter in context."
             }
           ]
         },
         {
-          "prompt": "An unseen case extends Stop or Continue: the funded calls add observations and reduce missingness without changing alpha or the target effect. The next action depends on selecting the conclusion that fits all of those facts. Which statistical conclusion or procedure correctly uses power/sample size/effect/alpha/sigma?",
-          "hint": "Use the stated evidence and the conditions for power/sample size/effect/alpha/sigma; do not choose an option merely because it names a familiar term.",
+          "prompt": "Which statement best explains interval sensitivity and practical significance?",
+          "hint": "Identify the defining relationship or mechanism for interval sensitivity and practical significance. All needed information is in this question.",
           "answer": "A",
           "options": [
             {
               "key": "A",
-              "text": "A narrower sampling distribution increases power and makes the final trigger informative.",
-              "why": "Correct. a narrower sampling distribution increases power and makes the final trigger informative."
+              "text": "Crossing a safety boundary under plausible assumptions blocks unconditional continuation.",
+              "why": "Correct. Crossing a safety boundary under plausible assumptions blocks unconditional continuation."
             },
             {
               "key": "B",
-              "text": "Whether an effect is large enough to matter in context. False-positive family rate: chance of at least one Type I error across a group of tests. Decision rule: a threshold and action written before new data arrive.",
-              "why": "This describes Practical significance, not power/sample size/effect/alpha/sigma. It does not account for the quantities, conditions, or evidence in this statistics case."
+              "text": "Whether an effect is large enough to matter in context.",
+              "why": "This describes practical significance. It does not answer the question about interval sensitivity and practical significance."
             },
             {
               "key": "C",
-              "text": "Crossing a safety boundary under plausible assumptions blocks unconditional continuation.",
-              "why": "This describes interval sensitivity/practical significance, not power/sample size/effect/alpha/sigma. It does not account for the quantities, conditions, or evidence in this statistics case."
+              "text": "More data are not automatically valuable; useful evidence must alter the stop-or-continue decision.",
+              "why": "This describes value of information. It does not answer the question about interval sensitivity and practical significance."
             },
             {
               "key": "D",
-              "text": "More data are not automatically valuable; useful evidence must alter the stop-or-continue decision.",
-              "why": "This describes value of information, not power/sample size/effect/alpha/sigma. It does not account for the quantities, conditions, or evidence in this statistics case."
+              "text": "For a fixed nonzero effect, significance level, and valid test, reducing sampling variability generally increases statistical power.",
+              "why": "This describes power and sample size and effect and alpha and sigma. It does not answer the question about interval sensitivity and practical significance."
             }
           ]
         },
         {
-          "prompt": "Before another Stop or Continue decision, the team knows this: the primary benefit interval excludes zero, while late harm ranges from -1 to +5 events per 1,000. Test the conclusion across the supported uncertainty range now, before the team treats it as robust. Which interpretation of the displayed evidence correctly uses the mission concept?",
-          "hint": "Read the axes, units, direction, and any threshold before comparing the choices.",
+          "prompt": "Which statement best explains value of information?",
+          "hint": "Identify the defining relationship or mechanism for value of information. All needed information is in this question.",
           "answer": "B",
-          "figure": {
-            "kind": "line",
-            "xLabel": "Ordered measurement",
-            "yLabel": "Decision quantity",
-            "caption": "Measurements approach and then cross the action threshold.",
-            "series": [
-              {
-                "name": "Measured",
-                "points": [
-                  [
-                    1,
-                    42
-                  ],
-                  [
-                    2,
-                    48
-                  ],
-                  [
-                    3,
-                    55
-                  ],
-                  [
-                    4,
-                    63
-                  ],
-                  [
-                    5,
-                    71
-                  ]
-                ]
-              }
-            ],
-            "limit": {
-              "at": 60,
-              "label": "Action threshold"
-            }
-          },
           "options": [
             {
               "key": "A",
-              "text": "Whether an effect is large enough to matter in context. False-positive family rate: chance of at least one Type I error across a group of tests. Decision rule: a threshold and action written before new data arrive.",
-              "why": "This describes Practical significance, not integrated decision threshold. It does not account for the quantities, conditions, or evidence in this statistics case."
+              "text": "Whether an effect is large enough to matter in context.",
+              "why": "This describes practical significance. It does not answer the question about value of information."
             },
             {
               "key": "B",
-              "text": "Precommitment prevents a favored outcome from moving the safety boundary tomorrow.",
-              "why": "Correct. precommitment prevents a favored outcome from moving the safety boundary tomorrow."
+              "text": "More data are not automatically valuable; useful evidence must alter the stop-or-continue decision.",
+              "why": "Correct. More data are not automatically valuable; useful evidence must alter the stop-or-continue decision."
             },
             {
               "key": "C",
               "text": "Crossing a safety boundary under plausible assumptions blocks unconditional continuation.",
-              "why": "This describes interval sensitivity/practical significance, not integrated decision threshold. It does not account for the quantities, conditions, or evidence in this statistics case."
+              "why": "This describes interval sensitivity and practical significance. It does not answer the question about value of information."
             },
             {
               "key": "D",
-              "text": "More data are not automatically valuable; useful evidence must alter the stop-or-continue decision.",
-              "why": "This describes value of information, not integrated decision threshold. It does not account for the quantities, conditions, or evidence in this statistics case."
+              "text": "For a fixed nonzero effect, significance level, and valid test, reducing sampling variability generally increases statistical power.",
+              "why": "This describes power and sample size and effect and alpha and sigma. It does not answer the question about value of information."
             }
           ]
         },
         {
-          "prompt": "the Fenwick trial applies the lesson from Stop or Continue to this follow-up: the primary benefit interval excludes zero, while late harm ranges from -1 to +5 events per 1,000. Test the conclusion across the supported uncertainty range now, before the team treats it as robust. Which option correctly applies Variable to this follow-up case?",
-          "hint": "Use the stated evidence and the conditions for Variable; do not choose an option merely because it names a familiar term.",
+          "prompt": "Which statement best explains power and sample size and effect and alpha and sigma?",
+          "hint": "Identify the defining relationship or mechanism for power and sample size and effect and alpha and sigma. All needed information is in this question.",
           "answer": "C",
           "options": [
             {
               "key": "A",
-              "text": "Whether an effect is large enough to matter in context. False-positive family rate: chance of at least one Type I error across a group of tests. Decision rule: a threshold and action written before new data arrive.",
-              "why": "This describes Practical significance, not Variable. It does not account for the quantities, conditions, or evidence in this statistics case."
+              "text": "Whether an effect is large enough to matter in context.",
+              "why": "This describes practical significance. It does not answer the question about power and sample size and effect and alpha and sigma."
             },
             {
               "key": "B",
               "text": "Crossing a safety boundary under plausible assumptions blocks unconditional continuation.",
-              "why": "This describes interval sensitivity/practical significance, not Variable. It does not account for the quantities, conditions, or evidence in this statistics case."
+              "why": "This describes interval sensitivity and practical significance. It does not answer the question about power and sample size and effect and alpha and sigma."
             },
             {
               "key": "C",
-              "text": "A characteristic recorded for each patient. Categorical variable: a variable placing a patient into a group. Quantitative variable: a variable recorded as a meaningful number. Parameter: a fixed but usually unknown number describing a population. Statistic: a number computed from a sample.",
-              "why": "Correct. a characteristic recorded for each patient. Categorical variable: a variable placing a patient into a group. Quantitative variable: a variable recorded as a meaningful number. Parameter: a fixed but usually unknown number describing a population. Statistic: a number computed from a sample."
+              "text": "For a fixed nonzero effect, significance level, and valid test, reducing sampling variability generally increases statistical power.",
+              "why": "Correct. For a fixed nonzero effect, significance level, and valid test, reducing sampling variability generally increases statistical power."
             },
             {
               "key": "D",
               "text": "More data are not automatically valuable; useful evidence must alter the stop-or-continue decision.",
-              "why": "This describes value of information, not Variable. It does not account for the quantities, conditions, or evidence in this statistics case."
+              "why": "This describes value of information. It does not answer the question about power and sample size and effect and alpha and sigma."
+            }
+          ]
+        },
+        {
+          "prompt": "A rule is fixed in advance: stop at the first check with a reading of at least 5 units. At which plotted time should the stop occur?",
+          "hint": "At least includes equality.",
+          "answer": "D",
+          "figure": {
+            "kind": "line",
+            "xLabel": "Time (min)",
+            "yLabel": "Reading (units)",
+            "caption": "Readings at four successive checks",
+            "series": [
+              {
+                "name": "Reading",
+                "points": [
+                  [
+                    0,
+                    2
+                  ],
+                  [
+                    1,
+                    3
+                  ],
+                  [
+                    2,
+                    5
+                  ],
+                  [
+                    3,
+                    6
+                  ]
+                ]
+              }
+            ]
+          },
+          "options": [
+            {
+              "key": "A",
+              "text": "1 minute.",
+              "why": "The reading is only 3 units at 1 minute."
+            },
+            {
+              "key": "B",
+              "text": "3 minutes.",
+              "why": "Waiting until 3 minutes misses the first qualifying check."
+            },
+            {
+              "key": "C",
+              "text": "No stop is needed because the average is below 5.",
+              "why": "The rule applies to each reading, not the average."
+            },
+            {
+              "key": "D",
+              "text": "2 minutes.",
+              "why": "Correct. 2 minutes."
+            }
+          ]
+        },
+        {
+          "prompt": "Which statement best explains variable?",
+          "hint": "Identify the defining relationship or mechanism for variable. All needed information is in this question.",
+          "answer": "A",
+          "options": [
+            {
+              "key": "A",
+              "text": "A characteristic recorded for each patient.",
+              "why": "Correct. A characteristic recorded for each patient."
+            },
+            {
+              "key": "B",
+              "text": "Whether an effect is large enough to matter in context.",
+              "why": "This describes practical significance. It does not answer the question about variable."
+            },
+            {
+              "key": "C",
+              "text": "Crossing a safety boundary under plausible assumptions blocks unconditional continuation.",
+              "why": "This describes interval sensitivity and practical significance. It does not answer the question about variable."
+            },
+            {
+              "key": "D",
+              "text": "More data are not automatically valuable; useful evidence must alter the stop-or-continue decision.",
+              "why": "This describes value of information. It does not answer the question about variable."
             }
           ]
         }
@@ -6639,168 +6546,168 @@ export const MISSIONS = [
       "Say fail to reject, never accept or prove the null."
     ],
     "deeper": {
-      "intro": "You completed The Board Pack. Choose GO DEEPER to revisit the four decisions and explore related course ideas; this optional review does not change your metrics or delay the next mission.",
+      "intro": "Try six independent practice questions. Each includes its own context and any needed data; no mission records are required.",
       "concepts": [],
       "questions": [
         {
-          "prompt": "In a follow-up to The Board Pack, the trigger permits guarded continuation, but the signed record must show how that conclusion was earned. Which option correctly applies State-Plan-Do-Conclude to this follow-up case?",
-          "hint": "Use the stated evidence and the conditions for State-Plan-Do-Conclude; do not choose an option merely because it names a familiar term.",
+          "prompt": "Which statement best explains the structure of a statistical inference response?",
+          "hint": "Identify the defining relationship or mechanism for the structure of a statistical inference response. All needed information is in this question.",
           "answer": "B",
           "options": [
             {
               "key": "A",
               "text": "The board can act only when every conclusion remains traceable to the data-generating process.",
-              "why": "This describes cumulative matching, not State-Plan-Do-Conclude. It does not account for the quantities, conditions, or evidence in this statistics case."
+              "why": "This describes cumulative matching. It does not answer the question about the structure of a statistical inference response."
             },
             {
               "key": "B",
-              "text": "The four-part structure for a complete inference response. Context: naming the population, variable, units, and decision in statistical conclusions. Safeguard: a required action or threshold protecting patients during continuation.",
-              "why": "Correct. the four-part structure for a complete inference response. Context: naming the population, variable, units, and decision in statistical conclusions. Safeguard: a required action or threshold protecting patients during continuation."
+              "text": "The four-part structure for a complete inference response.",
+              "why": "Correct. The four-part structure for a complete inference response."
             },
             {
               "key": "C",
               "text": "A correct calculation can still produce an invalid claim if its population or causal reach is overstated.",
-              "why": "This describes causation/generalization/measurement, not State-Plan-Do-Conclude. It does not account for the quantities, conditions, or evidence in this statistics case."
+              "why": "This describes causation and generalization and measurement. It does not answer the question about the structure of a statistical inference response."
             },
             {
               "key": "D",
               "text": "Executing a rule after data appear proves that the trial's safeguards are operational rather than decorative.",
-              "why": "This describes integrated interval/trigger, not State-Plan-Do-Conclude. It does not account for the quantities, conditions, or evidence in this statistics case."
+              "why": "This describes integrated interval and trigger. It does not answer the question about the structure of a statistical inference response."
             }
           ]
         },
         {
-          "prompt": "the Fenwick trial receives a second case related to The Board Pack: fourteen pieces now fill the delivery board, but four headline conclusions have lost their method labels. Match the evidence to the live explanations now so the investigation carries forward only supported claims. Which option correctly applies cumulative matching to this follow-up case?",
-          "hint": "Use the stated evidence and the conditions for cumulative matching; do not choose an option merely because it names a familiar term.",
+          "prompt": "Which statement best explains cumulative matching?",
+          "hint": "Identify the defining relationship or mechanism for cumulative matching. All needed information is in this question.",
           "answer": "C",
           "options": [
             {
               "key": "A",
-              "text": "The four-part structure for a complete inference response. Context: naming the population, variable, units, and decision in statistical conclusions. Safeguard: a required action or threshold protecting patients during continuation.",
-              "why": "This describes State-Plan-Do-Conclude, not cumulative matching. It does not account for the quantities, conditions, or evidence in this statistics case."
+              "text": "The four-part structure for a complete inference response.",
+              "why": "This describes the structure of a statistical inference response. It does not answer the question about cumulative matching."
             },
             {
               "key": "B",
               "text": "A correct calculation can still produce an invalid claim if its population or causal reach is overstated.",
-              "why": "This describes causation/generalization/measurement, not cumulative matching. It does not account for the quantities, conditions, or evidence in this statistics case."
+              "why": "This describes causation and generalization and measurement. It does not answer the question about cumulative matching."
             },
             {
               "key": "C",
               "text": "The board can act only when every conclusion remains traceable to the data-generating process.",
-              "why": "Correct. the board can act only when every conclusion remains traceable to the data-generating process."
+              "why": "Correct. The board can act only when every conclusion remains traceable to the data-generating process."
             },
             {
               "key": "D",
               "text": "Executing a rule after data appear proves that the trial's safeguards are operational rather than decorative.",
-              "why": "This describes integrated interval/trigger, not cumulative matching. It does not account for the quantities, conditions, or evidence in this statistics case."
+              "why": "This describes integrated interval and trigger. It does not answer the question about cumulative matching."
             }
           ]
         },
         {
-          "prompt": "A teammate rechecks The Board Pack using new evidence: the reconstructed chain shows random assignment, repaired but not population-random enrollment, verified endpoints, and bounded missingness. Which option correctly applies causation/generalization/measurement to this follow-up case?",
-          "hint": "Use the stated evidence and the conditions for causation/generalization/measurement; do not choose an option merely because it names a familiar term.",
+          "prompt": "Which statement best explains causation and generalization and measurement?",
+          "hint": "Identify the defining relationship or mechanism for causation and generalization and measurement. All needed information is in this question.",
           "answer": "D",
           "options": [
             {
               "key": "A",
-              "text": "The four-part structure for a complete inference response. Context: naming the population, variable, units, and decision in statistical conclusions. Safeguard: a required action or threshold protecting patients during continuation.",
-              "why": "This describes State-Plan-Do-Conclude, not causation/generalization/measurement. It does not account for the quantities, conditions, or evidence in this statistics case."
+              "text": "The four-part structure for a complete inference response.",
+              "why": "This describes the structure of a statistical inference response. It does not answer the question about causation and generalization and measurement."
             },
             {
               "key": "B",
               "text": "The board can act only when every conclusion remains traceable to the data-generating process.",
-              "why": "This describes cumulative matching, not causation/generalization/measurement. It does not account for the quantities, conditions, or evidence in this statistics case."
+              "why": "This describes cumulative matching. It does not answer the question about causation and generalization and measurement."
             },
             {
               "key": "C",
               "text": "Executing a rule after data appear proves that the trial's safeguards are operational rather than decorative.",
-              "why": "This describes integrated interval/trigger, not causation/generalization/measurement. It does not account for the quantities, conditions, or evidence in this statistics case."
+              "why": "This describes integrated interval and trigger. It does not answer the question about causation and generalization and measurement."
             },
             {
               "key": "D",
               "text": "A correct calculation can still produce an invalid claim if its population or causal reach is overstated.",
-              "why": "Correct. a correct calculation can still produce an invalid claim if its population or causal reach is overstated."
+              "why": "Correct. A correct calculation can still produce an invalid claim if its population or causal reach is overstated."
             }
           ]
         },
         {
-          "prompt": "An unseen case extends The Board Pack: the final source calls yield an excess-harm 95% upper bound of 1.8 per 1,000, below the prewritten continuation line of 2.0. Commit the prediction and run the test now so the measurement can fairly accept or reject the proposed model. Which statistical conclusion or procedure correctly uses integrated interval/trigger?",
-          "hint": "Use the stated evidence and the conditions for integrated interval/trigger; do not choose an option merely because it names a familiar term.",
+          "prompt": "Which statement best explains integrated interval and trigger?",
+          "hint": "Identify the defining relationship or mechanism for integrated interval and trigger. All needed information is in this question.",
           "answer": "A",
           "options": [
             {
               "key": "A",
               "text": "Executing a rule after data appear proves that the trial's safeguards are operational rather than decorative.",
-              "why": "Correct. executing a rule after data appear proves that the trial's safeguards are operational rather than decorative."
+              "why": "Correct. Executing a rule after data appear proves that the trial's safeguards are operational rather than decorative."
             },
             {
               "key": "B",
-              "text": "The four-part structure for a complete inference response. Context: naming the population, variable, units, and decision in statistical conclusions. Safeguard: a required action or threshold protecting patients during continuation.",
-              "why": "This describes State-Plan-Do-Conclude, not integrated interval/trigger. It does not account for the quantities, conditions, or evidence in this statistics case."
+              "text": "The four-part structure for a complete inference response.",
+              "why": "This describes the structure of a statistical inference response. It does not answer the question about integrated interval and trigger."
             },
             {
               "key": "C",
               "text": "The board can act only when every conclusion remains traceable to the data-generating process.",
-              "why": "This describes cumulative matching, not integrated interval/trigger. It does not account for the quantities, conditions, or evidence in this statistics case."
+              "why": "This describes cumulative matching. It does not answer the question about integrated interval and trigger."
             },
             {
               "key": "D",
               "text": "A correct calculation can still produce an invalid claim if its population or causal reach is overstated.",
-              "why": "This describes causation/generalization/measurement, not integrated interval/trigger. It does not account for the quantities, conditions, or evidence in this statistics case."
+              "why": "This describes causation and generalization and measurement. It does not answer the question about integrated interval and trigger."
             }
           ]
         },
         {
-          "prompt": "Before another Board Pack decision, the team knows this: the trigger permits guarded continuation, but the signed record must show how that conclusion was earned. Which option correctly applies FRQ State-Plan-Do-Conclude to this follow-up case?",
-          "hint": "Use the stated evidence and the conditions for FRQ State-Plan-Do-Conclude; do not choose an option merely because it names a familiar term.",
+          "prompt": "Which statement best explains stating, planning, performing, and interpreting a statistical inference?",
+          "hint": "Identify the defining relationship or mechanism for stating, planning, performing, and interpreting a statistical inference. All needed information is in this question.",
           "answer": "B",
           "options": [
             {
               "key": "A",
-              "text": "The four-part structure for a complete inference response. Context: naming the population, variable, units, and decision in statistical conclusions. Safeguard: a required action or threshold protecting patients during continuation.",
-              "why": "This describes State-Plan-Do-Conclude, not FRQ State-Plan-Do-Conclude. It does not account for the quantities, conditions, or evidence in this statistics case."
+              "text": "The four-part structure for a complete inference response.",
+              "why": "This describes the structure of a statistical inference response. It does not answer the question about stating, planning, performing, and interpreting a statistical inference."
             },
             {
               "key": "B",
               "text": "A reproducible argument lets future monitors challenge any step without rewriting the result.",
-              "why": "Correct. a reproducible argument lets future monitors challenge any step without rewriting the result."
+              "why": "Correct. A reproducible argument lets future monitors challenge any step without rewriting the result."
             },
             {
               "key": "C",
               "text": "The board can act only when every conclusion remains traceable to the data-generating process.",
-              "why": "This describes cumulative matching, not FRQ State-Plan-Do-Conclude. It does not account for the quantities, conditions, or evidence in this statistics case."
+              "why": "This describes cumulative matching. It does not answer the question about stating, planning, performing, and interpreting a statistical inference."
             },
             {
               "key": "D",
               "text": "A correct calculation can still produce an invalid claim if its population or causal reach is overstated.",
-              "why": "This describes causation/generalization/measurement, not FRQ State-Plan-Do-Conclude. It does not account for the quantities, conditions, or evidence in this statistics case."
+              "why": "This describes causation and generalization and measurement. It does not answer the question about stating, planning, performing, and interpreting a statistical inference."
             }
           ]
         },
         {
-          "prompt": "the Fenwick trial applies the lesson from The Board Pack to this follow-up: fourteen pieces now fill the delivery board, but four headline conclusions have lost their method labels. Match the evidence to the live explanations now so the investigation carries forward only supported claims. Which option correctly applies Variable to this follow-up case?",
-          "hint": "Use the stated evidence and the conditions for Variable; do not choose an option merely because it names a familiar term.",
+          "prompt": "Which statement best explains variable?",
+          "hint": "Identify the defining relationship or mechanism for variable. All needed information is in this question.",
           "answer": "C",
           "options": [
             {
               "key": "A",
-              "text": "The four-part structure for a complete inference response. Context: naming the population, variable, units, and decision in statistical conclusions. Safeguard: a required action or threshold protecting patients during continuation.",
-              "why": "This describes State-Plan-Do-Conclude, not Variable. It does not account for the quantities, conditions, or evidence in this statistics case."
+              "text": "The four-part structure for a complete inference response.",
+              "why": "This describes the structure of a statistical inference response. It does not answer the question about variable."
             },
             {
               "key": "B",
               "text": "The board can act only when every conclusion remains traceable to the data-generating process.",
-              "why": "This describes cumulative matching, not Variable. It does not account for the quantities, conditions, or evidence in this statistics case."
+              "why": "This describes cumulative matching. It does not answer the question about variable."
             },
             {
               "key": "C",
-              "text": "A characteristic recorded for each patient. Categorical variable: a variable placing a patient into a group. Quantitative variable: a variable recorded as a meaningful number. Parameter: a fixed but usually unknown number describing a population. Statistic: a number computed from a sample.",
-              "why": "Correct. a characteristic recorded for each patient. Categorical variable: a variable placing a patient into a group. Quantitative variable: a variable recorded as a meaningful number. Parameter: a fixed but usually unknown number describing a population. Statistic: a number computed from a sample."
+              "text": "A characteristic recorded for each patient.",
+              "why": "Correct. A characteristic recorded for each patient."
             },
             {
               "key": "D",
               "text": "A correct calculation can still produce an invalid claim if its population or causal reach is overstated.",
-              "why": "This describes causation/generalization/measurement, not Variable. It does not account for the quantities, conditions, or evidence in this statistics case."
+              "why": "This describes causation and generalization and measurement. It does not answer the question about variable."
             }
           ]
         }

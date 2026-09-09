@@ -1,5 +1,7 @@
 **FIRST PERSON LEARNING**
 
+**Player-copy editing rule:** Within each displayed passage, state each fact, equation, variable definition, and instruction once. Integrate new givens into the existing wording; do not append a paraphrase of the setup. A source panel may repeat essential inputs so it stands alone, but render it as its own surface rather than concatenating it with the question setup. Go Deeper questions must still supply their own context and data without referring to earlier cases.
+
 **THE TRIAL - HS EDITION**
 
 AP Statistics Campaign Implementation Bible
@@ -49,9 +51,12 @@ warmups:
 
 ### Opening sequence - no movie required, maximum five sentences
 
-You are the trial evidence lead, which means you check what the patient records let the board claim. At Fenwick, you will use statistics to make the call. The trial board meets in fifteen days. A rushed choice could expose patients to harm. A bad stop could bury a useful treatment.
+You are the trial evidence lead, which means you check what the patient records let the board claim. At Fenwick, you will use statistics to make the call. The trial board meets in fifteen days. A rushed choice could expose patients to harm; a bad stop could bury a useful treatment. Director Mara Voss hands you the empty board binder and says, “If a result makes us uncomfortable, it still goes in the binder.”
 
-**Delivery:** Show the opening sentences together on one full-screen text card over the normal Regulatory & Registry view. The player dismisses the card once with Continue. When it clears, reveal the four-bar HUD, activate the Mission 1 briefing icon, and leave the player beside the commitment terminal on Level 1.
+**Opening-card requirement:** The character quote is the final player-visible text on this card; place no explanatory sentence after it. Keep it brief and natural: it should add the speaker’s concern or commitment rather than summarize the preceding setup. Show the whole opening together with one Continue action.
+
+
+**Delivery:** Show all five opening sentences together on one full-screen text card over the normal Regulatory & Registry view. The player dismisses the card once with Continue. When it clears, reveal the four-bar HUD, activate the Mission 1 briefing icon, and leave the player beside the commitment terminal on Level 1.
 
 ### Concrete stakes
 
@@ -399,6 +404,11 @@ The repository importer and schema are authoritative first; `QUESTION_TYPES(3).m
 **Ending card - exact player copy:** The pack lies open before the board. The decision reads CONTINUE WITH SAFEGUARDS. Site 12 shows its cleared follow-up; site 19 stays paused for its release checks. Down the hall, staff begin the next calls under the rule the board has signed.
 
 **Delivery:** Keep player control and normal world view. No new graded stop follows the final accepted decision. The ending card appears after the player reaches the payoff view, or through an accessible View ending control that skips movement without skipping any scientific gate. Optional review and worked examples remain available through the completed mission menu.
+
+
+### Standalone Go Deeper question contract
+
+Each optional review question must work when copied out on its own. Supply its setting, givens, units, definitions, and any required figure within that question. Do not mention a mission title, a prior case, a teammate rechecking earlier work, a completed plan, or unseen cards, observations, or results. Do not assume that another review question was read. Choices, hints, and feedback obey the same rule. Use brief conceptual questions or complete applied problems; figures must match the question rather than merely share its course.
 
 # Mission 1 - What Was Promised
 
@@ -749,45 +759,48 @@ Mission decision: Put the three timed claims in the board pack. Mark the two-sit
 
 **Availability:** Reveal only after mission completion when the player selects **GO DEEPER**. This section is optional, ungraded for campaign progress, and does not change metrics, Recovery Points, or the next-mission unlock.
 
-**Secondary briefing card - exact player copy:** You completed What Was Promised. Choose GO DEEPER to revisit the four decisions and explore related course ideas; this optional review does not change your metrics or delay the next mission.
+**Secondary briefing card - exact player copy:** Try six independent practice questions. Each includes its own context and any needed data; no mission records are required.
 
 ### Review focus
 
-No additional prerequisite is required. These AP-style questions apply the mission's course ideas to follow-up evidence, including related topics not required in the four main stops.
+No additional prerequisite is required. These practice questions review related course ideas. Each question stands alone, including its choices and figure.
 
 ### Review question 1
 
-**Prompt - exact player copy:** In a follow-up to What Was Promised, the registry lists treatment arm, serious-event grade, recovery days, and whether each patient improved. The next action depends on selecting the conclusion that fits all of those facts. Which option correctly applies Variable to this follow-up case?
+
+**Prompt - exact player copy:** Which statement best explains variable?
 
 **Options - exact player copy:**
 
-- A. Treating category labels as quantities could create a meaningless average and mislead the board.
-- B. A characteristic recorded for each patient. Categorical variable: a variable placing a patient into a group. Quantitative variable: a variable recorded as a meaningful number. Parameter: a fixed but usually unknown number describing a population. Statistic: a number computed from a sample.
+- A. Treating category labels as quantities could create a meaningless average and mislead the researchers.
+- B. A characteristic recorded for each patient.
 - C. Shape determines whether mean and standard deviation or median and IQR best summarize what patients experienced.
 - D. An outlier flag triggers source review; it does not grant permission to delete a patient.
 
 **Correct answer:** B
 
-**Hint - exact player copy:** Use the stated evidence and the conditions for Variable; do not choose an option merely because it names a familiar term.
+**Hint - exact player copy:** Identify the defining relationship or mechanism for variable. All needed information is in this question.
 
 **Option feedback - exact player copy:**
 
-- A: This describes variable type and graph choice, not Variable. It does not account for the quantities, conditions, or evidence in this statistics case.
-- B: Correct. a characteristic recorded for each patient. Categorical variable: a variable placing a patient into a group. Quantitative variable: a variable recorded as a meaningful number. Parameter: a fixed but usually unknown number describing a population. Statistic: a number computed from a sample.
-- C: This describes SOCS and graph uses, not Variable. It does not account for the quantities, conditions, or evidence in this statistics case.
-- D: This describes IQR outlier rule, not Variable. It does not account for the quantities, conditions, or evidence in this statistics case.
+- A: This describes variable type and graph choice. It does not answer the question about variable.
+- B: Correct. A characteristic recorded for each patient.
+- C: This describes describing a distribution by shape, outliers, center, and spread. It does not answer the question about variable.
+- D: This describes iQR outlier rule. It does not answer the question about variable.
+
 ### Review question 2
 
-**Prompt - exact player copy:** the Fenwick trial receives a second case related to What Was Promised: the registry lists treatment arm, serious-event grade, recovery days, and whether each patient improved. The next action depends on selecting the conclusion that fits all of those facts. Which interpretation of the displayed evidence correctly uses the mission concept?
+
+**Prompt - exact player copy:** The distribution has a long right tail. Which pair of summaries is least affected by unusually long recovery times?
 
 **Figure - exact player copy:**
 
 ```json
 {
   "kind": "bars",
-  "xLabel": "Recovery-time bin (days)",
+  "xLabel": "Recovery time",
   "yLabel": "Patients",
-  "caption": "Recovery times are right-skewed with two unusually high values.",
+  "caption": "Recovery-time counts in one study",
   "bars": [
     {
       "name": "2 days",
@@ -806,10 +819,6 @@ No additional prerequisite is required. These AP-style questions apply the missi
       "value": 3
     },
     {
-      "name": "14 days",
-      "value": 1
-    },
-    {
       "name": "20 days",
       "value": 2
     }
@@ -817,36 +826,37 @@ No additional prerequisite is required. These AP-style questions apply the missi
 }
 ```
 
-
 **Options - exact player copy:**
 
-- A. A characteristic recorded for each patient. Categorical variable: a variable placing a patient into a group. Quantitative variable: a variable recorded as a meaningful number. Parameter: a fixed but usually unknown number describing a population. Statistic: a number computed from a sample.
-- B. Shape determines whether mean and standard deviation or median and IQR best summarize what patients experienced.
-- C. Treating category labels as quantities could create a meaningless average and mislead the board.
-- D. An outlier flag triggers source review; it does not grant permission to delete a patient.
+- A. The mean and range.
+- B. The maximum and minimum.
+- C. The median and interquartile range.
+- D. The average of category codes.
 
 **Correct answer:** C
 
-**Hint - exact player copy:** Read the axes, units, direction, and any threshold before comparing the choices.
+**Hint - exact player copy:** Choose summaries based on middle positions rather than extremes.
 
 **Option feedback - exact player copy:**
 
-- A: This describes Variable, not variable type and graph choice. It does not account for the quantities, conditions, or evidence in this statistics case.
-- B: This describes SOCS and graph uses, not variable type and graph choice. It does not account for the quantities, conditions, or evidence in this statistics case.
-- C: Correct. treating category labels as quantities could create a meaningless average and mislead the board.
-- D: This describes IQR outlier rule, not variable type and graph choice. It does not account for the quantities, conditions, or evidence in this statistics case.
+- A: Both can be strongly influenced by extreme values.
+- B: These summaries depend entirely on extreme observations.
+- C: Correct. The median and interquartile range.
+- D: Recovery-time summaries must use the measured times, not arbitrary codes.
+
 ### Review question 3
 
-**Prompt - exact player copy:** A teammate rechecks What Was Promised using new evidence: the registry lists treatment arm, serious-event grade, recovery days, and whether each patient improved. The next action depends on selecting the conclusion that fits all of those facts. Which interpretation of the displayed evidence correctly uses the mission concept?
+
+**Prompt - exact player copy:** The distribution has a long right tail. Which pair of summaries is least affected by unusually long recovery times?
 
 **Figure - exact player copy:**
 
 ```json
 {
   "kind": "bars",
-  "xLabel": "Recovery-time bin (days)",
+  "xLabel": "Recovery time",
   "yLabel": "Patients",
-  "caption": "Recovery times are right-skewed with two unusually high values.",
+  "caption": "Recovery-time counts in one study",
   "bars": [
     {
       "name": "2 days",
@@ -865,10 +875,6 @@ No additional prerequisite is required. These AP-style questions apply the missi
       "value": 3
     },
     {
-      "name": "14 days",
-      "value": 1
-    },
-    {
       "name": "20 days",
       "value": 2
     }
@@ -876,88 +882,95 @@ No additional prerequisite is required. These AP-style questions apply the missi
 }
 ```
 
-
 **Options - exact player copy:**
 
-- A. A characteristic recorded for each patient. Categorical variable: a variable placing a patient into a group. Quantitative variable: a variable recorded as a meaningful number. Parameter: a fixed but usually unknown number describing a population. Statistic: a number computed from a sample.
-- B. Treating category labels as quantities could create a meaningless average and mislead the board.
-- C. An outlier flag triggers source review; it does not grant permission to delete a patient.
-- D. Shape determines whether mean and standard deviation or median and IQR best summarize what patients experienced.
+- A. The mean and range.
+- B. The maximum and minimum.
+- C. The average of category codes.
+- D. The median and interquartile range.
 
 **Correct answer:** D
 
-**Hint - exact player copy:** Read the axes, units, direction, and any threshold before comparing the choices.
+**Hint - exact player copy:** Choose summaries based on middle positions rather than extremes.
 
 **Option feedback - exact player copy:**
 
-- A: This describes Variable, not SOCS and graph uses. It does not account for the quantities, conditions, or evidence in this statistics case.
-- B: This describes variable type and graph choice, not SOCS and graph uses. It does not account for the quantities, conditions, or evidence in this statistics case.
-- C: This describes IQR outlier rule, not SOCS and graph uses. It does not account for the quantities, conditions, or evidence in this statistics case.
-- D: Correct. shape determines whether mean and standard deviation or median and IQR best summarize what patients experienced.
+- A: Both can be strongly influenced by extreme values.
+- B: These summaries depend entirely on extreme observations.
+- C: Recovery-time summaries must use the measured times, not arbitrary codes.
+- D: Correct. The median and interquartile range.
+
 ### Review question 4
 
-**Prompt - exact player copy:** An unseen case extends What Was Promised: the right-skewed shape makes median and IQR the safer summary, but the two high recovery times still need an objective check. Which option correctly applies IQR outlier rule to this follow-up case?
+
+**Prompt - exact player copy:** Which statement best explains iQR outlier rule?
 
 **Options - exact player copy:**
 
 - A. An outlier flag triggers source review; it does not grant permission to delete a patient.
-- B. A characteristic recorded for each patient. Categorical variable: a variable placing a patient into a group. Quantitative variable: a variable recorded as a meaningful number. Parameter: a fixed but usually unknown number describing a population. Statistic: a number computed from a sample.
-- C. Treating category labels as quantities could create a meaningless average and mislead the board.
+- B. A characteristic recorded for each patient.
+- C. Treating category labels as quantities could create a meaningless average and mislead the researchers.
 - D. Shape determines whether mean and standard deviation or median and IQR best summarize what patients experienced.
 
 **Correct answer:** A
 
-**Hint - exact player copy:** Use the stated evidence and the conditions for IQR outlier rule; do not choose an option merely because it names a familiar term.
+**Hint - exact player copy:** Identify the defining relationship or mechanism for iqr outlier rule. All needed information is in this question.
 
 **Option feedback - exact player copy:**
 
-- A: Correct. an outlier flag triggers source review; it does not grant permission to delete a patient.
-- B: This describes Variable, not IQR outlier rule. It does not account for the quantities, conditions, or evidence in this statistics case.
-- C: This describes variable type and graph choice, not IQR outlier rule. It does not account for the quantities, conditions, or evidence in this statistics case.
-- D: This describes SOCS and graph uses, not IQR outlier rule. It does not account for the quantities, conditions, or evidence in this statistics case.
+- A: Correct. An outlier flag triggers source review; it does not grant permission to delete a patient.
+- B: This describes variable. It does not answer the question about iqr outlier rule.
+- C: This describes variable type and graph choice. It does not answer the question about iqr outlier rule.
+- D: This describes describing a distribution by shape, outliers, center, and spread. It does not answer the question about iqr outlier rule.
+
 ### Review question 5
 
-**Prompt - exact player copy:** Before another What Was Promised decision, the team knows this: the variables and summaries are now defined, but only claims fixed before enrollment can keep their planned error rates. Before the record can be signed, identify which claims have independent support and which must remain unverified. Which option correctly applies pre-specification and scope to this follow-up case?
+
+**Prompt - exact player copy:** Which statement best explains pre-specification and scope?
 
 **Options - exact player copy:**
 
-- A. A characteristic recorded for each patient. Categorical variable: a variable placing a patient into a group. Quantitative variable: a variable recorded as a meaningful number. Parameter: a fixed but usually unknown number describing a population. Statistic: a number computed from a sample.
+- A. A characteristic recorded for each patient.
 - B. A clear sample statistic cannot turn an unregistered observation into a pre-specified population claim.
-- C. Treating category labels as quantities could create a meaningless average and mislead the board.
+- C. Treating category labels as quantities could create a meaningless average and mislead the researchers.
 - D. Shape determines whether mean and standard deviation or median and IQR best summarize what patients experienced.
 
 **Correct answer:** B
 
-**Hint - exact player copy:** Use the stated evidence and the conditions for pre-specification and scope; do not choose an option merely because it names a familiar term.
+**Hint - exact player copy:** Identify the defining relationship or mechanism for pre-specification and scope. All needed information is in this question.
 
 **Option feedback - exact player copy:**
 
-- A: This describes Variable, not pre-specification and scope. It does not account for the quantities, conditions, or evidence in this statistics case.
-- B: Correct. a clear sample statistic cannot turn an unregistered observation into a pre-specified population claim.
-- C: This describes variable type and graph choice, not pre-specification and scope. It does not account for the quantities, conditions, or evidence in this statistics case.
-- D: This describes SOCS and graph uses, not pre-specification and scope. It does not account for the quantities, conditions, or evidence in this statistics case.
+- A: This describes variable. It does not answer the question about pre-specification and scope.
+- B: Correct. A clear sample statistic cannot turn an unregistered observation into a pre-specified population claim.
+- C: This describes variable type and graph choice. It does not answer the question about pre-specification and scope.
+- D: This describes describing a distribution by shape, outliers, center, and spread. It does not answer the question about pre-specification and scope.
+
 ### Review question 6
 
-**Prompt - exact player copy:** the Fenwick trial applies the lesson from What Was Promised to this follow-up: the registry lists treatment arm, serious-event grade, recovery days, and whether each patient improved. The next action depends on selecting the conclusion that fits all of those facts. Which option correctly applies Resistant statistic to this follow-up case?
+
+**Prompt - exact player copy:** Which statement best explains resistant statistic?
 
 **Options - exact player copy:**
 
-- A. A characteristic recorded for each patient. Categorical variable: a variable placing a patient into a group. Quantitative variable: a variable recorded as a meaningful number. Parameter: a fixed but usually unknown number describing a population. Statistic: a number computed from a sample.
-- B. Treating category labels as quantities could create a meaningless average and mislead the board.
-- C. A summary changed little by extreme values. Standard deviation: typical distance of values from their mean. Percentile: the percent of observations at or below a value. Normal model: a symmetric bell-shaped model described by mean and standard deviation.
+- A. A characteristic recorded for each patient.
+- B. Treating category labels as quantities could create a meaningless average and mislead the researchers.
+- C. A summary changed little by extreme values.
 - D. Shape determines whether mean and standard deviation or median and IQR best summarize what patients experienced.
 
 **Correct answer:** C
 
-**Hint - exact player copy:** Use the stated evidence and the conditions for Resistant statistic; do not choose an option merely because it names a familiar term.
+**Hint - exact player copy:** Identify the defining relationship or mechanism for resistant statistic. All needed information is in this question.
 
 **Option feedback - exact player copy:**
 
-- A: This describes Variable, not Resistant statistic. It does not account for the quantities, conditions, or evidence in this statistics case.
-- B: This describes variable type and graph choice, not Resistant statistic. It does not account for the quantities, conditions, or evidence in this statistics case.
-- C: Correct. a summary changed little by extreme values. Standard deviation: typical distance of values from their mean. Percentile: the percent of observations at or below a value. Normal model: a symmetric bell-shaped model described by mean and standard deviation.
-- D: This describes SOCS and graph uses, not Resistant statistic. It does not account for the quantities, conditions, or evidence in this statistics case.
-**Optional review completion - exact player copy:** Excellent work. You went beyond the required mission and strengthened the ideas behind your decision.
+- A: This describes variable. It does not answer the question about resistant statistic.
+- B: This describes variable type and graph choice. It does not answer the question about resistant statistic.
+- C: Correct. A summary changed little by extreme values.
+- D: This describes describing a distribution by shape, outliers, center, and spread. It does not answer the question about resistant statistic.
+
+**Optional review completion - exact player copy:** Good work. You have completed six independent practice questions.
+
 ## Quick concept review
 - Match graphs to variable type.
 - Describe quantitative data with shape, unusual values, center, and spread.
@@ -1197,7 +1210,7 @@ Mean, SD, and range are sensitive to extremes; median and IQR resist them. z exp
 
 **Question card story-science connection - exact player copy:** The standardized delay measures how unusual this hospital's observation is relative to its own baseline and variability.
 
-**Fixture source panel - exact player copy:** With the resistant center chosen, one hospital's delay must still be compared with its own baseline. Build the standardization from an observed 84 hours, mean 70 hours, and standard deviation 7 hours. x=84 h mean=70 h SD=7 h
+**Fixture source panel - exact player copy:** With the resistant center chosen, one hospital's delay must still be compared with its own baseline. Build the standardization from an observed 84 hours, mean 70 hours, and standard deviation 7 hours.
 
 **Source-panel timing:** Show at this stop’s declared fixture before its DERIVE choices unlock. Keep visible while the player works. These are model inputs and prior observations, not new measurements or an accepted answer. Symbolic derivations stay symbolic; do not invent a number merely to force substitution.
 
@@ -1326,108 +1339,117 @@ MISSION 2 COMPLETE; TIME {elapsed} / TARGET 13:00; INCORRECT SUBMISSIONS {incorr
 
 **Availability:** Reveal only after mission completion when the player selects **GO DEEPER**. This section is optional, ungraded for campaign progress, and does not change metrics, Recovery Points, or the next-mission unlock.
 
-**Secondary briefing card - exact player copy:** You completed What Was Measured. Choose GO DEEPER to revisit the four decisions and explore related course ideas; this optional review does not change your metrics or delay the next mission.
+**Secondary briefing card - exact player copy:** Try six independent practice questions. Each includes its own context and any needed data; no mission records are required.
 
 ### Review focus
 
-No additional prerequisite is required. These AP-style questions apply the mission's course ideas to follow-up evidence, including related topics not required in the four main stops.
+No additional prerequisite is required. These practice questions review related course ideas. Each question stands alone, including its choices and figure.
 
 ### Review question 1
 
-**Prompt - exact player copy:** In a follow-up to What Was Measured, with the resistant center chosen, one hospital's delay must still be compared with its own baseline. Which option correctly applies Resistant statistic to this follow-up case?
+
+**Prompt - exact player copy:** Which statement best explains resistant statistic?
 
 **Options - exact player copy:**
 
 - A. A treatment claim built on a pulled mean may exaggerate what a typical patient gains.
-- B. A summary changed little by extreme values. Standard deviation: typical distance of values from their mean. Percentile: the percent of observations at or below a value. Normal model: a symmetric bell-shaped model described by mean and standard deviation.
-- C. A common z-scale identifies which record deserves the first source check.
-- D. If observed coverage differs sharply from 95%, normal-model tail claims cannot govern source review.
+- B. A common z-scale identifies which record deserves the first source check.
+- C. If observed coverage differs sharply from 95%, normal-model tail claims cannot govern source review.
+- D. A summary changed little by extreme values.
 
-**Correct answer:** B
+**Correct answer:** D
 
-**Hint - exact player copy:** Use the stated evidence and the conditions for Resistant statistic; do not choose an option merely because it names a familiar term.
+**Hint - exact player copy:** Identify the defining relationship or mechanism for resistant statistic. All needed information is in this question.
 
 **Option feedback - exact player copy:**
 
-- A: This describes mean, median, skew, not Resistant statistic. It does not account for the quantities, conditions, or evidence in this statistics case.
-- B: Correct. a summary changed little by extreme values. Standard deviation: typical distance of values from their mean. Percentile: the percent of observations at or below a value. Normal model: a symmetric bell-shaped model described by mean and standard deviation.
-- C: This describes z-score and percentile meaning, not Resistant statistic. It does not account for the quantities, conditions, or evidence in this statistics case.
-- D: This describes 68-95-99.7 rule, not Resistant statistic. It does not account for the quantities, conditions, or evidence in this statistics case.
+- A: This describes mean, median, skew. It does not answer the question about resistant statistic.
+- B: This describes z-score and percentile meaning. It does not answer the question about resistant statistic.
+- C: This describes 68-95-99.7 rule. It does not answer the question about resistant statistic.
+- D: Correct. A summary changed little by extreme values.
+
 ### Review question 2
 
-**Prompt - exact player copy:** the Fenwick trial receives a second case related to What Was Measured: the verified sample contains recovery times of 4, 5, 5, 6, and 20 days. Which statistical conclusion or procedure correctly uses mean, median, skew?
+
+**Prompt - exact player copy:** Which statement best explains mean, median, skew?
 
 **Options - exact player copy:**
 
-- A. A summary changed little by extreme values. Standard deviation: typical distance of values from their mean. Percentile: the percent of observations at or below a value. Normal model: a symmetric bell-shaped model described by mean and standard deviation.
+- A. A treatment claim built on a pulled mean may exaggerate what a typical patient gains.
+- B. A summary changed little by extreme values.
+- C. A common z-scale identifies which record deserves the first source check.
+- D. If observed coverage differs sharply from 95%, normal-model tail claims cannot govern source review.
+
+**Correct answer:** A
+
+**Hint - exact player copy:** Identify the defining relationship or mechanism for mean, median, skew. All needed information is in this question.
+
+**Option feedback - exact player copy:**
+
+- A: Correct. A treatment claim built on a pulled mean may exaggerate what a typical patient gains.
+- B: This describes resistant statistic. It does not answer the question about mean, median, skew.
+- C: This describes z-score and percentile meaning. It does not answer the question about mean, median, skew.
+- D: This describes 68-95-99.7 rule. It does not answer the question about mean, median, skew.
+
+### Review question 3
+
+
+**Prompt - exact player copy:** Which statement best explains z-score and percentile meaning?
+
+**Options - exact player copy:**
+
+- A. A summary changed little by extreme values.
 - B. A common z-scale identifies which record deserves the first source check.
 - C. A treatment claim built on a pulled mean may exaggerate what a typical patient gains.
 - D. If observed coverage differs sharply from 95%, normal-model tail claims cannot govern source review.
 
-**Correct answer:** C
+**Correct answer:** B
 
-**Hint - exact player copy:** Use the stated evidence and the conditions for mean, median, skew; do not choose an option merely because it names a familiar term.
+**Hint - exact player copy:** Identify the defining relationship or mechanism for z-score and percentile meaning. All needed information is in this question.
 
 **Option feedback - exact player copy:**
 
-- A: This describes Resistant statistic, not mean, median, skew. It does not account for the quantities, conditions, or evidence in this statistics case.
-- B: This describes z-score and percentile meaning, not mean, median, skew. It does not account for the quantities, conditions, or evidence in this statistics case.
-- C: Correct. a treatment claim built on a pulled mean may exaggerate what a typical patient gains.
-- D: This describes 68-95-99.7 rule, not mean, median, skew. It does not account for the quantities, conditions, or evidence in this statistics case.
-### Review question 3
+- A: This describes resistant statistic. It does not answer the question about z-score and percentile meaning.
+- B: Correct. A common z-scale identifies which record deserves the first source check.
+- C: This describes mean, median, skew. It does not answer the question about z-score and percentile meaning.
+- D: This describes 68-95-99.7 rule. It does not answer the question about z-score and percentile meaning.
 
-**Prompt - exact player copy:** A teammate rechecks What Was Measured using new evidence: with the resistant center chosen, one hospital's delay must still be compared with its own baseline. Which statistical conclusion or procedure correctly uses z-score and percentile meaning?
+### Review question 4
+
+
+**Prompt - exact player copy:** Which statement best explains 68-95-99.7 rule?
 
 **Options - exact player copy:**
 
-- A. A summary changed little by extreme values. Standard deviation: typical distance of values from their mean. Percentile: the percent of observations at or below a value. Normal model: a symmetric bell-shaped model described by mean and standard deviation.
+- A. A summary changed little by extreme values.
 - B. A treatment claim built on a pulled mean may exaggerate what a typical patient gains.
 - C. If observed coverage differs sharply from 95%, normal-model tail claims cannot govern source review.
 - D. A common z-scale identifies which record deserves the first source check.
 
-**Correct answer:** D
+**Correct answer:** C
 
-**Hint - exact player copy:** Use the stated evidence and the conditions for z-score and percentile meaning; do not choose an option merely because it names a familiar term.
-
-**Option feedback - exact player copy:**
-
-- A: This describes Resistant statistic, not z-score and percentile meaning. It does not account for the quantities, conditions, or evidence in this statistics case.
-- B: This describes mean, median, skew, not z-score and percentile meaning. It does not account for the quantities, conditions, or evidence in this statistics case.
-- C: This describes 68-95-99.7 rule, not z-score and percentile meaning. It does not account for the quantities, conditions, or evidence in this statistics case.
-- D: Correct. a common z-scale identifies which record deserves the first source check.
-### Review question 4
-
-**Prompt - exact player copy:** An unseen case extends What Was Measured: the standardized record lies two deviations high, so the viewer can test the model against the full verified sample. Commit the prediction and run the test now so the measurement can fairly accept or reject the proposed model. Which option correctly applies 68-95-99.7 rule to this follow-up case?
-
-**Options - exact player copy:**
-
-- A. If observed coverage differs sharply from 95%, normal-model tail claims cannot govern source review.
-- B. A summary changed little by extreme values. Standard deviation: typical distance of values from their mean. Percentile: the percent of observations at or below a value. Normal model: a symmetric bell-shaped model described by mean and standard deviation.
-- C. A treatment claim built on a pulled mean may exaggerate what a typical patient gains.
-- D. A common z-scale identifies which record deserves the first source check.
-
-**Correct answer:** A
-
-**Hint - exact player copy:** Use the stated evidence and the conditions for 68-95-99.7 rule; do not choose an option merely because it names a familiar term.
+**Hint - exact player copy:** Identify the defining relationship or mechanism for 68-95-99.7 rule. All needed information is in this question.
 
 **Option feedback - exact player copy:**
 
-- A: Correct. if observed coverage differs sharply from 95%, normal-model tail claims cannot govern source review.
-- B: This describes Resistant statistic, not 68-95-99.7 rule. It does not account for the quantities, conditions, or evidence in this statistics case.
-- C: This describes mean, median, skew, not 68-95-99.7 rule. It does not account for the quantities, conditions, or evidence in this statistics case.
-- D: This describes z-score and percentile meaning, not 68-95-99.7 rule. It does not account for the quantities, conditions, or evidence in this statistics case.
+- A: This describes resistant statistic. It does not answer the question about 68-95-99.7 rule.
+- B: This describes mean, median, skew. It does not answer the question about 68-95-99.7 rule.
+- C: Correct. If observed coverage differs sharply from 95%, normal-model tail claims cannot govern source review.
+- D: This describes z-score and percentile meaning. It does not answer the question about 68-95-99.7 rule.
+
 ### Review question 5
 
-**Prompt - exact player copy:** Before another What Was Measured decision, the team knows this: the verified sample contains recovery times of 4, 5, 5, 6, and 20 days. Which interpretation of the displayed evidence correctly uses the mission concept?
+
+**Prompt - exact player copy:** The distribution has a long right tail. Which pair of summaries is least affected by unusually long recovery times?
 
 **Figure - exact player copy:**
 
 ```json
 {
   "kind": "bars",
-  "xLabel": "Recovery-time bin (days)",
+  "xLabel": "Recovery time",
   "yLabel": "Patients",
-  "caption": "Recovery times are right-skewed with two unusually high values.",
+  "caption": "Recovery-time counts in one study",
   "bars": [
     {
       "name": "2 days",
@@ -1446,10 +1468,6 @@ No additional prerequisite is required. These AP-style questions apply the missi
       "value": 3
     },
     {
-      "name": "14 days",
-      "value": 1
-    },
-    {
       "name": "20 days",
       "value": 2
     }
@@ -1457,46 +1475,49 @@ No additional prerequisite is required. These AP-style questions apply the missi
 }
 ```
 
+**Options - exact player copy:**
+
+- A. The mean and range.
+- B. The maximum and minimum.
+- C. The average of category codes.
+- D. The median and interquartile range.
+
+**Correct answer:** D
+
+**Hint - exact player copy:** Choose summaries based on middle positions rather than extremes.
+
+**Option feedback - exact player copy:**
+
+- A: Both can be strongly influenced by extreme values.
+- B: These summaries depend entirely on extreme observations.
+- C: Recovery-time summaries must use the measured times, not arbitrary codes.
+- D: Correct. The median and interquartile range.
+
+### Review question 6
+
+
+**Prompt - exact player copy:** Which statement best explains variable?
 
 **Options - exact player copy:**
 
-- A. A summary changed little by extreme values. Standard deviation: typical distance of values from their mean. Percentile: the percent of observations at or below a value. Normal model: a symmetric bell-shaped model described by mean and standard deviation.
-- B. The measurement rule determines whether later treatment comparisons answer the registered patient question.
+- A. A characteristic recorded for each patient.
+- B. A summary changed little by extreme values.
 - C. A treatment claim built on a pulled mean may exaggerate what a typical patient gains.
 - D. A common z-scale identifies which record deserves the first source check.
 
-**Correct answer:** B
+**Correct answer:** A
 
-**Hint - exact player copy:** Read the axes, units, direction, and any threshold before comparing the choices.
-
-**Option feedback - exact player copy:**
-
-- A: This describes Resistant statistic, not graph choice, resistance, outlier treatment. It does not account for the quantities, conditions, or evidence in this statistics case.
-- B: Correct. the measurement rule determines whether later treatment comparisons answer the registered patient question.
-- C: This describes mean, median, skew, not graph choice, resistance, outlier treatment. It does not account for the quantities, conditions, or evidence in this statistics case.
-- D: This describes z-score and percentile meaning, not graph choice, resistance, outlier treatment. It does not account for the quantities, conditions, or evidence in this statistics case.
-### Review question 6
-
-**Prompt - exact player copy:** the Fenwick trial applies the lesson from What Was Measured to this follow-up: the verified sample contains recovery times of 4, 5, 5, 6, and 20 days. Which option correctly applies Variable to this follow-up case?
-
-**Options - exact player copy:**
-
-- A. A summary changed little by extreme values. Standard deviation: typical distance of values from their mean. Percentile: the percent of observations at or below a value. Normal model: a symmetric bell-shaped model described by mean and standard deviation.
-- B. A treatment claim built on a pulled mean may exaggerate what a typical patient gains.
-- C. A characteristic recorded for each patient. Categorical variable: a variable placing a patient into a group. Quantitative variable: a variable recorded as a meaningful number. Parameter: a fixed but usually unknown number describing a population. Statistic: a number computed from a sample.
-- D. A common z-scale identifies which record deserves the first source check.
-
-**Correct answer:** C
-
-**Hint - exact player copy:** Use the stated evidence and the conditions for Variable; do not choose an option merely because it names a familiar term.
+**Hint - exact player copy:** Identify the defining relationship or mechanism for variable. All needed information is in this question.
 
 **Option feedback - exact player copy:**
 
-- A: This describes Resistant statistic, not Variable. It does not account for the quantities, conditions, or evidence in this statistics case.
-- B: This describes mean, median, skew, not Variable. It does not account for the quantities, conditions, or evidence in this statistics case.
-- C: Correct. a characteristic recorded for each patient. Categorical variable: a variable placing a patient into a group. Quantitative variable: a variable recorded as a meaningful number. Parameter: a fixed but usually unknown number describing a population. Statistic: a number computed from a sample.
-- D: This describes z-score and percentile meaning, not Variable. It does not account for the quantities, conditions, or evidence in this statistics case.
-**Optional review completion - exact player copy:** Excellent work. You went beyond the required mission and strengthened the ideas behind your decision.
+- A: Correct. A characteristic recorded for each patient.
+- B: This describes resistant statistic. It does not answer the question about variable.
+- C: This describes mean, median, skew. It does not answer the question about variable.
+- D: This describes z-score and percentile meaning. It does not answer the question about variable.
+
+**Optional review completion - exact player copy:** Good work. You have completed six independent practice questions.
+
 ## Quick concept review
 - Right skew pulls mean above median.
 - A z-score compares distance from a mean in SD units.
@@ -1858,139 +1879,152 @@ MISSION 3 COMPLETE; TIME {elapsed} / TARGET 14:00; INCORRECT SUBMISSIONS {incorr
 
 **Availability:** Reveal only after mission completion when the player selects **GO DEEPER**. This section is optional, ungraded for campaign progress, and does not change metrics, Recovery Points, or the next-mission unlock.
 
-**Secondary briefing card - exact player copy:** You completed The Two-Site Alarm. Choose GO DEEPER to revisit the four decisions and explore related course ideas; this optional review does not change your metrics or delay the next mission.
+**Secondary briefing card - exact player copy:** Try six independent practice questions. Each includes its own context and any needed data; no mission records are required.
 
 ### Review focus
 
-No additional prerequisite is required. These AP-style questions apply the mission's course ideas to follow-up evidence, including related topics not required in the four main stops.
+No additional prerequisite is required. These practice questions review related course ideas. Each question stands alone, including its choices and figure.
 
 ### Review question 1
 
-**Prompt - exact player copy:** In a follow-up to The Two-Site Alarm, eight percent of patients had a serious event, five percent had a shipment flag, and two percent had both. Which option correctly applies Union to this follow-up case?
+
+**Prompt - exact player copy:** Which statement best explains union?
 
 **Options - exact player copy:**
 
 - A. Double-counting overlap would exaggerate the apparent size of the safety problem.
-- B. The event that A or B or both occur. Intersection: the event that A and B both occur. Conditional probability: the probability of A among cases where B occurred. Independent events: events for which knowing one occurred does not change the probability of the other. Mutually exclusive events: events that cannot occur together.
-- C. A high conditional rate directs the next inspection toward handling without proving that handling caused harm.
+- B. The event that A or B or both occur.
+- C. A higher event rate within a shipment subgroup can motivate a handling investigation without proving that handling caused the events.
 - D. A failed independence prediction justifies a targeted pause, not a claim that shipment handling caused every event.
 
 **Correct answer:** B
 
-**Hint - exact player copy:** Use the stated evidence and the conditions for Union; do not choose an option merely because it names a familiar term.
+**Hint - exact player copy:** Identify the defining relationship or mechanism for union. All needed information is in this question.
 
 **Option feedback - exact player copy:**
 
-- A: This describes addition rule, not Union. It does not account for the quantities, conditions, or evidence in this statistics case.
-- B: Correct. the event that A or B or both occur. Intersection: the event that A and B both occur. Conditional probability: the probability of A among cases where B occurred. Independent events: events for which knowing one occurred does not change the probability of the other. Mutually exclusive events: events that cannot occur together.
-- C: This describes conditional probability, not Union. It does not account for the quantities, conditions, or evidence in this statistics case.
-- D: This describes multiplication rule and independence, not Union. It does not account for the quantities, conditions, or evidence in this statistics case.
+- A: This describes addition rule. It does not answer the question about union.
+- B: Correct. The event that A or B or both occur.
+- C: This describes conditional probability. It does not answer the question about union.
+- D: This describes multiplication rule and independence. It does not answer the question about union.
+
 ### Review question 2
 
-**Prompt - exact player copy:** the Fenwick trial receives a second case related to The Two-Site Alarm: eight percent of patients had a serious event, five percent had a shipment flag, and two percent had both. Which option correctly applies addition rule to this follow-up case?
+
+**Prompt - exact player copy:** Which statement best explains addition rule?
 
 **Options - exact player copy:**
 
-- A. The event that A or B or both occur. Intersection: the event that A and B both occur. Conditional probability: the probability of A among cases where B occurred. Independent events: events for which knowing one occurred does not change the probability of the other. Mutually exclusive events: events that cannot occur together.
-- B. A high conditional rate directs the next inspection toward handling without proving that handling caused harm.
+- A. The event that A or B or both occur.
+- B. A higher event rate within a shipment subgroup can motivate a handling investigation without proving that handling caused the events.
 - C. Double-counting overlap would exaggerate the apparent size of the safety problem.
 - D. A failed independence prediction justifies a targeted pause, not a claim that shipment handling caused every event.
 
 **Correct answer:** C
 
-**Hint - exact player copy:** Use the stated evidence and the conditions for addition rule; do not choose an option merely because it names a familiar term.
+**Hint - exact player copy:** Identify the defining relationship or mechanism for addition rule. All needed information is in this question.
 
 **Option feedback - exact player copy:**
 
-- A: This describes Union, not addition rule. It does not account for the quantities, conditions, or evidence in this statistics case.
-- B: This describes conditional probability, not addition rule. It does not account for the quantities, conditions, or evidence in this statistics case.
-- C: Correct. double-counting overlap would exaggerate the apparent size of the safety problem.
-- D: This describes multiplication rule and independence, not addition rule. It does not account for the quantities, conditions, or evidence in this statistics case.
+- A: This describes union. It does not answer the question about addition rule.
+- B: This describes conditional probability. It does not answer the question about addition rule.
+- C: Correct. Double-counting overlap would exaggerate the apparent size of the safety problem.
+- D: This describes multiplication rule and independence. It does not answer the question about addition rule.
+
 ### Review question 3
 
-**Prompt - exact player copy:** A teammate rechecks The Two-Site Alarm using new evidence: with duplicate reports removed, the shipment flag can become the conditioning group rather than another headline count. Which statistical conclusion or procedure correctly uses conditional probability?
+
+**Prompt - exact player copy:** Which statement best explains conditional probability?
 
 **Options - exact player copy:**
 
-- A. The event that A or B or both occur. Intersection: the event that A and B both occur. Conditional probability: the probability of A among cases where B occurred. Independent events: events for which knowing one occurred does not change the probability of the other. Mutually exclusive events: events that cannot occur together.
+- A. The event that A or B or both occur.
 - B. Double-counting overlap would exaggerate the apparent size of the safety problem.
 - C. A failed independence prediction justifies a targeted pause, not a claim that shipment handling caused every event.
-- D. A high conditional rate directs the next inspection toward handling without proving that handling caused harm.
+- D. A higher event rate within a shipment subgroup can motivate a handling investigation without proving that handling caused the events.
 
 **Correct answer:** D
 
-**Hint - exact player copy:** Use the stated evidence and the conditions for conditional probability; do not choose an option merely because it names a familiar term.
+**Hint - exact player copy:** Identify the defining relationship or mechanism for conditional probability. All needed information is in this question.
 
 **Option feedback - exact player copy:**
 
-- A: This describes Union, not conditional probability. It does not account for the quantities, conditions, or evidence in this statistics case.
-- B: This describes addition rule, not conditional probability. It does not account for the quantities, conditions, or evidence in this statistics case.
-- C: This describes multiplication rule and independence, not conditional probability. It does not account for the quantities, conditions, or evidence in this statistics case.
-- D: Correct. a high conditional rate directs the next inspection toward handling without proving that handling caused harm.
+- A: This describes union. It does not answer the question about conditional probability.
+- B: This describes addition rule. It does not answer the question about conditional probability.
+- C: This describes multiplication rule and independence. It does not answer the question about conditional probability.
+- D: Correct. A higher event rate within a shipment subgroup can motivate a handling investigation without proving that handling caused the events.
+
 ### Review question 4
 
-**Prompt - exact player copy:** An unseen case extends The Two-Site Alarm: the conditional rate is high, but concentration alone does not show whether shipment flags and serious events move independently. Run the reversible comparison now so the crew can tell whether the proposed cause changes the measured response. Which option correctly applies multiplication rule and independence to this follow-up case?
+
+**Prompt - exact player copy:** Which statement best explains multiplication rule and independence?
 
 **Options - exact player copy:**
 
 - A. A failed independence prediction justifies a targeted pause, not a claim that shipment handling caused every event.
-- B. The event that A or B or both occur. Intersection: the event that A and B both occur. Conditional probability: the probability of A among cases where B occurred. Independent events: events for which knowing one occurred does not change the probability of the other. Mutually exclusive events: events that cannot occur together.
+- B. The event that A or B or both occur.
 - C. Double-counting overlap would exaggerate the apparent size of the safety problem.
-- D. A high conditional rate directs the next inspection toward handling without proving that handling caused harm.
+- D. A higher event rate within a shipment subgroup can motivate a handling investigation without proving that handling caused the events.
 
 **Correct answer:** A
 
-**Hint - exact player copy:** Use the stated evidence and the conditions for multiplication rule and independence; do not choose an option merely because it names a familiar term.
+**Hint - exact player copy:** Identify the defining relationship or mechanism for multiplication rule and independence. All needed information is in this question.
 
 **Option feedback - exact player copy:**
 
-- A: Correct. a failed independence prediction justifies a targeted pause, not a claim that shipment handling caused every event.
-- B: This describes Union, not multiplication rule and independence. It does not account for the quantities, conditions, or evidence in this statistics case.
-- C: This describes addition rule, not multiplication rule and independence. It does not account for the quantities, conditions, or evidence in this statistics case.
-- D: This describes conditional probability, not multiplication rule and independence. It does not account for the quantities, conditions, or evidence in this statistics case.
+- A: Correct. A failed independence prediction justifies a targeted pause, not a claim that shipment handling caused every event.
+- B: This describes union. It does not answer the question about multiplication rule and independence.
+- C: This describes addition rule. It does not answer the question about multiplication rule and independence.
+- D: This describes conditional probability. It does not answer the question about multiplication rule and independence.
+
 ### Review question 5
 
-**Prompt - exact player copy:** Before another Two-Site Alarm decision, the team knows this: the unique warning rate is 11%, flagged shipments have a 40% serious-event rate, and observed overlap is five times the independent prediction. Which option correctly applies complement, independence versus exclusivity, exposure denominators to this follow-up case?
+
+**Prompt - exact player copy:** Which statement best explains complement, independence versus exclusivity, exposure denominators?
 
 **Options - exact player copy:**
 
-- A. The event that A or B or both occur. Intersection: the event that A and B both occur. Conditional probability: the probability of A among cases where B occurred. Independent events: events for which knowing one occurred does not change the probability of the other. Mutually exclusive events: events that cannot occur together.
+- A. The event that A or B or both occur.
 - B. The narrowest safe action preserves evidence while preventing more exposure where the signal is concentrated.
 - C. Double-counting overlap would exaggerate the apparent size of the safety problem.
-- D. A high conditional rate directs the next inspection toward handling without proving that handling caused harm.
+- D. A higher event rate within a shipment subgroup can motivate a handling investigation without proving that handling caused the events.
 
 **Correct answer:** B
 
-**Hint - exact player copy:** Use the stated evidence and the conditions for complement, independence versus exclusivity, exposure denominators; do not choose an option merely because it names a familiar term.
+**Hint - exact player copy:** Identify the defining relationship or mechanism for complement, independence versus exclusivity, exposure denominators. All needed information is in this question.
 
 **Option feedback - exact player copy:**
 
-- A: This describes Union, not complement, independence versus exclusivity, exposure denominators. It does not account for the quantities, conditions, or evidence in this statistics case.
-- B: Correct. the narrowest safe action preserves evidence while preventing more exposure where the signal is concentrated.
-- C: This describes addition rule, not complement, independence versus exclusivity, exposure denominators. It does not account for the quantities, conditions, or evidence in this statistics case.
-- D: This describes conditional probability, not complement, independence versus exclusivity, exposure denominators. It does not account for the quantities, conditions, or evidence in this statistics case.
+- A: This describes union. It does not answer the question about complement, independence versus exclusivity, exposure denominators.
+- B: Correct. The narrowest safe action preserves evidence while preventing more exposure where the signal is concentrated.
+- C: This describes addition rule. It does not answer the question about complement, independence versus exclusivity, exposure denominators.
+- D: This describes conditional probability. It does not answer the question about complement, independence versus exclusivity, exposure denominators.
+
 ### Review question 6
 
-**Prompt - exact player copy:** the Fenwick trial applies the lesson from The Two-Site Alarm to this follow-up: eight percent of patients had a serious event, five percent had a shipment flag, and two percent had both. Which option correctly applies Variable to this follow-up case?
+
+**Prompt - exact player copy:** Which statement best explains variable?
 
 **Options - exact player copy:**
 
-- A. The event that A or B or both occur. Intersection: the event that A and B both occur. Conditional probability: the probability of A among cases where B occurred. Independent events: events for which knowing one occurred does not change the probability of the other. Mutually exclusive events: events that cannot occur together.
+- A. The event that A or B or both occur.
 - B. Double-counting overlap would exaggerate the apparent size of the safety problem.
-- C. A characteristic recorded for each patient. Categorical variable: a variable placing a patient into a group. Quantitative variable: a variable recorded as a meaningful number. Parameter: a fixed but usually unknown number describing a population. Statistic: a number computed from a sample.
-- D. A high conditional rate directs the next inspection toward handling without proving that handling caused harm.
+- C. A characteristic recorded for each patient.
+- D. A higher event rate within a shipment subgroup can motivate a handling investigation without proving that handling caused the events.
 
 **Correct answer:** C
 
-**Hint - exact player copy:** Use the stated evidence and the conditions for Variable; do not choose an option merely because it names a familiar term.
+**Hint - exact player copy:** Identify the defining relationship or mechanism for variable. All needed information is in this question.
 
 **Option feedback - exact player copy:**
 
-- A: This describes Union, not Variable. It does not account for the quantities, conditions, or evidence in this statistics case.
-- B: This describes addition rule, not Variable. It does not account for the quantities, conditions, or evidence in this statistics case.
-- C: Correct. a characteristic recorded for each patient. Categorical variable: a variable placing a patient into a group. Quantitative variable: a variable recorded as a meaningful number. Parameter: a fixed but usually unknown number describing a population. Statistic: a number computed from a sample.
-- D: This describes conditional probability, not Variable. It does not account for the quantities, conditions, or evidence in this statistics case.
-**Optional review completion - exact player copy:** Excellent work. You went beyond the required mission and strengthened the ideas behind your decision.
+- A: This describes union. It does not answer the question about variable.
+- B: This describes addition rule. It does not answer the question about variable.
+- C: Correct. A characteristic recorded for each patient.
+- D: This describes conditional probability. It does not answer the question about variable.
+
+**Optional review completion - exact player copy:** Good work. You have completed six independent practice questions.
+
 ## Quick concept review
 - Conditional probability changes the denominator.
 - Subtract overlap in an addition rule.
@@ -2199,7 +2233,7 @@ Expected value is a probability-weighted long-run mean. Independent variances ad
 
 **Question card story-science connection - exact player copy:** Expected reports per site-day establish the long-run workload for the clinical patient-safety review shift.
 
-**Fixture source panel - exact player copy:** A site-day produces 0 reports with probability 0.70, 1 with probability 0.25, and 2 with probability 0.05. Build the expected-value sum before assigning the limited overnight clinical patient-safety review shift. P(0)=0.70 P(1)=0.25 P(2)=0.05
+**Fixture source panel - exact player copy:** A site-day produces 0 reports with probability 0.70, 1 with probability 0.25, and 2 with probability 0.05. Build the expected-value sum before assigning the limited overnight clinical patient-safety review shift.
 
 **Source-panel timing:** Show at this stop’s declared fixture before its DERIVE choices unlock. Keep visible while the player works. These are model inputs and prior observations, not new measurements or an accepted answer. Symbolic derivations stay symbolic; do not invent a number merely to force substitution.
 
@@ -2264,7 +2298,7 @@ derive:
 
 **Question card story-science connection - exact player copy:** The combined mean and standard deviation determine the scale and variability of the overnight queue.
 
-**Fixture source panel - exact player copy:** Region A has mean 10 reports and SD 3; Region B has mean 8 and SD 4. Combine their independent streams to size the queue without incorrectly adding standard deviations. Independent streams A and B have means 10 and 8 reports and standard deviations 3 and 4 reports.
+**Fixture source panel - exact player copy:** Region A has mean 10 reports and SD 3; Region B has mean 8 and SD 4. Combine their independent streams to size the queue without incorrectly adding standard deviations.
 
 **Source-panel timing:** Show at this stop’s declared fixture before its DERIVE choices unlock. Keep visible while the player works. These are model inputs and prior observations, not new measurements or an accepted answer. Symbolic derivations stay symbolic; do not invent a number merely to force substitution.
 
@@ -2482,139 +2516,152 @@ MISSION 4 COMPLETE; TIME {elapsed} / TARGET 15:00; INCORRECT SUBMISSIONS {incorr
 
 **Availability:** Reveal only after mission completion when the player selects **GO DEEPER**. This section is optional, ungraded for campaign progress, and does not change metrics, Recovery Points, or the next-mission unlock.
 
-**Secondary briefing card - exact player copy:** You completed The Opened Envelope. Choose GO DEEPER to revisit the four decisions and explore related course ideas; this optional review does not change your metrics or delay the next mission.
+**Secondary briefing card - exact player copy:** Try six independent practice questions. Each includes its own context and any needed data; no mission records are required.
 
 ### Review focus
 
-No additional prerequisite is required. These AP-style questions apply the mission's course ideas to follow-up evidence, including related topics not required in the four main stops.
+No additional prerequisite is required. These practice questions review related course ideas. Each question stands alone, including its choices and figure.
 
 ### Review question 1
 
-**Prompt - exact player copy:** In a follow-up to The Opened Envelope, a site-day produces 0 reports with probability 0.70, 1 with probability 0.25, and 2 with probability 0.05. Which statistical conclusion or procedure correctly uses Random variable?
+
+**Prompt - exact player copy:** Which statement best explains random variable?
 
 **Options - exact player copy:**
 
 - A. Expected workload controls whether delayed review could create a safety blind spot.
-- B. A numerical outcome determined by chance. Expected value: the long-run average value of a random variable. Type I error: rejecting a true null hypothesis. Type II error: failing to reject a false null hypothesis. Power: the probability that a test rejects a false null hypothesis.
-- C. Understating spread could leave serious reports waiting beyond the review limit.
-- D. The result prevents one event from being treated as impossible while the audit is open.
+- B. Understating spread could leave serious reports waiting beyond the review limit.
+- C. The result prevents one event from being treated as impossible while the audit is open.
+- D. A numerical outcome determined by chance.
 
-**Correct answer:** B
+**Correct answer:** D
 
-**Hint - exact player copy:** Use the stated evidence and the conditions for Random variable; do not choose an option merely because it names a familiar term.
+**Hint - exact player copy:** Identify the defining relationship or mechanism for random variable. All needed information is in this question.
 
 **Option feedback - exact player copy:**
 
-- A: This describes expected value, not Random variable. It does not account for the quantities, conditions, or evidence in this statistics case.
-- B: Correct. a numerical outcome determined by chance. Expected value: the long-run average value of a random variable. Type I error: rejecting a true null hypothesis. Type II error: failing to reject a false null hypothesis. Power: the probability that a test rejects a false null hypothesis.
-- C: This describes independent sums of RVs and linear transforms, not Random variable. It does not account for the quantities, conditions, or evidence in this statistics case.
-- D: This describes binomial complement, not Random variable. It does not account for the quantities, conditions, or evidence in this statistics case.
+- A: This describes expected value. It does not answer the question about random variable.
+- B: This describes independent sums of RVs and linear transforms. It does not answer the question about random variable.
+- C: This describes binomial complement. It does not answer the question about random variable.
+- D: Correct. A numerical outcome determined by chance.
+
 ### Review question 2
 
-**Prompt - exact player copy:** the Fenwick trial receives a second case related to The Opened Envelope: a site-day produces 0 reports with probability 0.70, 1 with probability 0.25, and 2 with probability 0.05. Which option correctly applies expected value to this follow-up case?
+
+**Prompt - exact player copy:** Which statement best explains expected value?
 
 **Options - exact player copy:**
 
-- A. A numerical outcome determined by chance. Expected value: the long-run average value of a random variable. Type I error: rejecting a true null hypothesis. Type II error: failing to reject a false null hypothesis. Power: the probability that a test rejects a false null hypothesis.
+- A. Expected workload controls whether delayed review could create a safety blind spot.
+- B. A numerical outcome determined by chance.
+- C. Understating spread could leave serious reports waiting beyond the review limit.
+- D. The result prevents one event from being treated as impossible while the audit is open.
+
+**Correct answer:** A
+
+**Hint - exact player copy:** Identify the defining relationship or mechanism for expected value. All needed information is in this question.
+
+**Option feedback - exact player copy:**
+
+- A: Correct. Expected workload controls whether delayed review could create a safety blind spot.
+- B: This describes random variable. It does not answer the question about expected value.
+- C: This describes independent sums of RVs and linear transforms. It does not answer the question about expected value.
+- D: This describes binomial complement. It does not answer the question about expected value.
+
+### Review question 3
+
+
+**Prompt - exact player copy:** Which statement best explains independent sums of RVs and linear transforms?
+
+**Options - exact player copy:**
+
+- A. A numerical outcome determined by chance.
 - B. Understating spread could leave serious reports waiting beyond the review limit.
 - C. Expected workload controls whether delayed review could create a safety blind spot.
 - D. The result prevents one event from being treated as impossible while the audit is open.
 
-**Correct answer:** C
+**Correct answer:** B
 
-**Hint - exact player copy:** Use the stated evidence and the conditions for expected value; do not choose an option merely because it names a familiar term.
+**Hint - exact player copy:** Identify the defining relationship or mechanism for independent sums of rvs and linear transforms. All needed information is in this question.
 
 **Option feedback - exact player copy:**
 
-- A: This describes Random variable, not expected value. It does not account for the quantities, conditions, or evidence in this statistics case.
-- B: This describes independent sums of RVs and linear transforms, not expected value. It does not account for the quantities, conditions, or evidence in this statistics case.
-- C: Correct. expected workload controls whether delayed review could create a safety blind spot.
-- D: This describes binomial complement, not expected value. It does not account for the quantities, conditions, or evidence in this statistics case.
-### Review question 3
+- A: This describes random variable. It does not answer the question about independent sums of rvs and linear transforms.
+- B: Correct. Understating spread could leave serious reports waiting beyond the review limit.
+- C: This describes expected value. It does not answer the question about independent sums of rvs and linear transforms.
+- D: This describes binomial complement. It does not answer the question about independent sums of rvs and linear transforms.
 
-**Prompt - exact player copy:** A teammate rechecks The Opened Envelope using new evidence: region A has mean 10 reports and SD 3; Region B has mean 8 and SD 4. Which option correctly applies independent sums of RVs and linear transforms to this follow-up case?
+### Review question 4
+
+
+**Prompt - exact player copy:** Which statement best explains binomial complement?
 
 **Options - exact player copy:**
 
-- A. A numerical outcome determined by chance. Expected value: the long-run average value of a random variable. Type I error: rejecting a true null hypothesis. Type II error: failing to reject a false null hypothesis. Power: the probability that a test rejects a false null hypothesis.
+- A. A numerical outcome determined by chance.
 - B. Expected workload controls whether delayed review could create a safety blind spot.
 - C. The result prevents one event from being treated as impossible while the audit is open.
 - D. Understating spread could leave serious reports waiting beyond the review limit.
 
-**Correct answer:** D
+**Correct answer:** C
 
-**Hint - exact player copy:** Use the stated evidence and the conditions for independent sums of RVs and linear transforms; do not choose an option merely because it names a familiar term.
+**Hint - exact player copy:** Identify the defining relationship or mechanism for binomial complement. All needed information is in this question.
 
 **Option feedback - exact player copy:**
 
-- A: This describes Random variable, not independent sums of RVs and linear transforms. It does not account for the quantities, conditions, or evidence in this statistics case.
-- B: This describes expected value, not independent sums of RVs and linear transforms. It does not account for the quantities, conditions, or evidence in this statistics case.
-- C: This describes binomial complement, not independent sums of RVs and linear transforms. It does not account for the quantities, conditions, or evidence in this statistics case.
-- D: Correct. understating spread could leave serious reports waiting beyond the review limit.
-### Review question 4
+- A: This describes random variable. It does not answer the question about binomial complement.
+- B: This describes expected value. It does not answer the question about binomial complement.
+- C: Correct. The result prevents one event from being treated as impossible while the audit is open.
+- D: This describes independent sums of RVs and linear transforms. It does not answer the question about binomial complement.
 
-**Prompt - exact player copy:** An unseen case extends The Opened Envelope: with queue uncertainty sized, the board asks whether another event during review would be surprising. The next action depends on selecting the conclusion that fits all of those facts. Which option correctly applies binomial complement to this follow-up case?
+### Review question 5
+
+
+**Prompt - exact player copy:** Which statement best explains false positives, false negatives, significance level, and statistical power?
 
 **Options - exact player copy:**
 
-- A. The result prevents one event from being treated as impossible while the audit is open.
-- B. A numerical outcome determined by chance. Expected value: the long-run average value of a random variable. Type I error: rejecting a true null hypothesis. Type II error: failing to reject a false null hypothesis. Power: the probability that a test rejects a false null hypothesis.
+- A. A numerical outcome determined by chance.
+- B. Expected workload controls whether delayed review could create a safety blind spot.
+- C. Understating spread could leave serious reports waiting beyond the review limit.
+- D. A transparent rule keeps urgency from moving the decision line after results are known.
+
+**Correct answer:** D
+
+**Hint - exact player copy:** Identify the defining relationship or mechanism for false positives, false negatives, significance level, and statistical power. All needed information is in this question.
+
+**Option feedback - exact player copy:**
+
+- A: This describes random variable. It does not answer the question about false positives, false negatives, significance level, and statistical power.
+- B: This describes expected value. It does not answer the question about false positives, false negatives, significance level, and statistical power.
+- C: This describes independent sums of RVs and linear transforms. It does not answer the question about false positives, false negatives, significance level, and statistical power.
+- D: Correct. A transparent rule keeps urgency from moving the decision line after results are known.
+
+### Review question 6
+
+
+**Prompt - exact player copy:** Which statement best explains variable?
+
+**Options - exact player copy:**
+
+- A. A characteristic recorded for each patient.
+- B. A numerical outcome determined by chance.
 - C. Expected workload controls whether delayed review could create a safety blind spot.
 - D. Understating spread could leave serious reports waiting beyond the review limit.
 
 **Correct answer:** A
 
-**Hint - exact player copy:** Use the stated evidence and the conditions for binomial complement; do not choose an option merely because it names a familiar term.
+**Hint - exact player copy:** Identify the defining relationship or mechanism for variable. All needed information is in this question.
 
 **Option feedback - exact player copy:**
 
-- A: Correct. the result prevents one event from being treated as impossible while the audit is open.
-- B: This describes Random variable, not binomial complement. It does not account for the quantities, conditions, or evidence in this statistics case.
-- C: This describes expected value, not binomial complement. It does not account for the quantities, conditions, or evidence in this statistics case.
-- D: This describes independent sums of RVs and linear transforms, not binomial complement. It does not account for the quantities, conditions, or evidence in this statistics case.
-### Review question 5
+- A: Correct. A characteristic recorded for each patient.
+- B: This describes random variable. It does not answer the question about variable.
+- C: This describes expected value. It does not answer the question about variable.
+- D: This describes independent sums of RVs and linear transforms. It does not answer the question about variable.
 
-**Prompt - exact player copy:** Before another Opened Envelope decision, the team knows this: the unplanned look spent one chance to make a false claim, while a delayed true warning could also harm patients. Write the action threshold now, before new evidence or operational pressure can move it. Which statistical conclusion or procedure correctly uses Type I/II, alpha, power?
+**Optional review completion - exact player copy:** Good work. You have completed six independent practice questions.
 
-**Options - exact player copy:**
-
-- A. A numerical outcome determined by chance. Expected value: the long-run average value of a random variable. Type I error: rejecting a true null hypothesis. Type II error: failing to reject a false null hypothesis. Power: the probability that a test rejects a false null hypothesis.
-- B. A transparent rule keeps urgency from moving the decision line after results are known.
-- C. Expected workload controls whether delayed review could create a safety blind spot.
-- D. Understating spread could leave serious reports waiting beyond the review limit.
-
-**Correct answer:** B
-
-**Hint - exact player copy:** Use the stated evidence and the conditions for Type I/II, alpha, power; do not choose an option merely because it names a familiar term.
-
-**Option feedback - exact player copy:**
-
-- A: This describes Random variable, not Type I/II, alpha, power. It does not account for the quantities, conditions, or evidence in this statistics case.
-- B: Correct. a transparent rule keeps urgency from moving the decision line after results are known.
-- C: This describes expected value, not Type I/II, alpha, power. It does not account for the quantities, conditions, or evidence in this statistics case.
-- D: This describes independent sums of RVs and linear transforms, not Type I/II, alpha, power. It does not account for the quantities, conditions, or evidence in this statistics case.
-### Review question 6
-
-**Prompt - exact player copy:** the Fenwick trial applies the lesson from The Opened Envelope to this follow-up: a site-day produces 0 reports with probability 0.70, 1 with probability 0.25, and 2 with probability 0.05. Which option correctly applies Variable to this follow-up case?
-
-**Options - exact player copy:**
-
-- A. A numerical outcome determined by chance. Expected value: the long-run average value of a random variable. Type I error: rejecting a true null hypothesis. Type II error: failing to reject a false null hypothesis. Power: the probability that a test rejects a false null hypothesis.
-- B. Expected workload controls whether delayed review could create a safety blind spot.
-- C. A characteristic recorded for each patient. Categorical variable: a variable placing a patient into a group. Quantitative variable: a variable recorded as a meaningful number. Parameter: a fixed but usually unknown number describing a population. Statistic: a number computed from a sample.
-- D. Understating spread could leave serious reports waiting beyond the review limit.
-
-**Correct answer:** C
-
-**Hint - exact player copy:** Use the stated evidence and the conditions for Variable; do not choose an option merely because it names a familiar term.
-
-**Option feedback - exact player copy:**
-
-- A: This describes Random variable, not Variable. It does not account for the quantities, conditions, or evidence in this statistics case.
-- B: This describes expected value, not Variable. It does not account for the quantities, conditions, or evidence in this statistics case.
-- C: Correct. a characteristic recorded for each patient. Categorical variable: a variable placing a patient into a group. Quantitative variable: a variable recorded as a meaningful number. Parameter: a fixed but usually unknown number describing a population. Statistic: a number computed from a sample.
-- D: This describes independent sums of RVs and linear transforms, not Variable. It does not account for the quantities, conditions, or evidence in this statistics case.
-**Optional review completion - exact player copy:** Excellent work. You went beyond the required mission and strengthened the ideas behind your decision.
 ## Quick concept review
 - Expected value is a long-run average.
 - Add independent variances, then take a square root for SD.
@@ -2935,139 +2982,152 @@ MISSION 5 COMPLETE; TIME {elapsed} / TARGET 14:00; INCORRECT SUBMISSIONS {incorr
 
 **Availability:** Reveal only after mission completion when the player selects **GO DEEPER**. This section is optional, ungraded for campaign progress, and does not change metrics, Recovery Points, or the next-mission unlock.
 
-**Secondary briefing card - exact player copy:** You completed The Fast Site. Choose GO DEEPER to revisit the four decisions and explore related course ideas; this optional review does not change your metrics or delay the next mission.
+**Secondary briefing card - exact player copy:** Try six independent practice questions. Each includes its own context and any needed data; no mission records are required.
 
 ### Review focus
 
-No additional prerequisite is required. These AP-style questions apply the mission's course ideas to follow-up evidence, including related topics not required in the four main stops.
+No additional prerequisite is required. These practice questions review related course ideas. Each question stands alone, including its choices and figure.
 
 ### Review question 1
 
-**Prompt - exact player copy:** In a follow-up to The Fast Site, random assignment inside the trial supports a treatment comparison, but the fast site's enrollment frame omitted many rural patients. Which option correctly applies Sampling frame to this follow-up case?
+
+**Prompt - exact player copy:** Which statement best explains sampling frame?
 
 **Options - exact player copy:**
 
 - A. A chance mechanism prevents staff from selecting only easy or complete charts.
-- B. The list or process from which a sample is selected. Simple random sample: a sample for which every set of size n is equally likely. Stratified sample: separate random samples drawn within defined groups. Cluster sample: randomly selected whole groups. Systematic sample: a random start followed by every kth item. Undercoverage: members of the population are absent from the frame.
+- B. The list or process from which a sample is selected.
 - C. Stratification protects comparison across important groups while keeping selection random.
 - D. Different bias mechanisms require different repairs and support different claims.
 
 **Correct answer:** B
 
-**Hint - exact player copy:** Use the stated evidence and the conditions for Sampling frame; do not choose an option merely because it names a familiar term.
+**Hint - exact player copy:** Identify the defining relationship or mechanism for sampling frame. All needed information is in this question.
 
 **Option feedback - exact player copy:**
 
-- A: This describes SRS/RNG, not Sampling frame. It does not account for the quantities, conditions, or evidence in this statistics case.
-- B: Correct. the list or process from which a sample is selected. Simple random sample: a sample for which every set of size n is equally likely. Stratified sample: separate random samples drawn within defined groups. Cluster sample: randomly selected whole groups. Systematic sample: a random start followed by every kth item. Undercoverage: members of the population are absent from the frame.
-- C: This describes stratified/cluster/systematic, not Sampling frame. It does not account for the quantities, conditions, or evidence in this statistics case.
-- D: This describes undercoverage/nonresponse/response bias, not Sampling frame. It does not account for the quantities, conditions, or evidence in this statistics case.
+- A: This describes selection using a simple random sample. It does not answer the question about sampling frame.
+- B: Correct. The list or process from which a sample is selected.
+- C: This describes stratified and cluster and systematic. It does not answer the question about sampling frame.
+- D: This describes undercoverage and nonresponse and response bias. It does not answer the question about sampling frame.
+
 ### Review question 2
 
-**Prompt - exact player copy:** the Fenwick trial receives a second case related to The Fast Site: the site has charts numbered 001 through 240, and the audit needs 12 without replacement. Assign a response to each condition now so the crew has an action rule it can follow under pressure. Which option correctly applies SRS/RNG to this follow-up case?
+
+**Prompt - exact player copy:** Which statement best explains selection using a simple random sample?
 
 **Options - exact player copy:**
 
-- A. The list or process from which a sample is selected. Simple random sample: a sample for which every set of size n is equally likely. Stratified sample: separate random samples drawn within defined groups. Cluster sample: randomly selected whole groups. Systematic sample: a random start followed by every kth item. Undercoverage: members of the population are absent from the frame.
+- A. The list or process from which a sample is selected.
 - B. Stratification protects comparison across important groups while keeping selection random.
 - C. A chance mechanism prevents staff from selecting only easy or complete charts.
 - D. Different bias mechanisms require different repairs and support different claims.
 
 **Correct answer:** C
 
-**Hint - exact player copy:** Use the stated evidence and the conditions for SRS/RNG; do not choose an option merely because it names a familiar term.
+**Hint - exact player copy:** Identify the defining relationship or mechanism for selection using a simple random sample. All needed information is in this question.
 
 **Option feedback - exact player copy:**
 
-- A: This describes Sampling frame, not SRS/RNG. It does not account for the quantities, conditions, or evidence in this statistics case.
-- B: This describes stratified/cluster/systematic, not SRS/RNG. It does not account for the quantities, conditions, or evidence in this statistics case.
-- C: Correct. a chance mechanism prevents staff from selecting only easy or complete charts.
-- D: This describes undercoverage/nonresponse/response bias, not SRS/RNG. It does not account for the quantities, conditions, or evidence in this statistics case.
+- A: This describes sampling frame. It does not answer the question about selection using a simple random sample.
+- B: This describes stratified and cluster and systematic. It does not answer the question about selection using a simple random sample.
+- C: Correct. A chance mechanism prevents staff from selecting only easy or complete charts.
+- D: This describes undercoverage and nonresponse and response bias. It does not answer the question about selection using a simple random sample.
+
 ### Review question 3
 
-**Prompt - exact player copy:** A teammate rechecks The Fast Site using new evidence: the chance audit works, but a plain SRS could include too few rural patients to check travel barriers. The next action depends on selecting the conclusion that fits all of those facts. Which option correctly applies stratified/cluster/systematic to this follow-up case?
+
+**Prompt - exact player copy:** Which statement best explains stratified and cluster and systematic?
 
 **Options - exact player copy:**
 
-- A. The list or process from which a sample is selected. Simple random sample: a sample for which every set of size n is equally likely. Stratified sample: separate random samples drawn within defined groups. Cluster sample: randomly selected whole groups. Systematic sample: a random start followed by every kth item. Undercoverage: members of the population are absent from the frame.
+- A. The list or process from which a sample is selected.
 - B. A chance mechanism prevents staff from selecting only easy or complete charts.
 - C. Different bias mechanisms require different repairs and support different claims.
 - D. Stratification protects comparison across important groups while keeping selection random.
 
 **Correct answer:** D
 
-**Hint - exact player copy:** Use the stated evidence and the conditions for stratified/cluster/systematic; do not choose an option merely because it names a familiar term.
+**Hint - exact player copy:** Identify the defining relationship or mechanism for stratified and cluster and systematic. All needed information is in this question.
 
 **Option feedback - exact player copy:**
 
-- A: This describes Sampling frame, not stratified/cluster/systematic. It does not account for the quantities, conditions, or evidence in this statistics case.
-- B: This describes SRS/RNG, not stratified/cluster/systematic. It does not account for the quantities, conditions, or evidence in this statistics case.
-- C: This describes undercoverage/nonresponse/response bias, not stratified/cluster/systematic. It does not account for the quantities, conditions, or evidence in this statistics case.
-- D: Correct. stratification protects comparison across important groups while keeping selection random.
+- A: This describes sampling frame. It does not answer the question about stratified and cluster and systematic.
+- B: This describes selection using a simple random sample. It does not answer the question about stratified and cluster and systematic.
+- C: This describes undercoverage and nonresponse and response bias. It does not answer the question about stratified and cluster and systematic.
+- D: Correct. Stratification protects comparison across important groups while keeping selection random.
+
 ### Review question 4
 
-**Prompt - exact player copy:** An unseen case extends The Fast Site: the stratified roster exposes a sharp drop before enrollment, not only after questionnaires were sent. Sample the locations in order now so the crew can identify where the system first departs from normal. Which option correctly applies undercoverage/nonresponse/response bias to this follow-up case?
+
+**Prompt - exact player copy:** Which statement best explains undercoverage and nonresponse and response bias?
 
 **Options - exact player copy:**
 
 - A. Different bias mechanisms require different repairs and support different claims.
-- B. The list or process from which a sample is selected. Simple random sample: a sample for which every set of size n is equally likely. Stratified sample: separate random samples drawn within defined groups. Cluster sample: randomly selected whole groups. Systematic sample: a random start followed by every kth item. Undercoverage: members of the population are absent from the frame.
+- B. The list or process from which a sample is selected.
 - C. A chance mechanism prevents staff from selecting only easy or complete charts.
 - D. Stratification protects comparison across important groups while keeping selection random.
 
 **Correct answer:** A
 
-**Hint - exact player copy:** Use the stated evidence and the conditions for undercoverage/nonresponse/response bias; do not choose an option merely because it names a familiar term.
+**Hint - exact player copy:** Identify the defining relationship or mechanism for undercoverage and nonresponse and response bias. All needed information is in this question.
 
 **Option feedback - exact player copy:**
 
-- A: Correct. different bias mechanisms require different repairs and support different claims.
-- B: This describes Sampling frame, not undercoverage/nonresponse/response bias. It does not account for the quantities, conditions, or evidence in this statistics case.
-- C: This describes SRS/RNG, not undercoverage/nonresponse/response bias. It does not account for the quantities, conditions, or evidence in this statistics case.
-- D: This describes stratified/cluster/systematic, not undercoverage/nonresponse/response bias. It does not account for the quantities, conditions, or evidence in this statistics case.
+- A: Correct. Different bias mechanisms require different repairs and support different claims.
+- B: This describes sampling frame. It does not answer the question about undercoverage and nonresponse and response bias.
+- C: This describes selection using a simple random sample. It does not answer the question about undercoverage and nonresponse and response bias.
+- D: This describes stratified and cluster and systematic. It does not answer the question about undercoverage and nonresponse and response bias.
+
 ### Review question 5
 
-**Prompt - exact player copy:** Before another Fast Site decision, the team knows this: random assignment inside the trial supports a treatment comparison, but the fast site's enrollment frame omitted many rural patients. Which option correctly applies observational/experiment and inference scope to this follow-up case?
+
+**Prompt - exact player copy:** Which statement best explains observational and experiment and inference scope?
 
 **Options - exact player copy:**
 
-- A. The list or process from which a sample is selected. Simple random sample: a sample for which every set of size n is equally likely. Stratified sample: separate random samples drawn within defined groups. Cluster sample: randomly selected whole groups. Systematic sample: a random start followed by every kth item. Undercoverage: members of the population are absent from the frame.
+- A. The list or process from which a sample is selected.
 - B. A randomized experiment can support causation for studied participants without representing everyone the treatment may reach.
 - C. A chance mechanism prevents staff from selecting only easy or complete charts.
 - D. Stratification protects comparison across important groups while keeping selection random.
 
 **Correct answer:** B
 
-**Hint - exact player copy:** Use the stated evidence and the conditions for observational/experiment and inference scope; do not choose an option merely because it names a familiar term.
+**Hint - exact player copy:** Identify the defining relationship or mechanism for observational and experiment and inference scope. All needed information is in this question.
 
 **Option feedback - exact player copy:**
 
-- A: This describes Sampling frame, not observational/experiment and inference scope. It does not account for the quantities, conditions, or evidence in this statistics case.
-- B: Correct. a randomized experiment can support causation for studied participants without representing everyone the treatment may reach.
-- C: This describes SRS/RNG, not observational/experiment and inference scope. It does not account for the quantities, conditions, or evidence in this statistics case.
-- D: This describes stratified/cluster/systematic, not observational/experiment and inference scope. It does not account for the quantities, conditions, or evidence in this statistics case.
+- A: This describes sampling frame. It does not answer the question about observational and experiment and inference scope.
+- B: Correct. A randomized experiment can support causation for studied participants without representing everyone the treatment may reach.
+- C: This describes selection using a simple random sample. It does not answer the question about observational and experiment and inference scope.
+- D: This describes stratified and cluster and systematic. It does not answer the question about observational and experiment and inference scope.
+
 ### Review question 6
 
-**Prompt - exact player copy:** the Fenwick trial applies the lesson from The Fast Site to this follow-up: the site has charts numbered 001 through 240, and the audit needs 12 without replacement. Assign a response to each condition now so the crew has an action rule it can follow under pressure. Which option correctly applies Variable to this follow-up case?
+
+**Prompt - exact player copy:** Which statement best explains variable?
 
 **Options - exact player copy:**
 
-- A. The list or process from which a sample is selected. Simple random sample: a sample for which every set of size n is equally likely. Stratified sample: separate random samples drawn within defined groups. Cluster sample: randomly selected whole groups. Systematic sample: a random start followed by every kth item. Undercoverage: members of the population are absent from the frame.
+- A. The list or process from which a sample is selected.
 - B. A chance mechanism prevents staff from selecting only easy or complete charts.
-- C. A characteristic recorded for each patient. Categorical variable: a variable placing a patient into a group. Quantitative variable: a variable recorded as a meaningful number. Parameter: a fixed but usually unknown number describing a population. Statistic: a number computed from a sample.
+- C. A characteristic recorded for each patient.
 - D. Stratification protects comparison across important groups while keeping selection random.
 
 **Correct answer:** C
 
-**Hint - exact player copy:** Use the stated evidence and the conditions for Variable; do not choose an option merely because it names a familiar term.
+**Hint - exact player copy:** Identify the defining relationship or mechanism for variable. All needed information is in this question.
 
 **Option feedback - exact player copy:**
 
-- A: This describes Sampling frame, not Variable. It does not account for the quantities, conditions, or evidence in this statistics case.
-- B: This describes SRS/RNG, not Variable. It does not account for the quantities, conditions, or evidence in this statistics case.
-- C: Correct. a characteristic recorded for each patient. Categorical variable: a variable placing a patient into a group. Quantitative variable: a variable recorded as a meaningful number. Parameter: a fixed but usually unknown number describing a population. Statistic: a number computed from a sample.
-- D: This describes stratified/cluster/systematic, not Variable. It does not account for the quantities, conditions, or evidence in this statistics case.
-**Optional review completion - exact player copy:** Excellent work. You went beyond the required mission and strengthened the ideas behind your decision.
+- A: This describes sampling frame. It does not answer the question about variable.
+- B: This describes selection using a simple random sample. It does not answer the question about variable.
+- C: Correct. A characteristic recorded for each patient.
+- D: This describes stratified and cluster and systematic. It does not answer the question about variable.
+
+**Optional review completion - exact player copy:** Good work. You have completed six independent practice questions.
+
 ## Quick concept review
 - SRS gives every set of size n an equal chance.
 - Stratify to guarantee representation of key groups.
@@ -3334,7 +3394,7 @@ Control, random assignment, replication, blocking, and blinding protect experime
 
 **Question card story-science connection - exact player copy:** The sampling-distribution center and spread show what the proposed sample size changes about the proportion estimate.
 
-**Fixture source panel - exact player copy:** The corrected design expects improvement probability p=0.50 and needs n=400 independent patients from more than 4,000 eligible people. Derive the center and SD of the sampling distribution of p-hat. population>4000
+**Fixture source panel - exact player copy:** The corrected design expects improvement probability p=0.50 and needs n=400 independent patients from more than 4,000 eligible people. Derive the center and SD of the sampling distribution of p-hat.
 
 **Source-panel timing:** Show at this stop’s declared fixture before its DERIVE choices unlock. Keep visible while the player works. These are model inputs and prior observations, not new measurements or an accepted answer. Symbolic derivations stay symbolic; do not invent a number merely to force substitution.
 
@@ -3432,220 +3492,198 @@ MISSION 6 COMPLETE; TIME {elapsed} / TARGET 16:00; INCORRECT SUBMISSIONS {incorr
 
 **Availability:** Reveal only after mission completion when the player selects **GO DEEPER**. This section is optional, ungraded for campaign progress, and does not change metrics, Recovery Points, or the next-mission unlock.
 
-**Secondary briefing card - exact player copy:** You completed The Amendment Price. Choose GO DEEPER to revisit the four decisions and explore related course ideas; this optional review does not change your metrics or delay the next mission.
+**Secondary briefing card - exact player copy:** Try six independent practice questions. Each includes its own context and any needed data; no mission records are required.
 
 ### Review focus
 
-No additional prerequisite is required. These AP-style questions apply the mission's course ideas to follow-up evidence, including related topics not required in the four main stops.
+No additional prerequisite is required. These practice questions review related course ideas. Each question stands alone, including its choices and figure.
 
 ### Review question 1
 
-**Prompt - exact player copy:** In a follow-up to The Amendment Price, the new frame includes rural patients, but assignment must still separate treatment effects from site differences. Which option correctly applies Control to this follow-up case?
+
+**Prompt - exact player copy:** Which statement best explains control?
 
 **Options - exact player copy:**
 
 - A. Correct order prevents site mix from becoming a confounder.
-- B. Keeping conditions comparable except for the treatment. Random assignment: using chance to place experimental units into treatments. Replication: applying treatments to enough independent units. Blocking: grouping similar units before random assignment. Sampling distribution: distribution of a statistic across repeated samples.
-- C. Calling loose similarity a pair could understate variability and overstate precision.
-- D. Precision, not the observed sample center, determines whether the board can separate benefit from noise.
-
-**Correct answer:** B
-
-**Hint - exact player copy:** Use the stated evidence and the conditions for Control; do not choose an option merely because it names a familiar term.
-
-**Option feedback - exact player copy:**
-
-- A: This describes experiment principles, not Control. It does not account for the quantities, conditions, or evidence in this statistics case.
-- B: Correct. keeping conditions comparable except for the treatment. Random assignment: using chance to place experimental units into treatments. Replication: applying treatments to enough independent units. Blocking: grouping similar units before random assignment. Sampling distribution: distribution of a statistic across repeated samples.
-- C: This describes matched pairs/blinding, not Control. It does not account for the quantities, conditions, or evidence in this statistics case.
-- D: This describes sampling distribution/CLT/10% idea, not Control. It does not account for the quantities, conditions, or evidence in this statistics case.
-### Review question 2
-
-**Prompt - exact player copy:** the Fenwick trial receives a second case related to The Amendment Price: the new frame includes rural patients, but assignment must still separate treatment effects from site differences. Which option correctly applies experiment principles to this follow-up case?
-
-**Options - exact player copy:**
-
-- A. Keeping conditions comparable except for the treatment. Random assignment: using chance to place experimental units into treatments. Replication: applying treatments to enough independent units. Blocking: grouping similar units before random assignment. Sampling distribution: distribution of a statistic across repeated samples.
 - B. Calling loose similarity a pair could understate variability and overstate precision.
-- C. Correct order prevents site mix from becoming a confounder.
-- D. Precision, not the observed sample center, determines whether the board can separate benefit from noise.
-
-**Correct answer:** C
-
-**Hint - exact player copy:** Use the stated evidence and the conditions for experiment principles; do not choose an option merely because it names a familiar term.
-
-**Option feedback - exact player copy:**
-
-- A: This describes Control, not experiment principles. It does not account for the quantities, conditions, or evidence in this statistics case.
-- B: This describes matched pairs/blinding, not experiment principles. It does not account for the quantities, conditions, or evidence in this statistics case.
-- C: Correct. correct order prevents site mix from becoming a confounder.
-- D: This describes sampling distribution/CLT/10% idea, not experiment principles. It does not account for the quantities, conditions, or evidence in this statistics case.
-### Review question 3
-
-**Prompt - exact player copy:** A teammate rechecks The Amendment Price using new evidence: with the design order fixed, one proposal pairs unrelated patients from different sites solely because their ages match. The next action depends on selecting the conclusion that fits all of those facts. Which option correctly applies matched pairs/blinding to this follow-up case?
-
-**Options - exact player copy:**
-
-- A. Keeping conditions comparable except for the treatment. Random assignment: using chance to place experimental units into treatments. Replication: applying treatments to enough independent units. Blocking: grouping similar units before random assignment. Sampling distribution: distribution of a statistic across repeated samples.
-- B. Correct order prevents site mix from becoming a confounder.
-- C. Precision, not the observed sample center, determines whether the board can separate benefit from noise.
-- D. Calling loose similarity a pair could understate variability and overstate precision.
+- C. Precision, not the observed sample center, determines whether the researchers can separate benefit from noise.
+- D. Keeping conditions comparable except for the treatment.
 
 **Correct answer:** D
 
-**Hint - exact player copy:** Use the stated evidence and the conditions for matched pairs/blinding; do not choose an option merely because it names a familiar term.
+**Hint - exact player copy:** Identify the defining relationship or mechanism for control. All needed information is in this question.
 
 **Option feedback - exact player copy:**
 
-- A: This describes Control, not matched pairs/blinding. It does not account for the quantities, conditions, or evidence in this statistics case.
-- B: This describes experiment principles, not matched pairs/blinding. It does not account for the quantities, conditions, or evidence in this statistics case.
-- C: This describes sampling distribution/CLT/10% idea, not matched pairs/blinding. It does not account for the quantities, conditions, or evidence in this statistics case.
-- D: Correct. calling loose similarity a pair could understate variability and overstate precision.
-### Review question 4
+- A: This describes experiment principles. It does not answer the question about control.
+- B: This describes matched pairs and blinding. It does not answer the question about control.
+- C: This describes sampling distribution and CLT and 10% idea. It does not answer the question about control.
+- D: Correct. Keeping conditions comparable except for the treatment.
 
-**Prompt - exact player copy:** An unseen case extends The Amendment Price: the new frame includes rural patients, but assignment must still separate treatment effects from site differences. Which interpretation of the displayed evidence correctly uses the mission concept?
+### Review question 2
 
-**Figure - exact player copy:**
 
-```json
-{
-  "kind": "line",
-  "xLabel": "Standardized estimate",
-  "yLabel": "Relative frequency",
-  "caption": "A centered sampling distribution with symmetric tails.",
-  "series": [
-    {
-      "name": "Distribution",
-      "points": [
-        [
-          -3,
-          0.01
-        ],
-        [
-          -2,
-          0.06
-        ],
-        [
-          -1,
-          0.24
-        ],
-        [
-          0,
-          0.4
-        ],
-        [
-          1,
-          0.24
-        ],
-        [
-          2,
-          0.06
-        ],
-        [
-          3,
-          0.01
-        ]
-      ]
-    }
-  ]
-}
-```
-
+**Prompt - exact player copy:** Which statement best explains experiment principles?
 
 **Options - exact player copy:**
 
-- A. Precision, not the observed sample center, determines whether the board can separate benefit from noise.
-- B. Keeping conditions comparable except for the treatment. Random assignment: using chance to place experimental units into treatments. Replication: applying treatments to enough independent units. Blocking: grouping similar units before random assignment. Sampling distribution: distribution of a statistic across repeated samples.
-- C. Correct order prevents site mix from becoming a confounder.
-- D. Calling loose similarity a pair could understate variability and overstate precision.
+- A. Correct order prevents site mix from becoming a confounder.
+- B. Keeping conditions comparable except for the treatment.
+- C. Calling loose similarity a pair could understate variability and overstate precision.
+- D. Precision, not the observed sample center, determines whether the researchers can separate benefit from noise.
 
 **Correct answer:** A
 
-**Hint - exact player copy:** Read the axes, units, direction, and any threshold before comparing the choices.
+**Hint - exact player copy:** Identify the defining relationship or mechanism for experiment principles. All needed information is in this question.
 
 **Option feedback - exact player copy:**
 
-- A: Correct. precision, not the observed sample center, determines whether the board can separate benefit from noise.
-- B: This describes Control, not sampling distribution/CLT/10% idea. It does not account for the quantities, conditions, or evidence in this statistics case.
-- C: This describes experiment principles, not sampling distribution/CLT/10% idea. It does not account for the quantities, conditions, or evidence in this statistics case.
-- D: This describes matched pairs/blinding, not sampling distribution/CLT/10% idea. It does not account for the quantities, conditions, or evidence in this statistics case.
-### Review question 5
+- A: Correct. Correct order prevents site mix from becoming a confounder.
+- B: This describes control. It does not answer the question about experiment principles.
+- C: This describes matched pairs and blinding. It does not answer the question about experiment principles.
+- D: This describes sampling distribution and CLT and 10% idea. It does not answer the question about experiment principles.
 
-**Prompt - exact player copy:** Before another Amendment Price decision, the team knows this: the new frame includes rural patients, but assignment must still separate treatment effects from site differences. Which interpretation of the displayed evidence correctly uses the mission concept?
+### Review question 3
+
+
+**Prompt - exact player copy:** Which statement best explains matched pairs and blinding?
+
+**Options - exact player copy:**
+
+- A. Keeping conditions comparable except for the treatment.
+- B. Calling loose similarity a pair could understate variability and overstate precision.
+- C. Correct order prevents site mix from becoming a confounder.
+- D. Precision, not the observed sample center, determines whether the researchers can separate benefit from noise.
+
+**Correct answer:** B
+
+**Hint - exact player copy:** Identify the defining relationship or mechanism for matched pairs and blinding. All needed information is in this question.
+
+**Option feedback - exact player copy:**
+
+- A: This describes control. It does not answer the question about matched pairs and blinding.
+- B: Correct. Calling loose similarity a pair could understate variability and overstate precision.
+- C: This describes experiment principles. It does not answer the question about matched pairs and blinding.
+- D: This describes sampling distribution and CLT and 10% idea. It does not answer the question about matched pairs and blinding.
+
+### Review question 4
+
+
+**Prompt - exact player copy:** For independent samples from a population with p=0.50, how does increasing n from 100 to 400 change the sampling distribution?
 
 **Figure - exact player copy:**
 
 ```json
 {
   "kind": "bars",
-  "xLabel": "Trial number",
-  "yLabel": "Probability",
-  "caption": "Probability that the first success occurs on each trial.",
+  "xLabel": "Category",
+  "yLabel": "Standard deviation of sample proportion",
+  "caption": "Independent sampling from a population with p=0.50",
   "bars": [
     {
-      "name": "Trial 1",
-      "value": 0.3
+      "name": "n=100",
+      "value": 0.05
     },
     {
-      "name": "Trial 2",
-      "value": 0.21
-    },
-    {
-      "name": "Trial 3",
-      "value": 0.147
-    },
-    {
-      "name": "Trial 4",
-      "value": 0.103
-    },
-    {
-      "name": "Trial 5",
-      "value": 0.072
+      "name": "n=400",
+      "value": 0.025
     }
   ]
 }
 ```
 
-
 **Options - exact player copy:**
 
-- A. Keeping conditions comparable except for the treatment. Random assignment: using chance to place experimental units into treatments. Replication: applying treatments to enough independent units. Blocking: grouping similar units before random assignment. Sampling distribution: distribution of a statistic across repeated samples.
-- B. The waiting-time estimate turns a statistical repair into a calendar cost.
-- C. Correct order prevents site mix from becoming a confounder.
-- D. Calling loose similarity a pair could understate variability and overstate precision.
-
-**Correct answer:** B
-
-**Hint - exact player copy:** Read the axes, units, direction, and any threshold before comparing the choices.
-
-**Option feedback - exact player copy:**
-
-- A: This describes Control, not geometric versus binomial. It does not account for the quantities, conditions, or evidence in this statistics case.
-- B: Correct. the waiting-time estimate turns a statistical repair into a calendar cost.
-- C: This describes experiment principles, not geometric versus binomial. It does not account for the quantities, conditions, or evidence in this statistics case.
-- D: This describes matched pairs/blinding, not geometric versus binomial. It does not account for the quantities, conditions, or evidence in this statistics case.
-### Review question 6
-
-**Prompt - exact player copy:** the Fenwick trial applies the lesson from The Amendment Price to this follow-up: the new frame includes rural patients, but assignment must still separate treatment effects from site differences. Which option correctly applies Variable to this follow-up case?
-
-**Options - exact player copy:**
-
-- A. Keeping conditions comparable except for the treatment. Random assignment: using chance to place experimental units into treatments. Replication: applying treatments to enough independent units. Blocking: grouping similar units before random assignment. Sampling distribution: distribution of a statistic across repeated samples.
-- B. Correct order prevents site mix from becoming a confounder.
-- C. A characteristic recorded for each patient. Categorical variable: a variable placing a patient into a group. Quantitative variable: a variable recorded as a meaningful number. Parameter: a fixed but usually unknown number describing a population. Statistic: a number computed from a sample.
-- D. Calling loose similarity a pair could understate variability and overstate precision.
+- A. Its mean halves.
+- B. Its standard deviation doubles.
+- C. Its standard deviation halves while its mean stays at 0.50.
+- D. It removes sampling variability entirely.
 
 **Correct answer:** C
 
-**Hint - exact player copy:** Use the stated evidence and the conditions for Variable; do not choose an option merely because it names a familiar term.
+**Hint - exact player copy:** Use SD=√[p(1−p)/n].
 
 **Option feedback - exact player copy:**
 
-- A: This describes Control, not Variable. It does not account for the quantities, conditions, or evidence in this statistics case.
-- B: This describes experiment principles, not Variable. It does not account for the quantities, conditions, or evidence in this statistics case.
-- C: Correct. a characteristic recorded for each patient. Categorical variable: a variable placing a patient into a group. Quantitative variable: a variable recorded as a meaningful number. Parameter: a fixed but usually unknown number describing a population. Statistic: a number computed from a sample.
-- D: This describes matched pairs/blinding, not Variable. It does not account for the quantities, conditions, or evidence in this statistics case.
-**Optional review completion - exact player copy:** Excellent work. You went beyond the required mission and strengthened the ideas behind your decision.
+- A: Sample size changes precision, not the population proportion.
+- B: The standard deviation scales as 1/√n.
+- C: Correct. Its standard deviation halves while its mean stays at 0.50.
+- D: The standard deviation remains positive at finite n.
+
+### Review question 5
+
+
+**Prompt - exact player copy:** Each independent screen has a 0.20 chance of enrollment. Screening stops at the first enrollment. Which model describes the number of screens?
+
+**Figure - exact player copy:**
+
+```json
+{
+  "kind": "bars",
+  "xLabel": "Category",
+  "yLabel": "Probability of first enrollment",
+  "caption": "Independent screens, each with enrollment probability 0.20",
+  "bars": [
+    {
+      "name": "First screen",
+      "value": 0.2
+    },
+    {
+      "name": "Second screen",
+      "value": 0.16
+    },
+    {
+      "name": "Third screen",
+      "value": 0.128
+    }
+  ]
+}
+```
+
+**Options - exact player copy:**
+
+- A. A binomial distribution with a fixed trial count.
+- B. A uniform distribution.
+- C. A Normal distribution exactly.
+- D. A geometric distribution.
+
+**Correct answer:** D
+
+**Hint - exact player copy:** Check whether the number of trials is fixed or stops at first success.
+
+**Option feedback - exact player copy:**
+
+- A: Here the trial count is not fixed in advance.
+- B: The probabilities of first success at successive counts are not equal.
+- C: The count is discrete and right-skewed, not exactly Normal.
+- D: Correct. A geometric distribution.
+
+### Review question 6
+
+
+**Prompt - exact player copy:** Which statement best explains variable?
+
+**Options - exact player copy:**
+
+- A. A characteristic recorded for each patient.
+- B. Keeping conditions comparable except for the treatment.
+- C. Correct order prevents site mix from becoming a confounder.
+- D. Calling loose similarity a pair could understate variability and overstate precision.
+
+**Correct answer:** A
+
+**Hint - exact player copy:** Identify the defining relationship or mechanism for variable. All needed information is in this question.
+
+**Option feedback - exact player copy:**
+
+- A: Correct. A characteristic recorded for each patient.
+- B: This describes control. It does not answer the question about variable.
+- C: This describes experiment principles. It does not answer the question about variable.
+- D: This describes matched pairs and blinding. It does not answer the question about variable.
+
+**Optional review completion - exact player copy:** Good work. You have completed six independent practice questions.
+
 ## Quick concept review
 - Block before random assignment.
 - Larger n narrows sampling distributions.
@@ -3888,7 +3926,7 @@ Correlation is linear association for two quantitative variables, not causation.
 
 **Question card story-science connection - exact player copy:** The fitted slope and intercept determine predicted delay within the observed distance range and expose meaningless extrapolation.
 
-**Fixture source panel - exact player copy:** The scatterplot supports a linear model with r=0.80, x-bar=50 km, sx=20 km, y-bar=6 days, and sy=4 days. Derive slope and intercept, then interpret both values in patient follow-up context. xbar=50 km ybar=6 days
+**Fixture source panel - exact player copy:** The scatterplot supports a linear model with r=0.80, x-bar=50 km, sx=20 km, y-bar=6 days, and sy=4 days. Derive slope and intercept, then interpret both values in patient follow-up context.
 
 **Source-panel timing:** Show at this stop’s declared fixture before its DERIVE choices unlock. Keep visible while the player works. These are model inputs and prior observations, not new measurements or an accepted answer. Symbolic derivations stay symbolic; do not invent a number merely to force substitution.
 
@@ -4047,51 +4085,44 @@ MISSION 7 COMPLETE; TIME {elapsed} / TARGET 16:00; INCORRECT SUBMISSIONS {incorr
 
 **Availability:** Reveal only after mission completion when the player selects **GO DEEPER**. This section is optional, ungraded for campaign progress, and does not change metrics, Recovery Points, or the next-mission unlock.
 
-**Secondary briefing card - exact player copy:** You completed The Missing Outcomes. Choose GO DEEPER to revisit the four decisions and explore related course ideas; this optional review does not change your metrics or delay the next mission.
+**Secondary briefing card - exact player copy:** Try six independent practice questions. Each includes its own context and any needed data; no mission records are required.
 
 ### Review focus
 
-No additional prerequisite is required. These AP-style questions apply the mission's course ideas to follow-up evidence, including related topics not required in the four main stops.
+No additional prerequisite is required. These practice questions review related course ideas. Each question stands alone, including its choices and figure.
 
 ### Review question 1
 
-**Prompt - exact player copy:** In a follow-up to The Missing Outcomes, rural travel distance and follow-up delay form a tight upward cloud, while one fast-site point sits far to the right. The next action depends on selecting the conclusion that fits all of those facts. Which interpretation of the displayed evidence correctly uses the mission concept?
+
+**Prompt - exact player copy:** Which description fits the paired observations?
 
 **Figure - exact player copy:**
 
 ```json
 {
   "kind": "line",
-  "xLabel": "Distance from clinic (km)",
-  "yLabel": "Follow-up delay (days)",
-  "caption": "Paired observations show a positive association.",
+  "xLabel": "Distance (km)",
+  "yLabel": "Delay (days)",
+  "caption": "Paired distance and delay observations; points are individual cases",
   "series": [
     {
-      "name": "Patients",
+      "name": "Paired observations",
       "points": [
         [
-          10,
+          1,
           2
         ],
         [
-          22,
+          2,
           3
         ],
         [
-          35,
-          4
+          3,
+          5
         ],
         [
-          48,
+          4,
           6
-        ],
-        [
-          61,
-          7
-        ],
-        [
-          75,
-          9
         ]
       ]
     }
@@ -4099,63 +4130,56 @@ No additional prerequisite is required. These AP-style questions apply the missi
 }
 ```
 
-
 **Options - exact player copy:**
 
-- A. If delay is associated with distance, complete cases may systematically omit remote patients.
-- B. A graph of paired quantitative values. Correlation: the strength and direction of a linear relationship between two quantitative variables. Least-squares regression line: the line minimizing squared vertical residuals. Residual: observed y minus predicted y. Influential point: a point whose removal substantially changes the fitted line.
-- C. A contextual line can direct calls, but its intercept and extrapolated values may lack meaning.
-- D. Random residual scatter supports linear form; structure means the missingness rule remains incomplete.
+- A. Greater distance is associated with shorter delay.
+- B. Greater distance is associated with longer delay; the plot alone does not establish causation.
+- C. The graph proves distance causes every delay.
+- D. Neither variable is quantitative.
 
 **Correct answer:** B
 
-**Hint - exact player copy:** Read the axes, units, direction, and any threshold before comparing the choices.
+**Hint - exact player copy:** Describe the direction, then separate association from causation.
 
 **Option feedback - exact player copy:**
 
-- A: This describes scatterplot/correlation, not Scatterplot. It does not account for the quantities, conditions, or evidence in this statistics case.
-- B: Correct. a graph of paired quantitative values. Correlation: the strength and direction of a linear relationship between two quantitative variables. Least-squares regression line: the line minimizing squared vertical residuals. Residual: observed y minus predicted y. Influential point: a point whose removal substantially changes the fitted line.
-- C: This describes LSRL, not Scatterplot. It does not account for the quantities, conditions, or evidence in this statistics case.
-- D: This describes residual plots/nonlinearity, not Scatterplot. It does not account for the quantities, conditions, or evidence in this statistics case.
+- A: The plotted association is positive.
+- B: Correct. Greater distance is associated with longer delay; the plot alone does not establish causation.
+- C: Association alone does not rule out other explanations.
+- D: Both distance and delay have meaningful numerical units.
+
 ### Review question 2
 
-**Prompt - exact player copy:** the Fenwick trial receives a second case related to The Missing Outcomes: rural travel distance and follow-up delay form a tight upward cloud, while one fast-site point sits far to the right. The next action depends on selecting the conclusion that fits all of those facts. Which interpretation of the displayed evidence correctly uses the mission concept?
+
+**Prompt - exact player copy:** Which description fits the paired observations?
 
 **Figure - exact player copy:**
 
 ```json
 {
   "kind": "line",
-  "xLabel": "Distance from clinic (km)",
-  "yLabel": "Follow-up delay (days)",
-  "caption": "Paired observations show a positive association.",
+  "xLabel": "Distance (km)",
+  "yLabel": "Delay (days)",
+  "caption": "Paired distance and delay observations; points are individual cases",
   "series": [
     {
-      "name": "Patients",
+      "name": "Paired observations",
       "points": [
         [
-          10,
+          1,
           2
         ],
         [
-          22,
+          2,
           3
         ],
         [
-          35,
-          4
+          3,
+          5
         ],
         [
-          48,
+          4,
           6
-        ],
-        [
-          61,
-          7
-        ],
-        [
-          75,
-          9
         ]
       ]
     }
@@ -4163,160 +4187,156 @@ No additional prerequisite is required. These AP-style questions apply the missi
 }
 ```
 
-
 **Options - exact player copy:**
 
-- A. A graph of paired quantitative values. Correlation: the strength and direction of a linear relationship between two quantitative variables. Least-squares regression line: the line minimizing squared vertical residuals. Residual: observed y minus predicted y. Influential point: a point whose removal substantially changes the fitted line.
-- B. A contextual line can direct calls, but its intercept and extrapolated values may lack meaning.
-- C. If delay is associated with distance, complete cases may systematically omit remote patients.
-- D. Random residual scatter supports linear form; structure means the missingness rule remains incomplete.
+- A. Greater distance is associated with shorter delay.
+- B. The graph proves distance causes every delay.
+- C. Greater distance is associated with longer delay; the plot alone does not establish causation.
+- D. Neither variable is quantitative.
 
 **Correct answer:** C
 
-**Hint - exact player copy:** Read the axes, units, direction, and any threshold before comparing the choices.
+**Hint - exact player copy:** Describe the direction, then separate association from causation.
 
 **Option feedback - exact player copy:**
 
-- A: This describes Scatterplot, not scatterplot/correlation. It does not account for the quantities, conditions, or evidence in this statistics case.
-- B: This describes LSRL, not scatterplot/correlation. It does not account for the quantities, conditions, or evidence in this statistics case.
-- C: Correct. if delay is associated with distance, complete cases may systematically omit remote patients.
-- D: This describes residual plots/nonlinearity, not scatterplot/correlation. It does not account for the quantities, conditions, or evidence in this statistics case.
+- A: The plotted association is positive.
+- B: Association alone does not rule out other explanations.
+- C: Correct. Greater distance is associated with longer delay; the plot alone does not establish causation.
+- D: Both distance and delay have meaningful numerical units.
+
 ### Review question 3
 
-**Prompt - exact player copy:** A teammate rechecks The Missing Outcomes using new evidence: the scatterplot supports a linear model with r=0.80, x-bar=50 km, sx=20 km, y-bar=6 days, and sy=4 days. Which option correctly applies LSRL to this follow-up case?
+
+**Prompt - exact player copy:** Which statement best explains the least-squares regression line?
 
 **Options - exact player copy:**
 
-- A. A graph of paired quantitative values. Correlation: the strength and direction of a linear relationship between two quantitative variables. Least-squares regression line: the line minimizing squared vertical residuals. Residual: observed y minus predicted y. Influential point: a point whose removal substantially changes the fitted line.
+- A. A graph of paired quantitative values.
 - B. If delay is associated with distance, complete cases may systematically omit remote patients.
 - C. Random residual scatter supports linear form; structure means the missingness rule remains incomplete.
 - D. A contextual line can direct calls, but its intercept and extrapolated values may lack meaning.
 
 **Correct answer:** D
 
-**Hint - exact player copy:** Use the stated evidence and the conditions for LSRL; do not choose an option merely because it names a familiar term.
+**Hint - exact player copy:** Identify the defining relationship or mechanism for the least-squares regression line. All needed information is in this question.
 
 **Option feedback - exact player copy:**
 
-- A: This describes Scatterplot, not LSRL. It does not account for the quantities, conditions, or evidence in this statistics case.
-- B: This describes scatterplot/correlation, not LSRL. It does not account for the quantities, conditions, or evidence in this statistics case.
-- C: This describes residual plots/nonlinearity, not LSRL. It does not account for the quantities, conditions, or evidence in this statistics case.
-- D: Correct. a contextual line can direct calls, but its intercept and extrapolated values may lack meaning.
+- A: This describes scatterplot. It does not answer the question about the least-squares regression line.
+- B: This describes scatterplot and correlation. It does not answer the question about the least-squares regression line.
+- C: This describes residual plots and nonlinearity. It does not answer the question about the least-squares regression line.
+- D: Correct. A contextual line can direct calls, but its intercept and extrapolated values may lack meaning.
+
 ### Review question 4
 
-**Prompt - exact player copy:** An unseen case extends The Missing Outcomes: rural travel distance and follow-up delay form a tight upward cloud, while one fast-site point sits far to the right. The next action depends on selecting the conclusion that fits all of those facts. Which interpretation of the displayed evidence correctly uses the mission concept?
+
+**Prompt - exact player copy:** A model has the residuals shown. Residual means observed value minus predicted value. Which conclusion best fits the pattern?
 
 **Figure - exact player copy:**
 
 ```json
 {
   "kind": "line",
-  "xLabel": "Ordered observation",
-  "yLabel": "Residual",
-  "caption": "Residuals reveal whether error is random or structured.",
+  "xLabel": "Input value",
+  "yLabel": "Observed minus predicted (units)",
+  "caption": "Residuals from a fitted model",
   "series": [
     {
       "name": "Residual",
       "points": [
         [
           0,
-          2.2
+          0
         ],
         [
           1,
-          0.8
+          2
         ],
         [
           2,
-          -0.6
+          4
         ],
         [
           3,
-          -1.4
+          6
         ],
         [
           4,
-          -0.5
-        ],
-        [
-          5,
-          0.9
-        ],
-        [
-          6,
-          2.1
+          8
         ]
       ]
     }
-  ],
-  "limit": {
-    "at": 0,
-    "label": "Zero residual"
-  }
+  ]
 }
 ```
 
-
 **Options - exact player copy:**
 
-- A. Random residual scatter supports linear form; structure means the missingness rule remains incomplete.
-- B. A graph of paired quantitative values. Correlation: the strength and direction of a linear relationship between two quantitative variables. Least-squares regression line: the line minimizing squared vertical residuals. Residual: observed y minus predicted y. Influential point: a point whose removal substantially changes the fitted line.
-- C. If delay is associated with distance, complete cases may systematically omit remote patients.
-- D. A contextual line can direct calls, but its intercept and extrapolated values may lack meaning.
+- A. The model increasingly underpredicts as the input grows.
+- B. The model increasingly overpredicts.
+- C. The errors have no relation to the input.
+- D. The model fits every observation exactly.
 
 **Correct answer:** A
 
-**Hint - exact player copy:** Read the axes, units, direction, and any threshold before comparing the choices.
+**Hint - exact player copy:** Use the sign of observed minus predicted and check for a pattern.
 
 **Option feedback - exact player copy:**
 
-- A: Correct. random residual scatter supports linear form; structure means the missingness rule remains incomplete.
-- B: This describes Scatterplot, not residual plots/nonlinearity. It does not account for the quantities, conditions, or evidence in this statistics case.
-- C: This describes scatterplot/correlation, not residual plots/nonlinearity. It does not account for the quantities, conditions, or evidence in this statistics case.
-- D: This describes LSRL, not residual plots/nonlinearity. It does not account for the quantities, conditions, or evidence in this statistics case.
+- A: Correct. The model increasingly underpredicts as the input grows.
+- B: Positive residuals mean observations exceed predictions, not the reverse.
+- C: Residuals rise systematically with the input.
+- D: An exact fit would have zero residual at every point.
+
 ### Review question 5
 
-**Prompt - exact player copy:** Before another Missing Outcomes decision, the team knows this: the residual field is acceptable, but the far-right fast-site point may pull the fitted slope. Run the reversible comparison now so the crew can tell whether the proposed cause changes the measured response. Which option correctly applies outlier/leverage/influence and missingness to this follow-up case?
+
+**Prompt - exact player copy:** Which statement best explains outlier and leverage and influence and missingness?
 
 **Options - exact player copy:**
 
-- A. A graph of paired quantitative values. Correlation: the strength and direction of a linear relationship between two quantitative variables. Least-squares regression line: the line minimizing squared vertical residuals. Residual: observed y minus predicted y. Influential point: a point whose removal substantially changes the fitted line.
+- A. A graph of paired quantitative values.
 - B. A substantial line change makes the point influential and blocks an unqualified complete-case analysis.
 - C. If delay is associated with distance, complete cases may systematically omit remote patients.
 - D. A contextual line can direct calls, but its intercept and extrapolated values may lack meaning.
 
 **Correct answer:** B
 
-**Hint - exact player copy:** Use the stated evidence and the conditions for outlier/leverage/influence and missingness; do not choose an option merely because it names a familiar term.
+**Hint - exact player copy:** Identify the defining relationship or mechanism for outlier and leverage and influence and missingness. All needed information is in this question.
 
 **Option feedback - exact player copy:**
 
-- A: This describes Scatterplot, not outlier/leverage/influence and missingness. It does not account for the quantities, conditions, or evidence in this statistics case.
-- B: Correct. a substantial line change makes the point influential and blocks an unqualified complete-case analysis.
-- C: This describes scatterplot/correlation, not outlier/leverage/influence and missingness. It does not account for the quantities, conditions, or evidence in this statistics case.
-- D: This describes LSRL, not outlier/leverage/influence and missingness. It does not account for the quantities, conditions, or evidence in this statistics case.
+- A: This describes scatterplot. It does not answer the question about outlier and leverage and influence and missingness.
+- B: Correct. A substantial line change makes the point influential and blocks an unqualified complete-case analysis.
+- C: This describes scatterplot and correlation. It does not answer the question about outlier and leverage and influence and missingness.
+- D: This describes the least-squares regression line. It does not answer the question about outlier and leverage and influence and missingness.
+
 ### Review question 6
 
-**Prompt - exact player copy:** the Fenwick trial applies the lesson from The Missing Outcomes to this follow-up: rural travel distance and follow-up delay form a tight upward cloud, while one fast-site point sits far to the right. The next action depends on selecting the conclusion that fits all of those facts. Which option correctly applies Variable to this follow-up case?
+
+**Prompt - exact player copy:** Which statement best explains variable?
 
 **Options - exact player copy:**
 
-- A. A graph of paired quantitative values. Correlation: the strength and direction of a linear relationship between two quantitative variables. Least-squares regression line: the line minimizing squared vertical residuals. Residual: observed y minus predicted y. Influential point: a point whose removal substantially changes the fitted line.
+- A. A graph of paired quantitative values.
 - B. If delay is associated with distance, complete cases may systematically omit remote patients.
-- C. A characteristic recorded for each patient. Categorical variable: a variable placing a patient into a group. Quantitative variable: a variable recorded as a meaningful number. Parameter: a fixed but usually unknown number describing a population. Statistic: a number computed from a sample.
+- C. A characteristic recorded for each patient.
 - D. A contextual line can direct calls, but its intercept and extrapolated values may lack meaning.
 
 **Correct answer:** C
 
-**Hint - exact player copy:** Use the stated evidence and the conditions for Variable; do not choose an option merely because it names a familiar term.
+**Hint - exact player copy:** Identify the defining relationship or mechanism for variable. All needed information is in this question.
 
 **Option feedback - exact player copy:**
 
-- A: This describes Scatterplot, not Variable. It does not account for the quantities, conditions, or evidence in this statistics case.
-- B: This describes scatterplot/correlation, not Variable. It does not account for the quantities, conditions, or evidence in this statistics case.
-- C: Correct. a characteristic recorded for each patient. Categorical variable: a variable placing a patient into a group. Quantitative variable: a variable recorded as a meaningful number. Parameter: a fixed but usually unknown number describing a population. Statistic: a number computed from a sample.
-- D: This describes LSRL, not Variable. It does not account for the quantities, conditions, or evidence in this statistics case.
-**Optional review completion - exact player copy:** Excellent work. You went beyond the required mission and strengthened the ideas behind your decision.
+- A: This describes scatterplot. It does not answer the question about variable.
+- B: This describes scatterplot and correlation. It does not answer the question about variable.
+- C: Correct. A characteristic recorded for each patient.
+- D: This describes the least-squares regression line. It does not answer the question about variable.
+
+**Optional review completion - exact player copy:** Good work. You have completed six independent practice questions.
+
 ## Quick concept review
 - Correlation describes linear association, not cause.
 - Interpret slope with y units per x unit.
@@ -4551,7 +4571,7 @@ One-proportion inference needs random selection, 10% independence, and large cou
 
 **Question card story-science connection - exact player copy:** The confidence interval gives the plausible range of the exposed-kit failure proportion for the board's assessment.
 
-**Fixture source panel - exact player copy:** The random, 10%, and large-count conditions all pass, and p-hat=30/200=0.15. Build the 95% confidence interval using z-star=1.960 and the sample proportion in the standard error, then submit both endpoints. phat=30/200=0.15 n=200 z*=1.960
+**Fixture source panel - exact player copy:** The random, 10%, and large-count conditions pass. In a sample of n=200 shipments, 30 fail, giving p-hat=0.15. Build the 95% confidence interval using z-star=1.960 and the sample proportion in the standard error, then submit both endpoints.
 
 **Source-panel timing:** Show at this stop’s declared fixture before its DERIVE choices unlock. Keep visible while the player works. These are model inputs and prior observations, not new measurements or an accepted answer. Symbolic derivations stay symbolic; do not invent a number merely to force substitution.
 
@@ -4616,7 +4636,7 @@ derive:
 
 **Question card story-science connection - exact player copy:** The null-based test determines whether the exposed cohort supplies evidence of a failure rate above that benchmark.
 
-**Fixture source panel - exact player copy:** The interval barely clears the benchmark, so the registered test now asks whether the true failure rate exceeds 10%. State hypotheses, calculate z, and give a contextual decision at alpha=.05. In a random sample, 30 of 200 shipments fail. Test whether the population failure proportion exceeds the 0.10 benchmark at alpha=0.05; state the hypotheses, calculate the z statistic and P-value, and give a contextual conclusion.
+**Fixture source panel - exact player copy:** The interval barely clears the benchmark. In a random sample, 30 of 200 shipments fail; the registered test asks whether the population failure proportion exceeds 0.10. State the hypotheses, calculate z and the P-value, and give a contextual conclusion at alpha=0.05.
 
 **Source-panel timing:** Show at this stop’s declared fixture before its DERIVE choices unlock. Keep visible while the player works. These are model inputs and prior observations, not new measurements or an accepted answer. Symbolic derivations stay symbolic; do not invent a number merely to force substitution.
 
@@ -4716,170 +4736,191 @@ MISSION 8 COMPLETE; TIME {elapsed} / TARGET 17:00; INCORRECT SUBMISSIONS {incorr
 
 **Availability:** Reveal only after mission completion when the player selects **GO DEEPER**. This section is optional, ungraded for campaign progress, and does not change metrics, Recovery Points, or the next-mission unlock.
 
-**Secondary briefing card - exact player copy:** You completed The Cold-Room Rate. Choose GO DEEPER to revisit the four decisions and explore related course ideas; this optional review does not change your metrics or delay the next mission.
+**Secondary briefing card - exact player copy:** Try six independent practice questions. Each includes its own context and any needed data; no mission records are required.
 
 ### Review focus
 
-No additional prerequisite is required. These AP-style questions apply the mission's course ideas to follow-up evidence, including related topics not required in the four main stops.
+No additional prerequisite is required. These practice questions review related course ideas. Each question stands alone, including its choices and figure.
 
 ### Review question 1
 
-**Prompt - exact player copy:** In a follow-up to The Cold-Room Rate, the warehouse randomly selected 200 of more than 2,000 exposed kits and found 30 failures. Assign a response to each condition now so the crew has an action rule it can follow under pressure. Which interpretation of the displayed evidence correctly uses the mission concept?
+
+**Prompt - exact player copy:** Interval A is [1,3] and interval B is [-1,2]. Which excludes a zero mean difference?
 
 **Figure - exact player copy:**
 
 ```json
 {
   "kind": "line",
-  "xLabel": "Treatment effect",
-  "yLabel": "Interval marker",
-  "caption": "The confidence interval lies entirely above no effect.",
+  "xLabel": "Interval label (0=A, 1=B)",
+  "yLabel": "Estimated mean difference (units)",
+  "caption": "Two 95% confidence intervals for separate studies",
   "series": [
     {
-      "name": "95% interval",
+      "name": "Interval A",
       "points": [
         [
-          1.2,
+          0,
           1
         ],
         [
-          4.8,
-          1
+          0,
+          3
+        ]
+      ]
+    },
+    {
+      "name": "Interval B",
+      "points": [
+        [
+          1,
+          -1
+        ],
+        [
+          1,
+          2
         ]
       ]
     }
-  ],
-  "limit": {
-    "at": 0,
-    "label": "No effect"
-  }
+  ]
 }
 ```
 
+**Options - exact player copy:**
+
+- A. B only.
+- B. Both.
+- C. Neither.
+- D. A only.
+
+**Correct answer:** D
+
+**Hint - exact player copy:** Check whether zero lies between each pair of endpoints.
+
+**Option feedback - exact player copy:**
+
+- A: B includes zero, while A does not.
+- B: Zero lies within interval B.
+- C: All values in interval A are positive.
+- D: Correct. A only.
+
+### Review question 2
+
+
+**Prompt - exact player copy:** Which statement best explains one-proportion conditions?
 
 **Options - exact player copy:**
 
-- A. Conditions connect the formula to a sampling process the board can trust.
-- B. A range from a method that captures the true parameter at a stated long-run rate. Margin of error: the critical value times standard error. Null hypothesis: the benchmark claim tested. P-value: probability, assuming the null, of a result at least as extreme as observed.
+- A. Conditions connect the formula to a sampling process the researchers can trust.
+- B. A range from a method that captures the true parameter at a stated long-run rate.
 - C. If the whole interval lies near or above the 10% benchmark, the observed excess is not merely a headline percentage.
+- D. The test decides whether the excess warrants quarantine under the prewritten safety rule.
+
+**Correct answer:** A
+
+**Hint - exact player copy:** Identify the defining relationship or mechanism for one-proportion conditions. All needed information is in this question.
+
+**Option feedback - exact player copy:**
+
+- A: Correct. Conditions connect the formula to a sampling process the researchers can trust.
+- B: This describes confidence interval. It does not answer the question about one-proportion conditions.
+- C: This describes one-proportion CI. It does not answer the question about one-proportion conditions.
+- D: This describes one-proportion z test and conclusion. It does not answer the question about one-proportion conditions.
+
+### Review question 3
+
+
+**Prompt - exact player copy:** Which statement best explains one-proportion CI?
+
+**Options - exact player copy:**
+
+- A. A range from a method that captures the true parameter at a stated long-run rate.
+- B. If the whole interval lies near or above the 10% benchmark, the observed excess is not merely a headline percentage.
+- C. Conditions connect the formula to a sampling process the researchers can trust.
 - D. The test decides whether the excess warrants quarantine under the prewritten safety rule.
 
 **Correct answer:** B
 
-**Hint - exact player copy:** Read the axes, units, direction, and any threshold before comparing the choices.
+**Hint - exact player copy:** Identify the defining relationship or mechanism for one-proportion ci. All needed information is in this question.
 
 **Option feedback - exact player copy:**
 
-- A: This describes one-proportion conditions, not Confidence interval. It does not account for the quantities, conditions, or evidence in this statistics case.
-- B: Correct. a range from a method that captures the true parameter at a stated long-run rate. Margin of error: the critical value times standard error. Null hypothesis: the benchmark claim tested. P-value: probability, assuming the null, of a result at least as extreme as observed.
-- C: This describes one-proportion CI, not Confidence interval. It does not account for the quantities, conditions, or evidence in this statistics case.
-- D: This describes one-proportion z test/conclusion, not Confidence interval. It does not account for the quantities, conditions, or evidence in this statistics case.
-### Review question 2
+- A: This describes confidence interval. It does not answer the question about one-proportion ci.
+- B: Correct. If the whole interval lies near or above the 10% benchmark, the observed excess is not merely a headline percentage.
+- C: This describes one-proportion conditions. It does not answer the question about one-proportion ci.
+- D: This describes one-proportion z test and conclusion. It does not answer the question about one-proportion ci.
 
-**Prompt - exact player copy:** the Fenwick trial receives a second case related to The Cold-Room Rate: the warehouse randomly selected 200 of more than 2,000 exposed kits and found 30 failures. Assign a response to each condition now so the crew has an action rule it can follow under pressure. Which option correctly applies one-proportion conditions to this follow-up case?
+### Review question 4
 
-**Options - exact player copy:**
 
-- A. A range from a method that captures the true parameter at a stated long-run rate. Margin of error: the critical value times standard error. Null hypothesis: the benchmark claim tested. P-value: probability, assuming the null, of a result at least as extreme as observed.
-- B. If the whole interval lies near or above the 10% benchmark, the observed excess is not merely a headline percentage.
-- C. Conditions connect the formula to a sampling process the board can trust.
-- D. The test decides whether the excess warrants quarantine under the prewritten safety rule.
-
-**Correct answer:** C
-
-**Hint - exact player copy:** Use the stated evidence and the conditions for one-proportion conditions; do not choose an option merely because it names a familiar term.
-
-**Option feedback - exact player copy:**
-
-- A: This describes Confidence interval, not one-proportion conditions. It does not account for the quantities, conditions, or evidence in this statistics case.
-- B: This describes one-proportion CI, not one-proportion conditions. It does not account for the quantities, conditions, or evidence in this statistics case.
-- C: Correct. conditions connect the formula to a sampling process the board can trust.
-- D: This describes one-proportion z test/conclusion, not one-proportion conditions. It does not account for the quantities, conditions, or evidence in this statistics case.
-### Review question 3
-
-**Prompt - exact player copy:** A teammate rechecks The Cold-Room Rate using new evidence: the warehouse randomly selected 200 of more than 2,000 exposed kits and found 30 failures. Assign a response to each condition now so the crew has an action rule it can follow under pressure. Which option correctly applies one-proportion CI to this follow-up case?
+**Prompt - exact player copy:** Which statement best explains one-proportion z test and conclusion?
 
 **Options - exact player copy:**
 
-- A. A range from a method that captures the true parameter at a stated long-run rate. Margin of error: the critical value times standard error. Null hypothesis: the benchmark claim tested. P-value: probability, assuming the null, of a result at least as extreme as observed.
-- B. Conditions connect the formula to a sampling process the board can trust.
+- A. A range from a method that captures the true parameter at a stated long-run rate.
+- B. Conditions connect the formula to a sampling process the researchers can trust.
 - C. The test decides whether the excess warrants quarantine under the prewritten safety rule.
 - D. If the whole interval lies near or above the 10% benchmark, the observed excess is not merely a headline percentage.
 
-**Correct answer:** D
+**Correct answer:** C
 
-**Hint - exact player copy:** Use the stated evidence and the conditions for one-proportion CI; do not choose an option merely because it names a familiar term.
+**Hint - exact player copy:** Identify the defining relationship or mechanism for one-proportion z test and conclusion. All needed information is in this question.
 
 **Option feedback - exact player copy:**
 
-- A: This describes Confidence interval, not one-proportion CI. It does not account for the quantities, conditions, or evidence in this statistics case.
-- B: This describes one-proportion conditions, not one-proportion CI. It does not account for the quantities, conditions, or evidence in this statistics case.
-- C: This describes one-proportion z test/conclusion, not one-proportion CI. It does not account for the quantities, conditions, or evidence in this statistics case.
-- D: Correct. if the whole interval lies near or above the 10% benchmark, the observed excess is not merely a headline percentage.
-### Review question 4
+- A: This describes confidence interval. It does not answer the question about one-proportion z test and conclusion.
+- B: This describes one-proportion conditions. It does not answer the question about one-proportion z test and conclusion.
+- C: Correct. The test decides whether the excess warrants quarantine under the prewritten safety rule.
+- D: This describes one-proportion CI. It does not answer the question about one-proportion z test and conclusion.
 
-**Prompt - exact player copy:** An unseen case extends The Cold-Room Rate: the interval barely clears the benchmark, so the registered test now asks whether the true failure rate exceeds 10%. Which statistical conclusion or procedure correctly uses one-proportion z test/conclusion?
+### Review question 5
+
+
+**Prompt - exact player copy:** Which statement best explains margin of error and sample size?
 
 **Options - exact player copy:**
 
-- A. The test decides whether the excess warrants quarantine under the prewritten safety rule.
-- B. A range from a method that captures the true parameter at a stated long-run rate. Margin of error: the critical value times standard error. Null hypothesis: the benchmark claim tested. P-value: probability, assuming the null, of a result at least as extreme as observed.
-- C. Conditions connect the formula to a sampling process the board can trust.
+- A. A range from a method that captures the true parameter at a stated long-run rate.
+- B. Conditions connect the formula to a sampling process the researchers can trust.
+- C. If the whole interval lies near or above the 10% benchmark, the observed excess is not merely a headline percentage.
+- D. Rounding down would promise precision the audit cannot deliver.
+
+**Correct answer:** D
+
+**Hint - exact player copy:** Identify the defining relationship or mechanism for margin of error and sample size. All needed information is in this question.
+
+**Option feedback - exact player copy:**
+
+- A: This describes confidence interval. It does not answer the question about margin of error and sample size.
+- B: This describes one-proportion conditions. It does not answer the question about margin of error and sample size.
+- C: This describes one-proportion CI. It does not answer the question about margin of error and sample size.
+- D: Correct. Rounding down would promise precision the audit cannot deliver.
+
+### Review question 6
+
+
+**Prompt - exact player copy:** Which statement best explains variable?
+
+**Options - exact player copy:**
+
+- A. A characteristic recorded for each patient.
+- B. A range from a method that captures the true parameter at a stated long-run rate.
+- C. Conditions connect the formula to a sampling process the researchers can trust.
 - D. If the whole interval lies near or above the 10% benchmark, the observed excess is not merely a headline percentage.
 
 **Correct answer:** A
 
-**Hint - exact player copy:** Use the stated evidence and the conditions for one-proportion z test/conclusion; do not choose an option merely because it names a familiar term.
+**Hint - exact player copy:** Identify the defining relationship or mechanism for variable. All needed information is in this question.
 
 **Option feedback - exact player copy:**
 
-- A: Correct. the test decides whether the excess warrants quarantine under the prewritten safety rule.
-- B: This describes Confidence interval, not one-proportion z test/conclusion. It does not account for the quantities, conditions, or evidence in this statistics case.
-- C: This describes one-proportion conditions, not one-proportion z test/conclusion. It does not account for the quantities, conditions, or evidence in this statistics case.
-- D: This describes one-proportion CI, not one-proportion z test/conclusion. It does not account for the quantities, conditions, or evidence in this statistics case.
-### Review question 5
+- A: Correct. A characteristic recorded for each patient.
+- B: This describes confidence interval. It does not answer the question about variable.
+- C: This describes one-proportion conditions. It does not answer the question about variable.
+- D: This describes one-proportion CI. It does not answer the question about variable.
 
-**Prompt - exact player copy:** Before another Cold-Room Rate decision, the team knows this: the exposed cohort exceeds the benchmark, and the replacement audit must be precise before release. Which statistical conclusion or procedure correctly uses margin of error/sample size?
+**Optional review completion - exact player copy:** Good work. You have completed six independent practice questions.
 
-**Options - exact player copy:**
-
-- A. A range from a method that captures the true parameter at a stated long-run rate. Margin of error: the critical value times standard error. Null hypothesis: the benchmark claim tested. P-value: probability, assuming the null, of a result at least as extreme as observed.
-- B. Rounding down would promise precision the audit cannot deliver.
-- C. Conditions connect the formula to a sampling process the board can trust.
-- D. If the whole interval lies near or above the 10% benchmark, the observed excess is not merely a headline percentage.
-
-**Correct answer:** B
-
-**Hint - exact player copy:** Use the stated evidence and the conditions for margin of error/sample size; do not choose an option merely because it names a familiar term.
-
-**Option feedback - exact player copy:**
-
-- A: This describes Confidence interval, not margin of error/sample size. It does not account for the quantities, conditions, or evidence in this statistics case.
-- B: Correct. rounding down would promise precision the audit cannot deliver.
-- C: This describes one-proportion conditions, not margin of error/sample size. It does not account for the quantities, conditions, or evidence in this statistics case.
-- D: This describes one-proportion CI, not margin of error/sample size. It does not account for the quantities, conditions, or evidence in this statistics case.
-### Review question 6
-
-**Prompt - exact player copy:** the Fenwick trial applies the lesson from The Cold-Room Rate to this follow-up: the warehouse randomly selected 200 of more than 2,000 exposed kits and found 30 failures. Assign a response to each condition now so the crew has an action rule it can follow under pressure. Which option correctly applies Variable to this follow-up case?
-
-**Options - exact player copy:**
-
-- A. A range from a method that captures the true parameter at a stated long-run rate. Margin of error: the critical value times standard error. Null hypothesis: the benchmark claim tested. P-value: probability, assuming the null, of a result at least as extreme as observed.
-- B. Conditions connect the formula to a sampling process the board can trust.
-- C. A characteristic recorded for each patient. Categorical variable: a variable placing a patient into a group. Quantitative variable: a variable recorded as a meaningful number. Parameter: a fixed but usually unknown number describing a population. Statistic: a number computed from a sample.
-- D. If the whole interval lies near or above the 10% benchmark, the observed excess is not merely a headline percentage.
-
-**Correct answer:** C
-
-**Hint - exact player copy:** Use the stated evidence and the conditions for Variable; do not choose an option merely because it names a familiar term.
-
-**Option feedback - exact player copy:**
-
-- A: This describes Confidence interval, not Variable. It does not account for the quantities, conditions, or evidence in this statistics case.
-- B: This describes one-proportion conditions, not Variable. It does not account for the quantities, conditions, or evidence in this statistics case.
-- C: Correct. a characteristic recorded for each patient. Categorical variable: a variable placing a patient into a group. Quantitative variable: a variable recorded as a meaningful number. Parameter: a fixed but usually unknown number describing a population. Statistic: a number computed from a sample.
-- D: This describes one-proportion CI, not Variable. It does not account for the quantities, conditions, or evidence in this statistics case.
-**Optional review completion - exact player copy:** Excellent work. You went beyond the required mission and strengthened the ideas behind your decision.
 ## Quick concept review
 - Conditions come before inference.
 - Use p-hat for CI SE and p0 for test SE.
@@ -5351,139 +5392,152 @@ MISSION 9 COMPLETE; TIME {elapsed} / TARGET 17:00; INCORRECT SUBMISSIONS {incorr
 
 **Availability:** Reveal only after mission completion when the player selects **GO DEEPER**. This section is optional, ungraded for campaign progress, and does not change metrics, Recovery Points, or the next-mission unlock.
 
-**Secondary briefing card - exact player copy:** You completed Could Anyone Tell. Choose GO DEEPER to revisit the four decisions and explore related course ideas; this optional review does not change your metrics or delay the next mission.
+**Secondary briefing card - exact player copy:** Try six independent practice questions. Each includes its own context and any needed data; no mission records are required.
 
 ### Review focus
 
-No additional prerequisite is required. These AP-style questions apply the mission's course ideas to follow-up evidence, including related topics not required in the four main stops.
+No additional prerequisite is required. These practice questions review related course ideas. Each question stands alone, including its choices and figure.
 
 ### Review question 1
 
-**Prompt - exact player copy:** In a follow-up to Could Anyone Tell, the cold-room failure made Priya's records look suspicious, but assignment concealment uses a different path. Open the dependencies now so the team can distinguish independent evidence from readings that repeat one source. Which option correctly applies Single blind to this follow-up case?
+
+**Prompt - exact player copy:** Which statement best explains single blind?
 
 **Options - exact player copy:**
 
 - A. Agreement among shared displays cannot count as independent proof that nobody could predict the next kit.
-- B. Either subjects or researchers do not know assignments. Double blind: neither subjects nor researchers know assignments. Pooled proportion: combined success proportion used in a two-proportion null test. Homogeneity: equal distribution of one categorical variable across populations or treatments.
+- B. Either subjects or researchers do not know assignments.
 - C. An interval shows whether the observed seven-point gap could plausibly be near zero.
 - D. Correct pooling prevents the same data from receiving incompatible standards.
 
 **Correct answer:** B
 
-**Hint - exact player copy:** Use the stated evidence and the conditions for Single blind; do not choose an option merely because it names a familiar term.
+**Hint - exact player copy:** Identify the defining relationship or mechanism for single blind. All needed information is in this question.
 
 **Option feedback - exact player copy:**
 
-- A: This describes blinding versus randomisation records, not Single blind. It does not account for the quantities, conditions, or evidence in this statistics case.
-- B: Correct. either subjects or researchers do not know assignments. Double blind: neither subjects nor researchers know assignments. Pooled proportion: combined success proportion used in a two-proportion null test. Homogeneity: equal distribution of one categorical variable across populations or treatments.
-- C: This describes two-proportion CI/conditions, not Single blind. It does not account for the quantities, conditions, or evidence in this statistics case.
-- D: This describes two-proportion z test, not Single blind. It does not account for the quantities, conditions, or evidence in this statistics case.
+- A: This describes blinding versus randomisation records. It does not answer the question about single blind.
+- B: Correct. Either subjects or researchers do not know assignments.
+- C: This describes two-proportion CI and conditions. It does not answer the question about single blind.
+- D: This describes two-proportion z test. It does not answer the question about single blind.
+
 ### Review question 2
 
-**Prompt - exact player copy:** the Fenwick trial receives a second case related to Could Anyone Tell: the cold-room failure made Priya's records look suspicious, but assignment concealment uses a different path. Open the dependencies now so the team can distinguish independent evidence from readings that repeat one source. Which statistical conclusion or procedure correctly uses blinding versus randomisation records?
+
+**Prompt - exact player copy:** Which statement best explains blinding versus randomisation records?
 
 **Options - exact player copy:**
 
-- A. Either subjects or researchers do not know assignments. Double blind: neither subjects nor researchers know assignments. Pooled proportion: combined success proportion used in a two-proportion null test. Homogeneity: equal distribution of one categorical variable across populations or treatments.
+- A. Either subjects or researchers do not know assignments.
 - B. An interval shows whether the observed seven-point gap could plausibly be near zero.
 - C. Agreement among shared displays cannot count as independent proof that nobody could predict the next kit.
 - D. Correct pooling prevents the same data from receiving incompatible standards.
 
 **Correct answer:** C
 
-**Hint - exact player copy:** Use the stated evidence and the conditions for blinding versus randomisation records; do not choose an option merely because it names a familiar term.
+**Hint - exact player copy:** Identify the defining relationship or mechanism for blinding versus randomisation records. All needed information is in this question.
 
 **Option feedback - exact player copy:**
 
-- A: This describes Single blind, not blinding versus randomisation records. It does not account for the quantities, conditions, or evidence in this statistics case.
-- B: This describes two-proportion CI/conditions, not blinding versus randomisation records. It does not account for the quantities, conditions, or evidence in this statistics case.
-- C: Correct. agreement among shared displays cannot count as independent proof that nobody could predict the next kit.
-- D: This describes two-proportion z test, not blinding versus randomisation records. It does not account for the quantities, conditions, or evidence in this statistics case.
+- A: This describes single blind. It does not answer the question about blinding versus randomisation records.
+- B: This describes two-proportion CI and conditions. It does not answer the question about blinding versus randomisation records.
+- C: Correct. Agreement among shared displays cannot count as independent proof that nobody could predict the next kit.
+- D: This describes two-proportion z test. It does not answer the question about blinding versus randomisation records.
+
 ### Review question 3
 
-**Prompt - exact player copy:** A teammate rechecks Could Anyone Tell using new evidence: the audit path is intact; the survey has 30 correct guesses among 200 treatment staff and 16 among 200 placebo staff. Which option correctly applies two-proportion CI/conditions to this follow-up case?
+
+**Prompt - exact player copy:** Which statement best explains two-proportion CI and conditions?
 
 **Options - exact player copy:**
 
-- A. Either subjects or researchers do not know assignments. Double blind: neither subjects nor researchers know assignments. Pooled proportion: combined success proportion used in a two-proportion null test. Homogeneity: equal distribution of one categorical variable across populations or treatments.
+- A. Either subjects or researchers do not know assignments.
 - B. Agreement among shared displays cannot count as independent proof that nobody could predict the next kit.
 - C. Correct pooling prevents the same data from receiving incompatible standards.
 - D. An interval shows whether the observed seven-point gap could plausibly be near zero.
 
 **Correct answer:** D
 
-**Hint - exact player copy:** Use the stated evidence and the conditions for two-proportion CI/conditions; do not choose an option merely because it names a familiar term.
+**Hint - exact player copy:** Identify the defining relationship or mechanism for two-proportion ci and conditions. All needed information is in this question.
 
 **Option feedback - exact player copy:**
 
-- A: This describes Single blind, not two-proportion CI/conditions. It does not account for the quantities, conditions, or evidence in this statistics case.
-- B: This describes blinding versus randomisation records, not two-proportion CI/conditions. It does not account for the quantities, conditions, or evidence in this statistics case.
-- C: This describes two-proportion z test, not two-proportion CI/conditions. It does not account for the quantities, conditions, or evidence in this statistics case.
-- D: Correct. an interval shows whether the observed seven-point gap could plausibly be near zero.
+- A: This describes single blind. It does not answer the question about two-proportion ci and conditions.
+- B: This describes blinding versus randomisation records. It does not answer the question about two-proportion ci and conditions.
+- C: This describes two-proportion z test. It does not answer the question about two-proportion ci and conditions.
+- D: Correct. An interval shows whether the observed seven-point gap could plausibly be near zero.
+
 ### Review question 4
 
-**Prompt - exact player copy:** An unseen case extends Could Anyone Tell: the confidence interval barely excludes zero, so test H0:p1=p2 against Ha:p1 not equal p2. Which statistical conclusion or procedure correctly uses two-proportion z test?
+
+**Prompt - exact player copy:** Which statement best explains two-proportion z test?
 
 **Options - exact player copy:**
 
 - A. Correct pooling prevents the same data from receiving incompatible standards.
-- B. Either subjects or researchers do not know assignments. Double blind: neither subjects nor researchers know assignments. Pooled proportion: combined success proportion used in a two-proportion null test. Homogeneity: equal distribution of one categorical variable across populations or treatments.
+- B. Either subjects or researchers do not know assignments.
 - C. Agreement among shared displays cannot count as independent proof that nobody could predict the next kit.
 - D. An interval shows whether the observed seven-point gap could plausibly be near zero.
 
 **Correct answer:** A
 
-**Hint - exact player copy:** Use the stated evidence and the conditions for two-proportion z test; do not choose an option merely because it names a familiar term.
+**Hint - exact player copy:** Identify the defining relationship or mechanism for two-proportion z test. All needed information is in this question.
 
 **Option feedback - exact player copy:**
 
-- A: Correct. correct pooling prevents the same data from receiving incompatible standards.
-- B: This describes Single blind, not two-proportion z test. It does not account for the quantities, conditions, or evidence in this statistics case.
-- C: This describes blinding versus randomisation records, not two-proportion z test. It does not account for the quantities, conditions, or evidence in this statistics case.
-- D: This describes two-proportion CI/conditions, not two-proportion z test. It does not account for the quantities, conditions, or evidence in this statistics case.
+- A: Correct. Correct pooling prevents the same data from receiving incompatible standards.
+- B: This describes single blind. It does not answer the question about two-proportion z test.
+- C: This describes blinding versus randomisation records. It does not answer the question about two-proportion z test.
+- D: This describes two-proportion CI and conditions. It does not answer the question about two-proportion z test.
+
 ### Review question 5
 
-**Prompt - exact player copy:** Before another Could Anyone Tell decision, the team knows this: the arm difference is statistically detectable, but the sealed-box audit remained intact and both correct-guess rates are low. Test the conclusion across the supported uncertainty range now, before the team treats it as robust. Which option correctly applies practical scope and blinding to this follow-up case?
+
+**Prompt - exact player copy:** Which statement best explains practical scope and blinding?
 
 **Options - exact player copy:**
 
-- A. Either subjects or researchers do not know assignments. Double blind: neither subjects nor researchers know assignments. Pooled proportion: combined success proportion used in a two-proportion null test. Homogeneity: equal distribution of one categorical variable across populations or treatments.
+- A. Either subjects or researchers do not know assignments.
 - B. The board must separate evidence of unequal guessing from proof that allocation was exposed.
 - C. Agreement among shared displays cannot count as independent proof that nobody could predict the next kit.
 - D. An interval shows whether the observed seven-point gap could plausibly be near zero.
 
 **Correct answer:** B
 
-**Hint - exact player copy:** Use the stated evidence and the conditions for practical scope and blinding; do not choose an option merely because it names a familiar term.
+**Hint - exact player copy:** Identify the defining relationship or mechanism for practical scope and blinding. All needed information is in this question.
 
 **Option feedback - exact player copy:**
 
-- A: This describes Single blind, not practical scope and blinding. It does not account for the quantities, conditions, or evidence in this statistics case.
-- B: Correct. the board must separate evidence of unequal guessing from proof that allocation was exposed.
-- C: This describes blinding versus randomisation records, not practical scope and blinding. It does not account for the quantities, conditions, or evidence in this statistics case.
-- D: This describes two-proportion CI/conditions, not practical scope and blinding. It does not account for the quantities, conditions, or evidence in this statistics case.
+- A: This describes single blind. It does not answer the question about practical scope and blinding.
+- B: Correct. The board must separate evidence of unequal guessing from proof that allocation was exposed.
+- C: This describes blinding versus randomisation records. It does not answer the question about practical scope and blinding.
+- D: This describes two-proportion CI and conditions. It does not answer the question about practical scope and blinding.
+
 ### Review question 6
 
-**Prompt - exact player copy:** the Fenwick trial applies the lesson from Could Anyone Tell to this follow-up: the cold-room failure made Priya's records look suspicious, but assignment concealment uses a different path. Open the dependencies now so the team can distinguish independent evidence from readings that repeat one source. Which option correctly applies Variable to this follow-up case?
+
+**Prompt - exact player copy:** Which statement best explains variable?
 
 **Options - exact player copy:**
 
-- A. Either subjects or researchers do not know assignments. Double blind: neither subjects nor researchers know assignments. Pooled proportion: combined success proportion used in a two-proportion null test. Homogeneity: equal distribution of one categorical variable across populations or treatments.
+- A. Either subjects or researchers do not know assignments.
 - B. Agreement among shared displays cannot count as independent proof that nobody could predict the next kit.
-- C. A characteristic recorded for each patient. Categorical variable: a variable placing a patient into a group. Quantitative variable: a variable recorded as a meaningful number. Parameter: a fixed but usually unknown number describing a population. Statistic: a number computed from a sample.
+- C. A characteristic recorded for each patient.
 - D. An interval shows whether the observed seven-point gap could plausibly be near zero.
 
 **Correct answer:** C
 
-**Hint - exact player copy:** Use the stated evidence and the conditions for Variable; do not choose an option merely because it names a familiar term.
+**Hint - exact player copy:** Identify the defining relationship or mechanism for variable. All needed information is in this question.
 
 **Option feedback - exact player copy:**
 
-- A: This describes Single blind, not Variable. It does not account for the quantities, conditions, or evidence in this statistics case.
-- B: This describes blinding versus randomisation records, not Variable. It does not account for the quantities, conditions, or evidence in this statistics case.
-- C: Correct. a characteristic recorded for each patient. Categorical variable: a variable placing a patient into a group. Quantitative variable: a variable recorded as a meaningful number. Parameter: a fixed but usually unknown number describing a population. Statistic: a number computed from a sample.
-- D: This describes two-proportion CI/conditions, not Variable. It does not account for the quantities, conditions, or evidence in this statistics case.
-**Optional review completion - exact player copy:** Excellent work. You went beyond the required mission and strengthened the ideas behind your decision.
+- A: This describes single blind. It does not answer the question about variable.
+- B: This describes blinding versus randomisation records. It does not answer the question about variable.
+- C: Correct. A characteristic recorded for each patient.
+- D: This describes two-proportion CI and conditions. It does not answer the question about variable.
+
+**Optional review completion - exact player copy:** Good work. You have completed six independent practice questions.
+
 ## Quick concept review
 - Pool the proportion for a two-proportion test, not its interval.
 - Statistical difference and mechanism are separate claims.
@@ -5684,7 +5738,7 @@ t procedures estimate means when sigma is unknown. One-sample, paired, and two-s
 
 **Question card story-science connection - exact player copy:** The one-sample mean test determines whether the adjusted sample supplies evidence against the registered mean value.
 
-**Fixture source panel - exact player copy:** After recovering missing outcomes, n=25 patients have mean score 72 and sample SD 10; the null mean is 68. Check independence and shape, then build the one-sample t statistic. xbar=72 s=10 mu0=68
+**Fixture source panel - exact player copy:** After recovering missing outcomes, n=25 patients have mean score 72 and sample SD 10; the null mean is 68. Check independence and shape, then build the one-sample t statistic.
 
 **Source-panel timing:** Show at this stop’s declared fixture before its DERIVE choices unlock. Keep visible while the player works. These are model inputs and prior observations, not new measurements or an accepted answer. Symbolic derivations stay symbolic; do not invent a number merely to force substitution.
 
@@ -5749,7 +5803,7 @@ derive:
 
 **Question card story-science connection - exact player copy:** The paired test and interval quantify change while preserving the dependence between each patient's two measurements.
 
-**Fixture source panel - exact player copy:** The adjusted mean is inconclusive, but 16 same-patient differences defined as after minus before have mean -3 days and SD 4 days. Derive the paired significance test and 95% interval. For 16 paired observations, the after-minus-before differences have mean -3 hours and standard deviation 4 hours. Test H0:mu_difference=0 and construct a 95% confidence interval For a 95% interval with 15 degrees of freedom, t-star = 2.131.
+**Fixture source panel - exact player copy:** The adjusted mean is inconclusive, but 16 same-patient differences, defined as after minus before, have mean -3 days and SD 4 days. Test H0:mu_difference=0 and construct a 95% confidence interval using t-star=2.131 for 15 degrees of freedom.
 
 **Source-panel timing:** Show at this stop’s declared fixture before its DERIVE choices unlock. Keep visible while the player works. These are model inputs and prior observations, not new measurements or an accepted answer. Symbolic derivations stay symbolic; do not invent a number merely to force substitution.
 
@@ -5769,7 +5823,7 @@ derive:
 
 ```yaml
 derive:
-  givens: ["The adjusted mean is inconclusive, but 16 same-patient differences defined as after minus before have mean -3 days and SD 4 days.", "For 16 paired observations, the after-minus-before differences have mean -3 hours and standard deviation 4 hours. Test `H0:mu_difference=0` and construct a 95% confidence interval", "For a 95% interval with 15 degrees of freedom, t-star = 2.131."]
+  givens: ["The adjusted mean is inconclusive, but 16 same-patient differences defined as after minus before have mean -3 days and SD 4 days.", "Test `H0:mu_difference=0` and construct a 95% confidence interval", "For a 95% interval with 15 degrees of freedom, t-star = 2.131."]
   start: "Begin with the complete starting relation on the card. Preserve its named left side on every line."
   goal: "Use the Pairs in the form and units requested by the prompt"
   left_side: "t"
@@ -5820,7 +5874,7 @@ derive:
 
 **Question card story-science connection - exact player copy:** The unpooled two-sample statistic assesses the group-mean difference using each group's own variability.
 
-**Fixture source panel - exact player copy:** The paired change is clear, while independent groups have n1=30, mean1=72, s1=8 and n2=28, mean2=68, s2=7. Derive the unpooled two-sample t statistic for treatment minus placebo before choosing the headline. Group 1 has n=30, mean 72 hours, and standard deviation 8 hours; group 2 has n=28, mean 68 hours, and standard deviation 7 hours.
+**Fixture source panel - exact player copy:** The paired change is clear. Now compare independent groups: treatment has n1=30, mean1=72 hours, and s1=8 hours; placebo has n2=28, mean2=68 hours, and s2=7 hours. Derive the unpooled two-sample t statistic for treatment minus placebo before choosing the headline.
 
 **Source-panel timing:** Show at this stop’s declared fixture before its DERIVE choices unlock. Keep visible while the player works. These are model inputs and prior observations, not new measurements or an accepted answer. Symbolic derivations stay symbolic; do not invent a number merely to force substitution.
 
@@ -5963,186 +6017,173 @@ MISSION 10 COMPLETE; TIME {elapsed} / TARGET 18:00; INCORRECT SUBMISSIONS {incor
 
 **Availability:** Reveal only after mission completion when the player selects **GO DEEPER**. This section is optional, ungraded for campaign progress, and does not change metrics, Recovery Points, or the next-mission unlock.
 
-**Secondary briefing card - exact player copy:** You completed The Smaller Benefit. Choose GO DEEPER to revisit the four decisions and explore related course ideas; this optional review does not change your metrics or delay the next mission.
+**Secondary briefing card - exact player copy:** Try six independent practice questions. Each includes its own context and any needed data; no mission records are required.
 
 ### Review focus
 
-No additional prerequisite is required. These AP-style questions apply the mission's course ideas to follow-up evidence, including related topics not required in the four main stops.
+No additional prerequisite is required. These practice questions review related course ideas. Each question stands alone, including its choices and figure.
 
 ### Review question 1
 
-**Prompt - exact player copy:** In a follow-up to The Smaller Benefit, after recovering missing outcomes, n=25 patients have mean score 72 and sample SD 10; the null mean is 68. Which interpretation of the displayed evidence correctly uses the mission concept?
+
+**Prompt - exact player copy:** What feature of the t distribution with 5 degrees of freedom is shown?
 
 **Figure - exact player copy:**
 
 ```json
 {
-  "kind": "line",
-  "xLabel": "Standardized estimate",
-  "yLabel": "Relative frequency",
-  "caption": "A centered sampling distribution with symmetric tails.",
-  "series": [
+  "kind": "bars",
+  "xLabel": "Category",
+  "yLabel": "Probability in both tails",
+  "caption": "Tail probabilities for two symmetric distributions",
+  "bars": [
     {
-      "name": "Distribution",
-      "points": [
-        [
-          -3,
-          0.01
-        ],
-        [
-          -2,
-          0.06
-        ],
-        [
-          -1,
-          0.24
-        ],
-        [
-          0,
-          0.4
-        ],
-        [
-          1,
-          0.24
-        ],
-        [
-          2,
-          0.06
-        ],
-        [
-          3,
-          0.01
-        ]
-      ]
+      "name": "Normal, beyond ±2",
+      "value": 0.0455
+    },
+    {
+      "name": "t with 5 df, beyond ±2",
+      "value": 0.1019
     }
   ]
 }
 ```
 
+**Options - exact player copy:**
+
+- A. It assigns no probability outside ±2.
+- B. It has lighter tails than the Normal.
+- C. It can never take negative values.
+- D. It has heavier tails than the standard Normal distribution.
+
+**Correct answer:** D
+
+**Hint - exact player copy:** Compare probability outside the same pair of cutoffs.
+
+**Option feedback - exact player copy:**
+
+- A: The plotted tail probability is positive.
+- B: Its tail probability is larger.
+- C: Both distributions are symmetric about zero.
+- D: Correct. It has heavier tails than the standard Normal distribution.
+
+### Review question 2
+
+
+**Prompt - exact player copy:** Which statement best explains one-sample t and conditions?
 
 **Options - exact player copy:**
 
 - A. The heavier-tailed t model reflects that population SD is estimated rather than known.
-- B. A bell-shaped distribution with heavier tails used when the population standard deviation (SD) is unknown. Degrees of freedom: a number controlling the t distribution's shape. Paired data: linked measurements analyzed through within-pair differences. Two-sample data: measurements from two independent groups.
+- B. A bell-shaped distribution with heavier tails used when the population standard deviation (SD) is unknown.
 - C. Pairing removes between-patient variation and tests the mean change actually experienced.
-- D. Using the right data structure keeps a precise-looking but invalid estimate out of the pack.
+- D. Using the right data structure keeps a precise-looking but invalid estimate out of the report.
+
+**Correct answer:** A
+
+**Hint - exact player copy:** Identify the defining relationship or mechanism for one-sample t and conditions. All needed information is in this question.
+
+**Option feedback - exact player copy:**
+
+- A: Correct. The heavier-tailed t model reflects that population SD is estimated rather than known.
+- B: This describes t distribution. It does not answer the question about one-sample t and conditions.
+- C: This describes paired t and CI. It does not answer the question about one-sample t and conditions.
+- D: This describes two-sample t. It does not answer the question about one-sample t and conditions.
+
+### Review question 3
+
+
+**Prompt - exact player copy:** Which statement best explains paired t and CI?
+
+**Options - exact player copy:**
+
+- A. A bell-shaped distribution with heavier tails used when the population standard deviation (SD) is unknown.
+- B. Pairing removes between-patient variation and tests the mean change actually experienced.
+- C. The heavier-tailed t model reflects that population SD is estimated rather than known.
+- D. Using the right data structure keeps a precise-looking but invalid estimate out of the report.
 
 **Correct answer:** B
 
-**Hint - exact player copy:** Read the axes, units, direction, and any threshold before comparing the choices.
+**Hint - exact player copy:** Identify the defining relationship or mechanism for paired t and ci. All needed information is in this question.
 
 **Option feedback - exact player copy:**
 
-- A: This describes one-sample t/conditions, not T distribution. It does not account for the quantities, conditions, or evidence in this statistics case.
-- B: Correct. a bell-shaped distribution with heavier tails used when the population standard deviation (SD) is unknown. Degrees of freedom: a number controlling the t distribution's shape. Paired data: linked measurements analyzed through within-pair differences. Two-sample data: measurements from two independent groups.
-- C: This describes paired t and CI, not T distribution. It does not account for the quantities, conditions, or evidence in this statistics case.
-- D: This describes two-sample t, not T distribution. It does not account for the quantities, conditions, or evidence in this statistics case.
-### Review question 2
+- A: This describes t distribution. It does not answer the question about paired t and ci.
+- B: Correct. Pairing removes between-patient variation and tests the mean change actually experienced.
+- C: This describes one-sample t and conditions. It does not answer the question about paired t and ci.
+- D: This describes two-sample t. It does not answer the question about paired t and ci.
 
-**Prompt - exact player copy:** the Fenwick trial receives a second case related to The Smaller Benefit: after recovering missing outcomes, n=25 patients have mean score 72 and sample SD 10; the null mean is 68. Which statistical conclusion or procedure correctly uses one-sample t/conditions?
+### Review question 4
+
+
+**Prompt - exact player copy:** Which statement best explains two-sample t?
 
 **Options - exact player copy:**
 
-- A. A bell-shaped distribution with heavier tails used when the population standard deviation (SD) is unknown. Degrees of freedom: a number controlling the t distribution's shape. Paired data: linked measurements analyzed through within-pair differences. Two-sample data: measurements from two independent groups.
-- B. Pairing removes between-patient variation and tests the mean change actually experienced.
-- C. The heavier-tailed t model reflects that population SD is estimated rather than known.
-- D. Using the right data structure keeps a precise-looking but invalid estimate out of the pack.
+- A. A bell-shaped distribution with heavier tails used when the population standard deviation (SD) is unknown.
+- B. The heavier-tailed t model reflects that population SD is estimated rather than known.
+- C. Using the right data structure keeps a precise-looking but invalid estimate out of the report.
+- D. Pairing removes between-patient variation and tests the mean change actually experienced.
 
 **Correct answer:** C
 
-**Hint - exact player copy:** Use the stated evidence and the conditions for one-sample t/conditions; do not choose an option merely because it names a familiar term.
+**Hint - exact player copy:** Identify the defining relationship or mechanism for two-sample t. All needed information is in this question.
 
 **Option feedback - exact player copy:**
 
-- A: This describes T distribution, not one-sample t/conditions. It does not account for the quantities, conditions, or evidence in this statistics case.
-- B: This describes paired t and CI, not one-sample t/conditions. It does not account for the quantities, conditions, or evidence in this statistics case.
-- C: Correct. the heavier-tailed t model reflects that population SD is estimated rather than known.
-- D: This describes two-sample t, not one-sample t/conditions. It does not account for the quantities, conditions, or evidence in this statistics case.
-### Review question 3
+- A: This describes t distribution. It does not answer the question about two-sample t.
+- B: This describes one-sample t and conditions. It does not answer the question about two-sample t.
+- C: Correct. Using the right data structure keeps a precise-looking but invalid estimate out of the report.
+- D: This describes paired t and CI. It does not answer the question about two-sample t.
 
-**Prompt - exact player copy:** A teammate rechecks The Smaller Benefit using new evidence: the adjusted mean is inconclusive, but 16 same-patient differences defined as after minus before have mean -3 days and SD 4 days. Which option correctly applies paired t and CI to this follow-up case?
+### Review question 5
+
+
+**Prompt - exact player copy:** Which statement best explains adjustment diagnostics?
 
 **Options - exact player copy:**
 
-- A. A bell-shaped distribution with heavier tails used when the population standard deviation (SD) is unknown. Degrees of freedom: a number controlling the t distribution's shape. Paired data: linked measurements analyzed through within-pair differences. Two-sample data: measurements from two independent groups.
+- A. A bell-shaped distribution with heavier tails used when the population standard deviation (SD) is unknown.
 - B. The heavier-tailed t model reflects that population SD is estimated rather than known.
-- C. Using the right data structure keeps a precise-looking but invalid estimate out of the pack.
-- D. Pairing removes between-patient variation and tests the mean change actually experienced.
+- C. Pairing removes between-patient variation and tests the mean change actually experienced.
+- D. A smaller well-diagnosed effect is more defensible than a larger biased headline.
 
 **Correct answer:** D
 
-**Hint - exact player copy:** Use the stated evidence and the conditions for paired t and CI; do not choose an option merely because it names a familiar term.
+**Hint - exact player copy:** Identify the defining relationship or mechanism for adjustment diagnostics. All needed information is in this question.
 
 **Option feedback - exact player copy:**
 
-- A: This describes T distribution, not paired t and CI. It does not account for the quantities, conditions, or evidence in this statistics case.
-- B: This describes one-sample t/conditions, not paired t and CI. It does not account for the quantities, conditions, or evidence in this statistics case.
-- C: This describes two-sample t, not paired t and CI. It does not account for the quantities, conditions, or evidence in this statistics case.
-- D: Correct. pairing removes between-patient variation and tests the mean change actually experienced.
-### Review question 4
+- A: This describes t distribution. It does not answer the question about adjustment diagnostics.
+- B: This describes one-sample t and conditions. It does not answer the question about adjustment diagnostics.
+- C: This describes paired t and CI. It does not answer the question about adjustment diagnostics.
+- D: Correct. A smaller well-diagnosed effect is more defensible than a larger biased headline.
 
-**Prompt - exact player copy:** An unseen case extends The Smaller Benefit: after recovering missing outcomes, n=25 patients have mean score 72 and sample SD 10; the null mean is 68. Which statistical conclusion or procedure correctly uses two-sample t?
+### Review question 6
+
+
+**Prompt - exact player copy:** Which statement best explains variable?
 
 **Options - exact player copy:**
 
-- A. Using the right data structure keeps a precise-looking but invalid estimate out of the pack.
-- B. A bell-shaped distribution with heavier tails used when the population standard deviation (SD) is unknown. Degrees of freedom: a number controlling the t distribution's shape. Paired data: linked measurements analyzed through within-pair differences. Two-sample data: measurements from two independent groups.
+- A. A characteristic recorded for each patient.
+- B. A bell-shaped distribution with heavier tails used when the population standard deviation (SD) is unknown.
 - C. The heavier-tailed t model reflects that population SD is estimated rather than known.
 - D. Pairing removes between-patient variation and tests the mean change actually experienced.
 
 **Correct answer:** A
 
-**Hint - exact player copy:** Use the stated evidence and the conditions for two-sample t; do not choose an option merely because it names a familiar term.
+**Hint - exact player copy:** Identify the defining relationship or mechanism for variable. All needed information is in this question.
 
 **Option feedback - exact player copy:**
 
-- A: Correct. using the right data structure keeps a precise-looking but invalid estimate out of the pack.
-- B: This describes T distribution, not two-sample t. It does not account for the quantities, conditions, or evidence in this statistics case.
-- C: This describes one-sample t/conditions, not two-sample t. It does not account for the quantities, conditions, or evidence in this statistics case.
-- D: This describes paired t and CI, not two-sample t. It does not account for the quantities, conditions, or evidence in this statistics case.
-### Review question 5
+- A: Correct. A characteristic recorded for each patient.
+- B: This describes t distribution. It does not answer the question about variable.
+- C: This describes one-sample t and conditions. It does not answer the question about variable.
+- D: This describes paired t and CI. It does not answer the question about variable.
 
-**Prompt - exact player copy:** Before another Smaller Benefit decision, the team knows this: the three analyses now disagree in strength, so Statistics compares residual fields after distance adjustment. Which option correctly applies adjustment diagnostics to this follow-up case?
+**Optional review completion - exact player copy:** Good work. You have completed six independent practice questions.
 
-**Options - exact player copy:**
-
-- A. A bell-shaped distribution with heavier tails used when the population standard deviation (SD) is unknown. Degrees of freedom: a number controlling the t distribution's shape. Paired data: linked measurements analyzed through within-pair differences. Two-sample data: measurements from two independent groups.
-- B. A smaller well-diagnosed effect is more defensible than a larger biased headline.
-- C. The heavier-tailed t model reflects that population SD is estimated rather than known.
-- D. Pairing removes between-patient variation and tests the mean change actually experienced.
-
-**Correct answer:** B
-
-**Hint - exact player copy:** Use the stated evidence and the conditions for adjustment diagnostics; do not choose an option merely because it names a familiar term.
-
-**Option feedback - exact player copy:**
-
-- A: This describes T distribution, not adjustment diagnostics. It does not account for the quantities, conditions, or evidence in this statistics case.
-- B: Correct. a smaller well-diagnosed effect is more defensible than a larger biased headline.
-- C: This describes one-sample t/conditions, not adjustment diagnostics. It does not account for the quantities, conditions, or evidence in this statistics case.
-- D: This describes paired t and CI, not adjustment diagnostics. It does not account for the quantities, conditions, or evidence in this statistics case.
-### Review question 6
-
-**Prompt - exact player copy:** the Fenwick trial applies the lesson from The Smaller Benefit to this follow-up: after recovering missing outcomes, n=25 patients have mean score 72 and sample SD 10; the null mean is 68. Which option correctly applies Variable to this follow-up case?
-
-**Options - exact player copy:**
-
-- A. A bell-shaped distribution with heavier tails used when the population standard deviation (SD) is unknown. Degrees of freedom: a number controlling the t distribution's shape. Paired data: linked measurements analyzed through within-pair differences. Two-sample data: measurements from two independent groups.
-- B. The heavier-tailed t model reflects that population SD is estimated rather than known.
-- C. A characteristic recorded for each patient. Categorical variable: a variable placing a patient into a group. Quantitative variable: a variable recorded as a meaningful number. Parameter: a fixed but usually unknown number describing a population. Statistic: a number computed from a sample.
-- D. Pairing removes between-patient variation and tests the mean change actually experienced.
-
-**Correct answer:** C
-
-**Hint - exact player copy:** Use the stated evidence and the conditions for Variable; do not choose an option merely because it names a familiar term.
-
-**Option feedback - exact player copy:**
-
-- A: This describes T distribution, not Variable. It does not account for the quantities, conditions, or evidence in this statistics case.
-- B: This describes one-sample t/conditions, not Variable. It does not account for the quantities, conditions, or evidence in this statistics case.
-- C: Correct. a characteristic recorded for each patient. Categorical variable: a variable placing a patient into a group. Quantitative variable: a variable recorded as a meaningful number. Parameter: a fixed but usually unknown number describing a population. Statistic: a number computed from a sample.
-- D: This describes paired t and CI, not Variable. It does not account for the quantities, conditions, or evidence in this statistics case.
-**Optional review completion - exact player copy:** Excellent work. You went beyond the required mission and strengthened the ideas behind your decision.
 ## Quick concept review
 - Choose one-sample, paired, or two-sample t from the data structure.
 - Use t because sigma is unknown.
@@ -6343,7 +6384,7 @@ Sample statistics vary around fixed parameters. Unbiasedness concerns the sampli
 
 **Question card story-science connection - exact player copy:** The sample-mean distribution distinguishes expected sampling spread from extraction differences too large for the model.
 
-**Fixture source panel - exact player copy:** The source population has mean 70, SD 12, and each extraction averages n=36 independent records. Derive the sampling distribution of x-bar and explain what increasing n changes in that distribution. mu=70 sigma=12
+**Fixture source panel - exact player copy:** The source population has mean 70, SD 12, and each extraction averages n=36 independent records. Derive the sampling distribution of x-bar and explain what increasing n changes in that distribution.
 
 **Source-panel timing:** Show at this stop’s declared fixture before its DERIVE choices unlock. Keep visible while the player works. These are model inputs and prior observations, not new measurements or an accepted answer. Symbolic derivations stay symbolic; do not invent a number merely to force substitution.
 
@@ -6557,139 +6598,152 @@ MISSION 11 COMPLETE; TIME {elapsed} / TARGET 18:00; INCORRECT SUBMISSIONS {incor
 
 **Availability:** Reveal only after mission completion when the player selects **GO DEEPER**. This section is optional, ungraded for campaign progress, and does not change metrics, Recovery Points, or the next-mission unlock.
 
-**Secondary briefing card - exact player copy:** You completed Lock the File. Choose GO DEEPER to revisit the four decisions and explore related course ideas; this optional review does not change your metrics or delay the next mission.
+**Secondary briefing card - exact player copy:** Try six independent practice questions. Each includes its own context and any needed data; no mission records are required.
 
 ### Review focus
 
-No additional prerequisite is required. These AP-style questions apply the mission's course ideas to follow-up evidence, including related topics not required in the four main stops.
+No additional prerequisite is required. These practice questions review related course ideas. Each question stands alone, including its choices and figure.
 
 ### Review question 1
 
-**Prompt - exact player copy:** In a follow-up to Lock the File, the source population has mean 70, SD 12, and each extraction averages n=36 independent records. Which option correctly applies Central Limit Theorem to this follow-up case?
+
+**Prompt - exact player copy:** Which statement best explains central Limit Theorem?
 
 **Options - exact player copy:**
 
 - A. A discrepancy far beyond expected spread points to pipeline error rather than ordinary sampling fluctuation.
-- B. For large n, the sampling distribution of a sample mean is approximately Normal. Standard error: an estimate of a statistic's sampling spread. Unbiased estimator: an estimator whose sampling-distribution mean equals the parameter.
+- B. For large n, the sampling distribution of a sample mean is approximately Normal.
 - C. A holdout prevents the rule from being rewarded for memorizing the same anomalies it must predict.
-- D. Shared inputs make agreement redundant; only the source rerun can validate the final table.
+- D. Shared inputs make agreement redundant; a separately checked source calculation provides a stronger validation of the table.
 
 **Correct answer:** B
 
-**Hint - exact player copy:** Use the stated evidence and the conditions for Central Limit Theorem; do not choose an option merely because it names a familiar term.
+**Hint - exact player copy:** Identify the defining relationship or mechanism for central limit theorem. All needed information is in this question.
 
 **Option feedback - exact player copy:**
 
-- A: This describes CLT/unbiasedness/SE, not Central Limit Theorem. It does not account for the quantities, conditions, or evidence in this statistics case.
-- B: Correct. for large n, the sampling distribution of a sample mean is approximately Normal. Standard error: an estimate of a statistic's sampling spread. Unbiased estimator: an estimator whose sampling-distribution mean equals the parameter.
-- C: This describes model validation, not Central Limit Theorem. It does not account for the quantities, conditions, or evidence in this statistics case.
-- D: This describes dependence, not Central Limit Theorem. It does not account for the quantities, conditions, or evidence in this statistics case.
+- A: This describes cLT and unbiasedness and SE. It does not answer the question about central limit theorem.
+- B: Correct. For large n, the sampling distribution of a sample mean is approximately Normal.
+- C: This describes model validation. It does not answer the question about central limit theorem.
+- D: This describes dependence. It does not answer the question about central limit theorem.
+
 ### Review question 2
 
-**Prompt - exact player copy:** the Fenwick trial receives a second case related to Lock the File: the source population has mean 70, SD 12, and each extraction averages n=36 independent records. Which option correctly applies CLT/unbiasedness/SE to this follow-up case?
+
+**Prompt - exact player copy:** Which statement best explains cLT and unbiasedness and SE?
 
 **Options - exact player copy:**
 
-- A. For large n, the sampling distribution of a sample mean is approximately Normal. Standard error: an estimate of a statistic's sampling spread. Unbiased estimator: an estimator whose sampling-distribution mean equals the parameter.
+- A. For large n, the sampling distribution of a sample mean is approximately Normal.
 - B. A holdout prevents the rule from being rewarded for memorizing the same anomalies it must predict.
 - C. A discrepancy far beyond expected spread points to pipeline error rather than ordinary sampling fluctuation.
-- D. Shared inputs make agreement redundant; only the source rerun can validate the final table.
+- D. Shared inputs make agreement redundant; a separately checked source calculation provides a stronger validation of the table.
 
 **Correct answer:** C
 
-**Hint - exact player copy:** Use the stated evidence and the conditions for CLT/unbiasedness/SE; do not choose an option merely because it names a familiar term.
+**Hint - exact player copy:** Identify the defining relationship or mechanism for clt and unbiasedness and se. All needed information is in this question.
 
 **Option feedback - exact player copy:**
 
-- A: This describes Central Limit Theorem, not CLT/unbiasedness/SE. It does not account for the quantities, conditions, or evidence in this statistics case.
-- B: This describes model validation, not CLT/unbiasedness/SE. It does not account for the quantities, conditions, or evidence in this statistics case.
-- C: Correct. a discrepancy far beyond expected spread points to pipeline error rather than ordinary sampling fluctuation.
-- D: This describes dependence, not CLT/unbiasedness/SE. It does not account for the quantities, conditions, or evidence in this statistics case.
+- A: This describes central Limit Theorem. It does not answer the question about clt and unbiasedness and se.
+- B: This describes model validation. It does not answer the question about clt and unbiasedness and se.
+- C: Correct. A discrepancy far beyond expected spread points to pipeline error rather than ordinary sampling fluctuation.
+- D: This describes dependence. It does not answer the question about clt and unbiasedness and se.
+
 ### Review question 3
 
-**Prompt - exact player copy:** A teammate rechecks Lock the File using new evidence: the expected spread is two units, and three candidate cleaning rules fit the development rows. Which option correctly applies model validation to this follow-up case?
+
+**Prompt - exact player copy:** Which statement best explains model validation?
 
 **Options - exact player copy:**
 
-- A. For large n, the sampling distribution of a sample mean is approximately Normal. Standard error: an estimate of a statistic's sampling spread. Unbiased estimator: an estimator whose sampling-distribution mean equals the parameter.
+- A. For large n, the sampling distribution of a sample mean is approximately Normal.
 - B. A discrepancy far beyond expected spread points to pipeline error rather than ordinary sampling fluctuation.
-- C. Shared inputs make agreement redundant; only the source rerun can validate the final table.
+- C. Shared inputs make agreement redundant; a separately checked source calculation provides a stronger validation of the table.
 - D. A holdout prevents the rule from being rewarded for memorizing the same anomalies it must predict.
 
 **Correct answer:** D
 
-**Hint - exact player copy:** Use the stated evidence and the conditions for model validation; do not choose an option merely because it names a familiar term.
+**Hint - exact player copy:** Identify the defining relationship or mechanism for model validation. All needed information is in this question.
 
 **Option feedback - exact player copy:**
 
-- A: This describes Central Limit Theorem, not model validation. It does not account for the quantities, conditions, or evidence in this statistics case.
-- B: This describes CLT/unbiasedness/SE, not model validation. It does not account for the quantities, conditions, or evidence in this statistics case.
-- C: This describes dependence, not model validation. It does not account for the quantities, conditions, or evidence in this statistics case.
-- D: Correct. a holdout prevents the rule from being rewarded for memorizing the same anomalies it must predict.
+- A: This describes central Limit Theorem. It does not answer the question about model validation.
+- B: This describes cLT and unbiasedness and SE. It does not answer the question about model validation.
+- C: This describes dependence. It does not answer the question about model validation.
+- D: Correct. A holdout prevents the rule from being rewarded for memorizing the same anomalies it must predict.
+
 ### Review question 4
 
-**Prompt - exact player copy:** An unseen case extends Lock the File: the held-out rule produced an independent hash, while efficacy, safety, and registry reports agree digit for digit. Open the dependencies now so the team can distinguish independent evidence from readings that repeat one source. Which option correctly applies dependence to this follow-up case?
+
+**Prompt - exact player copy:** Which statement best explains dependence?
 
 **Options - exact player copy:**
 
-- A. Shared inputs make agreement redundant; only the source rerun can validate the final table.
-- B. For large n, the sampling distribution of a sample mean is approximately Normal. Standard error: an estimate of a statistic's sampling spread. Unbiased estimator: an estimator whose sampling-distribution mean equals the parameter.
+- A. Shared inputs make agreement redundant; a separately checked source calculation provides a stronger validation of the table.
+- B. For large n, the sampling distribution of a sample mean is approximately Normal.
 - C. A discrepancy far beyond expected spread points to pipeline error rather than ordinary sampling fluctuation.
 - D. A holdout prevents the rule from being rewarded for memorizing the same anomalies it must predict.
 
 **Correct answer:** A
 
-**Hint - exact player copy:** Use the stated evidence and the conditions for dependence; do not choose an option merely because it names a familiar term.
+**Hint - exact player copy:** Identify the defining relationship or mechanism for dependence. All needed information is in this question.
 
 **Option feedback - exact player copy:**
 
-- A: Correct. shared inputs make agreement redundant; only the source rerun can validate the final table.
-- B: This describes Central Limit Theorem, not dependence. It does not account for the quantities, conditions, or evidence in this statistics case.
-- C: This describes CLT/unbiasedness/SE, not dependence. It does not account for the quantities, conditions, or evidence in this statistics case.
-- D: This describes model validation, not dependence. It does not account for the quantities, conditions, or evidence in this statistics case.
+- A: Correct. Shared inputs make agreement redundant; a separately checked source calculation provides a stronger validation of the table.
+- B: This describes central Limit Theorem. It does not answer the question about dependence.
+- C: This describes cLT and unbiasedness and SE. It does not answer the question about dependence.
+- D: This describes model validation. It does not answer the question about dependence.
+
 ### Review question 5
 
-**Prompt - exact player copy:** Before another Lock the File decision, the team knows this: the independent extraction survives its holdout and dependency audit. Before the record can be signed, identify which claims have independent support and which must remain unverified. Which option correctly applies file integrity to this follow-up case?
+
+**Prompt - exact player copy:** Which statement best explains file integrity?
 
 **Options - exact player copy:**
 
-- A. For large n, the sampling distribution of a sample mean is approximately Normal. Standard error: an estimate of a statistic's sampling spread. Unbiased estimator: an estimator whose sampling-distribution mean equals the parameter.
+- A. For large n, the sampling distribution of a sample mean is approximately Normal.
 - B. A lock preserves the analysis boundary only if its evidence and permissions are independently backed.
 - C. A discrepancy far beyond expected spread points to pipeline error rather than ordinary sampling fluctuation.
 - D. A holdout prevents the rule from being rewarded for memorizing the same anomalies it must predict.
 
 **Correct answer:** B
 
-**Hint - exact player copy:** Use the stated evidence and the conditions for file integrity; do not choose an option merely because it names a familiar term.
+**Hint - exact player copy:** Identify the defining relationship or mechanism for file integrity. All needed information is in this question.
 
 **Option feedback - exact player copy:**
 
-- A: This describes Central Limit Theorem, not file integrity. It does not account for the quantities, conditions, or evidence in this statistics case.
-- B: Correct. a lock preserves the analysis boundary only if its evidence and permissions are independently backed.
-- C: This describes CLT/unbiasedness/SE, not file integrity. It does not account for the quantities, conditions, or evidence in this statistics case.
-- D: This describes model validation, not file integrity. It does not account for the quantities, conditions, or evidence in this statistics case.
+- A: This describes central Limit Theorem. It does not answer the question about file integrity.
+- B: Correct. A lock preserves the analysis boundary only if its evidence and permissions are independently backed.
+- C: This describes cLT and unbiasedness and SE. It does not answer the question about file integrity.
+- D: This describes model validation. It does not answer the question about file integrity.
+
 ### Review question 6
 
-**Prompt - exact player copy:** the Fenwick trial applies the lesson from Lock the File to this follow-up: the source population has mean 70, SD 12, and each extraction averages n=36 independent records. Which option correctly applies Variable to this follow-up case?
+
+**Prompt - exact player copy:** Which statement best explains variable?
 
 **Options - exact player copy:**
 
-- A. For large n, the sampling distribution of a sample mean is approximately Normal. Standard error: an estimate of a statistic's sampling spread. Unbiased estimator: an estimator whose sampling-distribution mean equals the parameter.
+- A. For large n, the sampling distribution of a sample mean is approximately Normal.
 - B. A discrepancy far beyond expected spread points to pipeline error rather than ordinary sampling fluctuation.
-- C. A characteristic recorded for each patient. Categorical variable: a variable placing a patient into a group. Quantitative variable: a variable recorded as a meaningful number. Parameter: a fixed but usually unknown number describing a population. Statistic: a number computed from a sample.
+- C. A characteristic recorded for each patient.
 - D. A holdout prevents the rule from being rewarded for memorizing the same anomalies it must predict.
 
 **Correct answer:** C
 
-**Hint - exact player copy:** Use the stated evidence and the conditions for Variable; do not choose an option merely because it names a familiar term.
+**Hint - exact player copy:** Identify the defining relationship or mechanism for variable. All needed information is in this question.
 
 **Option feedback - exact player copy:**
 
-- A: This describes Central Limit Theorem, not Variable. It does not account for the quantities, conditions, or evidence in this statistics case.
-- B: This describes CLT/unbiasedness/SE, not Variable. It does not account for the quantities, conditions, or evidence in this statistics case.
-- C: Correct. a characteristic recorded for each patient. Categorical variable: a variable placing a patient into a group. Quantitative variable: a variable recorded as a meaningful number. Parameter: a fixed but usually unknown number describing a population. Statistic: a number computed from a sample.
-- D: This describes model validation, not Variable. It does not account for the quantities, conditions, or evidence in this statistics case.
-**Optional review completion - exact player copy:** Excellent work. You went beyond the required mission and strengthened the ideas behind your decision.
+- A: This describes central Limit Theorem. It does not answer the question about variable.
+- B: This describes cLT and unbiasedness and SE. It does not answer the question about variable.
+- C: Correct. A characteristic recorded for each patient.
+- D: This describes model validation. It does not answer the question about variable.
+
+**Optional review completion - exact player copy:** Good work. You have completed six independent practice questions.
+
 ## Quick concept review
 - Parameters are fixed; sample statistics vary.
 - Larger samples reduce sampling spread.
@@ -6890,13 +6944,13 @@ GOF compares one variable to fixed expected proportions. Independence uses two v
 
 **Question card story-science connection - exact player copy:** The goodness-of-fit statistic determines whether the observed grade mix differs detectably from the expected proportions.
 
-**Fixture source panel - exact player copy:** The locked file observes 50 mild, 30 moderate, and 20 severe events among 100 reports. Derive the goodness-of-fit statistic and degrees of freedom against the registered expected counts 40,40,20. observed counts differ by +10,+10,0 expected count=40 in each of three categories
+**Fixture source panel - exact player copy:** The locked file records 50 mild, 30 moderate, and 20 severe events among 100 reports. Derive the goodness-of-fit statistic and degrees of freedom against the registered expected counts of 40, 40, and 20, respectively.
 
 **Source-panel timing:** Show at this stop’s declared fixture before its DERIVE choices unlock. Keep visible while the player works. These are model inputs and prior observations, not new measurements or an accepted answer. Symbolic derivations stay symbolic; do not invent a number merely to force substitution.
 
 **Question card prompt - exact player copy:** The observed mild, moderate, and severe counts are 50, 30, and 20; the registered expected counts are 40, 40, and 20. Calculate the chi-square goodness-of-fit statistic, degrees of freedom, and supplied-tail P-value.
 
-**Complete format-specific interaction block:** `derive:{left_side:"contributions","goal":"chi-square goodness-of-fit test","givens":["observed counts differ by +10,+10,0","expected count=40 in each of three categories"],"lines":[{"id":"L1","expression":"contributions=(50-40)^2/40+(30-40)^2/40+(20-20)^2/20=2.5+2.5+0","license":"state governing relationship"},{"id":"L2","expression":"chi-square=5.0","license":"substitute displayed values"},{"id":"L3","expression":"df=3-1=2","license":"simplify with units"},{"id":"L4","expression":"p=0.0821","license":"simplify with units"}],"keyed_order":["L1","L2","L3","L4"],"decoys":["df=3","reject at 0.05"],"correct_result":"chi-square=5, df=2, p=0.082; fail to reject","answerText":"With p=0.082, the observed grades do not significantly differ from the planned distribution at 0.05."}`
+**Complete format-specific interaction block:** `derive:{left_side:"contributions","goal":"chi-square goodness-of-fit test","givens":["observed counts are 50,30,20","expected counts are 40,40,20"],"lines":[{"id":"L1","expression":"contributions=(50-40)^2/40+(30-40)^2/40+(20-20)^2/20=2.5+2.5+0","license":"state governing relationship"},{"id":"L2","expression":"chi-square=5.0","license":"substitute displayed values"},{"id":"L3","expression":"df=3-1=2","license":"simplify with units"},{"id":"L4","expression":"p=0.0821","license":"simplify with units"}],"keyed_order":["L1","L2","L3","L4"],"decoys":["df=3","reject at 0.05"],"correct_result":"chi-square=5, df=2, p=0.082; fail to reject","answerText":"With p=0.082, the observed grades do not significantly differ from the planned distribution at 0.05."}`
 
 **DERIVE per-step choice rule:** Present each authored correct line as a two-choice step, paired with the common-mistake alternative below. Show exactly these two choices for that step, randomize their left/right order, and advance only after the player selects the correct one.
 
@@ -6910,7 +6964,7 @@ GOF compares one variable to fixed expected proportions. Independence uses two v
 
 ```yaml
 derive:
-  givens: ["observed counts differ by +10,+10,0", "expected count=40 in each of three categories"]
+  givens: ["observed counts are 50,30,20", "expected counts are 40,40,20"]
   start: "Begin with the complete starting relation on the card. Preserve its named left side on every line."
   goal: "Fit One Distribution in the form and units requested by the prompt"
   left_side: "contributions"
@@ -7121,165 +7175,181 @@ MISSION 12 COMPLETE; TIME {elapsed} / TARGET 18:00; INCORRECT SUBMISSIONS {incor
 
 **Availability:** Reveal only after mission completion when the player selects **GO DEEPER**. This section is optional, ungraded for campaign progress, and does not change metrics, Recovery Points, or the next-mission unlock.
 
-**Secondary briefing card - exact player copy:** You completed Three Different Tables. Choose GO DEEPER to revisit the four decisions and explore related course ideas; this optional review does not change your metrics or delay the next mission.
+**Secondary briefing card - exact player copy:** Try six independent practice questions. Each includes its own context and any needed data; no mission records are required.
 
 ### Review focus
 
-No additional prerequisite is required. These AP-style questions apply the mission's course ideas to follow-up evidence, including related topics not required in the four main stops.
+No additional prerequisite is required. These practice questions review related course ideas. Each question stands alone, including its choices and figure.
 
 ### Review question 1
 
-**Prompt - exact player copy:** In a follow-up to Three Different Tables, the table has 30 events and 170 non-events in treatment, versus 16 and 184 in placebo. Which statistical conclusion or procedure correctly uses Goodness-of-fit test?
+
+**Prompt - exact player copy:** Which statement best explains goodness-of-fit test?
 
 **Options - exact player copy:**
 
 - A. This asks whether one variable follows a claimed distribution, not whether two variables are associated.
-- B. Compares one categorical variable with a claimed distribution. Independence test: tests association between two categorical variables in one population. Homogeneity test: compares one categorical distribution across two or more populations or treatments. Expected count: count predicted under the null model.
-- C. Same arithmetic cannot erase the difference between one sample with two variables and several populations with one variable.
-- D. Association by arm is a different question from the outcome-grade distribution.
+- B. Same arithmetic cannot erase the difference between one sample with two variables and several populations with one variable.
+- C. Association by arm is a different question from the outcome-grade distribution.
+- D. Compares one categorical variable with a claimed distribution.
 
-**Correct answer:** B
+**Correct answer:** D
 
-**Hint - exact player copy:** Use the stated evidence and the conditions for Goodness-of-fit test; do not choose an option merely because it names a familiar term.
+**Hint - exact player copy:** Identify the defining relationship or mechanism for goodness-of-fit test. All needed information is in this question.
 
 **Option feedback - exact player copy:**
 
-- A: This describes chi-square GOF, not Goodness-of-fit test. It does not account for the quantities, conditions, or evidence in this statistics case.
-- B: Correct. compares one categorical variable with a claimed distribution. Independence test: tests association between two categorical variables in one population. Homogeneity test: compares one categorical distribution across two or more populations or treatments. Expected count: count predicted under the null model.
-- C: This describes independence versus homogeneity, not Goodness-of-fit test. It does not account for the quantities, conditions, or evidence in this statistics case.
-- D: This describes chi-square independence, not Goodness-of-fit test. It does not account for the quantities, conditions, or evidence in this statistics case.
+- A: This describes chi-square GOF. It does not answer the question about goodness-of-fit test.
+- B: This describes independence versus homogeneity. It does not answer the question about goodness-of-fit test.
+- C: This describes chi-square independence. It does not answer the question about goodness-of-fit test.
+- D: Correct. Compares one categorical variable with a claimed distribution.
+
 ### Review question 2
 
-**Prompt - exact player copy:** the Fenwick trial receives a second case related to Three Different Tables: the locked file observes 50 mild, 30 moderate, and 20 severe events among 100 reports. Which option correctly applies chi-square GOF to this follow-up case?
+
+**Prompt - exact player copy:** Which statement best explains chi-square GOF?
 
 **Options - exact player copy:**
 
-- A. Compares one categorical variable with a claimed distribution. Independence test: tests association between two categorical variables in one population. Homogeneity test: compares one categorical distribution across two or more populations or treatments. Expected count: count predicted under the null model.
-- B. Same arithmetic cannot erase the difference between one sample with two variables and several populations with one variable.
-- C. This asks whether one variable follows a claimed distribution, not whether two variables are associated.
+- A. This asks whether one variable follows a claimed distribution, not whether two variables are associated.
+- B. Compares one categorical variable with a claimed distribution.
+- C. Same arithmetic cannot erase the difference between one sample with two variables and several populations with one variable.
 - D. Association by arm is a different question from the outcome-grade distribution.
 
-**Correct answer:** C
+**Correct answer:** A
 
-**Hint - exact player copy:** Use the stated evidence and the conditions for chi-square GOF; do not choose an option merely because it names a familiar term.
+**Hint - exact player copy:** Identify the defining relationship or mechanism for chi-square gof. All needed information is in this question.
 
 **Option feedback - exact player copy:**
 
-- A: This describes Goodness-of-fit test, not chi-square GOF. It does not account for the quantities, conditions, or evidence in this statistics case.
-- B: This describes independence versus homogeneity, not chi-square GOF. It does not account for the quantities, conditions, or evidence in this statistics case.
-- C: Correct. this asks whether one variable follows a claimed distribution, not whether two variables are associated.
-- D: This describes chi-square independence, not chi-square GOF. It does not account for the quantities, conditions, or evidence in this statistics case.
+- A: Correct. This asks whether one variable follows a claimed distribution, not whether two variables are associated.
+- B: This describes goodness-of-fit test. It does not answer the question about chi-square gof.
+- C: This describes independence versus homogeneity. It does not answer the question about chi-square gof.
+- D: This describes chi-square independence. It does not answer the question about chi-square gof.
+
 ### Review question 3
 
-**Prompt - exact player copy:** A teammate rechecks Three Different Tables using new evidence: the locked file observes 50 mild, 30 moderate, and 20 severe events among 100 reports. Which interpretation of the displayed evidence correctly uses the mission concept?
+
+**Prompt - exact player copy:** Researchers independently sample students from each of two schools and compare the yes/no response distributions. Which chi-square procedure fits this design?
 
 **Figure - exact player copy:**
 
 ```json
 {
   "kind": "bars",
-  "xLabel": "Site",
-  "yLabel": "Improvement rate (%)",
-  "caption": "Improvement rates differ across three trial sites.",
+  "xLabel": "Category",
+  "yLabel": "Students",
+  "caption": "Separate random samples of 50 students at each school",
   "bars": [
     {
-      "name": "Site 1",
-      "value": 62
+      "name": "School A: yes",
+      "value": 30
     },
     {
-      "name": "Site 2",
-      "value": 48
+      "name": "School A: no",
+      "value": 20
     },
     {
-      "name": "Site 3",
-      "value": 35
+      "name": "School B: yes",
+      "value": 20
+    },
+    {
+      "name": "School B: no",
+      "value": 30
     }
   ]
 }
 ```
 
+**Options - exact player copy:**
+
+- A. A one-sample goodness-of-fit test against fixed proportions.
+- B. A test of homogeneity.
+- C. A paired t test.
+- D. A test for a numerical regression slope.
+
+**Correct answer:** B
+
+**Hint - exact player copy:** Identify how many populations were sampled and the response type.
+
+**Option feedback - exact player copy:**
+
+- A: The question compares two sampled populations rather than one to a specified distribution.
+- B: Correct. A test of homogeneity.
+- C: The responses are categorical and the samples are independent.
+- D: No quantitative response and predictor are being modeled.
+
+### Review question 4
+
+
+**Prompt - exact player copy:** Which statement best explains chi-square independence?
 
 **Options - exact player copy:**
 
-- A. Compares one categorical variable with a claimed distribution. Independence test: tests association between two categorical variables in one population. Homogeneity test: compares one categorical distribution across two or more populations or treatments. Expected count: count predicted under the null model.
+- A. Compares one categorical variable with a claimed distribution.
 - B. This asks whether one variable follows a claimed distribution, not whether two variables are associated.
 - C. Association by arm is a different question from the outcome-grade distribution.
 - D. Same arithmetic cannot erase the difference between one sample with two variables and several populations with one variable.
 
-**Correct answer:** D
+**Correct answer:** C
 
-**Hint - exact player copy:** Read the axes, units, direction, and any threshold before comparing the choices.
+**Hint - exact player copy:** Identify the defining relationship or mechanism for chi-square independence. All needed information is in this question.
 
 **Option feedback - exact player copy:**
 
-- A: This describes Goodness-of-fit test, not independence versus homogeneity. It does not account for the quantities, conditions, or evidence in this statistics case.
-- B: This describes chi-square GOF, not independence versus homogeneity. It does not account for the quantities, conditions, or evidence in this statistics case.
-- C: This describes chi-square independence, not independence versus homogeneity. It does not account for the quantities, conditions, or evidence in this statistics case.
-- D: Correct. same arithmetic cannot erase the difference between one sample with two variables and several populations with one variable.
-### Review question 4
+- A: This describes goodness-of-fit test. It does not answer the question about chi-square independence.
+- B: This describes chi-square GOF. It does not answer the question about chi-square independence.
+- C: Correct. Association by arm is a different question from the outcome-grade distribution.
+- D: This describes independence versus homogeneity. It does not answer the question about chi-square independence.
 
-**Prompt - exact player copy:** An unseen case extends Three Different Tables: the table has 30 events and 170 non-events in treatment, versus 16 and 184 in placebo. Which option correctly applies chi-square independence to this follow-up case?
+### Review question 5
+
+
+**Prompt - exact player copy:** Which statement best explains chi-square homogeneity and integrated design?
 
 **Options - exact player copy:**
 
-- A. Association by arm is a different question from the outcome-grade distribution.
-- B. Compares one categorical variable with a claimed distribution. Independence test: tests association between two categorical variables in one population. Homogeneity test: compares one categorical distribution across two or more populations or treatments. Expected count: count predicted under the null model.
+- A. Compares one categorical variable with a claimed distribution.
+- B. This asks whether one variable follows a claimed distribution, not whether two variables are associated.
+- C. Same arithmetic cannot erase the difference between one sample with two variables and several populations with one variable.
+- D. Different null questions can yield different decisions even when every display uses counts.
+
+**Correct answer:** D
+
+**Hint - exact player copy:** Identify the defining relationship or mechanism for chi-square homogeneity and integrated design. All needed information is in this question.
+
+**Option feedback - exact player copy:**
+
+- A: This describes goodness-of-fit test. It does not answer the question about chi-square homogeneity and integrated design.
+- B: This describes chi-square GOF. It does not answer the question about chi-square homogeneity and integrated design.
+- C: This describes independence versus homogeneity. It does not answer the question about chi-square homogeneity and integrated design.
+- D: Correct. Different null questions can yield different decisions even when every display uses counts.
+
+### Review question 6
+
+
+**Prompt - exact player copy:** Which statement best explains variable?
+
+**Options - exact player copy:**
+
+- A. A characteristic recorded for each patient.
+- B. Compares one categorical variable with a claimed distribution.
 - C. This asks whether one variable follows a claimed distribution, not whether two variables are associated.
 - D. Same arithmetic cannot erase the difference between one sample with two variables and several populations with one variable.
 
 **Correct answer:** A
 
-**Hint - exact player copy:** Use the stated evidence and the conditions for chi-square independence; do not choose an option merely because it names a familiar term.
+**Hint - exact player copy:** Identify the defining relationship or mechanism for variable. All needed information is in this question.
 
 **Option feedback - exact player copy:**
 
-- A: Correct. association by arm is a different question from the outcome-grade distribution.
-- B: This describes Goodness-of-fit test, not chi-square independence. It does not account for the quantities, conditions, or evidence in this statistics case.
-- C: This describes chi-square GOF, not chi-square independence. It does not account for the quantities, conditions, or evidence in this statistics case.
-- D: This describes independence versus homogeneity, not chi-square independence. It does not account for the quantities, conditions, or evidence in this statistics case.
-### Review question 5
+- A: Correct. A characteristic recorded for each patient.
+- B: This describes goodness-of-fit test. It does not answer the question about variable.
+- C: This describes chi-square GOF. It does not answer the question about variable.
+- D: This describes independence versus homogeneity. It does not answer the question about variable.
 
-**Prompt - exact player copy:** Before another Three Different Tables decision, the team knows this: three site samples report events 18/100, 30/100, and 12/100; chi-square is 10.50 with df=2 and p=.0053. Which option correctly applies chi-square homogeneity and integrated design to this follow-up case?
+**Optional review completion - exact player copy:** Good work. You have completed six independent practice questions.
 
-**Options - exact player copy:**
-
-- A. Compares one categorical variable with a claimed distribution. Independence test: tests association between two categorical variables in one population. Homogeneity test: compares one categorical distribution across two or more populations or treatments. Expected count: count predicted under the null model.
-- B. Different null questions can yield different decisions even when every display uses counts.
-- C. This asks whether one variable follows a claimed distribution, not whether two variables are associated.
-- D. Same arithmetic cannot erase the difference between one sample with two variables and several populations with one variable.
-
-**Correct answer:** B
-
-**Hint - exact player copy:** Use the stated evidence and the conditions for chi-square homogeneity and integrated design; do not choose an option merely because it names a familiar term.
-
-**Option feedback - exact player copy:**
-
-- A: This describes Goodness-of-fit test, not chi-square homogeneity and integrated design. It does not account for the quantities, conditions, or evidence in this statistics case.
-- B: Correct. different null questions can yield different decisions even when every display uses counts.
-- C: This describes chi-square GOF, not chi-square homogeneity and integrated design. It does not account for the quantities, conditions, or evidence in this statistics case.
-- D: This describes independence versus homogeneity, not chi-square homogeneity and integrated design. It does not account for the quantities, conditions, or evidence in this statistics case.
-### Review question 6
-
-**Prompt - exact player copy:** the Fenwick trial applies the lesson from Three Different Tables to this follow-up: the locked file observes 50 mild, 30 moderate, and 20 severe events among 100 reports. Which option correctly applies Variable to this follow-up case?
-
-**Options - exact player copy:**
-
-- A. Compares one categorical variable with a claimed distribution. Independence test: tests association between two categorical variables in one population. Homogeneity test: compares one categorical distribution across two or more populations or treatments. Expected count: count predicted under the null model.
-- B. This asks whether one variable follows a claimed distribution, not whether two variables are associated.
-- C. A characteristic recorded for each patient. Categorical variable: a variable placing a patient into a group. Quantitative variable: a variable recorded as a meaningful number. Parameter: a fixed but usually unknown number describing a population. Statistic: a number computed from a sample.
-- D. Same arithmetic cannot erase the difference between one sample with two variables and several populations with one variable.
-
-**Correct answer:** C
-
-**Hint - exact player copy:** Use the stated evidence and the conditions for Variable; do not choose an option merely because it names a familiar term.
-
-**Option feedback - exact player copy:**
-
-- A: This describes Goodness-of-fit test, not Variable. It does not account for the quantities, conditions, or evidence in this statistics case.
-- B: This describes chi-square GOF, not Variable. It does not account for the quantities, conditions, or evidence in this statistics case.
-- C: Correct. a characteristic recorded for each patient. Categorical variable: a variable placing a patient into a group. Quantitative variable: a variable recorded as a meaningful number. Parameter: a fixed but usually unknown number describing a population. Statistic: a number computed from a sample.
-- D: This describes independence versus homogeneity, not Variable. It does not account for the quantities, conditions, or evidence in this statistics case.
-**Optional review completion - exact player copy:** Excellent work. You went beyond the required mission and strengthened the ideas behind your decision.
 ## Quick concept review
 - Expected counts come from the null model.
 - Chi-square uses the right tail.
@@ -7543,7 +7613,7 @@ residual:
 
 **Question card story-science connection - exact player copy:** The slope statistic, interval, and directional probability quantify evidence for changing recovery time with dose.
 
-**Fixture source panel - exact player copy:** The model passes LINE; output gives b=-0.80 recovery day per dose unit, SE(b)=0.25, and n=30. Derive t, df, the 95% interval, and the correct one-sided p-value from the reported two-sided p=.0034. b=-0.8 day/dose SEb=0.25 df=28 t*=2.048
+**Fixture source panel - exact player copy:** The model passes LINE. Output gives b=-0.80 recovery day per dose unit, SE(b)=0.25 day per dose unit, n=30, and two-sided p=.0034. Derive t, df, and the 95% interval using t-star=2.048, then obtain the correct one-sided P-value.
 
 **Source-panel timing:** Show at this stop’s declared fixture before its DERIVE choices unlock. Keep visible while the player works. These are model inputs and prior observations, not new measurements or an accepted answer. Symbolic derivations stay symbolic; do not invent a number merely to force substitution.
 
@@ -7703,139 +7773,152 @@ MISSION 13 COMPLETE; TIME {elapsed} / TARGET 18:00; INCORRECT SUBMISSIONS {incor
 
 **Availability:** Reveal only after mission completion when the player selects **GO DEEPER**. This section is optional, ungraded for campaign progress, and does not change metrics, Recovery Points, or the next-mission unlock.
 
-**Secondary briefing card - exact player copy:** You completed Too Many Wins. Choose GO DEEPER to revisit the four decisions and explore related course ideas; this optional review does not change your metrics or delay the next mission.
+**Secondary briefing card - exact player copy:** Try six independent practice questions. Each includes its own context and any needed data; no mission records are required.
 
 ### Review focus
 
-No additional prerequisite is required. These AP-style questions apply the mission's course ideas to follow-up evidence, including related topics not required in the four main stops.
+No additional prerequisite is required. These practice questions review related course ideas. Each question stands alone, including its choices and figure.
 
 ### Review question 1
 
-**Prompt - exact player copy:** In a follow-up to Too Many Wins, the model passes LINE; output gives b=-0.80 recovery day per dose unit, SE(b)=0.25, and n=30. Which statistical conclusion or procedure correctly uses Population slope?
+
+**Prompt - exact player copy:** Which statement best explains population slope?
 
 **Options - exact player copy:**
 
 - A. A small slope p-value cannot repair nonlinearity or a fan-shaped residual field.
-- B. The true change in mean response per unit x in the population. LINE conditions: linearity, independence, Normal residuals, and equal residual variance. Multiplicity: increased false-positive opportunity from testing many claims.
+- B. The true change in mean response per unit x in the population.
 - C. Direction, units, and uncertainty determine whether the trend is useful rather than merely significant.
 - D. Counting only significant results would hide the number of chances that produced them.
 
 **Correct answer:** B
 
-**Hint - exact player copy:** Use the stated evidence and the conditions for Population slope; do not choose an option merely because it names a familiar term.
+**Hint - exact player copy:** Identify the defining relationship or mechanism for population slope. All needed information is in this question.
 
 **Option feedback - exact player copy:**
 
-- A: This describes LINE, not Population slope. It does not account for the quantities, conditions, or evidence in this statistics case.
-- B: Correct. the true change in mean response per unit x in the population. LINE conditions: linearity, independence, Normal residuals, and equal residual variance. Multiplicity: increased false-positive opportunity from testing many claims.
-- C: This describes slope test/CI and one-tail trap, not Population slope. It does not account for the quantities, conditions, or evidence in this statistics case.
-- D: This describes registered tests, not Population slope. It does not account for the quantities, conditions, or evidence in this statistics case.
+- A: This describes the linearity, independence, Normal-residual, and equal-variance conditions for slope inference. It does not answer the question about population slope.
+- B: Correct. The true change in mean response per unit x in the population.
+- C: This describes slope test and CI and one-tail trap. It does not answer the question about population slope.
+- D: This describes registered tests. It does not answer the question about population slope.
+
 ### Review question 2
 
-**Prompt - exact player copy:** the Fenwick trial receives a second case related to Too Many Wins: the dose-response scatterplot looks linear, but inference needs more than the fitted line. Which option correctly applies LINE to this follow-up case?
+
+**Prompt - exact player copy:** Which statement best explains the linearity, independence, Normal-residual, and equal-variance conditions for slope inference?
 
 **Options - exact player copy:**
 
-- A. The true change in mean response per unit x in the population. LINE conditions: linearity, independence, Normal residuals, and equal residual variance. Multiplicity: increased false-positive opportunity from testing many claims.
+- A. The true change in mean response per unit x in the population.
 - B. Direction, units, and uncertainty determine whether the trend is useful rather than merely significant.
 - C. A small slope p-value cannot repair nonlinearity or a fan-shaped residual field.
 - D. Counting only significant results would hide the number of chances that produced them.
 
 **Correct answer:** C
 
-**Hint - exact player copy:** Use the stated evidence and the conditions for LINE; do not choose an option merely because it names a familiar term.
+**Hint - exact player copy:** Identify the defining relationship or mechanism for the linearity, independence, normal-residual, and equal-variance conditions for slope inference. All needed information is in this question.
 
 **Option feedback - exact player copy:**
 
-- A: This describes Population slope, not LINE. It does not account for the quantities, conditions, or evidence in this statistics case.
-- B: This describes slope test/CI and one-tail trap, not LINE. It does not account for the quantities, conditions, or evidence in this statistics case.
-- C: Correct. a small slope p-value cannot repair nonlinearity or a fan-shaped residual field.
-- D: This describes registered tests, not LINE. It does not account for the quantities, conditions, or evidence in this statistics case.
+- A: This describes population slope. It does not answer the question about the linearity, independence, normal-residual, and equal-variance conditions for slope inference.
+- B: This describes slope test and CI and one-tail trap. It does not answer the question about the linearity, independence, normal-residual, and equal-variance conditions for slope inference.
+- C: Correct. A small slope p-value cannot repair nonlinearity or a fan-shaped residual field.
+- D: This describes registered tests. It does not answer the question about the linearity, independence, normal-residual, and equal-variance conditions for slope inference.
+
 ### Review question 3
 
-**Prompt - exact player copy:** A teammate rechecks Too Many Wins using new evidence: the model passes LINE; output gives b=-0.80 recovery day per dose unit, SE(b)=0.25, and n=30. Which statistical conclusion or procedure correctly uses slope test/CI and one-tail trap?
+
+**Prompt - exact player copy:** Which statement best explains slope test and CI and one-tail trap?
 
 **Options - exact player copy:**
 
-- A. The true change in mean response per unit x in the population. LINE conditions: linearity, independence, Normal residuals, and equal residual variance. Multiplicity: increased false-positive opportunity from testing many claims.
+- A. The true change in mean response per unit x in the population.
 - B. A small slope p-value cannot repair nonlinearity or a fan-shaped residual field.
 - C. Counting only significant results would hide the number of chances that produced them.
 - D. Direction, units, and uncertainty determine whether the trend is useful rather than merely significant.
 
 **Correct answer:** D
 
-**Hint - exact player copy:** Use the stated evidence and the conditions for slope test/CI and one-tail trap; do not choose an option merely because it names a familiar term.
+**Hint - exact player copy:** Identify the defining relationship or mechanism for slope test and ci and one-tail trap. All needed information is in this question.
 
 **Option feedback - exact player copy:**
 
-- A: This describes Population slope, not slope test/CI and one-tail trap. It does not account for the quantities, conditions, or evidence in this statistics case.
-- B: This describes LINE, not slope test/CI and one-tail trap. It does not account for the quantities, conditions, or evidence in this statistics case.
-- C: This describes registered tests, not slope test/CI and one-tail trap. It does not account for the quantities, conditions, or evidence in this statistics case.
-- D: Correct. direction, units, and uncertainty determine whether the trend is useful rather than merely significant.
+- A: This describes population slope. It does not answer the question about slope test and ci and one-tail trap.
+- B: This describes the linearity, independence, Normal-residual, and equal-variance conditions for slope inference. It does not answer the question about slope test and ci and one-tail trap.
+- C: This describes registered tests. It does not answer the question about slope test and ci and one-tail trap.
+- D: Correct. Direction, units, and uncertainty determine whether the trend is useful rather than merely significant.
+
 ### Review question 4
 
-**Prompt - exact player copy:** An unseen case extends Too Many Wins: the slope survives its own test, but the registry lists ten secondary analyses sharing one family. Before the record can be signed, identify which claims have independent support and which must remain unverified. Which statistical conclusion or procedure correctly uses registered tests?
+
+**Prompt - exact player copy:** Which statement best explains registered tests?
 
 **Options - exact player copy:**
 
 - A. Counting only significant results would hide the number of chances that produced them.
-- B. The true change in mean response per unit x in the population. LINE conditions: linearity, independence, Normal residuals, and equal residual variance. Multiplicity: increased false-positive opportunity from testing many claims.
+- B. The true change in mean response per unit x in the population.
 - C. A small slope p-value cannot repair nonlinearity or a fan-shaped residual field.
 - D. Direction, units, and uncertainty determine whether the trend is useful rather than merely significant.
 
 **Correct answer:** A
 
-**Hint - exact player copy:** Use the stated evidence and the conditions for registered tests; do not choose an option merely because it names a familiar term.
+**Hint - exact player copy:** Identify the defining relationship or mechanism for registered tests. All needed information is in this question.
 
 **Option feedback - exact player copy:**
 
-- A: Correct. counting only significant results would hide the number of chances that produced them.
-- B: This describes Population slope, not registered tests. It does not account for the quantities, conditions, or evidence in this statistics case.
-- C: This describes LINE, not registered tests. It does not account for the quantities, conditions, or evidence in this statistics case.
-- D: This describes slope test/CI and one-tail trap, not registered tests. It does not account for the quantities, conditions, or evidence in this statistics case.
+- A: Correct. Counting only significant results would hide the number of chances that produced them.
+- B: This describes population slope. It does not answer the question about registered tests.
+- C: This describes the linearity, independence, Normal-residual, and equal-variance conditions for slope inference. It does not answer the question about registered tests.
+- D: This describes slope test and CI and one-tail trap. It does not answer the question about registered tests.
+
 ### Review question 5
 
-**Prompt - exact player copy:** Before another Too Many Wins decision, the team knows this: ten independent null tests at alpha=.05 create about a 40% chance of at least one false positive. Write the action threshold now, before new evidence or operational pressure can move it. Which statistical conclusion or procedure correctly uses familywise error/complement/power?
+
+**Prompt - exact player copy:** Which statement best explains familywise error and complement and power?
 
 **Options - exact player copy:**
 
-- A. The true change in mean response per unit x in the population. LINE conditions: linearity, independence, Normal residuals, and equal residual variance. Multiplicity: increased false-positive opportunity from testing many claims.
+- A. The true change in mean response per unit x in the population.
 - B. Correction protects the family claim while preserving the observed effect sizes for transparent reporting.
 - C. A small slope p-value cannot repair nonlinearity or a fan-shaped residual field.
 - D. Direction, units, and uncertainty determine whether the trend is useful rather than merely significant.
 
 **Correct answer:** B
 
-**Hint - exact player copy:** Use the stated evidence and the conditions for familywise error/complement/power; do not choose an option merely because it names a familiar term.
+**Hint - exact player copy:** Identify the defining relationship or mechanism for familywise error and complement and power. All needed information is in this question.
 
 **Option feedback - exact player copy:**
 
-- A: This describes Population slope, not familywise error/complement/power. It does not account for the quantities, conditions, or evidence in this statistics case.
-- B: Correct. correction protects the family claim while preserving the observed effect sizes for transparent reporting.
-- C: This describes LINE, not familywise error/complement/power. It does not account for the quantities, conditions, or evidence in this statistics case.
-- D: This describes slope test/CI and one-tail trap, not familywise error/complement/power. It does not account for the quantities, conditions, or evidence in this statistics case.
+- A: This describes population slope. It does not answer the question about familywise error and complement and power.
+- B: Correct. Correction protects the family claim while preserving the observed effect sizes for transparent reporting.
+- C: This describes the linearity, independence, Normal-residual, and equal-variance conditions for slope inference. It does not answer the question about familywise error and complement and power.
+- D: This describes slope test and CI and one-tail trap. It does not answer the question about familywise error and complement and power.
+
 ### Review question 6
 
-**Prompt - exact player copy:** the Fenwick trial applies the lesson from Too Many Wins to this follow-up: the dose-response scatterplot looks linear, but inference needs more than the fitted line. Which option correctly applies Variable to this follow-up case?
+
+**Prompt - exact player copy:** Which statement best explains variable?
 
 **Options - exact player copy:**
 
-- A. The true change in mean response per unit x in the population. LINE conditions: linearity, independence, Normal residuals, and equal residual variance. Multiplicity: increased false-positive opportunity from testing many claims.
+- A. The true change in mean response per unit x in the population.
 - B. A small slope p-value cannot repair nonlinearity or a fan-shaped residual field.
-- C. A characteristic recorded for each patient. Categorical variable: a variable placing a patient into a group. Quantitative variable: a variable recorded as a meaningful number. Parameter: a fixed but usually unknown number describing a population. Statistic: a number computed from a sample.
+- C. A characteristic recorded for each patient.
 - D. Direction, units, and uncertainty determine whether the trend is useful rather than merely significant.
 
 **Correct answer:** C
 
-**Hint - exact player copy:** Use the stated evidence and the conditions for Variable; do not choose an option merely because it names a familiar term.
+**Hint - exact player copy:** Identify the defining relationship or mechanism for variable. All needed information is in this question.
 
 **Option feedback - exact player copy:**
 
-- A: This describes Population slope, not Variable. It does not account for the quantities, conditions, or evidence in this statistics case.
-- B: This describes LINE, not Variable. It does not account for the quantities, conditions, or evidence in this statistics case.
-- C: Correct. a characteristic recorded for each patient. Categorical variable: a variable placing a patient into a group. Quantitative variable: a variable recorded as a meaningful number. Parameter: a fixed but usually unknown number describing a population. Statistic: a number computed from a sample.
-- D: This describes slope test/CI and one-tail trap, not Variable. It does not account for the quantities, conditions, or evidence in this statistics case.
-**Optional review completion - exact player copy:** Excellent work. You went beyond the required mission and strengthened the ideas behind your decision.
+- A: This describes population slope. It does not answer the question about variable.
+- B: This describes the linearity, independence, Normal-residual, and equal-variance conditions for slope inference. It does not answer the question about variable.
+- C: Correct. A characteristic recorded for each patient.
+- D: This describes slope test and CI and one-tail trap. It does not answer the question about variable.
+
+**Optional review completion - exact player copy:** Good work. You have completed six independent practice questions.
+
 ## Quick concept review
 - LINE comes before slope inference.
 - Interpret slope with units and direction.
@@ -8308,182 +8391,186 @@ MISSION 14 COMPLETE; TIME {elapsed} / TARGET 17:00; INCORRECT SUBMISSIONS {incor
 
 **Availability:** Reveal only after mission completion when the player selects **GO DEEPER**. This section is optional, ungraded for campaign progress, and does not change metrics, Recovery Points, or the next-mission unlock.
 
-**Secondary briefing card - exact player copy:** You completed Stop or Continue. Choose GO DEEPER to revisit the four decisions and explore related course ideas; this optional review does not change your metrics or delay the next mission.
+**Secondary briefing card - exact player copy:** Try six independent practice questions. Each includes its own context and any needed data; no mission records are required.
 
 ### Review focus
 
-No additional prerequisite is required. These AP-style questions apply the mission's course ideas to follow-up evidence, including related topics not required in the four main stops.
+No additional prerequisite is required. These practice questions review related course ideas. Each question stands alone, including its choices and figure.
 
 ### Review question 1
 
-**Prompt - exact player copy:** In a follow-up to Stop or Continue, the primary benefit interval excludes zero, while late harm ranges from -1 to +5 events per 1,000. Test the conclusion across the supported uncertainty range now, before the team treats it as robust. Which option correctly applies Practical significance to this follow-up case?
+
+**Prompt - exact player copy:** Which statement best explains practical significance?
 
 **Options - exact player copy:**
 
 - A. Crossing a safety boundary under plausible assumptions blocks unconditional continuation.
-- B. Whether an effect is large enough to matter in context. False-positive family rate: chance of at least one Type I error across a group of tests. Decision rule: a threshold and action written before new data arrive.
-- C. More data are not automatically valuable; useful evidence must alter the stop-or-continue decision.
-- D. A narrower sampling distribution increases power and makes the final trigger informative.
-
-**Correct answer:** B
-
-**Hint - exact player copy:** Use the stated evidence and the conditions for Practical significance; do not choose an option merely because it names a familiar term.
-
-**Option feedback - exact player copy:**
-
-- A: This describes interval sensitivity/practical significance, not Practical significance. It does not account for the quantities, conditions, or evidence in this statistics case.
-- B: Correct. whether an effect is large enough to matter in context. False-positive family rate: chance of at least one Type I error across a group of tests. Decision rule: a threshold and action written before new data arrive.
-- C: This describes value of information, not Practical significance. It does not account for the quantities, conditions, or evidence in this statistics case.
-- D: This describes power/sample size/effect/alpha/sigma, not Practical significance. It does not account for the quantities, conditions, or evidence in this statistics case.
-### Review question 2
-
-**Prompt - exact player copy:** the Fenwick trial receives a second case related to Stop or Continue: the primary benefit interval excludes zero, while late harm ranges from -1 to +5 events per 1,000. Test the conclusion across the supported uncertainty range now, before the team treats it as robust. Which statistical conclusion or procedure correctly uses interval sensitivity/practical significance?
-
-**Options - exact player copy:**
-
-- A. Whether an effect is large enough to matter in context. False-positive family rate: chance of at least one Type I error across a group of tests. Decision rule: a threshold and action written before new data arrive.
 - B. More data are not automatically valuable; useful evidence must alter the stop-or-continue decision.
-- C. Crossing a safety boundary under plausible assumptions blocks unconditional continuation.
-- D. A narrower sampling distribution increases power and makes the final trigger informative.
-
-**Correct answer:** C
-
-**Hint - exact player copy:** Use the stated evidence and the conditions for interval sensitivity/practical significance; do not choose an option merely because it names a familiar term.
-
-**Option feedback - exact player copy:**
-
-- A: This describes Practical significance, not interval sensitivity/practical significance. It does not account for the quantities, conditions, or evidence in this statistics case.
-- B: This describes value of information, not interval sensitivity/practical significance. It does not account for the quantities, conditions, or evidence in this statistics case.
-- C: Correct. crossing a safety boundary under plausible assumptions blocks unconditional continuation.
-- D: This describes power/sample size/effect/alpha/sigma, not interval sensitivity/practical significance. It does not account for the quantities, conditions, or evidence in this statistics case.
-### Review question 3
-
-**Prompt - exact player copy:** A teammate rechecks Stop or Continue using new evidence: the stress test leaves one uncertain harm boundary, while efficacy and file integrity are already locked. Choose the next measurement now based on whether its result could change the decision. Which option correctly applies value of information to this follow-up case?
-
-**Options - exact player copy:**
-
-- A. Whether an effect is large enough to matter in context. False-positive family rate: chance of at least one Type I error across a group of tests. Decision rule: a threshold and action written before new data arrive.
-- B. Crossing a safety boundary under plausible assumptions blocks unconditional continuation.
-- C. A narrower sampling distribution increases power and makes the final trigger informative.
-- D. More data are not automatically valuable; useful evidence must alter the stop-or-continue decision.
+- C. For a fixed nonzero effect, significance level, and valid test, reducing sampling variability generally increases statistical power.
+- D. Whether an effect is large enough to matter in context.
 
 **Correct answer:** D
 
-**Hint - exact player copy:** Use the stated evidence and the conditions for value of information; do not choose an option merely because it names a familiar term.
+**Hint - exact player copy:** Identify the defining relationship or mechanism for practical significance. All needed information is in this question.
 
 **Option feedback - exact player copy:**
 
-- A: This describes Practical significance, not value of information. It does not account for the quantities, conditions, or evidence in this statistics case.
-- B: This describes interval sensitivity/practical significance, not value of information. It does not account for the quantities, conditions, or evidence in this statistics case.
-- C: This describes power/sample size/effect/alpha/sigma, not value of information. It does not account for the quantities, conditions, or evidence in this statistics case.
-- D: Correct. more data are not automatically valuable; useful evidence must alter the stop-or-continue decision.
-### Review question 4
+- A: This describes interval sensitivity and practical significance. It does not answer the question about practical significance.
+- B: This describes value of information. It does not answer the question about practical significance.
+- C: This describes power and sample size and effect and alpha and sigma. It does not answer the question about practical significance.
+- D: Correct. Whether an effect is large enough to matter in context.
 
-**Prompt - exact player copy:** An unseen case extends Stop or Continue: the funded calls add observations and reduce missingness without changing alpha or the target effect. The next action depends on selecting the conclusion that fits all of those facts. Which statistical conclusion or procedure correctly uses power/sample size/effect/alpha/sigma?
+### Review question 2
+
+
+**Prompt - exact player copy:** Which statement best explains interval sensitivity and practical significance?
 
 **Options - exact player copy:**
 
-- A. A narrower sampling distribution increases power and makes the final trigger informative.
-- B. Whether an effect is large enough to matter in context. False-positive family rate: chance of at least one Type I error across a group of tests. Decision rule: a threshold and action written before new data arrive.
-- C. Crossing a safety boundary under plausible assumptions blocks unconditional continuation.
-- D. More data are not automatically valuable; useful evidence must alter the stop-or-continue decision.
+- A. Crossing a safety boundary under plausible assumptions blocks unconditional continuation.
+- B. Whether an effect is large enough to matter in context.
+- C. More data are not automatically valuable; useful evidence must alter the stop-or-continue decision.
+- D. For a fixed nonzero effect, significance level, and valid test, reducing sampling variability generally increases statistical power.
 
 **Correct answer:** A
 
-**Hint - exact player copy:** Use the stated evidence and the conditions for power/sample size/effect/alpha/sigma; do not choose an option merely because it names a familiar term.
+**Hint - exact player copy:** Identify the defining relationship or mechanism for interval sensitivity and practical significance. All needed information is in this question.
 
 **Option feedback - exact player copy:**
 
-- A: Correct. a narrower sampling distribution increases power and makes the final trigger informative.
-- B: This describes Practical significance, not power/sample size/effect/alpha/sigma. It does not account for the quantities, conditions, or evidence in this statistics case.
-- C: This describes interval sensitivity/practical significance, not power/sample size/effect/alpha/sigma. It does not account for the quantities, conditions, or evidence in this statistics case.
-- D: This describes value of information, not power/sample size/effect/alpha/sigma. It does not account for the quantities, conditions, or evidence in this statistics case.
+- A: Correct. Crossing a safety boundary under plausible assumptions blocks unconditional continuation.
+- B: This describes practical significance. It does not answer the question about interval sensitivity and practical significance.
+- C: This describes value of information. It does not answer the question about interval sensitivity and practical significance.
+- D: This describes power and sample size and effect and alpha and sigma. It does not answer the question about interval sensitivity and practical significance.
+
+### Review question 3
+
+
+**Prompt - exact player copy:** Which statement best explains value of information?
+
+**Options - exact player copy:**
+
+- A. Whether an effect is large enough to matter in context.
+- B. More data are not automatically valuable; useful evidence must alter the stop-or-continue decision.
+- C. Crossing a safety boundary under plausible assumptions blocks unconditional continuation.
+- D. For a fixed nonzero effect, significance level, and valid test, reducing sampling variability generally increases statistical power.
+
+**Correct answer:** B
+
+**Hint - exact player copy:** Identify the defining relationship or mechanism for value of information. All needed information is in this question.
+
+**Option feedback - exact player copy:**
+
+- A: This describes practical significance. It does not answer the question about value of information.
+- B: Correct. More data are not automatically valuable; useful evidence must alter the stop-or-continue decision.
+- C: This describes interval sensitivity and practical significance. It does not answer the question about value of information.
+- D: This describes power and sample size and effect and alpha and sigma. It does not answer the question about value of information.
+
+### Review question 4
+
+
+**Prompt - exact player copy:** Which statement best explains power and sample size and effect and alpha and sigma?
+
+**Options - exact player copy:**
+
+- A. Whether an effect is large enough to matter in context.
+- B. Crossing a safety boundary under plausible assumptions blocks unconditional continuation.
+- C. For a fixed nonzero effect, significance level, and valid test, reducing sampling variability generally increases statistical power.
+- D. More data are not automatically valuable; useful evidence must alter the stop-or-continue decision.
+
+**Correct answer:** C
+
+**Hint - exact player copy:** Identify the defining relationship or mechanism for power and sample size and effect and alpha and sigma. All needed information is in this question.
+
+**Option feedback - exact player copy:**
+
+- A: This describes practical significance. It does not answer the question about power and sample size and effect and alpha and sigma.
+- B: This describes interval sensitivity and practical significance. It does not answer the question about power and sample size and effect and alpha and sigma.
+- C: Correct. For a fixed nonzero effect, significance level, and valid test, reducing sampling variability generally increases statistical power.
+- D: This describes value of information. It does not answer the question about power and sample size and effect and alpha and sigma.
+
 ### Review question 5
 
-**Prompt - exact player copy:** Before another Stop or Continue decision, the team knows this: the primary benefit interval excludes zero, while late harm ranges from -1 to +5 events per 1,000. Test the conclusion across the supported uncertainty range now, before the team treats it as robust. Which interpretation of the displayed evidence correctly uses the mission concept?
+
+**Prompt - exact player copy:** A rule is fixed in advance: stop at the first check with a reading of at least 5 units. At which plotted time should the stop occur?
 
 **Figure - exact player copy:**
 
 ```json
 {
   "kind": "line",
-  "xLabel": "Ordered measurement",
-  "yLabel": "Decision quantity",
-  "caption": "Measurements approach and then cross the action threshold.",
+  "xLabel": "Time (min)",
+  "yLabel": "Reading (units)",
+  "caption": "Readings at four successive checks",
   "series": [
     {
-      "name": "Measured",
+      "name": "Reading",
       "points": [
         [
+          0,
+          2
+        ],
+        [
           1,
-          42
+          3
         ],
         [
           2,
-          48
+          5
         ],
         [
           3,
-          55
-        ],
-        [
-          4,
-          63
-        ],
-        [
-          5,
-          71
+          6
         ]
       ]
     }
-  ],
-  "limit": {
-    "at": 60,
-    "label": "Action threshold"
-  }
+  ]
 }
 ```
 
+**Options - exact player copy:**
+
+- A. 1 minute.
+- B. 3 minutes.
+- C. No stop is needed because the average is below 5.
+- D. 2 minutes.
+
+**Correct answer:** D
+
+**Hint - exact player copy:** At least includes equality.
+
+**Option feedback - exact player copy:**
+
+- A: The reading is only 3 units at 1 minute.
+- B: Waiting until 3 minutes misses the first qualifying check.
+- C: The rule applies to each reading, not the average.
+- D: Correct. 2 minutes.
+
+### Review question 6
+
+
+**Prompt - exact player copy:** Which statement best explains variable?
 
 **Options - exact player copy:**
 
-- A. Whether an effect is large enough to matter in context. False-positive family rate: chance of at least one Type I error across a group of tests. Decision rule: a threshold and action written before new data arrive.
-- B. Precommitment prevents a favored outcome from moving the safety boundary tomorrow.
+- A. A characteristic recorded for each patient.
+- B. Whether an effect is large enough to matter in context.
 - C. Crossing a safety boundary under plausible assumptions blocks unconditional continuation.
 - D. More data are not automatically valuable; useful evidence must alter the stop-or-continue decision.
 
-**Correct answer:** B
+**Correct answer:** A
 
-**Hint - exact player copy:** Read the axes, units, direction, and any threshold before comparing the choices.
-
-**Option feedback - exact player copy:**
-
-- A: This describes Practical significance, not integrated decision threshold. It does not account for the quantities, conditions, or evidence in this statistics case.
-- B: Correct. precommitment prevents a favored outcome from moving the safety boundary tomorrow.
-- C: This describes interval sensitivity/practical significance, not integrated decision threshold. It does not account for the quantities, conditions, or evidence in this statistics case.
-- D: This describes value of information, not integrated decision threshold. It does not account for the quantities, conditions, or evidence in this statistics case.
-### Review question 6
-
-**Prompt - exact player copy:** the Fenwick trial applies the lesson from Stop or Continue to this follow-up: the primary benefit interval excludes zero, while late harm ranges from -1 to +5 events per 1,000. Test the conclusion across the supported uncertainty range now, before the team treats it as robust. Which option correctly applies Variable to this follow-up case?
-
-**Options - exact player copy:**
-
-- A. Whether an effect is large enough to matter in context. False-positive family rate: chance of at least one Type I error across a group of tests. Decision rule: a threshold and action written before new data arrive.
-- B. Crossing a safety boundary under plausible assumptions blocks unconditional continuation.
-- C. A characteristic recorded for each patient. Categorical variable: a variable placing a patient into a group. Quantitative variable: a variable recorded as a meaningful number. Parameter: a fixed but usually unknown number describing a population. Statistic: a number computed from a sample.
-- D. More data are not automatically valuable; useful evidence must alter the stop-or-continue decision.
-
-**Correct answer:** C
-
-**Hint - exact player copy:** Use the stated evidence and the conditions for Variable; do not choose an option merely because it names a familiar term.
+**Hint - exact player copy:** Identify the defining relationship or mechanism for variable. All needed information is in this question.
 
 **Option feedback - exact player copy:**
 
-- A: This describes Practical significance, not Variable. It does not account for the quantities, conditions, or evidence in this statistics case.
-- B: This describes interval sensitivity/practical significance, not Variable. It does not account for the quantities, conditions, or evidence in this statistics case.
-- C: Correct. a characteristic recorded for each patient. Categorical variable: a variable placing a patient into a group. Quantitative variable: a variable recorded as a meaningful number. Parameter: a fixed but usually unknown number describing a population. Statistic: a number computed from a sample.
-- D: This describes value of information, not Variable. It does not account for the quantities, conditions, or evidence in this statistics case.
-**Optional review completion - exact player copy:** Excellent work. You went beyond the required mission and strengthened the ideas behind your decision.
+- A: Correct. A characteristic recorded for each patient.
+- B: This describes practical significance. It does not answer the question about variable.
+- C: This describes interval sensitivity and practical significance. It does not answer the question about variable.
+- D: This describes value of information. It does not answer the question about variable.
+
+**Optional review completion - exact player copy:** Good work. You have completed six independent practice questions.
+
 ## Quick concept review
 - Statistical and practical significance both matter.
 - Increasing n narrows spread and raises power.
@@ -8795,139 +8882,152 @@ MISSION 15 COMPLETE; TIME {elapsed} / TARGET 20:00; INCORRECT SUBMISSIONS {incor
 
 **Availability:** Reveal only after mission completion when the player selects **GO DEEPER**. This section is optional, ungraded for campaign progress, and does not change metrics, Recovery Points, or the next-mission unlock.
 
-**Secondary briefing card - exact player copy:** You completed The Board Pack. Choose GO DEEPER to revisit the four decisions and explore related course ideas; this optional review does not change your metrics or delay the next mission.
+**Secondary briefing card - exact player copy:** Try six independent practice questions. Each includes its own context and any needed data; no mission records are required.
 
 ### Review focus
 
-No additional prerequisite is required. These AP-style questions apply the mission's course ideas to follow-up evidence, including related topics not required in the four main stops.
+No additional prerequisite is required. These practice questions review related course ideas. Each question stands alone, including its choices and figure.
 
 ### Review question 1
 
-**Prompt - exact player copy:** In a follow-up to The Board Pack, the trigger permits guarded continuation, but the signed record must show how that conclusion was earned. Which option correctly applies State-Plan-Do-Conclude to this follow-up case?
+
+**Prompt - exact player copy:** Which statement best explains the structure of a statistical inference response?
 
 **Options - exact player copy:**
 
 - A. The board can act only when every conclusion remains traceable to the data-generating process.
-- B. The four-part structure for a complete inference response. Context: naming the population, variable, units, and decision in statistical conclusions. Safeguard: a required action or threshold protecting patients during continuation.
+- B. The four-part structure for a complete inference response.
 - C. A correct calculation can still produce an invalid claim if its population or causal reach is overstated.
 - D. Executing a rule after data appear proves that the trial's safeguards are operational rather than decorative.
 
 **Correct answer:** B
 
-**Hint - exact player copy:** Use the stated evidence and the conditions for State-Plan-Do-Conclude; do not choose an option merely because it names a familiar term.
+**Hint - exact player copy:** Identify the defining relationship or mechanism for the structure of a statistical inference response. All needed information is in this question.
 
 **Option feedback - exact player copy:**
 
-- A: This describes cumulative matching, not State-Plan-Do-Conclude. It does not account for the quantities, conditions, or evidence in this statistics case.
-- B: Correct. the four-part structure for a complete inference response. Context: naming the population, variable, units, and decision in statistical conclusions. Safeguard: a required action or threshold protecting patients during continuation.
-- C: This describes causation/generalization/measurement, not State-Plan-Do-Conclude. It does not account for the quantities, conditions, or evidence in this statistics case.
-- D: This describes integrated interval/trigger, not State-Plan-Do-Conclude. It does not account for the quantities, conditions, or evidence in this statistics case.
+- A: This describes cumulative matching. It does not answer the question about the structure of a statistical inference response.
+- B: Correct. The four-part structure for a complete inference response.
+- C: This describes causation and generalization and measurement. It does not answer the question about the structure of a statistical inference response.
+- D: This describes integrated interval and trigger. It does not answer the question about the structure of a statistical inference response.
+
 ### Review question 2
 
-**Prompt - exact player copy:** the Fenwick trial receives a second case related to The Board Pack: fourteen pieces now fill the delivery board, but four headline conclusions have lost their method labels. Match the evidence to the live explanations now so the investigation carries forward only supported claims. Which option correctly applies cumulative matching to this follow-up case?
+
+**Prompt - exact player copy:** Which statement best explains cumulative matching?
 
 **Options - exact player copy:**
 
-- A. The four-part structure for a complete inference response. Context: naming the population, variable, units, and decision in statistical conclusions. Safeguard: a required action or threshold protecting patients during continuation.
+- A. The four-part structure for a complete inference response.
 - B. A correct calculation can still produce an invalid claim if its population or causal reach is overstated.
 - C. The board can act only when every conclusion remains traceable to the data-generating process.
 - D. Executing a rule after data appear proves that the trial's safeguards are operational rather than decorative.
 
 **Correct answer:** C
 
-**Hint - exact player copy:** Use the stated evidence and the conditions for cumulative matching; do not choose an option merely because it names a familiar term.
+**Hint - exact player copy:** Identify the defining relationship or mechanism for cumulative matching. All needed information is in this question.
 
 **Option feedback - exact player copy:**
 
-- A: This describes State-Plan-Do-Conclude, not cumulative matching. It does not account for the quantities, conditions, or evidence in this statistics case.
-- B: This describes causation/generalization/measurement, not cumulative matching. It does not account for the quantities, conditions, or evidence in this statistics case.
-- C: Correct. the board can act only when every conclusion remains traceable to the data-generating process.
-- D: This describes integrated interval/trigger, not cumulative matching. It does not account for the quantities, conditions, or evidence in this statistics case.
+- A: This describes the structure of a statistical inference response. It does not answer the question about cumulative matching.
+- B: This describes causation and generalization and measurement. It does not answer the question about cumulative matching.
+- C: Correct. The board can act only when every conclusion remains traceable to the data-generating process.
+- D: This describes integrated interval and trigger. It does not answer the question about cumulative matching.
+
 ### Review question 3
 
-**Prompt - exact player copy:** A teammate rechecks The Board Pack using new evidence: the reconstructed chain shows random assignment, repaired but not population-random enrollment, verified endpoints, and bounded missingness. Which option correctly applies causation/generalization/measurement to this follow-up case?
+
+**Prompt - exact player copy:** Which statement best explains causation and generalization and measurement?
 
 **Options - exact player copy:**
 
-- A. The four-part structure for a complete inference response. Context: naming the population, variable, units, and decision in statistical conclusions. Safeguard: a required action or threshold protecting patients during continuation.
+- A. The four-part structure for a complete inference response.
 - B. The board can act only when every conclusion remains traceable to the data-generating process.
 - C. Executing a rule after data appear proves that the trial's safeguards are operational rather than decorative.
 - D. A correct calculation can still produce an invalid claim if its population or causal reach is overstated.
 
 **Correct answer:** D
 
-**Hint - exact player copy:** Use the stated evidence and the conditions for causation/generalization/measurement; do not choose an option merely because it names a familiar term.
+**Hint - exact player copy:** Identify the defining relationship or mechanism for causation and generalization and measurement. All needed information is in this question.
 
 **Option feedback - exact player copy:**
 
-- A: This describes State-Plan-Do-Conclude, not causation/generalization/measurement. It does not account for the quantities, conditions, or evidence in this statistics case.
-- B: This describes cumulative matching, not causation/generalization/measurement. It does not account for the quantities, conditions, or evidence in this statistics case.
-- C: This describes integrated interval/trigger, not causation/generalization/measurement. It does not account for the quantities, conditions, or evidence in this statistics case.
-- D: Correct. a correct calculation can still produce an invalid claim if its population or causal reach is overstated.
+- A: This describes the structure of a statistical inference response. It does not answer the question about causation and generalization and measurement.
+- B: This describes cumulative matching. It does not answer the question about causation and generalization and measurement.
+- C: This describes integrated interval and trigger. It does not answer the question about causation and generalization and measurement.
+- D: Correct. A correct calculation can still produce an invalid claim if its population or causal reach is overstated.
+
 ### Review question 4
 
-**Prompt - exact player copy:** An unseen case extends The Board Pack: the final source calls yield an excess-harm 95% upper bound of 1.8 per 1,000, below the prewritten continuation line of 2.0. Commit the prediction and run the test now so the measurement can fairly accept or reject the proposed model. Which statistical conclusion or procedure correctly uses integrated interval/trigger?
+
+**Prompt - exact player copy:** Which statement best explains integrated interval and trigger?
 
 **Options - exact player copy:**
 
 - A. Executing a rule after data appear proves that the trial's safeguards are operational rather than decorative.
-- B. The four-part structure for a complete inference response. Context: naming the population, variable, units, and decision in statistical conclusions. Safeguard: a required action or threshold protecting patients during continuation.
+- B. The four-part structure for a complete inference response.
 - C. The board can act only when every conclusion remains traceable to the data-generating process.
 - D. A correct calculation can still produce an invalid claim if its population or causal reach is overstated.
 
 **Correct answer:** A
 
-**Hint - exact player copy:** Use the stated evidence and the conditions for integrated interval/trigger; do not choose an option merely because it names a familiar term.
+**Hint - exact player copy:** Identify the defining relationship or mechanism for integrated interval and trigger. All needed information is in this question.
 
 **Option feedback - exact player copy:**
 
-- A: Correct. executing a rule after data appear proves that the trial's safeguards are operational rather than decorative.
-- B: This describes State-Plan-Do-Conclude, not integrated interval/trigger. It does not account for the quantities, conditions, or evidence in this statistics case.
-- C: This describes cumulative matching, not integrated interval/trigger. It does not account for the quantities, conditions, or evidence in this statistics case.
-- D: This describes causation/generalization/measurement, not integrated interval/trigger. It does not account for the quantities, conditions, or evidence in this statistics case.
+- A: Correct. Executing a rule after data appear proves that the trial's safeguards are operational rather than decorative.
+- B: This describes the structure of a statistical inference response. It does not answer the question about integrated interval and trigger.
+- C: This describes cumulative matching. It does not answer the question about integrated interval and trigger.
+- D: This describes causation and generalization and measurement. It does not answer the question about integrated interval and trigger.
+
 ### Review question 5
 
-**Prompt - exact player copy:** Before another Board Pack decision, the team knows this: the trigger permits guarded continuation, but the signed record must show how that conclusion was earned. Which option correctly applies FRQ State-Plan-Do-Conclude to this follow-up case?
+
+**Prompt - exact player copy:** Which statement best explains stating, planning, performing, and interpreting a statistical inference?
 
 **Options - exact player copy:**
 
-- A. The four-part structure for a complete inference response. Context: naming the population, variable, units, and decision in statistical conclusions. Safeguard: a required action or threshold protecting patients during continuation.
+- A. The four-part structure for a complete inference response.
 - B. A reproducible argument lets future monitors challenge any step without rewriting the result.
 - C. The board can act only when every conclusion remains traceable to the data-generating process.
 - D. A correct calculation can still produce an invalid claim if its population or causal reach is overstated.
 
 **Correct answer:** B
 
-**Hint - exact player copy:** Use the stated evidence and the conditions for FRQ State-Plan-Do-Conclude; do not choose an option merely because it names a familiar term.
+**Hint - exact player copy:** Identify the defining relationship or mechanism for stating, planning, performing, and interpreting a statistical inference. All needed information is in this question.
 
 **Option feedback - exact player copy:**
 
-- A: This describes State-Plan-Do-Conclude, not FRQ State-Plan-Do-Conclude. It does not account for the quantities, conditions, or evidence in this statistics case.
-- B: Correct. a reproducible argument lets future monitors challenge any step without rewriting the result.
-- C: This describes cumulative matching, not FRQ State-Plan-Do-Conclude. It does not account for the quantities, conditions, or evidence in this statistics case.
-- D: This describes causation/generalization/measurement, not FRQ State-Plan-Do-Conclude. It does not account for the quantities, conditions, or evidence in this statistics case.
+- A: This describes the structure of a statistical inference response. It does not answer the question about stating, planning, performing, and interpreting a statistical inference.
+- B: Correct. A reproducible argument lets future monitors challenge any step without rewriting the result.
+- C: This describes cumulative matching. It does not answer the question about stating, planning, performing, and interpreting a statistical inference.
+- D: This describes causation and generalization and measurement. It does not answer the question about stating, planning, performing, and interpreting a statistical inference.
+
 ### Review question 6
 
-**Prompt - exact player copy:** the Fenwick trial applies the lesson from The Board Pack to this follow-up: fourteen pieces now fill the delivery board, but four headline conclusions have lost their method labels. Match the evidence to the live explanations now so the investigation carries forward only supported claims. Which option correctly applies Variable to this follow-up case?
+
+**Prompt - exact player copy:** Which statement best explains variable?
 
 **Options - exact player copy:**
 
-- A. The four-part structure for a complete inference response. Context: naming the population, variable, units, and decision in statistical conclusions. Safeguard: a required action or threshold protecting patients during continuation.
+- A. The four-part structure for a complete inference response.
 - B. The board can act only when every conclusion remains traceable to the data-generating process.
-- C. A characteristic recorded for each patient. Categorical variable: a variable placing a patient into a group. Quantitative variable: a variable recorded as a meaningful number. Parameter: a fixed but usually unknown number describing a population. Statistic: a number computed from a sample.
+- C. A characteristic recorded for each patient.
 - D. A correct calculation can still produce an invalid claim if its population or causal reach is overstated.
 
 **Correct answer:** C
 
-**Hint - exact player copy:** Use the stated evidence and the conditions for Variable; do not choose an option merely because it names a familiar term.
+**Hint - exact player copy:** Identify the defining relationship or mechanism for variable. All needed information is in this question.
 
 **Option feedback - exact player copy:**
 
-- A: This describes State-Plan-Do-Conclude, not Variable. It does not account for the quantities, conditions, or evidence in this statistics case.
-- B: This describes cumulative matching, not Variable. It does not account for the quantities, conditions, or evidence in this statistics case.
-- C: Correct. a characteristic recorded for each patient. Categorical variable: a variable placing a patient into a group. Quantitative variable: a variable recorded as a meaningful number. Parameter: a fixed but usually unknown number describing a population. Statistic: a number computed from a sample.
-- D: This describes causation/generalization/measurement, not Variable. It does not account for the quantities, conditions, or evidence in this statistics case.
-**Optional review completion - exact player copy:** Excellent work. You went beyond the required mission and strengthened the ideas behind your decision.
+- A: This describes the structure of a statistical inference response. It does not answer the question about variable.
+- B: This describes cumulative matching. It does not answer the question about variable.
+- C: Correct. A characteristic recorded for each patient.
+- D: This describes causation and generalization and measurement. It does not answer the question about variable.
+
+**Optional review completion - exact player copy:** Good work. You have completed six independent practice questions.
+
 ## Quick concept review
 - Match procedures to variable types, designs, and conditions.
 - Put estimates, uncertainty, and error costs in context.

@@ -10,8 +10,9 @@
 export const OPENING = [
   "You are the fuel plant lead, which means you must make clean fuel for the crew to leave "
     +   "Mars. At Arcadia Rise, you will use chemistry to make the call. Fifteen work shifts "
-    +   "remain before launch. The plant turns air and ice into fuel. If it cannot finish safely, "
-    +   "the crew misses its ride home.",
+    +   "remain before launch. The plant turns air and ice into fuel; if it cannot finish safely, "
+    +   "the crew misses its ride home. Commander Laila Abiola gives you the plant key and says, "
+    +   "“Tell me what you need to get this crew off the planet.”",
 ];
 
 export const ENDING = [

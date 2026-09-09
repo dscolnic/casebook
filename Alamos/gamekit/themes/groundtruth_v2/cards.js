@@ -11,7 +11,9 @@ export const OPENING = [
   "You are the station test lead, which means you trace what burned a remote circuit during "
     +   "a lightning shot. At Station 12, you will use electricity and magnetism to make the "
     +   "call. The last storm window closes in fifteen days. The next crew needs a station it can "
-    +   "trust. A clean screen is no use if it missed the dangerous pulse.",
+    +   "trust; a clean screen is no use if it missed the dangerous pulse. Director Lena Ortiz "
+    +   "hands you the report board and says, “We signed off on that station once already; this "
+    +   "time, show me what our tests missed.”",
 ];
 
 export const ENDING = [

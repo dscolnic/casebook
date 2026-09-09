@@ -3686,10 +3686,10 @@ export const CURRICULUM = {
     {
       "day": 13,
       "title": "Count M1 and M2",
-      "scene": "Halvern records cash 80, checking 220, savings 140, and money-market funds 60 billion crowns. Build M1 and M2 before interpreting the returned-note sacks clearly in the Rate Book before proceeding.",
+      "scene": "Halvern records cash 80, checking deposits 220, savings 140, and small time deposits 60 billion crowns. Calculate M1 and M2 in the Rate Book before interpreting the returned-note sacks.",
       "place": "",
       "at": "note-scale",
-      "story": "Halvern records cash 80, checking 220, savings 140, and money-market funds 60 billion crowns. Build M1 and M2 before interpreting the returned-note sacks clearly in the Rate Book before proceeding.",
+      "story": "Halvern records cash 80, checking deposits 220, savings 140, and small time deposits 60 billion crowns. Calculate M1 and M2 in the Rate Book before interpreting the returned-note sacks.",
       "game": {
         "type": "DERIVE",
         "title": "Count M1 and M2",

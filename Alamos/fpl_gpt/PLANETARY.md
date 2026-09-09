@@ -1,5 +1,7 @@
 **FIRST PERSON LEARNING**
 
+**Player-copy editing rule:** Within each displayed passage, state each fact, equation, variable definition, and instruction once. Integrate new givens into the existing wording; do not append a paraphrase of the setup. A source panel may repeat essential inputs so it stands alone, but render it as its own surface rather than concatenating it with the question setup. Go Deeper questions must still supply their own context and data without referring to earlier cases.
+
 **ELEVEN DAYS**
 
 Planetary Defense + Introductory Astronomy Campaign Implementation Bible
@@ -57,9 +59,12 @@ Implementation is linear at the evidence level. Wrong answers teach, retry, and 
 
 ### Opening sequence - no movie required, maximum five sentences
 
-You are the asteroid response lead, which means you turn sky measurements into a warning people can use. At Cerro Alto, you will use astronomy to make the call. Eleven days remain for fifteen work shifts. A new object may hit Earth. The broad path covers nine million people, but it is too wide for a local order.
+You are the asteroid response lead, which means you turn sky measurements into a warning people can use. At Cerro Alto, you will use astronomy to make the call. Eleven days remain for fifteen work shifts. A new object may hit Earth; the broad path covers nine million people, but it is too wide for a local order. Director Mira Chen closes the launch binder and says, “If we tell a town to leave, I need to be able to tell them why.”
 
-**Delivery:** Show the four sentences together on one full-screen card over the normal Coordination Office view. Continue dismisses the card once, reveals the four-bar HUD at its starting values, and activates the Mission 1 briefing icon. Do not advance the sentences individually.
+**Opening-card requirement:** The character quote is the final player-visible text on this card; place no explanatory sentence after it. Keep it brief and natural: it should add the speaker’s concern or commitment rather than summarize the preceding setup. Show the whole opening together with one Continue action.
+
+
+**Delivery:** Show all five sentences together on one full-screen card over the normal Coordination Office view. Continue dismisses the card once, reveals the four-bar HUD at its starting values, and activates the Mission 1 briefing icon. Do not advance the sentences individually.
 
 Opening quality check:
 
@@ -372,6 +377,11 @@ STACK is not used because the supplied question-type guide marks it suspended. W
 **Ending card - exact player copy:** The network wall fills with acknowledgements. Below the ridge, the first marked buses leave for the narrow warning zone. Most town lights stay steady. The main-body stand-down remains green, and the dish keeps tracking the smaller fragment.
 
 **Delivery:** Keep player control and normal world view. No new graded stop follows the final accepted decision. The ending card appears after the player reaches the payoff view, or through an accessible View ending control that skips movement without skipping any scientific gate. Optional review and worked examples remain available through the completed mission menu.
+
+
+### Standalone Go Deeper question contract
+
+Each optional review question must work when copied out on its own. Supply its setting, givens, units, definitions, and any required figure within that question. Do not mention a mission title, a prior case, a teammate rechecking earlier work, a completed plan, or unseen cards, observations, or results. Do not assume that another review question was read. Choices, hints, and feedback obey the same rule. Use brief conceptual questions or complete applied problems; figures must match the question rather than merely share its course.
 
 # Mission 1 - The Moving Point
 
@@ -798,15 +808,16 @@ Mission decision: Spend follow-up time on the alert. Four clean images show one 
 
 **Availability:** Reveal only after mission completion when the player selects **GO DEEPER**. This section is optional, ungraded for campaign progress, and does not change metrics, Recovery Points, or the next-mission unlock.
 
-**Secondary briefing card - exact player copy:** You completed The Moving Point. Choose GO DEEPER to revisit the four decisions and explore related course ideas; this optional review does not change your metrics or delay the next mission.
+**Secondary briefing card - exact player copy:** Try six independent practice questions. Each includes its own context and any needed data; no mission records are required.
 
 ### Review focus
 
-No additional prerequisite is required. These AP-style questions apply the mission's course ideas to follow-up evidence, including related topics not required in the four main stops.
+No additional prerequisite is required. These practice questions review related course ideas. Each question stands alone, including its choices and figure.
 
 ### Review question 1
 
-**Prompt - exact player copy:** In a follow-up to The Moving Point, six timed images show one faint point beside fixed stars, a long satellite streak, and a known bad detector column. The next action depends on selecting the conclusion that fits all of those facts. Which conclusion correctly applies a moving source to the observations and physics?
+
+**Prompt - exact player copy:** Which statement best explains astrometry?
 
 **Options - exact player copy:**
 
@@ -817,17 +828,19 @@ No additional prerequisite is required. These AP-style questions apply the missi
 
 **Correct answer:** B
 
-**Hint - exact player copy:** Use the stated evidence and the conditions for a moving source; do not choose an option merely because it names a familiar term.
+**Hint - exact player copy:** Identify the defining relationship or mechanism for astrometry. All needed information is in this question.
 
 **Option feedback - exact player copy:**
 
-- A: This describes Tracklet, not Astrometry. It does not account for the quantities, conditions, or evidence in this planetary science case.
-- B: Correct. precise measurement of an object's sky position and the time of that measurement.
-- C: This describes Artifact, not Astrometry. It does not account for the quantities, conditions, or evidence in this planetary science case.
-- D: This describes apparent motion, not Astrometry. It does not account for the quantities, conditions, or evidence in this planetary science case.
+- A: This describes tracklet. It does not answer the question about astrometry.
+- B: Correct. Precise measurement of an object's sky position and the time of that measurement.
+- C: This describes artifact. It does not answer the question about astrometry.
+- D: This describes apparent motion. It does not answer the question about astrometry.
+
 ### Review question 2
 
-**Prompt - exact player copy:** the planetary-defense center receives a second case related to The Moving Point: six timed images show one faint point beside fixed stars, a long satellite streak, and a known bad detector column. The next action depends on selecting the conclusion that fits all of those facts. Which conclusion correctly applies a moving source to the observations and physics?
+
+**Prompt - exact player copy:** Which statement best explains tracklet?
 
 **Options - exact player copy:**
 
@@ -838,17 +851,19 @@ No additional prerequisite is required. These AP-style questions apply the missi
 
 **Correct answer:** C
 
-**Hint - exact player copy:** Use the stated evidence and the conditions for a moving source; do not choose an option merely because it names a familiar term.
+**Hint - exact player copy:** Identify the defining relationship or mechanism for tracklet. All needed information is in this question.
 
 **Option feedback - exact player copy:**
 
-- A: This describes Astrometry, not Tracklet. It does not account for the quantities, conditions, or evidence in this planetary science case.
-- B: This describes Artifact, not Tracklet. It does not account for the quantities, conditions, or evidence in this planetary science case.
-- C: Correct. several detections linked as one moving object during a short observing period.
-- D: This describes apparent motion, not Tracklet. It does not account for the quantities, conditions, or evidence in this planetary science case.
+- A: This describes astrometry. It does not answer the question about tracklet.
+- B: This describes artifact. It does not answer the question about tracklet.
+- C: Correct. Several detections linked as one moving object during a short observing period.
+- D: This describes apparent motion. It does not answer the question about tracklet.
+
 ### Review question 3
 
-**Prompt - exact player copy:** A teammate rechecks The Moving Point using new evidence: six timed images show one faint point beside fixed stars, a long satellite streak, and a known bad detector column. The next action depends on selecting the conclusion that fits all of those facts. Which conclusion correctly applies a moving source to the observations and physics?
+
+**Prompt - exact player copy:** Which statement best explains artifact?
 
 **Options - exact player copy:**
 
@@ -859,17 +874,19 @@ No additional prerequisite is required. These AP-style questions apply the missi
 
 **Correct answer:** D
 
-**Hint - exact player copy:** Use the stated evidence and the conditions for a moving source; do not choose an option merely because it names a familiar term.
+**Hint - exact player copy:** Identify the defining relationship or mechanism for artifact. All needed information is in this question.
 
 **Option feedback - exact player copy:**
 
-- A: This describes Astrometry, not Artifact. It does not account for the quantities, conditions, or evidence in this planetary science case.
-- B: This describes Tracklet, not Artifact. It does not account for the quantities, conditions, or evidence in this planetary science case.
-- C: This describes apparent motion, not Artifact. It does not account for the quantities, conditions, or evidence in this planetary science case.
-- D: Correct. a false feature created by the detector, image processing, or another object such as a satellite.
+- A: This describes astrometry. It does not answer the question about artifact.
+- B: This describes tracklet. It does not answer the question about artifact.
+- C: This describes apparent motion. It does not answer the question about artifact.
+- D: Correct. A false feature created by the detector, image processing, or another object such as a satellite.
+
 ### Review question 4
 
-**Prompt - exact player copy:** An unseen case extends The Moving Point: six timed images show one faint point beside fixed stars, a long satellite streak, and a known bad detector column. The next action depends on selecting the conclusion that fits all of those facts. Which conclusion correctly applies a moving source to the observations and physics?
+
+**Prompt - exact player copy:** Which statement best explains apparent motion?
 
 **Options - exact player copy:**
 
@@ -880,57 +897,63 @@ No additional prerequisite is required. These AP-style questions apply the missi
 
 **Correct answer:** A
 
-**Hint - exact player copy:** Use the stated evidence and the conditions for a moving source; do not choose an option merely because it names a familiar term.
+**Hint - exact player copy:** Identify the defining relationship or mechanism for apparent motion. All needed information is in this question.
 
 **Option feedback - exact player copy:**
 
-- A: Correct. differential motion across calibrated images is evidence for a moving source; one-frame features are not.
-- B: This describes Astrometry, not apparent motion. It does not account for the quantities, conditions, or evidence in this planetary science case.
-- C: This describes Tracklet, not apparent motion. It does not account for the quantities, conditions, or evidence in this planetary science case.
-- D: This describes Artifact, not apparent motion. It does not account for the quantities, conditions, or evidence in this planetary science case.
+- A: Correct. Differential motion across calibrated images is evidence for a moving source; one-frame features are not.
+- B: This describes astrometry. It does not answer the question about apparent motion.
+- C: This describes tracklet. It does not answer the question about apparent motion.
+- D: This describes artifact. It does not answer the question about apparent motion.
+
 ### Review question 5
 
-**Prompt - exact player copy:** Before another Moving Point decision, the team knows this: with physical motion identified, the team must prove that calibration and linking happened before the alert was issued. Which conclusion correctly applies discovery pipeline to the observations and physics?
+
+**Prompt - exact player copy:** Why should image calibration and detector-artifact checks precede linking detections into a moving track?
 
 **Options - exact player copy:**
 
 - A. Precise measurement of an object's sky position and the time of that measurement.
-- B. Linking before calibration or artifact checks can turn detector or alignment errors into false motion.
+- B. Otherwise detector or alignment errors can be mistaken for physical motion.
 - C. Several detections linked as one moving object during a short observing period.
 - D. A false feature created by the detector, image processing, or another object such as a satellite.
 
 **Correct answer:** B
 
-**Hint - exact player copy:** Use the stated evidence and the conditions for discovery pipeline; do not choose an option merely because it names a familiar term.
+**Hint - exact player copy:** Identify the defining relationship or mechanism for discovery pipeline. All needed information is in this question.
 
 **Option feedback - exact player copy:**
 
-- A: This describes Astrometry, not discovery pipeline. It does not account for the quantities, conditions, or evidence in this planetary science case.
-- B: Correct. linking before calibration or artifact checks can turn detector or alignment errors into false motion.
-- C: This describes Tracklet, not discovery pipeline. It does not account for the quantities, conditions, or evidence in this planetary science case.
-- D: This describes Artifact, not discovery pipeline. It does not account for the quantities, conditions, or evidence in this planetary science case.
+- A: This describes astrometry. It does not answer the question about discovery pipeline.
+- B: Correct. Otherwise detector or alignment errors can be mistaken for physical motion.
+- C: This describes tracklet. It does not answer the question about discovery pipeline.
+- D: This describes artifact. It does not answer the question about discovery pipeline.
+
 ### Review question 6
 
-**Prompt - exact player copy:** the planetary-defense center applies the lesson from The Moving Point to this follow-up: because the pipeline is now ordered, each suspicious feature can be tied to a physical cause or left unresolved. Match the evidence to the live explanations now so the investigation carries forward only supported claims. Which conclusion correctly applies artifact rejection to the observations and physics?
+
+**Prompt - exact player copy:** A bright feature stays at the same detector pixel when the telescope points to different sky positions. What explanation is best supported?
 
 **Options - exact player copy:**
 
 - A. Precise measurement of an object's sky position and the time of that measurement.
 - B. Several detections linked as one moving object during a short observing period.
-- C. A valid explanation must fit the relevant observation without breaking quiet evidence elsewhere.
+- C. A detector artifact, because a real sky source would move to a different detector position when pointing changes.
 - D. A false feature created by the detector, image processing, or another object such as a satellite.
 
 **Correct answer:** C
 
-**Hint - exact player copy:** Use the stated evidence and the conditions for artifact rejection; do not choose an option merely because it names a familiar term.
+**Hint - exact player copy:** Identify the defining relationship or mechanism for artifact rejection. All needed information is in this question.
 
 **Option feedback - exact player copy:**
 
-- A: This describes Astrometry, not artifact rejection. It does not account for the quantities, conditions, or evidence in this planetary science case.
-- B: This describes Tracklet, not artifact rejection. It does not account for the quantities, conditions, or evidence in this planetary science case.
-- C: Correct. a valid explanation must fit the relevant observation without breaking quiet evidence elsewhere.
-- D: This describes Artifact, not artifact rejection. It does not account for the quantities, conditions, or evidence in this planetary science case.
-**Optional review completion - exact player copy:** Excellent work. You went beyond the required mission and strengthened the ideas behind your decision.
+- A: This describes astrometry. It does not answer the question about artifact rejection.
+- B: This describes tracklet. It does not answer the question about artifact rejection.
+- C: Correct. A detector artifact, because a real sky source would move to a different detector position when pointing changes.
+- D: This describes artifact. It does not answer the question about artifact rejection.
+
+**Optional review completion - exact player copy:** Good work. You have completed six independent practice questions.
+
 ## Quick concept review
 
 - Real motion repeats across timed, aligned images.
@@ -1417,87 +1440,100 @@ Mission decision: Keep 2026 PDC on the Earth watch list. The best path misses Ea
 
 **Availability:** Reveal only after mission completion when the player selects **GO DEEPER**. This section is optional, ungraded for campaign progress, and does not change metrics, Recovery Points, or the next-mission unlock.
 
-**Secondary briefing card - exact player copy:** You completed Six Points Are Not an Orbit. Choose GO DEEPER to revisit the four decisions and explore related course ideas; this optional review does not change your metrics or delay the next mission.
+**Secondary briefing card - exact player copy:** Try six independent practice questions. Each includes its own context and any needed data; no mission records are required.
 
 ### Review focus
 
-No additional prerequisite is required. These AP-style questions apply the mission's course ideas to follow-up evidence, including related topics not required in the four main stops.
+No additional prerequisite is required. These practice questions review related course ideas. Each question stands alone, including its choices and figure.
 
 ### Review question 1
 
-**Prompt - exact player copy:** In a follow-up to Six Points Are Not an Orbit, the verified point moves 37 arcseconds during a 24-minute clean interval while the reference stars remain fixed. Which conclusion correctly applies Orbit fit to the observations and physics?
+
+**Prompt - exact player copy:** Which statement best explains orbit fit?
 
 **Options - exact player copy:**
 
 - A. Observed position minus the position predicted by a model.
-- B. A calculation that finds trajectories consistent with measured positions, times, and gravity.
-- C. A description of parameter uncertainties and how their errors move together.
-- D. Rate is angular displacement divided by elapsed time, then scaled to one hour.
+- B. A description of parameter uncertainties and how their errors move together.
+- C. Rate is angular displacement divided by elapsed time, then scaled to one hour.
+- D. A calculation that finds trajectories consistent with measured positions, times, and gravity.
 
-**Correct answer:** B
+**Correct answer:** D
 
-**Hint - exact player copy:** Use the stated evidence and the conditions for Orbit fit; do not choose an option merely because it names a familiar term.
+**Hint - exact player copy:** Identify the defining relationship or mechanism for orbit fit. All needed information is in this question.
 
 **Option feedback - exact player copy:**
 
-- A: This describes Residual, not Orbit fit. It does not account for the quantities, conditions, or evidence in this planetary science case.
-- B: Correct. a calculation that finds trajectories consistent with measured positions, times, and gravity.
-- C: This describes Covariance, not Orbit fit. It does not account for the quantities, conditions, or evidence in this planetary science case.
-- D: This describes angular rate, not Orbit fit. It does not account for the quantities, conditions, or evidence in this planetary science case.
+- A: This describes residual. It does not answer the question about orbit fit.
+- B: This describes covariance. It does not answer the question about orbit fit.
+- C: This describes angular rate. It does not answer the question about orbit fit.
+- D: Correct. A calculation that finds trajectories consistent with measured positions, times, and gravity.
+
 ### Review question 2
 
-**Prompt - exact player copy:** the planetary-defense center receives a second case related to Six Points Are Not an Orbit: the verified point moves 37 arcseconds during a 24-minute clean interval while the reference stars remain fixed. Which interpretation of the displayed evidence correctly uses the mission concept?
+
+**Prompt - exact player copy:** A model has the residuals shown. Residual means observed value minus predicted value. Which conclusion best fits the pattern?
 
 **Figure - exact player copy:**
 
 ```json
 {
   "kind": "line",
-  "xLabel": "Ordered observation",
-  "yLabel": "Residual",
-  "caption": "Residuals reveal whether error is random or structured.",
+  "xLabel": "Input value",
+  "yLabel": "Observed minus predicted (units)",
+  "caption": "Residuals from a fitted model",
   "series": [
     {
       "name": "Residual",
       "points": [
         [
           0,
-          1.5
+          0
         ],
         [
           1,
-          -1.2
+          2
         ],
         [
           2,
-          1.0
+          4
         ],
         [
           3,
-          -0.8
+          6
         ],
         [
           4,
-          0.6
-        ],
-        [
-          5,
-          -0.4
-        ],
-        [
-          6,
-          0.2
+          8
         ]
       ]
     }
-  ],
-  "limit": {
-    "at": 0,
-    "label": "Zero residual"
-  }
+  ]
 }
 ```
 
+**Options - exact player copy:**
+
+- A. The model increasingly underpredicts as the input grows.
+- B. The model increasingly overpredicts.
+- C. The errors have no relation to the input.
+- D. The model fits every observation exactly.
+
+**Correct answer:** A
+
+**Hint - exact player copy:** Use the sign of observed minus predicted and check for a pattern.
+
+**Option feedback - exact player copy:**
+
+- A: Correct. The model increasingly underpredicts as the input grows.
+- B: Positive residuals mean observations exceed predictions, not the reverse.
+- C: Residuals rise systematically with the input.
+- D: An exact fit would have zero residual at every point.
+
+### Review question 3
+
+
+**Prompt - exact player copy:** Which statement best explains covariance?
 
 **Options - exact player copy:**
 
@@ -1506,19 +1542,21 @@ No additional prerequisite is required. These AP-style questions apply the missi
 - C. Observed position minus the position predicted by a model.
 - D. Rate is angular displacement divided by elapsed time, then scaled to one hour.
 
-**Correct answer:** C
+**Correct answer:** B
 
-**Hint - exact player copy:** Read the axes, units, direction, and any threshold before comparing the choices.
+**Hint - exact player copy:** Identify the defining relationship or mechanism for covariance. All needed information is in this question.
 
 **Option feedback - exact player copy:**
 
-- A: This describes Orbit fit, not Residual. It does not account for the quantities, conditions, or evidence in this planetary science case.
-- B: This describes Covariance, not Residual. It does not account for the quantities, conditions, or evidence in this planetary science case.
-- C: Correct. observed position minus the position predicted by a model.
-- D: This describes angular rate, not Residual. It does not account for the quantities, conditions, or evidence in this planetary science case.
-### Review question 3
+- A: This describes orbit fit. It does not answer the question about covariance.
+- B: Correct. A description of parameter uncertainties and how their errors move together.
+- C: This describes residual. It does not answer the question about covariance.
+- D: This describes angular rate. It does not answer the question about covariance.
 
-**Prompt - exact player copy:** A teammate rechecks Six Points Are Not an Orbit using new evidence: with the biased fit removed, 240 weighted orbit solutions remain and the nominal path still misses Earth. The next action depends on selecting the conclusion that fits all of those facts. Which conclusion correctly applies Covariance to the observations and physics?
+### Review question 4
+
+
+**Prompt - exact player copy:** Which statement best explains angular rate?
 
 **Options - exact player copy:**
 
@@ -1527,80 +1565,65 @@ No additional prerequisite is required. These AP-style questions apply the missi
 - C. Rate is angular displacement divided by elapsed time, then scaled to one hour.
 - D. A description of parameter uncertainties and how their errors move together.
 
-**Correct answer:** D
+**Correct answer:** C
 
-**Hint - exact player copy:** Use the stated evidence and the conditions for Covariance; do not choose an option merely because it names a familiar term.
+**Hint - exact player copy:** Identify the defining relationship or mechanism for angular rate. All needed information is in this question.
 
 **Option feedback - exact player copy:**
 
-- A: This describes Orbit fit, not Covariance. It does not account for the quantities, conditions, or evidence in this planetary science case.
-- B: This describes Residual, not Covariance. It does not account for the quantities, conditions, or evidence in this planetary science case.
-- C: This describes angular rate, not Covariance. It does not account for the quantities, conditions, or evidence in this planetary science case.
-- D: Correct. a description of parameter uncertainties and how their errors move together.
-### Review question 4
+- A: This describes orbit fit. It does not answer the question about angular rate.
+- B: This describes residual. It does not answer the question about angular rate.
+- C: Correct. Rate is angular displacement divided by elapsed time, then scaled to one hour.
+- D: This describes covariance. It does not answer the question about angular rate.
 
-**Prompt - exact player copy:** An unseen case extends Six Points Are Not an Orbit: the verified point moves 37 arcseconds during a 24-minute clean interval while the reference stars remain fixed. Which conclusion correctly applies angular rate to the observations and physics?
+### Review question 5
+
+
+**Prompt - exact player copy:** Which statement best explains distance constraint?
 
 **Options - exact player copy:**
 
-- A. Rate is angular displacement divided by elapsed time, then scaled to one hour.
+- A. A calculation that finds trajectories consistent with measured positions, times, and gravity.
+- B. Observed position minus the position predicted by a model.
+- C. A description of parameter uncertainties and how their errors move together.
+- D. Separated observing sites view a nearby object from measurably different directions.
+
+**Correct answer:** D
+
+**Hint - exact player copy:** Identify the defining relationship or mechanism for distance constraint. All needed information is in this question.
+
+**Option feedback - exact player copy:**
+
+- A: This describes orbit fit. It does not answer the question about distance constraint.
+- B: This describes residual. It does not answer the question about distance constraint.
+- C: This describes covariance. It does not answer the question about distance constraint.
+- D: Correct. Separated observing sites view a nearby object from measurably different directions.
+
+### Review question 6
+
+
+**Prompt - exact player copy:** Which statement best explains model adequacy?
+
+**Options - exact player copy:**
+
+- A. Random scatter can reflect measurement noise, while ordered residuals indicate model misspecification.
 - B. A calculation that finds trajectories consistent with measured positions, times, and gravity.
 - C. Observed position minus the position predicted by a model.
 - D. A description of parameter uncertainties and how their errors move together.
 
 **Correct answer:** A
 
-**Hint - exact player copy:** Use the stated evidence and the conditions for angular rate; do not choose an option merely because it names a familiar term.
+**Hint - exact player copy:** Identify the defining relationship or mechanism for model adequacy. All needed information is in this question.
 
 **Option feedback - exact player copy:**
 
-- A: Correct. rate is angular displacement divided by elapsed time, then scaled to one hour.
-- B: This describes Orbit fit, not angular rate. It does not account for the quantities, conditions, or evidence in this planetary science case.
-- C: This describes Residual, not angular rate. It does not account for the quantities, conditions, or evidence in this planetary science case.
-- D: This describes Covariance, not angular rate. It does not account for the quantities, conditions, or evidence in this planetary science case.
-### Review question 5
+- A: Correct. Random scatter can reflect measurement noise, while ordered residuals indicate model misspecification.
+- B: This describes orbit fit. It does not answer the question about model adequacy.
+- C: This describes residual. It does not answer the question about model adequacy.
+- D: This describes covariance. It does not answer the question about model adequacy.
 
-**Prompt - exact player copy:** Before another Six Points Are Not an Orbit decision, the team knows this: with the sky rate established, the solver still permits trajectories at very different distances and speeds. The next action depends on selecting the conclusion that fits all of those facts. Which conclusion correctly applies distance constraint to the observations and physics?
+**Optional review completion - exact player copy:** Good work. You have completed six independent practice questions.
 
-**Options - exact player copy:**
-
-- A. A calculation that finds trajectories consistent with measured positions, times, and gravity.
-- B. Separated observing sites view a nearby object from measurably different directions.
-- C. Observed position minus the position predicted by a model.
-- D. A description of parameter uncertainties and how their errors move together.
-
-**Correct answer:** B
-
-**Hint - exact player copy:** Use the stated evidence and the conditions for distance constraint; do not choose an option merely because it names a familiar term.
-
-**Option feedback - exact player copy:**
-
-- A: This describes Orbit fit, not distance constraint. It does not account for the quantities, conditions, or evidence in this planetary science case.
-- B: Correct. separated observing sites view a nearby object from measurably different directions.
-- C: This describes Residual, not distance constraint. It does not account for the quantities, conditions, or evidence in this planetary science case.
-- D: This describes Covariance, not distance constraint. It does not account for the quantities, conditions, or evidence in this planetary science case.
-### Review question 6
-
-**Prompt - exact player copy:** the planetary-defense center applies the lesson from Six Points Are Not an Orbit to this follow-up: because distance has narrowed, only two candidate orbit families remain, with nearly identical average residuals. Which conclusion correctly applies model adequacy to the observations and physics?
-
-**Options - exact player copy:**
-
-- A. A calculation that finds trajectories consistent with measured positions, times, and gravity.
-- B. Observed position minus the position predicted by a model.
-- C. Random scatter can reflect measurement noise, while ordered residuals indicate model misspecification.
-- D. A description of parameter uncertainties and how their errors move together.
-
-**Correct answer:** C
-
-**Hint - exact player copy:** Use the stated evidence and the conditions for model adequacy; do not choose an option merely because it names a familiar term.
-
-**Option feedback - exact player copy:**
-
-- A: This describes Orbit fit, not model adequacy. It does not account for the quantities, conditions, or evidence in this planetary science case.
-- B: This describes Residual, not model adequacy. It does not account for the quantities, conditions, or evidence in this planetary science case.
-- C: Correct. random scatter can reflect measurement noise, while ordered residuals indicate model misspecification.
-- D: This describes Covariance, not model adequacy. It does not account for the quantities, conditions, or evidence in this planetary science case.
-**Optional review completion - exact player copy:** Excellent work. You went beyond the required mission and strengthened the ideas behind your decision.
 ## Quick concept review
 
 - Optical astrometry measures direction more directly than distance.
@@ -2110,15 +2133,16 @@ Mission decision: Send a warning now, but state its limits. The 8.0% result stay
 
 **Availability:** Reveal only after mission completion when the player selects **GO DEEPER**. This section is optional, ungraded for campaign progress, and does not change metrics, Recovery Points, or the next-mission unlock.
 
-**Secondary briefing card - exact player copy:** You completed The Probability Goes Up. Choose GO DEEPER to revisit the four decisions and explore related course ideas; this optional review does not change your metrics or delay the next mission.
+**Secondary briefing card - exact player copy:** Try six independent practice questions. Each includes its own context and any needed data; no mission records are required.
 
 ### Review focus
 
-No additional prerequisite is required. These AP-style questions apply the mission's course ideas to follow-up evidence, including related topics not required in the four main stops.
+No additional prerequisite is required. These practice questions review related course ideas. Each question stands alone, including its choices and figure.
 
 ### Review question 1
 
-**Prompt - exact player copy:** In a follow-up to The Probability Goes Up, with the language fixed, overlay the old and new orbit clouds on Earth's effective cross section. The next action depends on selecting the conclusion that fits all of those facts. Which statistical conclusion or procedure correctly uses Impact probability?
+
+**Prompt - exact player copy:** Which statement best explains impact probability?
 
 **Options - exact player copy:**
 
@@ -2129,17 +2153,19 @@ No additional prerequisite is required. These AP-style questions apply the missi
 
 **Correct answer:** B
 
-**Hint - exact player copy:** Use the stated evidence and the conditions for Impact probability; do not choose an option merely because it names a familiar term.
+**Hint - exact player copy:** Identify the defining relationship or mechanism for impact probability. All needed information is in this question.
 
 **Option feedback - exact player copy:**
 
-- A: This describes Torino Scale, not Impact probability. It does not account for the quantities, conditions, or evidence in this planetary science case.
-- B: Correct. the weighted fraction of allowed trajectories that strike Earth under the current model.
-- C: This describes Palermo Scale, not Impact probability. It does not account for the quantities, conditions, or evidence in this planetary science case.
-- D: This describes risk language, not Impact probability. It does not account for the quantities, conditions, or evidence in this planetary science case.
+- A: This describes torino Scale. It does not answer the question about impact probability.
+- B: Correct. The weighted fraction of allowed trajectories that strike Earth under the current model.
+- C: This describes palermo Scale. It does not answer the question about impact probability.
+- D: This describes risk language. It does not answer the question about impact probability.
+
 ### Review question 2
 
-**Prompt - exact player copy:** the planetary-defense center receives a second case related to The Probability Goes Up: the monitoring board shows a current impact probability, a Torino value, and a Palermo value for the same event. The next action depends on selecting the conclusion that fits all of those facts. Which conclusion correctly applies Torino Scale to the observations and physics?
+
+**Prompt - exact player copy:** Which statement best explains torino Scale?
 
 **Options - exact player copy:**
 
@@ -2150,17 +2176,19 @@ No additional prerequisite is required. These AP-style questions apply the missi
 
 **Correct answer:** C
 
-**Hint - exact player copy:** Use the stated evidence and the conditions for Torino Scale; do not choose an option merely because it names a familiar term.
+**Hint - exact player copy:** Identify the defining relationship or mechanism for torino scale. All needed information is in this question.
 
 **Option feedback - exact player copy:**
 
-- A: This describes Impact probability, not Torino Scale. It does not account for the quantities, conditions, or evidence in this planetary science case.
-- B: This describes Palermo Scale, not Torino Scale. It does not account for the quantities, conditions, or evidence in this planetary science case.
-- C: Correct. a public 0-to-10 scale combining impact probability and impact energy for events within 100 years.
-- D: This describes risk language, not Torino Scale. It does not account for the quantities, conditions, or evidence in this planetary science case.
+- A: This describes impact probability. It does not answer the question about torino scale.
+- B: This describes palermo Scale. It does not answer the question about torino scale.
+- C: Correct. A public 0-to-10 scale combining impact probability and impact energy for events within 100 years.
+- D: This describes risk language. It does not answer the question about torino scale.
+
 ### Review question 3
 
-**Prompt - exact player copy:** A teammate rechecks The Probability Goes Up using new evidence: the monitoring board shows a current impact probability, a Torino value, and a Palermo value for the same event. The next action depends on selecting the conclusion that fits all of those facts. Which conclusion correctly applies Palermo Scale to the observations and physics?
+
+**Prompt - exact player copy:** Which statement best explains palermo Scale?
 
 **Options - exact player copy:**
 
@@ -2171,17 +2199,19 @@ No additional prerequisite is required. These AP-style questions apply the missi
 
 **Correct answer:** D
 
-**Hint - exact player copy:** Use the stated evidence and the conditions for Palermo Scale; do not choose an option merely because it names a familiar term.
+**Hint - exact player copy:** Identify the defining relationship or mechanism for palermo scale. All needed information is in this question.
 
 **Option feedback - exact player copy:**
 
-- A: This describes Impact probability, not Palermo Scale. It does not account for the quantities, conditions, or evidence in this planetary science case.
-- B: This describes Torino Scale, not Palermo Scale. It does not account for the quantities, conditions, or evidence in this planetary science case.
-- C: This describes risk language, not Palermo Scale. It does not account for the quantities, conditions, or evidence in this planetary science case.
-- D: Correct. a technical logarithmic comparison between one impact risk and the background hazard.
+- A: This describes impact probability. It does not answer the question about palermo scale.
+- B: This describes torino Scale. It does not answer the question about palermo scale.
+- C: This describes risk language. It does not answer the question about palermo scale.
+- D: Correct. A technical logarithmic comparison between one impact risk and the background hazard.
+
 ### Review question 4
 
-**Prompt - exact player copy:** An unseen case extends The Probability Goes Up: the monitoring board shows a current impact probability, a Torino value, and a Palermo value for the same event. The next action depends on selecting the conclusion that fits all of those facts. Which conclusion correctly applies risk language to the observations and physics?
+
+**Prompt - exact player copy:** Which statement best explains risk language?
 
 **Options - exact player copy:**
 
@@ -2192,17 +2222,19 @@ No additional prerequisite is required. These AP-style questions apply the missi
 
 **Correct answer:** A
 
-**Hint - exact player copy:** Use the stated evidence and the conditions for risk language; do not choose an option merely because it names a familiar term.
+**Hint - exact player copy:** Identify the defining relationship or mechanism for risk language. All needed information is in this question.
 
 **Option feedback - exact player copy:**
 
-- A: Correct. probability quantifies uncertainty; it does not become a yes/no fact until the trajectory is sufficiently constrained.
-- B: This describes Impact probability, not risk language. It does not account for the quantities, conditions, or evidence in this planetary science case.
-- C: This describes Torino Scale, not risk language. It does not account for the quantities, conditions, or evidence in this planetary science case.
-- D: This describes Palermo Scale, not risk language. It does not account for the quantities, conditions, or evidence in this planetary science case.
+- A: Correct. Probability quantifies uncertainty; it does not become a yes/no fact until the trajectory is sufficiently constrained.
+- B: This describes impact probability. It does not answer the question about risk language.
+- C: This describes torino Scale. It does not answer the question about risk language.
+- D: This describes palermo Scale. It does not answer the question about risk language.
+
 ### Review question 5
 
-**Prompt - exact player copy:** Before another Probability Goes Up decision, the team knows this: with the language fixed, overlay the old and new orbit clouds on Earth's effective cross section. The next action depends on selecting the conclusion that fits all of those facts. Which statistical conclusion or procedure correctly uses probability evolution?
+
+**Prompt - exact player copy:** Which statement best explains probability evolution?
 
 **Options - exact player copy:**
 
@@ -2213,17 +2245,19 @@ No additional prerequisite is required. These AP-style questions apply the missi
 
 **Correct answer:** B
 
-**Hint - exact player copy:** Use the stated evidence and the conditions for probability evolution; do not choose an option merely because it names a familiar term.
+**Hint - exact player copy:** Identify the defining relationship or mechanism for probability evolution. All needed information is in this question.
 
 **Option feedback - exact player copy:**
 
-- A: This describes Impact probability, not probability evolution. It does not account for the quantities, conditions, or evidence in this planetary science case.
-- B: Correct. probability is the normalized weight inside Earth's impact cross section, not the absolute width of the cloud.
-- C: This describes Torino Scale, not probability evolution. It does not account for the quantities, conditions, or evidence in this planetary science case.
-- D: This describes Palermo Scale, not probability evolution. It does not account for the quantities, conditions, or evidence in this planetary science case.
+- A: This describes impact probability. It does not answer the question about probability evolution.
+- B: Correct. Probability is the normalized weight inside Earth's impact cross section, not the absolute width of the cloud.
+- C: This describes torino Scale. It does not answer the question about probability evolution.
+- D: This describes palermo Scale. It does not answer the question about probability evolution.
+
 ### Review question 6
 
-**Prompt - exact player copy:** the planetary-defense center applies the lesson from The Probability Goes Up to this follow-up: because the normalized cloud gives 8.0%, vary the astrometric weights, focusing radius, and one-frame timing uncertainty across justified ranges. Test the conclusion across the supported uncertainty range now, before the team treats it as robust. Which conclusion correctly applies robustness to the observations and physics?
+
+**Prompt - exact player copy:** Which statement best explains robustness?
 
 **Options - exact player copy:**
 
@@ -2234,15 +2268,17 @@ No additional prerequisite is required. These AP-style questions apply the missi
 
 **Correct answer:** C
 
-**Hint - exact player copy:** Use the stated evidence and the conditions for robustness; do not choose an option merely because it names a familiar term.
+**Hint - exact player copy:** Identify the defining relationship or mechanism for robustness. All needed information is in this question.
 
 **Option feedback - exact player copy:**
 
-- A: This describes Impact probability, not robustness. It does not account for the quantities, conditions, or evidence in this planetary science case.
-- B: This describes Torino Scale, not robustness. It does not account for the quantities, conditions, or evidence in this planetary science case.
-- C: Correct. decision robustness depends on whether reasonable assumptions cross the action boundary, not whether they change the reported number.
-- D: This describes Palermo Scale, not robustness. It does not account for the quantities, conditions, or evidence in this planetary science case.
-**Optional review completion - exact player copy:** Excellent work. You went beyond the required mission and strengthened the ideas behind your decision.
+- A: This describes impact probability. It does not answer the question about robustness.
+- B: This describes torino Scale. It does not answer the question about robustness.
+- C: Correct. Decision robustness depends on whether reasonable assumptions cross the action boundary, not whether they change the reported number.
+- D: This describes palermo Scale. It does not answer the question about robustness.
+
+**Optional review completion - exact player copy:** Good work. You have completed six independent practice questions.
+
 ## Quick concept review
 
 - Better data can raise or lower impact probability.
@@ -2679,15 +2715,39 @@ Mission decision: Use the last dark window for dawn images, radar, and heat data
 
 **Availability:** Reveal only after mission completion when the player selects **GO DEEPER**. This section is optional, ungraded for campaign progress, and does not change metrics, Recovery Points, or the next-mission unlock.
 
-**Secondary briefing card - exact player copy:** You completed The Last Dark Window. Choose GO DEEPER to revisit the four decisions and explore related course ideas; this optional review does not change your metrics or delay the next mission.
+**Secondary briefing card - exact player copy:** Try six independent practice questions. Each includes its own context and any needed data; no mission records are required.
 
 ### Review focus
 
-No additional prerequisite is required. These AP-style questions apply the mission's course ideas to follow-up evidence, including related topics not required in the four main stops.
+No additional prerequisite is required. These practice questions review related course ideas. Each question stands alone, including its choices and figure.
 
 ### Review question 1
 
-**Prompt - exact player copy:** In a follow-up to The Last Dark Window, the current orbit cloud is limited mainly by range, time baseline, and one possible timestamp bias, not by raw image count. Choose the next measurement now based on whether its result could change the decision. Which conclusion correctly applies Solar elongation to the observations and physics?
+
+**Prompt - exact player copy:** Which statement best explains solar elongation?
+
+**Options - exact player copy:**
+
+- A. The time span covered by measurements used in an orbit fit.
+- B. The expected reduction in uncertainty that matters to a decision.
+- C. Observing cadence is constrained by sky position, geometry, travel, and processing time.
+- D. The angle between an object and the Sun in the sky.
+
+**Correct answer:** D
+
+**Hint - exact player copy:** Identify the defining relationship or mechanism for solar elongation. All needed information is in this question.
+
+**Option feedback - exact player copy:**
+
+- A: This describes observing arc. It does not answer the question about solar elongation.
+- B: This describes information gain. It does not answer the question about solar elongation.
+- C: This describes cadence. It does not answer the question about solar elongation.
+- D: Correct. The angle between an object and the Sun in the sky.
+
+### Review question 2
+
+
+**Prompt - exact player copy:** Which statement best explains observing arc?
 
 **Options - exact player copy:**
 
@@ -2696,19 +2756,21 @@ No additional prerequisite is required. These AP-style questions apply the missi
 - C. The expected reduction in uncertainty that matters to a decision.
 - D. Observing cadence is constrained by sky position, geometry, travel, and processing time.
 
-**Correct answer:** B
+**Correct answer:** A
 
-**Hint - exact player copy:** Use the stated evidence and the conditions for Solar elongation; do not choose an option merely because it names a familiar term.
+**Hint - exact player copy:** Identify the defining relationship or mechanism for observing arc. All needed information is in this question.
 
 **Option feedback - exact player copy:**
 
-- A: This describes Observing arc, not Solar elongation. It does not account for the quantities, conditions, or evidence in this planetary science case.
-- B: Correct. the angle between an object and the Sun in the sky.
-- C: This describes Information gain, not Solar elongation. It does not account for the quantities, conditions, or evidence in this planetary science case.
-- D: This describes cadence, not Solar elongation. It does not account for the quantities, conditions, or evidence in this planetary science case.
-### Review question 2
+- A: Correct. The time span covered by measurements used in an orbit fit.
+- B: This describes solar elongation. It does not answer the question about observing arc.
+- C: This describes information gain. It does not answer the question about observing arc.
+- D: This describes cadence. It does not answer the question about observing arc.
 
-**Prompt - exact player copy:** the planetary-defense center receives a second case related to The Last Dark Window: with the expected error reduction known, allocate 100 coordination points across the proposals that make the mixed plan executable. Spend the evidence budget now on tests that can distinguish the explanations still in play. Which conclusion correctly applies Observing arc to the observations and physics?
+### Review question 3
+
+
+**Prompt - exact player copy:** Which statement best explains information gain?
 
 **Options - exact player copy:**
 
@@ -2717,19 +2779,21 @@ No additional prerequisite is required. These AP-style questions apply the missi
 - C. The time span covered by measurements used in an orbit fit.
 - D. Observing cadence is constrained by sky position, geometry, travel, and processing time.
 
-**Correct answer:** C
+**Correct answer:** B
 
-**Hint - exact player copy:** Use the stated evidence and the conditions for Observing arc; do not choose an option merely because it names a familiar term.
+**Hint - exact player copy:** Identify the defining relationship or mechanism for information gain. All needed information is in this question.
 
 **Option feedback - exact player copy:**
 
-- A: This describes Solar elongation, not Observing arc. It does not account for the quantities, conditions, or evidence in this planetary science case.
-- B: This describes Information gain, not Observing arc. It does not account for the quantities, conditions, or evidence in this planetary science case.
-- C: Correct. the time span covered by measurements used in an orbit fit.
-- D: This describes cadence, not Observing arc. It does not account for the quantities, conditions, or evidence in this planetary science case.
-### Review question 3
+- A: This describes solar elongation. It does not answer the question about information gain.
+- B: Correct. The expected reduction in uncertainty that matters to a decision.
+- C: This describes observing arc. It does not answer the question about information gain.
+- D: This describes cadence. It does not answer the question about information gain.
 
-**Prompt - exact player copy:** A teammate rechecks The Last Dark Window using new evidence: the current orbit cloud is limited mainly by range, time baseline, and one possible timestamp bias, not by raw image count. Choose the next measurement now based on whether its result could change the decision. Which conclusion correctly applies Information gain to the observations and physics?
+### Review question 4
+
+
+**Prompt - exact player copy:** Which statement best explains cadence?
 
 **Options - exact player copy:**
 
@@ -2738,80 +2802,65 @@ No additional prerequisite is required. These AP-style questions apply the missi
 - C. Observing cadence is constrained by sky position, geometry, travel, and processing time.
 - D. The expected reduction in uncertainty that matters to a decision.
 
-**Correct answer:** D
+**Correct answer:** C
 
-**Hint - exact player copy:** Use the stated evidence and the conditions for Information gain; do not choose an option merely because it names a familiar term.
+**Hint - exact player copy:** Identify the defining relationship or mechanism for cadence. All needed information is in this question.
 
 **Option feedback - exact player copy:**
 
-- A: This describes Solar elongation, not Information gain. It does not account for the quantities, conditions, or evidence in this planetary science case.
-- B: This describes Observing arc, not Information gain. It does not account for the quantities, conditions, or evidence in this planetary science case.
-- C: This describes cadence, not Information gain. It does not account for the quantities, conditions, or evidence in this planetary science case.
-- D: Correct. the expected reduction in uncertainty that matters to a decision.
-### Review question 4
+- A: This describes solar elongation. It does not answer the question about cadence.
+- B: This describes observing arc. It does not answer the question about cadence.
+- C: Correct. Observing cadence is constrained by sky position, geometry, travel, and processing time.
+- D: This describes information gain. It does not answer the question about cadence.
 
-**Prompt - exact player copy:** An unseen case extends The Last Dark Window: with the three evidence blocks funded, their order must respect sky visibility, radar geometry, aircraft travel, and instrument handoff. Which conclusion correctly applies cadence to the observations and physics?
+### Review question 5
+
+
+**Prompt - exact player copy:** Which statement best explains error budget?
 
 **Options - exact player copy:**
 
-- A. Observing cadence is constrained by sky position, geometry, travel, and processing time.
+- A. The angle between an object and the Sun in the sky.
+- B. The time span covered by measurements used in an orbit fit.
+- C. The expected reduction in uncertainty that matters to a decision.
+- D. Correlated range and along-track uncertainty require complementary measurements.
+
+**Correct answer:** D
+
+**Hint - exact player copy:** Identify the defining relationship or mechanism for error budget. All needed information is in this question.
+
+**Option feedback - exact player copy:**
+
+- A: This describes solar elongation. It does not answer the question about error budget.
+- B: This describes observing arc. It does not answer the question about error budget.
+- C: This describes information gain. It does not answer the question about error budget.
+- D: Correct. Correlated range and along-track uncertainty require complementary measurements.
+
+### Review question 6
+
+
+**Prompt - exact player copy:** Which statement best explains observing allocation?
+
+**Options - exact player copy:**
+
+- A. Evidence has value only when acquisition, transfer, and combined inference all survive the resource plan.
 - B. The angle between an object and the Sun in the sky.
 - C. The time span covered by measurements used in an orbit fit.
 - D. The expected reduction in uncertainty that matters to a decision.
 
 **Correct answer:** A
 
-**Hint - exact player copy:** Use the stated evidence and the conditions for cadence; do not choose an option merely because it names a familiar term.
+**Hint - exact player copy:** Identify the defining relationship or mechanism for observing allocation. All needed information is in this question.
 
 **Option feedback - exact player copy:**
 
-- A: Correct. observing cadence is constrained by sky position, geometry, travel, and processing time.
-- B: This describes Solar elongation, not cadence. It does not account for the quantities, conditions, or evidence in this planetary science case.
-- C: This describes Observing arc, not cadence. It does not account for the quantities, conditions, or evidence in this planetary science case.
-- D: This describes Information gain, not cadence. It does not account for the quantities, conditions, or evidence in this planetary science case.
-### Review question 5
+- A: Correct. Evidence has value only when acquisition, transfer, and combined inference all survive the resource plan.
+- B: This describes solar elongation. It does not answer the question about observing allocation.
+- C: This describes observing arc. It does not answer the question about observing allocation.
+- D: This describes information gain. It does not answer the question about observing allocation.
 
-**Prompt - exact player copy:** Before another Last Dark Window decision, the team knows this: because the observing order is fixed, the orbit team can forecast how each block changes the encounter uncertainty. Carry each uncertainty into the final result now so the team can choose the measurement that would reduce the decision risk. Which statistical conclusion or procedure correctly uses error budget?
+**Optional review completion - exact player copy:** Good work. You have completed six independent practice questions.
 
-**Options - exact player copy:**
-
-- A. The angle between an object and the Sun in the sky.
-- B. Correlated range and along-track uncertainty require complementary measurements.
-- C. The time span covered by measurements used in an orbit fit.
-- D. The expected reduction in uncertainty that matters to a decision.
-
-**Correct answer:** B
-
-**Hint - exact player copy:** Use the stated evidence and the conditions for error budget; do not choose an option merely because it names a familiar term.
-
-**Option feedback - exact player copy:**
-
-- A: This describes Solar elongation, not error budget. It does not account for the quantities, conditions, or evidence in this planetary science case.
-- B: Correct. correlated range and along-track uncertainty require complementary measurements.
-- C: This describes Observing arc, not error budget. It does not account for the quantities, conditions, or evidence in this planetary science case.
-- D: This describes Information gain, not error budget. It does not account for the quantities, conditions, or evidence in this planetary science case.
-### Review question 6
-
-**Prompt - exact player copy:** the planetary-defense center applies the lesson from The Last Dark Window to this follow-up: with the expected error reduction known, allocate 100 coordination points across the proposals that make the mixed plan executable. Spend the evidence budget now on tests that can distinguish the explanations still in play. Which conclusion correctly applies observing allocation to the observations and physics?
-
-**Options - exact player copy:**
-
-- A. The angle between an object and the Sun in the sky.
-- B. The time span covered by measurements used in an orbit fit.
-- C. Evidence has value only when acquisition, transfer, and combined inference all survive the resource plan.
-- D. The expected reduction in uncertainty that matters to a decision.
-
-**Correct answer:** C
-
-**Hint - exact player copy:** Use the stated evidence and the conditions for observing allocation; do not choose an option merely because it names a familiar term.
-
-**Option feedback - exact player copy:**
-
-- A: This describes Solar elongation, not observing allocation. It does not account for the quantities, conditions, or evidence in this planetary science case.
-- B: This describes Observing arc, not observing allocation. It does not account for the quantities, conditions, or evidence in this planetary science case.
-- C: Correct. evidence has value only when acquisition, transfer, and combined inference all survive the resource plan.
-- D: This describes Information gain, not observing allocation. It does not account for the quantities, conditions, or evidence in this planetary science case.
-**Optional review completion - exact player copy:** Excellent work. You went beyond the required mission and strengthened the ideas behind your decision.
 ## Quick concept review
 
 - Cadence controls the time leverage of observations.
@@ -3274,15 +3323,16 @@ Mission decision: Add the new sky points to the impact model. Keep the local err
 
 **Availability:** Reveal only after mission completion when the player selects **GO DEEPER**. This section is optional, ungraded for campaign progress, and does not change metrics, Recovery Points, or the next-mission unlock.
 
-**Secondary briefing card - exact player copy:** You completed The Summit Test. Choose GO DEEPER to revisit the four decisions and explore related course ideas; this optional review does not change your metrics or delay the next mission.
+**Secondary briefing card - exact player copy:** Try six independent practice questions. Each includes its own context and any needed data; no mission records are required.
 
 ### Review focus
 
-No additional prerequisite is required. These AP-style questions apply the mission's course ideas to follow-up evidence, including related topics not required in the four main stops.
+No additional prerequisite is required. These practice questions review related course ideas. Each question stands alone, including its choices and figure.
 
 ### Review question 1
 
-**Prompt - exact player copy:** In a follow-up to The Summit Test, the funded recovery depends on a pipeline that lost sources near one bright satellite trail in the discovery night. Run the known signal through the pipeline now so the team knows what the real search can recover. Which conclusion correctly applies Completeness to the observations and physics?
+
+**Prompt - exact player copy:** Which statement best explains completeness?
 
 **Options - exact player copy:**
 
@@ -3293,17 +3343,19 @@ No additional prerequisite is required. These AP-style questions apply the missi
 
 **Correct answer:** B
 
-**Hint - exact player copy:** Use the stated evidence and the conditions for Completeness; do not choose an option merely because it names a familiar term.
+**Hint - exact player copy:** Identify the defining relationship or mechanism for completeness. All needed information is in this question.
 
 **Option feedback - exact player copy:**
 
-- A: This describes Limiting magnitude, not Completeness. It does not account for the quantities, conditions, or evidence in this planetary science case.
-- B: Correct. the fraction of real objects a survey detects under stated conditions.
-- C: This describes Injection test, not Completeness. It does not account for the quantities, conditions, or evidence in this planetary science case.
-- D: This describes exposure and magnitude, not Completeness. It does not account for the quantities, conditions, or evidence in this planetary science case.
+- A: This describes limiting magnitude. It does not answer the question about completeness.
+- B: Correct. The fraction of real objects a survey detects under stated conditions.
+- C: This describes injection test. It does not answer the question about completeness.
+- D: This describes exposure and magnitude. It does not answer the question about completeness.
+
 ### Review question 2
 
-**Prompt - exact player copy:** the planetary-defense center receives a second case related to The Summit Test: with the weak detector region located, sweep exposure time from 10 to 90 seconds and watch asteroid signal and star saturation together. Which conclusion correctly applies Limiting magnitude to the observations and physics?
+
+**Prompt - exact player copy:** Which statement best explains limiting magnitude?
 
 **Options - exact player copy:**
 
@@ -3314,17 +3366,19 @@ No additional prerequisite is required. These AP-style questions apply the missi
 
 **Correct answer:** C
 
-**Hint - exact player copy:** Use the stated evidence and the conditions for Limiting magnitude; do not choose an option merely because it names a familiar term.
+**Hint - exact player copy:** Identify the defining relationship or mechanism for limiting magnitude. All needed information is in this question.
 
 **Option feedback - exact player copy:**
 
-- A: This describes Completeness, not Limiting magnitude. It does not account for the quantities, conditions, or evidence in this planetary science case.
-- B: This describes Injection test, not Limiting magnitude. It does not account for the quantities, conditions, or evidence in this planetary science case.
-- C: Correct. the faintest brightness a survey can detect reliably.
-- D: This describes exposure and magnitude, not Limiting magnitude. It does not account for the quantities, conditions, or evidence in this planetary science case.
+- A: This describes completeness. It does not answer the question about limiting magnitude.
+- B: This describes injection test. It does not answer the question about limiting magnitude.
+- C: Correct. The faintest brightness a survey can detect reliably.
+- D: This describes exposure and magnitude. It does not answer the question about limiting magnitude.
+
 ### Review question 3
 
-**Prompt - exact player copy:** A teammate rechecks The Summit Test using new evidence: because 45 seconds gives a usable image, test whether the local bad-column mask moves the candidate centroid. Run the reversible comparison now so the crew can tell whether the proposed cause changes the measured response. Which statistical conclusion or procedure correctly uses Injection test?
+
+**Prompt - exact player copy:** Which statement best explains injection test?
 
 **Options - exact player copy:**
 
@@ -3335,17 +3389,19 @@ No additional prerequisite is required. These AP-style questions apply the missi
 
 **Correct answer:** D
 
-**Hint - exact player copy:** Use the stated evidence and the conditions for Injection test; do not choose an option merely because it names a familiar term.
+**Hint - exact player copy:** Identify the defining relationship or mechanism for injection test. All needed information is in this question.
 
 **Option feedback - exact player copy:**
 
-- A: This describes Completeness, not Injection test. It does not account for the quantities, conditions, or evidence in this planetary science case.
-- B: This describes Limiting magnitude, not Injection test. It does not account for the quantities, conditions, or evidence in this planetary science case.
-- C: This describes exposure and magnitude, not Injection test. It does not account for the quantities, conditions, or evidence in this planetary science case.
-- D: Correct. adding known synthetic sources to data and measuring how many the pipeline recovers.
+- A: This describes completeness. It does not answer the question about injection test.
+- B: This describes limiting magnitude. It does not answer the question about injection test.
+- C: This describes exposure and magnitude. It does not answer the question about injection test.
+- D: Correct. Adding known synthetic sources to data and measuring how many the pipeline recovers.
+
 ### Review question 4
 
-**Prompt - exact player copy:** An unseen case extends The Summit Test: with the weak detector region located, sweep exposure time from 10 to 90 seconds and watch asteroid signal and star saturation together. Which conclusion correctly applies exposure and magnitude to the observations and physics?
+
+**Prompt - exact player copy:** Which statement best explains exposure and magnitude?
 
 **Options - exact player copy:**
 
@@ -3356,17 +3412,19 @@ No additional prerequisite is required. These AP-style questions apply the missi
 
 **Correct answer:** A
 
-**Hint - exact player copy:** Use the stated evidence and the conditions for exposure and magnitude; do not choose an option merely because it names a familiar term.
+**Hint - exact player copy:** Identify the defining relationship or mechanism for exposure and magnitude. All needed information is in this question.
 
 **Option feedback - exact player copy:**
 
-- A: Correct. longer exposure improves signal but eventually saturates bright stars needed for astrometry.
-- B: This describes Completeness, not exposure and magnitude. It does not account for the quantities, conditions, or evidence in this planetary science case.
-- C: This describes Limiting magnitude, not exposure and magnitude. It does not account for the quantities, conditions, or evidence in this planetary science case.
-- D: This describes Injection test, not exposure and magnitude. It does not account for the quantities, conditions, or evidence in this planetary science case.
+- A: Correct. Longer exposure improves signal but eventually saturates bright stars needed for astrometry.
+- B: This describes completeness. It does not answer the question about exposure and magnitude.
+- C: This describes limiting magnitude. It does not answer the question about exposure and magnitude.
+- D: This describes injection test. It does not answer the question about exposure and magnitude.
+
 ### Review question 5
 
-**Prompt - exact player copy:** Before another Summit Test decision, the team knows this: because 45 seconds gives a usable image, test whether the local bad-column mask moves the candidate centroid. Run the reversible comparison now so the crew can tell whether the proposed cause changes the measured response. Which statistical conclusion or procedure correctly uses causal artifact test?
+
+**Prompt - exact player copy:** Which statement best explains causal artifact test?
 
 **Options - exact player copy:**
 
@@ -3377,17 +3435,19 @@ No additional prerequisite is required. These AP-style questions apply the missi
 
 **Correct answer:** B
 
-**Hint - exact player copy:** Use the stated evidence and the conditions for causal artifact test; do not choose an option merely because it names a familiar term.
+**Hint - exact player copy:** Identify the defining relationship or mechanism for causal artifact test. All needed information is in this question.
 
 **Option feedback - exact player copy:**
 
-- A: This describes Completeness, not causal artifact test. It does not account for the quantities, conditions, or evidence in this planetary science case.
-- B: Correct. causation requires changing the proposed cause while holding other factors fixed, then confirming by reversal.
-- C: This describes Limiting magnitude, not causal artifact test. It does not account for the quantities, conditions, or evidence in this planetary science case.
-- D: This describes Injection test, not causal artifact test. It does not account for the quantities, conditions, or evidence in this planetary science case.
+- A: This describes completeness. It does not answer the question about causal artifact test.
+- B: Correct. Causation requires changing the proposed cause while holding other factors fixed, then confirming by reversal.
+- C: This describes limiting magnitude. It does not answer the question about causal artifact test.
+- D: This describes injection test. It does not answer the question about causal artifact test.
+
 ### Review question 6
 
-**Prompt - exact player copy:** the planetary-defense center applies the lesson from The Summit Test to this follow-up: with exposure and mask effects controlled, freeze Malik's independent predicted position before opening the latest frame. Commit the prediction and run the test now so the measurement can fairly accept or reject the proposed model. Which conclusion correctly applies independent prediction to the observations and physics?
+
+**Prompt - exact player copy:** Which statement best explains independent prediction?
 
 **Options - exact player copy:**
 
@@ -3398,15 +3458,17 @@ No additional prerequisite is required. These AP-style questions apply the missi
 
 **Correct answer:** C
 
-**Hint - exact player copy:** Use the stated evidence and the conditions for independent prediction; do not choose an option merely because it names a familiar term.
+**Hint - exact player copy:** Identify the defining relationship or mechanism for independent prediction. All needed information is in this question.
 
 **Option feedback - exact player copy:**
 
-- A: This describes Completeness, not independent prediction. It does not account for the quantities, conditions, or evidence in this planetary science case.
-- B: This describes Limiting magnitude, not independent prediction. It does not account for the quantities, conditions, or evidence in this planetary science case.
-- C: Correct. a held prediction prevents post-measurement tuning from masquerading as verification.
-- D: This describes Injection test, not independent prediction. It does not account for the quantities, conditions, or evidence in this planetary science case.
-**Optional review completion - exact player copy:** Excellent work. You went beyond the required mission and strengthened the ideas behind your decision.
+- A: This describes completeness. It does not answer the question about independent prediction.
+- B: This describes limiting magnitude. It does not answer the question about independent prediction.
+- C: Correct. A held prediction prevents post-measurement tuning from masquerading as verification.
+- D: This describes injection test. It does not answer the question about independent prediction.
+
+**Optional review completion - exact player copy:** Good work. You have completed six independent practice questions.
+
 ## Quick concept review
 
 - Completeness requires known injected objects.
@@ -3849,15 +3911,39 @@ Mission decision: Plan for a dark body that is 230–290 m wide. Its heat shows 
 
 **Availability:** Reveal only after mission completion when the player selects **GO DEEPER**. This section is optional, ungraded for campaign progress, and does not change metrics, Recovery Points, or the next-mission unlock.
 
-**Secondary briefing card - exact player copy:** You completed The Darker Answer. Choose GO DEEPER to revisit the four decisions and explore related course ideas; this optional review does not change your metrics or delay the next mission.
+**Secondary briefing card - exact player copy:** Try six independent practice questions. Each includes its own context and any needed data; no mission records are required.
 
 ### Review focus
 
-No additional prerequisite is required. These AP-style questions apply the mission's course ideas to follow-up evidence, including related topics not required in the four main stops.
+No additional prerequisite is required. These practice questions review related course ideas. Each question stands alone, including its choices and figure.
 
 ### Review question 1
 
-**Prompt - exact player copy:** In a follow-up to The Darker Answer, the certified photometry gives H = 22.0, while the early notice silently assumed a bright albedo of 0.25. Which conclusion correctly applies Absolute magnitude H to the observations and physics?
+
+**Prompt - exact player copy:** Which statement best explains absolute magnitude H?
+
+**Options - exact player copy:**
+
+- A. A measure of how strongly a surface reflects visible light.
+- B. Brightness measured over time, often used to infer spin and shape.
+- C. Heat radiation that can constrain emitting area and temperature.
+- D. A standardized visible brightness used with albedo to estimate asteroid diameter.
+
+**Correct answer:** D
+
+**Hint - exact player copy:** Identify the defining relationship or mechanism for absolute magnitude h. All needed information is in this question.
+
+**Option feedback - exact player copy:**
+
+- A: This describes albedo. It does not answer the question about absolute magnitude h.
+- B: This describes light curve. It does not answer the question about absolute magnitude h.
+- C: This describes thermal infrared. It does not answer the question about absolute magnitude h.
+- D: Correct. A standardized visible brightness used with albedo to estimate asteroid diameter.
+
+### Review question 2
+
+
+**Prompt - exact player copy:** Which statement best explains albedo?
 
 **Options - exact player copy:**
 
@@ -3866,88 +3952,53 @@ No additional prerequisite is required. These AP-style questions apply the missi
 - C. Brightness measured over time, often used to infer spin and shape.
 - D. Heat radiation that can constrain emitting area and temperature.
 
-**Correct answer:** B
+**Correct answer:** A
 
-**Hint - exact player copy:** Use the stated evidence and the conditions for Absolute magnitude H; do not choose an option merely because it names a familiar term.
-
-**Option feedback - exact player copy:**
-
-- A: This describes Albedo, not Absolute magnitude H. It does not account for the quantities, conditions, or evidence in this planetary science case.
-- B: Correct. a standardized visible brightness used with albedo to estimate asteroid diameter.
-- C: This describes Light curve, not Absolute magnitude H. It does not account for the quantities, conditions, or evidence in this planetary science case.
-- D: This describes Thermal infrared, not Absolute magnitude H. It does not account for the quantities, conditions, or evidence in this planetary science case.
-### Review question 2
-
-**Prompt - exact player copy:** the planetary-defense center receives a second case related to The Darker Answer: the certified photometry gives H = 22.0, while the early notice silently assumed a bright albedo of 0.25. Which conclusion correctly applies Albedo to the observations and physics?
-
-**Options - exact player copy:**
-
-- A. A standardized visible brightness used with albedo to estimate asteroid diameter.
-- B. Brightness measured over time, often used to infer spin and shape.
-- C. A measure of how strongly a surface reflects visible light.
-- D. Heat radiation that can constrain emitting area and temperature.
-
-**Correct answer:** C
-
-**Hint - exact player copy:** Use the stated evidence and the conditions for Albedo; do not choose an option merely because it names a familiar term.
+**Hint - exact player copy:** Identify the defining relationship or mechanism for albedo. All needed information is in this question.
 
 **Option feedback - exact player copy:**
 
-- A: This describes Absolute magnitude H, not Albedo. It does not account for the quantities, conditions, or evidence in this planetary science case.
-- B: This describes Light curve, not Albedo. It does not account for the quantities, conditions, or evidence in this planetary science case.
-- C: Correct. a measure of how strongly a surface reflects visible light.
-- D: This describes Thermal infrared, not Albedo. It does not account for the quantities, conditions, or evidence in this planetary science case.
+- A: Correct. A measure of how strongly a surface reflects visible light.
+- B: This describes absolute magnitude H. It does not answer the question about albedo.
+- C: This describes light curve. It does not answer the question about albedo.
+- D: This describes thermal infrared. It does not answer the question about albedo.
+
 ### Review question 3
 
-**Prompt - exact player copy:** A teammate rechecks The Darker Answer using new evidence: the certified photometry gives H = 22.0, while the early notice silently assumed a bright albedo of 0.25. Which interpretation of the displayed evidence correctly uses the mission concept?
+
+**Prompt - exact player copy:** The brightness record repeats every 2 h. What can this light curve alone establish?
 
 **Figure - exact player copy:**
 
 ```json
 {
   "kind": "line",
-  "xLabel": "Rotation phase",
+  "xLabel": "Time (h)",
   "yLabel": "Relative brightness",
-  "caption": "A repeating light curve with unequal maxima.",
+  "caption": "Two repeating brightness peaks",
   "series": [
     {
       "name": "Brightness",
       "points": [
         [
           0,
-          1.0
-        ],
-        [
-          0.125,
-          0.82
-        ],
-        [
-          0.25,
-          1.08
-        ],
-        [
-          0.375,
-          0.78
-        ],
-        [
-          0.5,
-          1.0
-        ],
-        [
-          0.625,
-          0.82
-        ],
-        [
-          0.75,
-          1.08
-        ],
-        [
-          0.875,
-          0.78
+          1
         ],
         [
           1,
-          1.0
+          2
+        ],
+        [
+          2,
+          1
+        ],
+        [
+          3,
+          2
+        ],
+        [
+          4,
+          1
         ]
       ]
     }
@@ -3955,6 +4006,28 @@ No additional prerequisite is required. These AP-style questions apply the missi
 }
 ```
 
+**Options - exact player copy:**
+
+- A. The object must be a detached binary.
+- B. A 2 h brightness pattern; the physical rotation period may require more shape information.
+- C. The object’s diameter is exactly 2 km.
+- D. The object must hit Earth in 2 h.
+
+**Correct answer:** B
+
+**Hint - exact player copy:** Separate the observed repetition from its possible physical causes.
+
+**Option feedback - exact player copy:**
+
+- A: A repeating light curve alone does not establish a detached companion.
+- B: Correct. A 2 h brightness pattern; the physical rotation period may require more shape information.
+- C: The period does not provide a unique size.
+- D: Brightness timing is not an impact trajectory.
+
+### Review question 4
+
+
+**Prompt - exact player copy:** Which statement best explains thermal infrared?
 
 **Options - exact player copy:**
 
@@ -3963,80 +4036,65 @@ No additional prerequisite is required. These AP-style questions apply the missi
 - C. Heat radiation that can constrain emitting area and temperature.
 - D. Brightness measured over time, often used to infer spin and shape.
 
-**Correct answer:** D
+**Correct answer:** C
 
-**Hint - exact player copy:** Read the axes, units, direction, and any threshold before comparing the choices.
+**Hint - exact player copy:** Identify the defining relationship or mechanism for thermal infrared. All needed information is in this question.
 
 **Option feedback - exact player copy:**
 
-- A: This describes Absolute magnitude H, not Light curve. It does not account for the quantities, conditions, or evidence in this planetary science case.
-- B: This describes Albedo, not Light curve. It does not account for the quantities, conditions, or evidence in this planetary science case.
-- C: This describes Thermal infrared, not Light curve. It does not account for the quantities, conditions, or evidence in this planetary science case.
-- D: Correct. brightness measured over time, often used to infer spin and shape.
-### Review question 4
+- A: This describes absolute magnitude H. It does not answer the question about thermal infrared.
+- B: This describes albedo. It does not answer the question about thermal infrared.
+- C: Correct. Heat radiation that can constrain emitting area and temperature.
+- D: This describes light curve. It does not answer the question about thermal infrared.
 
-**Prompt - exact player copy:** An unseen case extends The Darker Answer: because the thermal locus selects a large dark body, sweep model temperature and compare the predicted spectral peak with the observed 10.2-micrometer maximum. Which conclusion correctly applies Thermal infrared to the observations and physics?
+### Review question 5
+
+
+**Prompt - exact player copy:** Which statement best explains h-to-diameter estimate?
 
 **Options - exact player copy:**
 
-- A. Heat radiation that can constrain emitting area and temperature.
+- A. A standardized visible brightness used with albedo to estimate asteroid diameter.
+- B. A measure of how strongly a surface reflects visible light.
+- C. Brightness measured over time, often used to infer spin and shape.
+- D. Lower albedo requires a larger area to produce the same reflected brightness.
+
+**Correct answer:** D
+
+**Hint - exact player copy:** Identify the defining relationship or mechanism for h-to-diameter estimate. All needed information is in this question.
+
+**Option feedback - exact player copy:**
+
+- A: This describes absolute magnitude H. It does not answer the question about h-to-diameter estimate.
+- B: This describes albedo. It does not answer the question about h-to-diameter estimate.
+- C: This describes light curve. It does not answer the question about h-to-diameter estimate.
+- D: Correct. Lower albedo requires a larger area to produce the same reflected brightness.
+
+### Review question 6
+
+
+**Prompt - exact player copy:** Which statement best explains diameter-albedo degeneracy?
+
+**Options - exact player copy:**
+
+- A. Two measurements with different parameter dependence break a degeneracy.
 - B. A standardized visible brightness used with albedo to estimate asteroid diameter.
 - C. A measure of how strongly a surface reflects visible light.
 - D. Brightness measured over time, often used to infer spin and shape.
 
 **Correct answer:** A
 
-**Hint - exact player copy:** Use the stated evidence and the conditions for Thermal infrared; do not choose an option merely because it names a familiar term.
+**Hint - exact player copy:** Identify the defining relationship or mechanism for diameter-albedo degeneracy. All needed information is in this question.
 
 **Option feedback - exact player copy:**
 
-- A: Correct. heat radiation that can constrain emitting area and temperature.
-- B: This describes Absolute magnitude H, not Thermal infrared. It does not account for the quantities, conditions, or evidence in this planetary science case.
-- C: This describes Albedo, not Thermal infrared. It does not account for the quantities, conditions, or evidence in this planetary science case.
-- D: This describes Light curve, not Thermal infrared. It does not account for the quantities, conditions, or evidence in this planetary science case.
-### Review question 5
+- A: Correct. Two measurements with different parameter dependence break a degeneracy.
+- B: This describes absolute magnitude H. It does not answer the question about diameter-albedo degeneracy.
+- C: This describes albedo. It does not answer the question about diameter-albedo degeneracy.
+- D: This describes light curve. It does not answer the question about diameter-albedo degeneracy.
 
-**Prompt - exact player copy:** Before another Darker Answer decision, the team knows this: the certified photometry gives H = 22.0, while the early notice silently assumed a bright albedo of 0.25. Which conclusion correctly applies H-to-diameter estimate to the observations and physics?
+**Optional review completion - exact player copy:** Good work. You have completed six independent practice questions.
 
-**Options - exact player copy:**
-
-- A. A standardized visible brightness used with albedo to estimate asteroid diameter.
-- B. Lower albedo requires a larger area to produce the same reflected brightness.
-- C. A measure of how strongly a surface reflects visible light.
-- D. Brightness measured over time, often used to infer spin and shape.
-
-**Correct answer:** B
-
-**Hint - exact player copy:** Use the stated evidence and the conditions for H-to-diameter estimate; do not choose an option merely because it names a familiar term.
-
-**Option feedback - exact player copy:**
-
-- A: This describes Absolute magnitude H, not H-to-diameter estimate. It does not account for the quantities, conditions, or evidence in this planetary science case.
-- B: Correct. lower albedo requires a larger area to produce the same reflected brightness.
-- C: This describes Albedo, not H-to-diameter estimate. It does not account for the quantities, conditions, or evidence in this planetary science case.
-- D: This describes Light curve, not H-to-diameter estimate. It does not account for the quantities, conditions, or evidence in this planetary science case.
-### Review question 6
-
-**Prompt - exact player copy:** the planetary-defense center applies the lesson from The Darker Answer to this follow-up: the certified photometry gives H = 22.0, while the early notice silently assumed a bright albedo of 0.25. Which conclusion correctly applies diameter-albedo degeneracy to the observations and physics?
-
-**Options - exact player copy:**
-
-- A. A standardized visible brightness used with albedo to estimate asteroid diameter.
-- B. A measure of how strongly a surface reflects visible light.
-- C. Two measurements with different parameter dependence break a degeneracy.
-- D. Brightness measured over time, often used to infer spin and shape.
-
-**Correct answer:** C
-
-**Hint - exact player copy:** Use the stated evidence and the conditions for diameter-albedo degeneracy; do not choose an option merely because it names a familiar term.
-
-**Option feedback - exact player copy:**
-
-- A: This describes Absolute magnitude H, not diameter-albedo degeneracy. It does not account for the quantities, conditions, or evidence in this planetary science case.
-- B: This describes Albedo, not diameter-albedo degeneracy. It does not account for the quantities, conditions, or evidence in this planetary science case.
-- C: Correct. two measurements with different parameter dependence break a degeneracy.
-- D: This describes Light curve, not diameter-albedo degeneracy. It does not account for the quantities, conditions, or evidence in this planetary science case.
-**Optional review completion - exact player copy:** Excellent work. You went beyond the required mission and strengthened the ideas behind your decision.
 ## Quick concept review
 
 - Visible brightness mixes size and albedo.
@@ -4554,15 +4612,16 @@ Mission decision: Accept the fixed main radar echo as a new range and speed chec
 
 **Availability:** Reveal only after mission completion when the player selects **GO DEEPER**. This section is optional, ungraded for campaign progress, and does not change metrics, Recovery Points, or the next-mission unlock.
 
-**Secondary briefing card - exact player copy:** You completed The Echo Clock. Choose GO DEEPER to revisit the four decisions and explore related course ideas; this optional review does not change your metrics or delay the next mission.
+**Secondary briefing card - exact player copy:** Try six independent practice questions. Each includes its own context and any needed data; no mission records are required.
 
 ### Review focus
 
-No additional prerequisite is required. These AP-style questions apply the mission's course ideas to follow-up evidence, including related topics not required in the four main stops.
+No additional prerequisite is required. These practice questions review related course ideas. Each question stands alone, including its choices and figure.
 
 ### Review question 1
 
-**Prompt - exact player copy:** In a follow-up to The Echo Clock, the radar packet passed through four clocks, but only three were synchronized to the range standard before transmission. Open the dependencies now so the team can distinguish independent evidence from readings that repeat one source. Which conclusion correctly applies Range to the observations and physics?
+
+**Prompt - exact player copy:** Which statement best explains range?
 
 **Options - exact player copy:**
 
@@ -4573,42 +4632,95 @@ No additional prerequisite is required. These AP-style questions apply the missi
 
 **Correct answer:** B
 
-**Hint - exact player copy:** Use the stated evidence and the conditions for Range; do not choose an option merely because it names a familiar term.
+**Hint - exact player copy:** Identify the defining relationship or mechanism for range. All needed information is in this question.
 
 **Option feedback - exact player copy:**
 
-- A: This describes Doppler shift, not Range. It does not account for the quantities, conditions, or evidence in this planetary science case.
-- B: Correct. distance inferred from a radar echo’s round-trip travel time.
-- C: This describes Residual, not Range. It does not account for the quantities, conditions, or evidence in this planetary science case.
-- D: This describes Coordinated Universal Time (UTC), not Range. It does not account for the quantities, conditions, or evidence in this planetary science case.
+- A: This describes doppler shift. It does not answer the question about range.
+- B: Correct. Distance inferred from a radar echo’s round-trip travel time.
+- C: This describes residual. It does not answer the question about range.
+- D: This describes coordinated Universal Time (UTC). It does not answer the question about range.
+
 ### Review question 2
 
-**Prompt - exact player copy:** the planetary-defense center receives a second case related to The Echo Clock: the radar packet passed through four clocks, but only three were synchronized to the range standard before transmission. Open the dependencies now so the team can distinguish independent evidence from readings that repeat one source. Which interpretation of the displayed evidence correctly uses the mission concept?
+
+**Prompt - exact player copy:** Using the sign convention stated on the graph, which interpretation is correct?
 
 **Figure - exact player copy:**
 
 ```json
 {
-  "kind": "peaks",
-  "xLabel": "Wavelength (nm)",
-  "yLabel": "Relative intensity",
-  "caption": "The measured spectral peak is shifted from the reference peak.",
-  "series": [
+  "kind": "bars",
+  "xLabel": "Category",
+  "yLabel": "Frequency shift (kHz)",
+  "caption": "Negative shift denotes recession; positive shift denotes approach",
+  "bars": [
     {
-      "name": "Reference",
-      "points": [
-        [
-          500,
-          1.0
-        ]
-      ]
+      "name": "Echo A",
+      "value": -2
     },
     {
-      "name": "Measured",
+      "name": "Echo B",
+      "value": 3
+    }
+  ]
+}
+```
+
+**Options - exact player copy:**
+
+- A. Both are approaching.
+- B. Both are receding.
+- C. Echo A is receding and echo B is approaching.
+- D. The signs determine the objects’ sizes.
+
+**Correct answer:** C
+
+**Hint - exact player copy:** Use the supplied convention rather than assuming a sign rule.
+
+**Option feedback - exact player copy:**
+
+- A: Echo A has a negative shift under the stated convention.
+- B: Echo B has a positive shift.
+- C: Correct. Echo A is receding and echo B is approaching.
+- D: Doppler sign describes line-of-sight motion, not size.
+
+### Review question 3
+
+
+**Prompt - exact player copy:** A model has the residuals shown. Residual means observed value minus predicted value. Which conclusion best fits the pattern?
+
+**Figure - exact player copy:**
+
+```json
+{
+  "kind": "line",
+  "xLabel": "Input value",
+  "yLabel": "Observed minus predicted (units)",
+  "caption": "Residuals from a fitted model",
+  "series": [
+    {
+      "name": "Residual",
       "points": [
         [
-          504,
-          0.9
+          0,
+          0
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          2,
+          4
+        ],
+        [
+          3,
+          6
+        ],
+        [
+          4,
+          8
         ]
       ]
     }
@@ -4616,99 +4728,28 @@ No additional prerequisite is required. These AP-style questions apply the missi
 }
 ```
 
-
 **Options - exact player copy:**
 
-- A. Distance inferred from a radar echo’s round-trip travel time.
-- B. The measured value minus the value predicted by a model.
-- C. A frequency change caused by motion toward or away from the radar.
-- D. The shared time standard used to compare observations from different systems.
-
-**Correct answer:** C
-
-**Hint - exact player copy:** Read the axes, units, direction, and any threshold before comparing the choices.
-
-**Option feedback - exact player copy:**
-
-- A: This describes Range, not Doppler shift. It does not account for the quantities, conditions, or evidence in this planetary science case.
-- B: This describes Residual, not Doppler shift. It does not account for the quantities, conditions, or evidence in this planetary science case.
-- C: Correct. a frequency change caused by motion toward or away from the radar.
-- D: This describes Coordinated Universal Time (UTC), not Doppler shift. It does not account for the quantities, conditions, or evidence in this planetary science case.
-### Review question 3
-
-**Prompt - exact player copy:** A teammate rechecks The Echo Clock using new evidence: the radar packet passed through four clocks, but only three were synchronized to the range standard before transmission. Open the dependencies now so the team can distinguish independent evidence from readings that repeat one source. Which interpretation of the displayed evidence correctly uses the mission concept?
-
-**Figure - exact player copy:**
-
-```json
-{
-  "kind": "line",
-  "xLabel": "Ordered observation",
-  "yLabel": "Residual",
-  "caption": "Residuals reveal whether error is random or structured.",
-  "series": [
-    {
-      "name": "Residual",
-      "points": [
-        [
-          0,
-          1.5
-        ],
-        [
-          1,
-          -1.2
-        ],
-        [
-          2,
-          1.0
-        ],
-        [
-          3,
-          -0.8
-        ],
-        [
-          4,
-          0.6
-        ],
-        [
-          5,
-          -0.4
-        ],
-        [
-          6,
-          0.2
-        ]
-      ]
-    }
-  ],
-  "limit": {
-    "at": 0,
-    "label": "Zero residual"
-  }
-}
-```
-
-
-**Options - exact player copy:**
-
-- A. Distance inferred from a radar echo’s round-trip travel time.
-- B. A frequency change caused by motion toward or away from the radar.
-- C. The shared time standard used to compare observations from different systems.
-- D. The measured value minus the value predicted by a model.
+- A. The model increasingly overpredicts.
+- B. The errors have no relation to the input.
+- C. The model fits every observation exactly.
+- D. The model increasingly underpredicts as the input grows.
 
 **Correct answer:** D
 
-**Hint - exact player copy:** Read the axes, units, direction, and any threshold before comparing the choices.
+**Hint - exact player copy:** Use the sign of observed minus predicted and check for a pattern.
 
 **Option feedback - exact player copy:**
 
-- A: This describes Range, not Residual. It does not account for the quantities, conditions, or evidence in this planetary science case.
-- B: This describes Doppler shift, not Residual. It does not account for the quantities, conditions, or evidence in this planetary science case.
-- C: This describes Coordinated Universal Time (UTC), not Residual. It does not account for the quantities, conditions, or evidence in this planetary science case.
-- D: Correct. the measured value minus the value predicted by a model.
+- A: Positive residuals mean observations exceed predictions, not the reverse.
+- B: Residuals rise systematically with the input.
+- C: An exact fit would have zero residual at every point.
+- D: Correct. The model increasingly underpredicts as the input grows.
+
 ### Review question 4
 
-**Prompt - exact player copy:** An unseen case extends The Echo Clock: the radar packet passed through four clocks, but only three were synchronized to the range standard before transmission. Open the dependencies now so the team can distinguish independent evidence from readings that repeat one source. Which conclusion correctly applies Coordinated Universal Time (UTC) to the observations and physics?
+
+**Prompt - exact player copy:** Which statement best explains coordinated Universal Time (UTC)?
 
 **Options - exact player copy:**
 
@@ -4719,57 +4760,63 @@ No additional prerequisite is required. These AP-style questions apply the missi
 
 **Correct answer:** A
 
-**Hint - exact player copy:** Use the stated evidence and the conditions for Coordinated Universal Time (UTC); do not choose an option merely because it names a familiar term.
+**Hint - exact player copy:** Identify the defining relationship or mechanism for coordinated universal time (utc). All needed information is in this question.
 
 **Option feedback - exact player copy:**
 
-- A: Correct. the shared time standard used to compare observations from different systems.
-- B: This describes Range, not Coordinated Universal Time (UTC). It does not account for the quantities, conditions, or evidence in this planetary science case.
-- C: This describes Doppler shift, not Coordinated Universal Time (UTC). It does not account for the quantities, conditions, or evidence in this planetary science case.
-- D: This describes Residual, not Coordinated Universal Time (UTC). It does not account for the quantities, conditions, or evidence in this planetary science case.
+- A: Correct. The shared time standard used to compare observations from different systems.
+- B: This describes range. It does not answer the question about coordinated universal time (utc).
+- C: This describes doppler shift. It does not answer the question about coordinated universal time (utc).
+- D: This describes residual. It does not answer the question about coordinated universal time (utc).
+
 ### Review question 5
 
-**Prompt - exact player copy:** Before another Echo Clock decision, the team knows this: the radar packet passed through four clocks, but only three were synchronized to the range standard before transmission. Open the dependencies now so the team can distinguish independent evidence from readings that repeat one source. Which conclusion correctly applies radar timing to the observations and physics?
+
+**Prompt - exact player copy:** Several recorded echo times share the same incorrect upstream clock correction. Why trace their provenance?
 
 **Options - exact player copy:**
 
 - A. Distance inferred from a radar echo’s round-trip travel time.
-- B. TRACE follows provenance until one upstream cause explains correlated downstream error.
+- B. A common timing source can explain correlated errors in otherwise separate records.
 - C. A frequency change caused by motion toward or away from the radar.
 - D. The measured value minus the value predicted by a model.
 
 **Correct answer:** B
 
-**Hint - exact player copy:** Use the stated evidence and the conditions for radar timing; do not choose an option merely because it names a familiar term.
+**Hint - exact player copy:** Identify the defining relationship or mechanism for radar timing. All needed information is in this question.
 
 **Option feedback - exact player copy:**
 
-- A: This describes Range, not radar timing. It does not account for the quantities, conditions, or evidence in this planetary science case.
-- B: Correct. tRACE follows provenance until one upstream cause explains correlated downstream error.
-- C: This describes Doppler shift, not radar timing. It does not account for the quantities, conditions, or evidence in this planetary science case.
-- D: This describes Residual, not radar timing. It does not account for the quantities, conditions, or evidence in this planetary science case.
+- A: This describes range. It does not answer the question about radar timing.
+- B: Correct. A common timing source can explain correlated errors in otherwise separate records.
+- C: This describes doppler shift. It does not answer the question about radar timing.
+- D: This describes residual. It does not answer the question about radar timing.
+
 ### Review question 6
 
-**Prompt - exact player copy:** the planetary-defense center applies the lesson from The Echo Clock to this follow-up: tomás can repair the archive, but overwriting the raw packet would destroy the audit trail. Assign a response to each condition now so the crew has an action rule it can follow under pressure. Which conclusion correctly applies radar acquisition to the observations and physics?
+
+**Prompt - exact player copy:** Why preserve raw radar packets and timing settings before interpreting an echo?
 
 **Options - exact player copy:**
 
 - A. Distance inferred from a radar echo’s round-trip travel time.
 - B. A frequency change caused by motion toward or away from the radar.
-- C. A protocol orders controls before interpretation and preserves provenance.
+- C. They allow the measurement and its corrections to be checked independently of the final interpretation.
 - D. The measured value minus the value predicted by a model.
 
 **Correct answer:** C
 
-**Hint - exact player copy:** Use the stated evidence and the conditions for radar acquisition; do not choose an option merely because it names a familiar term.
+**Hint - exact player copy:** Identify the defining relationship or mechanism for radar acquisition. All needed information is in this question.
 
 **Option feedback - exact player copy:**
 
-- A: This describes Range, not radar acquisition. It does not account for the quantities, conditions, or evidence in this planetary science case.
-- B: This describes Doppler shift, not radar acquisition. It does not account for the quantities, conditions, or evidence in this planetary science case.
-- C: Correct. a protocol orders controls before interpretation and preserves provenance.
-- D: This describes Residual, not radar acquisition. It does not account for the quantities, conditions, or evidence in this planetary science case.
-**Optional review completion - exact player copy:** Excellent work. You went beyond the required mission and strengthened the ideas behind your decision.
+- A: This describes range. It does not answer the question about radar acquisition.
+- B: This describes doppler shift. It does not answer the question about radar acquisition.
+- C: Correct. They allow the measurement and its corrections to be checked independently of the final interpretation.
+- D: This describes residual. It does not answer the question about radar acquisition.
+
+**Optional review completion - exact player copy:** Good work. You have completed six independent practice questions.
+
 ## Quick concept review
 
 - Radar delay gives range; Doppler gives radial motion; shared timing errors are systematic; a holdout protects anomalies from hindsight.
@@ -5364,15 +5411,39 @@ Mission decision: Report a 63% chance of impact. Treat impact as the lead case f
 
 **Availability:** Reveal only after mission completion when the player selects **GO DEEPER**. This section is optional, ungraded for campaign progress, and does not change metrics, Recovery Points, or the next-mission unlock.
 
-**Secondary briefing card - exact player copy:** You completed The Orbit Narrows. Choose GO DEEPER to revisit the four decisions and explore related course ideas; this optional review does not change your metrics or delay the next mission.
+**Secondary briefing card - exact player copy:** Try six independent practice questions. Each includes its own context and any needed data; no mission records are required.
 
 ### Review focus
 
-No additional prerequisite is required. These AP-style questions apply the mission's course ideas to follow-up evidence, including related topics not required in the four main stops.
+No additional prerequisite is required. These practice questions review related course ideas. Each question stands alone, including its choices and figure.
 
 ### Review question 1
 
-**Prompt - exact player copy:** In a follow-up to The Orbit Narrows, four radar products are ready, but two inherit the same archive-clock correction and cannot count as independent confirmation. Build the causal path now so the crew knows which step changes the material or signal before it reaches the next location. Which conclusion correctly applies Data fusion to the observations and physics?
+
+**Prompt - exact player copy:** Which statement best explains data fusion?
+
+**Options - exact player copy:**
+
+- A. Linked uncertainty between fitted quantities or measurements.
+- B. An imagined target plane used to describe a close planetary encounter.
+- C. Evidence that does not share the same likely source of error.
+- D. Combining complementary measurements in one model.
+
+**Correct answer:** D
+
+**Hint - exact player copy:** Identify the defining relationship or mechanism for data fusion. All needed information is in this question.
+
+**Option feedback - exact player copy:**
+
+- A: This describes covariance. It does not answer the question about data fusion.
+- B: This describes b-plane. It does not answer the question about data fusion.
+- C: This describes independent evidence. It does not answer the question about data fusion.
+- D: Correct. Combining complementary measurements in one model.
+
+### Review question 2
+
+
+**Prompt - exact player copy:** Which statement best explains covariance?
 
 **Options - exact player copy:**
 
@@ -5381,19 +5452,21 @@ No additional prerequisite is required. These AP-style questions apply the missi
 - C. An imagined target plane used to describe a close planetary encounter.
 - D. Evidence that does not share the same likely source of error.
 
-**Correct answer:** B
+**Correct answer:** A
 
-**Hint - exact player copy:** Use the stated evidence and the conditions for Data fusion; do not choose an option merely because it names a familiar term.
+**Hint - exact player copy:** Identify the defining relationship or mechanism for covariance. All needed information is in this question.
 
 **Option feedback - exact player copy:**
 
-- A: This describes Covariance, not Data fusion. It does not account for the quantities, conditions, or evidence in this planetary science case.
-- B: Correct. combining complementary measurements in one model.
-- C: This describes B-plane, not Data fusion. It does not account for the quantities, conditions, or evidence in this planetary science case.
-- D: This describes Independent evidence, not Data fusion. It does not account for the quantities, conditions, or evidence in this planetary science case.
-### Review question 2
+- A: Correct. Linked uncertainty between fitted quantities or measurements.
+- B: This describes data fusion. It does not answer the question about covariance.
+- C: This describes b-plane. It does not answer the question about covariance.
+- D: This describes independent evidence. It does not answer the question about covariance.
 
-**Prompt - exact player copy:** the planetary-defense center receives a second case related to The Orbit Narrows: four radar products are ready, but two inherit the same archive-clock correction and cannot count as independent confirmation. Build the causal path now so the crew knows which step changes the material or signal before it reaches the next location. Which conclusion correctly applies Covariance to the observations and physics?
+### Review question 3
+
+
+**Prompt - exact player copy:** Which statement best explains b-plane?
 
 **Options - exact player copy:**
 
@@ -5402,19 +5475,21 @@ No additional prerequisite is required. These AP-style questions apply the missi
 - C. Linked uncertainty between fitted quantities or measurements.
 - D. Evidence that does not share the same likely source of error.
 
-**Correct answer:** C
+**Correct answer:** B
 
-**Hint - exact player copy:** Use the stated evidence and the conditions for Covariance; do not choose an option merely because it names a familiar term.
+**Hint - exact player copy:** Identify the defining relationship or mechanism for b-plane. All needed information is in this question.
 
 **Option feedback - exact player copy:**
 
-- A: This describes Data fusion, not Covariance. It does not account for the quantities, conditions, or evidence in this planetary science case.
-- B: This describes B-plane, not Covariance. It does not account for the quantities, conditions, or evidence in this planetary science case.
-- C: Correct. linked uncertainty between fitted quantities or measurements.
-- D: This describes Independent evidence, not Covariance. It does not account for the quantities, conditions, or evidence in this planetary science case.
-### Review question 3
+- A: This describes data fusion. It does not answer the question about b-plane.
+- B: Correct. An imagined target plane used to describe a close planetary encounter.
+- C: This describes covariance. It does not answer the question about b-plane.
+- D: This describes independent evidence. It does not answer the question about b-plane.
 
-**Prompt - exact player copy:** A teammate rechecks The Orbit Narrows using new evidence: the combined trials form a narrow cloud crossing Earth's b-plane disk; 63 percent intersect the disk. The next action depends on selecting the conclusion that fits all of those facts. Which conclusion correctly applies B-plane to the observations and physics?
+### Review question 4
+
+
+**Prompt - exact player copy:** Which statement best explains independent evidence?
 
 **Options - exact player copy:**
 
@@ -5423,80 +5498,65 @@ No additional prerequisite is required. These AP-style questions apply the missi
 - C. Evidence that does not share the same likely source of error.
 - D. An imagined target plane used to describe a close planetary encounter.
 
-**Correct answer:** D
+**Correct answer:** C
 
-**Hint - exact player copy:** Use the stated evidence and the conditions for B-plane; do not choose an option merely because it names a familiar term.
+**Hint - exact player copy:** Identify the defining relationship or mechanism for independent evidence. All needed information is in this question.
 
 **Option feedback - exact player copy:**
 
-- A: This describes Data fusion, not B-plane. It does not account for the quantities, conditions, or evidence in this planetary science case.
-- B: This describes Covariance, not B-plane. It does not account for the quantities, conditions, or evidence in this planetary science case.
-- C: This describes Independent evidence, not B-plane. It does not account for the quantities, conditions, or evidence in this planetary science case.
-- D: Correct. an imagined target plane used to describe a close planetary encounter.
-### Review question 4
+- A: This describes data fusion. It does not answer the question about independent evidence.
+- B: This describes covariance. It does not answer the question about independent evidence.
+- C: Correct. Evidence that does not share the same likely source of error.
+- D: This describes b-plane. It does not answer the question about independent evidence.
 
-**Prompt - exact player copy:** An unseen case extends The Orbit Narrows: four radar products are ready, but two inherit the same archive-clock correction and cannot count as independent confirmation. Build the causal path now so the crew knows which step changes the material or signal before it reaches the next location. Which conclusion correctly applies Independent evidence to the observations and physics?
+### Review question 5
+
+
+**Prompt - exact player copy:** Why should a combined orbit fit account for correlations between measurements?
 
 **Options - exact player copy:**
 
-- A. Evidence that does not share the same likely source of error.
+- A. Combining complementary measurements in one model.
+- B. Linked uncertainty between fitted quantities or measurements.
+- C. An imagined target plane used to describe a close planetary encounter.
+- D. Measurements sharing errors provide less independent information than equally precise independent measurements.
+
+**Correct answer:** D
+
+**Hint - exact player copy:** Identify the defining relationship or mechanism for weighted fit. All needed information is in this question.
+
+**Option feedback - exact player copy:**
+
+- A: This describes data fusion. It does not answer the question about weighted fit.
+- B: This describes covariance. It does not answer the question about weighted fit.
+- C: This describes b-plane. It does not answer the question about weighted fit.
+- D: Correct. Measurements sharing errors provide less independent information than equally precise independent measurements.
+
+### Review question 6
+
+
+**Prompt - exact player copy:** Which statement best explains encounter uncertainty?
+
+**Options - exact player copy:**
+
+- A. A probability cloud represents distributed uncertainty, not a single certain track.
 - B. Combining complementary measurements in one model.
 - C. Linked uncertainty between fitted quantities or measurements.
 - D. An imagined target plane used to describe a close planetary encounter.
 
 **Correct answer:** A
 
-**Hint - exact player copy:** Use the stated evidence and the conditions for Independent evidence; do not choose an option merely because it names a familiar term.
+**Hint - exact player copy:** Identify the defining relationship or mechanism for encounter uncertainty. All needed information is in this question.
 
 **Option feedback - exact player copy:**
 
-- A: Correct. evidence that does not share the same likely source of error.
-- B: This describes Data fusion, not Independent evidence. It does not account for the quantities, conditions, or evidence in this planetary science case.
-- C: This describes Covariance, not Independent evidence. It does not account for the quantities, conditions, or evidence in this planetary science case.
-- D: This describes B-plane, not Independent evidence. It does not account for the quantities, conditions, or evidence in this planetary science case.
-### Review question 5
+- A: Correct. A probability cloud represents distributed uncertainty, not a single certain track.
+- B: This describes data fusion. It does not answer the question about encounter uncertainty.
+- C: This describes covariance. It does not answer the question about encounter uncertainty.
+- D: This describes b-plane. It does not answer the question about encounter uncertainty.
 
-**Prompt - exact player copy:** Before another Orbit Narrows decision, the team knows this: the radar range has tiny uncertainty, while optical positions provide the longer time baseline and transverse motion. Which conclusion correctly applies weighted fit to the observations and physics?
+**Optional review completion - exact player copy:** Good work. You have completed six independent practice questions.
 
-**Options - exact player copy:**
-
-- A. Combining complementary measurements in one model.
-- B. BALANCE trades influence according to information content and dependence.
-- C. Linked uncertainty between fitted quantities or measurements.
-- D. An imagined target plane used to describe a close planetary encounter.
-
-**Correct answer:** B
-
-**Hint - exact player copy:** Use the stated evidence and the conditions for weighted fit; do not choose an option merely because it names a familiar term.
-
-**Option feedback - exact player copy:**
-
-- A: This describes Data fusion, not weighted fit. It does not account for the quantities, conditions, or evidence in this planetary science case.
-- B: Correct. bALANCE trades influence according to information content and dependence.
-- C: This describes Covariance, not weighted fit. It does not account for the quantities, conditions, or evidence in this planetary science case.
-- D: This describes B-plane, not weighted fit. It does not account for the quantities, conditions, or evidence in this planetary science case.
-### Review question 6
-
-**Prompt - exact player copy:** the planetary-defense center applies the lesson from The Orbit Narrows to this follow-up: the combined trials form a narrow cloud crossing Earth's b-plane disk; 63 percent intersect the disk. The next action depends on selecting the conclusion that fits all of those facts. Which conclusion correctly applies encounter uncertainty to the observations and physics?
-
-**Options - exact player copy:**
-
-- A. Combining complementary measurements in one model.
-- B. Linked uncertainty between fitted quantities or measurements.
-- C. A probability cloud represents distributed uncertainty, not a single certain track.
-- D. An imagined target plane used to describe a close planetary encounter.
-
-**Correct answer:** C
-
-**Hint - exact player copy:** Use the stated evidence and the conditions for encounter uncertainty; do not choose an option merely because it names a familiar term.
-
-**Option feedback - exact player copy:**
-
-- A: This describes Data fusion, not encounter uncertainty. It does not account for the quantities, conditions, or evidence in this planetary science case.
-- B: This describes Covariance, not encounter uncertainty. It does not account for the quantities, conditions, or evidence in this planetary science case.
-- C: Correct. a probability cloud represents distributed uncertainty, not a single certain track.
-- D: This describes B-plane, not encounter uncertainty. It does not account for the quantities, conditions, or evidence in this planetary science case.
-**Optional review completion - exact player copy:** Excellent work. You went beyond the required mission and strengthened the ideas behind your decision.
 ## Quick concept review
 
 - Fuse complementary measurements; track covariance; read an ensemble, not only its nominal point; stress the decision language.
@@ -5985,15 +6045,16 @@ Mission decision: Start plans for the full path band. Do not order local action 
 
 **Availability:** Reveal only after mission completion when the player selects **GO DEEPER**. This section is optional, ungraded for campaign progress, and does not change metrics, Recovery Points, or the next-mission unlock.
 
-**Secondary briefing card - exact player copy:** You completed Where It Lands. Choose GO DEEPER to revisit the four decisions and explore related course ideas; this optional review does not change your metrics or delay the next mission.
+**Secondary briefing card - exact player copy:** Try six independent practice questions. Each includes its own context and any needed data; no mission records are required.
 
 ### Review focus
 
-No additional prerequisite is required. These AP-style questions apply the mission's course ideas to follow-up evidence, including related topics not required in the four main stops.
+No additional prerequisite is required. These practice questions review related course ideas. Each question stands alone, including its choices and figure.
 
 ### Review question 1
 
-**Prompt - exact player copy:** In a follow-up to Where It Lands, use diameter 260 meters, density 1,800 kilograms per cubic meter, and impact speed 19 kilometers per second. Which conclusion correctly applies Impact corridor to the observations and physics?
+
+**Prompt - exact player copy:** Which statement best explains impact corridor?
 
 **Options - exact player copy:**
 
@@ -6004,17 +6065,19 @@ No additional prerequisite is required. These AP-style questions apply the missi
 
 **Correct answer:** B
 
-**Hint - exact player copy:** Use the stated evidence and the conditions for Impact corridor; do not choose an option merely because it names a familiar term.
+**Hint - exact player copy:** Identify the defining relationship or mechanism for impact corridor. All needed information is in this question.
 
 **Option feedback - exact player copy:**
 
-- A: This describes Airburst, not Impact corridor. It does not account for the quantities, conditions, or evidence in this planetary science case.
-- B: Correct. the set of possible surface locations allowed by the current orbit uncertainty.
-- C: This describes Kinetic energy, not Impact corridor. It does not account for the quantities, conditions, or evidence in this planetary science case.
-- D: This describes Trinitrotoluene equivalent (TNT equivalent), not Impact corridor. It does not account for the quantities, conditions, or evidence in this planetary science case.
+- A: This describes airburst. It does not answer the question about impact corridor.
+- B: Correct. The set of possible surface locations allowed by the current orbit uncertainty.
+- C: This describes kinetic energy. It does not answer the question about impact corridor.
+- D: This describes trinitrotoluene equivalent (TNT equivalent). It does not answer the question about impact corridor.
+
 ### Review question 2
 
-**Prompt - exact player copy:** the planetary-defense center receives a second case related to Where It Lands: use diameter 260 meters, density 1,800 kilograms per cubic meter, and impact speed 19 kilometers per second. Which conclusion correctly applies Airburst to the observations and physics?
+
+**Prompt - exact player copy:** Which statement best explains airburst?
 
 **Options - exact player copy:**
 
@@ -6025,17 +6088,19 @@ No additional prerequisite is required. These AP-style questions apply the missi
 
 **Correct answer:** C
 
-**Hint - exact player copy:** Use the stated evidence and the conditions for Airburst; do not choose an option merely because it names a familiar term.
+**Hint - exact player copy:** Identify the defining relationship or mechanism for airburst. All needed information is in this question.
 
 **Option feedback - exact player copy:**
 
-- A: This describes Impact corridor, not Airburst. It does not account for the quantities, conditions, or evidence in this planetary science case.
-- B: This describes Kinetic energy, not Airburst. It does not account for the quantities, conditions, or evidence in this planetary science case.
-- C: Correct. atmospheric energy release after an object breaks apart or slows rapidly.
-- D: This describes Trinitrotoluene equivalent (TNT equivalent), not Airburst. It does not account for the quantities, conditions, or evidence in this planetary science case.
+- A: This describes impact corridor. It does not answer the question about airburst.
+- B: This describes kinetic energy. It does not answer the question about airburst.
+- C: Correct. Atmospheric energy release after an object breaks apart or slows rapidly.
+- D: This describes trinitrotoluene equivalent (TNT equivalent). It does not answer the question about airburst.
+
 ### Review question 3
 
-**Prompt - exact player copy:** A teammate rechecks Where It Lands using new evidence: use diameter 260 meters, density 1,800 kilograms per cubic meter, and impact speed 19 kilometers per second. Which conclusion correctly applies Kinetic energy to the observations and physics?
+
+**Prompt - exact player copy:** Which statement best explains kinetic energy?
 
 **Options - exact player copy:**
 
@@ -6046,17 +6111,19 @@ No additional prerequisite is required. These AP-style questions apply the missi
 
 **Correct answer:** D
 
-**Hint - exact player copy:** Use the stated evidence and the conditions for Kinetic energy; do not choose an option merely because it names a familiar term.
+**Hint - exact player copy:** Identify the defining relationship or mechanism for kinetic energy. All needed information is in this question.
 
 **Option feedback - exact player copy:**
 
-- A: This describes Impact corridor, not Kinetic energy. It does not account for the quantities, conditions, or evidence in this planetary science case.
-- B: This describes Airburst, not Kinetic energy. It does not account for the quantities, conditions, or evidence in this planetary science case.
-- C: This describes Trinitrotoluene equivalent (TNT equivalent), not Kinetic energy. It does not account for the quantities, conditions, or evidence in this planetary science case.
-- D: Correct. energy an object has because of its motion.
+- A: This describes impact corridor. It does not answer the question about kinetic energy.
+- B: This describes airburst. It does not answer the question about kinetic energy.
+- C: This describes trinitrotoluene equivalent (TNT equivalent). It does not answer the question about kinetic energy.
+- D: Correct. Energy an object has because of its motion.
+
 ### Review question 4
 
-**Prompt - exact player copy:** An unseen case extends Where It Lands: use diameter 260 meters, density 1,800 kilograms per cubic meter, and impact speed 19 kilometers per second. Which conclusion correctly applies Trinitrotoluene equivalent (TNT equivalent) to the observations and physics?
+
+**Prompt - exact player copy:** Which statement best explains trinitrotoluene equivalent (TNT equivalent)?
 
 **Options - exact player copy:**
 
@@ -6067,57 +6134,63 @@ No additional prerequisite is required. These AP-style questions apply the missi
 
 **Correct answer:** A
 
-**Hint - exact player copy:** Use the stated evidence and the conditions for Trinitrotoluene equivalent (TNT equivalent); do not choose an option merely because it names a familiar term.
+**Hint - exact player copy:** Identify the defining relationship or mechanism for trinitrotoluene equivalent (tnt equivalent). All needed information is in this question.
 
 **Option feedback - exact player copy:**
 
-- A: Correct. a comparison unit for released energy, not a claim about explosive material.
-- B: This describes Impact corridor, not Trinitrotoluene equivalent (TNT equivalent). It does not account for the quantities, conditions, or evidence in this planetary science case.
-- C: This describes Airburst, not Trinitrotoluene equivalent (TNT equivalent). It does not account for the quantities, conditions, or evidence in this planetary science case.
-- D: This describes Kinetic energy, not Trinitrotoluene equivalent (TNT equivalent). It does not account for the quantities, conditions, or evidence in this planetary science case.
+- A: Correct. A comparison unit for released energy, not a claim about explosive material.
+- B: This describes impact corridor. It does not answer the question about trinitrotoluene equivalent (tnt equivalent).
+- C: This describes airburst. It does not answer the question about trinitrotoluene equivalent (tnt equivalent).
+- D: This describes kinetic energy. It does not answer the question about trinitrotoluene equivalent (tnt equivalent).
+
 ### Review question 5
 
-**Prompt - exact player copy:** Before another Where It Lands decision, the team knows this: evelyn separates the simulation into approach, atmospheric loading, fragmentation or survival, energy deposition, and surface effects. Which conclusion correctly applies atmospheric entry to the observations and physics?
+
+**Prompt - exact player copy:** Why does an entry model need size, density, speed, and trajectory rather than size alone?
 
 **Options - exact player copy:**
 
 - A. The set of possible surface locations allowed by the current orbit uncertainty.
-- B. SEQUENCE maps upstream physical conditions to downstream consequences.
+- B. These properties jointly influence deceleration, breakup, and where energy is deposited.
 - C. Atmospheric energy release after an object breaks apart or slows rapidly.
 - D. Energy an object has because of its motion.
 
 **Correct answer:** B
 
-**Hint - exact player copy:** Use the stated evidence and the conditions for atmospheric entry; do not choose an option merely because it names a familiar term.
+**Hint - exact player copy:** Identify the defining relationship or mechanism for atmospheric entry. All needed information is in this question.
 
 **Option feedback - exact player copy:**
 
-- A: This describes Impact corridor, not atmospheric entry. It does not account for the quantities, conditions, or evidence in this planetary science case.
-- B: Correct. sEQUENCE maps upstream physical conditions to downstream consequences.
-- C: This describes Airburst, not atmospheric entry. It does not account for the quantities, conditions, or evidence in this planetary science case.
-- D: This describes Kinetic energy, not atmospheric entry. It does not account for the quantities, conditions, or evidence in this planetary science case.
+- A: This describes impact corridor. It does not answer the question about atmospheric entry.
+- B: Correct. These properties jointly influence deceleration, breakup, and where energy is deposited.
+- C: This describes airburst. It does not answer the question about atmospheric entry.
+- D: This describes kinetic energy. It does not answer the question about atmospheric entry.
+
 ### Review question 6
 
-**Prompt - exact player copy:** the planetary-defense center applies the lesson from Where It Lands to this follow-up: probe four corridor stations: deep ocean, continental shelf, remote desert, and a dense coast. Sample the locations in order now so the crew can identify where the system first departs from normal. Which conclusion correctly applies consequence mapping to the observations and physics?
+
+**Prompt - exact player copy:** An entry model is evaluated at several possible locations while object properties are fixed. What does this comparison test?
 
 **Options - exact player copy:**
 
 - A. The set of possible surface locations allowed by the current orbit uncertainty.
 - B. Atmospheric energy release after an object breaks apart or slows rapidly.
-- C. PROBE examines model response across controlled location changes.
+- C. How predicted consequences change with location under the same physical assumptions.
 - D. Energy an object has because of its motion.
 
 **Correct answer:** C
 
-**Hint - exact player copy:** Use the stated evidence and the conditions for consequence mapping; do not choose an option merely because it names a familiar term.
+**Hint - exact player copy:** Identify the defining relationship or mechanism for consequence mapping. All needed information is in this question.
 
 **Option feedback - exact player copy:**
 
-- A: This describes Impact corridor, not consequence mapping. It does not account for the quantities, conditions, or evidence in this planetary science case.
-- B: This describes Airburst, not consequence mapping. It does not account for the quantities, conditions, or evidence in this planetary science case.
-- C: Correct. pROBE examines model response across controlled location changes.
-- D: This describes Kinetic energy, not consequence mapping. It does not account for the quantities, conditions, or evidence in this planetary science case.
-**Optional review completion - exact player copy:** Excellent work. You went beyond the required mission and strengthened the ideas behind your decision.
+- A: This describes impact corridor. It does not answer the question about consequence mapping.
+- B: This describes airburst. It does not answer the question about consequence mapping.
+- C: Correct. How predicted consequences change with location under the same physical assumptions.
+- D: This describes kinetic energy. It does not answer the question about consequence mapping.
+
+**Optional review completion - exact player copy:** Good work. You have completed six independent practice questions.
+
 ## Quick concept review
 
 - Mass scales with diameter cubed; energy scales with speed squared; hazard differs from risk; value of information is decision-relative.
@@ -6638,84 +6711,71 @@ Mission decision: Treat 2026 PDC as a weak two-lobed body. Add checks for loose 
 
 **Availability:** Reveal only after mission completion when the player selects **GO DEEPER**. This section is optional, ungraded for campaign progress, and does not change metrics, Recovery Points, or the next-mission unlock.
 
-**Secondary briefing card - exact player copy:** You completed One Object, Two Motions. Choose GO DEEPER to revisit the four decisions and explore related course ideas; this optional review does not change your metrics or delay the next mission.
+**Secondary briefing card - exact player copy:** Try six independent practice questions. Each includes its own context and any needed data; no mission records are required.
 
 ### Review focus
 
-No additional prerequisite is required. These AP-style questions apply the mission's course ideas to follow-up evidence, including related topics not required in the four main stops.
+No additional prerequisite is required. These practice questions review related course ideas. Each question stands alone, including its choices and figure.
 
 ### Review question 1
 
-**Prompt - exact player copy:** In a follow-up to One Object, Two Motions, the two-lobe model explains alternating optical residuals and coherent radar structure, while a surface patch explains only photometry. Which conclusion correctly applies Contact binary to the observations and physics?
+
+**Prompt - exact player copy:** Which statement best explains contact binary?
 
 **Options - exact player copy:**
 
 - A. A record of brightness changing with time.
-- B. Two lobes touching or nearly touching.
-- C. A radar map organized by range and line-of-sight speed.
-- D. The observed value minus the model prediction.
+- B. A radar map organized by range and line-of-sight speed.
+- C. The observed value minus the model prediction.
+- D. Two lobes touching or nearly touching.
 
-**Correct answer:** B
+**Correct answer:** D
 
-**Hint - exact player copy:** Use the stated evidence and the conditions for Contact binary; do not choose an option merely because it names a familiar term.
+**Hint - exact player copy:** Identify the defining relationship or mechanism for contact binary. All needed information is in this question.
 
 **Option feedback - exact player copy:**
 
-- A: This describes Light curve, not Contact binary. It does not account for the quantities, conditions, or evidence in this planetary science case.
-- B: Correct. two lobes touching or nearly touching.
-- C: This describes Delay-Doppler image, not Contact binary. It does not account for the quantities, conditions, or evidence in this planetary science case.
-- D: This describes Model residual, not Contact binary. It does not account for the quantities, conditions, or evidence in this planetary science case.
+- A: This describes light curve. It does not answer the question about contact binary.
+- B: This describes delay-Doppler image. It does not answer the question about contact binary.
+- C: This describes model residual. It does not answer the question about contact binary.
+- D: Correct. Two lobes touching or nearly touching.
+
 ### Review question 2
 
-**Prompt - exact player copy:** the planetary-defense center receives a second case related to One Object, Two Motions: a single rotating ellipsoid matches the period, but its residuals alternate positive and negative at the same phases for four cycles. Which interpretation of the displayed evidence correctly uses the mission concept?
+
+**Prompt - exact player copy:** The brightness record repeats every 2 h. What can this light curve alone establish?
 
 **Figure - exact player copy:**
 
 ```json
 {
   "kind": "line",
-  "xLabel": "Rotation phase",
+  "xLabel": "Time (h)",
   "yLabel": "Relative brightness",
-  "caption": "A repeating light curve with unequal maxima.",
+  "caption": "Two repeating brightness peaks",
   "series": [
     {
       "name": "Brightness",
       "points": [
         [
           0,
-          1.0
-        ],
-        [
-          0.125,
-          0.82
-        ],
-        [
-          0.25,
-          1.08
-        ],
-        [
-          0.375,
-          0.78
-        ],
-        [
-          0.5,
-          1.0
-        ],
-        [
-          0.625,
-          0.82
-        ],
-        [
-          0.75,
-          1.08
-        ],
-        [
-          0.875,
-          0.78
+          1
         ],
         [
           1,
-          1.0
+          2
+        ],
+        [
+          2,
+          1
+        ],
+        [
+          3,
+          2
+        ],
+        [
+          4,
+          1
         ]
       ]
     }
@@ -6723,200 +6783,104 @@ No additional prerequisite is required. These AP-style questions apply the missi
 }
 ```
 
-
 **Options - exact player copy:**
 
-- A. Two lobes touching or nearly touching.
-- B. A radar map organized by range and line-of-sight speed.
-- C. A record of brightness changing with time.
-- D. The observed value minus the model prediction.
+- A. A 2 h brightness pattern; the physical rotation period may require more shape information.
+- B. The object must be a detached binary.
+- C. The object’s diameter is exactly 2 km.
+- D. The object must hit Earth in 2 h.
 
-**Correct answer:** C
+**Correct answer:** A
 
-**Hint - exact player copy:** Read the axes, units, direction, and any threshold before comparing the choices.
+**Hint - exact player copy:** Separate the observed repetition from its possible physical causes.
 
 **Option feedback - exact player copy:**
 
-- A: This describes Contact binary, not Light curve. It does not account for the quantities, conditions, or evidence in this planetary science case.
-- B: This describes Delay-Doppler image, not Light curve. It does not account for the quantities, conditions, or evidence in this planetary science case.
-- C: Correct. a record of brightness changing with time.
-- D: This describes Model residual, not Light curve. It does not account for the quantities, conditions, or evidence in this planetary science case.
+- A: Correct. A 2 h brightness pattern; the physical rotation period may require more shape information.
+- B: A repeating light curve alone does not establish a detached companion.
+- C: The period does not provide a unique size.
+- D: Brightness timing is not an impact trajectory.
+
 ### Review question 3
 
-**Prompt - exact player copy:** A teammate rechecks One Object, Two Motions using new evidence: a single rotating ellipsoid matches the period, but its residuals alternate positive and negative at the same phases for four cycles. Which interpretation of the displayed evidence correctly uses the mission concept?
+
+**Prompt - exact player copy:** Using the sign convention stated on the graph, which interpretation is correct?
 
 **Figure - exact player copy:**
 
 ```json
 {
-  "kind": "peaks",
-  "xLabel": "Wavelength (nm)",
-  "yLabel": "Relative intensity",
-  "caption": "The measured spectral peak is shifted from the reference peak.",
-  "series": [
+  "kind": "bars",
+  "xLabel": "Category",
+  "yLabel": "Frequency shift (kHz)",
+  "caption": "Negative shift denotes recession; positive shift denotes approach",
+  "bars": [
     {
-      "name": "Reference",
-      "points": [
-        [
-          500,
-          1.0
-        ]
-      ]
+      "name": "Echo A",
+      "value": -2
     },
     {
-      "name": "Measured",
-      "points": [
-        [
-          504,
-          0.9
-        ]
-      ]
+      "name": "Echo B",
+      "value": 3
     }
   ]
 }
 ```
 
-
 **Options - exact player copy:**
 
-- A. Two lobes touching or nearly touching.
-- B. A record of brightness changing with time.
-- C. The observed value minus the model prediction.
-- D. A radar map organized by range and line-of-sight speed.
+- A. Both are approaching.
+- B. Echo A is receding and echo B is approaching.
+- C. Both are receding.
+- D. The signs determine the objects’ sizes.
 
-**Correct answer:** D
+**Correct answer:** B
 
-**Hint - exact player copy:** Read the axes, units, direction, and any threshold before comparing the choices.
+**Hint - exact player copy:** Use the supplied convention rather than assuming a sign rule.
 
 **Option feedback - exact player copy:**
 
-- A: This describes Contact binary, not Delay-Doppler image. It does not account for the quantities, conditions, or evidence in this planetary science case.
-- B: This describes Light curve, not Delay-Doppler image. It does not account for the quantities, conditions, or evidence in this planetary science case.
-- C: This describes Model residual, not Delay-Doppler image. It does not account for the quantities, conditions, or evidence in this planetary science case.
-- D: Correct. a radar map organized by range and line-of-sight speed.
+- A: Echo A has a negative shift under the stated convention.
+- B: Correct. Echo A is receding and echo B is approaching.
+- C: Echo B has a positive shift.
+- D: Doppler sign describes line-of-sight motion, not size.
+
 ### Review question 4
 
-**Prompt - exact player copy:** An unseen case extends One Object, Two Motions: a single rotating ellipsoid matches the period, but its residuals alternate positive and negative at the same phases for four cycles. Which interpretation of the displayed evidence correctly uses the mission concept?
+
+**Prompt - exact player copy:** A model has the residuals shown. Residual means observed value minus predicted value. Which conclusion best fits the pattern?
 
 **Figure - exact player copy:**
 
 ```json
 {
   "kind": "line",
-  "xLabel": "Ordered observation",
-  "yLabel": "Residual",
-  "caption": "Residuals reveal whether error is random or structured.",
+  "xLabel": "Input value",
+  "yLabel": "Observed minus predicted (units)",
+  "caption": "Residuals from a fitted model",
   "series": [
     {
       "name": "Residual",
       "points": [
         [
           0,
-          2.2
+          0
         ],
         [
           1,
-          0.8
+          2
         ],
         [
           2,
-          -0.6
+          4
         ],
         [
           3,
-          -1.4
+          6
         ],
         [
           4,
-          -0.5
-        ],
-        [
-          5,
-          0.9
-        ],
-        [
-          6,
-          2.1
-        ]
-      ]
-    }
-  ],
-  "limit": {
-    "at": 0,
-    "label": "Zero residual"
-  }
-}
-```
-
-
-**Options - exact player copy:**
-
-- A. The observed value minus the model prediction.
-- B. Two lobes touching or nearly touching.
-- C. A record of brightness changing with time.
-- D. A radar map organized by range and line-of-sight speed.
-
-**Correct answer:** A
-
-**Hint - exact player copy:** Read the axes, units, direction, and any threshold before comparing the choices.
-
-**Option feedback - exact player copy:**
-
-- A: Correct. the observed value minus the model prediction.
-- B: This describes Contact binary, not Model residual. It does not account for the quantities, conditions, or evidence in this planetary science case.
-- C: This describes Light curve, not Model residual. It does not account for the quantities, conditions, or evidence in this planetary science case.
-- D: This describes Delay-Doppler image, not Model residual. It does not account for the quantities, conditions, or evidence in this planetary science case.
-### Review question 5
-
-**Prompt - exact player copy:** Before another One Object, Two Motions decision, the team knows this: a single rotating ellipsoid matches the period, but its residuals alternate positive and negative at the same phases for four cycles. Which interpretation of the displayed evidence correctly uses the mission concept?
-
-**Figure - exact player copy:**
-
-```json
-{
-  "kind": "line",
-  "xLabel": "Rotation phase",
-  "yLabel": "Relative brightness",
-  "caption": "A repeating light curve with unequal maxima.",
-  "series": [
-    {
-      "name": "Brightness",
-      "points": [
-        [
-          0,
-          1.0
-        ],
-        [
-          0.125,
-          0.82
-        ],
-        [
-          0.25,
-          1.08
-        ],
-        [
-          0.375,
-          0.78
-        ],
-        [
-          0.5,
-          1.0
-        ],
-        [
-          0.625,
-          0.82
-        ],
-        [
-          0.75,
-          1.08
-        ],
-        [
-          0.875,
-          0.78
-        ],
-        [
-          1,
-          1.0
+          8
         ]
       ]
     }
@@ -6924,46 +6888,110 @@ No additional prerequisite is required. These AP-style questions apply the missi
 }
 ```
 
-
 **Options - exact player copy:**
 
-- A. Two lobes touching or nearly touching.
-- B. RESIDUAL compares leftover patterns to the noise behavior assumed by the model.
-- C. A record of brightness changing with time.
-- D. A radar map organized by range and line-of-sight speed.
-
-**Correct answer:** B
-
-**Hint - exact player copy:** Read the axes, units, direction, and any threshold before comparing the choices.
-
-**Option feedback - exact player copy:**
-
-- A: This describes Contact binary, not light-curve model. It does not account for the quantities, conditions, or evidence in this planetary science case.
-- B: Correct. rESIDUAL compares leftover patterns to the noise behavior assumed by the model.
-- C: This describes Light curve, not light-curve model. It does not account for the quantities, conditions, or evidence in this planetary science case.
-- D: This describes Delay-Doppler image, not light-curve model. It does not account for the quantities, conditions, or evidence in this planetary science case.
-### Review question 6
-
-**Prompt - exact player copy:** the planetary-defense center applies the lesson from One Object, Two Motions to this follow-up: unequal peaks can arise from a two-lobed shape, patchy albedo, or a changed viewing geometry. Add the missing constraint now so the team can separate the explanations that still fit the earlier evidence. Which conclusion correctly applies inverse problems to the observations and physics?
-
-**Options - exact player copy:**
-
-- A. Two lobes touching or nearly touching.
-- B. A record of brightness changing with time.
-- C. DEGENERACY pairs look-alike models with observations where their predictions diverge.
-- D. A radar map organized by range and line-of-sight speed.
+- A. The model increasingly overpredicts.
+- B. The errors have no relation to the input.
+- C. The model increasingly underpredicts as the input grows.
+- D. The model fits every observation exactly.
 
 **Correct answer:** C
 
-**Hint - exact player copy:** Use the stated evidence and the conditions for inverse problems; do not choose an option merely because it names a familiar term.
+**Hint - exact player copy:** Use the sign of observed minus predicted and check for a pattern.
 
 **Option feedback - exact player copy:**
 
-- A: This describes Contact binary, not inverse problems. It does not account for the quantities, conditions, or evidence in this planetary science case.
-- B: This describes Light curve, not inverse problems. It does not account for the quantities, conditions, or evidence in this planetary science case.
-- C: Correct. dEGENERACY pairs look-alike models with observations where their predictions diverge.
-- D: This describes Delay-Doppler image, not inverse problems. It does not account for the quantities, conditions, or evidence in this planetary science case.
-**Optional review completion - exact player copy:** Excellent work. You went beyond the required mission and strengthened the ideas behind your decision.
+- A: Positive residuals mean observations exceed predictions, not the reverse.
+- B: Residuals rise systematically with the input.
+- C: Correct. The model increasingly underpredicts as the input grows.
+- D: An exact fit would have zero residual at every point.
+
+### Review question 5
+
+
+**Prompt - exact player copy:** The brightness record repeats every 2 h. What can this light curve alone establish?
+
+**Figure - exact player copy:**
+
+```json
+{
+  "kind": "line",
+  "xLabel": "Time (h)",
+  "yLabel": "Relative brightness",
+  "caption": "Two repeating brightness peaks",
+  "series": [
+    {
+      "name": "Brightness",
+      "points": [
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          2,
+          1
+        ],
+        [
+          3,
+          2
+        ],
+        [
+          4,
+          1
+        ]
+      ]
+    }
+  ]
+}
+```
+
+**Options - exact player copy:**
+
+- A. The object must be a detached binary.
+- B. The object’s diameter is exactly 2 km.
+- C. The object must hit Earth in 2 h.
+- D. A 2 h brightness pattern; the physical rotation period may require more shape information.
+
+**Correct answer:** D
+
+**Hint - exact player copy:** Separate the observed repetition from its possible physical causes.
+
+**Option feedback - exact player copy:**
+
+- A: A repeating light curve alone does not establish a detached companion.
+- B: The period does not provide a unique size.
+- C: Brightness timing is not an impact trajectory.
+- D: Correct. A 2 h brightness pattern; the physical rotation period may require more shape information.
+
+### Review question 6
+
+
+**Prompt - exact player copy:** Two asteroid shape models fit the same brightness data but predict different radar echoes. What observation can distinguish them?
+
+**Options - exact player copy:**
+
+- A. A radar measurement where their predicted echoes differ by more than measurement uncertainty.
+- B. Two lobes touching or nearly touching.
+- C. A record of brightness changing with time.
+- D. A radar map organized by range and line-of-sight speed.
+
+**Correct answer:** A
+
+**Hint - exact player copy:** Identify the defining relationship or mechanism for inverse problems. All needed information is in this question.
+
+**Option feedback - exact player copy:**
+
+- A: Correct. A radar measurement where their predicted echoes differ by more than measurement uncertainty.
+- B: This describes contact binary. It does not answer the question about inverse problems.
+- C: This describes light curve. It does not answer the question about inverse problems.
+- D: This describes delay-Doppler image. It does not answer the question about inverse problems.
+
+**Optional review completion - exact player copy:** Good work. You have completed six independent practice questions.
+
 ## Quick concept review
 
 - Phase-locked residuals are systematic; degeneracies need discriminating evidence; coherent radar motion supports structure; diagnosis should remain minimal.
@@ -7280,7 +7308,7 @@ estimate:
 
 **Question card story-science connection - exact player copy:** The optimistic displacement and impulse requirement provides a lower-demand benchmark for evaluating the proposed defender.
 
-**Fixture source panel - exact player copy:** Grant the defender eight days of useful lead time and require 6,400 kilometers of accumulated displacement. Derive the velocity change and nominal impulse, treating the straight-line estimate as deliberately optimistic. Displacement d = 6400 km = 6.4e6 m Lead time t = 8 days; 1 day = 86400 s Adopted asteroid mass m = 1.66e10 kg Delta v = d/t; J = m Delta v
+**Fixture source panel - exact player copy:** The defender has eight days of useful lead time to accumulate displacement d=6400 km (6.4e6 m). Adopt asteroid mass m=1.66e10 kg and 86400 s per day. Use Delta v=d/t and J=m Delta v to derive the velocity change and nominal impulse, treating this straight-line estimate as deliberately optimistic.
 
 **Source-panel timing:** Show at this stop’s declared fixture before its DERIVE choices unlock. Keep visible while the player works. These are model inputs and prior observations, not new measurements or an accepted answer. Symbolic derivations stay symbolic; do not invent a number merely to force substitution.
 
@@ -7518,15 +7546,16 @@ Mission decision: Do not try to push the body now. The best ready craft falls sh
 
 **Availability:** Reveal only after mission completion when the player selects **GO DEEPER**. This section is optional, ungraded for campaign progress, and does not change metrics, Recovery Points, or the next-mission unlock.
 
-**Secondary briefing card - exact player copy:** You completed One Push. Choose GO DEEPER to revisit the four decisions and explore related course ideas; this optional review does not change your metrics or delay the next mission.
+**Secondary briefing card - exact player copy:** Try six independent practice questions. Each includes its own context and any needed data; no mission records are required.
 
 ### Review focus
 
-No additional prerequisite is required. These AP-style questions apply the mission's course ideas to follow-up evidence, including related topics not required in the four main stops.
+No additional prerequisite is required. These practice questions review related course ideas. Each question stands alone, including its choices and figure.
 
 ### Review question 1
 
-**Prompt - exact player copy:** In a follow-up to One Push, use the 260-meter diameter and plausible rubble-pile densities from 1,200 to 2,400 kilograms per cubic meter in the campaign model. Which conclusion correctly applies Deflection to the observations and physics?
+
+**Prompt - exact player copy:** Which statement best explains deflection?
 
 **Options - exact player copy:**
 
@@ -7537,17 +7566,19 @@ No additional prerequisite is required. These AP-style questions apply the missi
 
 **Correct answer:** B
 
-**Hint - exact player copy:** Use the stated evidence and the conditions for Deflection; do not choose an option merely because it names a familiar term.
+**Hint - exact player copy:** Identify the defining relationship or mechanism for deflection. All needed information is in this question.
 
 **Option feedback - exact player copy:**
 
-- A: This describes Disruption, not Deflection. It does not account for the quantities, conditions, or evidence in this planetary science case.
-- B: Correct. changing an object’s motion before it reaches Earth.
-- C: This describes Impulse, not Deflection. It does not account for the quantities, conditions, or evidence in this planetary science case.
-- D: This describes Momentum enhancement, not Deflection. It does not account for the quantities, conditions, or evidence in this planetary science case.
+- A: This describes disruption. It does not answer the question about deflection.
+- B: Correct. Changing an object’s motion before it reaches Earth.
+- C: This describes impulse. It does not answer the question about deflection.
+- D: This describes momentum enhancement. It does not answer the question about deflection.
+
 ### Review question 2
 
-**Prompt - exact player copy:** the planetary-defense center receives a second case related to One Push: use the 260-meter diameter and plausible rubble-pile densities from 1,200 to 2,400 kilograms per cubic meter in the campaign model. Which conclusion correctly applies Disruption to the observations and physics?
+
+**Prompt - exact player copy:** Which statement best explains disruption?
 
 **Options - exact player copy:**
 
@@ -7558,17 +7589,19 @@ No additional prerequisite is required. These AP-style questions apply the missi
 
 **Correct answer:** C
 
-**Hint - exact player copy:** Use the stated evidence and the conditions for Disruption; do not choose an option merely because it names a familiar term.
+**Hint - exact player copy:** Identify the defining relationship or mechanism for disruption. All needed information is in this question.
 
 **Option feedback - exact player copy:**
 
-- A: This describes Deflection, not Disruption. It does not account for the quantities, conditions, or evidence in this planetary science case.
-- B: This describes Impulse, not Disruption. It does not account for the quantities, conditions, or evidence in this planetary science case.
-- C: Correct. breaking an object into pieces rather than moving it intact.
-- D: This describes Momentum enhancement, not Disruption. It does not account for the quantities, conditions, or evidence in this planetary science case.
+- A: This describes deflection. It does not answer the question about disruption.
+- B: This describes impulse. It does not answer the question about disruption.
+- C: Correct. Breaking an object into pieces rather than moving it intact.
+- D: This describes momentum enhancement. It does not answer the question about disruption.
+
 ### Review question 3
 
-**Prompt - exact player copy:** A teammate rechecks One Push using new evidence: grant the defender eight days of useful lead time and require 6,400 kilometers of accumulated displacement. Which conclusion correctly applies Impulse to the observations and physics?
+
+**Prompt - exact player copy:** Which statement best explains impulse?
 
 **Options - exact player copy:**
 
@@ -7579,17 +7612,19 @@ No additional prerequisite is required. These AP-style questions apply the missi
 
 **Correct answer:** D
 
-**Hint - exact player copy:** Use the stated evidence and the conditions for Impulse; do not choose an option merely because it names a familiar term.
+**Hint - exact player copy:** Identify the defining relationship or mechanism for impulse. All needed information is in this question.
 
 **Option feedback - exact player copy:**
 
-- A: This describes Deflection, not Impulse. It does not account for the quantities, conditions, or evidence in this planetary science case.
-- B: This describes Disruption, not Impulse. It does not account for the quantities, conditions, or evidence in this planetary science case.
-- C: This describes Momentum enhancement, not Impulse. It does not account for the quantities, conditions, or evidence in this planetary science case.
-- D: Correct. the change in momentum delivered to an object.
+- A: This describes deflection. It does not answer the question about impulse.
+- B: This describes disruption. It does not answer the question about impulse.
+- C: This describes momentum enhancement. It does not answer the question about impulse.
+- D: Correct. The change in momentum delivered to an object.
+
 ### Review question 4
 
-**Prompt - exact player copy:** An unseen case extends One Push: arjun offers a 1,000-kilogram impactor at 10 kilometers per second and grants an optimistic momentum enhancement of three. Test the conclusion across the supported uncertainty range now, before the team treats it as robust. Which conclusion correctly applies Momentum enhancement to the observations and physics?
+
+**Prompt - exact player copy:** Which statement best explains momentum enhancement?
 
 **Options - exact player copy:**
 
@@ -7600,57 +7635,63 @@ No additional prerequisite is required. These AP-style questions apply the missi
 
 **Correct answer:** A
 
-**Hint - exact player copy:** Use the stated evidence and the conditions for Momentum enhancement; do not choose an option merely because it names a familiar term.
+**Hint - exact player copy:** Identify the defining relationship or mechanism for momentum enhancement. All needed information is in this question.
 
 **Option feedback - exact player copy:**
 
-- A: Correct. extra impulse from impact ejecta, represented by the factor beta.
-- B: This describes Deflection, not Momentum enhancement. It does not account for the quantities, conditions, or evidence in this planetary science case.
-- C: This describes Disruption, not Momentum enhancement. It does not account for the quantities, conditions, or evidence in this planetary science case.
-- D: This describes Impulse, not Momentum enhancement. It does not account for the quantities, conditions, or evidence in this planetary science case.
+- A: Correct. Extra impulse from impact ejecta, represented by the factor beta.
+- B: This describes deflection. It does not answer the question about momentum enhancement.
+- C: This describes disruption. It does not answer the question about momentum enhancement.
+- D: This describes impulse. It does not answer the question about momentum enhancement.
+
 ### Review question 5
 
-**Prompt - exact player copy:** Before another One Push decision, the team knows this: use the 260-meter diameter and plausible rubble-pile densities from 1,200 to 2,400 kilograms per cubic meter in the campaign model. Which conclusion correctly applies mass range to the observations and physics?
+
+**Prompt - exact player copy:** Diameter and density each have allowed ranges. Why propagate both when assessing an asteroid intervention?
 
 **Options - exact player copy:**
 
 - A. Changing an object’s motion before it reaches Earth.
-- B. BALLPARK carries parameter uncertainty into feasibility bounds.
+- B. Both affect mass, so fixing either without justification can understate the required impulse range.
 - C. Breaking an object into pieces rather than moving it intact.
 - D. The change in momentum delivered to an object.
 
 **Correct answer:** B
 
-**Hint - exact player copy:** Use the stated evidence and the conditions for mass range; do not choose an option merely because it names a familiar term.
+**Hint - exact player copy:** Identify the defining relationship or mechanism for mass range. All needed information is in this question.
 
 **Option feedback - exact player copy:**
 
-- A: This describes Deflection, not mass range. It does not account for the quantities, conditions, or evidence in this planetary science case.
-- B: Correct. bALLPARK carries parameter uncertainty into feasibility bounds.
-- C: This describes Disruption, not mass range. It does not account for the quantities, conditions, or evidence in this planetary science case.
-- D: This describes Impulse, not mass range. It does not account for the quantities, conditions, or evidence in this planetary science case.
+- A: This describes deflection. It does not answer the question about mass range.
+- B: Correct. Both affect mass, so fixing either without justification can understate the required impulse range.
+- C: This describes disruption. It does not answer the question about mass range.
+- D: This describes impulse. It does not answer the question about mass range.
+
 ### Review question 6
 
-**Prompt - exact player copy:** the planetary-defense center applies the lesson from One Push to this follow-up: grant the defender eight days of useful lead time and require 6,400 kilometers of accumulated displacement. Which conclusion correctly applies impulse requirement to the observations and physics?
+
+**Prompt - exact player copy:** A constant velocity change must accumulate a displacement d over time T, ignoring gravity for this estimate. For mass m, what impulse is required?
 
 **Options - exact player copy:**
 
 - A. Changing an object’s motion before it reaches Earth.
 - B. Breaking an object into pieces rather than moving it intact.
-- C. DERIVE builds the requirement from displacement, time, and momentum definitions.
+- C. Δv=d/T and impulse J=mΔv=md/T.
 - D. The change in momentum delivered to an object.
 
 **Correct answer:** C
 
-**Hint - exact player copy:** Use the stated evidence and the conditions for impulse requirement; do not choose an option merely because it names a familiar term.
+**Hint - exact player copy:** Identify the defining relationship or mechanism for impulse requirement. All needed information is in this question.
 
 **Option feedback - exact player copy:**
 
-- A: This describes Deflection, not impulse requirement. It does not account for the quantities, conditions, or evidence in this planetary science case.
-- B: This describes Disruption, not impulse requirement. It does not account for the quantities, conditions, or evidence in this planetary science case.
-- C: Correct. dERIVE builds the requirement from displacement, time, and momentum definitions.
-- D: This describes Impulse, not impulse requirement. It does not account for the quantities, conditions, or evidence in this planetary science case.
-**Optional review completion - exact player copy:** Excellent work. You went beyond the required mission and strengthened the ideas behind your decision.
+- A: This describes deflection. It does not answer the question about impulse requirement.
+- B: This describes disruption. It does not answer the question about impulse requirement.
+- C: Correct. Δv=d/T and impulse J=mΔv=md/T.
+- D: This describes impulse. It does not answer the question about impulse requirement.
+
+**Optional review completion - exact player copy:** Good work. You have completed six independent practice questions.
+
 ## Quick concept review
 
 - Deflection leverage grows with lead time; impulse equals mass times velocity change; best-case supply must meet lower-bound demand; opportunity cost matters.
@@ -8180,58 +8221,73 @@ Mission decision: Approve the staged plan. Start with broad steps that can be un
 
 **Availability:** Reveal only after mission completion when the player selects **GO DEEPER**. This section is optional, ungraded for campaign progress, and does not change metrics, Recovery Points, or the next-mission unlock.
 
-**Secondary briefing card - exact player copy:** You completed The Line We Promise. Choose GO DEEPER to revisit the four decisions and explore related course ideas; this optional review does not change your metrics or delay the next mission.
+**Secondary briefing card - exact player copy:** Try six independent practice questions. Each includes its own context and any needed data; no mission records are required.
 
 ### Review focus
 
-No additional prerequisite is required. These AP-style questions apply the mission's course ideas to follow-up evidence, including related topics not required in the four main stops.
+No additional prerequisite is required. These practice questions review related course ideas. Each question stands alone, including its choices and figure.
 
 ### Review question 1
 
-**Prompt - exact player copy:** In a follow-up to The Line We Promise, define four escalating states for watch, resource staging, targeted protective order, and verified stand-down across the response system. Write the action threshold now, before new evidence or operational pressure can move it. Which interpretation of the displayed evidence correctly uses the mission concept?
+
+**Prompt - exact player copy:** A rule is fixed in advance: stop at the first check with a reading of at least 5 units. At which plotted time should the stop occur?
 
 **Figure - exact player copy:**
 
 ```json
 {
   "kind": "line",
-  "xLabel": "Ordered measurement",
-  "yLabel": "Decision quantity",
-  "caption": "Measurements approach and then cross the action threshold.",
+  "xLabel": "Time (min)",
+  "yLabel": "Reading (units)",
+  "caption": "Readings at four successive checks",
   "series": [
     {
-      "name": "Measured",
+      "name": "Reading",
       "points": [
         [
+          0,
+          2
+        ],
+        [
           1,
-          42
+          3
         ],
         [
           2,
-          48
+          5
         ],
         [
           3,
-          55
-        ],
-        [
-          4,
-          63
-        ],
-        [
-          5,
-          71
+          6
         ]
       ]
     }
-  ],
-  "limit": {
-    "at": 60,
-    "label": "Action threshold"
-  }
+  ]
 }
 ```
 
+**Options - exact player copy:**
+
+- A. 1 minute.
+- B. 3 minutes.
+- C. No stop is needed because the average is below 5.
+- D. 2 minutes.
+
+**Correct answer:** D
+
+**Hint - exact player copy:** At least includes equality.
+
+**Option feedback - exact player copy:**
+
+- A: The reading is only 3 units at 1 minute.
+- B: Waiting until 3 minutes misses the first qualifying check.
+- C: The rule applies to each reading, not the average.
+- D: Correct. 2 minutes.
+
+### Review question 2
+
+
+**Prompt - exact player copy:** Which statement best explains protective action?
 
 **Options - exact player copy:**
 
@@ -8240,19 +8296,21 @@ No additional prerequisite is required. These AP-style questions apply the missi
 - C. Preparing resources without yet ordering mass movement.
 - D. Choosing a rule before seeing the result that will test it.
 
-**Correct answer:** B
+**Correct answer:** A
 
-**Hint - exact player copy:** Read the axes, units, direction, and any threshold before comparing the choices.
+**Hint - exact player copy:** Identify the defining relationship or mechanism for protective action. All needed information is in this question.
 
 **Option feedback - exact player copy:**
 
-- A: This describes Protective action, not Threshold. It does not account for the quantities, conditions, or evidence in this planetary science case.
-- B: Correct. a measurable evidence level that triggers an action.
-- C: This describes Staging, not Threshold. It does not account for the quantities, conditions, or evidence in this planetary science case.
-- D: This describes Precommitment, not Threshold. It does not account for the quantities, conditions, or evidence in this planetary science case.
-### Review question 2
+- A: Correct. A step intended to reduce people’s exposure to harm.
+- B: This describes threshold. It does not answer the question about protective action.
+- C: This describes staging. It does not answer the question about protective action.
+- D: This describes precommitment. It does not answer the question about protective action.
 
-**Prompt - exact player copy:** the planetary-defense center receives a second case related to The Line We Promise: define four escalating states for watch, resource staging, targeted protective order, and verified stand-down across the response system. Write the action threshold now, before new evidence or operational pressure can move it. Which conclusion correctly applies Protective action to the observations and physics?
+### Review question 3
+
+
+**Prompt - exact player copy:** Which statement best explains staging?
 
 **Options - exact player copy:**
 
@@ -8261,19 +8319,21 @@ No additional prerequisite is required. These AP-style questions apply the missi
 - C. A step intended to reduce people’s exposure to harm.
 - D. Choosing a rule before seeing the result that will test it.
 
-**Correct answer:** C
+**Correct answer:** B
 
-**Hint - exact player copy:** Use the stated evidence and the conditions for Protective action; do not choose an option merely because it names a familiar term.
+**Hint - exact player copy:** Identify the defining relationship or mechanism for staging. All needed information is in this question.
 
 **Option feedback - exact player copy:**
 
-- A: This describes Threshold, not Protective action. It does not account for the quantities, conditions, or evidence in this planetary science case.
-- B: This describes Staging, not Protective action. It does not account for the quantities, conditions, or evidence in this planetary science case.
-- C: Correct. a step intended to reduce people’s exposure to harm.
-- D: This describes Precommitment, not Protective action. It does not account for the quantities, conditions, or evidence in this planetary science case.
-### Review question 3
+- A: This describes threshold. It does not answer the question about staging.
+- B: Correct. Preparing resources without yet ordering mass movement.
+- C: This describes protective action. It does not answer the question about staging.
+- D: This describes precommitment. It does not answer the question about staging.
 
-**Prompt - exact player copy:** A teammate rechecks The Line We Promise using new evidence: define four escalating states for watch, resource staging, targeted protective order, and verified stand-down across the response system. Write the action threshold now, before new evidence or operational pressure can move it. Which conclusion correctly applies Staging to the observations and physics?
+### Review question 4
+
+
+**Prompt - exact player copy:** Which statement best explains precommitment?
 
 **Options - exact player copy:**
 
@@ -8282,80 +8342,65 @@ No additional prerequisite is required. These AP-style questions apply the missi
 - C. Choosing a rule before seeing the result that will test it.
 - D. Preparing resources without yet ordering mass movement.
 
-**Correct answer:** D
+**Correct answer:** C
 
-**Hint - exact player copy:** Use the stated evidence and the conditions for Staging; do not choose an option merely because it names a familiar term.
+**Hint - exact player copy:** Identify the defining relationship or mechanism for precommitment. All needed information is in this question.
 
 **Option feedback - exact player copy:**
 
-- A: This describes Threshold, not Staging. It does not account for the quantities, conditions, or evidence in this planetary science case.
-- B: This describes Protective action, not Staging. It does not account for the quantities, conditions, or evidence in this planetary science case.
-- C: This describes Precommitment, not Staging. It does not account for the quantities, conditions, or evidence in this planetary science case.
-- D: Correct. preparing resources without yet ordering mass movement.
-### Review question 4
+- A: This describes threshold. It does not answer the question about precommitment.
+- B: This describes protective action. It does not answer the question about precommitment.
+- C: Correct. Choosing a rule before seeing the result that will test it.
+- D: This describes staging. It does not answer the question about precommitment.
 
-**Prompt - exact player copy:** An unseen case extends The Line We Promise: define four escalating states for watch, resource staging, targeted protective order, and verified stand-down across the response system. Write the action threshold now, before new evidence or operational pressure can move it. Which conclusion correctly applies Precommitment to the observations and physics?
+### Review question 5
+
+
+**Prompt - exact player copy:** A warning plan names a measurement threshold and an action before new data arrive. What makes that plan operational?
 
 **Options - exact player copy:**
 
-- A. Choosing a rule before seeing the result that will test it.
+- A. A measurable evidence level that triggers an action.
+- B. A step intended to reduce people’s exposure to harm.
+- C. Preparing resources without yet ordering mass movement.
+- D. The action is taken when the specified evidence condition is met, without changing the threshold to favor an outcome.
+
+**Correct answer:** D
+
+**Hint - exact player copy:** Identify the defining relationship or mechanism for staged response. All needed information is in this question.
+
+**Option feedback - exact player copy:**
+
+- A: This describes threshold. It does not answer the question about staged response.
+- B: This describes protective action. It does not answer the question about staged response.
+- C: This describes staging. It does not answer the question about staged response.
+- D: Correct. The action is taken when the specified evidence condition is met, without changing the threshold to favor an outcome.
+
+### Review question 6
+
+
+**Prompt - exact player copy:** A response has limited transport and shelter capacity. What should its allocation consider?
+
+**Options - exact player copy:**
+
+- A. Expected need, accessibility, reversibility, and whether the whole response can be delivered within capacity.
 - B. A measurable evidence level that triggers an action.
 - C. A step intended to reduce people’s exposure to harm.
 - D. Preparing resources without yet ordering mass movement.
 
 **Correct answer:** A
 
-**Hint - exact player copy:** Use the stated evidence and the conditions for Precommitment; do not choose an option merely because it names a familiar term.
+**Hint - exact player copy:** Identify the defining relationship or mechanism for emergency resources. All needed information is in this question.
 
 **Option feedback - exact player copy:**
 
-- A: Correct. choosing a rule before seeing the result that will test it.
-- B: This describes Threshold, not Precommitment. It does not account for the quantities, conditions, or evidence in this planetary science case.
-- C: This describes Protective action, not Precommitment. It does not account for the quantities, conditions, or evidence in this planetary science case.
-- D: This describes Staging, not Precommitment. It does not account for the quantities, conditions, or evidence in this planetary science case.
-### Review question 5
+- A: Correct. Expected need, accessibility, reversibility, and whether the whole response can be delivered within capacity.
+- B: This describes threshold. It does not answer the question about emergency resources.
+- C: This describes protective action. It does not answer the question about emergency resources.
+- D: This describes staging. It does not answer the question about emergency resources.
 
-**Prompt - exact player copy:** Before another Line We Promise decision, the team knows this: define four escalating states for watch, resource staging, targeted protective order, and verified stand-down across the response system. Write the action threshold now, before new evidence or operational pressure can move it. Which conclusion correctly applies staged response to the observations and physics?
+**Optional review completion - exact player copy:** Good work. You have completed six independent practice questions.
 
-**Options - exact player copy:**
-
-- A. A measurable evidence level that triggers an action.
-- B. TRIGGER binds a measurable condition to a predefined action.
-- C. A step intended to reduce people’s exposure to harm.
-- D. Preparing resources without yet ordering mass movement.
-
-**Correct answer:** B
-
-**Hint - exact player copy:** Use the stated evidence and the conditions for staged response; do not choose an option merely because it names a familiar term.
-
-**Option feedback - exact player copy:**
-
-- A: This describes Threshold, not staged response. It does not account for the quantities, conditions, or evidence in this planetary science case.
-- B: Correct. tRIGGER binds a measurable condition to a predefined action.
-- C: This describes Protective action, not staged response. It does not account for the quantities, conditions, or evidence in this planetary science case.
-- D: This describes Staging, not staged response. It does not account for the quantities, conditions, or evidence in this planetary science case.
-### Review question 6
-
-**Prompt - exact player copy:** the planetary-defense center applies the lesson from The Line We Promise to this follow-up: nine million people lie under the current warning, full evacuation normally needs about thirty days, and discovery provided eleven. Before the plan can proceed, divide the limited supply so every required use is covered. Which conclusion correctly applies emergency resources to the observations and physics?
-
-**Options - exact player copy:**
-
-- A. A measurable evidence level that triggers an action.
-- B. A step intended to reduce people’s exposure to harm.
-- C. ALLOCATE distributes finite resources against expected need, reversibility, and equity.
-- D. Preparing resources without yet ordering mass movement.
-
-**Correct answer:** C
-
-**Hint - exact player copy:** Use the stated evidence and the conditions for emergency resources; do not choose an option merely because it names a familiar term.
-
-**Option feedback - exact player copy:**
-
-- A: This describes Threshold, not emergency resources. It does not account for the quantities, conditions, or evidence in this planetary science case.
-- B: This describes Protective action, not emergency resources. It does not account for the quantities, conditions, or evidence in this planetary science case.
-- C: Correct. aLLOCATE distributes finite resources against expected need, reversibility, and equity.
-- D: This describes Staging, not emergency resources. It does not account for the quantities, conditions, or evidence in this planetary science case.
-**Optional review completion - exact player copy:** Excellent work. You went beyond the required mission and strengthened the ideas behind your decision.
 ## Quick concept review
 
 - Triggers must be observable; reversible actions can begin earlier; resources need reserves and equity; every order needs verification and reassessment.
@@ -8893,139 +8938,152 @@ Mission decision: End the land alert for the main body. Fixed sky data and a sep
 
 **Availability:** Reveal only after mission completion when the player selects **GO DEEPER**. This section is optional, ungraded for campaign progress, and does not change metrics, Recovery Points, or the next-mission unlock.
 
-**Secondary briefing card - exact player copy:** You completed Through the Keyhole. Choose GO DEEPER to revisit the four decisions and explore related course ideas; this optional review does not change your metrics or delay the next mission.
+**Secondary briefing card - exact player copy:** Try six independent practice questions. Each includes its own context and any needed data; no mission records are required.
 
 ### Review focus
 
-No additional prerequisite is required. These AP-style questions apply the mission's course ideas to follow-up evidence, including related topics not required in the four main stops.
+No additional prerequisite is required. These practice questions review related course ideas. Each question stands alone, including its choices and figure.
 
 ### Review question 1
 
-**Prompt - exact player copy:** In a follow-up to Through the Keyhole, the newest positions all shift east by nearly the same amount, including measurements of a cataloged reference star. Run the reversible comparison now so the crew can tell whether the proposed cause changes the measured response. Which conclusion correctly applies Control to the observations and physics?
+
+**Prompt - exact player copy:** Which statement best explains control?
 
 **Options - exact player copy:**
 
 - A. Data withheld until after a prediction is frozen.
 - B. A known reference used to reveal measurement bias.
 - C. A common shift affecting multiple measurements together.
-- D. A wide model uncertainty region used here to test land intersection.
+- D. A region defined by a specified three-standard-deviation convention; its coverage depends on the probability model and dimension.
 
 **Correct answer:** B
 
-**Hint - exact player copy:** Use the stated evidence and the conditions for Control; do not choose an option merely because it names a familiar term.
+**Hint - exact player copy:** Identify the defining relationship or mechanism for control. All needed information is in this question.
 
 **Option feedback - exact player copy:**
 
-- A: This describes Holdout, not Control. It does not account for the quantities, conditions, or evidence in this planetary science case.
-- B: Correct. a known reference used to reveal measurement bias.
-- C: This describes Systematic error, not Control. It does not account for the quantities, conditions, or evidence in this planetary science case.
-- D: This describes Three-sigma envelope, not Control. It does not account for the quantities, conditions, or evidence in this planetary science case.
+- A: This describes holdout. It does not answer the question about control.
+- B: Correct. A known reference used to reveal measurement bias.
+- C: This describes systematic error. It does not answer the question about control.
+- D: This describes three-sigma envelope. It does not answer the question about control.
+
 ### Review question 2
 
-**Prompt - exact player copy:** the planetary-defense center receives a second case related to Through the Keyhole: freeze the ocean-range prediction before opening Tomás's separately clocked radar pass. Which conclusion correctly applies Holdout to the observations and physics?
+
+**Prompt - exact player copy:** Which statement best explains holdout?
 
 **Options - exact player copy:**
 
 - A. A known reference used to reveal measurement bias.
 - B. A common shift affecting multiple measurements together.
 - C. Data withheld until after a prediction is frozen.
-- D. A wide model uncertainty region used here to test land intersection.
+- D. A region defined by a specified three-standard-deviation convention; its coverage depends on the probability model and dimension.
 
 **Correct answer:** C
 
-**Hint - exact player copy:** Use the stated evidence and the conditions for Holdout; do not choose an option merely because it names a familiar term.
+**Hint - exact player copy:** Identify the defining relationship or mechanism for holdout. All needed information is in this question.
 
 **Option feedback - exact player copy:**
 
-- A: This describes Control, not Holdout. It does not account for the quantities, conditions, or evidence in this planetary science case.
-- B: This describes Systematic error, not Holdout. It does not account for the quantities, conditions, or evidence in this planetary science case.
-- C: Correct. data withheld until after a prediction is frozen.
-- D: This describes Three-sigma envelope, not Holdout. It does not account for the quantities, conditions, or evidence in this planetary science case.
+- A: This describes control. It does not answer the question about holdout.
+- B: This describes systematic error. It does not answer the question about holdout.
+- C: Correct. Data withheld until after a prediction is frozen.
+- D: This describes three-sigma envelope. It does not answer the question about holdout.
+
 ### Review question 3
 
-**Prompt - exact player copy:** A teammate rechecks Through the Keyhole using new evidence: the newest positions all shift east by nearly the same amount, including measurements of a cataloged reference star. Run the reversible comparison now so the crew can tell whether the proposed cause changes the measured response. Which statistical conclusion or procedure correctly uses Systematic error?
+
+**Prompt - exact player copy:** Which statement best explains systematic error?
 
 **Options - exact player copy:**
 
 - A. A known reference used to reveal measurement bias.
 - B. Data withheld until after a prediction is frozen.
-- C. A wide model uncertainty region used here to test land intersection.
+- C. A region defined by a specified three-standard-deviation convention; its coverage depends on the probability model and dimension.
 - D. A common shift affecting multiple measurements together.
 
 **Correct answer:** D
 
-**Hint - exact player copy:** Use the stated evidence and the conditions for Systematic error; do not choose an option merely because it names a familiar term.
+**Hint - exact player copy:** Identify the defining relationship or mechanism for systematic error. All needed information is in this question.
 
 **Option feedback - exact player copy:**
 
-- A: This describes Control, not Systematic error. It does not account for the quantities, conditions, or evidence in this planetary science case.
-- B: This describes Holdout, not Systematic error. It does not account for the quantities, conditions, or evidence in this planetary science case.
-- C: This describes Three-sigma envelope, not Systematic error. It does not account for the quantities, conditions, or evidence in this planetary science case.
-- D: Correct. a common shift affecting multiple measurements together.
+- A: This describes control. It does not answer the question about systematic error.
+- B: This describes holdout. It does not answer the question about systematic error.
+- C: This describes three-sigma envelope. It does not answer the question about systematic error.
+- D: Correct. A common shift affecting multiple measurements together.
+
 ### Review question 4
 
-**Prompt - exact player copy:** An unseen case extends Through the Keyhole: nearly all justified primary-body orbit trials intersect the ocean, and the complete three-sigma envelope no longer touches any populated land. The next action depends on selecting the conclusion that fits all of those facts. Which conclusion correctly applies Three-sigma envelope to the observations and physics?
+
+**Prompt - exact player copy:** Which statement best explains three-sigma envelope?
 
 **Options - exact player copy:**
 
-- A. A wide model uncertainty region used here to test land intersection.
+- A. A region defined by a specified three-standard-deviation convention; its coverage depends on the probability model and dimension.
 - B. A known reference used to reveal measurement bias.
 - C. Data withheld until after a prediction is frozen.
 - D. A common shift affecting multiple measurements together.
 
 **Correct answer:** A
 
-**Hint - exact player copy:** Use the stated evidence and the conditions for Three-sigma envelope; do not choose an option merely because it names a familiar term.
+**Hint - exact player copy:** Identify the defining relationship or mechanism for three-sigma envelope. All needed information is in this question.
 
 **Option feedback - exact player copy:**
 
-- A: Correct. a wide model uncertainty region used here to test land intersection.
-- B: This describes Control, not Three-sigma envelope. It does not account for the quantities, conditions, or evidence in this planetary science case.
-- C: This describes Holdout, not Three-sigma envelope. It does not account for the quantities, conditions, or evidence in this planetary science case.
-- D: This describes Systematic error, not Three-sigma envelope. It does not account for the quantities, conditions, or evidence in this planetary science case.
+- A: Correct. A region defined by a specified three-standard-deviation convention; its coverage depends on the probability model and dimension.
+- B: This describes control. It does not answer the question about three-sigma envelope.
+- C: This describes holdout. It does not answer the question about three-sigma envelope.
+- D: This describes systematic error. It does not answer the question about three-sigma envelope.
+
 ### Review question 5
 
-**Prompt - exact player copy:** Before another Through the Keyhole decision, the team knows this: the newest positions all shift east by nearly the same amount, including measurements of a cataloged reference star. Run the reversible comparison now so the crew can tell whether the proposed cause changes the measured response. Which conclusion correctly applies astrometric control to the observations and physics?
+
+**Prompt - exact player copy:** A reference star has a known sky position. Why measure it alongside an uncertain target?
 
 **Options - exact player copy:**
 
 - A. A known reference used to reveal measurement bias.
-- B. CONTROL holds expected reality fixed while testing measurement.
+- B. Its position can reveal a shared measurement bias that would otherwise shift the target estimate.
 - C. Data withheld until after a prediction is frozen.
 - D. A common shift affecting multiple measurements together.
 
 **Correct answer:** B
 
-**Hint - exact player copy:** Use the stated evidence and the conditions for astrometric control; do not choose an option merely because it names a familiar term.
+**Hint - exact player copy:** Identify the defining relationship or mechanism for astrometric control. All needed information is in this question.
 
 **Option feedback - exact player copy:**
 
-- A: This describes Control, not astrometric control. It does not account for the quantities, conditions, or evidence in this planetary science case.
-- B: Correct. cONTROL holds expected reality fixed while testing measurement.
-- C: This describes Holdout, not astrometric control. It does not account for the quantities, conditions, or evidence in this planetary science case.
-- D: This describes Systematic error, not astrometric control. It does not account for the quantities, conditions, or evidence in this planetary science case.
+- A: This describes control. It does not answer the question about astrometric control.
+- B: Correct. Its position can reveal a shared measurement bias that would otherwise shift the target estimate.
+- C: This describes holdout. It does not answer the question about astrometric control.
+- D: This describes systematic error. It does not answer the question about astrometric control.
+
 ### Review question 6
 
-**Prompt - exact player copy:** the planetary-defense center applies the lesson from Through the Keyhole to this follow-up: refit the complete optical batch with the documented correction and compare residuals before and after. Which conclusion correctly applies orbit correction to the observations and physics?
+
+**Prompt - exact player copy:** An orbit fit is corrected for a known timing bias. What should be checked afterward?
 
 **Options - exact player copy:**
 
 - A. A known reference used to reveal measurement bias.
 - B. Data withheld until after a prediction is frozen.
-- C. RESIDUAL tests the pattern left by a repair.
+- C. Whether the residual pattern expected from that bias has disappeared and whether independent data agree.
 - D. A common shift affecting multiple measurements together.
 
 **Correct answer:** C
 
-**Hint - exact player copy:** Use the stated evidence and the conditions for orbit correction; do not choose an option merely because it names a familiar term.
+**Hint - exact player copy:** Identify the defining relationship or mechanism for orbit correction. All needed information is in this question.
 
 **Option feedback - exact player copy:**
 
-- A: This describes Control, not orbit correction. It does not account for the quantities, conditions, or evidence in this planetary science case.
-- B: This describes Holdout, not orbit correction. It does not account for the quantities, conditions, or evidence in this planetary science case.
-- C: Correct. rESIDUAL tests the pattern left by a repair.
-- D: This describes Systematic error, not orbit correction. It does not account for the quantities, conditions, or evidence in this planetary science case.
-**Optional review completion - exact player copy:** Excellent work. You went beyond the required mission and strengthened the ideas behind your decision.
+- A: This describes control. It does not answer the question about orbit correction.
+- B: This describes holdout. It does not answer the question about orbit correction.
+- C: Correct. Whether the residual pattern expected from that bias has disappeared and whether independent data agree.
+- D: This describes systematic error. It does not answer the question about orbit correction.
+
+**Optional review completion - exact player copy:** Good work. You have completed six independent practice questions.
+
 ## Quick concept review
 
 - Controls expose bias; corrections should leave plausible scatter; location changes risk; holdouts verify independently.
@@ -9533,15 +9591,39 @@ Mission decision: Keep the main-body land stand-down. Open a new track for the s
 
 **Availability:** Reveal only after mission completion when the player selects **GO DEEPER**. This section is optional, ungraded for campaign progress, and does not change metrics, Recovery Points, or the next-mission unlock.
 
-**Secondary briefing card - exact player copy:** You completed The Second Echo. Choose GO DEEPER to revisit the four decisions and explore related course ideas; this optional review does not change your metrics or delay the next mission.
+**Secondary briefing card - exact player copy:** Try six independent practice questions. Each includes its own context and any needed data; no mission records are required.
 
 ### Review focus
 
-No additional prerequisite is required. These AP-style questions apply the mission's course ideas to follow-up evidence, including related topics not required in the four main stops.
+No additional prerequisite is required. These practice questions review related course ideas. Each question stands alone, including its choices and figure.
 
 ### Review question 1
 
-**Prompt - exact player copy:** In a follow-up to The Second Echo, radar separation, independent optical detection, and brightness consistent with roughly 32 meters now require one shared explanation. Which conclusion correctly applies Fragment to the observations and physics?
+
+**Prompt - exact player copy:** Which statement best explains fragment?
+
+**Options - exact player copy:**
+
+- A. Two distinguishable radar echoes.
+- B. A measurement path without the same likely error source.
+- C. A prediction of an object’s position at specified times.
+- D. A separated piece moving on its own trajectory.
+
+**Correct answer:** D
+
+**Hint - exact player copy:** Identify the defining relationship or mechanism for fragment. All needed information is in this question.
+
+**Option feedback - exact player copy:**
+
+- A: This describes dual return. It does not answer the question about fragment.
+- B: This describes independent channel. It does not answer the question about fragment.
+- C: This describes ephemeris. It does not answer the question about fragment.
+- D: Correct. A separated piece moving on its own trajectory.
+
+### Review question 2
+
+
+**Prompt - exact player copy:** Which statement best explains dual return?
 
 **Options - exact player copy:**
 
@@ -9550,19 +9632,21 @@ No additional prerequisite is required. These AP-style questions apply the missi
 - C. A measurement path without the same likely error source.
 - D. A prediction of an object’s position at specified times.
 
-**Correct answer:** B
+**Correct answer:** A
 
-**Hint - exact player copy:** Use the stated evidence and the conditions for Fragment; do not choose an option merely because it names a familiar term.
+**Hint - exact player copy:** Identify the defining relationship or mechanism for dual return. All needed information is in this question.
 
 **Option feedback - exact player copy:**
 
-- A: This describes Dual return, not Fragment. It does not account for the quantities, conditions, or evidence in this planetary science case.
-- B: Correct. a separated piece moving on its own trajectory.
-- C: This describes Independent channel, not Fragment. It does not account for the quantities, conditions, or evidence in this planetary science case.
-- D: This describes Ephemeris, not Fragment. It does not account for the quantities, conditions, or evidence in this planetary science case.
-### Review question 2
+- A: Correct. Two distinguishable radar echoes.
+- B: This describes fragment. It does not answer the question about dual return.
+- C: This describes independent channel. It does not answer the question about dual return.
+- D: This describes ephemeris. It does not answer the question about dual return.
 
-**Prompt - exact player copy:** the planetary-defense center receives a second case related to The Second Echo: probe the latest radar frames and compare the weak return with predictions for a connected lobe, stationary interference, and a freely separating body. Sample the locations in order now so the crew can identify where the system first departs from normal. Which conclusion correctly applies Dual return to the observations and physics?
+### Review question 3
+
+
+**Prompt - exact player copy:** Which statement best explains independent channel?
 
 **Options - exact player copy:**
 
@@ -9571,19 +9655,21 @@ No additional prerequisite is required. These AP-style questions apply the missi
 - C. Two distinguishable radar echoes.
 - D. A prediction of an object’s position at specified times.
 
-**Correct answer:** C
+**Correct answer:** B
 
-**Hint - exact player copy:** Use the stated evidence and the conditions for Dual return; do not choose an option merely because it names a familiar term.
+**Hint - exact player copy:** Identify the defining relationship or mechanism for independent channel. All needed information is in this question.
 
 **Option feedback - exact player copy:**
 
-- A: This describes Fragment, not Dual return. It does not account for the quantities, conditions, or evidence in this planetary science case.
-- B: This describes Independent channel, not Dual return. It does not account for the quantities, conditions, or evidence in this planetary science case.
-- C: Correct. two distinguishable radar echoes.
-- D: This describes Ephemeris, not Dual return. It does not account for the quantities, conditions, or evidence in this planetary science case.
-### Review question 3
+- A: This describes fragment. It does not answer the question about independent channel.
+- B: Correct. A measurement path without the same likely error source.
+- C: This describes dual return. It does not answer the question about independent channel.
+- D: This describes ephemeris. It does not answer the question about independent channel.
 
-**Prompt - exact player copy:** A teammate rechecks The Second Echo using new evidence: compare the released primary ephemeris with the corrected optical fit, independent radar holdout, and the complete archived provenance record. Commit the prediction and run the test now so the measurement can fairly accept or reject the proposed model. Which conclusion correctly applies Independent channel to the observations and physics?
+### Review question 4
+
+
+**Prompt - exact player copy:** Which statement best explains ephemeris?
 
 **Options - exact player copy:**
 
@@ -9592,80 +9678,65 @@ No additional prerequisite is required. These AP-style questions apply the missi
 - C. A prediction of an object’s position at specified times.
 - D. A measurement path without the same likely error source.
 
-**Correct answer:** D
+**Correct answer:** C
 
-**Hint - exact player copy:** Use the stated evidence and the conditions for Independent channel; do not choose an option merely because it names a familiar term.
+**Hint - exact player copy:** Identify the defining relationship or mechanism for ephemeris. All needed information is in this question.
 
 **Option feedback - exact player copy:**
 
-- A: This describes Fragment, not Independent channel. It does not account for the quantities, conditions, or evidence in this planetary science case.
-- B: This describes Dual return, not Independent channel. It does not account for the quantities, conditions, or evidence in this planetary science case.
-- C: This describes Ephemeris, not Independent channel. It does not account for the quantities, conditions, or evidence in this planetary science case.
-- D: Correct. a measurement path without the same likely error source.
-### Review question 4
+- A: This describes fragment. It does not answer the question about ephemeris.
+- B: This describes dual return. It does not answer the question about ephemeris.
+- C: Correct. A prediction of an object’s position at specified times.
+- D: This describes independent channel. It does not answer the question about ephemeris.
 
-**Prompt - exact player copy:** An unseen case extends The Second Echo: compare the released primary ephemeris with the corrected optical fit, independent radar holdout, and the complete archived provenance record. Commit the prediction and run the test now so the measurement can fairly accept or reject the proposed model. Which conclusion correctly applies Ephemeris to the observations and physics?
+### Review question 5
+
+
+**Prompt - exact player copy:** A predicted radar range is fixed before an independent echo is measured. What constitutes a useful verification?
 
 **Options - exact player copy:**
 
-- A. A prediction of an object’s position at specified times.
+- A. A separated piece moving on its own trajectory.
+- B. Two distinguishable radar echoes.
+- C. A measurement path without the same likely error source.
+- D. Compare the independent result with the prediction using acceptance limits fixed before the measurement.
+
+**Correct answer:** D
+
+**Hint - exact player copy:** Identify the defining relationship or mechanism for primary solution. All needed information is in this question.
+
+**Option feedback - exact player copy:**
+
+- A: This describes fragment. It does not answer the question about primary solution.
+- B: This describes dual return. It does not answer the question about primary solution.
+- C: This describes independent channel. It does not answer the question about primary solution.
+- D: Correct. Compare the independent result with the prediction using acceptance limits fixed before the measurement.
+
+### Review question 6
+
+
+**Prompt - exact player copy:** Two models predict different time evolution for a weak second radar echo. What test can distinguish them?
+
+**Options - exact player copy:**
+
+- A. Repeat measurements that resolve their predicted difference while keeping timing and calibration checks independent.
 - B. A separated piece moving on its own trajectory.
 - C. Two distinguishable radar echoes.
 - D. A measurement path without the same likely error source.
 
 **Correct answer:** A
 
-**Hint - exact player copy:** Use the stated evidence and the conditions for Ephemeris; do not choose an option merely because it names a familiar term.
+**Hint - exact player copy:** Identify the defining relationship or mechanism for secondary echo. All needed information is in this question.
 
 **Option feedback - exact player copy:**
 
-- A: Correct. a prediction of an object’s position at specified times.
-- B: This describes Fragment, not Ephemeris. It does not account for the quantities, conditions, or evidence in this planetary science case.
-- C: This describes Dual return, not Ephemeris. It does not account for the quantities, conditions, or evidence in this planetary science case.
-- D: This describes Independent channel, not Ephemeris. It does not account for the quantities, conditions, or evidence in this planetary science case.
-### Review question 5
+- A: Correct. Repeat measurements that resolve their predicted difference while keeping timing and calibration checks independent.
+- B: This describes fragment. It does not answer the question about secondary echo.
+- C: This describes dual return. It does not answer the question about secondary echo.
+- D: This describes independent channel. It does not answer the question about secondary echo.
 
-**Prompt - exact player copy:** Before another Second Echo decision, the team knows this: compare the released primary ephemeris with the corrected optical fit, independent radar holdout, and the complete archived provenance record. Commit the prediction and run the test now so the measurement can fairly accept or reject the proposed model. Which conclusion correctly applies primary solution to the observations and physics?
+**Optional review completion - exact player copy:** Good work. You have completed six independent practice questions.
 
-**Options - exact player copy:**
-
-- A. A separated piece moving on its own trajectory.
-- B. VERIFY applies explicit acceptance criteria.
-- C. Two distinguishable radar echoes.
-- D. A measurement path without the same likely error source.
-
-**Correct answer:** B
-
-**Hint - exact player copy:** Use the stated evidence and the conditions for primary solution; do not choose an option merely because it names a familiar term.
-
-**Option feedback - exact player copy:**
-
-- A: This describes Fragment, not primary solution. It does not account for the quantities, conditions, or evidence in this planetary science case.
-- B: Correct. vERIFY applies explicit acceptance criteria.
-- C: This describes Dual return, not primary solution. It does not account for the quantities, conditions, or evidence in this planetary science case.
-- D: This describes Independent channel, not primary solution. It does not account for the quantities, conditions, or evidence in this planetary science case.
-### Review question 6
-
-**Prompt - exact player copy:** the planetary-defense center applies the lesson from The Second Echo to this follow-up: probe the latest radar frames and compare the weak return with predictions for a connected lobe, stationary interference, and a freely separating body. Sample the locations in order now so the crew can identify where the system first departs from normal. Which conclusion correctly applies secondary echo to the observations and physics?
-
-**Options - exact player copy:**
-
-- A. A separated piece moving on its own trajectory.
-- B. Two distinguishable radar echoes.
-- C. PROBE tests competing time-series predictions.
-- D. A measurement path without the same likely error source.
-
-**Correct answer:** C
-
-**Hint - exact player copy:** Use the stated evidence and the conditions for secondary echo; do not choose an option merely because it names a familiar term.
-
-**Option feedback - exact player copy:**
-
-- A: This describes Fragment, not secondary echo. It does not account for the quantities, conditions, or evidence in this planetary science case.
-- B: This describes Dual return, not secondary echo. It does not account for the quantities, conditions, or evidence in this planetary science case.
-- C: Correct. pROBE tests competing time-series predictions.
-- D: This describes Independent channel, not secondary echo. It does not account for the quantities, conditions, or evidence in this planetary science case.
-**Optional review completion - exact player copy:** Excellent work. You went beyond the required mission and strengthened the ideas behind your decision.
 ## Quick concept review
 
 - New evidence can add rather than overturn; relative motion signals separation; independence is provenance; existence and trajectory uncertainty differ.
@@ -10185,15 +10256,16 @@ The network wall fills with acknowledgements. Below the ridge, the first marked 
 
 **Availability:** Reveal only after mission completion when the player selects **GO DEEPER**. This section is optional, ungraded for campaign progress, and does not change metrics, Recovery Points, or the next-mission unlock.
 
-**Secondary briefing card - exact player copy:** You completed The Honest Warning. Choose GO DEEPER to revisit the four decisions and explore related course ideas; this optional review does not change your metrics or delay the next mission.
+**Secondary briefing card - exact player copy:** Try six independent practice questions. Each includes its own context and any needed data; no mission records are required.
 
 ### Review focus
 
-No additional prerequisite is required. These AP-style questions apply the mission's course ideas to follow-up evidence, including related topics not required in the four main stops.
+No additional prerequisite is required. These practice questions review related course ideas. Each question stands alone, including its choices and figure.
 
 ### Review question 1
 
-**Prompt - exact player copy:** In a follow-up to The Honest Warning, a faint point appears inside the fragment search box and moves consistently over three exposures. Before the record can be signed, identify which claims have independent support and which must remain unverified. Which conclusion correctly applies Recovery to the observations and physics?
+
+**Prompt - exact player copy:** Which statement best explains recovery?
 
 **Options - exact player copy:**
 
@@ -10204,17 +10276,19 @@ No additional prerequisite is required. These AP-style questions apply the missi
 
 **Correct answer:** B
 
-**Hint - exact player copy:** Use the stated evidence and the conditions for Recovery; do not choose an option merely because it names a familiar term.
+**Hint - exact player copy:** Identify the defining relationship or mechanism for recovery. All needed information is in this question.
 
 **Option feedback - exact player copy:**
 
-- A: This describes Airburst corridor, not Recovery. It does not account for the quantities, conditions, or evidence in this planetary science case.
-- B: Correct. finding a previously detected object again to extend its observation arc.
-- C: This describes Action envelope, not Recovery. It does not account for the quantities, conditions, or evidence in this planetary science case.
-- D: This describes All-clear, not Recovery. It does not account for the quantities, conditions, or evidence in this planetary science case.
+- A: This describes airburst corridor. It does not answer the question about recovery.
+- B: Correct. Finding a previously detected object again to extend its observation arc.
+- C: This describes action envelope. It does not answer the question about recovery.
+- D: This describes all-clear. It does not answer the question about recovery.
+
 ### Review question 2
 
-**Prompt - exact player copy:** the planetary-defense center receives a second case related to The Honest Warning: the recovered orbit gives a narrow damaging-airburst corridor over 180,000 people, while size and density ranges imply roughly 0.7 to 2 megatons TNT. Which conclusion correctly applies Airburst corridor to the observations and physics?
+
+**Prompt - exact player copy:** Which statement best explains airburst corridor?
 
 **Options - exact player copy:**
 
@@ -10225,17 +10299,19 @@ No additional prerequisite is required. These AP-style questions apply the missi
 
 **Correct answer:** C
 
-**Hint - exact player copy:** Use the stated evidence and the conditions for Airburst corridor; do not choose an option merely because it names a familiar term.
+**Hint - exact player copy:** Identify the defining relationship or mechanism for airburst corridor. All needed information is in this question.
 
 **Option feedback - exact player copy:**
 
-- A: This describes Recovery, not Airburst corridor. It does not account for the quantities, conditions, or evidence in this planetary science case.
-- B: This describes Action envelope, not Airburst corridor. It does not account for the quantities, conditions, or evidence in this planetary science case.
-- C: Correct. the possible locations where atmospheric energy release may occur.
-- D: This describes All-clear, not Airburst corridor. It does not account for the quantities, conditions, or evidence in this planetary science case.
+- A: This describes recovery. It does not answer the question about airburst corridor.
+- B: This describes action envelope. It does not answer the question about airburst corridor.
+- C: Correct. The possible locations where atmospheric energy release may occur.
+- D: This describes all-clear. It does not answer the question about airburst corridor.
+
 ### Review question 3
 
-**Prompt - exact player copy:** A teammate rechecks The Honest Warning using new evidence: apply the published, precommitted response ladder to the newly verified 180,000-person fragment corridor. Write the action threshold now, before new evidence or operational pressure can move it. Which conclusion correctly applies Action envelope to the observations and physics?
+
+**Prompt - exact player copy:** Which statement best explains action envelope?
 
 **Options - exact player copy:**
 
@@ -10246,17 +10322,19 @@ No additional prerequisite is required. These AP-style questions apply the missi
 
 **Correct answer:** D
 
-**Hint - exact player copy:** Use the stated evidence and the conditions for Action envelope; do not choose an option merely because it names a familiar term.
+**Hint - exact player copy:** Identify the defining relationship or mechanism for action envelope. All needed information is in this question.
 
 **Option feedback - exact player copy:**
 
-- A: This describes Recovery, not Action envelope. It does not account for the quantities, conditions, or evidence in this planetary science case.
-- B: This describes Airburst corridor, not Action envelope. It does not account for the quantities, conditions, or evidence in this planetary science case.
-- C: This describes All-clear, not Action envelope. It does not account for the quantities, conditions, or evidence in this planetary science case.
-- D: Correct. the places and people included in a protective response.
+- A: This describes recovery. It does not answer the question about action envelope.
+- B: This describes airburst corridor. It does not answer the question about action envelope.
+- C: This describes all-clear. It does not answer the question about action envelope.
+- D: Correct. The places and people included in a protective response.
+
 ### Review question 4
 
-**Prompt - exact player copy:** An unseen case extends The Honest Warning: a faint point appears inside the fragment search box and moves consistently over three exposures. Before the record can be signed, identify which claims have independent support and which must remain unverified. Which conclusion correctly applies All-clear to the observations and physics?
+
+**Prompt - exact player copy:** Which statement best explains all-clear?
 
 **Options - exact player copy:**
 
@@ -10267,57 +10345,63 @@ No additional prerequisite is required. These AP-style questions apply the missi
 
 **Correct answer:** A
 
-**Hint - exact player copy:** Use the stated evidence and the conditions for All-clear; do not choose an option merely because it names a familiar term.
+**Hint - exact player copy:** Identify the defining relationship or mechanism for all-clear. All needed information is in this question.
 
 **Option feedback - exact player copy:**
 
-- A: Correct. a stand-down claim tied to one specific hazard track.
-- B: This describes Recovery, not All-clear. It does not account for the quantities, conditions, or evidence in this planetary science case.
-- C: This describes Airburst corridor, not All-clear. It does not account for the quantities, conditions, or evidence in this planetary science case.
-- D: This describes Action envelope, not All-clear. It does not account for the quantities, conditions, or evidence in this planetary science case.
+- A: Correct. A stand-down claim tied to one specific hazard track.
+- B: This describes recovery. It does not answer the question about all-clear.
+- C: This describes airburst corridor. It does not answer the question about all-clear.
+- D: This describes action envelope. It does not answer the question about all-clear.
+
 ### Review question 5
 
-**Prompt - exact player copy:** Before another Honest Warning decision, the team knows this: a faint point appears inside the fragment search box and moves consistently over three exposures. Before the record can be signed, identify which claims have independent support and which must remain unverified. Which conclusion correctly applies fragment recovery to the observations and physics?
+
+**Prompt - exact player copy:** A faint source is proposed as the recovery of a known fragment. What must support the identification?
 
 **Options - exact player copy:**
 
 - A. Finding a previously detected object again to extend its observation arc.
-- B. ATTEST owns a claim against named criteria.
+- B. Position, timing, motion, and measurement-quality evidence consistent with the fragment prediction and stated acceptance limits.
 - C. The possible locations where atmospheric energy release may occur.
 - D. The places and people included in a protective response.
 
 **Correct answer:** B
 
-**Hint - exact player copy:** Use the stated evidence and the conditions for fragment recovery; do not choose an option merely because it names a familiar term.
+**Hint - exact player copy:** Identify the defining relationship or mechanism for fragment recovery. All needed information is in this question.
 
 **Option feedback - exact player copy:**
 
-- A: This describes Recovery, not fragment recovery. It does not account for the quantities, conditions, or evidence in this planetary science case.
-- B: Correct. aTTEST owns a claim against named criteria.
-- C: This describes Airburst corridor, not fragment recovery. It does not account for the quantities, conditions, or evidence in this planetary science case.
-- D: This describes Action envelope, not fragment recovery. It does not account for the quantities, conditions, or evidence in this planetary science case.
+- A: This describes recovery. It does not answer the question about fragment recovery.
+- B: Correct. Position, timing, motion, and measurement-quality evidence consistent with the fragment prediction and stated acceptance limits.
+- C: This describes airburst corridor. It does not answer the question about fragment recovery.
+- D: This describes action envelope. It does not answer the question about fragment recovery.
+
 ### Review question 6
 
-**Prompt - exact player copy:** the planetary-defense center applies the lesson from The Honest Warning to this follow-up: the recovered orbit gives a narrow damaging-airburst corridor over 180,000 people, while size and density ranges imply roughly 0.7 to 2 megatons TNT. Which conclusion correctly applies fragment risk to the observations and physics?
+
+**Prompt - exact player copy:** A fragment's trajectory, size, and density remain uncertain. How should a protective decision use that evidence?
 
 **Options - exact player copy:**
 
 - A. Finding a previously detected object again to extend its observation arc.
 - B. The possible locations where atmospheric energy release may occur.
-- C. BALANCE integrates unlike evidence at a decision boundary.
+- C. Combine the supported trajectory and consequence ranges with an explicit action threshold rather than treating any one estimate as certain.
 - D. The places and people included in a protective response.
 
 **Correct answer:** C
 
-**Hint - exact player copy:** Use the stated evidence and the conditions for fragment risk; do not choose an option merely because it names a familiar term.
+**Hint - exact player copy:** Identify the defining relationship or mechanism for fragment risk. All needed information is in this question.
 
 **Option feedback - exact player copy:**
 
-- A: This describes Recovery, not fragment risk. It does not account for the quantities, conditions, or evidence in this planetary science case.
-- B: This describes Airburst corridor, not fragment risk. It does not account for the quantities, conditions, or evidence in this planetary science case.
-- C: Correct. bALANCE integrates unlike evidence at a decision boundary.
-- D: This describes Action envelope, not fragment risk. It does not account for the quantities, conditions, or evidence in this planetary science case.
-**Optional review completion - exact player copy:** Excellent work. You went beyond the required mission and strengthened the ideas behind your decision.
+- A: This describes recovery. It does not answer the question about fragment risk.
+- B: This describes airburst corridor. It does not answer the question about fragment risk.
+- C: Correct. Combine the supported trajectory and consequence ranges with an explicit action threshold rather than treating any one estimate as certain.
+- D: This describes action envelope. It does not answer the question about fragment risk.
+
+**Optional review completion - exact player copy:** Good work. You have completed six independent practice questions.
+
 ## Quick concept review
 
 - detect motion; fit orbit families and residuals; fuse optical and radar evidence; infer size cautiously; estimate energy; distinguish hazard from risk; test deflection against lead time; precommit thresholds; preserve anomalies; communicate conditional claims.

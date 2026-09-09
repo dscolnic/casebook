@@ -44,3 +44,39 @@ Local checks passed for all eight files: 120 missions, 480 stops in order, 120 p
 A local syllable-based readability estimate puts all revised required opening and mission cards below grade 6.5. This is an approximate prose check, not the build’s readability implementation.
 
 The running game, its importer, and its checkStory/deriveGivens source were not supplied. These revisions were checked as documents; they have not been imported or playtested in the engine, and no engine-gate pass is claimed. Existing numerical interaction payloads were retained rather than subjected to a fresh full-course scientific audit.
+
+
+## Standalone Go Deeper revision
+
+All 720 optional review questions have been revised to stand alone. Removed mission-title references, follow-up wrappers, instructions to revisit earlier decisions, and reliance on unseen cards or observations. Conceptual questions now ask directly about the concept; applied questions state their own givens. The optional review introductions no longer ask players to revisit the mission.
+
+Reworked mismatched figures into independent graph questions, supplied missing mathematical models, and cleaned options and feedback that contained build instructions or references to prior results. All 81 review figure slots remain. In particular, Headwater’s opening review now states the rational function directly; its separate asymptote question supplies its own function. Standalone implicit-differentiation examples use a relation consistent with their supplied evaluation point.
+
+Each bible now includes a Standalone Go Deeper question contract: no prior mission or review question may be required, and the prompt, choices, hint, feedback, and figure must be understandable together without external context.
+
+Validation: each bible has 90 review questions, four distinct choices and a keyed answer per question, four feedback entries, and valid JSON for every review figure. All 480 main graded-stop blocks are byte-for-byte unchanged from the preceding story revision. Physical aftermaths and optional worked examples are retained. This was a document revision, not an engine import or playtest.
+
+
+## Full repetition sweep
+
+Reviewed all eight bibles for repeated claims within passages, including all 480 graded question setups, all 88 DERIVE source panels, and all 720 standalone review questions. Removed duplicated sentences, paraphrased repeats, appended copies of equations and givens, and unrelated glossary definitions carried into Groundtruth answer choices.
+
+Headwater’s opening now introduces the water-level model once, defines its variables once, and asks for the limit once. The same cleanup covers its float-gain and accumulator questions, Groundtruth’s field and RC questions, and redundant source-panel copy in Safety, Trial, Planetary, and Changeover. Mars and Carrying passed the repetition checks without requiring question-text changes.
+
+Where duplicate inputs disagreed, matched the surviving copy to the existing solution: Trial’s paired differences use days, its goodness-of-fit expected counts are 40/40/20, and Changeover’s monetary aggregate uses small time deposits. All answer keys and numerical results remain unchanged.
+
+Added an editing rule to every bible: integrate givens into existing prose, state each fact once within a passage, and display independently useful source panels separately from question setups. Go Deeper questions retain their own context and data.
+
+Validation confirmed 60 graded stops, 90 review questions with four distinct choices and four feedback entries, 15 worked-example panels, and 15 physical aftermath blocks per campaign. Existing figure JSON remains parseable. The earlier note about byte-identical graded-stop text describes the standalone-review pass; this repetition pass intentionally edits graded setup and source text.
+
+
+## Opening-card closing quotes
+
+Restored the original character quote at the end of all eight campaign opening cards. Each card remains five sentences: the two short stakes statements are combined, followed by the original attributed quote. Delivery directions now agree with the sentence count and explicitly prevent additional player-visible prose after the quote. Mission cards, questions, answers, and the repetition-sweep changes remain unchanged.
+
+
+## Final opening-quote edit
+
+Replaced the restored long quotes with brief character dialogue in all eight bibles. The quotes now express a concern, promise, or request instead of recapping the campaign: Headwater’s downstream homes, Groundtruth’s earlier sign-off, Changeover’s entrusted savings, Safety’s authority to keep a ride shut, Mars’s offer of support, Planetary’s need to justify evacuation, Carrying’s children staying on the island, and Trial’s obligation to include uncomfortable findings.
+
+Each opening remains five sentences and ends with its attributed quote. All other story content, questions, and answer keys are unchanged from the preceding version. This edit supersedes the verbatim quote restoration described above.

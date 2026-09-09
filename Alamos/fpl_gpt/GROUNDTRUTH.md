@@ -1,5 +1,7 @@
 **FIRST PERSON LEARNING**
 
+**Player-copy editing rule:** Within each displayed passage, state each fact, equation, variable definition, and instruction once. Integrate new givens into the existing wording; do not append a paraphrase of the setup. A source panel may repeat essential inputs so it stands alone, but render it as its own surface rather than concatenating it with the question setup. Go Deeper questions must still supply their own context and data without referring to earlier cases.
+
 **GROUND TRUTH**
 
 AP Physics C: Electricity and Magnetism Campaign Implementation Bible
@@ -66,7 +68,10 @@ Implementation is linear at the evidence level. A wrong answer teaches, permits 
 
 ### Opening sequence - exact player copy, maximum five sentences
 
-You are the station test lead, which means you trace what burned a remote circuit during a lightning shot. At Station 12, you will use electricity and magnetism to make the call. The last storm window closes in fifteen days. The next crew needs a station it can trust. A clean screen is no use if it missed the dangerous pulse.
+You are the station test lead, which means you trace what burned a remote circuit during a lightning shot. At Station 12, you will use electricity and magnetism to make the call. The last storm window closes in fifteen days. The next crew needs a station it can trust; a clean screen is no use if it missed the dangerous pulse. Director Lena Ortiz hands you the report board and says, “We signed off on that station once already; this time, show me what our tests missed.”
+
+**Opening-card requirement:** The character quote is the final player-visible text on this card; place no explanatory sentence after it. Keep it brief and natural: it should add the speaker’s concern or commitment rather than summarize the preceding setup. Show the whole opening together with one Continue action.
+
 
 
 ### Concrete stakes
@@ -341,6 +346,11 @@ Every mission below supplies its briefing promise, primer, story event, beat scr
 
 **Delivery:** Keep player control and normal world view. No new graded stop follows the final accepted decision. The ending card appears after the player reaches the payoff view, or through an accessible View ending control that skips movement without skipping any scientific gate. Optional review and worked examples remain available through the completed mission menu.
 
+
+### Standalone Go Deeper question contract
+
+Each optional review question must work when copied out on its own. Supply its setting, givens, units, definitions, and any required figure within that question. Do not mention a mission title, a prior case, a teammate rechecking earlier work, a completed plan, or unseen cards, observations, or results. Do not assume that another review question was read. Choices, hints, and feedback obey the same rule. Use brief conceptual questions or complete applied problems; figures must match the question rather than merely share its course.
+
 # Mission 1 - Write the Stop Rule
 
 **MISSION BRIEFING CARD - EXACT PLAYER COPY**
@@ -563,7 +573,7 @@ Electric field is a vector. A signed component says direction, while its magnitu
 
 **Question card story-science connection - exact player copy:** The combined vertical field supplies the predicted crew-height exposure against which the field mills will be checked.
 
-**Fixture source panel - exact player copy:** At the sensor, the upper cloud layer contributes E_1y = -3.0 kV/m and the lower layer contributes E_2y = -1.5 kV/m. Both contributions point downward, the negative vertical direction. E_1y = -3.0 kV/m, upper-layer contribution at the sensor E_2y = -1.5 kV/m, lower-layer contribution at the sensor
+**Fixture source panel - exact player copy:** At the sensor, the upper cloud layer contributes E_1y=-3.0 kV/m and the lower layer contributes E_2y=-1.5 kV/m. Both point downward, the negative vertical direction.
 
 **Source-panel timing:** Show at this stop’s declared fixture before its DERIVE choices unlock. Keep visible while the player works. These are model inputs and prior observations, not new measurements or an accepted answer. Symbolic derivations stay symbolic; do not invent a number merely to force substitution.
 
@@ -766,89 +776,157 @@ Mission decision: Use both limits for every shot. Launch only when the field is 
 
 **Availability:** Reveal only after mission completion when the player selects **GO DEEPER**. This section is optional, ungraded for campaign progress, and does not change metrics, Recovery Points, or the next-mission unlock.
 
-**Secondary briefing card - exact player copy:** You completed Write the Stop Rule. Choose GO DEEPER to revisit the four decisions and explore related course ideas; this optional review does not change your metrics or delay the next mission.
+**Secondary briefing card - exact player copy:** Try six independent practice questions. Each includes its own context and any needed data; no mission records are required.
 
 ### Review focus
 
-No additional prerequisite is required. These AP-style questions apply the mission's course ideas to follow-up evidence, including related topics not required in the four main stops.
+No additional prerequisite is required. These practice questions review related course ideas. Each question stands alone, including its choices and figure.
 
 ### Review question 1
 
-**Prompt - exact player copy:** In a follow-up to Write the Stop Rule, two field mills label upward as positive, while two old channels label downward as positive. Assign a response to each condition now so the crew has an action rule it can follow under pressure. Which prediction or calculation correctly applies Electric charge to this case?
+
+**Prompt - exact player copy:** Which statement best explains electric charge?
 
 **Options - exact player copy:**
 
 - A. A sign convention changes labels, not the actual direction of the field.
-- B. A property of matter that creates electric force; like signs repel and unlike signs attract. Electric field: force per positive test charge, measured in newtons per coulomb or volts per metre. Superposition: add each source's field as a vector to obtain the net field.
-- C. Vector addition determines whether layer fields reinforce or cancel at crew height.
+- B. A property of matter that creates electric force; like signs repel and unlike signs attract.
+- C. Vector addition determines whether layer fields reinforce or cancel at the measurement point.
 - D. A safe average does not prove that every sensor is consistent with the same field.
 
 **Correct answer:** B
 
-**Hint - exact player copy:** Use the stated evidence and the conditions for Electric charge; do not choose an option merely because it names a familiar term.
+**Hint - exact player copy:** Identify the defining relationship or mechanism for electric charge. All needed information is in this question.
 
 **Option feedback - exact player copy:**
 
-- A: This describes field direction/sign, not Electric charge. It does not account for the quantities, conditions, or evidence in this electricity and magnetism case.
-- B: Correct. a property of matter that creates electric force; like signs repel and unlike signs attract. Electric field: force per positive test charge, measured in newtons per coulomb or volts per metre. Superposition: add each source's field as a vector to obtain the net field.
-- C: This describes vector superposition, not Electric charge. It does not account for the quantities, conditions, or evidence in this electricity and magnetism case.
-- D: This describes uncertainty/range, not Electric charge. It does not account for the quantities, conditions, or evidence in this electricity and magnetism case.
+- A: This describes field direction and sign. It does not answer the question about electric charge.
+- B: Correct. A property of matter that creates electric force; like signs repel and unlike signs attract.
+- C: This describes vector superposition. It does not answer the question about electric charge.
+- D: This describes uncertainty and range. It does not answer the question about electric charge.
+
 ### Review question 2
 
-**Prompt - exact player copy:** Station 12 receives a second case related to Write the Stop Rule: two field mills label upward as positive, while two old channels label downward as positive. Assign a response to each condition now so the crew has an action rule it can follow under pressure. Which prediction or calculation correctly applies field direction/sign to this case?
+
+**Prompt - exact player copy:** Which statement best explains field direction and sign?
 
 **Options - exact player copy:**
 
-- A. A property of matter that creates electric force; like signs repel and unlike signs attract. Electric field: force per positive test charge, measured in newtons per coulomb or volts per metre. Superposition: add each source's field as a vector to obtain the net field.
-- B. Vector addition determines whether layer fields reinforce or cancel at crew height.
+- A. A property of matter that creates electric force; like signs repel and unlike signs attract.
+- B. Vector addition determines whether layer fields reinforce or cancel at the measurement point.
 - C. A sign convention changes labels, not the actual direction of the field.
 - D. A safe average does not prove that every sensor is consistent with the same field.
 
 **Correct answer:** C
 
-**Hint - exact player copy:** Use the stated evidence and the conditions for field direction/sign; do not choose an option merely because it names a familiar term.
+**Hint - exact player copy:** Identify the defining relationship or mechanism for field direction and sign. All needed information is in this question.
 
 **Option feedback - exact player copy:**
 
-- A: This describes Electric charge, not field direction/sign. It does not account for the quantities, conditions, or evidence in this electricity and magnetism case.
-- B: This describes vector superposition, not field direction/sign. It does not account for the quantities, conditions, or evidence in this electricity and magnetism case.
-- C: Correct. a sign convention changes labels, not the actual direction of the field.
-- D: This describes uncertainty/range, not field direction/sign. It does not account for the quantities, conditions, or evidence in this electricity and magnetism case.
+- A: This describes electric charge. It does not answer the question about field direction and sign.
+- B: This describes vector superposition. It does not answer the question about field direction and sign.
+- C: Correct. A sign convention changes labels, not the actual direction of the field.
+- D: This describes uncertainty and range. It does not answer the question about field direction and sign.
+
 ### Review question 3
 
-**Prompt - exact player copy:** A teammate rechecks Write the Stop Rule using new evidence: two field mills label upward as positive, while two old channels label downward as positive. Assign a response to each condition now so the crew has an action rule it can follow under pressure. Which interpretation of the displayed evidence correctly uses the mission concept?
+
+**Prompt - exact player copy:** Two electric-field contributions at one point are plotted with upward positive. What is their net vertical field?
+
+**Figure - exact player copy:**
+
+```json
+{
+  "kind": "bars",
+  "xLabel": "Category",
+  "yLabel": "Vertical field (kV/m)",
+  "caption": "Upward is positive for both contributions",
+  "bars": [
+    {
+      "name": "Field 1",
+      "value": -3
+    },
+    {
+      "name": "Field 2",
+      "value": -1.5
+    }
+  ]
+}
+```
+
+**Options - exact player copy:**
+
+- A. +4.5 kV/m, upward.
+- B. -1.5 kV/m, downward.
+- C. 0 kV/m.
+- D. -4.5 kV/m, downward.
+
+**Correct answer:** D
+
+**Hint - exact player copy:** Add signed components defined on the same axis.
+
+**Option feedback - exact player copy:**
+
+- A: Both contributions are negative in the stated convention.
+- B: This subtracts magnitudes even though the fields point the same way.
+- C: The contributions are not equal and opposite.
+- D: Correct. -4.5 kV/m, downward.
+
+### Review question 4
+
+
+**Prompt - exact player copy:** Which statement best explains uncertainty and range?
+
+**Options - exact player copy:**
+
+- A. A safe average does not prove that every sensor is consistent with the same field.
+- B. A property of matter that creates electric force; like signs repel and unlike signs attract.
+- C. A sign convention changes labels, not the actual direction of the field.
+- D. Vector addition determines whether layer fields reinforce or cancel at the measurement point.
+
+**Correct answer:** A
+
+**Hint - exact player copy:** Identify the defining relationship or mechanism for uncertainty and range. All needed information is in this question.
+
+**Option feedback - exact player copy:**
+
+- A: Correct. A safe average does not prove that every sensor is consistent with the same field.
+- B: This describes electric charge. It does not answer the question about uncertainty and range.
+- C: This describes field direction and sign. It does not answer the question about uncertainty and range.
+- D: This describes vector superposition. It does not answer the question about uncertainty and range.
+
+### Review question 5
+
+
+**Prompt - exact player copy:** A rule is fixed in advance: stop at the first check with a reading of at least 5 units. At which plotted time should the stop occur?
 
 **Figure - exact player copy:**
 
 ```json
 {
   "kind": "line",
-  "xLabel": "Time (s)",
-  "yLabel": "Position (m)",
-  "caption": "Ride position increases with a changing slope.",
+  "xLabel": "Time (min)",
+  "yLabel": "Reading (units)",
+  "caption": "Readings at four successive checks",
   "series": [
     {
-      "name": "Position",
+      "name": "Reading",
       "points": [
         [
           0,
-          0
-        ],
-        [
-          1,
           2
         ],
         [
+          1,
+          3
+        ],
+        [
           2,
-          8
+          5
         ],
         [
           3,
-          18
-        ],
-        [
-          4,
-          32
+          6
         ]
       ]
     }
@@ -856,131 +934,49 @@ No additional prerequisite is required. These AP-style questions apply the missi
 }
 ```
 
-
 **Options - exact player copy:**
 
-- A. A property of matter that creates electric force; like signs repel and unlike signs attract. Electric field: force per positive test charge, measured in newtons per coulomb or volts per metre. Superposition: add each source's field as a vector to obtain the net field.
-- B. A sign convention changes labels, not the actual direction of the field.
-- C. A safe average does not prove that every sensor is consistent with the same field.
-- D. Vector addition determines whether layer fields reinforce or cancel at crew height.
-
-**Correct answer:** D
-
-**Hint - exact player copy:** Read the axes, units, direction, and any threshold before comparing the choices.
-
-**Option feedback - exact player copy:**
-
-- A: This describes Electric charge, not vector superposition. It does not account for the quantities, conditions, or evidence in this electricity and magnetism case.
-- B: This describes field direction/sign, not vector superposition. It does not account for the quantities, conditions, or evidence in this electricity and magnetism case.
-- C: This describes uncertainty/range, not vector superposition. It does not account for the quantities, conditions, or evidence in this electricity and magnetism case.
-- D: Correct. vector addition determines whether layer fields reinforce or cancel at crew height.
-### Review question 4
-
-**Prompt - exact player copy:** An unseen case extends Write the Stop Rule: with the predicted field fixed at -4.5 kV/m, four channels read -4.1, -4.2, -4.2, and -4.3 kV/m. Test the conclusion across the supported uncertainty range now, before the team treats it as robust. Which prediction or calculation correctly applies uncertainty/range to this case?
-
-**Options - exact player copy:**
-
-- A. A safe average does not prove that every sensor is consistent with the same field.
-- B. A property of matter that creates electric force; like signs repel and unlike signs attract. Electric field: force per positive test charge, measured in newtons per coulomb or volts per metre. Superposition: add each source's field as a vector to obtain the net field.
-- C. A sign convention changes labels, not the actual direction of the field.
-- D. Vector addition determines whether layer fields reinforce or cancel at crew height.
-
-**Correct answer:** A
-
-**Hint - exact player copy:** Use the stated evidence and the conditions for uncertainty/range; do not choose an option merely because it names a familiar term.
-
-**Option feedback - exact player copy:**
-
-- A: Correct. a safe average does not prove that every sensor is consistent with the same field.
-- B: This describes Electric charge, not uncertainty/range. It does not account for the quantities, conditions, or evidence in this electricity and magnetism case.
-- C: This describes field direction/sign, not uncertainty/range. It does not account for the quantities, conditions, or evidence in this electricity and magnetism case.
-- D: This describes vector superposition, not uncertainty/range. It does not account for the quantities, conditions, or evidence in this electricity and magnetism case.
-### Review question 5
-
-**Prompt - exact player copy:** Before another Write the Stop Rule decision, the team knows this: two field mills label upward as positive, while two old channels label downward as positive. Assign a response to each condition now so the crew has an action rule it can follow under pressure. Which interpretation of the displayed evidence correctly uses the mission concept?
-
-**Figure - exact player copy:**
-
-```json
-{
-  "kind": "line",
-  "xLabel": "Ordered measurement",
-  "yLabel": "Decision quantity",
-  "caption": "Measurements approach and then cross the action threshold.",
-  "series": [
-    {
-      "name": "Measured",
-      "points": [
-        [
-          1,
-          42
-        ],
-        [
-          2,
-          48
-        ],
-        [
-          3,
-          55
-        ],
-        [
-          4,
-          63
-        ],
-        [
-          5,
-          71
-        ]
-      ]
-    }
-  ],
-  "limit": {
-    "at": 60,
-    "label": "Action threshold"
-  }
-}
-```
-
-
-**Options - exact player copy:**
-
-- A. A property of matter that creates electric force; like signs repel and unlike signs attract. Electric field: force per positive test charge, measured in newtons per coulomb or volts per metre. Superposition: add each source's field as a vector to obtain the net field.
-- B. Precommitment prevents a desired launch from moving the safety threshold after evidence arrives.
-- C. A sign convention changes labels, not the actual direction of the field.
-- D. Vector addition determines whether layer fields reinforce or cancel at crew height.
+- A. 1 minute.
+- B. 2 minutes.
+- C. 3 minutes.
+- D. No stop is needed because the average is below 5.
 
 **Correct answer:** B
 
-**Hint - exact player copy:** Read the axes, units, direction, and any threshold before comparing the choices.
+**Hint - exact player copy:** At least includes equality.
 
 **Option feedback - exact player copy:**
 
-- A: This describes Electric charge, not precommitted threshold. It does not account for the quantities, conditions, or evidence in this electricity and magnetism case.
-- B: Correct. precommitment prevents a desired launch from moving the safety threshold after evidence arrives.
-- C: This describes field direction/sign, not precommitted threshold. It does not account for the quantities, conditions, or evidence in this electricity and magnetism case.
-- D: This describes vector superposition, not precommitted threshold. It does not account for the quantities, conditions, or evidence in this electricity and magnetism case.
+- A: The reading is only 3 units at 1 minute.
+- B: Correct. 2 minutes.
+- C: Waiting until 3 minutes misses the first qualifying check.
+- D: The rule applies to each reading, not the average.
+
 ### Review question 6
 
-**Prompt - exact player copy:** Station 12 applies the lesson from Write the Stop Rule to this follow-up: two field mills label upward as positive, while two old channels label downward as positive. Assign a response to each condition now so the crew has an action rule it can follow under pressure. Which prediction or calculation correctly applies Electric flux to this case?
+
+**Prompt - exact player copy:** Which statement best explains electric flux?
 
 **Options - exact player copy:**
 
-- A. A property of matter that creates electric force; like signs repel and unlike signs attract. Electric field: force per positive test charge, measured in newtons per coulomb or volts per metre. Superposition: add each source's field as a vector to obtain the net field.
+- A. A property of matter that creates electric force; like signs repel and unlike signs attract.
 - B. A sign convention changes labels, not the actual direction of the field.
-- C. The signed amount of electric field passing through a surface. Gaussian surface: an imaginary closed surface chosen to match field symmetry. Surface charge density: charge per area, written σ and measured in C/m².
-- D. Vector addition determines whether layer fields reinforce or cancel at crew height.
+- C. The signed amount of electric field passing through a surface.
+- D. Vector addition determines whether layer fields reinforce or cancel at the measurement point.
 
 **Correct answer:** C
 
-**Hint - exact player copy:** Use the stated evidence and the conditions for Electric flux; do not choose an option merely because it names a familiar term.
+**Hint - exact player copy:** Identify the defining relationship or mechanism for electric flux. All needed information is in this question.
 
 **Option feedback - exact player copy:**
 
-- A: This describes Electric charge, not Electric flux. It does not account for the quantities, conditions, or evidence in this electricity and magnetism case.
-- B: This describes field direction/sign, not Electric flux. It does not account for the quantities, conditions, or evidence in this electricity and magnetism case.
-- C: Correct. the signed amount of electric field passing through a surface. Gaussian surface: an imaginary closed surface chosen to match field symmetry. Surface charge density: charge per area, written σ and measured in C/m².
-- D: This describes vector superposition, not Electric flux. It does not account for the quantities, conditions, or evidence in this electricity and magnetism case.
-**Optional review completion - exact player copy:** Excellent work. You went beyond the required mission and strengthened the ideas behind your decision.
+- A: This describes electric charge. It does not answer the question about electric flux.
+- B: This describes field direction and sign. It does not answer the question about electric flux.
+- C: Correct. The signed amount of electric field passing through a surface.
+- D: This describes vector superposition. It does not answer the question about electric flux.
+
+**Optional review completion - exact player copy:** Good work. You have completed six independent practice questions.
+
 ## Quick concept review
 - The player can use today’s main model in the next decision.
 - **Mission takeaway:** Evidence must match the mechanism, units, and stated limits.
@@ -1395,190 +1391,190 @@ Mission decision: Use the field map to mark the mast tip. The strongest field is
 
 **Availability:** Reveal only after mission completion when the player selects **GO DEEPER**. This section is optional, ungraded for campaign progress, and does not change metrics, Recovery Points, or the next-mission unlock.
 
-**Secondary briefing card - exact player copy:** You completed Bound the Layer Charge. Choose GO DEEPER to revisit the four decisions and explore related course ideas; this optional review does not change your metrics or delay the next mission.
+**Secondary briefing card - exact player copy:** Try six independent practice questions. Each includes its own context and any needed data; no mission records are required.
 
 ### Review focus
 
-No additional prerequisite is required. These AP-style questions apply the mission's course ideas to follow-up evidence, including related topics not required in the four main stops.
+No additional prerequisite is required. These practice questions review related course ideas. Each question stands alone, including its choices and figure.
 
 ### Review question 1
 
-**Prompt - exact player copy:** In a follow-up to Bound the Layer Charge, with the sheet result available, Ravi rotates a virtual pillbox around the layer. Assign a response to each condition now so the crew has an action rule it can follow under pressure. Which prediction or calculation correctly applies Electric flux to this case?
+
+**Prompt - exact player copy:** Which statement best explains electric flux?
 
 **Options - exact player copy:**
 
 - A. Symmetry makes the two pillbox faces equal and the curved side contribute zero flux.
-- B. The signed amount of electric field passing through a surface. Gaussian surface: an imaginary closed surface chosen to match field symmetry. Surface charge density: charge per area, written σ and measured in C/m².
-- C. The dot product, not area alone, decides each surface's signed contribution.
-- D. The conductor boundary doubles the isolated-sheet field between cloud and ground.
+- B. The dot product, not area alone, decides each surface's signed contribution.
+- C. The conductor boundary doubles the isolated-sheet field between cloud and ground.
+- D. The signed amount of electric field passing through a surface.
 
-**Correct answer:** B
+**Correct answer:** D
 
-**Hint - exact player copy:** Use the stated evidence and the conditions for Electric flux; do not choose an option merely because it names a familiar term.
+**Hint - exact player copy:** Identify the defining relationship or mechanism for electric flux. All needed information is in this question.
 
 **Option feedback - exact player copy:**
 
-- A: This describes Gauss infinite sheet, not Electric flux. It does not account for the quantities, conditions, or evidence in this electricity and magnetism case.
-- B: Correct. the signed amount of electric field passing through a surface. Gaussian surface: an imaginary closed surface chosen to match field symmetry. Surface charge density: charge per area, written σ and measured in C/m².
-- C: This describes flux angle, not Electric flux. It does not account for the quantities, conditions, or evidence in this electricity and magnetism case.
-- D: This describes sheet plus image/conducting ground, not Electric flux. It does not account for the quantities, conditions, or evidence in this electricity and magnetism case.
+- A: This describes gauss’s law for an infinite charged sheet. It does not answer the question about electric flux.
+- B: This describes flux angle. It does not answer the question about electric flux.
+- C: This describes the field between a charged sheet and conducting ground. It does not answer the question about electric flux.
+- D: Correct. The signed amount of electric field passing through a surface.
+
 ### Review question 2
 
-**Prompt - exact player copy:** Station 12 receives a second case related to Bound the Layer Charge: the storm base is much wider than the station, so its field is nearly perpendicular to a small pillbox. Which prediction or calculation correctly applies Gauss infinite sheet to this case?
+
+**Prompt - exact player copy:** Which statement best explains gauss’s law for an infinite charged sheet?
 
 **Options - exact player copy:**
 
-- A. The signed amount of electric field passing through a surface. Gaussian surface: an imaginary closed surface chosen to match field symmetry. Surface charge density: charge per area, written σ and measured in C/m².
+- A. Symmetry makes the two pillbox faces equal and the curved side contribute zero flux.
+- B. The signed amount of electric field passing through a surface.
+- C. The dot product, not area alone, decides each surface's signed contribution.
+- D. The conductor boundary doubles the isolated-sheet field between cloud and ground.
+
+**Correct answer:** A
+
+**Hint - exact player copy:** Identify the defining relationship or mechanism for gauss’s law for an infinite charged sheet. All needed information is in this question.
+
+**Option feedback - exact player copy:**
+
+- A: Correct. Symmetry makes the two pillbox faces equal and the curved side contribute zero flux.
+- B: This describes electric flux. It does not answer the question about gauss’s law for an infinite charged sheet.
+- C: This describes flux angle. It does not answer the question about gauss’s law for an infinite charged sheet.
+- D: This describes the field between a charged sheet and conducting ground. It does not answer the question about gauss’s law for an infinite charged sheet.
+
+### Review question 3
+
+
+**Prompt - exact player copy:** Which statement best explains flux angle?
+
+**Options - exact player copy:**
+
+- A. The signed amount of electric field passing through a surface.
 - B. The dot product, not area alone, decides each surface's signed contribution.
 - C. Symmetry makes the two pillbox faces equal and the curved side contribute zero flux.
 - D. The conductor boundary doubles the isolated-sheet field between cloud and ground.
 
-**Correct answer:** C
+**Correct answer:** B
 
-**Hint - exact player copy:** Use the stated evidence and the conditions for Gauss infinite sheet; do not choose an option merely because it names a familiar term.
+**Hint - exact player copy:** Identify the defining relationship or mechanism for flux angle. All needed information is in this question.
 
 **Option feedback - exact player copy:**
 
-- A: This describes Electric flux, not Gauss infinite sheet. It does not account for the quantities, conditions, or evidence in this electricity and magnetism case.
-- B: This describes flux angle, not Gauss infinite sheet. It does not account for the quantities, conditions, or evidence in this electricity and magnetism case.
-- C: Correct. symmetry makes the two pillbox faces equal and the curved side contribute zero flux.
-- D: This describes sheet plus image/conducting ground, not Gauss infinite sheet. It does not account for the quantities, conditions, or evidence in this electricity and magnetism case.
-### Review question 3
+- A: This describes electric flux. It does not answer the question about flux angle.
+- B: Correct. The dot product, not area alone, decides each surface's signed contribution.
+- C: This describes gauss’s law for an infinite charged sheet. It does not answer the question about flux angle.
+- D: This describes the field between a charged sheet and conducting ground. It does not answer the question about flux angle.
 
-**Prompt - exact player copy:** A teammate rechecks Bound the Layer Charge using new evidence: with the sheet result available, Ravi rotates a virtual pillbox around the layer. Assign a response to each condition now so the crew has an action rule it can follow under pressure. Which prediction or calculation correctly applies flux angle to this case?
+### Review question 4
+
+
+**Prompt - exact player copy:** Which statement best explains the field between a charged sheet and conducting ground?
 
 **Options - exact player copy:**
 
-- A. The signed amount of electric field passing through a surface. Gaussian surface: an imaginary closed surface chosen to match field symmetry. Surface charge density: charge per area, written σ and measured in C/m².
+- A. The signed amount of electric field passing through a surface.
 - B. Symmetry makes the two pillbox faces equal and the curved side contribute zero flux.
 - C. The conductor boundary doubles the isolated-sheet field between cloud and ground.
 - D. The dot product, not area alone, decides each surface's signed contribution.
 
-**Correct answer:** D
+**Correct answer:** C
 
-**Hint - exact player copy:** Use the stated evidence and the conditions for flux angle; do not choose an option merely because it names a familiar term.
-
-**Option feedback - exact player copy:**
-
-- A: This describes Electric flux, not flux angle. It does not account for the quantities, conditions, or evidence in this electricity and magnetism case.
-- B: This describes Gauss infinite sheet, not flux angle. It does not account for the quantities, conditions, or evidence in this electricity and magnetism case.
-- C: This describes sheet plus image/conducting ground, not flux angle. It does not account for the quantities, conditions, or evidence in this electricity and magnetism case.
-- D: Correct. the dot product, not area alone, decides each surface's signed contribution.
-### Review question 4
-
-**Prompt - exact player copy:** An unseen case extends Bound the Layer Charge: because the conducting ground mirrors the layer field, the station model uses Eground=σ/ε₀, not the isolated-sheet value. Which prediction or calculation correctly applies sheet plus image/conducting ground to this case?
-
-**Options - exact player copy:**
-
-- A. The conductor boundary doubles the isolated-sheet field between cloud and ground.
-- B. The signed amount of electric field passing through a surface. Gaussian surface: an imaginary closed surface chosen to match field symmetry. Surface charge density: charge per area, written σ and measured in C/m².
-- C. Symmetry makes the two pillbox faces equal and the curved side contribute zero flux.
-- D. The dot product, not area alone, decides each surface's signed contribution.
-
-**Correct answer:** A
-
-**Hint - exact player copy:** Use the stated evidence and the conditions for sheet plus image/conducting ground; do not choose an option merely because it names a familiar term.
+**Hint - exact player copy:** Identify the defining relationship or mechanism for the field between a charged sheet and conducting ground. All needed information is in this question.
 
 **Option feedback - exact player copy:**
 
-- A: Correct. the conductor boundary doubles the isolated-sheet field between cloud and ground.
-- B: This describes Electric flux, not sheet plus image/conducting ground. It does not account for the quantities, conditions, or evidence in this electricity and magnetism case.
-- C: This describes Gauss infinite sheet, not sheet plus image/conducting ground. It does not account for the quantities, conditions, or evidence in this electricity and magnetism case.
-- D: This describes flux angle, not sheet plus image/conducting ground. It does not account for the quantities, conditions, or evidence in this electricity and magnetism case.
+- A: This describes electric flux. It does not answer the question about the field between a charged sheet and conducting ground.
+- B: This describes gauss’s law for an infinite charged sheet. It does not answer the question about the field between a charged sheet and conducting ground.
+- C: Correct. The conductor boundary doubles the isolated-sheet field between cloud and ground.
+- D: This describes flux angle. It does not answer the question about the field between a charged sheet and conducting ground.
+
 ### Review question 5
 
-**Prompt - exact player copy:** Before another Bound the Layer Charge decision, the team knows this: the storm base is much wider than the station, so its field is nearly perpendicular to a small pillbox. Which interpretation of the displayed evidence correctly uses the mission concept?
+
+**Prompt - exact player copy:** A model has the residuals shown. Residual means observed value minus predicted value. Which conclusion best fits the pattern?
 
 **Figure - exact player copy:**
 
 ```json
 {
   "kind": "line",
-  "xLabel": "Ordered observation",
-  "yLabel": "Residual",
-  "caption": "Residuals reveal whether error is random or structured.",
+  "xLabel": "Input value",
+  "yLabel": "Observed minus predicted (units)",
+  "caption": "Residuals from a fitted model",
   "series": [
     {
       "name": "Residual",
       "points": [
         [
           0,
-          2.2
+          0
         ],
         [
           1,
-          0.8
+          2
         ],
         [
           2,
-          -0.6
+          4
         ],
         [
           3,
-          -1.4
+          6
         ],
         [
           4,
-          -0.5
-        ],
-        [
-          5,
-          0.9
-        ],
-        [
-          6,
-          2.1
+          8
         ]
       ]
     }
-  ],
-  "limit": {
-    "at": 0,
-    "label": "Zero residual"
-  }
+  ]
 }
 ```
 
+**Options - exact player copy:**
+
+- A. The model increasingly overpredicts.
+- B. The errors have no relation to the input.
+- C. The model fits every observation exactly.
+- D. The model increasingly underpredicts as the input grows.
+
+**Correct answer:** D
+
+**Hint - exact player copy:** Use the sign of observed minus predicted and check for a pattern.
+
+**Option feedback - exact player copy:**
+
+- A: Positive residuals mean observations exceed predictions, not the reverse.
+- B: Residuals rise systematically with the input.
+- C: An exact fit would have zero residual at every point.
+- D: Correct. The model increasingly underpredicts as the input grows.
+
+### Review question 6
+
+
+**Prompt - exact player copy:** Which statement best explains electric charge?
 
 **Options - exact player copy:**
 
-- A. The signed amount of electric field passing through a surface. Gaussian surface: an imaginary closed surface chosen to match field symmetry. Surface charge density: charge per area, written σ and measured in C/m².
-- B. A spatial pattern means the model is missing physics even when its mean error is small.
+- A. A property of matter that creates electric force; like signs repel and unlike signs attract.
+- B. The signed amount of electric field passing through a surface.
 - C. Symmetry makes the two pillbox faces equal and the curved side contribute zero flux.
 - D. The dot product, not area alone, decides each surface's signed contribution.
 
-**Correct answer:** B
+**Correct answer:** A
 
-**Hint - exact player copy:** Read the axes, units, direction, and any threshold before comparing the choices.
-
-**Option feedback - exact player copy:**
-
-- A: This describes Electric flux, not model residuals. It does not account for the quantities, conditions, or evidence in this electricity and magnetism case.
-- B: Correct. a spatial pattern means the model is missing physics even when its mean error is small.
-- C: This describes Gauss infinite sheet, not model residuals. It does not account for the quantities, conditions, or evidence in this electricity and magnetism case.
-- D: This describes flux angle, not model residuals. It does not account for the quantities, conditions, or evidence in this electricity and magnetism case.
-### Review question 6
-
-**Prompt - exact player copy:** Station 12 applies the lesson from Bound the Layer Charge to this follow-up: because the conducting ground mirrors the layer field, the station model uses Eground=σ/ε₀, not the isolated-sheet value. Which prediction or calculation correctly applies Electric charge to this case?
-
-**Options - exact player copy:**
-
-- A. The signed amount of electric field passing through a surface. Gaussian surface: an imaginary closed surface chosen to match field symmetry. Surface charge density: charge per area, written σ and measured in C/m².
-- B. Symmetry makes the two pillbox faces equal and the curved side contribute zero flux.
-- C. A property of matter that creates electric force; like signs repel and unlike signs attract. Electric field: force per positive test charge, measured in newtons per coulomb or volts per metre. Superposition: add each source's field as a vector to obtain the net field.
-- D. The dot product, not area alone, decides each surface's signed contribution.
-
-**Correct answer:** C
-
-**Hint - exact player copy:** Use the stated evidence and the conditions for Electric charge; do not choose an option merely because it names a familiar term.
+**Hint - exact player copy:** Identify the defining relationship or mechanism for electric charge. All needed information is in this question.
 
 **Option feedback - exact player copy:**
 
-- A: This describes Electric flux, not Electric charge. It does not account for the quantities, conditions, or evidence in this electricity and magnetism case.
-- B: This describes Gauss infinite sheet, not Electric charge. It does not account for the quantities, conditions, or evidence in this electricity and magnetism case.
-- C: Correct. a property of matter that creates electric force; like signs repel and unlike signs attract. Electric field: force per positive test charge, measured in newtons per coulomb or volts per metre. Superposition: add each source's field as a vector to obtain the net field.
-- D: This describes flux angle, not Electric charge. It does not account for the quantities, conditions, or evidence in this electricity and magnetism case.
-**Optional review completion - exact player copy:** Excellent work. You went beyond the required mission and strengthened the ideas behind your decision.
+- A: Correct. A property of matter that creates electric force; like signs repel and unlike signs attract.
+- B: This describes electric flux. It does not answer the question about electric charge.
+- C: This describes gauss’s law for an infinite charged sheet. It does not answer the question about electric charge.
+- D: This describes flux angle. It does not answer the question about electric charge.
+
+**Optional review completion - exact player copy:** Good work. You have completed six independent practice questions.
+
 ## Quick concept review
 - The player can use today’s main model in the next decision.
 - **Mission takeaway:** Evidence must match the mechanism, units, and stated limits.
@@ -1782,11 +1778,11 @@ Potential is scalar, but its spatial derivative gives the vector field. The lead
 
 **Stop reason - exact player copy:** A ground-level field alone cannot describe the voltage available across the cloud's full height.
 
-**Question card story setup - exact player copy:** The layer model gives a uniform vertical field Ey=-9.0 kV/m from ground at y=0 to cloud at y=40 km. The layer model gives a uniform vertical field E_y=-9.0 kV/m from ground at y=0 to cloud at y=40 km. Derive V_cloud-V_ground with the sign intact.
+**Question card story setup - exact player copy:** The layer model gives a uniform vertical field E_y=-9.0 kV/m from ground at y=0 to cloud at y=40 km. Derive V_cloud-V_ground with the sign intact.
 
 **Question card story-science connection - exact player copy:** The cloud-to-ground potential difference sets the voltage scale the later test bank can represent only approximately.
 
-**Fixture source panel - exact player copy:** The layer model gives a uniform vertical field Ey=-9.0 kV/m from ground at y=0 to cloud at y=40 km. The layer model gives a uniform vertical field E_y=-9.0 kV/m from ground at y=0 to cloud at y=40 km. Derive V_cloud-V_ground with the sign intact. Build four lines and name each rule; use 1 km=1000 m
+**Fixture source panel - exact player copy:** The layer model gives a uniform vertical field E_y=-9.0 kV/m from ground at y=0 to cloud at y=40 km. Derive V_cloud-V_ground with the sign intact. Build four lines and name each rule; use 1 km=1000 m
 
 **Source-panel timing:** Show at this stop’s declared fixture before its DERIVE choices unlock. Keep visible while the player works. These are model inputs and prior observations, not new measurements or an accepted answer. Symbolic derivations stay symbolic; do not invent a number merely to force substitution.
 
@@ -1806,7 +1802,7 @@ Potential is scalar, but its spatial derivative gives the vector field. The lead
 
 ```yaml
 derive:
-  givens: ["The layer model gives a uniform vertical field Ey=-9.0 kV/m from ground at y=0 to cloud at y=40 km. The layer model gives a uniform vertical field E_y=-9.0 kV/m from ground at y=0 to cloud at y=40 km.", "Build four lines and name each rule; use 1 km=1000 m"]
+  givens: ["The layer model gives a uniform vertical field E_y=-9.0 kV/m from ground at y=0 to cloud at y=40 km.", "Build four lines and name each rule; use 1 km=1000 m"]
   start: "Begin with the complete starting relation on the card. Preserve its named left side on every line."
   goal: "Derive voltage from uniform field in the form and units requested by the prompt"
   left_side: "ΔV"
@@ -2038,139 +2034,152 @@ Mission decision: Use 250–378 MV for the cloud-ground potential. Field directi
 
 **Availability:** Reveal only after mission completion when the player selects **GO DEEPER**. This section is optional, ungraded for campaign progress, and does not change metrics, Recovery Points, or the next-mission unlock.
 
-**Secondary briefing card - exact player copy:** You completed From Field to Voltage. Choose GO DEEPER to revisit the four decisions and explore related course ideas; this optional review does not change your metrics or delay the next mission.
+**Secondary briefing card - exact player copy:** Try six independent practice questions. Each includes its own context and any needed data; no mission records are required.
 
 ### Review focus
 
-No additional prerequisite is required. These AP-style questions apply the mission's course ideas to follow-up evidence, including related topics not required in the four main stops.
+No additional prerequisite is required. These practice questions review related course ideas. Each question stands alone, including its choices and figure.
 
 ### Review question 1
 
-**Prompt - exact player copy:** In a follow-up to From Field to Voltage, the layer model gives a uniform vertical field Ey=-9.0 kV/m from ground at y=0 to cloud at y=40 km. Which prediction or calculation correctly applies Electric potential to this case?
+
+**Prompt - exact player copy:** Which statement best explains electric potential?
 
 **Options - exact player copy:**
 
 - A. The minus sign makes potential rise when the path runs opposite the field.
-- B. Electric potential energy per charge, measured in volts. Equipotential: a path or surface along which voltage does not change. Line integral: a sum of tiny contributions along a path.
+- B. Electric potential energy per charge, measured in volts.
 - C. E=-∇V fixes both direction and where a strong field needs close contour spacing.
 - D. Agreement between different measurements is stronger when their sensors and assumptions differ.
 
 **Correct answer:** B
 
-**Hint - exact player copy:** Use the stated evidence and the conditions for Electric potential; do not choose an option merely because it names a familiar term.
+**Hint - exact player copy:** Identify the defining relationship or mechanism for electric potential. All needed information is in this question.
 
 **Option feedback - exact player copy:**
 
-- A: This describes field-potential integral, not Electric potential. It does not account for the quantities, conditions, or evidence in this electricity and magnetism case.
-- B: Correct. electric potential energy per charge, measured in volts. Equipotential: a path or surface along which voltage does not change. Line integral: a sum of tiny contributions along a path.
-- C: This describes equipotential geometry, not Electric potential. It does not account for the quantities, conditions, or evidence in this electricity and magnetism case.
-- D: This describes numerical line integral/trapezoid, not Electric potential. It does not account for the quantities, conditions, or evidence in this electricity and magnetism case.
+- A: This describes field-potential integral. It does not answer the question about electric potential.
+- B: Correct. Electric potential energy per charge, measured in volts.
+- C: This describes equipotential geometry. It does not answer the question about electric potential.
+- D: This describes numerical line integral and trapezoid. It does not answer the question about electric potential.
+
 ### Review question 2
 
-**Prompt - exact player copy:** Station 12 receives a second case related to From Field to Voltage: the layer model gives a uniform vertical field Ey=-9.0 kV/m from ground at y=0 to cloud at y=40 km. Which option correctly carries out the required field-potential integral reasoning?
+
+**Prompt - exact player copy:** Which statement best explains field-potential integral?
 
 **Options - exact player copy:**
 
-- A. Electric potential energy per charge, measured in volts. Equipotential: a path or surface along which voltage does not change. Line integral: a sum of tiny contributions along a path.
+- A. Electric potential energy per charge, measured in volts.
 - B. E=-∇V fixes both direction and where a strong field needs close contour spacing.
 - C. The minus sign makes potential rise when the path runs opposite the field.
 - D. Agreement between different measurements is stronger when their sensors and assumptions differ.
 
 **Correct answer:** C
 
-**Hint - exact player copy:** Use the stated evidence and the conditions for field-potential integral; do not choose an option merely because it names a familiar term.
+**Hint - exact player copy:** Identify the defining relationship or mechanism for field-potential integral. All needed information is in this question.
 
 **Option feedback - exact player copy:**
 
-- A: This describes Electric potential, not field-potential integral. It does not account for the quantities, conditions, or evidence in this electricity and magnetism case.
-- B: This describes equipotential geometry, not field-potential integral. It does not account for the quantities, conditions, or evidence in this electricity and magnetism case.
-- C: Correct. the minus sign makes potential rise when the path runs opposite the field.
-- D: This describes numerical line integral/trapezoid, not field-potential integral. It does not account for the quantities, conditions, or evidence in this electricity and magnetism case.
+- A: This describes electric potential. It does not answer the question about field-potential integral.
+- B: This describes equipotential geometry. It does not answer the question about field-potential integral.
+- C: Correct. The minus sign makes potential rise when the path runs opposite the field.
+- D: This describes numerical line integral and trapezoid. It does not answer the question about field-potential integral.
+
 ### Review question 3
 
-**Prompt - exact player copy:** A teammate rechecks From Field to Voltage using new evidence: with cloud potential established as higher than ground, the display shows four candidate contour maps. The next action depends on selecting the conclusion that fits all of those facts. Which prediction or calculation correctly applies equipotential geometry to this case?
+
+**Prompt - exact player copy:** Which statement best explains equipotential geometry?
 
 **Options - exact player copy:**
 
-- A. Electric potential energy per charge, measured in volts. Equipotential: a path or surface along which voltage does not change. Line integral: a sum of tiny contributions along a path.
+- A. Electric potential energy per charge, measured in volts.
 - B. The minus sign makes potential rise when the path runs opposite the field.
 - C. Agreement between different measurements is stronger when their sensors and assumptions differ.
 - D. E=-∇V fixes both direction and where a strong field needs close contour spacing.
 
 **Correct answer:** D
 
-**Hint - exact player copy:** Use the stated evidence and the conditions for equipotential geometry; do not choose an option merely because it names a familiar term.
+**Hint - exact player copy:** Identify the defining relationship or mechanism for equipotential geometry. All needed information is in this question.
 
 **Option feedback - exact player copy:**
 
-- A: This describes Electric potential, not equipotential geometry. It does not account for the quantities, conditions, or evidence in this electricity and magnetism case.
-- B: This describes field-potential integral, not equipotential geometry. It does not account for the quantities, conditions, or evidence in this electricity and magnetism case.
-- C: This describes numerical line integral/trapezoid, not equipotential geometry. It does not account for the quantities, conditions, or evidence in this electricity and magnetism case.
-- D: Correct. e=-∇V fixes both direction and where a strong field needs close contour spacing.
+- A: This describes electric potential. It does not answer the question about equipotential geometry.
+- B: This describes field-potential integral. It does not answer the question about equipotential geometry.
+- C: This describes numerical line integral and trapezoid. It does not answer the question about equipotential geometry.
+- D: Correct. E=-∇V fixes both direction and where a strong field needs close contour spacing.
+
 ### Review question 4
 
-**Prompt - exact player copy:** An unseen case extends From Field to Voltage: because the contour test confirms the sign, integrate an independent balloon profile with fields -6,-8,-10,-8 kV/m across three 10 km layers. Which option correctly carries out the required numerical line integral/trapezoid reasoning?
+
+**Prompt - exact player copy:** Which statement best explains numerical line integral and trapezoid?
 
 **Options - exact player copy:**
 
 - A. Agreement between different measurements is stronger when their sensors and assumptions differ.
-- B. Electric potential energy per charge, measured in volts. Equipotential: a path or surface along which voltage does not change. Line integral: a sum of tiny contributions along a path.
+- B. Electric potential energy per charge, measured in volts.
 - C. The minus sign makes potential rise when the path runs opposite the field.
 - D. E=-∇V fixes both direction and where a strong field needs close contour spacing.
 
 **Correct answer:** A
 
-**Hint - exact player copy:** Use the stated evidence and the conditions for numerical line integral/trapezoid; do not choose an option merely because it names a familiar term.
+**Hint - exact player copy:** Identify the defining relationship or mechanism for numerical line integral and trapezoid. All needed information is in this question.
 
 **Option feedback - exact player copy:**
 
-- A: Correct. agreement between different measurements is stronger when their sensors and assumptions differ.
-- B: This describes Electric potential, not numerical line integral/trapezoid. It does not account for the quantities, conditions, or evidence in this electricity and magnetism case.
-- C: This describes field-potential integral, not numerical line integral/trapezoid. It does not account for the quantities, conditions, or evidence in this electricity and magnetism case.
-- D: This describes equipotential geometry, not numerical line integral/trapezoid. It does not account for the quantities, conditions, or evidence in this electricity and magnetism case.
+- A: Correct. Agreement between different measurements is stronger when their sensors and assumptions differ.
+- B: This describes electric potential. It does not answer the question about numerical line integral and trapezoid.
+- C: This describes field-potential integral. It does not answer the question about numerical line integral and trapezoid.
+- D: This describes equipotential geometry. It does not answer the question about numerical line integral and trapezoid.
+
 ### Review question 5
 
-**Prompt - exact player copy:** Before another From Field to Voltage decision, the team knows this: now two valid profiles give 250 MV and 360 MV, while balloon altitude may shift by ±2 km. Test the conclusion across the supported uncertainty range now, before the team treats it as robust. Which prediction or calculation correctly applies model range to this case?
+
+**Prompt - exact player copy:** Which statement best explains model range?
 
 **Options - exact player copy:**
 
-- A. Electric potential energy per charge, measured in volts. Equipotential: a path or surface along which voltage does not change. Line integral: a sum of tiny contributions along a path.
+- A. Electric potential energy per charge, measured in volts.
 - B. A bounded interval preserves disagreement instead of hiding it in one unjustified number.
 - C. The minus sign makes potential rise when the path runs opposite the field.
 - D. E=-∇V fixes both direction and where a strong field needs close contour spacing.
 
 **Correct answer:** B
 
-**Hint - exact player copy:** Use the stated evidence and the conditions for model range; do not choose an option merely because it names a familiar term.
+**Hint - exact player copy:** Identify the defining relationship or mechanism for model range. All needed information is in this question.
 
 **Option feedback - exact player copy:**
 
-- A: This describes Electric potential, not model range. It does not account for the quantities, conditions, or evidence in this electricity and magnetism case.
-- B: Correct. a bounded interval preserves disagreement instead of hiding it in one unjustified number.
-- C: This describes field-potential integral, not model range. It does not account for the quantities, conditions, or evidence in this electricity and magnetism case.
-- D: This describes equipotential geometry, not model range. It does not account for the quantities, conditions, or evidence in this electricity and magnetism case.
+- A: This describes electric potential. It does not answer the question about model range.
+- B: Correct. A bounded interval preserves disagreement instead of hiding it in one unjustified number.
+- C: This describes field-potential integral. It does not answer the question about model range.
+- D: This describes equipotential geometry. It does not answer the question about model range.
+
 ### Review question 6
 
-**Prompt - exact player copy:** Station 12 applies the lesson from From Field to Voltage to this follow-up: the layer model gives a uniform vertical field Ey=-9.0 kV/m from ground at y=0 to cloud at y=40 km. Which prediction or calculation correctly applies Electric charge to this case?
+
+**Prompt - exact player copy:** Which statement best explains electric charge?
 
 **Options - exact player copy:**
 
-- A. Electric potential energy per charge, measured in volts. Equipotential: a path or surface along which voltage does not change. Line integral: a sum of tiny contributions along a path.
+- A. Electric potential energy per charge, measured in volts.
 - B. The minus sign makes potential rise when the path runs opposite the field.
-- C. A property of matter that creates electric force; like signs repel and unlike signs attract. Electric field: force per positive test charge, measured in newtons per coulomb or volts per metre. Superposition: add each source's field as a vector to obtain the net field.
+- C. A property of matter that creates electric force; like signs repel and unlike signs attract.
 - D. E=-∇V fixes both direction and where a strong field needs close contour spacing.
 
 **Correct answer:** C
 
-**Hint - exact player copy:** Use the stated evidence and the conditions for Electric charge; do not choose an option merely because it names a familiar term.
+**Hint - exact player copy:** Identify the defining relationship or mechanism for electric charge. All needed information is in this question.
 
 **Option feedback - exact player copy:**
 
-- A: This describes Electric potential, not Electric charge. It does not account for the quantities, conditions, or evidence in this electricity and magnetism case.
-- B: This describes field-potential integral, not Electric charge. It does not account for the quantities, conditions, or evidence in this electricity and magnetism case.
-- C: Correct. a property of matter that creates electric force; like signs repel and unlike signs attract. Electric field: force per positive test charge, measured in newtons per coulomb or volts per metre. Superposition: add each source's field as a vector to obtain the net field.
-- D: This describes equipotential geometry, not Electric charge. It does not account for the quantities, conditions, or evidence in this electricity and magnetism case.
-**Optional review completion - exact player copy:** Excellent work. You went beyond the required mission and strengthened the ideas behind your decision.
+- A: This describes electric potential. It does not answer the question about electric charge.
+- B: This describes field-potential integral. It does not answer the question about electric charge.
+- C: Correct. A property of matter that creates electric force; like signs repel and unlike signs attract.
+- D: This describes equipotential geometry. It does not answer the question about electric charge.
+
+**Optional review completion - exact player copy:** Good work. You have completed six independent practice questions.
+
 ## Quick concept review
 - The player can use today’s main model in the next decision.
 - **Mission takeaway:** Evidence must match the mechanism, units, and stated limits.
@@ -2595,139 +2604,152 @@ Mission decision: Tip enhancement did not by itself cause the outstation loss. I
 
 **Availability:** Reveal only after mission completion when the player selects **GO DEEPER**. This section is optional, ungraded for campaign progress, and does not change metrics, Recovery Points, or the next-mission unlock.
 
-**Secondary briefing card - exact player copy:** You completed The Point on the Skyline. Choose GO DEEPER to revisit the four decisions and explore related course ideas; this optional review does not change your metrics or delay the next mission.
+**Secondary briefing card - exact player copy:** Try six independent practice questions. Each includes its own context and any needed data; no mission records are required.
 
 ### Review focus
 
-No additional prerequisite is required. These AP-style questions apply the mission's course ideas to follow-up evidence, including related topics not required in the four main stops.
+No additional prerequisite is required. These practice questions review related course ideas. Each question stands alone, including its choices and figure.
 
 ### Review question 1
 
-**Prompt - exact player copy:** In a follow-up to The Point on the Skyline, the mast sits at one voltage after charge settles, but four sketches show different interior and surface fields. The next action depends on selecting the conclusion that fits all of those facts. Which prediction or calculation correctly applies Conductor to this case?
+
+**Prompt - exact player copy:** Which statement best explains conductor?
 
 **Options - exact player copy:**
 
 - A. Zero interior field and perpendicular exterior field rule out three pictures.
-- B. Material whose mobile charge rearranges easily. Electrostatic equilibrium: settled state with zero field inside a conductor. Breakdown field: field above which the campaign's air model conducts.
-- C. Equal potential makes E=V/R, so smaller curvature radius means larger field.
-- D. Induced surface charge cancels static field inside a closed conductor.
+- B. Equal potential makes E=V/R, so smaller curvature radius means larger field.
+- C. Induced surface charge cancels static field inside a closed conductor.
+- D. Material whose mobile charge rearranges easily.
 
-**Correct answer:** B
+**Correct answer:** D
 
-**Hint - exact player copy:** Use the stated evidence and the conditions for Conductor; do not choose an option merely because it names a familiar term.
+**Hint - exact player copy:** Identify the defining relationship or mechanism for conductor. All needed information is in this question.
 
 **Option feedback - exact player copy:**
 
-- A: This describes conductor equilibrium, not Conductor. It does not account for the quantities, conditions, or evidence in this electricity and magnetism case.
-- B: Correct. material whose mobile charge rearranges easily. Electrostatic equilibrium: settled state with zero field inside a conductor. Breakdown field: field above which the campaign's air model conducts.
-- C: This describes spherical-curvature proxy, not Conductor. It does not account for the quantities, conditions, or evidence in this electricity and magnetism case.
-- D: This describes shielding/conductor, not Conductor. It does not account for the quantities, conditions, or evidence in this electricity and magnetism case.
+- A: This describes conductor equilibrium. It does not answer the question about conductor.
+- B: This describes spherical-curvature proxy. It does not answer the question about conductor.
+- C: This describes shielding and conductor. It does not answer the question about conductor.
+- D: Correct. Material whose mobile charge rearranges easily.
+
 ### Review question 2
 
-**Prompt - exact player copy:** Station 12 receives a second case related to The Point on the Skyline: the mast sits at one voltage after charge settles, but four sketches show different interior and surface fields. The next action depends on selecting the conclusion that fits all of those facts. Which prediction or calculation correctly applies conductor equilibrium to this case?
+
+**Prompt - exact player copy:** Which electric-field pattern is consistent with a conductor in electrostatic equilibrium?
 
 **Options - exact player copy:**
 
-- A. Material whose mobile charge rearranges easily. Electrostatic equilibrium: settled state with zero field inside a conductor. Breakdown field: field above which the campaign's air model conducts.
+- A. The field is zero within the conducting material and is perpendicular to its surface immediately outside.
+- B. Material whose mobile charge rearranges easily.
+- C. Equal potential makes E=V/R, so smaller curvature radius means larger field.
+- D. Induced surface charge cancels static field inside a closed conductor.
+
+**Correct answer:** A
+
+**Hint - exact player copy:** Identify the defining relationship or mechanism for conductor equilibrium. All needed information is in this question.
+
+**Option feedback - exact player copy:**
+
+- A: Correct. The field is zero within the conducting material and is perpendicular to its surface immediately outside.
+- B: This describes conductor. It does not answer the question about conductor equilibrium.
+- C: This describes spherical-curvature proxy. It does not answer the question about conductor equilibrium.
+- D: This describes shielding and conductor. It does not answer the question about conductor equilibrium.
+
+### Review question 3
+
+
+**Prompt - exact player copy:** Which statement best explains spherical-curvature proxy?
+
+**Options - exact player copy:**
+
+- A. Material whose mobile charge rearranges easily.
 - B. Equal potential makes E=V/R, so smaller curvature radius means larger field.
 - C. Zero interior field and perpendicular exterior field rule out three pictures.
 - D. Induced surface charge cancels static field inside a closed conductor.
 
-**Correct answer:** C
+**Correct answer:** B
 
-**Hint - exact player copy:** Use the stated evidence and the conditions for conductor equilibrium; do not choose an option merely because it names a familiar term.
+**Hint - exact player copy:** Identify the defining relationship or mechanism for spherical-curvature proxy. All needed information is in this question.
 
 **Option feedback - exact player copy:**
 
-- A: This describes Conductor, not conductor equilibrium. It does not account for the quantities, conditions, or evidence in this electricity and magnetism case.
-- B: This describes spherical-curvature proxy, not conductor equilibrium. It does not account for the quantities, conditions, or evidence in this electricity and magnetism case.
-- C: Correct. zero interior field and perpendicular exterior field rule out three pictures.
-- D: This describes shielding/conductor, not conductor equilibrium. It does not account for the quantities, conditions, or evidence in this electricity and magnetism case.
-### Review question 3
+- A: This describes conductor. It does not answer the question about spherical-curvature proxy.
+- B: Correct. Equal potential makes E=V/R, so smaller curvature radius means larger field.
+- C: This describes conductor equilibrium. It does not answer the question about spherical-curvature proxy.
+- D: This describes shielding and conductor. It does not answer the question about spherical-curvature proxy.
 
-**Prompt - exact player copy:** A teammate rechecks The Point on the Skyline using new evidence: with conductor boundaries fixed, approximate the tip and mast body as conducting spheres at the same potential, with radii 0.010 m and 0.50 m. Which prediction or calculation correctly applies spherical-curvature proxy to this case?
+### Review question 4
+
+
+**Prompt - exact player copy:** Which statement best explains shielding and conductor?
 
 **Options - exact player copy:**
 
-- A. Material whose mobile charge rearranges easily. Electrostatic equilibrium: settled state with zero field inside a conductor. Breakdown field: field above which the campaign's air model conducts.
+- A. Material whose mobile charge rearranges easily.
 - B. Zero interior field and perpendicular exterior field rule out three pictures.
 - C. Induced surface charge cancels static field inside a closed conductor.
 - D. Equal potential makes E=V/R, so smaller curvature radius means larger field.
 
-**Correct answer:** D
+**Correct answer:** C
 
-**Hint - exact player copy:** Use the stated evidence and the conditions for spherical-curvature proxy; do not choose an option merely because it names a familiar term.
+**Hint - exact player copy:** Identify the defining relationship or mechanism for shielding and conductor. All needed information is in this question.
 
 **Option feedback - exact player copy:**
 
-- A: This describes Conductor, not spherical-curvature proxy. It does not account for the quantities, conditions, or evidence in this electricity and magnetism case.
-- B: This describes conductor equilibrium, not spherical-curvature proxy. It does not account for the quantities, conditions, or evidence in this electricity and magnetism case.
-- C: This describes shielding/conductor, not spherical-curvature proxy. It does not account for the quantities, conditions, or evidence in this electricity and magnetism case.
-- D: Correct. equal potential makes E=V/R, so smaller curvature radius means larger field.
-### Review question 4
+- A: This describes conductor. It does not answer the question about shielding and conductor.
+- B: This describes conductor equilibrium. It does not answer the question about shielding and conductor.
+- C: Correct. Induced surface charge cancels static field inside a closed conductor.
+- D: This describes spherical-curvature proxy. It does not answer the question about shielding and conductor.
 
-**Prompt - exact player copy:** An unseen case extends The Point on the Skyline: because the tip model is local, test whether a closed conducting cabinet blocks a static external field. Commit the prediction and run the test now so the measurement can fairly accept or reject the proposed model. Which prediction or calculation correctly applies shielding/conductor to this case?
+### Review question 5
+
+
+**Prompt - exact player copy:** A sharp conductor tip produces corona, but an electronic card 200 m away is damaged. Why is the tip's field enhancement not a complete explanation?
 
 **Options - exact player copy:**
 
-- A. Induced surface charge cancels static field inside a closed conductor.
-- B. Material whose mobile charge rearranges easily. Electrostatic equilibrium: settled state with zero field inside a conductor. Breakdown field: field above which the campaign's air model conducts.
+- A. Material whose mobile charge rearranges easily.
+- B. Zero interior field and perpendicular exterior field rule out three pictures.
+- C. Equal potential makes E=V/R, so smaller curvature radius means larger field.
+- D. A mechanism carrying energy or an induced signal to the remote card must also be identified.
+
+**Correct answer:** D
+
+**Hint - exact player copy:** Identify the defining relationship or mechanism for local versus remote cause. All needed information is in this question.
+
+**Option feedback - exact player copy:**
+
+- A: This describes conductor. It does not answer the question about local versus remote cause.
+- B: This describes conductor equilibrium. It does not answer the question about local versus remote cause.
+- C: This describes spherical-curvature proxy. It does not answer the question about local versus remote cause.
+- D: Correct. A mechanism carrying energy or an induced signal to the remote card must also be identified.
+
+### Review question 6
+
+
+**Prompt - exact player copy:** Which statement best explains electric charge?
+
+**Options - exact player copy:**
+
+- A. A property of matter that creates electric force; like signs repel and unlike signs attract.
+- B. Material whose mobile charge rearranges easily.
 - C. Zero interior field and perpendicular exterior field rule out three pictures.
 - D. Equal potential makes E=V/R, so smaller curvature radius means larger field.
 
 **Correct answer:** A
 
-**Hint - exact player copy:** Use the stated evidence and the conditions for shielding/conductor; do not choose an option merely because it names a familiar term.
+**Hint - exact player copy:** Identify the defining relationship or mechanism for electric charge. All needed information is in this question.
 
 **Option feedback - exact player copy:**
 
-- A: Correct. induced surface charge cancels static field inside a closed conductor.
-- B: This describes Conductor, not shielding/conductor. It does not account for the quantities, conditions, or evidence in this electricity and magnetism case.
-- C: This describes conductor equilibrium, not shielding/conductor. It does not account for the quantities, conditions, or evidence in this electricity and magnetism case.
-- D: This describes spherical-curvature proxy, not shielding/conductor. It does not account for the quantities, conditions, or evidence in this electricity and magnetism case.
-### Review question 5
+- A: Correct. A property of matter that creates electric force; like signs repel and unlike signs attract.
+- B: This describes conductor. It does not answer the question about electric charge.
+- C: This describes conductor equilibrium. It does not answer the question about electric charge.
+- D: This describes spherical-curvature proxy. It does not answer the question about electric charge.
 
-**Prompt - exact player copy:** Before another Point on the Skyline decision, the team knows this: now the mast tip can exceed breakdown while a closed conductor remains field-free. Which prediction or calculation correctly applies local versus remote cause to this case?
+**Optional review completion - exact player copy:** Good work. You have completed six independent practice questions.
 
-**Options - exact player copy:**
-
-- A. Material whose mobile charge rearranges easily. Electrostatic equilibrium: settled state with zero field inside a conductor. Breakdown field: field above which the campaign's air model conducts.
-- B. A local strong field explains corona but cannot cross two hundred metres without a coupling path.
-- C. Zero interior field and perpendicular exterior field rule out three pictures.
-- D. Equal potential makes E=V/R, so smaller curvature radius means larger field.
-
-**Correct answer:** B
-
-**Hint - exact player copy:** Use the stated evidence and the conditions for local versus remote cause; do not choose an option merely because it names a familiar term.
-
-**Option feedback - exact player copy:**
-
-- A: This describes Conductor, not local versus remote cause. It does not account for the quantities, conditions, or evidence in this electricity and magnetism case.
-- B: Correct. a local strong field explains corona but cannot cross two hundred metres without a coupling path.
-- C: This describes conductor equilibrium, not local versus remote cause. It does not account for the quantities, conditions, or evidence in this electricity and magnetism case.
-- D: This describes spherical-curvature proxy, not local versus remote cause. It does not account for the quantities, conditions, or evidence in this electricity and magnetism case.
-### Review question 6
-
-**Prompt - exact player copy:** Station 12 applies the lesson from The Point on the Skyline to this follow-up: the mast sits at one voltage after charge settles, but four sketches show different interior and surface fields. The next action depends on selecting the conclusion that fits all of those facts. Which prediction or calculation correctly applies Electric charge to this case?
-
-**Options - exact player copy:**
-
-- A. Material whose mobile charge rearranges easily. Electrostatic equilibrium: settled state with zero field inside a conductor. Breakdown field: field above which the campaign's air model conducts.
-- B. Zero interior field and perpendicular exterior field rule out three pictures.
-- C. A property of matter that creates electric force; like signs repel and unlike signs attract. Electric field: force per positive test charge, measured in newtons per coulomb or volts per metre. Superposition: add each source's field as a vector to obtain the net field.
-- D. Equal potential makes E=V/R, so smaller curvature radius means larger field.
-
-**Correct answer:** C
-
-**Hint - exact player copy:** Use the stated evidence and the conditions for Electric charge; do not choose an option merely because it names a familiar term.
-
-**Option feedback - exact player copy:**
-
-- A: This describes Conductor, not Electric charge. It does not account for the quantities, conditions, or evidence in this electricity and magnetism case.
-- B: This describes conductor equilibrium, not Electric charge. It does not account for the quantities, conditions, or evidence in this electricity and magnetism case.
-- C: Correct. a property of matter that creates electric force; like signs repel and unlike signs attract. Electric field: force per positive test charge, measured in newtons per coulomb or volts per metre. Superposition: add each source's field as a vector to obtain the net field.
-- D: This describes spherical-curvature proxy, not Electric charge. It does not account for the quantities, conditions, or evidence in this electricity and magnetism case.
-**Optional review completion - exact player copy:** Excellent work. You went beyond the required mission and strengthened the ideas behind your decision.
 ## Quick concept review
 - electrostatic equilibrium, equipotential conductors, E_out=σ/ε₀, curvature enhancement, shielding.
 - ## Four graded stops
@@ -3134,139 +3156,152 @@ Mission decision: Use the twelve-stage Marx bank only as an electrical model. Ma
 
 **Availability:** Reveal only after mission completion when the player selects **GO DEEPER**. This section is optional, ungraded for campaign progress, and does not change metrics, Recovery Points, or the next-mission unlock.
 
-**Secondary briefing card - exact player copy:** You completed The Sky as a Capacitor. Choose GO DEEPER to revisit the four decisions and explore related course ideas; this optional review does not change your metrics or delay the next mission.
+**Secondary briefing card - exact player copy:** Try six independent practice questions. Each includes its own context and any needed data; no mission records are required.
 
 ### Review focus
 
-No additional prerequisite is required. These AP-style questions apply the mission's course ideas to follow-up evidence, including related topics not required in the four main stops.
+No additional prerequisite is required. These practice questions review related course ideas. Each question stands alone, including its choices and figure.
 
 ### Review question 1
 
-**Prompt - exact player copy:** In a follow-up to The Sky as a Capacitor, the layer model now has area A=2.0×10^8 m², height d=4.0×10^4 m, and effective κ=1.00. Which prediction or calculation correctly applies Capacitance to this case?
+
+**Prompt - exact player copy:** Which statement best explains capacitance?
 
 **Options - exact player copy:**
 
 - A. Gauss gives field, and the field-potential relation turns it into capacitance.
-- B. Stored charge per voltage. Dielectric: insulating material that changes capacitance by polarization. Polarization: small charge separation inside matter.
+- B. Stored charge per voltage.
 - C. A second physical constraint prevents a convenient but false parameter choice.
 - D. Marx topology stores charge at low stage voltage and delivers summed voltage.
 
 **Correct answer:** B
 
-**Hint - exact player copy:** Use the stated evidence and the conditions for Capacitance; do not choose an option merely because it names a familiar term.
+**Hint - exact player copy:** Identify the defining relationship or mechanism for capacitance. All needed information is in this question.
 
 **Option feedback - exact player copy:**
 
-- A: This describes parallel-plate capacitance, not Capacitance. It does not account for the quantities, conditions, or evidence in this electricity and magnetism case.
-- B: Correct. stored charge per voltage. Dielectric: insulating material that changes capacitance by polarization. Polarization: small charge separation inside matter.
-- C: This describes κ-area degeneracy, not Capacitance. It does not account for the quantities, conditions, or evidence in this electricity and magnetism case.
-- D: This describes series/parallel capacitors, not Capacitance. It does not account for the quantities, conditions, or evidence in this electricity and magnetism case.
+- A: This describes parallel-plate capacitance. It does not answer the question about capacitance.
+- B: Correct. Stored charge per voltage.
+- C: This describes confounding between dielectric factor and plate area. It does not answer the question about capacitance.
+- D: This describes series and parallel capacitors. It does not answer the question about capacitance.
+
 ### Review question 2
 
-**Prompt - exact player copy:** Station 12 receives a second case related to The Sky as a Capacitor: the layer model now has area A=2.0×10^8 m², height d=4.0×10^4 m, and effective κ=1.00. Which prediction or calculation correctly applies parallel-plate capacitance to this case?
+
+**Prompt - exact player copy:** Which statement best explains parallel-plate capacitance?
 
 **Options - exact player copy:**
 
-- A. Stored charge per voltage. Dielectric: insulating material that changes capacitance by polarization. Polarization: small charge separation inside matter.
+- A. Stored charge per voltage.
 - B. A second physical constraint prevents a convenient but false parameter choice.
 - C. Gauss gives field, and the field-potential relation turns it into capacitance.
 - D. Marx topology stores charge at low stage voltage and delivers summed voltage.
 
 **Correct answer:** C
 
-**Hint - exact player copy:** Use the stated evidence and the conditions for parallel-plate capacitance; do not choose an option merely because it names a familiar term.
+**Hint - exact player copy:** Identify the defining relationship or mechanism for parallel-plate capacitance. All needed information is in this question.
 
 **Option feedback - exact player copy:**
 
-- A: This describes Capacitance, not parallel-plate capacitance. It does not account for the quantities, conditions, or evidence in this electricity and magnetism case.
-- B: This describes κ-area degeneracy, not parallel-plate capacitance. It does not account for the quantities, conditions, or evidence in this electricity and magnetism case.
-- C: Correct. gauss gives field, and the field-potential relation turns it into capacitance.
-- D: This describes series/parallel capacitors, not parallel-plate capacitance. It does not account for the quantities, conditions, or evidence in this electricity and magnetism case.
+- A: This describes capacitance. It does not answer the question about parallel-plate capacitance.
+- B: This describes confounding between dielectric factor and plate area. It does not answer the question about parallel-plate capacitance.
+- C: Correct. Gauss gives field, and the field-potential relation turns it into capacitance.
+- D: This describes series and parallel capacitors. It does not answer the question about parallel-plate capacitance.
+
 ### Review question 3
 
-**Prompt - exact player copy:** A teammate rechecks The Sky as a Capacitor using new evidence: because C=κε₀A/d, area and dielectric factor can trade off while matching 44.3 nF. Add the missing constraint now so the team can separate the explanations that still fit the earlier evidence. Which prediction or calculation correctly applies κ-area degeneracy to this case?
+
+**Prompt - exact player copy:** Which statement best explains confounding between dielectric factor and plate area?
 
 **Options - exact player copy:**
 
-- A. Stored charge per voltage. Dielectric: insulating material that changes capacitance by polarization. Polarization: small charge separation inside matter.
+- A. Stored charge per voltage.
 - B. Gauss gives field, and the field-potential relation turns it into capacitance.
 - C. Marx topology stores charge at low stage voltage and delivers summed voltage.
 - D. A second physical constraint prevents a convenient but false parameter choice.
 
 **Correct answer:** D
 
-**Hint - exact player copy:** Use the stated evidence and the conditions for κ-area degeneracy; do not choose an option merely because it names a familiar term.
+**Hint - exact player copy:** Identify the defining relationship or mechanism for confounding between dielectric factor and plate area. All needed information is in this question.
 
 **Option feedback - exact player copy:**
 
-- A: This describes Capacitance, not κ-area degeneracy. It does not account for the quantities, conditions, or evidence in this electricity and magnetism case.
-- B: This describes parallel-plate capacitance, not κ-area degeneracy. It does not account for the quantities, conditions, or evidence in this electricity and magnetism case.
-- C: This describes series/parallel capacitors, not κ-area degeneracy. It does not account for the quantities, conditions, or evidence in this electricity and magnetism case.
-- D: Correct. a second physical constraint prevents a convenient but false parameter choice.
+- A: This describes capacitance. It does not answer the question about confounding between dielectric factor and plate area.
+- B: This describes parallel-plate capacitance. It does not answer the question about confounding between dielectric factor and plate area.
+- C: This describes series and parallel capacitors. It does not answer the question about confounding between dielectric factor and plate area.
+- D: Correct. A second physical constraint prevents a convenient but false parameter choice.
+
 ### Review question 4
 
-**Prompt - exact player copy:** An unseen case extends The Sky as a Capacitor: at Impulse Hall, Elise Strand, impulse engineer, shows twelve 100 nF stage capacitors. Which prediction or calculation correctly applies series/parallel capacitors to this case?
+
+**Prompt - exact player copy:** Which statement best explains series and parallel capacitors?
 
 **Options - exact player copy:**
 
 - A. Marx topology stores charge at low stage voltage and delivers summed voltage.
-- B. Stored charge per voltage. Dielectric: insulating material that changes capacitance by polarization. Polarization: small charge separation inside matter.
+- B. Stored charge per voltage.
 - C. Gauss gives field, and the field-potential relation turns it into capacitance.
 - D. A second physical constraint prevents a convenient but false parameter choice.
 
 **Correct answer:** A
 
-**Hint - exact player copy:** Use the stated evidence and the conditions for series/parallel capacitors; do not choose an option merely because it names a familiar term.
+**Hint - exact player copy:** Identify the defining relationship or mechanism for series and parallel capacitors. All needed information is in this question.
 
 **Option feedback - exact player copy:**
 
-- A: Correct. marx topology stores charge at low stage voltage and delivers summed voltage.
-- B: This describes Capacitance, not series/parallel capacitors. It does not account for the quantities, conditions, or evidence in this electricity and magnetism case.
-- C: This describes parallel-plate capacitance, not series/parallel capacitors. It does not account for the quantities, conditions, or evidence in this electricity and magnetism case.
-- D: This describes κ-area degeneracy, not series/parallel capacitors. It does not account for the quantities, conditions, or evidence in this electricity and magnetism case.
+- A: Correct. Marx topology stores charge at low stage voltage and delivers summed voltage.
+- B: This describes capacitance. It does not answer the question about series and parallel capacitors.
+- C: This describes parallel-plate capacitance. It does not answer the question about series and parallel capacitors.
+- D: This describes confounding between dielectric factor and plate area. It does not answer the question about series and parallel capacitors.
+
 ### Review question 5
 
-**Prompt - exact player copy:** Before another Sky as a Capacitor decision, the team knows this: with storm capacitance bounded and bank topology known, four possible measurements compete for six setup-hours. Choose the next measurement now based on whether its result could change the decision. Which prediction or calculation correctly applies bank representation to this case?
+
+**Prompt - exact player copy:** Which statement best explains bank representation?
 
 **Options - exact player copy:**
 
-- A. Stored charge per voltage. Dielectric: insulating material that changes capacitance by polarization. Polarization: small charge separation inside matter.
+- A. Stored charge per voltage.
 - B. A model is useful when its matched variables and limitations are explicit.
 - C. Gauss gives field, and the field-potential relation turns it into capacitance.
 - D. A second physical constraint prevents a convenient but false parameter choice.
 
 **Correct answer:** B
 
-**Hint - exact player copy:** Use the stated evidence and the conditions for bank representation; do not choose an option merely because it names a familiar term.
+**Hint - exact player copy:** Identify the defining relationship or mechanism for bank representation. All needed information is in this question.
 
 **Option feedback - exact player copy:**
 
-- A: This describes Capacitance, not bank representation. It does not account for the quantities, conditions, or evidence in this electricity and magnetism case.
-- B: Correct. a model is useful when its matched variables and limitations are explicit.
-- C: This describes parallel-plate capacitance, not bank representation. It does not account for the quantities, conditions, or evidence in this electricity and magnetism case.
-- D: This describes κ-area degeneracy, not bank representation. It does not account for the quantities, conditions, or evidence in this electricity and magnetism case.
+- A: This describes capacitance. It does not answer the question about bank representation.
+- B: Correct. A model is useful when its matched variables and limitations are explicit.
+- C: This describes parallel-plate capacitance. It does not answer the question about bank representation.
+- D: This describes confounding between dielectric factor and plate area. It does not answer the question about bank representation.
+
 ### Review question 6
 
-**Prompt - exact player copy:** Station 12 applies the lesson from The Sky as a Capacitor to this follow-up: because C=κε₀A/d, area and dielectric factor can trade off while matching 44.3 nF. Add the missing constraint now so the team can separate the explanations that still fit the earlier evidence. Which prediction or calculation correctly applies Electric charge to this case?
+
+**Prompt - exact player copy:** Which statement best explains electric charge?
 
 **Options - exact player copy:**
 
-- A. Stored charge per voltage. Dielectric: insulating material that changes capacitance by polarization. Polarization: small charge separation inside matter.
+- A. Stored charge per voltage.
 - B. Gauss gives field, and the field-potential relation turns it into capacitance.
-- C. A property of matter that creates electric force; like signs repel and unlike signs attract. Electric field: force per positive test charge, measured in newtons per coulomb or volts per metre. Superposition: add each source's field as a vector to obtain the net field.
+- C. A property of matter that creates electric force; like signs repel and unlike signs attract.
 - D. A second physical constraint prevents a convenient but false parameter choice.
 
 **Correct answer:** C
 
-**Hint - exact player copy:** Use the stated evidence and the conditions for Electric charge; do not choose an option merely because it names a familiar term.
+**Hint - exact player copy:** Identify the defining relationship or mechanism for electric charge. All needed information is in this question.
 
 **Option feedback - exact player copy:**
 
-- A: This describes Capacitance, not Electric charge. It does not account for the quantities, conditions, or evidence in this electricity and magnetism case.
-- B: This describes parallel-plate capacitance, not Electric charge. It does not account for the quantities, conditions, or evidence in this electricity and magnetism case.
-- C: Correct. a property of matter that creates electric force; like signs repel and unlike signs attract. Electric field: force per positive test charge, measured in newtons per coulomb or volts per metre. Superposition: add each source's field as a vector to obtain the net field.
-- D: This describes κ-area degeneracy, not Electric charge. It does not account for the quantities, conditions, or evidence in this electricity and magnetism case.
-**Optional review completion - exact player copy:** Excellent work. You went beyond the required mission and strengthened the ideas behind your decision.
+- A: This describes capacitance. It does not answer the question about electric charge.
+- B: This describes parallel-plate capacitance. It does not answer the question about electric charge.
+- C: Correct. A property of matter that creates electric force; like signs repel and unlike signs attract.
+- D: This describes confounding between dielectric factor and plate area. It does not answer the question about electric charge.
+
+**Optional review completion - exact player copy:** Good work. You have completed six independent practice questions.
+
 ## Quick concept review
 - C=Q/V, C=κε₀A/d, dielectric polarization, series/parallel topology.
 - ## Four graded stops
@@ -3694,139 +3729,152 @@ Mission decision: Authorize one reduced-energy firing at the 8 mm first-gap sett
 
 **Availability:** Reveal only after mission completion when the player selects **GO DEEPER**. This section is optional, ungraded for campaign progress, and does not change metrics, Recovery Points, or the next-mission unlock.
 
-**Secondary briefing card - exact player copy:** You completed Count the Bank's Energy. Choose GO DEEPER to revisit the four decisions and explore related course ideas; this optional review does not change your metrics or delay the next mission.
+**Secondary briefing card - exact player copy:** Try six independent practice questions. Each includes its own context and any needed data; no mission records are required.
 
 ### Review focus
 
-No additional prerequisite is required. These AP-style questions apply the mission's course ideas to follow-up evidence, including related topics not required in the four main stops.
+No additional prerequisite is required. These practice questions review related course ideas. Each question stands alone, including its choices and figure.
 
 ### Review question 1
 
-**Prompt - exact player copy:** In a follow-up to Count the Bank's Energy, each of twelve stages has C=100 nF and charges to V=50.0 kV. Which prediction or calculation correctly applies Marx bank to this case?
+
+**Prompt - exact player copy:** Which statement best explains marx bank?
 
 **Options - exact player copy:**
 
 - A. Summing stage energy avoids misusing the discharge-equivalent capacitance.
-- B. Capacitors charged in parallel and discharged in series. Energy density: stored energy per volume. Spark gap: switch that conducts after breakdown.
-- C. Gap geometry changes the pulse front even when stored energy stays fixed.
-- D. Field squared makes local hotspots matter strongly.
+- B. Gap geometry changes the pulse front even when stored energy stays fixed.
+- C. Field squared makes local hotspots matter strongly.
+- D. Capacitors charged in parallel and discharged in series.
 
-**Correct answer:** B
+**Correct answer:** D
 
-**Hint - exact player copy:** Use the stated evidence and the conditions for Marx bank; do not choose an option merely because it names a familiar term.
+**Hint - exact player copy:** Identify the defining relationship or mechanism for marx bank. All needed information is in this question.
 
 **Option feedback - exact player copy:**
 
-- A: This describes capacitor energy, not Marx bank. It does not account for the quantities, conditions, or evidence in this electricity and magnetism case.
-- B: Correct. capacitors charged in parallel and discharged in series. Energy density: stored energy per volume. Spark gap: switch that conducts after breakdown.
-- C: This describes breakdown/timing, not Marx bank. It does not account for the quantities, conditions, or evidence in this electricity and magnetism case.
-- D: This describes energy density/field, not Marx bank. It does not account for the quantities, conditions, or evidence in this electricity and magnetism case.
+- A: This describes capacitor energy. It does not answer the question about marx bank.
+- B: This describes breakdown and timing. It does not answer the question about marx bank.
+- C: This describes energy density and field. It does not answer the question about marx bank.
+- D: Correct. Capacitors charged in parallel and discharged in series.
+
 ### Review question 2
 
-**Prompt - exact player copy:** Station 12 receives a second case related to Count the Bank's Energy: each of twelve stages has C=100 nF and charges to V=50.0 kV. Which prediction or calculation correctly applies capacitor energy to this case?
+
+**Prompt - exact player copy:** Which statement best explains capacitor energy?
 
 **Options - exact player copy:**
 
-- A. Capacitors charged in parallel and discharged in series. Energy density: stored energy per volume. Spark gap: switch that conducts after breakdown.
+- A. Summing stage energy avoids misusing the discharge-equivalent capacitance.
+- B. Capacitors charged in parallel and discharged in series.
+- C. Gap geometry changes the pulse front even when stored energy stays fixed.
+- D. Field squared makes local hotspots matter strongly.
+
+**Correct answer:** A
+
+**Hint - exact player copy:** Identify the defining relationship or mechanism for capacitor energy. All needed information is in this question.
+
+**Option feedback - exact player copy:**
+
+- A: Correct. Summing stage energy avoids misusing the discharge-equivalent capacitance.
+- B: This describes marx bank. It does not answer the question about capacitor energy.
+- C: This describes breakdown and timing. It does not answer the question about capacitor energy.
+- D: This describes energy density and field. It does not answer the question about capacitor energy.
+
+### Review question 3
+
+
+**Prompt - exact player copy:** Which statement best explains breakdown and timing?
+
+**Options - exact player copy:**
+
+- A. Capacitors charged in parallel and discharged in series.
 - B. Gap geometry changes the pulse front even when stored energy stays fixed.
 - C. Summing stage energy avoids misusing the discharge-equivalent capacitance.
 - D. Field squared makes local hotspots matter strongly.
 
-**Correct answer:** C
+**Correct answer:** B
 
-**Hint - exact player copy:** Use the stated evidence and the conditions for capacitor energy; do not choose an option merely because it names a familiar term.
+**Hint - exact player copy:** Identify the defining relationship or mechanism for breakdown and timing. All needed information is in this question.
 
 **Option feedback - exact player copy:**
 
-- A: This describes Marx bank, not capacitor energy. It does not account for the quantities, conditions, or evidence in this electricity and magnetism case.
-- B: This describes breakdown/timing, not capacitor energy. It does not account for the quantities, conditions, or evidence in this electricity and magnetism case.
-- C: Correct. summing stage energy avoids misusing the discharge-equivalent capacitance.
-- D: This describes energy density/field, not capacitor energy. It does not account for the quantities, conditions, or evidence in this electricity and magnetism case.
-### Review question 3
+- A: This describes marx bank. It does not answer the question about breakdown and timing.
+- B: Correct. Gap geometry changes the pulse front even when stored energy stays fixed.
+- C: This describes capacitor energy. It does not answer the question about breakdown and timing.
+- D: This describes energy density and field. It does not answer the question about breakdown and timing.
 
-**Prompt - exact player copy:** A teammate rechecks Count the Bank's Energy using new evidence: with total energy fixed at 1.50 kJ, sweep the first-gap spacing from 4 to 10 mm. Which prediction or calculation correctly applies breakdown/timing to this case?
+### Review question 4
+
+
+**Prompt - exact player copy:** Which statement best explains energy density and field?
 
 **Options - exact player copy:**
 
-- A. Capacitors charged in parallel and discharged in series. Energy density: stored energy per volume. Spark gap: switch that conducts after breakdown.
+- A. Capacitors charged in parallel and discharged in series.
 - B. Summing stage energy avoids misusing the discharge-equivalent capacitance.
 - C. Field squared makes local hotspots matter strongly.
 - D. Gap geometry changes the pulse front even when stored energy stays fixed.
 
-**Correct answer:** D
+**Correct answer:** C
 
-**Hint - exact player copy:** Use the stated evidence and the conditions for breakdown/timing; do not choose an option merely because it names a familiar term.
+**Hint - exact player copy:** Identify the defining relationship or mechanism for energy density and field. All needed information is in this question.
 
 **Option feedback - exact player copy:**
 
-- A: This describes Marx bank, not breakdown/timing. It does not account for the quantities, conditions, or evidence in this electricity and magnetism case.
-- B: This describes capacitor energy, not breakdown/timing. It does not account for the quantities, conditions, or evidence in this electricity and magnetism case.
-- C: This describes energy density/field, not breakdown/timing. It does not account for the quantities, conditions, or evidence in this electricity and magnetism case.
-- D: Correct. gap geometry changes the pulse front even when stored energy stays fixed.
-### Review question 4
+- A: This describes marx bank. It does not answer the question about energy density and field.
+- B: This describes capacitor energy. It does not answer the question about energy density and field.
+- C: Correct. Field squared makes local hotspots matter strongly.
+- D: This describes breakdown and timing. It does not answer the question about energy density and field.
 
-**Prompt - exact player copy:** An unseen case extends Count the Bank's Energy: because the 8 mm setting controls rise time, compute the local electric energy density at the fictional wet-air limit E=3.0 MV/m. Which prediction or calculation correctly applies energy density/field to this case?
+### Review question 5
+
+
+**Prompt - exact player copy:** Which statement best explains authorization records?
 
 **Options - exact player copy:**
 
-- A. Field squared makes local hotspots matter strongly.
-- B. Capacitors charged in parallel and discharged in series. Energy density: stored energy per volume. Spark gap: switch that conducts after breakdown.
+- A. Capacitors charged in parallel and discharged in series.
+- B. Summing stage energy avoids misusing the discharge-equivalent capacitance.
+- C. Gap geometry changes the pulse front even when stored energy stays fixed.
+- D. Identity, timing, and physical condition require independent backing.
+
+**Correct answer:** D
+
+**Hint - exact player copy:** Identify the defining relationship or mechanism for authorization records. All needed information is in this question.
+
+**Option feedback - exact player copy:**
+
+- A: This describes marx bank. It does not answer the question about authorization records.
+- B: This describes capacitor energy. It does not answer the question about authorization records.
+- C: This describes breakdown and timing. It does not answer the question about authorization records.
+- D: Correct. Identity, timing, and physical condition require independent backing.
+
+### Review question 6
+
+
+**Prompt - exact player copy:** Which statement best explains electric charge?
+
+**Options - exact player copy:**
+
+- A. A property of matter that creates electric force; like signs repel and unlike signs attract.
+- B. Capacitors charged in parallel and discharged in series.
 - C. Summing stage energy avoids misusing the discharge-equivalent capacitance.
 - D. Gap geometry changes the pulse front even when stored energy stays fixed.
 
 **Correct answer:** A
 
-**Hint - exact player copy:** Use the stated evidence and the conditions for energy density/field; do not choose an option merely because it names a familiar term.
+**Hint - exact player copy:** Identify the defining relationship or mechanism for electric charge. All needed information is in this question.
 
 **Option feedback - exact player copy:**
 
-- A: Correct. field squared makes local hotspots matter strongly.
-- B: This describes Marx bank, not energy density/field. It does not account for the quantities, conditions, or evidence in this electricity and magnetism case.
-- C: This describes capacitor energy, not energy density/field. It does not account for the quantities, conditions, or evidence in this electricity and magnetism case.
-- D: This describes breakdown/timing, not energy density/field. It does not account for the quantities, conditions, or evidence in this electricity and magnetism case.
-### Review question 5
+- A: Correct. A property of matter that creates electric force; like signs repel and unlike signs attract.
+- B: This describes marx bank. It does not answer the question about electric charge.
+- C: This describes capacitor energy. It does not answer the question about electric charge.
+- D: This describes breakdown and timing. It does not answer the question about electric charge.
 
-**Prompt - exact player copy:** Before another Count the Bank's Energy decision, the team knows this: now energy and gap settings pass, but a calculation alone cannot prove the hall is ready. Before the record can be signed, identify which claims have independent support and which must remain unverified. Which prediction or calculation correctly applies authorization records to this case?
+**Optional review completion - exact player copy:** Good work. You have completed six independent practice questions.
 
-**Options - exact player copy:**
-
-- A. Capacitors charged in parallel and discharged in series. Energy density: stored energy per volume. Spark gap: switch that conducts after breakdown.
-- B. Identity, timing, and physical condition require independent backing.
-- C. Summing stage energy avoids misusing the discharge-equivalent capacitance.
-- D. Gap geometry changes the pulse front even when stored energy stays fixed.
-
-**Correct answer:** B
-
-**Hint - exact player copy:** Use the stated evidence and the conditions for authorization records; do not choose an option merely because it names a familiar term.
-
-**Option feedback - exact player copy:**
-
-- A: This describes Marx bank, not authorization records. It does not account for the quantities, conditions, or evidence in this electricity and magnetism case.
-- B: Correct. identity, timing, and physical condition require independent backing.
-- C: This describes capacitor energy, not authorization records. It does not account for the quantities, conditions, or evidence in this electricity and magnetism case.
-- D: This describes breakdown/timing, not authorization records. It does not account for the quantities, conditions, or evidence in this electricity and magnetism case.
-### Review question 6
-
-**Prompt - exact player copy:** Station 12 applies the lesson from Count the Bank's Energy to this follow-up: each of twelve stages has C=100 nF and charges to V=50.0 kV. Which prediction or calculation correctly applies Electric charge to this case?
-
-**Options - exact player copy:**
-
-- A. Capacitors charged in parallel and discharged in series. Energy density: stored energy per volume. Spark gap: switch that conducts after breakdown.
-- B. Summing stage energy avoids misusing the discharge-equivalent capacitance.
-- C. A property of matter that creates electric force; like signs repel and unlike signs attract. Electric field: force per positive test charge, measured in newtons per coulomb or volts per metre. Superposition: add each source's field as a vector to obtain the net field.
-- D. Gap geometry changes the pulse front even when stored energy stays fixed.
-
-**Correct answer:** C
-
-**Hint - exact player copy:** Use the stated evidence and the conditions for Electric charge; do not choose an option merely because it names a familiar term.
-
-**Option feedback - exact player copy:**
-
-- A: This describes Marx bank, not Electric charge. It does not account for the quantities, conditions, or evidence in this electricity and magnetism case.
-- B: This describes capacitor energy, not Electric charge. It does not account for the quantities, conditions, or evidence in this electricity and magnetism case.
-- C: Correct. a property of matter that creates electric force; like signs repel and unlike signs attract. Electric field: force per positive test charge, measured in newtons per coulomb or volts per metre. Superposition: add each source's field as a vector to obtain the net field.
-- D: This describes breakdown/timing, not Electric charge. It does not account for the quantities, conditions, or evidence in this electricity and magnetism case.
-**Optional review completion - exact player copy:** Excellent work. You went beyond the required mission and strengthened the ideas behind your decision.
 ## Quick concept review
 - capacitor work integral, U, energy density, breakdown, Marx timing.
 - ## Four graded stops
@@ -4260,139 +4308,152 @@ Mission decision: The mills share one ground reference. The battery logger is se
 
 **Availability:** Reveal only after mission completion when the player selects **GO DEEPER**. This section is optional, ungraded for campaign progress, and does not change metrics, Recovery Points, or the next-mission unlock.
 
-**Secondary briefing card - exact player copy:** You completed Four Screens, One Wire. Choose GO DEEPER to revisit the four decisions and explore related course ideas; this optional review does not change your metrics or delay the next mission.
+**Secondary briefing card - exact player copy:** Try six independent practice questions. Each includes its own context and any needed data; no mission records are required.
 
 ### Review focus
 
-No additional prerequisite is required. These AP-style questions apply the mission's course ideas to follow-up evidence, including related topics not required in the four main stops.
+No additional prerequisite is required. These practice questions review related course ideas. Each question stands alone, including its choices and figure.
 
 ### Review question 1
 
-**Prompt - exact player copy:** In a follow-up to Four Screens, One Wire, at Launch Control, four 2.0 mA channel returns join a node, while the measured trunk current is 5.0 mA. Which prediction or calculation correctly applies Current to this case?
+
+**Prompt - exact player copy:** Which statement best explains current?
 
 **Options - exact player copy:**
 
 - A. Common upstream hardware makes correlated readings less independent than their number suggests.
-- B. Rate of charge flow. Node: connection shared by circuit branches. Reference: voltage point against which a channel is measured.
+- B. Rate of charge flow.
 - C. Kirchhoff's junction rule exposes current on an undocumented path.
 - D. Disappearance and return of the jump establishes that the reference path causes it.
 
 **Correct answer:** B
 
-**Hint - exact player copy:** Use the stated evidence and the conditions for Current; do not choose an option merely because it names a familiar term.
+**Hint - exact player copy:** Identify the defining relationship or mechanism for current. All needed information is in this question.
 
 **Option feedback - exact player copy:**
 
-- A: This describes dependencies, not Current. It does not account for the quantities, conditions, or evidence in this electricity and magnetism case.
-- B: Correct. rate of charge flow. Node: connection shared by circuit branches. Reference: voltage point against which a channel is measured.
-- C: This describes junction rule, not Current. It does not account for the quantities, conditions, or evidence in this electricity and magnetism case.
-- D: This describes causal reference test, not Current. It does not account for the quantities, conditions, or evidence in this electricity and magnetism case.
+- A: This describes dependencies. It does not answer the question about current.
+- B: Correct. Rate of charge flow.
+- C: This describes junction rule. It does not answer the question about current.
+- D: This describes causal reference test. It does not answer the question about current.
+
 ### Review question 2
 
-**Prompt - exact player copy:** Station 12 receives a second case related to Four Screens, One Wire: the four mills agree to the microsecond, while a battery logger does not jump. Open the dependencies now so the team can distinguish independent evidence from readings that repeat one source. Which prediction or calculation correctly applies dependencies to this case?
+
+**Prompt - exact player copy:** Which statement best explains dependencies?
 
 **Options - exact player copy:**
 
-- A. Rate of charge flow. Node: connection shared by circuit branches. Reference: voltage point against which a channel is measured.
+- A. Rate of charge flow.
 - B. Kirchhoff's junction rule exposes current on an undocumented path.
 - C. Common upstream hardware makes correlated readings less independent than their number suggests.
 - D. Disappearance and return of the jump establishes that the reference path causes it.
 
 **Correct answer:** C
 
-**Hint - exact player copy:** Use the stated evidence and the conditions for dependencies; do not choose an option merely because it names a familiar term.
+**Hint - exact player copy:** Identify the defining relationship or mechanism for dependencies. All needed information is in this question.
 
 **Option feedback - exact player copy:**
 
-- A: This describes Current, not dependencies. It does not account for the quantities, conditions, or evidence in this electricity and magnetism case.
-- B: This describes junction rule, not dependencies. It does not account for the quantities, conditions, or evidence in this electricity and magnetism case.
-- C: Correct. common upstream hardware makes correlated readings less independent than their number suggests.
-- D: This describes causal reference test, not dependencies. It does not account for the quantities, conditions, or evidence in this electricity and magnetism case.
+- A: This describes current. It does not answer the question about dependencies.
+- B: This describes junction rule. It does not answer the question about dependencies.
+- C: Correct. Common upstream hardware makes correlated readings less independent than their number suggests.
+- D: This describes causal reference test. It does not answer the question about dependencies.
+
 ### Review question 3
 
-**Prompt - exact player copy:** A teammate rechecks Four Screens, One Wire using new evidence: at Launch Control, four 2.0 mA channel returns join a node, while the measured trunk current is 5.0 mA. Which prediction or calculation correctly applies junction rule to this case?
+
+**Prompt - exact player copy:** Which statement best explains junction rule?
 
 **Options - exact player copy:**
 
-- A. Rate of charge flow. Node: connection shared by circuit branches. Reference: voltage point against which a channel is measured.
+- A. Rate of charge flow.
 - B. Common upstream hardware makes correlated readings less independent than their number suggests.
 - C. Disappearance and return of the jump establishes that the reference path causes it.
 - D. Kirchhoff's junction rule exposes current on an undocumented path.
 
 **Correct answer:** D
 
-**Hint - exact player copy:** Use the stated evidence and the conditions for junction rule; do not choose an option merely because it names a familiar term.
+**Hint - exact player copy:** Identify the defining relationship or mechanism for junction rule. All needed information is in this question.
 
 **Option feedback - exact player copy:**
 
-- A: This describes Current, not junction rule. It does not account for the quantities, conditions, or evidence in this electricity and magnetism case.
-- B: This describes dependencies, not junction rule. It does not account for the quantities, conditions, or evidence in this electricity and magnetism case.
-- C: This describes causal reference test, not junction rule. It does not account for the quantities, conditions, or evidence in this electricity and magnetism case.
-- D: Correct. kirchhoff's junction rule exposes current on an undocumented path.
+- A: This describes current. It does not answer the question about junction rule.
+- B: This describes dependencies. It does not answer the question about junction rule.
+- C: This describes causal reference test. It does not answer the question about junction rule.
+- D: Correct. Kirchhoff's junction rule exposes current on an undocumented path.
+
 ### Review question 4
 
-**Prompt - exact player copy:** An unseen case extends Four Screens, One Wire: because 3.0 mA leaves by an undocumented branch, switch only channel C to an isolated reference, then restore it. Run the reversible comparison now so the crew can tell whether the proposed cause changes the measured response. Which statistical conclusion or procedure correctly uses causal reference test?
+
+**Prompt - exact player copy:** Which statement best explains causal reference test?
 
 **Options - exact player copy:**
 
 - A. Disappearance and return of the jump establishes that the reference path causes it.
-- B. Rate of charge flow. Node: connection shared by circuit branches. Reference: voltage point against which a channel is measured.
+- B. Rate of charge flow.
 - C. Common upstream hardware makes correlated readings less independent than their number suggests.
 - D. Kirchhoff's junction rule exposes current on an undocumented path.
 
 **Correct answer:** A
 
-**Hint - exact player copy:** Use the stated evidence and the conditions for causal reference test; do not choose an option merely because it names a familiar term.
+**Hint - exact player copy:** Identify the defining relationship or mechanism for causal reference test. All needed information is in this question.
 
 **Option feedback - exact player copy:**
 
-- A: Correct. disappearance and return of the jump establishes that the reference path causes it.
-- B: This describes Current, not causal reference test. It does not account for the quantities, conditions, or evidence in this electricity and magnetism case.
-- C: This describes dependencies, not causal reference test. It does not account for the quantities, conditions, or evidence in this electricity and magnetism case.
-- D: This describes junction rule, not causal reference test. It does not account for the quantities, conditions, or evidence in this electricity and magnetism case.
+- A: Correct. Disappearance and return of the jump establishes that the reference path causes it.
+- B: This describes current. It does not answer the question about causal reference test.
+- C: This describes dependencies. It does not answer the question about causal reference test.
+- D: This describes junction rule. It does not answer the question about causal reference test.
+
 ### Review question 5
 
-**Prompt - exact player copy:** Before another Four Screens, One Wire decision, the team knows this: the reversal proves causation; now a 3.0 mA transient crosses a 120 Ω shared lead while true sensor output is -4.2 V. Which statistical conclusion or procedure correctly uses Ohm drop and Joule power?
+
+**Prompt - exact player copy:** Which statement best explains ohm drop and Joule power?
 
 **Options - exact player copy:**
 
-- A. Rate of charge flow. Node: connection shared by circuit branches. Reference: voltage point against which a channel is measured.
+- A. Rate of charge flow.
 - B. A shared IR drop adds the same false shift to every referenced channel, while I²R reveals its heating scale.
 - C. Common upstream hardware makes correlated readings less independent than their number suggests.
 - D. Kirchhoff's junction rule exposes current on an undocumented path.
 
 **Correct answer:** B
 
-**Hint - exact player copy:** Use the stated evidence and the conditions for Ohm drop and Joule power; do not choose an option merely because it names a familiar term.
+**Hint - exact player copy:** Identify the defining relationship or mechanism for ohm drop and joule power. All needed information is in this question.
 
 **Option feedback - exact player copy:**
 
-- A: This describes Current, not Ohm drop and Joule power. It does not account for the quantities, conditions, or evidence in this electricity and magnetism case.
-- B: Correct. a shared IR drop adds the same false shift to every referenced channel, while I²R reveals its heating scale.
-- C: This describes dependencies, not Ohm drop and Joule power. It does not account for the quantities, conditions, or evidence in this electricity and magnetism case.
-- D: This describes junction rule, not Ohm drop and Joule power. It does not account for the quantities, conditions, or evidence in this electricity and magnetism case.
+- A: This describes current. It does not answer the question about ohm drop and joule power.
+- B: Correct. A shared IR drop adds the same false shift to every referenced channel, while I²R reveals its heating scale.
+- C: This describes dependencies. It does not answer the question about ohm drop and joule power.
+- D: This describes junction rule. It does not answer the question about ohm drop and joule power.
+
 ### Review question 6
 
-**Prompt - exact player copy:** Station 12 applies the lesson from Four Screens, One Wire to this follow-up: the four mills agree to the microsecond, while a battery logger does not jump. Open the dependencies now so the team can distinguish independent evidence from readings that repeat one source. Which prediction or calculation correctly applies Electric charge to this case?
+
+**Prompt - exact player copy:** Which statement best explains electric charge?
 
 **Options - exact player copy:**
 
-- A. Rate of charge flow. Node: connection shared by circuit branches. Reference: voltage point against which a channel is measured.
+- A. Rate of charge flow.
 - B. Common upstream hardware makes correlated readings less independent than their number suggests.
-- C. A property of matter that creates electric force; like signs repel and unlike signs attract. Electric field: force per positive test charge, measured in newtons per coulomb or volts per metre. Superposition: add each source's field as a vector to obtain the net field.
+- C. A property of matter that creates electric force; like signs repel and unlike signs attract.
 - D. Kirchhoff's junction rule exposes current on an undocumented path.
 
 **Correct answer:** C
 
-**Hint - exact player copy:** Use the stated evidence and the conditions for Electric charge; do not choose an option merely because it names a familiar term.
+**Hint - exact player copy:** Identify the defining relationship or mechanism for electric charge. All needed information is in this question.
 
 **Option feedback - exact player copy:**
 
-- A: This describes Current, not Electric charge. It does not account for the quantities, conditions, or evidence in this electricity and magnetism case.
-- B: This describes dependencies, not Electric charge. It does not account for the quantities, conditions, or evidence in this electricity and magnetism case.
-- C: Correct. a property of matter that creates electric force; like signs repel and unlike signs attract. Electric field: force per positive test charge, measured in newtons per coulomb or volts per metre. Superposition: add each source's field as a vector to obtain the net field.
-- D: This describes junction rule, not Electric charge. It does not account for the quantities, conditions, or evidence in this electricity and magnetism case.
-**Optional review completion - exact player copy:** Excellent work. You went beyond the required mission and strengthened the ideas behind your decision.
+- A: This describes current. It does not answer the question about electric charge.
+- B: This describes dependencies. It does not answer the question about electric charge.
+- C: Correct. A property of matter that creates electric force; like signs repel and unlike signs attract.
+- D: This describes junction rule. It does not answer the question about electric charge.
+
+**Optional review completion - exact player copy:** Good work. You have completed six independent practice questions.
+
 ## Quick concept review
 - current, Kirchhoff, Ohm, power, common-mode error.
 - ## Four graded stops
@@ -4667,7 +4728,7 @@ protocol:
 
 **Question card story-science connection - exact player copy:** The down-conductor field at the cabinet distance supplies the magnetic exposure for the following particle and induction checks.
 
-**Fixture source panel - exact player copy:** Treat the mast down-conductor as a long straight wire carrying peak current I=30 kA. Derive magnetic field B(r) with a circular Amperian path, then evaluate it at r=2.0 m. μ0 = 4π × 10^-7 T m/A, vacuum permeability. Vacuum permeability: μ₀ = 4π × 10^-7 T m/A.
+**Fixture source panel - exact player copy:** Treat the mast down-conductor as a long straight wire carrying peak current I=30 kA. Derive magnetic field B(r) with a circular Amperian path, then evaluate it at r=2.0 m. Vacuum permeability: μ₀ = 4π × 10^-7 T m/A.
 
 **Source-panel timing:** Show at this stop’s declared fixture before its DERIVE choices unlock. Keep visible while the player works. These are model inputs and prior observations, not new measurements or an accepted answer. Symbolic derivations stay symbolic; do not invent a number merely to force substitution.
 
@@ -4880,139 +4941,152 @@ Mission decision: No-contact coupling is physically plausible. A 30 kA mast curr
 
 **Availability:** Reveal only after mission completion when the player selects **GO DEEPER**. This section is optional, ungraded for campaign progress, and does not change metrics, Recovery Points, or the next-mission unlock.
 
-**Secondary briefing card - exact player copy:** You completed A Field Without Contact. Choose GO DEEPER to revisit the four decisions and explore related course ideas; this optional review does not change your metrics or delay the next mission.
+**Secondary briefing card - exact player copy:** Try six independent practice questions. Each includes its own context and any needed data; no mission records are required.
 
 ### Review focus
 
-No additional prerequisite is required. These AP-style questions apply the mission's course ideas to follow-up evidence, including related topics not required in the four main stops.
+No additional prerequisite is required. These practice questions review related course ideas. Each question stands alone, including its choices and figure.
 
 ### Review question 1
 
-**Prompt - exact player copy:** In a follow-up to A Field Without Contact, the field is strong enough to reach the trailer route, but magnetic force alone does no work. Which prediction or calculation correctly applies Magnetic field to this case?
+
+**Prompt - exact player copy:** Which statement best explains magnetic field?
 
 **Options - exact player copy:**
 
 - A. Right-hand rules connect current geometry to both magnetic field and mechanical stress.
-- B. Field that deflects moving charge and currents. Right-hand rule: hand convention for cross-product direction. Helical motion: circular perpendicular motion plus unchanged parallel motion.
-- C. Ampere's law converts current symmetry into the field that can thread a nearby loop.
-- D. A magnetic field bends perpendicular motion but leaves parallel speed and kinetic energy unchanged.
+- B. Ampere's law converts current symmetry into the field that can thread a nearby loop.
+- C. A magnetic field bends perpendicular motion but leaves parallel speed and kinetic energy unchanged.
+- D. Field that deflects moving charge and currents.
 
-**Correct answer:** B
+**Correct answer:** D
 
-**Hint - exact player copy:** Use the stated evidence and the conditions for Magnetic field; do not choose an option merely because it names a familiar term.
+**Hint - exact player copy:** Identify the defining relationship or mechanism for magnetic field. All needed information is in this question.
 
 **Option feedback - exact player copy:**
 
-- A: This describes right-hand rule/force and source patterns, not Magnetic field. It does not account for the quantities, conditions, or evidence in this electricity and magnetism case.
-- B: Correct. field that deflects moving charge and currents. Right-hand rule: hand convention for cross-product direction. Helical motion: circular perpendicular motion plus unchanged parallel motion.
-- C: This describes Ampere long wire, not Magnetic field. It does not account for the quantities, conditions, or evidence in this electricity and magnetism case.
-- D: This describes particle motion/mass spectrometer, not Magnetic field. It does not account for the quantities, conditions, or evidence in this electricity and magnetism case.
+- A: This describes right-hand rule and force and source patterns. It does not answer the question about magnetic field.
+- B: This describes ampère’s law for a long straight wire. It does not answer the question about magnetic field.
+- C: This describes particle motion and mass spectrometer. It does not answer the question about magnetic field.
+- D: Correct. Field that deflects moving charge and currents.
+
 ### Review question 2
 
-**Prompt - exact player copy:** Station 12 receives a second case related to A Field Without Contact: the down-conductor current points downward, and nearby wire segments run north, east, and vertical. Assign a response to each condition now so the crew has an action rule it can follow under pressure. Which prediction or calculation correctly applies right-hand rule/force and source patterns to this case?
+
+**Prompt - exact player copy:** Which statement best explains right-hand rule and force and source patterns?
 
 **Options - exact player copy:**
 
-- A. Field that deflects moving charge and currents. Right-hand rule: hand convention for cross-product direction. Helical motion: circular perpendicular motion plus unchanged parallel motion.
+- A. Right-hand rules connect current geometry to both magnetic field and mechanical stress.
+- B. Field that deflects moving charge and currents.
+- C. Ampere's law converts current symmetry into the field that can thread a nearby loop.
+- D. A magnetic field bends perpendicular motion but leaves parallel speed and kinetic energy unchanged.
+
+**Correct answer:** A
+
+**Hint - exact player copy:** Identify the defining relationship or mechanism for right-hand rule and force and source patterns. All needed information is in this question.
+
+**Option feedback - exact player copy:**
+
+- A: Correct. Right-hand rules connect current geometry to both magnetic field and mechanical stress.
+- B: This describes magnetic field. It does not answer the question about right-hand rule and force and source patterns.
+- C: This describes ampère’s law for a long straight wire. It does not answer the question about right-hand rule and force and source patterns.
+- D: This describes particle motion and mass spectrometer. It does not answer the question about right-hand rule and force and source patterns.
+
+### Review question 3
+
+
+**Prompt - exact player copy:** Which statement best explains ampère’s law for a long straight wire?
+
+**Options - exact player copy:**
+
+- A. Field that deflects moving charge and currents.
 - B. Ampere's law converts current symmetry into the field that can thread a nearby loop.
 - C. Right-hand rules connect current geometry to both magnetic field and mechanical stress.
 - D. A magnetic field bends perpendicular motion but leaves parallel speed and kinetic energy unchanged.
 
-**Correct answer:** C
+**Correct answer:** B
 
-**Hint - exact player copy:** Use the stated evidence and the conditions for right-hand rule/force and source patterns; do not choose an option merely because it names a familiar term.
+**Hint - exact player copy:** Identify the defining relationship or mechanism for ampère’s law for a long straight wire. All needed information is in this question.
 
 **Option feedback - exact player copy:**
 
-- A: This describes Magnetic field, not right-hand rule/force and source patterns. It does not account for the quantities, conditions, or evidence in this electricity and magnetism case.
-- B: This describes Ampere long wire, not right-hand rule/force and source patterns. It does not account for the quantities, conditions, or evidence in this electricity and magnetism case.
-- C: Correct. right-hand rules connect current geometry to both magnetic field and mechanical stress.
-- D: This describes particle motion/mass spectrometer, not right-hand rule/force and source patterns. It does not account for the quantities, conditions, or evidence in this electricity and magnetism case.
-### Review question 3
+- A: This describes magnetic field. It does not answer the question about ampère’s law for a long straight wire.
+- B: Correct. Ampere's law converts current symmetry into the field that can thread a nearby loop.
+- C: This describes right-hand rule and force and source patterns. It does not answer the question about ampère’s law for a long straight wire.
+- D: This describes particle motion and mass spectrometer. It does not answer the question about ampère’s law for a long straight wire.
 
-**Prompt - exact player copy:** A teammate rechecks A Field Without Contact using new evidence: treat the mast down-conductor as a long straight wire carrying peak current I=30 kA. Which prediction or calculation correctly applies Ampere long wire to this case?
+### Review question 4
+
+
+**Prompt - exact player copy:** Which statement best explains particle motion and mass spectrometer?
 
 **Options - exact player copy:**
 
-- A. Field that deflects moving charge and currents. Right-hand rule: hand convention for cross-product direction. Helical motion: circular perpendicular motion plus unchanged parallel motion.
+- A. Field that deflects moving charge and currents.
 - B. Right-hand rules connect current geometry to both magnetic field and mechanical stress.
 - C. A magnetic field bends perpendicular motion but leaves parallel speed and kinetic energy unchanged.
 - D. Ampere's law converts current symmetry into the field that can thread a nearby loop.
 
-**Correct answer:** D
+**Correct answer:** C
 
-**Hint - exact player copy:** Use the stated evidence and the conditions for Ampere long wire; do not choose an option merely because it names a familiar term.
+**Hint - exact player copy:** Identify the defining relationship or mechanism for particle motion and mass spectrometer. All needed information is in this question.
 
 **Option feedback - exact player copy:**
 
-- A: This describes Magnetic field, not Ampere long wire. It does not account for the quantities, conditions, or evidence in this electricity and magnetism case.
-- B: This describes right-hand rule/force and source patterns, not Ampere long wire. It does not account for the quantities, conditions, or evidence in this electricity and magnetism case.
-- C: This describes particle motion/mass spectrometer, not Ampere long wire. It does not account for the quantities, conditions, or evidence in this electricity and magnetism case.
-- D: Correct. ampere's law converts current symmetry into the field that can thread a nearby loop.
-### Review question 4
+- A: This describes magnetic field. It does not answer the question about particle motion and mass spectrometer.
+- B: This describes right-hand rule and force and source patterns. It does not answer the question about particle motion and mass spectrometer.
+- C: Correct. A magnetic field bends perpendicular motion but leaves parallel speed and kinetic energy unchanged.
+- D: This describes ampère’s law for a long straight wire. It does not answer the question about particle motion and mass spectrometer.
 
-**Prompt - exact player copy:** An unseen case extends A Field Without Contact: at the outstation, an electron enters B=3.0 mT with perpendicular speed 2.0×10^6 m/s and parallel speed 1.0×10^6 m/s. Which prediction or calculation correctly applies particle motion/mass spectrometer to this case?
+### Review question 5
+
+
+**Prompt - exact player copy:** Which statement best explains field and loop hazard?
 
 **Options - exact player copy:**
 
-- A. A magnetic field bends perpendicular motion but leaves parallel speed and kinetic energy unchanged.
-- B. Field that deflects moving charge and currents. Right-hand rule: hand convention for cross-product direction. Helical motion: circular perpendicular motion plus unchanged parallel motion.
+- A. Field that deflects moving charge and currents.
+- B. Right-hand rules connect current geometry to both magnetic field and mechanical stress.
+- C. Ampere's law converts current symmetry into the field that can thread a nearby loop.
+- D. The pattern points toward changing magnetic flux and induced electric field, not static magnetic work.
+
+**Correct answer:** D
+
+**Hint - exact player copy:** Identify the defining relationship or mechanism for field and loop hazard. All needed information is in this question.
+
+**Option feedback - exact player copy:**
+
+- A: This describes magnetic field. It does not answer the question about field and loop hazard.
+- B: This describes right-hand rule and force and source patterns. It does not answer the question about field and loop hazard.
+- C: This describes ampère’s law for a long straight wire. It does not answer the question about field and loop hazard.
+- D: Correct. The pattern points toward changing magnetic flux and induced electric field, not static magnetic work.
+
+### Review question 6
+
+
+**Prompt - exact player copy:** Which statement best explains electric charge?
+
+**Options - exact player copy:**
+
+- A. A property of matter that creates electric force; like signs repel and unlike signs attract.
+- B. Field that deflects moving charge and currents.
 - C. Right-hand rules connect current geometry to both magnetic field and mechanical stress.
 - D. Ampere's law converts current symmetry into the field that can thread a nearby loop.
 
 **Correct answer:** A
 
-**Hint - exact player copy:** Use the stated evidence and the conditions for particle motion/mass spectrometer; do not choose an option merely because it names a familiar term.
+**Hint - exact player copy:** Identify the defining relationship or mechanism for electric charge. All needed information is in this question.
 
 **Option feedback - exact player copy:**
 
-- A: Correct. a magnetic field bends perpendicular motion but leaves parallel speed and kinetic energy unchanged.
-- B: This describes Magnetic field, not particle motion/mass spectrometer. It does not account for the quantities, conditions, or evidence in this electricity and magnetism case.
-- C: This describes right-hand rule/force and source patterns, not particle motion/mass spectrometer. It does not account for the quantities, conditions, or evidence in this electricity and magnetism case.
-- D: This describes Ampere long wire, not particle motion/mass spectrometer. It does not account for the quantities, conditions, or evidence in this electricity and magnetism case.
-### Review question 5
+- A: Correct. A property of matter that creates electric force; like signs repel and unlike signs attract.
+- B: This describes magnetic field. It does not answer the question about electric charge.
+- C: This describes right-hand rule and force and source patterns. It does not answer the question about electric charge.
+- D: This describes ampère’s law for a long straight wire. It does not answer the question about electric charge.
 
-**Prompt - exact player copy:** Before another Field Without Contact decision, the team knows this: the field is strong enough to reach the trailer route, but magnetic force alone does no work. Which prediction or calculation correctly applies field/loop hazard to this case?
+**Optional review completion - exact player copy:** Good work. You have completed six independent practice questions.
 
-**Options - exact player copy:**
-
-- A. Field that deflects moving charge and currents. Right-hand rule: hand convention for cross-product direction. Helical motion: circular perpendicular motion plus unchanged parallel motion.
-- B. The pattern points toward changing magnetic flux and induced electric field, not static magnetic work.
-- C. Right-hand rules connect current geometry to both magnetic field and mechanical stress.
-- D. Ampere's law converts current symmetry into the field that can thread a nearby loop.
-
-**Correct answer:** B
-
-**Hint - exact player copy:** Use the stated evidence and the conditions for field/loop hazard; do not choose an option merely because it names a familiar term.
-
-**Option feedback - exact player copy:**
-
-- A: This describes Magnetic field, not field/loop hazard. It does not account for the quantities, conditions, or evidence in this electricity and magnetism case.
-- B: Correct. the pattern points toward changing magnetic flux and induced electric field, not static magnetic work.
-- C: This describes right-hand rule/force and source patterns, not field/loop hazard. It does not account for the quantities, conditions, or evidence in this electricity and magnetism case.
-- D: This describes Ampere long wire, not field/loop hazard. It does not account for the quantities, conditions, or evidence in this electricity and magnetism case.
-### Review question 6
-
-**Prompt - exact player copy:** Station 12 applies the lesson from A Field Without Contact to this follow-up: at the outstation, an electron enters B=3.0 mT with perpendicular speed 2.0×10^6 m/s and parallel speed 1.0×10^6 m/s. Which prediction or calculation correctly applies Electric charge to this case?
-
-**Options - exact player copy:**
-
-- A. Field that deflects moving charge and currents. Right-hand rule: hand convention for cross-product direction. Helical motion: circular perpendicular motion plus unchanged parallel motion.
-- B. Right-hand rules connect current geometry to both magnetic field and mechanical stress.
-- C. A property of matter that creates electric force; like signs repel and unlike signs attract. Electric field: force per positive test charge, measured in newtons per coulomb or volts per metre. Superposition: add each source's field as a vector to obtain the net field.
-- D. Ampere's law converts current symmetry into the field that can thread a nearby loop.
-
-**Correct answer:** C
-
-**Hint - exact player copy:** Use the stated evidence and the conditions for Electric charge; do not choose an option merely because it names a familiar term.
-
-**Option feedback - exact player copy:**
-
-- A: This describes Magnetic field, not Electric charge. It does not account for the quantities, conditions, or evidence in this electricity and magnetism case.
-- B: This describes right-hand rule/force and source patterns, not Electric charge. It does not account for the quantities, conditions, or evidence in this electricity and magnetism case.
-- C: Correct. a property of matter that creates electric force; like signs repel and unlike signs attract. Electric field: force per positive test charge, measured in newtons per coulomb or volts per metre. Superposition: add each source's field as a vector to obtain the net field.
-- D: This describes Ampere long wire, not Electric charge. It does not account for the quantities, conditions, or evidence in this electricity and magnetism case.
-**Optional review completion - exact player copy:** Excellent work. You went beyond the required mission and strengthened the ideas behind your decision.
 ## Quick concept review
 - Lorentz force, helix, source fields, Ampere symmetry, no magnetic work.
 - ## Four graded stops
@@ -5432,139 +5506,152 @@ Mission decision: The buried loop predicts the failed card. Its pulse is near -1
 
 **Availability:** Reveal only after mission completion when the player selects **GO DEEPER**. This section is optional, ungraded for campaign progress, and does not change metrics, Recovery Points, or the next-mission unlock.
 
-**Secondary briefing card - exact player copy:** You completed The Buried Loop. Choose GO DEEPER to revisit the four decisions and explore related course ideas; this optional review does not change your metrics or delay the next mission.
+**Secondary briefing card - exact player copy:** Try six independent practice questions. Each includes its own context and any needed data; no mission records are required.
 
 ### Review focus
 
-No additional prerequisite is required. These AP-style questions apply the mission's course ideas to follow-up evidence, including related topics not required in the four main stops.
+No additional prerequisite is required. These practice questions review related course ideas. Each question stands alone, including its choices and figure.
 
 ### Review question 1
 
-**Prompt - exact player copy:** In a follow-up to The Buried Loop, the buried cable and return form a rectangle of length ℓ, spanning radii a to b from the mast. Which prediction or calculation correctly applies Magnetic flux to this case?
+
+**Prompt - exact player copy:** Which statement best explains magnetic flux?
 
 **Options - exact player copy:**
 
 - A. Integrating nonuniform B(r) prevents a false uniform-field estimate.
-- B. Magnetic field passing through a surface. Induced emf: voltage created by changing magnetic flux. Lenz's law: induced current opposes the flux change.
+- B. Magnetic field passing through a surface.
 - C. Lenz's law fixes direction while flux change can come from field, motion, or rotation.
 - D. A precomputed magnitude and sign make the archived waveform a real test.
 
 **Correct answer:** B
 
-**Hint - exact player copy:** Use the stated evidence and the conditions for Magnetic flux; do not choose an option merely because it names a familiar term.
+**Hint - exact player copy:** Identify the defining relationship or mechanism for magnetic flux. All needed information is in this question.
 
 **Option feedback - exact player copy:**
 
-- A: This describes Faraday rectangular loop near wire, not Magnetic flux. It does not account for the quantities, conditions, or evidence in this electricity and magnetism case.
-- B: Correct. magnetic field passing through a surface. Induced emf: voltage created by changing magnetic flux. Lenz's law: induced current opposes the flux change.
-- C: This describes Lenz direction and emf sources, not Magnetic flux. It does not account for the quantities, conditions, or evidence in this electricity and magnetism case.
-- D: This describes numerical induction, not Magnetic flux. It does not account for the quantities, conditions, or evidence in this electricity and magnetism case.
+- A: This describes faraday’s law for a rectangular loop near a straight wire. It does not answer the question about magnetic flux.
+- B: Correct. Magnetic field passing through a surface.
+- C: This describes lenz direction and emf sources. It does not answer the question about magnetic flux.
+- D: This describes numerical induction. It does not answer the question about magnetic flux.
+
 ### Review question 2
 
-**Prompt - exact player copy:** Station 12 receives a second case related to The Buried Loop: the buried cable and return form a rectangle of length ℓ, spanning radii a to b from the mast. Which prediction or calculation correctly applies Faraday rectangular loop near wire to this case?
+
+**Prompt - exact player copy:** Which statement best explains faraday’s law for a rectangular loop near a straight wire?
 
 **Options - exact player copy:**
 
-- A. Magnetic field passing through a surface. Induced emf: voltage created by changing magnetic flux. Lenz's law: induced current opposes the flux change.
+- A. Magnetic field passing through a surface.
 - B. Lenz's law fixes direction while flux change can come from field, motion, or rotation.
 - C. Integrating nonuniform B(r) prevents a false uniform-field estimate.
 - D. A precomputed magnitude and sign make the archived waveform a real test.
 
 **Correct answer:** C
 
-**Hint - exact player copy:** Use the stated evidence and the conditions for Faraday rectangular loop near wire; do not choose an option merely because it names a familiar term.
+**Hint - exact player copy:** Identify the defining relationship or mechanism for faraday’s law for a rectangular loop near a straight wire. All needed information is in this question.
 
 **Option feedback - exact player copy:**
 
-- A: This describes Magnetic flux, not Faraday rectangular loop near wire. It does not account for the quantities, conditions, or evidence in this electricity and magnetism case.
-- B: This describes Lenz direction and emf sources, not Faraday rectangular loop near wire. It does not account for the quantities, conditions, or evidence in this electricity and magnetism case.
-- C: Correct. integrating nonuniform B(r) prevents a false uniform-field estimate.
-- D: This describes numerical induction, not Faraday rectangular loop near wire. It does not account for the quantities, conditions, or evidence in this electricity and magnetism case.
+- A: This describes magnetic flux. It does not answer the question about faraday’s law for a rectangular loop near a straight wire.
+- B: This describes lenz direction and emf sources. It does not answer the question about faraday’s law for a rectangular loop near a straight wire.
+- C: Correct. Integrating nonuniform B(r) prevents a false uniform-field estimate.
+- D: This describes numerical induction. It does not answer the question about faraday’s law for a rectangular loop near a straight wire.
+
 ### Review question 3
 
-**Prompt - exact player copy:** A teammate rechecks The Buried Loop using new evidence: with the symbolic pulse fixed, match rising, steady, and falling mast current to loop polarity. Assign a response to each condition now so the crew has an action rule it can follow under pressure. Which prediction or calculation correctly applies Lenz direction and emf sources to this case?
+
+**Prompt - exact player copy:** Which statement best explains lenz direction and emf sources?
 
 **Options - exact player copy:**
 
-- A. Magnetic field passing through a surface. Induced emf: voltage created by changing magnetic flux. Lenz's law: induced current opposes the flux change.
+- A. Magnetic field passing through a surface.
 - B. Integrating nonuniform B(r) prevents a false uniform-field estimate.
 - C. A precomputed magnitude and sign make the archived waveform a real test.
 - D. Lenz's law fixes direction while flux change can come from field, motion, or rotation.
 
 **Correct answer:** D
 
-**Hint - exact player copy:** Use the stated evidence and the conditions for Lenz direction and emf sources; do not choose an option merely because it names a familiar term.
+**Hint - exact player copy:** Identify the defining relationship or mechanism for lenz direction and emf sources. All needed information is in this question.
 
 **Option feedback - exact player copy:**
 
-- A: This describes Magnetic flux, not Lenz direction and emf sources. It does not account for the quantities, conditions, or evidence in this electricity and magnetism case.
-- B: This describes Faraday rectangular loop near wire, not Lenz direction and emf sources. It does not account for the quantities, conditions, or evidence in this electricity and magnetism case.
-- C: This describes numerical induction, not Lenz direction and emf sources. It does not account for the quantities, conditions, or evidence in this electricity and magnetism case.
-- D: Correct. lenz's law fixes direction while flux change can come from field, motion, or rotation.
+- A: This describes magnetic flux. It does not answer the question about lenz direction and emf sources.
+- B: This describes faraday’s law for a rectangular loop near a straight wire. It does not answer the question about lenz direction and emf sources.
+- C: This describes numerical induction. It does not answer the question about lenz direction and emf sources.
+- D: Correct. Lenz's law fixes direction while flux change can come from field, motion, or rotation.
+
 ### Review question 4
 
-**Prompt - exact player copy:** An unseen case extends The Buried Loop: take the derived model to the outstation with loop dimensions ell=20 m, a=2.0 m, b=5.0 m, and current rise dI/dt=3.0×10^8 A/s. Which prediction or calculation correctly applies numerical induction to this case?
+
+**Prompt - exact player copy:** Which statement best explains numerical induction?
 
 **Options - exact player copy:**
 
 - A. A precomputed magnitude and sign make the archived waveform a real test.
-- B. Magnetic field passing through a surface. Induced emf: voltage created by changing magnetic flux. Lenz's law: induced current opposes the flux change.
+- B. Magnetic field passing through a surface.
 - C. Integrating nonuniform B(r) prevents a false uniform-field estimate.
 - D. Lenz's law fixes direction while flux change can come from field, motion, or rotation.
 
 **Correct answer:** A
 
-**Hint - exact player copy:** Use the stated evidence and the conditions for numerical induction; do not choose an option merely because it names a familiar term.
+**Hint - exact player copy:** Identify the defining relationship or mechanism for numerical induction. All needed information is in this question.
 
 **Option feedback - exact player copy:**
 
-- A: Correct. a precomputed magnitude and sign make the archived waveform a real test.
-- B: This describes Magnetic flux, not numerical induction. It does not account for the quantities, conditions, or evidence in this electricity and magnetism case.
-- C: This describes Faraday rectangular loop near wire, not numerical induction. It does not account for the quantities, conditions, or evidence in this electricity and magnetism case.
-- D: This describes Lenz direction and emf sources, not numerical induction. It does not account for the quantities, conditions, or evidence in this electricity and magnetism case.
+- A: Correct. A precomputed magnitude and sign make the archived waveform a real test.
+- B: This describes magnetic flux. It does not answer the question about numerical induction.
+- C: This describes faraday’s law for a rectangular loop near a straight wire. It does not answer the question about numerical induction.
+- D: This describes lenz direction and emf sources. It does not answer the question about numerical induction.
+
 ### Review question 5
 
-**Prompt - exact player copy:** Before another Buried Loop decision, the team knows this: because the prediction is -1.10 kV, compare it with the archived -1.06 kV peak while varying a by ±0.10 m. Commit the prediction and run the test now so the measurement can fairly accept or reject the proposed model. Which statistical conclusion or procedure correctly uses prediction test?
+
+**Prompt - exact player copy:** Which statement best explains prediction test?
 
 **Options - exact player copy:**
 
-- A. Magnetic field passing through a surface. Induced emf: voltage created by changing magnetic flux. Lenz's law: induced current opposes the flux change.
+- A. Magnetic field passing through a surface.
 - B. Prediction before reveal protects the test from after-the-fact tuning.
 - C. Integrating nonuniform B(r) prevents a false uniform-field estimate.
 - D. Lenz's law fixes direction while flux change can come from field, motion, or rotation.
 
 **Correct answer:** B
 
-**Hint - exact player copy:** Use the stated evidence and the conditions for prediction test; do not choose an option merely because it names a familiar term.
+**Hint - exact player copy:** Identify the defining relationship or mechanism for prediction test. All needed information is in this question.
 
 **Option feedback - exact player copy:**
 
-- A: This describes Magnetic flux, not prediction test. It does not account for the quantities, conditions, or evidence in this electricity and magnetism case.
-- B: Correct. prediction before reveal protects the test from after-the-fact tuning.
-- C: This describes Faraday rectangular loop near wire, not prediction test. It does not account for the quantities, conditions, or evidence in this electricity and magnetism case.
-- D: This describes Lenz direction and emf sources, not prediction test. It does not account for the quantities, conditions, or evidence in this electricity and magnetism case.
+- A: This describes magnetic flux. It does not answer the question about prediction test.
+- B: Correct. Prediction before reveal protects the test from after-the-fact tuning.
+- C: This describes faraday’s law for a rectangular loop near a straight wire. It does not answer the question about prediction test.
+- D: This describes lenz direction and emf sources. It does not answer the question about prediction test.
+
 ### Review question 6
 
-**Prompt - exact player copy:** Station 12 applies the lesson from The Buried Loop to this follow-up: the buried cable and return form a rectangle of length ℓ, spanning radii a to b from the mast. Which prediction or calculation correctly applies Electric charge to this case?
+
+**Prompt - exact player copy:** Which statement best explains electric charge?
 
 **Options - exact player copy:**
 
-- A. Magnetic field passing through a surface. Induced emf: voltage created by changing magnetic flux. Lenz's law: induced current opposes the flux change.
+- A. Magnetic field passing through a surface.
 - B. Integrating nonuniform B(r) prevents a false uniform-field estimate.
-- C. A property of matter that creates electric force; like signs repel and unlike signs attract. Electric field: force per positive test charge, measured in newtons per coulomb or volts per metre. Superposition: add each source's field as a vector to obtain the net field.
+- C. A property of matter that creates electric force; like signs repel and unlike signs attract.
 - D. Lenz's law fixes direction while flux change can come from field, motion, or rotation.
 
 **Correct answer:** C
 
-**Hint - exact player copy:** Use the stated evidence and the conditions for Electric charge; do not choose an option merely because it names a familiar term.
+**Hint - exact player copy:** Identify the defining relationship or mechanism for electric charge. All needed information is in this question.
 
 **Option feedback - exact player copy:**
 
-- A: This describes Magnetic flux, not Electric charge. It does not account for the quantities, conditions, or evidence in this electricity and magnetism case.
-- B: This describes Faraday rectangular loop near wire, not Electric charge. It does not account for the quantities, conditions, or evidence in this electricity and magnetism case.
-- C: Correct. a property of matter that creates electric force; like signs repel and unlike signs attract. Electric field: force per positive test charge, measured in newtons per coulomb or volts per metre. Superposition: add each source's field as a vector to obtain the net field.
-- D: This describes Lenz direction and emf sources, not Electric charge. It does not account for the quantities, conditions, or evidence in this electricity and magnetism case.
-**Optional review completion - exact player copy:** Excellent work. You went beyond the required mission and strengthened the ideas behind your decision.
+- A: This describes magnetic flux. It does not answer the question about electric charge.
+- B: This describes faraday’s law for a rectangular loop near a straight wire. It does not answer the question about electric charge.
+- C: Correct. A property of matter that creates electric force; like signs repel and unlike signs attract.
+- D: This describes lenz direction and emf sources. It does not answer the question about electric charge.
+
+**Optional review completion - exact player copy:** Good work. You have completed six independent practice questions.
+
 ## Quick concept review
 - flux integral, Faraday, Lenz, motion/rotation emf, uncertainty.
 - ## Four graded stops
@@ -6015,139 +6102,152 @@ Mission decision: Do not certify the bond lead for lightning. Its low-rate test 
 
 **Availability:** Reveal only after mission completion when the player selects **GO DEEPER**. This section is optional, ungraded for campaign progress, and does not change metrics, Recovery Points, or the next-mission unlock.
 
-**Secondary briefing card - exact player copy:** You completed A Good Bond at the Wrong Speed. Choose GO DEEPER to revisit the four decisions and explore related course ideas; this optional review does not change your metrics or delay the next mission.
+**Secondary briefing card - exact player copy:** Try six independent practice questions. Each includes its own context and any needed data; no mission records are required.
 
 ### Review focus
 
-No additional prerequisite is required. These AP-style questions apply the mission's course ideas to follow-up evidence, including related topics not required in the four main stops.
+No additional prerequisite is required. These practice questions review related course ideas. Each question stands alone, including its choices and figure.
 
 ### Review question 1
 
-**Prompt - exact player copy:** In a follow-up to A Good Bond at the Wrong Speed, model a wound calibration coil with N turns, length ℓ, and area A. Which prediction or calculation correctly applies Inductance to this case?
+
+**Prompt - exact player copy:** Which statement best explains inductance?
 
 **Options - exact player copy:**
 
 - A. The derivation shows how geometry controls opposition to changing current.
-- B. Flux linkage per current and opposition to current change. Transient: brief change before a circuit settles. Time constant: characteristic response time.
-- C. Equal stored energy can create unequal inductive hazard because waveform shape matters.
-- D. The larger term identifies what the slow certificate failed to test.
+- B. Equal stored energy can create unequal inductive hazard because waveform shape matters.
+- C. The larger term identifies what the slow certificate failed to test.
+- D. Flux linkage per current and opposition to current change.
 
-**Correct answer:** B
+**Correct answer:** D
 
-**Hint - exact player copy:** Use the stated evidence and the conditions for Inductance; do not choose an option merely because it names a familiar term.
+**Hint - exact player copy:** Identify the defining relationship or mechanism for inductance. All needed information is in this question.
 
 **Option feedback - exact player copy:**
 
-- A: This describes solenoid inductance, not Inductance. It does not account for the quantities, conditions, or evidence in this electricity and magnetism case.
-- B: Correct. flux linkage per current and opposition to current change. Transient: brief change before a circuit settles. Time constant: characteristic response time.
-- C: This describes dI/dt, not Inductance. It does not account for the quantities, conditions, or evidence in this electricity and magnetism case.
-- D: This describes bond voltage, not Inductance. It does not account for the quantities, conditions, or evidence in this electricity and magnetism case.
+- A: This describes solenoid inductance. It does not answer the question about inductance.
+- B: This describes dI and dt. It does not answer the question about inductance.
+- C: This describes bond voltage. It does not answer the question about inductance.
+- D: Correct. Flux linkage per current and opposition to current change.
+
 ### Review question 2
 
-**Prompt - exact player copy:** Station 12 receives a second case related to A Good Bond at the Wrong Speed: model a wound calibration coil with N turns, length ℓ, and area A. Which prediction or calculation correctly applies solenoid inductance to this case?
+
+**Prompt - exact player copy:** Which statement best explains solenoid inductance?
 
 **Options - exact player copy:**
 
-- A. Flux linkage per current and opposition to current change. Transient: brief change before a circuit settles. Time constant: characteristic response time.
+- A. The derivation shows how geometry controls opposition to changing current.
+- B. Flux linkage per current and opposition to current change.
+- C. Equal stored energy can create unequal inductive hazard because waveform shape matters.
+- D. The larger term identifies what the slow certificate failed to test.
+
+**Correct answer:** A
+
+**Hint - exact player copy:** Identify the defining relationship or mechanism for solenoid inductance. All needed information is in this question.
+
+**Option feedback - exact player copy:**
+
+- A: Correct. The derivation shows how geometry controls opposition to changing current.
+- B: This describes inductance. It does not answer the question about solenoid inductance.
+- C: This describes dI and dt. It does not answer the question about solenoid inductance.
+- D: This describes bond voltage. It does not answer the question about solenoid inductance.
+
+### Review question 3
+
+
+**Prompt - exact player copy:** Which statement best explains dI and dt?
+
+**Options - exact player copy:**
+
+- A. Flux linkage per current and opposition to current change.
 - B. Equal stored energy can create unequal inductive hazard because waveform shape matters.
 - C. The derivation shows how geometry controls opposition to changing current.
 - D. The larger term identifies what the slow certificate failed to test.
 
-**Correct answer:** C
+**Correct answer:** B
 
-**Hint - exact player copy:** Use the stated evidence and the conditions for solenoid inductance; do not choose an option merely because it names a familiar term.
+**Hint - exact player copy:** Identify the defining relationship or mechanism for di and dt. All needed information is in this question.
 
 **Option feedback - exact player copy:**
 
-- A: This describes Inductance, not solenoid inductance. It does not account for the quantities, conditions, or evidence in this electricity and magnetism case.
-- B: This describes dI/dt, not solenoid inductance. It does not account for the quantities, conditions, or evidence in this electricity and magnetism case.
-- C: Correct. the derivation shows how geometry controls opposition to changing current.
-- D: This describes bond voltage, not solenoid inductance. It does not account for the quantities, conditions, or evidence in this electricity and magnetism case.
-### Review question 3
+- A: This describes inductance. It does not answer the question about di and dt.
+- B: Correct. Equal stored energy can create unequal inductive hazard because waveform shape matters.
+- C: This describes solenoid inductance. It does not answer the question about di and dt.
+- D: This describes bond voltage. It does not answer the question about di and dt.
 
-**Prompt - exact player copy:** A teammate rechecks A Good Bond at the Wrong Speed using new evidence: model a wound calibration coil with N turns, length ℓ, and area A. Which prediction or calculation correctly applies dI/dt to this case?
+### Review question 4
+
+
+**Prompt - exact player copy:** A conductor has R=0.42 Ω and L=2.0 μH. During a pulse, I=10 kA and dI/dt=3.0×10⁸ A/s. Compare IR and L(dI/dt).
 
 **Options - exact player copy:**
 
-- A. Flux linkage per current and opposition to current change. Transient: brief change before a circuit settles. Time constant: characteristic response time.
+- A. Flux linkage per current and opposition to current change.
 - B. The derivation shows how geometry controls opposition to changing current.
-- C. The larger term identifies what the slow certificate failed to test.
+- C. The resistive term is 4200 V and the inductive term is 600 V; a steady-resistance test does not measure the added transient term.
 - D. Equal stored energy can create unequal inductive hazard because waveform shape matters.
+
+**Correct answer:** C
+
+**Hint - exact player copy:** Identify the defining relationship or mechanism for bond voltage. All needed information is in this question.
+
+**Option feedback - exact player copy:**
+
+- A: This describes inductance. It does not answer the question about bond voltage.
+- B: This describes solenoid inductance. It does not answer the question about bond voltage.
+- C: Correct. The resistive term is 4200 V and the inductive term is 600 V; a steady-resistance test does not measure the added transient term.
+- D: This describes dI and dt. It does not answer the question about bond voltage.
+
+### Review question 5
+
+
+**Prompt - exact player copy:** Which statement best explains DC vs transient safety?
+
+**Options - exact player copy:**
+
+- A. Flux linkage per current and opposition to current change.
+- B. The derivation shows how geometry controls opposition to changing current.
+- C. Equal stored energy can create unequal inductive hazard because waveform shape matters.
+- D. A measurement is valid only for the quantity and timescale it tested.
 
 **Correct answer:** D
 
-**Hint - exact player copy:** Use the stated evidence and the conditions for dI/dt; do not choose an option merely because it names a familiar term.
+**Hint - exact player copy:** Identify the defining relationship or mechanism for dc vs transient safety. All needed information is in this question.
 
 **Option feedback - exact player copy:**
 
-- A: This describes Inductance, not dI/dt. It does not account for the quantities, conditions, or evidence in this electricity and magnetism case.
-- B: This describes solenoid inductance, not dI/dt. It does not account for the quantities, conditions, or evidence in this electricity and magnetism case.
-- C: This describes bond voltage, not dI/dt. It does not account for the quantities, conditions, or evidence in this electricity and magnetism case.
-- D: Correct. equal stored energy can create unequal inductive hazard because waveform shape matters.
-### Review question 4
+- A: This describes inductance. It does not answer the question about dc vs transient safety.
+- B: This describes solenoid inductance. It does not answer the question about dc vs transient safety.
+- C: This describes dI and dt. It does not answer the question about dc vs transient safety.
+- D: Correct. A measurement is valid only for the quantity and timescale it tested.
 
-**Prompt - exact player copy:** An unseen case extends A Good Bond at the Wrong Speed: at the trench, the bond has L=2.0 microH, R=0.42 ohm, current I=10 kA, and dI/dt=3.0×10^8 A/s. Which prediction or calculation correctly applies bond voltage to this case?
+### Review question 6
+
+
+**Prompt - exact player copy:** Which statement best explains electric charge?
 
 **Options - exact player copy:**
 
-- A. The larger term identifies what the slow certificate failed to test.
-- B. Flux linkage per current and opposition to current change. Transient: brief change before a circuit settles. Time constant: characteristic response time.
+- A. A property of matter that creates electric force; like signs repel and unlike signs attract.
+- B. Flux linkage per current and opposition to current change.
 - C. The derivation shows how geometry controls opposition to changing current.
 - D. Equal stored energy can create unequal inductive hazard because waveform shape matters.
 
 **Correct answer:** A
 
-**Hint - exact player copy:** Use the stated evidence and the conditions for bond voltage; do not choose an option merely because it names a familiar term.
+**Hint - exact player copy:** Identify the defining relationship or mechanism for electric charge. All needed information is in this question.
 
 **Option feedback - exact player copy:**
 
-- A: Correct. the larger term identifies what the slow certificate failed to test.
-- B: This describes Inductance, not bond voltage. It does not account for the quantities, conditions, or evidence in this electricity and magnetism case.
-- C: This describes solenoid inductance, not bond voltage. It does not account for the quantities, conditions, or evidence in this electricity and magnetism case.
-- D: This describes dI/dt, not bond voltage. It does not account for the quantities, conditions, or evidence in this electricity and magnetism case.
-### Review question 5
+- A: Correct. A property of matter that creates electric force; like signs repel and unlike signs attract.
+- B: This describes inductance. It does not answer the question about electric charge.
+- C: This describes solenoid inductance. It does not answer the question about electric charge.
+- D: This describes dI and dt. It does not answer the question about electric charge.
 
-**Prompt - exact player copy:** Before another Good Bond at the Wrong Speed decision, the team knows this: now the same lead produces 4.2 kV resistive and 0.60 kV inductive drop during the pulse. Which prediction or calculation correctly applies DC vs transient safety to this case?
+**Optional review completion - exact player copy:** Good work. You have completed six independent practice questions.
 
-**Options - exact player copy:**
-
-- A. Flux linkage per current and opposition to current change. Transient: brief change before a circuit settles. Time constant: characteristic response time.
-- B. A measurement is valid only for the quantity and timescale it tested.
-- C. The derivation shows how geometry controls opposition to changing current.
-- D. Equal stored energy can create unequal inductive hazard because waveform shape matters.
-
-**Correct answer:** B
-
-**Hint - exact player copy:** Use the stated evidence and the conditions for DC vs transient safety; do not choose an option merely because it names a familiar term.
-
-**Option feedback - exact player copy:**
-
-- A: This describes Inductance, not DC vs transient safety. It does not account for the quantities, conditions, or evidence in this electricity and magnetism case.
-- B: Correct. a measurement is valid only for the quantity and timescale it tested.
-- C: This describes solenoid inductance, not DC vs transient safety. It does not account for the quantities, conditions, or evidence in this electricity and magnetism case.
-- D: This describes dI/dt, not DC vs transient safety. It does not account for the quantities, conditions, or evidence in this electricity and magnetism case.
-### Review question 6
-
-**Prompt - exact player copy:** Station 12 applies the lesson from A Good Bond at the Wrong Speed to this follow-up: model a wound calibration coil with N turns, length ℓ, and area A. Which prediction or calculation correctly applies Electric charge to this case?
-
-**Options - exact player copy:**
-
-- A. Flux linkage per current and opposition to current change. Transient: brief change before a circuit settles. Time constant: characteristic response time.
-- B. The derivation shows how geometry controls opposition to changing current.
-- C. A property of matter that creates electric force; like signs repel and unlike signs attract. Electric field: force per positive test charge, measured in newtons per coulomb or volts per metre. Superposition: add each source's field as a vector to obtain the net field.
-- D. Equal stored energy can create unequal inductive hazard because waveform shape matters.
-
-**Correct answer:** C
-
-**Hint - exact player copy:** Use the stated evidence and the conditions for Electric charge; do not choose an option merely because it names a familiar term.
-
-**Option feedback - exact player copy:**
-
-- A: This describes Inductance, not Electric charge. It does not account for the quantities, conditions, or evidence in this electricity and magnetism case.
-- B: This describes solenoid inductance, not Electric charge. It does not account for the quantities, conditions, or evidence in this electricity and magnetism case.
-- C: Correct. a property of matter that creates electric force; like signs repel and unlike signs attract. Electric field: force per positive test charge, measured in newtons per coulomb or volts per metre. Superposition: add each source's field as a vector to obtain the net field.
-- D: This describes dI/dt, not Electric charge. It does not account for the quantities, conditions, or evidence in this electricity and magnetism case.
-**Optional review completion - exact player copy:** Excellent work. You went beyond the required mission and strengthened the ideas behind your decision.
 ## Quick concept review
 - solenoid L, self-emf, magnetic energy, transient impedance.
 - ## Four graded stops
@@ -6379,7 +6479,7 @@ KCL, current density, Ampere, force between wires, attestation.
 
 **Question card story-science connection - exact player copy:** The conduit field and force per unit length establish the exposure and loading expected from the proposed current split.
 
-**Fixture source panel - exact player copy:** Treat the bonded conduit as a straight branch carrying 10 kA; the cabinet is 2.0 m away. Derive B, then derive force per length against a parallel 5.0 kA lead 0.20 m away. Start with B=μ₀I/(2πr) for the magnetic field around the conduit, then use F/L=μ₀I₁I₂/(2πd) for force per unit length between the parallel currents. μ0 = 4π × 10^-7 T m/A, vacuum permeability. Vacuum permeability: μ₀ = 4π × 10^-7 T m/A.
+**Fixture source panel - exact player copy:** Treat the bonded conduit as a straight branch carrying 10 kA; the cabinet is 2.0 m away. Derive B, then derive force per length against a parallel 5.0 kA lead 0.20 m away. Start with B=μ₀I/(2πr) for the magnetic field around the conduit, then use F/L=μ₀I₁I₂/(2πd) for force per unit length between the parallel currents. Vacuum permeability: μ₀ = 4π × 10^-7 T m/A.
 
 **Source-panel timing:** Show at this stop’s declared fixture before its DERIVE choices unlock. Keep visible while the player works. These are model inputs and prior observations, not new measurements or an accepted answer. Symbolic derivations stay symbolic; do not invent a number merely to force substitution.
 
@@ -6532,139 +6632,152 @@ Mission decision: About one third of the strike used the bonded conduit. Current
 
 **Availability:** Reveal only after mission completion when the player selects **GO DEEPER**. This section is optional, ungraded for campaign progress, and does not change metrics, Recovery Points, or the next-mission unlock.
 
-**Secondary briefing card - exact player copy:** You completed The Missing Third. Choose GO DEEPER to revisit the four decisions and explore related course ideas; this optional review does not change your metrics or delay the next mission.
+**Secondary briefing card - exact player copy:** Try six independent practice questions. Each includes its own context and any needed data; no mission records are required.
 
 ### Review focus
 
-No additional prerequisite is required. These AP-style questions apply the mission's course ideas to follow-up evidence, including related topics not required in the four main stops.
+No additional prerequisite is required. These practice questions review related course ideas. Each question stands alone, including its choices and figure.
 
 ### Review question 1
 
-**Prompt - exact player copy:** In a follow-up to The Missing Third, the base clamp reads 30 kA, while three down-conductor shunts total only 20 kA. Close the ledger now so the next decision uses every real input and output exactly once. Which prediction or calculation correctly applies Current density to this case?
+
+**Prompt - exact player copy:** Which statement best explains current density?
 
 **Options - exact player copy:**
 
 - A. Charge conservation makes an unmeasured branch a physical requirement, not optional speculation.
-- B. Current per cross-sectional area. Toroid: ring-shaped winding whose field is mainly inside. Displacement current: changing electric flux term in Ampere-Maxwell law.
+- B. Current per cross-sectional area.
 - C. Field and force provide independent evidence for the hidden path.
 - D. Loss and return of the missing current ties it to the conduit branch.
 
 **Correct answer:** B
 
-**Hint - exact player copy:** Use the stated evidence and the conditions for Current density; do not choose an option merely because it names a familiar term.
+**Hint - exact player copy:** Identify the defining relationship or mechanism for current density. All needed information is in this question.
 
 **Option feedback - exact player copy:**
 
-- A: This describes current ledger, not Current density. It does not account for the quantities, conditions, or evidence in this electricity and magnetism case.
-- B: Correct. current per cross-sectional area. Toroid: ring-shaped winding whose field is mainly inside. Displacement current: changing electric flux term in Ampere-Maxwell law.
-- C: This describes coax/toroid Ampere field and force, not Current density. It does not account for the quantities, conditions, or evidence in this electricity and magnetism case.
-- D: This describes bond causality, not Current density. It does not account for the quantities, conditions, or evidence in this electricity and magnetism case.
+- A: This describes current ledger. It does not answer the question about current density.
+- B: Correct. Current per cross-sectional area.
+- C: This describes using magnetic fields and forces to check a current path. It does not answer the question about current density.
+- D: This describes bond causality. It does not answer the question about current density.
+
 ### Review question 2
 
-**Prompt - exact player copy:** Station 12 receives a second case related to The Missing Third: the base clamp reads 30 kA, while three down-conductor shunts total only 20 kA. Close the ledger now so the next decision uses every real input and output exactly once. Which prediction or calculation correctly applies current ledger to this case?
+
+**Prompt - exact player copy:** Which statement best explains current ledger?
 
 **Options - exact player copy:**
 
-- A. Current per cross-sectional area. Toroid: ring-shaped winding whose field is mainly inside. Displacement current: changing electric flux term in Ampere-Maxwell law.
+- A. Current per cross-sectional area.
 - B. Field and force provide independent evidence for the hidden path.
 - C. Charge conservation makes an unmeasured branch a physical requirement, not optional speculation.
 - D. Loss and return of the missing current ties it to the conduit branch.
 
 **Correct answer:** C
 
-**Hint - exact player copy:** Use the stated evidence and the conditions for current ledger; do not choose an option merely because it names a familiar term.
+**Hint - exact player copy:** Identify the defining relationship or mechanism for current ledger. All needed information is in this question.
 
 **Option feedback - exact player copy:**
 
-- A: This describes Current density, not current ledger. It does not account for the quantities, conditions, or evidence in this electricity and magnetism case.
-- B: This describes coax/toroid Ampere field and force, not current ledger. It does not account for the quantities, conditions, or evidence in this electricity and magnetism case.
-- C: Correct. charge conservation makes an unmeasured branch a physical requirement, not optional speculation.
-- D: This describes bond causality, not current ledger. It does not account for the quantities, conditions, or evidence in this electricity and magnetism case.
+- A: This describes current density. It does not answer the question about current ledger.
+- B: This describes using magnetic fields and forces to check a current path. It does not answer the question about current ledger.
+- C: Correct. Charge conservation makes an unmeasured branch a physical requirement, not optional speculation.
+- D: This describes bond causality. It does not answer the question about current ledger.
+
 ### Review question 3
 
-**Prompt - exact player copy:** A teammate rechecks The Missing Third using new evidence: treat the bonded conduit as a straight branch carrying 10 kA; the cabinet is 2.0 m away. Which prediction or calculation correctly applies coax/toroid Ampere field and force to this case?
+
+**Prompt - exact player copy:** Which statement best explains using magnetic fields and forces to check a current path?
 
 **Options - exact player copy:**
 
-- A. Current per cross-sectional area. Toroid: ring-shaped winding whose field is mainly inside. Displacement current: changing electric flux term in Ampere-Maxwell law.
+- A. Current per cross-sectional area.
 - B. Charge conservation makes an unmeasured branch a physical requirement, not optional speculation.
 - C. Loss and return of the missing current ties it to the conduit branch.
 - D. Field and force provide independent evidence for the hidden path.
 
 **Correct answer:** D
 
-**Hint - exact player copy:** Use the stated evidence and the conditions for coax/toroid Ampere field and force; do not choose an option merely because it names a familiar term.
+**Hint - exact player copy:** Identify the defining relationship or mechanism for using magnetic fields and forces to check a current path. All needed information is in this question.
 
 **Option feedback - exact player copy:**
 
-- A: This describes Current density, not coax/toroid Ampere field and force. It does not account for the quantities, conditions, or evidence in this electricity and magnetism case.
-- B: This describes current ledger, not coax/toroid Ampere field and force. It does not account for the quantities, conditions, or evidence in this electricity and magnetism case.
-- C: This describes bond causality, not coax/toroid Ampere field and force. It does not account for the quantities, conditions, or evidence in this electricity and magnetism case.
-- D: Correct. field and force provide independent evidence for the hidden path.
+- A: This describes current density. It does not answer the question about using magnetic fields and forces to check a current path.
+- B: This describes current ledger. It does not answer the question about using magnetic fields and forces to check a current path.
+- C: This describes bond causality. It does not answer the question about using magnetic fields and forces to check a current path.
+- D: Correct. Field and force provide independent evidence for the hidden path.
+
 ### Review question 4
 
-**Prompt - exact player copy:** An unseen case extends The Missing Third: because the field predicts 10 kA, open only the approved test link, keep bank pulse, shunts, and geometry fixed, then restore the link. Run the reversible comparison now so the crew can tell whether the proposed cause changes the measured response. Which prediction or calculation correctly applies bond causality to this case?
+
+**Prompt - exact player copy:** Which statement best explains bond causality?
 
 **Options - exact player copy:**
 
 - A. Loss and return of the missing current ties it to the conduit branch.
-- B. Current per cross-sectional area. Toroid: ring-shaped winding whose field is mainly inside. Displacement current: changing electric flux term in Ampere-Maxwell law.
+- B. Current per cross-sectional area.
 - C. Charge conservation makes an unmeasured branch a physical requirement, not optional speculation.
 - D. Field and force provide independent evidence for the hidden path.
 
 **Correct answer:** A
 
-**Hint - exact player copy:** Use the stated evidence and the conditions for bond causality; do not choose an option merely because it names a familiar term.
+**Hint - exact player copy:** Identify the defining relationship or mechanism for bond causality. All needed information is in this question.
 
 **Option feedback - exact player copy:**
 
-- A: Correct. loss and return of the missing current ties it to the conduit branch.
-- B: This describes Current density, not bond causality. It does not account for the quantities, conditions, or evidence in this electricity and magnetism case.
-- C: This describes current ledger, not bond causality. It does not account for the quantities, conditions, or evidence in this electricity and magnetism case.
-- D: This describes coax/toroid Ampere field and force, not bond causality. It does not account for the quantities, conditions, or evidence in this electricity and magnetism case.
+- A: Correct. Loss and return of the missing current ties it to the conduit branch.
+- B: This describes current density. It does not answer the question about bond causality.
+- C: This describes current ledger. It does not answer the question about bond causality.
+- D: This describes using magnetic fields and forces to check a current path. It does not answer the question about bond causality.
+
 ### Review question 5
 
-**Prompt - exact player copy:** Before another Missing Third decision, the team knows this: the controlled link proves today's path; now verify week-five shunt identity, clock alignment, conduit bond record, and clamp calibration within four checks. Before the record can be signed, identify which claims have independent support and which must remain unverified. Which prediction or calculation correctly applies timestamps/current identity to this case?
+
+**Prompt - exact player copy:** Which statement best explains timestamps and current identity?
 
 **Options - exact player copy:**
 
-- A. Current per cross-sectional area. Toroid: ring-shaped winding whose field is mainly inside. Displacement current: changing electric flux term in Ampere-Maxwell law.
-- B. Matched identity and timing transfer the causal result to the failed shot.
+- A. Current per cross-sectional area.
+- B. Matched identity and timing transfer the causal result to the event being studied.
 - C. Charge conservation makes an unmeasured branch a physical requirement, not optional speculation.
 - D. Field and force provide independent evidence for the hidden path.
 
 **Correct answer:** B
 
-**Hint - exact player copy:** Use the stated evidence and the conditions for timestamps/current identity; do not choose an option merely because it names a familiar term.
+**Hint - exact player copy:** Identify the defining relationship or mechanism for timestamps and current identity. All needed information is in this question.
 
 **Option feedback - exact player copy:**
 
-- A: This describes Current density, not timestamps/current identity. It does not account for the quantities, conditions, or evidence in this electricity and magnetism case.
-- B: Correct. matched identity and timing transfer the causal result to the failed shot.
-- C: This describes current ledger, not timestamps/current identity. It does not account for the quantities, conditions, or evidence in this electricity and magnetism case.
-- D: This describes coax/toroid Ampere field and force, not timestamps/current identity. It does not account for the quantities, conditions, or evidence in this electricity and magnetism case.
+- A: This describes current density. It does not answer the question about timestamps and current identity.
+- B: Correct. Matched identity and timing transfer the causal result to the event being studied.
+- C: This describes current ledger. It does not answer the question about timestamps and current identity.
+- D: This describes using magnetic fields and forces to check a current path. It does not answer the question about timestamps and current identity.
+
 ### Review question 6
 
-**Prompt - exact player copy:** Station 12 applies the lesson from The Missing Third to this follow-up: the base clamp reads 30 kA, while three down-conductor shunts total only 20 kA. Close the ledger now so the next decision uses every real input and output exactly once. Which prediction or calculation correctly applies Electric charge to this case?
+
+**Prompt - exact player copy:** Which statement best explains electric charge?
 
 **Options - exact player copy:**
 
-- A. Current per cross-sectional area. Toroid: ring-shaped winding whose field is mainly inside. Displacement current: changing electric flux term in Ampere-Maxwell law.
+- A. Current per cross-sectional area.
 - B. Charge conservation makes an unmeasured branch a physical requirement, not optional speculation.
-- C. A property of matter that creates electric force; like signs repel and unlike signs attract. Electric field: force per positive test charge, measured in newtons per coulomb or volts per metre. Superposition: add each source's field as a vector to obtain the net field.
+- C. A property of matter that creates electric force; like signs repel and unlike signs attract.
 - D. Field and force provide independent evidence for the hidden path.
 
 **Correct answer:** C
 
-**Hint - exact player copy:** Use the stated evidence and the conditions for Electric charge; do not choose an option merely because it names a familiar term.
+**Hint - exact player copy:** Identify the defining relationship or mechanism for electric charge. All needed information is in this question.
 
 **Option feedback - exact player copy:**
 
-- A: This describes Current density, not Electric charge. It does not account for the quantities, conditions, or evidence in this electricity and magnetism case.
-- B: This describes current ledger, not Electric charge. It does not account for the quantities, conditions, or evidence in this electricity and magnetism case.
-- C: Correct. a property of matter that creates electric force; like signs repel and unlike signs attract. Electric field: force per positive test charge, measured in newtons per coulomb or volts per metre. Superposition: add each source's field as a vector to obtain the net field.
-- D: This describes coax/toroid Ampere field and force, not Electric charge. It does not account for the quantities, conditions, or evidence in this electricity and magnetism case.
-**Optional review completion - exact player copy:** Excellent work. You went beyond the required mission and strengthened the ideas behind your decision.
+- A: This describes current density. It does not answer the question about electric charge.
+- B: This describes current ledger. It does not answer the question about electric charge.
+- C: Correct. A property of matter that creates electric force; like signs repel and unlike signs attract.
+- D: This describes using magnetic fields and forces to check a current path. It does not answer the question about electric charge.
+
+**Optional review completion - exact player copy:** Good work. You have completed six independent practice questions.
+
 ## Quick concept review
 - KCL, current density, Ampere, force between wires, attestation.
 - ## Four graded stops
@@ -6888,7 +7001,7 @@ Strand owns source, Tate path, Noor tolerance.
 
 **Question card story-science connection - exact player copy:** The reroute's mutual inductance determines the expected trailer voltage at both full and reduced current-rise rates.
 
-**Fixture source panel - exact player copy:** The old mutual inductance 3.7 microH and rise rate 3.0×10^8 A/s predicted 1.11 kV. The reroute lowers mutual inductance to 0.60 microH; derive its pulse prediction and justify the change. Build the mutual-emf calculation for M_new=0.60 μH, first at 3.0×10^8 A/s and then at half that rise rate
+**Fixture source panel - exact player copy:** The old mutual inductance of 3.7 microH and current rise rate of 3.0×10^8 A/s predicted 1.11 kV. The reroute lowers mutual inductance to 0.60 microH. Derive its induced-emf magnitude at the same rise rate and at half that rate, then explain the change.
 
 **Source-panel timing:** Show at this stop’s declared fixture before its DERIVE choices unlock. Keep visible while the player works. These are model inputs and prior observations, not new measurements or an accepted answer. Symbolic derivations stay symbolic; do not invent a number merely to force substitution.
 
@@ -7087,139 +7200,152 @@ Mission decision: The reroute is safe for a full shot under the stated tolerance
 
 **Availability:** Reveal only after mission completion when the player selects **GO DEEPER**. This section is optional, ungraded for campaign progress, and does not change metrics, Recovery Points, or the next-mission unlock.
 
-**Secondary briefing card - exact player copy:** You completed Predict, Then Fire. Choose GO DEEPER to revisit the four decisions and explore related course ideas; this optional review does not change your metrics or delay the next mission.
+**Secondary briefing card - exact player copy:** Try six independent practice questions. Each includes its own context and any needed data; no mission records are required.
 
 ### Review focus
 
-No additional prerequisite is required. These AP-style questions apply the mission's course ideas to follow-up evidence, including related topics not required in the four main stops.
+No additional prerequisite is required. These practice questions review related course ideas. Each question stands alone, including its choices and figure.
 
 ### Review question 1
 
-**Prompt - exact player copy:** In a follow-up to Predict, Then Fire, the old mutual inductance 3.7 microH and rise rate 3.0×10^8 A/s predicted 1.11 kV. Which prediction or calculation correctly applies Mutual inductance to this case?
+
+**Prompt - exact player copy:** Which statement best explains mutual inductance?
 
 **Options - exact player copy:**
 
 - A. Halving voltage quarters capacitor energy.
-- B. Flux linkage in one circuit per current in another. Transfer function: output divided by input as a function of frequency.
-- C. Mutual inductance links the geometry repair directly to measurable voltage.
-- D. Operation cannot tune the prediction after the measurement.
+- B. Mutual inductance links the geometry repair directly to measurable voltage.
+- C. Operation cannot tune the prediction after the measurement.
+- D. Flux linkage in one circuit per current in another.
 
-**Correct answer:** B
+**Correct answer:** D
 
-**Hint - exact player copy:** Use the stated evidence and the conditions for Mutual inductance; do not choose an option merely because it names a familiar term.
+**Hint - exact player copy:** Identify the defining relationship or mechanism for mutual inductance. All needed information is in this question.
 
 **Option feedback - exact player copy:**
 
-- A: This describes reduced energy, not Mutual inductance. It does not account for the quantities, conditions, or evidence in this electricity and magnetism case.
-- B: Correct. flux linkage in one circuit per current in another. Transfer function: output divided by input as a function of frequency.
-- C: This describes mutual emf, not Mutual inductance. It does not account for the quantities, conditions, or evidence in this electricity and magnetism case.
-- D: This describes staged verification, not Mutual inductance. It does not account for the quantities, conditions, or evidence in this electricity and magnetism case.
+- A: This describes reduced energy. It does not answer the question about mutual inductance.
+- B: This describes mutual emf. It does not answer the question about mutual inductance.
+- C: This describes staged verification. It does not answer the question about mutual inductance.
+- D: Correct. Flux linkage in one circuit per current in another.
+
 ### Review question 2
 
-**Prompt - exact player copy:** Station 12 receives a second case related to Predict, Then Fire: the test uses twelve 100 nF stages at 25.0 kV each rather than 50.0 kV. Which prediction or calculation correctly applies reduced energy to this case?
+
+**Prompt - exact player copy:** A capacitor's voltage is halved while its capacitance stays fixed. What happens to its stored energy, U=½CV²?
 
 **Options - exact player copy:**
 
-- A. Flux linkage in one circuit per current in another. Transfer function: output divided by input as a function of frequency.
+- A. It falls to one quarter of its original value.
+- B. Flux linkage in one circuit per current in another.
+- C. Mutual inductance links the geometry repair directly to measurable voltage.
+- D. Operation cannot tune the prediction after the measurement.
+
+**Correct answer:** A
+
+**Hint - exact player copy:** Identify the defining relationship or mechanism for reduced energy. All needed information is in this question.
+
+**Option feedback - exact player copy:**
+
+- A: Correct. It falls to one quarter of its original value.
+- B: This describes mutual inductance. It does not answer the question about reduced energy.
+- C: This describes mutual emf. It does not answer the question about reduced energy.
+- D: This describes staged verification. It does not answer the question about reduced energy.
+
+### Review question 3
+
+
+**Prompt - exact player copy:** Which statement best explains mutual emf?
+
+**Options - exact player copy:**
+
+- A. Flux linkage in one circuit per current in another.
 - B. Mutual inductance links the geometry repair directly to measurable voltage.
 - C. Halving voltage quarters capacitor energy.
 - D. Operation cannot tune the prediction after the measurement.
 
-**Correct answer:** C
+**Correct answer:** B
 
-**Hint - exact player copy:** Use the stated evidence and the conditions for reduced energy; do not choose an option merely because it names a familiar term.
+**Hint - exact player copy:** Identify the defining relationship or mechanism for mutual emf. All needed information is in this question.
 
 **Option feedback - exact player copy:**
 
-- A: This describes Mutual inductance, not reduced energy. It does not account for the quantities, conditions, or evidence in this electricity and magnetism case.
-- B: This describes mutual emf, not reduced energy. It does not account for the quantities, conditions, or evidence in this electricity and magnetism case.
-- C: Correct. halving voltage quarters capacitor energy.
-- D: This describes staged verification, not reduced energy. It does not account for the quantities, conditions, or evidence in this electricity and magnetism case.
-### Review question 3
+- A: This describes mutual inductance. It does not answer the question about mutual emf.
+- B: Correct. Mutual inductance links the geometry repair directly to measurable voltage.
+- C: This describes reduced energy. It does not answer the question about mutual emf.
+- D: This describes staged verification. It does not answer the question about mutual emf.
 
-**Prompt - exact player copy:** A teammate rechecks Predict, Then Fire using new evidence: the old mutual inductance 3.7 microH and rise rate 3.0×10^8 A/s predicted 1.11 kV. Which prediction or calculation correctly applies mutual emf to this case?
+### Review question 4
+
+
+**Prompt - exact player copy:** Which statement best explains staged verification?
 
 **Options - exact player copy:**
 
-- A. Flux linkage in one circuit per current in another. Transfer function: output divided by input as a function of frequency.
+- A. Flux linkage in one circuit per current in another.
 - B. Halving voltage quarters capacitor energy.
 - C. Operation cannot tune the prediction after the measurement.
 - D. Mutual inductance links the geometry repair directly to measurable voltage.
 
-**Correct answer:** D
+**Correct answer:** C
 
-**Hint - exact player copy:** Use the stated evidence and the conditions for mutual emf; do not choose an option merely because it names a familiar term.
+**Hint - exact player copy:** Identify the defining relationship or mechanism for staged verification. All needed information is in this question.
 
 **Option feedback - exact player copy:**
 
-- A: This describes Mutual inductance, not mutual emf. It does not account for the quantities, conditions, or evidence in this electricity and magnetism case.
-- B: This describes reduced energy, not mutual emf. It does not account for the quantities, conditions, or evidence in this electricity and magnetism case.
-- C: This describes staged verification, not mutual emf. It does not account for the quantities, conditions, or evidence in this electricity and magnetism case.
-- D: Correct. mutual inductance links the geometry repair directly to measurable voltage.
-### Review question 4
+- A: This describes mutual inductance. It does not answer the question about staged verification.
+- B: This describes reduced energy. It does not answer the question about staged verification.
+- C: Correct. Operation cannot tune the prediction after the measurement.
+- D: This describes mutual emf. It does not answer the question about staged verification.
 
-**Prompt - exact player copy:** An unseen case extends Predict, Then Fire: the committed reduced-shot prediction is 90 V. Commit the prediction and run the test now so the measurement can fairly accept or reject the proposed model. Which prediction or calculation correctly applies staged verification to this case?
+### Review question 5
+
+
+**Prompt - exact player copy:** A circuit must remain below 250 V. All allowed combinations of two uncertain inputs predict peaks from 180 V to 224 V. What does the model support?
 
 **Options - exact player copy:**
 
-- A. Operation cannot tune the prediction after the measurement.
-- B. Flux linkage in one circuit per current in another. Transfer function: output divided by input as a function of frequency.
+- A. Flux linkage in one circuit per current in another.
+- B. Halving voltage quarters capacitor energy.
+- C. Mutual inductance links the geometry repair directly to measurable voltage.
+- D. The circuit passes the voltage requirement throughout the stated input range.
+
+**Correct answer:** D
+
+**Hint - exact player copy:** Identify the defining relationship or mechanism for uncertainty. All needed information is in this question.
+
+**Option feedback - exact player copy:**
+
+- A: This describes mutual inductance. It does not answer the question about uncertainty.
+- B: This describes reduced energy. It does not answer the question about uncertainty.
+- C: This describes mutual emf. It does not answer the question about uncertainty.
+- D: Correct. The circuit passes the voltage requirement throughout the stated input range.
+
+### Review question 6
+
+
+**Prompt - exact player copy:** Which statement best explains electric charge?
+
+**Options - exact player copy:**
+
+- A. A property of matter that creates electric force; like signs repel and unlike signs attract.
+- B. Flux linkage in one circuit per current in another.
 - C. Halving voltage quarters capacitor energy.
 - D. Mutual inductance links the geometry repair directly to measurable voltage.
 
 **Correct answer:** A
 
-**Hint - exact player copy:** Use the stated evidence and the conditions for staged verification; do not choose an option merely because it names a familiar term.
+**Hint - exact player copy:** Identify the defining relationship or mechanism for electric charge. All needed information is in this question.
 
 **Option feedback - exact player copy:**
 
-- A: Correct. operation cannot tune the prediction after the measurement.
-- B: This describes Mutual inductance, not staged verification. It does not account for the quantities, conditions, or evidence in this electricity and magnetism case.
-- C: This describes reduced energy, not staged verification. It does not account for the quantities, conditions, or evidence in this electricity and magnetism case.
-- D: This describes mutual emf, not staged verification. It does not account for the quantities, conditions, or evidence in this electricity and magnetism case.
-### Review question 5
+- A: Correct. A property of matter that creates electric force; like signs repel and unlike signs attract.
+- B: This describes mutual inductance. It does not answer the question about electric charge.
+- C: This describes reduced energy. It does not answer the question about electric charge.
+- D: This describes mutual emf. It does not answer the question about electric charge.
 
-**Prompt - exact player copy:** Before another Predict, Then Fire decision, the team knows this: the reduced shot measured 92 V, but the full shot has uncertain coupling and rise rate. Test the conclusion across the supported uncertainty range now, before the team treats it as robust. Which prediction or calculation correctly applies uncertainty to this case?
+**Optional review completion - exact player copy:** Good work. You have completed six independent practice questions.
 
-**Options - exact player copy:**
-
-- A. Flux linkage in one circuit per current in another. Transfer function: output divided by input as a function of frequency.
-- B. The repair passes only if every allowed pair stays below the campaign limit.
-- C. Halving voltage quarters capacitor energy.
-- D. Mutual inductance links the geometry repair directly to measurable voltage.
-
-**Correct answer:** B
-
-**Hint - exact player copy:** Use the stated evidence and the conditions for uncertainty; do not choose an option merely because it names a familiar term.
-
-**Option feedback - exact player copy:**
-
-- A: This describes Mutual inductance, not uncertainty. It does not account for the quantities, conditions, or evidence in this electricity and magnetism case.
-- B: Correct. the repair passes only if every allowed pair stays below the campaign limit.
-- C: This describes reduced energy, not uncertainty. It does not account for the quantities, conditions, or evidence in this electricity and magnetism case.
-- D: This describes mutual emf, not uncertainty. It does not account for the quantities, conditions, or evidence in this electricity and magnetism case.
-### Review question 6
-
-**Prompt - exact player copy:** Station 12 applies the lesson from Predict, Then Fire to this follow-up: the test uses twelve 100 nF stages at 25.0 kV each rather than 50.0 kV. Which prediction or calculation correctly applies Electric charge to this case?
-
-**Options - exact player copy:**
-
-- A. Flux linkage in one circuit per current in another. Transfer function: output divided by input as a function of frequency.
-- B. Halving voltage quarters capacitor energy.
-- C. A property of matter that creates electric force; like signs repel and unlike signs attract. Electric field: force per positive test charge, measured in newtons per coulomb or volts per metre. Superposition: add each source's field as a vector to obtain the net field.
-- D. Mutual inductance links the geometry repair directly to measurable voltage.
-
-**Correct answer:** C
-
-**Hint - exact player copy:** Use the stated evidence and the conditions for Electric charge; do not choose an option merely because it names a familiar term.
-
-**Option feedback - exact player copy:**
-
-- A: This describes Mutual inductance, not Electric charge. It does not account for the quantities, conditions, or evidence in this electricity and magnetism case.
-- B: This describes reduced energy, not Electric charge. It does not account for the quantities, conditions, or evidence in this electricity and magnetism case.
-- C: Correct. a property of matter that creates electric force; like signs repel and unlike signs attract. Electric field: force per positive test charge, measured in newtons per coulomb or volts per metre. Superposition: add each source's field as a vector to obtain the net field.
-- D: This describes mutual emf, not Electric charge. It does not account for the quantities, conditions, or evidence in this electricity and magnetism case.
-**Optional review completion - exact player copy:** Excellent work. You went beyond the required mission and strengthened the ideas behind your decision.
 ## Quick concept review
 - voltage-squared energy, mutual L, staged verification, worst-case range.
 - ## Four graded stops
@@ -7482,11 +7608,11 @@ residual:
 
 **Stop reason - exact player copy:** The slow channel's smooth trace needs a response-time calculation before its peak reading is trusted.
 
-**Question card story setup - exact player copy:** Channel A has resistance R=1.0 kilohm and capacitance C=100 pF, giving a resistance-capacitance (RC) time constant of 100 ns. Channel A has resistance R=1.0 kilohm and capacitance C=100 pF, so its resistance-capacitance time constant is tau=RC=100 ns. Derive the charging fraction after one and five time constants to test its response speed.
+**Question card story setup - exact player copy:** Channel A has resistance R=1.0 kilohm and capacitance C=100 pF, so its resistance-capacitance (RC) time constant is tau=RC=100 ns. Derive the charging fraction after one and five time constants to test its response speed.
 
 **Question card story-science connection - exact player copy:** The charging fractions show how much a short pulse can be suppressed by the recorder's resistance-capacitance response.
 
-**Fixture source panel - exact player copy:** Channel A has resistance R=1.0 kilohm and capacitance C=100 pF, giving a resistance-capacitance (RC) time constant of 100 ns. Channel A has resistance R=1.0 kilohm and capacitance C=100 pF, so its resistance-capacitance time constant is tau=RC=100 ns. Derive the charging fraction after one and five time constants to test its response speed.
+**Fixture source panel - exact player copy:** Channel A has resistance R=1.0 kilohm and capacitance C=100 pF, so its resistance-capacitance (RC) time constant is tau=RC=100 ns. Derive the charging fraction after one and five time constants to test its response speed.
 
 **Source-panel timing:** Show at this stop’s declared fixture before its DERIVE choices unlock. Keep visible while the player works. These are model inputs and prior observations, not new measurements or an accepted answer. Symbolic derivations stay symbolic; do not invent a number merely to force substitution.
 
@@ -7505,7 +7631,7 @@ residual:
 
 ```yaml
 derive:
-  givens: ["Channel A has resistance R=1.0 kilohm and capacitance C=100 pF, giving a resistance-capacitance (RC) time constant of 100 ns. Channel A has resistance R=1.0 kilohm and capacitance C=100 pF, so its resistance-capacitance time constant is tau=RC=100 ns.", "Build the charging-response lines for t=τ and t=5τ, name exponential substitution and evaluation, and"]
+  givens: ["Channel A has resistance R=1.0 kilohm and capacitance C=100 pF, so its resistance-capacitance (RC) time constant is tau=RC=100 ns.", "Build the charging-response lines for t=τ and t=5τ, name exponential substitution and evaluation, and"]
   start: "Begin with the complete starting relation on the card. Preserve its named left side on every line."
   goal: "Derive RC Response in the form and units requested by the prompt"
   left_side: "R"
@@ -7608,7 +7734,7 @@ propagate:
 
 **Stop reason - exact player copy:** The upgraded waveform shows ringing that the April steady-current test never measured.
 
-**Question card story setup - exact player copy:** The upgraded channel captures damped ringing near 1/√(LC), while the April test used steady current. The upgraded channel captures damped ringing near 1/sqrt(LC), where L is inductance and C is capacitance, while the April test used steady current. Diagnose why its 0.42-ohm result and fast waveform can both be correct.
+**Question card story setup - exact player copy:** The upgraded channel captures damped ringing near angular frequency 1/sqrt(LC), where L is inductance and C is capacitance. The April test used steady current. Diagnose why its 0.42-ohm result and fast waveform can both be correct.
 
 **Question card story-science connection - exact player copy:** The frequency-response diagnosis determines whether both records can be valid while describing different electrical behavior.
 
@@ -7695,190 +7821,190 @@ Mission decision: Use only the fast, separate channels for the final shot. A slo
 
 **Availability:** Reveal only after mission completion when the player selects **GO DEEPER**. This section is optional, ungraded for campaign progress, and does not change metrics, Recovery Points, or the next-mission unlock.
 
-**Secondary briefing card - exact player copy:** You completed The Missing Microsecond. Choose GO DEEPER to revisit the four decisions and explore related course ideas; this optional review does not change your metrics or delay the next mission.
+**Secondary briefing card - exact player copy:** Try six independent practice questions. Each includes its own context and any needed data; no mission records are required.
 
 ### Review focus
 
-No additional prerequisite is required. These AP-style questions apply the mission's course ideas to follow-up evidence, including related topics not required in the four main stops.
+No additional prerequisite is required. These practice questions review related course ideas. Each question stands alone, including its choices and figure.
 
 ### Review question 1
 
-**Prompt - exact player copy:** In a follow-up to The Missing Microsecond, three channels fit the long baseline equally well, but only one records a 100 ns spike without patterned residuals. Which prediction or calculation correctly applies Bandwidth to this case?
+
+**Prompt - exact player copy:** Which statement best explains bandwidth?
 
 **Options - exact player copy:**
 
 - A. A good average fit cannot certify a fast event it systematically misses.
-- B. Range of signal frequencies a channel can follow. Resistor-capacitor (RC) circuit: a circuit with time constant τ=R C. Resistor-inductor (RL) circuit: a circuit with time constant τ=L/R. Inductor-capacitor (LC) circuit: a circuit that can exchange energy between its magnetic and electric fields.
+- B. Range of signal frequencies a channel can follow.
 - C. Response fraction quantifies why one sample per time constant underreports the peak.
 - D. Spend the channel on bandwidth because it dominates peak-voltage uncertainty.
 
 **Correct answer:** B
 
-**Hint - exact player copy:** Use the stated evidence and the conditions for Bandwidth; do not choose an option merely because it names a familiar term.
+**Hint - exact player copy:** Identify the defining relationship or mechanism for bandwidth. All needed information is in this question.
 
 **Option feedback - exact player copy:**
 
-- A: This describes bandwidth residual, not Bandwidth. It does not account for the quantities, conditions, or evidence in this electricity and magnetism case.
-- B: Correct. range of signal frequencies a channel can follow. Resistor-capacitor (RC) circuit: a circuit with time constant τ=R C. Resistor-inductor (RL) circuit: a circuit with time constant τ=L/R. Inductor-capacitor (LC) circuit: a circuit that can exchange energy between its magnetic and electric fields.
-- C: This describes RC/RL exponentials, not Bandwidth. It does not account for the quantities, conditions, or evidence in this electricity and magnetism case.
-- D: This describes error budget, not Bandwidth. It does not account for the quantities, conditions, or evidence in this electricity and magnetism case.
+- A: This describes bandwidth residual. It does not answer the question about bandwidth.
+- B: Correct. Range of signal frequencies a channel can follow.
+- C: This describes rC and RL exponentials. It does not answer the question about bandwidth.
+- D: This describes error budget. It does not answer the question about bandwidth.
+
 ### Review question 2
 
-**Prompt - exact player copy:** Station 12 receives a second case related to The Missing Microsecond: three channels fit the long baseline equally well, but only one records a 100 ns spike without patterned residuals. Which interpretation of the displayed evidence correctly uses the mission concept?
+
+**Prompt - exact player copy:** A model has the residuals shown. Residual means observed value minus predicted value. Which conclusion best fits the pattern?
 
 **Figure - exact player copy:**
 
 ```json
 {
   "kind": "line",
-  "xLabel": "Ordered observation",
-  "yLabel": "Residual",
-  "caption": "Residuals reveal whether error is random or structured.",
+  "xLabel": "Input value",
+  "yLabel": "Observed minus predicted (units)",
+  "caption": "Residuals from a fitted model",
   "series": [
     {
       "name": "Residual",
       "points": [
         [
           0,
-          2.2
+          0
         ],
         [
           1,
-          0.8
+          2
         ],
         [
           2,
-          -0.6
+          4
         ],
         [
           3,
-          -1.4
+          6
         ],
         [
           4,
-          -0.5
-        ],
-        [
-          5,
-          0.9
-        ],
-        [
-          6,
-          2.1
+          8
         ]
       ]
     }
-  ],
-  "limit": {
-    "at": 0,
-    "label": "Zero residual"
-  }
+  ]
 }
 ```
 
-
 **Options - exact player copy:**
 
-- A. Range of signal frequencies a channel can follow. Resistor-capacitor (RC) circuit: a circuit with time constant τ=R C. Resistor-inductor (RL) circuit: a circuit with time constant τ=L/R. Inductor-capacitor (LC) circuit: a circuit that can exchange energy between its magnetic and electric fields.
-- B. Response fraction quantifies why one sample per time constant underreports the peak.
-- C. A good average fit cannot certify a fast event it systematically misses.
-- D. Spend the channel on bandwidth because it dominates peak-voltage uncertainty.
+- A. The model increasingly overpredicts.
+- B. The errors have no relation to the input.
+- C. The model increasingly underpredicts as the input grows.
+- D. The model fits every observation exactly.
 
 **Correct answer:** C
 
-**Hint - exact player copy:** Read the axes, units, direction, and any threshold before comparing the choices.
+**Hint - exact player copy:** Use the sign of observed minus predicted and check for a pattern.
 
 **Option feedback - exact player copy:**
 
-- A: This describes Bandwidth, not bandwidth residual. It does not account for the quantities, conditions, or evidence in this electricity and magnetism case.
-- B: This describes RC/RL exponentials, not bandwidth residual. It does not account for the quantities, conditions, or evidence in this electricity and magnetism case.
-- C: Correct. a good average fit cannot certify a fast event it systematically misses.
-- D: This describes error budget, not bandwidth residual. It does not account for the quantities, conditions, or evidence in this electricity and magnetism case.
+- A: Positive residuals mean observations exceed predictions, not the reverse.
+- B: Residuals rise systematically with the input.
+- C: Correct. The model increasingly underpredicts as the input grows.
+- D: An exact fit would have zero residual at every point.
+
 ### Review question 3
 
-**Prompt - exact player copy:** A teammate rechecks The Missing Microsecond using new evidence: channel A has R=1.0 kilohm, C=100 pF, and time constant RC=100 ns. Which prediction or calculation correctly applies RC/RL exponentials to this case?
+
+**Prompt - exact player copy:** Which statement best explains RC and RL exponentials?
 
 **Options - exact player copy:**
 
-- A. Range of signal frequencies a channel can follow. Resistor-capacitor (RC) circuit: a circuit with time constant τ=R C. Resistor-inductor (RL) circuit: a circuit with time constant τ=L/R. Inductor-capacitor (LC) circuit: a circuit that can exchange energy between its magnetic and electric fields.
+- A. Range of signal frequencies a channel can follow.
 - B. A good average fit cannot certify a fast event it systematically misses.
 - C. Spend the channel on bandwidth because it dominates peak-voltage uncertainty.
 - D. Response fraction quantifies why one sample per time constant underreports the peak.
 
 **Correct answer:** D
 
-**Hint - exact player copy:** Use the stated evidence and the conditions for RC/RL exponentials; do not choose an option merely because it names a familiar term.
+**Hint - exact player copy:** Identify the defining relationship or mechanism for rc and rl exponentials. All needed information is in this question.
 
 **Option feedback - exact player copy:**
 
-- A: This describes Bandwidth, not RC/RL exponentials. It does not account for the quantities, conditions, or evidence in this electricity and magnetism case.
-- B: This describes bandwidth residual, not RC/RL exponentials. It does not account for the quantities, conditions, or evidence in this electricity and magnetism case.
-- C: This describes error budget, not RC/RL exponentials. It does not account for the quantities, conditions, or evidence in this electricity and magnetism case.
-- D: Correct. response fraction quantifies why one sample per time constant underreports the peak.
+- A: This describes bandwidth. It does not answer the question about rc and rl exponentials.
+- B: This describes bandwidth residual. It does not answer the question about rc and rl exponentials.
+- C: This describes error budget. It does not answer the question about rc and rl exponentials.
+- D: Correct. Response fraction quantifies why one sample per time constant underreports the peak.
+
 ### Review question 4
 
-**Prompt - exact player copy:** An unseen case extends The Missing Microsecond: with RC loss identified, the one-microsecond record can add only one upgrade. Carry each uncertainty into the final result now so the team can choose the measurement that would reduce the decision risk. Which statistical conclusion or procedure correctly uses error budget?
+
+**Prompt - exact player copy:** Timing bandwidth contributes 80% of a pulse-height error budget, while calibration gain contributes 5%. Which improvement should be investigated first if cost and feasibility are similar?
 
 **Options - exact player copy:**
 
-- A. Spend the channel on bandwidth because it dominates peak-voltage uncertainty.
-- B. Range of signal frequencies a channel can follow. Resistor-capacitor (RC) circuit: a circuit with time constant τ=R C. Resistor-inductor (RL) circuit: a circuit with time constant τ=L/R. Inductor-capacitor (LC) circuit: a circuit that can exchange energy between its magnetic and electric fields.
+- A. Improve bandwidth, because it dominates the stated pulse-height uncertainty.
+- B. Range of signal frequencies a channel can follow.
 - C. A good average fit cannot certify a fast event it systematically misses.
 - D. Response fraction quantifies why one sample per time constant underreports the peak.
 
 **Correct answer:** A
 
-**Hint - exact player copy:** Use the stated evidence and the conditions for error budget; do not choose an option merely because it names a familiar term.
+**Hint - exact player copy:** Identify the defining relationship or mechanism for error budget. All needed information is in this question.
 
 **Option feedback - exact player copy:**
 
-- A: Correct. spend the channel on bandwidth because it dominates peak-voltage uncertainty.
-- B: This describes Bandwidth, not error budget. It does not account for the quantities, conditions, or evidence in this electricity and magnetism case.
-- C: This describes bandwidth residual, not error budget. It does not account for the quantities, conditions, or evidence in this electricity and magnetism case.
-- D: This describes RC/RL exponentials, not error budget. It does not account for the quantities, conditions, or evidence in this electricity and magnetism case.
+- A: Correct. Improve bandwidth, because it dominates the stated pulse-height uncertainty.
+- B: This describes bandwidth. It does not answer the question about error budget.
+- C: This describes bandwidth residual. It does not answer the question about error budget.
+- D: This describes rC and RL exponentials. It does not answer the question about error budget.
+
 ### Review question 5
 
-**Prompt - exact player copy:** Before another Missing Microsecond decision, the team knows this: the upgraded channel captures damped ringing near 1/√(LC), while the April test used steady current. Which prediction or calculation correctly applies certification timescale, LC/RL/transformer to this case?
+
+**Prompt - exact player copy:** Which statement best explains certification timescale, LC and RL and transformer?
 
 **Options - exact player copy:**
 
-- A. Range of signal frequencies a channel can follow. Resistor-capacitor (RC) circuit: a circuit with time constant τ=R C. Resistor-inductor (RL) circuit: a circuit with time constant τ=L/R. Inductor-capacitor (LC) circuit: a circuit that can exchange energy between its magnetic and electric fields.
+- A. Range of signal frequencies a channel can follow.
 - B. DC resistance, RL growth, RLC loss, and transformer scaling answer different parts of a transient.
 - C. A good average fit cannot certify a fast event it systematically misses.
 - D. Response fraction quantifies why one sample per time constant underreports the peak.
 
 **Correct answer:** B
 
-**Hint - exact player copy:** Use the stated evidence and the conditions for certification timescale, LC/RL/transformer; do not choose an option merely because it names a familiar term.
+**Hint - exact player copy:** Identify the defining relationship or mechanism for certification timescale, lc and rl and transformer. All needed information is in this question.
 
 **Option feedback - exact player copy:**
 
-- A: This describes Bandwidth, not certification timescale, LC/RL/transformer. It does not account for the quantities, conditions, or evidence in this electricity and magnetism case.
-- B: Correct. dC resistance, RL growth, RLC loss, and transformer scaling answer different parts of a transient.
-- C: This describes bandwidth residual, not certification timescale, LC/RL/transformer. It does not account for the quantities, conditions, or evidence in this electricity and magnetism case.
-- D: This describes RC/RL exponentials, not certification timescale, LC/RL/transformer. It does not account for the quantities, conditions, or evidence in this electricity and magnetism case.
+- A: This describes bandwidth. It does not answer the question about certification timescale, lc and rl and transformer.
+- B: Correct. DC resistance, RL growth, RLC loss, and transformer scaling answer different parts of a transient.
+- C: This describes bandwidth residual. It does not answer the question about certification timescale, lc and rl and transformer.
+- D: This describes rC and RL exponentials. It does not answer the question about certification timescale, lc and rl and transformer.
+
 ### Review question 6
 
-**Prompt - exact player copy:** Station 12 applies the lesson from The Missing Microsecond to this follow-up: three channels fit the long baseline equally well, but only one records a 100 ns spike without patterned residuals. Which prediction or calculation correctly applies Electric charge to this case?
+
+**Prompt - exact player copy:** Which statement best explains electric charge?
 
 **Options - exact player copy:**
 
-- A. Range of signal frequencies a channel can follow. Resistor-capacitor (RC) circuit: a circuit with time constant τ=R C. Resistor-inductor (RL) circuit: a circuit with time constant τ=L/R. Inductor-capacitor (LC) circuit: a circuit that can exchange energy between its magnetic and electric fields.
+- A. Range of signal frequencies a channel can follow.
 - B. A good average fit cannot certify a fast event it systematically misses.
-- C. A property of matter that creates electric force; like signs repel and unlike signs attract. Electric field: force per positive test charge, measured in newtons per coulomb or volts per metre. Superposition: add each source's field as a vector to obtain the net field.
+- C. A property of matter that creates electric force; like signs repel and unlike signs attract.
 - D. Response fraction quantifies why one sample per time constant underreports the peak.
 
 **Correct answer:** C
 
-**Hint - exact player copy:** Use the stated evidence and the conditions for Electric charge; do not choose an option merely because it names a familiar term.
+**Hint - exact player copy:** Identify the defining relationship or mechanism for electric charge. All needed information is in this question.
 
 **Option feedback - exact player copy:**
 
-- A: This describes Bandwidth, not Electric charge. It does not account for the quantities, conditions, or evidence in this electricity and magnetism case.
-- B: This describes bandwidth residual, not Electric charge. It does not account for the quantities, conditions, or evidence in this electricity and magnetism case.
-- C: Correct. a property of matter that creates electric force; like signs repel and unlike signs attract. Electric field: force per positive test charge, measured in newtons per coulomb or volts per metre. Superposition: add each source's field as a vector to obtain the net field.
-- D: This describes RC/RL exponentials, not Electric charge. It does not account for the quantities, conditions, or evidence in this electricity and magnetism case.
-**Optional review completion - exact player copy:** Excellent work. You went beyond the required mission and strengthened the ideas behind your decision.
+- A: This describes bandwidth. It does not answer the question about electric charge.
+- B: This describes bandwidth residual. It does not answer the question about electric charge.
+- C: Correct. A property of matter that creates electric force; like signs repel and unlike signs attract.
+- D: This describes rC and RL exponentials. It does not answer the question about electric charge.
+
+**Optional review completion - exact player copy:** Good work. You have completed six independent practice questions.
+
 ## Quick concept review
 - RC/RL, 5τ, LC/RLC, transformer, bandwidth/residuals.
 - ## Four graded stops
@@ -8138,7 +8264,7 @@ trigger:
 
 **Question card story-science connection - exact player copy:** The energy-flow magnitude and direction connect the local electric and magnetic fields to the shot's spatial energy path.
 
-**Fixture source panel - exact player copy:** At one probe, E=2.0×10^4 N/C east and B=1.0 mT north. Derive the Poynting-vector magnitude and direction before the shot trace appears. Build three Poynting-vector lines using E=2.0×10^4 N/C, B=1.0×10^-3 T, and μ₀=4π×10^-7 T·m/A Vacuum permeability: μ₀ = 4π × 10^-7 T m/A.
+**Fixture source panel - exact player copy:** At one probe, E=2.0×10^4 N/C points east and B=1.0 mT points north. Use vacuum permeability μ₀=4π×10^-7 T·m/A to derive the Poynting-vector magnitude and direction in three lines before the shot trace appears.
 
 **Source-panel timing:** Show at this stop’s declared fixture before its DERIVE choices unlock. Keep visible while the player works. These are model inputs and prior observations, not new measurements or an accepted answer. Symbolic derivations stay symbolic; do not invent a number merely to force substitution.
 
@@ -8295,15 +8421,39 @@ Mission decision: The station reproduced, and removed the main cable failure, bu
 
 **Availability:** Reveal only after mission completion when the player selects **GO DEEPER**. This section is optional, ungraded for campaign progress, and does not change metrics, Recovery Points, or the next-mission unlock.
 
-**Secondary briefing card - exact player copy:** You completed The Shot That Almost Closed the Case. Choose GO DEEPER to revisit the four decisions and explore related course ideas; this optional review does not change your metrics or delay the next mission.
+**Secondary briefing card - exact player copy:** Try six independent practice questions. Each includes its own context and any needed data; no mission records are required.
 
 ### Review focus
 
-No additional prerequisite is required. These AP-style questions apply the mission's course ideas to follow-up evidence, including related topics not required in the four main stops.
+No additional prerequisite is required. These practice questions review related course ideas. Each question stands alone, including its choices and figure.
 
 ### Review question 1
 
-**Prompt - exact player copy:** In a follow-up to The Shot That Almost Closed the Case, at one probe, E=2.0×10^4 N/C east and B=1.0 mT north. Which prediction or calculation correctly applies Poynting vector to this case?
+
+**Prompt - exact player copy:** Which statement best explains poynting vector?
+
+**Options - exact player copy:**
+
+- A. One precommitted rule protects against choosing whichever successful measure looks best.
+- B. E×B shows energy moving upward rather than along either field alone.
+- C. One controlled shot tests the full causal chain.
+- D. Electromagnetic energy flow per area and direction. Maxwell's equations: four relations linking charge, fields, and changing flux.
+
+**Correct answer:** D
+
+**Hint - exact player copy:** Identify the defining relationship or mechanism for poynting vector. All needed information is in this question.
+
+**Option feedback - exact player copy:**
+
+- A: This describes integrated rules. It does not answer the question about poynting vector.
+- B: This describes poynting. It does not answer the question about poynting vector.
+- C: This describes full test. It does not answer the question about poynting vector.
+- D: Correct. Electromagnetic energy flow per area and direction. Maxwell's equations: four relations linking charge, fields, and changing flux.
+
+### Review question 2
+
+
+**Prompt - exact player copy:** Which statement best explains integrated rules?
 
 **Options - exact player copy:**
 
@@ -8312,122 +8462,111 @@ No additional prerequisite is required. These AP-style questions apply the missi
 - C. E×B shows energy moving upward rather than along either field alone.
 - D. One controlled shot tests the full causal chain.
 
-**Correct answer:** B
+**Correct answer:** A
 
-**Hint - exact player copy:** Use the stated evidence and the conditions for Poynting vector; do not choose an option merely because it names a familiar term.
+**Hint - exact player copy:** Identify the defining relationship or mechanism for integrated rules. All needed information is in this question.
 
 **Option feedback - exact player copy:**
 
-- A: This describes integrated rules, not Poynting vector. It does not account for the quantities, conditions, or evidence in this electricity and magnetism case.
-- B: Correct. electromagnetic energy flow per area and direction. Maxwell's equations: four relations linking charge, fields, and changing flux.
-- C: This describes Poynting, not Poynting vector. It does not account for the quantities, conditions, or evidence in this electricity and magnetism case.
-- D: This describes full test, not Poynting vector. It does not account for the quantities, conditions, or evidence in this electricity and magnetism case.
-### Review question 2
+- A: Correct. One precommitted rule protects against choosing whichever successful measure looks best.
+- B: This describes poynting vector. It does not answer the question about integrated rules.
+- C: This describes poynting. It does not answer the question about integrated rules.
+- D: This describes full test. It does not answer the question about integrated rules.
 
-**Prompt - exact player copy:** Station 12 receives a second case related to The Shot That Almost Closed the Case: the board is blank and the storm cell is approaching. Write the action threshold now, before new evidence or operational pressure can move it. Which prediction or calculation correctly applies integrated rules to this case?
+### Review question 3
+
+
+**Prompt - exact player copy:** An electric field points east and a magnetic field points north. In a right-handed east-north-up coordinate system, which way does electromagnetic energy flow according to E×B?
 
 **Options - exact player copy:**
 
 - A. Electromagnetic energy flow per area and direction. Maxwell's equations: four relations linking charge, fields, and changing flux.
-- B. E×B shows energy moving upward rather than along either field alone.
+- B. Upward.
 - C. One precommitted rule protects against choosing whichever successful measure looks best.
 - D. One controlled shot tests the full causal chain.
 
-**Correct answer:** C
+**Correct answer:** B
 
-**Hint - exact player copy:** Use the stated evidence and the conditions for integrated rules; do not choose an option merely because it names a familiar term.
+**Hint - exact player copy:** Identify the defining relationship or mechanism for poynting. All needed information is in this question.
 
 **Option feedback - exact player copy:**
 
-- A: This describes Poynting vector, not integrated rules. It does not account for the quantities, conditions, or evidence in this electricity and magnetism case.
-- B: This describes Poynting, not integrated rules. It does not account for the quantities, conditions, or evidence in this electricity and magnetism case.
-- C: Correct. one precommitted rule protects against choosing whichever successful measure looks best.
-- D: This describes full test, not integrated rules. It does not account for the quantities, conditions, or evidence in this electricity and magnetism case.
-### Review question 3
+- A: This describes poynting vector. It does not answer the question about poynting.
+- B: Correct. Upward.
+- C: This describes integrated rules. It does not answer the question about poynting.
+- D: This describes full test. It does not answer the question about poynting.
 
-**Prompt - exact player copy:** A teammate rechecks The Shot That Almost Closed the Case using new evidence: at one probe, E=2.0×10^4 N/C east and B=1.0 mT north. Which prediction or calculation correctly applies Poynting to this case?
+### Review question 4
+
+
+**Prompt - exact player copy:** Separate subsystem tests pass, but coupling between subsystems remains untested. Why conduct an integrated controlled test?
 
 **Options - exact player copy:**
 
 - A. Electromagnetic energy flow per area and direction. Maxwell's equations: four relations linking charge, fields, and changing flux.
 - B. One precommitted rule protects against choosing whichever successful measure looks best.
-- C. One controlled shot tests the full causal chain.
+- C. It tests whether the complete causal chain behaves as predicted when the subsystems operate together.
 - D. E×B shows energy moving upward rather than along either field alone.
 
-**Correct answer:** D
+**Correct answer:** C
 
-**Hint - exact player copy:** Use the stated evidence and the conditions for Poynting; do not choose an option merely because it names a familiar term.
+**Hint - exact player copy:** Identify the defining relationship or mechanism for full test. All needed information is in this question.
 
 **Option feedback - exact player copy:**
 
-- A: This describes Poynting vector, not Poynting. It does not account for the quantities, conditions, or evidence in this electricity and magnetism case.
-- B: This describes integrated rules, not Poynting. It does not account for the quantities, conditions, or evidence in this electricity and magnetism case.
-- C: This describes full test, not Poynting. It does not account for the quantities, conditions, or evidence in this electricity and magnetism case.
-- D: Correct. e×B shows energy moving upward rather than along either field alone.
-### Review question 4
+- A: This describes poynting vector. It does not answer the question about full test.
+- B: This describes integrated rules. It does not answer the question about full test.
+- C: Correct. It tests whether the complete causal chain behaves as predicted when the subsystems operate together.
+- D: This describes poynting. It does not answer the question about full test.
 
-**Prompt - exact player copy:** An unseen case extends The Shot That Almost Closed the Case: the GO board passes the incoming field. Commit the prediction and run the test now so the measurement can fairly accept or reject the proposed model. Which statistical conclusion or procedure correctly uses full test?
+### Review question 5
+
+
+**Prompt - exact player copy:** Rerouting a long cable removes one voltage spike, but a small loop on a nearby board still shows a spike. What could explain the remaining signal?
 
 **Options - exact player copy:**
 
-- A. One controlled shot tests the full causal chain.
+- A. Electromagnetic energy flow per area and direction. Maxwell's equations: four relations linking charge, fields, and changing flux.
+- B. One precommitted rule protects against choosing whichever successful measure looks best.
+- C. E×B shows energy moving upward rather than along either field alone.
+- D. Changing magnetic flux through the local loop can induce voltage even after the long cable path is repaired.
+
+**Correct answer:** D
+
+**Hint - exact player copy:** Identify the defining relationship or mechanism for spatial coupling. All needed information is in this question.
+
+**Option feedback - exact player copy:**
+
+- A: This describes poynting vector. It does not answer the question about spatial coupling.
+- B: This describes integrated rules. It does not answer the question about spatial coupling.
+- C: This describes poynting. It does not answer the question about spatial coupling.
+- D: Correct. Changing magnetic flux through the local loop can induce voltage even after the long cable path is repaired.
+
+### Review question 6
+
+
+**Prompt - exact player copy:** Which statement best explains electric charge?
+
+**Options - exact player copy:**
+
+- A. A property of matter that creates electric force; like signs repel and unlike signs attract.
 - B. Electromagnetic energy flow per area and direction. Maxwell's equations: four relations linking charge, fields, and changing flux.
 - C. One precommitted rule protects against choosing whichever successful measure looks best.
 - D. E×B shows energy moving upward rather than along either field alone.
 
 **Correct answer:** A
 
-**Hint - exact player copy:** Use the stated evidence and the conditions for full test; do not choose an option merely because it names a familiar term.
+**Hint - exact player copy:** Identify the defining relationship or mechanism for electric charge. All needed information is in this question.
 
 **Option feedback - exact player copy:**
 
-- A: Correct. one controlled shot tests the full causal chain.
-- B: This describes Poynting vector, not full test. It does not account for the quantities, conditions, or evidence in this electricity and magnetism case.
-- C: This describes integrated rules, not full test. It does not account for the quantities, conditions, or evidence in this electricity and magnetism case.
-- D: This describes Poynting, not full test. It does not account for the quantities, conditions, or evidence in this electricity and magnetism case.
-### Review question 5
+- A: Correct. A property of matter that creates electric force; like signs repel and unlike signs attract.
+- B: This describes poynting vector. It does not answer the question about electric charge.
+- C: This describes integrated rules. It does not answer the question about electric charge.
+- D: This describes poynting. It does not answer the question about electric charge.
 
-**Prompt - exact player copy:** Before another Shot That Almost Closed the Case decision, the team knows this: because the main trailer probe reads 188 V, sample all six card positions before declaring victory. Sample the locations in order now so the crew can identify where the system first departs from normal. Which prediction or calculation correctly applies spatial coupling to this case?
+**Optional review completion - exact player copy:** Good work. You have completed six independent practice questions.
 
-**Options - exact player copy:**
-
-- A. Electromagnetic energy flow per area and direction. Maxwell's equations: four relations linking charge, fields, and changing flux.
-- B. Local loop area can preserve a hazard after the main cable reroute succeeds.
-- C. One precommitted rule protects against choosing whichever successful measure looks best.
-- D. E×B shows energy moving upward rather than along either field alone.
-
-**Correct answer:** B
-
-**Hint - exact player copy:** Use the stated evidence and the conditions for spatial coupling; do not choose an option merely because it names a familiar term.
-
-**Option feedback - exact player copy:**
-
-- A: This describes Poynting vector, not spatial coupling. It does not account for the quantities, conditions, or evidence in this electricity and magnetism case.
-- B: Correct. local loop area can preserve a hazard after the main cable reroute succeeds.
-- C: This describes integrated rules, not spatial coupling. It does not account for the quantities, conditions, or evidence in this electricity and magnetism case.
-- D: This describes Poynting, not spatial coupling. It does not account for the quantities, conditions, or evidence in this electricity and magnetism case.
-### Review question 6
-
-**Prompt - exact player copy:** Station 12 applies the lesson from The Shot That Almost Closed the Case to this follow-up: the board is blank and the storm cell is approaching. Write the action threshold now, before new evidence or operational pressure can move it. Which prediction or calculation correctly applies Electric charge to this case?
-
-**Options - exact player copy:**
-
-- A. Electromagnetic energy flow per area and direction. Maxwell's equations: four relations linking charge, fields, and changing flux.
-- B. One precommitted rule protects against choosing whichever successful measure looks best.
-- C. A property of matter that creates electric force; like signs repel and unlike signs attract. Electric field: force per positive test charge, measured in newtons per coulomb or volts per metre. Superposition: add each source's field as a vector to obtain the net field.
-- D. E×B shows energy moving upward rather than along either field alone.
-
-**Correct answer:** C
-
-**Hint - exact player copy:** Use the stated evidence and the conditions for Electric charge; do not choose an option merely because it names a familiar term.
-
-**Option feedback - exact player copy:**
-
-- A: This describes Poynting vector, not Electric charge. It does not account for the quantities, conditions, or evidence in this electricity and magnetism case.
-- B: This describes integrated rules, not Electric charge. It does not account for the quantities, conditions, or evidence in this electricity and magnetism case.
-- C: Correct. a property of matter that creates electric force; like signs repel and unlike signs attract. Electric field: force per positive test charge, measured in newtons per coulomb or volts per metre. Superposition: add each source's field as a vector to obtain the net field.
-- D: This describes Poynting, not Electric charge. It does not account for the quantities, conditions, or evidence in this electricity and magnetism case.
-**Optional review completion - exact player copy:** Excellent work. You went beyond the required mission and strengthened the ideas behind your decision.
 ## Quick concept review
 - Maxwell synthesis, Poynting, precommitment, spatial probing.
 - ## Four graded stops
@@ -8760,139 +8899,152 @@ Thunder reaches the gallery after the flash. The final shot trace stays inside t
 
 **Availability:** Reveal only after mission completion when the player selects **GO DEEPER**. This section is optional, ungraded for campaign progress, and does not change metrics, Recovery Points, or the next-mission unlock.
 
-**Secondary briefing card - exact player copy:** You completed Sign the Ground Truth. Choose GO DEEPER to revisit the four decisions and explore related course ideas; this optional review does not change your metrics or delay the next mission.
+**Secondary briefing card - exact player copy:** Try six independent practice questions. Each includes its own context and any needed data; no mission records are required.
 
 ### Review focus
 
-No additional prerequisite is required. These AP-style questions apply the mission's course ideas to follow-up evidence, including related topics not required in the four main stops.
+No additional prerequisite is required. These practice questions review related course ideas. Each question stands alone, including its choices and figure.
 
 ### Review question 1
 
-**Prompt - exact player copy:** In a follow-up to Sign the Ground Truth, ortiz has 100 effort points and four hours. Spend the evidence budget now on tests that can distinguish the explanations still in play. Which prediction or calculation correctly applies causal repair portfolio to this case?
+
+**Prompt - exact player copy:** Which statement best explains causal repair portfolio?
 
 **Options - exact player copy:**
 
 - A. Selecting the governing law prevents one successful equation from being used outside its domain.
-- B. The final plan must cover source, path, measurement, and recovery.
-- C. Reduced loop area should lower flux and voltage, with reversal restoring the old peak.
+- B. A repair portfolio should cover the source of a fault, its transmission path, measurement, and recovery.
+- C. Reduced loop area should lower flux and voltage, with reversal restoring the initial peak.
 - D. The signed report is warranted only if every physical limit and evidence condition passes.
 
 **Correct answer:** B
 
-**Hint - exact player copy:** Use the stated evidence and the conditions for causal repair portfolio; do not choose an option merely because it names a familiar term.
+**Hint - exact player copy:** Identify the defining relationship or mechanism for causal repair portfolio. All needed information is in this question.
 
 **Option feedback - exact player copy:**
 
-- A: This describes full-course tool selection, not causal repair portfolio. It does not account for the quantities, conditions, or evidence in this electricity and magnetism case.
-- B: Correct. the final plan must cover source, path, measurement, and recovery.
-- C: This describes loop-area causality, not causal repair portfolio. It does not account for the quantities, conditions, or evidence in this electricity and magnetism case.
-- D: This describes final certification, not causal repair portfolio. It does not account for the quantities, conditions, or evidence in this electricity and magnetism case.
+- A: This describes full-course tool selection. It does not answer the question about causal repair portfolio.
+- B: Correct. A repair portfolio should cover the source of a fault, its transmission path, measurement, and recovery.
+- C: This describes loop-area causality. It does not answer the question about causal repair portfolio.
+- D: This describes final certification. It does not answer the question about causal repair portfolio.
+
 ### Review question 2
 
-**Prompt - exact player copy:** Station 12 receives a second case related to Sign the Ground Truth: the funded plan is locked. Assign a response to each condition now so the crew has an action rule it can follow under pressure. Which prediction or calculation correctly applies full-course tool selection to this case?
+
+**Prompt - exact player copy:** Which statement best explains full-course tool selection?
 
 **Options - exact player copy:**
 
-- A. The final plan must cover source, path, measurement, and recovery.
-- B. Reduced loop area should lower flux and voltage, with reversal restoring the old peak.
+- A. A repair portfolio should cover the source of a fault, its transmission path, measurement, and recovery.
+- B. Reduced loop area should lower flux and voltage, with reversal restoring the initial peak.
 - C. Selecting the governing law prevents one successful equation from being used outside its domain.
 - D. The signed report is warranted only if every physical limit and evidence condition passes.
 
 **Correct answer:** C
 
-**Hint - exact player copy:** Use the stated evidence and the conditions for full-course tool selection; do not choose an option merely because it names a familiar term.
+**Hint - exact player copy:** Identify the defining relationship or mechanism for full-course tool selection. All needed information is in this question.
 
 **Option feedback - exact player copy:**
 
-- A: This describes causal repair portfolio, not full-course tool selection. It does not account for the quantities, conditions, or evidence in this electricity and magnetism case.
-- B: This describes loop-area causality, not full-course tool selection. It does not account for the quantities, conditions, or evidence in this electricity and magnetism case.
-- C: Correct. selecting the governing law prevents one successful equation from being used outside its domain.
-- D: This describes final certification, not full-course tool selection. It does not account for the quantities, conditions, or evidence in this electricity and magnetism case.
+- A: This describes causal repair portfolio. It does not answer the question about full-course tool selection.
+- B: This describes loop-area causality. It does not answer the question about full-course tool selection.
+- C: Correct. Selecting the governing law prevents one successful equation from being used outside its domain.
+- D: This describes final certification. It does not answer the question about full-course tool selection.
+
 ### Review question 3
 
-**Prompt - exact player copy:** A teammate rechecks Sign the Ground Truth using new evidence: temporarily twist card E's outgoing and return wires together, keep pulse source, gain, resistance, and sampling fixed, then untwist once. Run the reversible comparison now so the crew can tell whether the proposed cause changes the measured response. Which prediction or calculation correctly applies loop-area causality to this case?
+
+**Prompt - exact player copy:** Which statement best explains loop-area causality?
 
 **Options - exact player copy:**
 
-- A. The final plan must cover source, path, measurement, and recovery.
+- A. A repair portfolio should cover the source of a fault, its transmission path, measurement, and recovery.
 - B. Selecting the governing law prevents one successful equation from being used outside its domain.
 - C. The signed report is warranted only if every physical limit and evidence condition passes.
-- D. Reduced loop area should lower flux and voltage, with reversal restoring the old peak.
+- D. Reduced loop area should lower flux and voltage, with reversal restoring the initial peak.
 
 **Correct answer:** D
 
-**Hint - exact player copy:** Use the stated evidence and the conditions for loop-area causality; do not choose an option merely because it names a familiar term.
+**Hint - exact player copy:** Identify the defining relationship or mechanism for loop-area causality. All needed information is in this question.
 
 **Option feedback - exact player copy:**
 
-- A: This describes causal repair portfolio, not loop-area causality. It does not account for the quantities, conditions, or evidence in this electricity and magnetism case.
-- B: This describes full-course tool selection, not loop-area causality. It does not account for the quantities, conditions, or evidence in this electricity and magnetism case.
-- C: This describes final certification, not loop-area causality. It does not account for the quantities, conditions, or evidence in this electricity and magnetism case.
-- D: Correct. reduced loop area should lower flux and voltage, with reversal restoring the old peak.
+- A: This describes causal repair portfolio. It does not answer the question about loop-area causality.
+- B: This describes full-course tool selection. It does not answer the question about loop-area causality.
+- C: This describes final certification. It does not answer the question about loop-area causality.
+- D: Correct. Reduced loop area should lower flux and voltage, with reversal restoring the initial peak.
+
 ### Review question 4
 
-**Prompt - exact player copy:** An unseen case extends Sign the Ground Truth: the repaired card measures 74 V on the final shot. Before the record can be signed, identify which claims have independent support and which must remain unverified. Which prediction or calculation correctly applies final certification to this case?
+
+**Prompt - exact player copy:** Which statement best explains final certification?
 
 **Options - exact player copy:**
 
 - A. The signed report is warranted only if every physical limit and evidence condition passes.
-- B. The final plan must cover source, path, measurement, and recovery.
+- B. A repair portfolio should cover the source of a fault, its transmission path, measurement, and recovery.
 - C. Selecting the governing law prevents one successful equation from being used outside its domain.
-- D. Reduced loop area should lower flux and voltage, with reversal restoring the old peak.
+- D. Reduced loop area should lower flux and voltage, with reversal restoring the initial peak.
 
 **Correct answer:** A
 
-**Hint - exact player copy:** Use the stated evidence and the conditions for final certification; do not choose an option merely because it names a familiar term.
+**Hint - exact player copy:** Identify the defining relationship or mechanism for final certification. All needed information is in this question.
 
 **Option feedback - exact player copy:**
 
-- A: Correct. the signed report is warranted only if every physical limit and evidence condition passes.
-- B: This describes causal repair portfolio, not final certification. It does not account for the quantities, conditions, or evidence in this electricity and magnetism case.
-- C: This describes full-course tool selection, not final certification. It does not account for the quantities, conditions, or evidence in this electricity and magnetism case.
-- D: This describes loop-area causality, not final certification. It does not account for the quantities, conditions, or evidence in this electricity and magnetism case.
+- A: Correct. The signed report is warranted only if every physical limit and evidence condition passes.
+- B: This describes causal repair portfolio. It does not answer the question about final certification.
+- C: This describes full-course tool selection. It does not answer the question about final certification.
+- D: This describes loop-area causality. It does not answer the question about final certification.
+
 ### Review question 5
 
-**Prompt - exact player copy:** Before another Sign the Ground Truth decision, the team knows this: ortiz has 100 effort points and four hours. Spend the evidence budget now on tests that can distinguish the explanations still in play. Which prediction or calculation correctly applies Electric charge to this case?
+
+**Prompt - exact player copy:** Which statement best explains electric charge?
 
 **Options - exact player copy:**
 
-- A. The final plan must cover source, path, measurement, and recovery.
-- B. A property of matter that creates electric force; like signs repel and unlike signs attract. Electric field: force per positive test charge, measured in newtons per coulomb or volts per metre. Superposition: add each source's field as a vector to obtain the net field.
+- A. A repair portfolio should cover the source of a fault, its transmission path, measurement, and recovery.
+- B. A property of matter that creates electric force; like signs repel and unlike signs attract.
 - C. Selecting the governing law prevents one successful equation from being used outside its domain.
-- D. Reduced loop area should lower flux and voltage, with reversal restoring the old peak.
+- D. Reduced loop area should lower flux and voltage, with reversal restoring the initial peak.
 
 **Correct answer:** B
 
-**Hint - exact player copy:** Use the stated evidence and the conditions for Electric charge; do not choose an option merely because it names a familiar term.
+**Hint - exact player copy:** Identify the defining relationship or mechanism for electric charge. All needed information is in this question.
 
 **Option feedback - exact player copy:**
 
-- A: This describes causal repair portfolio, not Electric charge. It does not account for the quantities, conditions, or evidence in this electricity and magnetism case.
-- B: Correct. a property of matter that creates electric force; like signs repel and unlike signs attract. Electric field: force per positive test charge, measured in newtons per coulomb or volts per metre. Superposition: add each source's field as a vector to obtain the net field.
-- C: This describes full-course tool selection, not Electric charge. It does not account for the quantities, conditions, or evidence in this electricity and magnetism case.
-- D: This describes loop-area causality, not Electric charge. It does not account for the quantities, conditions, or evidence in this electricity and magnetism case.
+- A: This describes causal repair portfolio. It does not answer the question about electric charge.
+- B: Correct. A property of matter that creates electric force; like signs repel and unlike signs attract.
+- C: This describes full-course tool selection. It does not answer the question about electric charge.
+- D: This describes loop-area causality. It does not answer the question about electric charge.
+
 ### Review question 6
 
-**Prompt - exact player copy:** Station 12 applies the lesson from Sign the Ground Truth to this follow-up: the funded plan is locked. Assign a response to each condition now so the crew has an action rule it can follow under pressure. Which prediction or calculation correctly applies field direction/sign to this case?
+
+**Prompt - exact player copy:** Which statement best explains field direction and sign?
 
 **Options - exact player copy:**
 
-- A. The final plan must cover source, path, measurement, and recovery.
+- A. A repair portfolio should cover the source of a fault, its transmission path, measurement, and recovery.
 - B. Selecting the governing law prevents one successful equation from being used outside its domain.
 - C. A sign convention changes labels, not the actual direction of the field.
-- D. Reduced loop area should lower flux and voltage, with reversal restoring the old peak.
+- D. Reduced loop area should lower flux and voltage, with reversal restoring the initial peak.
 
 **Correct answer:** C
 
-**Hint - exact player copy:** Use the stated evidence and the conditions for field direction/sign; do not choose an option merely because it names a familiar term.
+**Hint - exact player copy:** Identify the defining relationship or mechanism for field direction and sign. All needed information is in this question.
 
 **Option feedback - exact player copy:**
 
-- A: This describes causal repair portfolio, not field direction/sign. It does not account for the quantities, conditions, or evidence in this electricity and magnetism case.
-- B: This describes full-course tool selection, not field direction/sign. It does not account for the quantities, conditions, or evidence in this electricity and magnetism case.
-- C: Correct. a sign convention changes labels, not the actual direction of the field.
-- D: This describes loop-area causality, not field direction/sign. It does not account for the quantities, conditions, or evidence in this electricity and magnetism case.
-**Optional review completion - exact player copy:** Excellent work. You went beyond the required mission and strengthened the ideas behind your decision.
+- A: This describes causal repair portfolio. It does not answer the question about field direction and sign.
+- B: This describes full-course tool selection. It does not answer the question about field direction and sign.
+- C: Correct. A sign convention changes labels, not the actual direction of the field.
+- D: This describes loop-area causality. It does not answer the question about field direction and sign.
+
+**Optional review completion - exact player copy:** Good work. You have completed six independent practice questions.
+
 ## Quick concept review
 - complete dependency graph and evidence standard.
 - ## Four graded stops

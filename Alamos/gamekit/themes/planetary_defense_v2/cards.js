@@ -10,8 +10,10 @@
 export const OPENING = [
   "You are the asteroid response lead, which means you turn sky measurements into a warning "
     +   "people can use. At Cerro Alto, you will use astronomy to make the call. Eleven days "
-    +   "remain for fifteen work shifts. A new object may hit Earth. The broad path covers nine "
-    +   "million people, but it is too wide for a local order.",
+    +   "remain for fifteen work shifts. A new object may hit Earth; the broad path covers nine "
+    +   "million people, but it is too wide for a local order. Director Mira Chen closes the "
+    +   "launch binder and says, “If we tell a town to leave, I need to be able to tell them "
+    +   "why.”",
 ];
 
 export const ENDING = [

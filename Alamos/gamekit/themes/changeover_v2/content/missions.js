@@ -14,7 +14,7 @@ export const MISSIONS = [
       "Price changes move along supply or demand; other causes shift a curve."
     ],
     "deeper": {
-      "intro": "You completed What Counts. Choose GO DEEPER to revisit the four decisions and explore related course ideas; this optional review does not change your metrics or delay the next mission.",
+      "intro": "Try six independent practice questions. Each includes its own context and any needed data; no mission records are required.",
       "concepts": [
         {
           "name": "Production possibilities curve (PPC)",
@@ -29,7 +29,7 @@ export const MISSIONS = [
       ],
       "questions": [
         {
-          "prompt": "Halvern can move five clerks from bank calls to exchange windows. Exchanges rise from 100 to 150 per hour while bank calls fall from 90 to 40. What is the opportunity cost of each additional exchange?",
+          "prompt": "A country can move five clerks from bank calls to exchange windows. Exchanges rise from 100 to 150 per hour while bank calls fall from 90 to 40. What is the opportunity cost of each additional exchange?",
           "hint": "Divide the 50 bank calls given up by the 50 additional exchanges produced.",
           "answer": "B",
           "options": [
@@ -56,7 +56,7 @@ export const MISSIONS = [
           ]
         },
         {
-          "prompt": "A second Halvern market reports an 8% price increase, a 10% quantity decrease, unchanged household income, and delayed deliveries. Which change best explains the pattern?",
+          "prompt": "A market reports a price increase and a quantity decrease, unchanged household income, and delayed deliveries. Which change best explains the pattern?",
           "hint": "Look for the shift that raises equilibrium price while lowering equilibrium quantity.",
           "answer": "D",
           "figure": {
@@ -154,7 +154,7 @@ export const MISSIONS = [
           ]
         },
         {
-          "prompt": "The Exchange Counter is processing fewer customers today. Which evidence would best support a claim that the slowdown affects Halvern nationally?",
+          "prompt": "A currency-exchange counter is processing fewer customers today. Which evidence would best support a claim that the slowdown affects the country nationally?",
           "hint": "A national conclusion needs a defined population, broad coverage, and a stated time period.",
           "answer": "C",
           "options": [
@@ -245,7 +245,7 @@ export const MISSIONS = [
           ]
         },
         {
-          "prompt": "Halvern is producing at a point inside its production possibilities curve for exchange service and bank support. What is the best interpretation?",
+          "prompt": "A country is producing at a point inside its production possibilities curve for exchange service and bank support. What is the best interpretation?",
           "hint": "Compare the interior point with the maximum feasible combinations on the frontier.",
           "answer": "B",
           "figure": {
@@ -318,7 +318,7 @@ export const MISSIONS = [
           ]
         },
         {
-          "prompt": "Halvern installs software that lets the same clerks process more exchanges and more bank calls per hour. How should the production possibilities curve change?",
+          "prompt": "A country installs software that lets the same clerks process more exchanges and more bank calls per hour. How should the production possibilities curve change?",
           "hint": "Ask whether the maximum attainable combinations changed or whether the economy merely chose a different existing combination.",
           "answer": "A",
           "figure": {
@@ -656,201 +656,184 @@ export const MISSIONS = [
     "briefing": "",
     "stake": "14 days until changeover. A stock-sale slip sits in the same tray as factory orders. Today you decide how much output grew after prices are removed.",
     "deeper": {
-      "intro": "You completed Growth On Paper. Choose GO DEEPER to revisit the four decisions and explore related course ideas; this optional review does not change your metrics or delay the next mission.",
+      "intro": "Try six independent practice questions. Each includes its own context and any needed data; no mission records are required.",
       "concepts": [],
       "questions": [
         {
-          "prompt": "After Growth On Paper, a new decision at Halvern's currency changeover requires the team to distinguish Gross domestic product (GDP) from related macroeconomics ideas. Which statement correctly applies Gross domestic product (GDP)?",
-          "hint": "Identify the defining relationship, mechanism, or evidence limit for Gross domestic product (GDP); the other choices describe different course ideas.",
-          "answer": "B",
-          "options": [
-            {
-              "key": "A",
-              "text": "Household spending on goods and services.",
-              "why": "This describes Consumption, not Gross domestic product (GDP). The two ideas use different relationships, mechanisms, or evidence limits."
-            },
-            {
-              "key": "B",
-              "text": "The market value of final goods and services produced inside a country during a stated period.",
-              "why": "Correct. Gross domestic product (GDP) applies because the market value of final goods and services produced inside a country during a stated period."
-            },
-            {
-              "key": "C",
-              "text": "Business capital, inventory change, and new housing, not stock purchases.",
-              "why": "This describes Investment, not Gross domestic product (GDP). The two ideas use different relationships, mechanisms, or evidence limits."
-            },
-            {
-              "key": "D",
-              "text": "Exports minus imports.",
-              "why": "This describes Net exports (NX), not Gross domestic product (GDP). The two ideas use different relationships, mechanisms, or evidence limits."
-            }
-          ]
-        },
-        {
-          "prompt": "After Growth On Paper, a new decision at Halvern's currency changeover requires the team to distinguish Consumption from related macroeconomics ideas. Which description of Consumption should guide the team's reasoning?",
-          "hint": "Identify the defining relationship, mechanism, or evidence limit for Consumption; the other choices describe different course ideas.",
-          "answer": "C",
-          "options": [
-            {
-              "key": "A",
-              "text": "The market value of final goods and services produced inside a country during a stated period.",
-              "why": "This describes Gross domestic product (GDP), not Consumption. The two ideas use different relationships, mechanisms, or evidence limits."
-            },
-            {
-              "key": "B",
-              "text": "Business capital, inventory change, and new housing, not stock purchases.",
-              "why": "This describes Investment, not Consumption. The two ideas use different relationships, mechanisms, or evidence limits."
-            },
-            {
-              "key": "C",
-              "text": "Household spending on goods and services.",
-              "why": "Correct. Consumption applies because household spending on goods and services."
-            },
-            {
-              "key": "D",
-              "text": "Exports minus imports.",
-              "why": "This describes Net exports (NX), not Consumption. The two ideas use different relationships, mechanisms, or evidence limits."
-            }
-          ]
-        },
-        {
-          "prompt": "After Growth On Paper, a new decision at Halvern's currency changeover requires the team to distinguish Investment from related macroeconomics ideas. Which claim about Investment is scientifically defensible?",
-          "hint": "Identify the defining relationship, mechanism, or evidence limit for Investment; the other choices describe different course ideas.",
+          "prompt": "Which statement best explains gross domestic product (GDP)?",
+          "hint": "Identify the defining relationship or mechanism for gross domestic product (gdp). All needed information is in this question.",
           "answer": "D",
           "options": [
             {
               "key": "A",
-              "text": "The market value of final goods and services produced inside a country during a stated period.",
-              "why": "This describes Gross domestic product (GDP), not Investment. The two ideas use different relationships, mechanisms, or evidence limits."
+              "text": "Household spending on goods and services.",
+              "why": "This describes consumption. It does not answer the question about gross domestic product (gdp)."
             },
             {
               "key": "B",
-              "text": "Household spending on goods and services.",
-              "why": "This describes Consumption, not Investment. The two ideas use different relationships, mechanisms, or evidence limits."
+              "text": "Business capital, inventory change, and new housing, not stock purchases.",
+              "why": "This describes investment. It does not answer the question about gross domestic product (gdp)."
             },
             {
               "key": "C",
               "text": "Exports minus imports.",
-              "why": "This describes Net exports (NX), not Investment. The two ideas use different relationships, mechanisms, or evidence limits."
+              "why": "This describes net exports (NX). It does not answer the question about gross domestic product (gdp)."
             },
             {
               "key": "D",
-              "text": "Business capital, inventory change, and new housing, not stock purchases.",
-              "why": "Correct. Investment applies because business capital, inventory change, and new housing, not stock purchases."
+              "text": "The market value of final goods and services produced inside a country during a stated period.",
+              "why": "Correct. The market value of final goods and services produced inside a country during a stated period."
             }
           ]
         },
         {
-          "prompt": "After Growth On Paper, a new decision at Halvern's currency changeover requires the team to distinguish Net exports (NX) from related macroeconomics ideas. Which interpretation of Net exports (NX) is correct?",
-          "hint": "Identify the defining relationship, mechanism, or evidence limit for Net exports (NX); the other choices describe different course ideas.",
+          "prompt": "Which statement best explains consumption?",
+          "hint": "Identify the defining relationship or mechanism for consumption. All needed information is in this question.",
           "answer": "A",
+          "options": [
+            {
+              "key": "A",
+              "text": "Household spending on goods and services.",
+              "why": "Correct. Household spending on goods and services."
+            },
+            {
+              "key": "B",
+              "text": "The market value of final goods and services produced inside a country during a stated period.",
+              "why": "This describes gross domestic product (GDP). It does not answer the question about consumption."
+            },
+            {
+              "key": "C",
+              "text": "Business capital, inventory change, and new housing, not stock purchases.",
+              "why": "This describes investment. It does not answer the question about consumption."
+            },
+            {
+              "key": "D",
+              "text": "Exports minus imports.",
+              "why": "This describes net exports (NX). It does not answer the question about consumption."
+            }
+          ]
+        },
+        {
+          "prompt": "Which statement best explains investment?",
+          "hint": "Identify the defining relationship or mechanism for investment. All needed information is in this question.",
+          "answer": "B",
+          "options": [
+            {
+              "key": "A",
+              "text": "The market value of final goods and services produced inside a country during a stated period.",
+              "why": "This describes gross domestic product (GDP). It does not answer the question about investment."
+            },
+            {
+              "key": "B",
+              "text": "Business capital, inventory change, and new housing, not stock purchases.",
+              "why": "Correct. Business capital, inventory change, and new housing, not stock purchases."
+            },
+            {
+              "key": "C",
+              "text": "Household spending on goods and services.",
+              "why": "This describes consumption. It does not answer the question about investment."
+            },
+            {
+              "key": "D",
+              "text": "Exports minus imports.",
+              "why": "This describes net exports (NX). It does not answer the question about investment."
+            }
+          ]
+        },
+        {
+          "prompt": "Exports are 90 billion and imports are 110 billion currency units. What are net exports?",
+          "hint": "Identify the defining relationship or mechanism for net exports (nx). All needed information is in this question.",
+          "answer": "C",
           "figure": {
-            "kind": "line",
-            "xLabel": "Value of RATE",
-            "yLabel": "Net exports",
-            "caption": "A stronger RATE reduces Halvern's net exports.",
-            "series": [
+            "kind": "bars",
+            "xLabel": "Category",
+            "yLabel": "Billions of currency units",
+            "caption": "Trade during one year",
+            "bars": [
               {
-                "name": "NX",
-                "points": [
-                  [
-                    2,
-                    80
-                  ],
-                  [
-                    3,
-                    65
-                  ],
-                  [
-                    4,
-                    50
-                  ],
-                  [
-                    5,
-                    35
-                  ],
-                  [
-                    6,
-                    20
-                  ]
-                ]
+                "name": "Exports",
+                "value": 90
+              },
+              {
+                "name": "Imports",
+                "value": 110
               }
             ]
           },
           "options": [
             {
               "key": "A",
-              "text": "Exports minus imports.",
-              "why": "Correct. Net exports (NX) applies because exports minus imports."
+              "text": "200 billion.",
+              "why": "Net exports subtract imports from exports; they do not add them."
             },
             {
               "key": "B",
-              "text": "The market value of final goods and services produced inside a country during a stated period.",
-              "why": "This describes Gross domestic product (GDP), not Net exports (NX). The two ideas use different relationships, mechanisms, or evidence limits."
+              "text": "20 billion.",
+              "why": "Imports exceed exports, so the balance is negative."
             },
             {
               "key": "C",
-              "text": "Household spending on goods and services.",
-              "why": "This describes Consumption, not Net exports (NX). The two ideas use different relationships, mechanisms, or evidence limits."
+              "text": "-20 billion currency units.",
+              "why": "Correct. -20 billion currency units."
             },
             {
               "key": "D",
-              "text": "Business capital, inventory change, and new housing, not stock purchases.",
-              "why": "This describes Investment, not Net exports (NX). The two ideas use different relationships, mechanisms, or evidence limits."
+              "text": "90 billion.",
+              "why": "This omits imports."
             }
           ]
         },
         {
-          "prompt": "After Growth On Paper, a new decision at Halvern's currency changeover requires the team to distinguish GDP components from related macroeconomics ideas. Which statement about GDP components would earn course credit?",
-          "hint": "Identify the defining relationship, mechanism, or evidence limit for GDP components; the other choices describe different course ideas.",
-          "answer": "B",
+          "prompt": "Why must transfers and purchases of existing financial assets be distinguished from newly produced goods and services when measuring gross domestic product?",
+          "hint": "Identify the defining relationship or mechanism for the components of gross domestic product. All needed information is in this question.",
+          "answer": "D",
           "options": [
             {
               "key": "A",
               "text": "The market value of final goods and services produced inside a country during a stated period.",
-              "why": "This describes Gross domestic product (GDP), not GDP components. The two ideas use different relationships, mechanisms, or evidence limits."
+              "why": "This describes gross domestic product (GDP). It does not answer the question about the components of gross domestic product."
             },
             {
               "key": "B",
-              "text": "Correct labels prevent transfers and asset trades from masquerading as current production.",
-              "why": "Correct. GDP components applies because correct labels prevent transfers and asset trades from masquerading as current production."
+              "text": "Household spending on goods and services.",
+              "why": "This describes consumption. It does not answer the question about the components of gross domestic product."
             },
             {
               "key": "C",
-              "text": "Household spending on goods and services.",
-              "why": "This describes Consumption, not GDP components. The two ideas use different relationships, mechanisms, or evidence limits."
+              "text": "Business capital, inventory change, and new housing, not stock purchases.",
+              "why": "This describes investment. It does not answer the question about the components of gross domestic product."
             },
             {
               "key": "D",
-              "text": "Business capital, inventory change, and new housing, not stock purchases.",
-              "why": "This describes Investment, not GDP components. The two ideas use different relationships, mechanisms, or evidence limits."
+              "text": "Transfers and existing-asset trades are not themselves current production, so counting them as output would distort GDP.",
+              "why": "Correct. Transfers and existing-asset trades are not themselves current production, so counting them as output would distort GDP."
             }
           ]
         },
         {
-          "prompt": "After Growth On Paper, a new decision at Halvern's currency changeover requires the team to distinguish expenditure GDP from related macroeconomics ideas. Which use of expenditure GDP gives the strongest basis for a decision?",
-          "hint": "Identify the defining relationship, mechanism, or evidence limit for expenditure GDP; the other choices describe different course ideas.",
-          "answer": "C",
+          "prompt": "Which statement best explains the expenditure approach to gross domestic product?",
+          "hint": "Identify the defining relationship or mechanism for the expenditure approach to gross domestic product. All needed information is in this question.",
+          "answer": "A",
           "options": [
             {
               "key": "A",
-              "text": "The market value of final goods and services produced inside a country during a stated period.",
-              "why": "This describes Gross domestic product (GDP), not expenditure GDP. The two ideas use different relationships, mechanisms, or evidence limits."
-            },
-            {
-              "key": "B",
-              "text": "Household spending on goods and services.",
-              "why": "This describes Consumption, not expenditure GDP. The two ideas use different relationships, mechanisms, or evidence limits."
-            },
-            {
-              "key": "C",
               "text": "The component labels reveal which spending changed, not merely that \"spending\" changed.",
-              "why": "Correct. expenditure GDP applies because the component labels reveal which spending changed, not merely that \"spending\" changed."
+              "why": "Correct. The component labels reveal which spending changed, not merely that \"spending\" changed."
+            },
+            {
+              "key": "B",
+              "text": "The market value of final goods and services produced inside a country during a stated period.",
+              "why": "This describes gross domestic product (GDP). It does not answer the question about the expenditure approach to gross domestic product."
+            },
+            {
+              "key": "C",
+              "text": "Household spending on goods and services.",
+              "why": "This describes consumption. It does not answer the question about the expenditure approach to gross domestic product."
             },
             {
               "key": "D",
               "text": "Business capital, inventory change, and new housing, not stock purchases.",
-              "why": "This describes Investment, not expenditure GDP. The two ideas use different relationships, mechanisms, or evidence limits."
+              "why": "This describes investment. It does not answer the question about the expenditure approach to gross domestic product."
             }
           ]
         }
@@ -1144,168 +1127,168 @@ export const MISSIONS = [
     "briefing": "",
     "stake": "13 days until changeover. An old basket sits beside a family's crossed-out shopping list. Today you decide how to report the old and new price baskets.",
     "deeper": {
-      "intro": "You completed The Basket. Choose GO DEEPER to revisit the four decisions and explore related course ideas; this optional review does not change your metrics or delay the next mission.",
+      "intro": "Try six independent practice questions. Each includes its own context and any needed data; no mission records are required.",
       "concepts": [],
       "questions": [
         {
-          "prompt": "After The Basket, a new decision at Halvern's currency changeover requires the team to distinguish Consumer price index (CPI) from related macroeconomics ideas. Which statement correctly applies Consumer price index (CPI)?",
-          "hint": "Identify the defining relationship, mechanism, or evidence limit for Consumer price index (CPI); the other choices describe different course ideas.",
+          "prompt": "Which statement best explains consumer price index (CPI)?",
+          "hint": "Identify the defining relationship or mechanism for consumer price index (cpi). All needed information is in this question.",
           "answer": "B",
           "options": [
             {
               "key": "A",
               "text": "The percent change in a price index.",
-              "why": "This describes Inflation rate, not Consumer price index (CPI). The two ideas use different relationships, mechanisms, or evidence limits."
+              "why": "This describes inflation rate. It does not answer the question about consumer price index (cpi)."
             },
             {
               "key": "B",
               "text": "The current cost of a fixed consumer basket relative to its base-year cost, times 100.",
-              "why": "Correct. Consumer price index (CPI) applies because the current cost of a fixed consumer basket relative to its base-year cost, times 100."
+              "why": "Correct. The current cost of a fixed consumer basket relative to its base-year cost, times 100."
             },
             {
               "key": "C",
               "text": "CPI overstatement when consumers switch away from goods whose prices rise.",
-              "why": "This describes Substitution bias, not Consumer price index (CPI). The two ideas use different relationships, mechanisms, or evidence limits."
+              "why": "This describes substitution bias. It does not answer the question about consumer price index (cpi)."
             },
             {
               "key": "D",
               "text": "Reproducing the index separates a calculation error from a design problem.",
-              "why": "This describes CPI, not Consumer price index (CPI). The two ideas use different relationships, mechanisms, or evidence limits."
+              "why": "This describes the consumer price index. It does not answer the question about consumer price index (cpi)."
             }
           ]
         },
         {
-          "prompt": "After The Basket, a new decision at Halvern's currency changeover requires the team to distinguish Inflation rate from related macroeconomics ideas. Which description of Inflation rate should guide the team's reasoning?",
-          "hint": "Identify the defining relationship, mechanism, or evidence limit for Inflation rate; the other choices describe different course ideas.",
+          "prompt": "Which statement best explains inflation rate?",
+          "hint": "Identify the defining relationship or mechanism for inflation rate. All needed information is in this question.",
           "answer": "C",
           "options": [
             {
               "key": "A",
               "text": "The current cost of a fixed consumer basket relative to its base-year cost, times 100.",
-              "why": "This describes Consumer price index (CPI), not Inflation rate. The two ideas use different relationships, mechanisms, or evidence limits."
+              "why": "This describes consumer price index (CPI). It does not answer the question about inflation rate."
             },
             {
               "key": "B",
               "text": "CPI overstatement when consumers switch away from goods whose prices rise.",
-              "why": "This describes Substitution bias, not Inflation rate. The two ideas use different relationships, mechanisms, or evidence limits."
+              "why": "This describes substitution bias. It does not answer the question about inflation rate."
             },
             {
               "key": "C",
               "text": "The percent change in a price index.",
-              "why": "Correct. Inflation rate applies because the percent change in a price index."
+              "why": "Correct. The percent change in a price index."
             },
             {
               "key": "D",
               "text": "Reproducing the index separates a calculation error from a design problem.",
-              "why": "This describes CPI, not Inflation rate. The two ideas use different relationships, mechanisms, or evidence limits."
+              "why": "This describes the consumer price index. It does not answer the question about inflation rate."
             }
           ]
         },
         {
-          "prompt": "After The Basket, a new decision at Halvern's currency changeover requires the team to distinguish Substitution bias from related macroeconomics ideas. Which claim about Substitution bias is scientifically defensible?",
-          "hint": "Identify the defining relationship, mechanism, or evidence limit for Substitution bias; the other choices describe different course ideas.",
+          "prompt": "Which statement best explains substitution bias?",
+          "hint": "Identify the defining relationship or mechanism for substitution bias. All needed information is in this question.",
           "answer": "D",
           "options": [
             {
               "key": "A",
               "text": "The current cost of a fixed consumer basket relative to its base-year cost, times 100.",
-              "why": "This describes Consumer price index (CPI), not Substitution bias. The two ideas use different relationships, mechanisms, or evidence limits."
+              "why": "This describes consumer price index (CPI). It does not answer the question about substitution bias."
             },
             {
               "key": "B",
               "text": "The percent change in a price index.",
-              "why": "This describes Inflation rate, not Substitution bias. The two ideas use different relationships, mechanisms, or evidence limits."
+              "why": "This describes inflation rate. It does not answer the question about substitution bias."
             },
             {
               "key": "C",
               "text": "Reproducing the index separates a calculation error from a design problem.",
-              "why": "This describes CPI, not Substitution bias. The two ideas use different relationships, mechanisms, or evidence limits."
+              "why": "This describes the consumer price index. It does not answer the question about substitution bias."
             },
             {
               "key": "D",
               "text": "CPI overstatement when consumers switch away from goods whose prices rise.",
-              "why": "Correct. Substitution bias applies because cPI overstatement when consumers switch away from goods whose prices rise."
+              "why": "Correct. CPI overstatement when consumers switch away from goods whose prices rise."
             }
           ]
         },
         {
-          "prompt": "After The Basket, a new decision at Halvern's currency changeover requires the team to distinguish CPI from related macroeconomics ideas. Which interpretation of CPI is correct?",
-          "hint": "Identify the defining relationship, mechanism, or evidence limit for CPI; the other choices describe different course ideas.",
+          "prompt": "Which statement best explains the consumer price index?",
+          "hint": "Identify the defining relationship or mechanism for the consumer price index. All needed information is in this question.",
           "answer": "A",
           "options": [
             {
               "key": "A",
               "text": "Reproducing the index separates a calculation error from a design problem.",
-              "why": "Correct. CPI applies because reproducing the index separates a calculation error from a design problem."
+              "why": "Correct. Reproducing the index separates a calculation error from a design problem."
             },
             {
               "key": "B",
               "text": "The current cost of a fixed consumer basket relative to its base-year cost, times 100.",
-              "why": "This describes Consumer price index (CPI), not CPI. The two ideas use different relationships, mechanisms, or evidence limits."
+              "why": "This describes consumer price index (CPI). It does not answer the question about the consumer price index."
             },
             {
               "key": "C",
               "text": "The percent change in a price index.",
-              "why": "This describes Inflation rate, not CPI. The two ideas use different relationships, mechanisms, or evidence limits."
+              "why": "This describes inflation rate. It does not answer the question about the consumer price index."
             },
             {
               "key": "D",
               "text": "CPI overstatement when consumers switch away from goods whose prices rise.",
-              "why": "This describes Substitution bias, not CPI. The two ideas use different relationships, mechanisms, or evidence limits."
+              "why": "This describes substitution bias. It does not answer the question about the consumer price index."
             }
           ]
         },
         {
-          "prompt": "After The Basket, a new decision at Halvern's currency changeover requires the team to distinguish CPI bias/weights from related macroeconomics ideas. Which statement about CPI bias/weights would earn course credit?",
-          "hint": "Identify the defining relationship, mechanism, or evidence limit for CPI bias/weights; the other choices describe different course ideas.",
+          "prompt": "Which statement best explains the effect of basket weights on a consumer price index?",
+          "hint": "Identify the defining relationship or mechanism for the effect of basket weights on a consumer price index. All needed information is in this question.",
           "answer": "B",
           "options": [
             {
               "key": "A",
               "text": "The current cost of a fixed consumer basket relative to its base-year cost, times 100.",
-              "why": "This describes Consumer price index (CPI), not CPI bias/weights. The two ideas use different relationships, mechanisms, or evidence limits."
+              "why": "This describes consumer price index (CPI). It does not answer the question about the effect of basket weights on a consumer price index."
             },
             {
               "key": "B",
               "text": "Sensitivity to a stale weight requires disclosure and a companion measure, not silent replacement.",
-              "why": "Correct. CPI bias/weights applies because sensitivity to a stale weight requires disclosure and a companion measure, not silent replacement."
+              "why": "Correct. Sensitivity to a stale weight requires disclosure and a companion measure, not silent replacement."
             },
             {
               "key": "C",
               "text": "The percent change in a price index.",
-              "why": "This describes Inflation rate, not CPI bias/weights. The two ideas use different relationships, mechanisms, or evidence limits."
+              "why": "This describes inflation rate. It does not answer the question about the effect of basket weights on a consumer price index."
             },
             {
               "key": "D",
               "text": "CPI overstatement when consumers switch away from goods whose prices rise.",
-              "why": "This describes Substitution bias, not CPI bias/weights. The two ideas use different relationships, mechanisms, or evidence limits."
+              "why": "This describes substitution bias. It does not answer the question about the effect of basket weights on a consumer price index."
             }
           ]
         },
         {
-          "prompt": "After The Basket, a new decision at Halvern's currency changeover requires the team to distinguish index publication from related macroeconomics ideas. Which use of index publication gives the strongest basis for a decision?",
-          "hint": "Identify the defining relationship, mechanism, or evidence limit for index publication; the other choices describe different course ideas.",
+          "prompt": "Which statement best explains index publication?",
+          "hint": "Identify the defining relationship or mechanism for index publication. All needed information is in this question.",
           "answer": "C",
           "options": [
             {
               "key": "A",
               "text": "The current cost of a fixed consumer basket relative to its base-year cost, times 100.",
-              "why": "This describes Consumer price index (CPI), not index publication. The two ideas use different relationships, mechanisms, or evidence limits."
+              "why": "This describes consumer price index (CPI). It does not answer the question about index publication."
             },
             {
               "key": "B",
               "text": "The percent change in a price index.",
-              "why": "This describes Inflation rate, not index publication. The two ideas use different relationships, mechanisms, or evidence limits."
+              "why": "This describes inflation rate. It does not answer the question about index publication."
             },
             {
               "key": "C",
-              "text": "Publishing both measures prevents a convenient revision from erasing history or a stale basket from hiding bias.",
-              "why": "Correct. index publication applies because publishing both measures prevents a convenient revision from erasing history or a stale basket from hiding bias."
+              "text": "Publishing the historical price index alongside a clearly labeled revised index preserves continuity while exposing the effect of changed weights.",
+              "why": "Correct. Publishing the historical price index alongside a clearly labeled revised index preserves continuity while exposing the effect of changed weights."
             },
             {
               "key": "D",
               "text": "CPI overstatement when consumers switch away from goods whose prices rise.",
-              "why": "This describes Substitution bias, not index publication. The two ideas use different relationships, mechanisms, or evidence limits."
+              "why": "This describes substitution bias. It does not answer the question about index publication."
             }
           ]
         }
@@ -1579,168 +1562,168 @@ export const MISSIONS = [
     "briefing": "",
     "stake": "12 days until changeover. A job notice curls over an empty search card. Today you decide whether the job figures call for action.",
     "deeper": {
-      "intro": "You completed Jobs Behind The Number. Choose GO DEEPER to revisit the four decisions and explore related course ideas; this optional review does not change your metrics or delay the next mission.",
+      "intro": "Try six independent practice questions. Each includes its own context and any needed data; no mission records are required.",
       "concepts": [],
       "questions": [
         {
-          "prompt": "After Jobs Behind The Number, a new decision at Halvern's currency changeover requires the team to distinguish Labor force from related macroeconomics ideas. Which statement correctly applies Labor force?",
-          "hint": "Identify the defining relationship, mechanism, or evidence limit for Labor force; the other choices describe different course ideas.",
-          "answer": "B",
+          "prompt": "Which statement best explains labor force?",
+          "hint": "Identify the defining relationship or mechanism for labor force. All needed information is in this question.",
+          "answer": "D",
           "options": [
             {
               "key": "A",
               "text": "A person who wants work but stopped searching and is outside the labor force.",
-              "why": "This describes Discouraged worker, not Labor force. The two ideas use different relationships, mechanisms, or evidence limits."
+              "why": "This describes discouraged worker. It does not answer the question about labor force."
             },
             {
               "key": "B",
-              "text": "Employed people plus unemployed people actively seeking work.",
-              "why": "Correct. Labor force applies because employed people plus unemployed people actively seeking work."
+              "text": "Frictional plus structural unemployment.",
+              "why": "This describes natural unemployment. It does not answer the question about labor force."
             },
             {
               "key": "C",
-              "text": "Frictional plus structural unemployment.",
-              "why": "This describes Natural unemployment, not Labor force. The two ideas use different relationships, mechanisms, or evidence limits."
+              "text": "Real output below full-employment output.",
+              "why": "This describes recessionary gap. It does not answer the question about labor force."
             },
             {
               "key": "D",
-              "text": "Real output below full-employment output.",
-              "why": "This describes Recessionary gap, not Labor force. The two ideas use different relationships, mechanisms, or evidence limits."
+              "text": "Employed people plus unemployed people actively seeking work.",
+              "why": "Correct. Employed people plus unemployed people actively seeking work."
             }
           ]
         },
         {
-          "prompt": "After Jobs Behind The Number, a new decision at Halvern's currency changeover requires the team to distinguish Discouraged worker from related macroeconomics ideas. Which description of Discouraged worker should guide the team's reasoning?",
-          "hint": "Identify the defining relationship, mechanism, or evidence limit for Discouraged worker; the other choices describe different course ideas.",
+          "prompt": "Which statement best explains discouraged worker?",
+          "hint": "Identify the defining relationship or mechanism for discouraged worker. All needed information is in this question.",
+          "answer": "A",
+          "options": [
+            {
+              "key": "A",
+              "text": "A person who wants work but stopped searching and is outside the labor force.",
+              "why": "Correct. A person who wants work but stopped searching and is outside the labor force."
+            },
+            {
+              "key": "B",
+              "text": "Employed people plus unemployed people actively seeking work.",
+              "why": "This describes labor force. It does not answer the question about discouraged worker."
+            },
+            {
+              "key": "C",
+              "text": "Frictional plus structural unemployment.",
+              "why": "This describes natural unemployment. It does not answer the question about discouraged worker."
+            },
+            {
+              "key": "D",
+              "text": "Real output below full-employment output.",
+              "why": "This describes recessionary gap. It does not answer the question about discouraged worker."
+            }
+          ]
+        },
+        {
+          "prompt": "Which statement best explains natural unemployment?",
+          "hint": "Identify the defining relationship or mechanism for natural unemployment. All needed information is in this question.",
+          "answer": "B",
+          "options": [
+            {
+              "key": "A",
+              "text": "Employed people plus unemployed people actively seeking work.",
+              "why": "This describes labor force. It does not answer the question about natural unemployment."
+            },
+            {
+              "key": "B",
+              "text": "Frictional plus structural unemployment.",
+              "why": "Correct. Frictional plus structural unemployment."
+            },
+            {
+              "key": "C",
+              "text": "A person who wants work but stopped searching and is outside the labor force.",
+              "why": "This describes discouraged worker. It does not answer the question about natural unemployment."
+            },
+            {
+              "key": "D",
+              "text": "Real output below full-employment output.",
+              "why": "This describes recessionary gap. It does not answer the question about natural unemployment."
+            }
+          ]
+        },
+        {
+          "prompt": "Which statement best explains recessionary gap?",
+          "hint": "Identify the defining relationship or mechanism for recessionary gap. All needed information is in this question.",
           "answer": "C",
           "options": [
             {
               "key": "A",
               "text": "Employed people plus unemployed people actively seeking work.",
-              "why": "This describes Labor force, not Discouraged worker. The two ideas use different relationships, mechanisms, or evidence limits."
+              "why": "This describes labor force. It does not answer the question about recessionary gap."
             },
             {
               "key": "B",
-              "text": "Frictional plus structural unemployment.",
-              "why": "This describes Natural unemployment, not Discouraged worker. The two ideas use different relationships, mechanisms, or evidence limits."
+              "text": "A person who wants work but stopped searching and is outside the labor force.",
+              "why": "This describes discouraged worker. It does not answer the question about recessionary gap."
             },
             {
               "key": "C",
-              "text": "A person who wants work but stopped searching and is outside the labor force.",
-              "why": "Correct. Discouraged worker applies because a person who wants work but stopped searching and is outside the labor force."
+              "text": "Real output below full-employment output.",
+              "why": "Correct. Real output below full-employment output."
             },
             {
               "key": "D",
-              "text": "Real output below full-employment output.",
-              "why": "This describes Recessionary gap, not Discouraged worker. The two ideas use different relationships, mechanisms, or evidence limits."
+              "text": "Frictional plus structural unemployment.",
+              "why": "This describes natural unemployment. It does not answer the question about recessionary gap."
             }
           ]
         },
         {
-          "prompt": "After Jobs Behind The Number, a new decision at Halvern's currency changeover requires the team to distinguish Natural unemployment from related macroeconomics ideas. Which claim about Natural unemployment is scientifically defensible?",
-          "hint": "Identify the defining relationship, mechanism, or evidence limit for Natural unemployment; the other choices describe different course ideas.",
+          "prompt": "Which statement best explains unemployment rate?",
+          "hint": "Identify the defining relationship or mechanism for unemployment rate. All needed information is in this question.",
           "answer": "D",
           "options": [
             {
               "key": "A",
               "text": "Employed people plus unemployed people actively seeking work.",
-              "why": "This describes Labor force, not Natural unemployment. The two ideas use different relationships, mechanisms, or evidence limits."
+              "why": "This describes labor force. It does not answer the question about unemployment rate."
             },
             {
               "key": "B",
               "text": "A person who wants work but stopped searching and is outside the labor force.",
-              "why": "This describes Discouraged worker, not Natural unemployment. The two ideas use different relationships, mechanisms, or evidence limits."
+              "why": "This describes discouraged worker. It does not answer the question about unemployment rate."
             },
             {
               "key": "C",
-              "text": "Real output below full-employment output.",
-              "why": "This describes Recessionary gap, not Natural unemployment. The two ideas use different relationships, mechanisms, or evidence limits."
+              "text": "Frictional plus structural unemployment.",
+              "why": "This describes natural unemployment. It does not answer the question about unemployment rate."
             },
             {
               "key": "D",
-              "text": "Frictional plus structural unemployment.",
-              "why": "Correct. Natural unemployment applies because frictional plus structural unemployment."
+              "text": "Excluding discouraged workers follows the definition but can hide worsening conditions when read alone.",
+              "why": "Correct. Excluding discouraged workers follows the definition but can hide worsening conditions when read alone."
             }
           ]
         },
         {
-          "prompt": "After Jobs Behind The Number, a new decision at Halvern's currency changeover requires the team to distinguish Recessionary gap from related macroeconomics ideas. Which interpretation of Recessionary gap is correct?",
-          "hint": "Identify the defining relationship, mechanism, or evidence limit for Recessionary gap; the other choices describe different course ideas.",
+          "prompt": "Which statement best explains unemployment types?",
+          "hint": "Identify the defining relationship or mechanism for unemployment types. All needed information is in this question.",
           "answer": "A",
           "options": [
             {
               "key": "A",
-              "text": "Real output below full-employment output.",
-              "why": "Correct. Recessionary gap applies because real output below full-employment output."
-            },
-            {
-              "key": "B",
-              "text": "Employed people plus unemployed people actively seeking work.",
-              "why": "This describes Labor force, not Recessionary gap. The two ideas use different relationships, mechanisms, or evidence limits."
-            },
-            {
-              "key": "C",
-              "text": "A person who wants work but stopped searching and is outside the labor force.",
-              "why": "This describes Discouraged worker, not Recessionary gap. The two ideas use different relationships, mechanisms, or evidence limits."
-            },
-            {
-              "key": "D",
-              "text": "Frictional plus structural unemployment.",
-              "why": "This describes Natural unemployment, not Recessionary gap. The two ideas use different relationships, mechanisms, or evidence limits."
-            }
-          ]
-        },
-        {
-          "prompt": "After Jobs Behind The Number, a new decision at Halvern's currency changeover requires the team to distinguish unemployment rate from related macroeconomics ideas. Which statement about unemployment rate would earn course credit?",
-          "hint": "Identify the defining relationship, mechanism, or evidence limit for unemployment rate; the other choices describe different course ideas.",
-          "answer": "B",
-          "options": [
-            {
-              "key": "A",
-              "text": "Employed people plus unemployed people actively seeking work.",
-              "why": "This describes Labor force, not unemployment rate. The two ideas use different relationships, mechanisms, or evidence limits."
-            },
-            {
-              "key": "B",
-              "text": "Excluding discouraged workers follows the definition but can hide worsening conditions when read alone.",
-              "why": "Correct. unemployment rate applies because excluding discouraged workers follows the definition but can hide worsening conditions when read alone."
-            },
-            {
-              "key": "C",
-              "text": "A person who wants work but stopped searching and is outside the labor force.",
-              "why": "This describes Discouraged worker, not unemployment rate. The two ideas use different relationships, mechanisms, or evidence limits."
-            },
-            {
-              "key": "D",
-              "text": "Frictional plus structural unemployment.",
-              "why": "This describes Natural unemployment, not unemployment rate. The two ideas use different relationships, mechanisms, or evidence limits."
-            }
-          ]
-        },
-        {
-          "prompt": "After Jobs Behind The Number, a new decision at Halvern's currency changeover requires the team to distinguish unemployment types from related macroeconomics ideas. Which use of unemployment types gives the strongest basis for a decision?",
-          "hint": "Identify the defining relationship, mechanism, or evidence limit for unemployment types; the other choices describe different course ideas.",
-          "answer": "C",
-          "options": [
-            {
-              "key": "A",
-              "text": "Employed people plus unemployed people actively seeking work.",
-              "why": "This describes Labor force, not unemployment types. The two ideas use different relationships, mechanisms, or evidence limits."
-            },
-            {
-              "key": "B",
-              "text": "A person who wants work but stopped searching and is outside the labor force.",
-              "why": "This describes Discouraged worker, not unemployment types. The two ideas use different relationships, mechanisms, or evidence limits."
-            },
-            {
-              "key": "C",
               "text": "Only cyclical unemployment signals output below its demand-supported potential.",
-              "why": "Correct. unemployment types applies because only cyclical unemployment signals output below its demand-supported potential."
+              "why": "Correct. Only cyclical unemployment signals output below its demand-supported potential."
+            },
+            {
+              "key": "B",
+              "text": "Employed people plus unemployed people actively seeking work.",
+              "why": "This describes labor force. It does not answer the question about unemployment types."
+            },
+            {
+              "key": "C",
+              "text": "A person who wants work but stopped searching and is outside the labor force.",
+              "why": "This describes discouraged worker. It does not answer the question about unemployment types."
             },
             {
               "key": "D",
               "text": "Frictional plus structural unemployment.",
-              "why": "This describes Natural unemployment, not unemployment types. The two ideas use different relationships, mechanisms, or evidence limits."
+              "why": "This describes natural unemployment. It does not answer the question about unemployment types."
             }
           ]
         }
@@ -1992,168 +1975,168 @@ export const MISSIONS = [
     "briefing": "",
     "stake": "11 days until changeover. An unsigned spending order sits under a press deadline. Today you decide which spending plan could close the gap.",
     "deeper": {
-      "intro": "You completed The First Round. Choose GO DEEPER to revisit the four decisions and explore related course ideas; this optional review does not change your metrics or delay the next mission.",
+      "intro": "Try six independent practice questions. Each includes its own context and any needed data; no mission records are required.",
       "concepts": [],
       "questions": [
         {
-          "prompt": "After The First Round, a new decision at Halvern's currency changeover requires the team to distinguish Marginal propensity to consume (MPC) from related macroeconomics ideas. Which statement correctly applies Marginal propensity to consume (MPC)?",
-          "hint": "Identify the defining relationship, mechanism, or evidence limit for Marginal propensity to consume (MPC); the other choices describe different course ideas.",
+          "prompt": "Which statement best explains marginal propensity to consume (MPC)?",
+          "hint": "Identify the defining relationship or mechanism for marginal propensity to consume (mpc). All needed information is in this question.",
           "answer": "B",
           "options": [
             {
               "key": "A",
               "text": "The fraction saved; MPC plus MPS equals one.",
-              "why": "This describes Marginal propensity to save (MPS), not Marginal propensity to consume (MPC). The two ideas use different relationships, mechanisms, or evidence limits."
+              "why": "This describes marginal propensity to save (MPS). It does not answer the question about marginal propensity to consume (mpc)."
             },
             {
               "key": "B",
               "text": "The fraction of an extra dollar of income consumed.",
-              "why": "Correct. Marginal propensity to consume (MPC) applies because the fraction of an extra dollar of income consumed."
+              "why": "Correct. The fraction of an extra dollar of income consumed."
             },
             {
               "key": "C",
               "text": "Total demand change divided by the initial policy change.",
-              "why": "This describes Multiplier, not Marginal propensity to consume (MPC). The two ideas use different relationships, mechanisms, or evidence limits."
+              "why": "This describes multiplier. It does not answer the question about marginal propensity to consume (mpc)."
             },
             {
               "key": "D",
               "text": "Saving is the leakage that limits the total demand response.",
-              "why": "This describes MPC/MPS, not Marginal propensity to consume (MPC). The two ideas use different relationships, mechanisms, or evidence limits."
+              "why": "This describes the marginal propensities to consume and save. It does not answer the question about marginal propensity to consume (mpc)."
             }
           ]
         },
         {
-          "prompt": "After The First Round, a new decision at Halvern's currency changeover requires the team to distinguish Marginal propensity to save (MPS) from related macroeconomics ideas. Which description of Marginal propensity to save (MPS) should guide the team's reasoning?",
-          "hint": "Identify the defining relationship, mechanism, or evidence limit for Marginal propensity to save (MPS); the other choices describe different course ideas.",
+          "prompt": "Which statement best explains marginal propensity to save (MPS)?",
+          "hint": "Identify the defining relationship or mechanism for marginal propensity to save (mps). All needed information is in this question.",
           "answer": "C",
           "options": [
             {
               "key": "A",
               "text": "The fraction of an extra dollar of income consumed.",
-              "why": "This describes Marginal propensity to consume (MPC), not Marginal propensity to save (MPS). The two ideas use different relationships, mechanisms, or evidence limits."
+              "why": "This describes marginal propensity to consume (MPC). It does not answer the question about marginal propensity to save (mps)."
             },
             {
               "key": "B",
               "text": "Total demand change divided by the initial policy change.",
-              "why": "This describes Multiplier, not Marginal propensity to save (MPS). The two ideas use different relationships, mechanisms, or evidence limits."
+              "why": "This describes multiplier. It does not answer the question about marginal propensity to save (mps)."
             },
             {
               "key": "C",
               "text": "The fraction saved; MPC plus MPS equals one.",
-              "why": "Correct. Marginal propensity to save (MPS) applies because the fraction saved; MPC plus MPS equals one."
+              "why": "Correct. The fraction saved; MPC plus MPS equals one."
             },
             {
               "key": "D",
               "text": "Saving is the leakage that limits the total demand response.",
-              "why": "This describes MPC/MPS, not Marginal propensity to save (MPS). The two ideas use different relationships, mechanisms, or evidence limits."
+              "why": "This describes the marginal propensities to consume and save. It does not answer the question about marginal propensity to save (mps)."
             }
           ]
         },
         {
-          "prompt": "After The First Round, a new decision at Halvern's currency changeover requires the team to distinguish Multiplier from related macroeconomics ideas. Which claim about Multiplier is scientifically defensible?",
-          "hint": "Identify the defining relationship, mechanism, or evidence limit for Multiplier; the other choices describe different course ideas.",
+          "prompt": "Which statement best explains multiplier?",
+          "hint": "Identify the defining relationship or mechanism for multiplier. All needed information is in this question.",
           "answer": "D",
           "options": [
             {
               "key": "A",
               "text": "The fraction of an extra dollar of income consumed.",
-              "why": "This describes Marginal propensity to consume (MPC), not Multiplier. The two ideas use different relationships, mechanisms, or evidence limits."
+              "why": "This describes marginal propensity to consume (MPC). It does not answer the question about multiplier."
             },
             {
               "key": "B",
               "text": "The fraction saved; MPC plus MPS equals one.",
-              "why": "This describes Marginal propensity to save (MPS), not Multiplier. The two ideas use different relationships, mechanisms, or evidence limits."
+              "why": "This describes marginal propensity to save (MPS). It does not answer the question about multiplier."
             },
             {
               "key": "C",
               "text": "Saving is the leakage that limits the total demand response.",
-              "why": "This describes MPC/MPS, not Multiplier. The two ideas use different relationships, mechanisms, or evidence limits."
+              "why": "This describes the marginal propensities to consume and save. It does not answer the question about multiplier."
             },
             {
               "key": "D",
               "text": "Total demand change divided by the initial policy change.",
-              "why": "Correct. Multiplier applies because total demand change divided by the initial policy change."
+              "why": "Correct. Total demand change divided by the initial policy change."
             }
           ]
         },
         {
-          "prompt": "After The First Round, a new decision at Halvern's currency changeover requires the team to distinguish MPC/MPS from related macroeconomics ideas. Which interpretation of MPC/MPS is correct?",
-          "hint": "Identify the defining relationship, mechanism, or evidence limit for MPC/MPS; the other choices describe different course ideas.",
+          "prompt": "Which statement best explains the marginal propensities to consume and save?",
+          "hint": "Identify the defining relationship or mechanism for the marginal propensities to consume and save. All needed information is in this question.",
           "answer": "A",
           "options": [
             {
               "key": "A",
               "text": "Saving is the leakage that limits the total demand response.",
-              "why": "Correct. MPC/MPS applies because saving is the leakage that limits the total demand response."
+              "why": "Correct. Saving is the leakage that limits the total demand response."
             },
             {
               "key": "B",
               "text": "The fraction of an extra dollar of income consumed.",
-              "why": "This describes Marginal propensity to consume (MPC), not MPC/MPS. The two ideas use different relationships, mechanisms, or evidence limits."
+              "why": "This describes marginal propensity to consume (MPC). It does not answer the question about the marginal propensities to consume and save."
             },
             {
               "key": "C",
               "text": "The fraction saved; MPC plus MPS equals one.",
-              "why": "This describes Marginal propensity to save (MPS), not MPC/MPS. The two ideas use different relationships, mechanisms, or evidence limits."
+              "why": "This describes marginal propensity to save (MPS). It does not answer the question about the marginal propensities to consume and save."
             },
             {
               "key": "D",
               "text": "Total demand change divided by the initial policy change.",
-              "why": "This describes Multiplier, not MPC/MPS. The two ideas use different relationships, mechanisms, or evidence limits."
+              "why": "This describes multiplier. It does not answer the question about the marginal propensities to consume and save."
             }
           ]
         },
         {
-          "prompt": "After The First Round, a new decision at Halvern's currency changeover requires the team to distinguish spending/tax multipliers from related macroeconomics ideas. Which statement about spending/tax multipliers would earn course credit?",
-          "hint": "Identify the defining relationship, mechanism, or evidence limit for spending/tax multipliers; the other choices describe different course ideas.",
+          "prompt": "In a simple closed-economy model with no proportional taxes, the marginal propensity to consume is 0.75. How do the spending and tax multipliers compare?",
+          "hint": "Identify the defining relationship or mechanism for spending and tax multipliers. All needed information is in this question.",
           "answer": "B",
           "options": [
             {
               "key": "A",
               "text": "The fraction of an extra dollar of income consumed.",
-              "why": "This describes Marginal propensity to consume (MPC), not spending/tax multipliers. The two ideas use different relationships, mechanisms, or evidence limits."
+              "why": "This describes marginal propensity to consume (MPC). It does not answer the question about spending and tax multipliers."
             },
             {
               "key": "B",
-              "text": "Choosing the wrong multiplier would miss the output target before conversion day.",
-              "why": "Correct. spending/tax multipliers applies because choosing the wrong multiplier would miss the output target before conversion day."
+              "text": "The spending multiplier is 4 and the tax multiplier is -3.",
+              "why": "Correct. The spending multiplier is 4 and the tax multiplier is -3."
             },
             {
               "key": "C",
               "text": "The fraction saved; MPC plus MPS equals one.",
-              "why": "This describes Marginal propensity to save (MPS), not spending/tax multipliers. The two ideas use different relationships, mechanisms, or evidence limits."
+              "why": "This describes marginal propensity to save (MPS). It does not answer the question about spending and tax multipliers."
             },
             {
               "key": "D",
               "text": "Total demand change divided by the initial policy change.",
-              "why": "This describes Multiplier, not spending/tax multipliers. The two ideas use different relationships, mechanisms, or evidence limits."
+              "why": "This describes multiplier. It does not answer the question about spending and tax multipliers."
             }
           ]
         },
         {
-          "prompt": "After The First Round, a new decision at Halvern's currency changeover requires the team to distinguish gap closing from related macroeconomics ideas. Which use of gap closing gives the strongest basis for a decision?",
-          "hint": "Identify the defining relationship, mechanism, or evidence limit for gap closing; the other choices describe different course ideas.",
+          "prompt": "Which statement best explains gap closing?",
+          "hint": "Identify the defining relationship or mechanism for gap closing. All needed information is in this question.",
           "answer": "C",
           "options": [
             {
               "key": "A",
               "text": "The fraction of an extra dollar of income consumed.",
-              "why": "This describes Marginal propensity to consume (MPC), not gap closing. The two ideas use different relationships, mechanisms, or evidence limits."
+              "why": "This describes marginal propensity to consume (MPC). It does not answer the question about gap closing."
             },
             {
               "key": "B",
               "text": "The fraction saved; MPC plus MPS equals one.",
-              "why": "This describes Marginal propensity to save (MPS), not gap closing. The two ideas use different relationships, mechanisms, or evidence limits."
+              "why": "This describes marginal propensity to save (MPS). It does not answer the question about gap closing."
             },
             {
               "key": "C",
-              "text": "The gap determines the package; the package should not determine the claimed gap.",
-              "why": "Correct. gap closing applies because the gap determines the package; the package should not determine the claimed gap."
+              "text": "The gap determines the reportage; the reportage should not determine the claimed gap.",
+              "why": "Correct. The gap determines the reportage; the reportage should not determine the claimed gap."
             },
             {
               "key": "D",
               "text": "Total demand change divided by the initial policy change.",
-              "why": "This describes Multiplier, not gap closing. The two ideas use different relationships, mechanisms, or evidence limits."
+              "why": "This describes multiplier. It does not answer the question about gap closing."
             }
           ]
         }
@@ -2401,7 +2384,7 @@ export const MISSIONS = [
     "briefing": "",
     "stake": "10 days until changeover. Two red pins pull the wall's price and output tracks apart. Today you decide how policy should treat weak demand and dear fuel.",
     "deeper": {
-      "intro": "You completed Two Shifts. Choose GO DEEPER to revisit the four decisions and explore related course ideas; this optional review does not change your metrics or delay the next mission.",
+      "intro": "Try six independent practice questions. Each includes its own context and any needed data; no mission records are required.",
       "concepts": [
         {
           "name": "Long-run aggregate supply (LRAS)",
@@ -2410,9 +2393,9 @@ export const MISSIONS = [
       ],
       "questions": [
         {
-          "prompt": "After Two Shifts, a new decision at Halvern's currency changeover requires the team to distinguish Long-run aggregate supply (LRAS) from related macroeconomics ideas. Which statement correctly applies Long-run aggregate supply (LRAS)?",
-          "hint": "Identify the defining relationship, mechanism, or evidence limit for Long-run aggregate supply (LRAS); the other choices describe different course ideas.",
-          "answer": "B",
+          "prompt": "Which statement best explains long-run aggregate supply (LRAS)?",
+          "hint": "Identify the defining relationship or mechanism for long-run aggregate supply (lras). All needed information is in this question.",
+          "answer": "D",
           "figure": {
             "kind": "line",
             "xLabel": "Real output",
@@ -2438,230 +2421,136 @@ export const MISSIONS = [
             {
               "key": "A",
               "text": "Exports minus imports.",
-              "why": "This describes Net exports (NX), not Long-run aggregate supply (LRAS). The two ideas use different relationships, mechanisms, or evidence limits."
-            },
-            {
-              "key": "B",
-              "text": "Full-employment output, vertical at Yf.",
-              "why": "Correct. Long-run aggregate supply (LRAS) applies because full-employment output, vertical at Yf."
-            },
-            {
-              "key": "C",
-              "text": "Consumption plus investment plus government purchases plus net exports (C+I+G+NX) at each price level.",
-              "why": "This describes Aggregate demand (AD), not Long-run aggregate supply (LRAS). The two ideas use different relationships, mechanisms, or evidence limits."
-            },
-            {
-              "key": "D",
-              "text": "Short-run production supplied at each price level.",
-              "why": "This describes Short-run aggregate supply (SRAS), not Long-run aggregate supply (LRAS). The two ideas use different relationships, mechanisms, or evidence limits."
-            }
-          ]
-        },
-        {
-          "prompt": "After Two Shifts, a new decision at Halvern's currency changeover requires the team to distinguish Net exports (NX) from related macroeconomics ideas. Which description of Net exports (NX) should guide the team's reasoning?",
-          "hint": "Identify the defining relationship, mechanism, or evidence limit for Net exports (NX); the other choices describe different course ideas.",
-          "answer": "C",
-          "figure": {
-            "kind": "line",
-            "xLabel": "Value of RATE",
-            "yLabel": "Net exports",
-            "caption": "A stronger RATE reduces Halvern's net exports.",
-            "series": [
-              {
-                "name": "NX",
-                "points": [
-                  [
-                    2,
-                    80
-                  ],
-                  [
-                    3,
-                    65
-                  ],
-                  [
-                    4,
-                    50
-                  ],
-                  [
-                    5,
-                    35
-                  ],
-                  [
-                    6,
-                    20
-                  ]
-                ]
-              }
-            ]
-          },
-          "options": [
-            {
-              "key": "A",
-              "text": "Full-employment output, vertical at Yf.",
-              "why": "This describes Long-run aggregate supply (LRAS), not Net exports (NX). The two ideas use different relationships, mechanisms, or evidence limits."
+              "why": "This describes net exports (NX). It does not answer the question about long-run aggregate supply (lras)."
             },
             {
               "key": "B",
               "text": "Consumption plus investment plus government purchases plus net exports (C+I+G+NX) at each price level.",
-              "why": "This describes Aggregate demand (AD), not Net exports (NX). The two ideas use different relationships, mechanisms, or evidence limits."
+              "why": "This describes aggregate demand (AD). It does not answer the question about long-run aggregate supply (lras)."
             },
             {
               "key": "C",
-              "text": "Exports minus imports.",
-              "why": "Correct. Net exports (NX) applies because exports minus imports."
+              "text": "Short-run production supplied at each price level.",
+              "why": "This describes short-run aggregate supply (SRAS). It does not answer the question about long-run aggregate supply (lras)."
             },
             {
               "key": "D",
-              "text": "Short-run production supplied at each price level.",
-              "why": "This describes Short-run aggregate supply (SRAS), not Net exports (NX). The two ideas use different relationships, mechanisms, or evidence limits."
-            }
-          ]
-        },
-        {
-          "prompt": "After Two Shifts, a new decision at Halvern's currency changeover requires the team to distinguish Aggregate demand (AD) from related macroeconomics ideas. Which claim about Aggregate demand (AD) is scientifically defensible?",
-          "hint": "Identify the defining relationship, mechanism, or evidence limit for Aggregate demand (AD); the other choices describe different course ideas.",
-          "answer": "D",
-          "figure": {
-            "kind": "line",
-            "xLabel": "Real output",
-            "yLabel": "Price level",
-            "caption": "Aggregate demand slopes downward.",
-            "series": [
-              {
-                "name": "AD",
-                "points": [
-                  [
-                    20,
-                    95
-                  ],
-                  [
-                    40,
-                    80
-                  ],
-                  [
-                    60,
-                    64
-                  ],
-                  [
-                    80,
-                    49
-                  ],
-                  [
-                    100,
-                    35
-                  ]
-                ]
-              }
-            ]
-          },
-          "options": [
-            {
-              "key": "A",
               "text": "Full-employment output, vertical at Yf.",
-              "why": "This describes Long-run aggregate supply (LRAS), not Aggregate demand (AD). The two ideas use different relationships, mechanisms, or evidence limits."
-            },
-            {
-              "key": "B",
-              "text": "Exports minus imports.",
-              "why": "This describes Net exports (NX), not Aggregate demand (AD). The two ideas use different relationships, mechanisms, or evidence limits."
-            },
-            {
-              "key": "C",
-              "text": "Short-run production supplied at each price level.",
-              "why": "This describes Short-run aggregate supply (SRAS), not Aggregate demand (AD). The two ideas use different relationships, mechanisms, or evidence limits."
-            },
-            {
-              "key": "D",
-              "text": "Consumption plus investment plus government purchases plus net exports (C+I+G+NX) at each price level.",
-              "why": "Correct. Aggregate demand (AD) applies because consumption plus investment plus government purchases plus net exports (C+I+G+NX) at each price level."
+              "why": "Correct. Full-employment output, vertical at Yf."
             }
           ]
         },
         {
-          "prompt": "After Two Shifts, a new decision at Halvern's currency changeover requires the team to distinguish Short-run aggregate supply (SRAS) from related macroeconomics ideas. Which interpretation of Short-run aggregate supply (SRAS) is correct?",
-          "hint": "Identify the defining relationship, mechanism, or evidence limit for Short-run aggregate supply (SRAS); the other choices describe different course ideas.",
+          "prompt": "Exports are 90 billion and imports are 110 billion currency units. What are net exports?",
+          "hint": "Identify the defining relationship or mechanism for net exports (nx). All needed information is in this question.",
           "answer": "A",
           "figure": {
-            "kind": "line",
-            "xLabel": "Real output",
-            "yLabel": "Price level",
-            "caption": "An adverse supply shock shifts short-run aggregate supply left.",
-            "series": [
+            "kind": "bars",
+            "xLabel": "Category",
+            "yLabel": "Billions of currency units",
+            "caption": "Trade during one year",
+            "bars": [
               {
-                "name": "Before",
-                "points": [
-                  [
-                    25,
-                    35
-                  ],
-                  [
-                    45,
-                    48
-                  ],
-                  [
-                    65,
-                    63
-                  ],
-                  [
-                    85,
-                    82
-                  ]
-                ]
+                "name": "Exports",
+                "value": 90
               },
               {
-                "name": "After shock",
-                "points": [
-                  [
-                    15,
-                    48
-                  ],
-                  [
-                    35,
-                    61
-                  ],
-                  [
-                    55,
-                    76
-                  ],
-                  [
-                    75,
-                    95
-                  ]
-                ]
+                "name": "Imports",
+                "value": 110
               }
             ]
           },
           "options": [
             {
               "key": "A",
-              "text": "Short-run production supplied at each price level.",
-              "why": "Correct. Short-run aggregate supply (SRAS) applies because short-run production supplied at each price level."
+              "text": "-20 billion currency units.",
+              "why": "Correct. -20 billion currency units."
             },
             {
               "key": "B",
-              "text": "Full-employment output, vertical at Yf.",
-              "why": "This describes Long-run aggregate supply (LRAS), not Short-run aggregate supply (SRAS). The two ideas use different relationships, mechanisms, or evidence limits."
+              "text": "200 billion.",
+              "why": "Net exports subtract imports from exports; they do not add them."
             },
             {
               "key": "C",
-              "text": "Exports minus imports.",
-              "why": "This describes Net exports (NX), not Short-run aggregate supply (SRAS). The two ideas use different relationships, mechanisms, or evidence limits."
+              "text": "20 billion.",
+              "why": "Imports exceed exports, so the balance is negative."
             },
             {
               "key": "D",
-              "text": "Consumption plus investment plus government purchases plus net exports (C+I+G+NX) at each price level.",
-              "why": "This describes Aggregate demand (AD), not Short-run aggregate supply (SRAS). The two ideas use different relationships, mechanisms, or evidence limits."
+              "text": "90 billion.",
+              "why": "This omits imports."
             }
           ]
         },
         {
-          "prompt": "After Two Shifts, a new decision at Halvern's currency changeover requires the team to distinguish Stagflation from related macroeconomics ideas. Which statement about Stagflation would earn course credit?",
-          "hint": "Identify the defining relationship, mechanism, or evidence limit for Stagflation; the other choices describe different course ideas.",
+          "prompt": "Which statement best explains aggregate demand (AD)?",
+          "hint": "Identify the defining relationship or mechanism for aggregate demand (ad). All needed information is in this question.",
           "answer": "B",
           "figure": {
             "kind": "line",
             "xLabel": "Real output",
             "yLabel": "Price level",
+            "caption": "Aggregate demand slopes downward.",
+            "series": [
+              {
+                "name": "AD",
+                "points": [
+                  [
+                    20,
+                    95
+                  ],
+                  [
+                    40,
+                    80
+                  ],
+                  [
+                    60,
+                    64
+                  ],
+                  [
+                    80,
+                    49
+                  ],
+                  [
+                    100,
+                    35
+                  ]
+                ]
+              }
+            ]
+          },
+          "options": [
+            {
+              "key": "A",
+              "text": "Full-employment output, vertical at Yf.",
+              "why": "This describes long-run aggregate supply (LRAS). It does not answer the question about aggregate demand (ad)."
+            },
+            {
+              "key": "B",
+              "text": "Consumption plus investment plus government purchases plus net exports (C+I+G+NX) at each price level.",
+              "why": "Correct. Consumption plus investment plus government purchases plus net exports (C+I+G+NX) at each price level."
+            },
+            {
+              "key": "C",
+              "text": "Exports minus imports.",
+              "why": "This describes net exports (NX). It does not answer the question about aggregate demand (ad)."
+            },
+            {
+              "key": "D",
+              "text": "Short-run production supplied at each price level.",
+              "why": "This describes short-run aggregate supply (SRAS). It does not answer the question about aggregate demand (ad)."
+            }
+          ]
+        },
+        {
+          "prompt": "Which statement best explains short-run aggregate supply (SRAS)?",
+          "hint": "Identify the defining relationship or mechanism for short-run aggregate supply (sras). All needed information is in this question.",
+          "answer": "C",
+          "figure": {
+            "kind": "line",
+            "xLabel": "Real output",
+            "yLabel": "Price level",
             "caption": "An adverse supply shock shifts short-run aggregate supply left.",
             "series": [
               {
@@ -2712,29 +2601,106 @@ export const MISSIONS = [
             {
               "key": "A",
               "text": "Full-employment output, vertical at Yf.",
-              "why": "This describes Long-run aggregate supply (LRAS), not Stagflation. The two ideas use different relationships, mechanisms, or evidence limits."
+              "why": "This describes long-run aggregate supply (LRAS). It does not answer the question about short-run aggregate supply (sras)."
             },
             {
               "key": "B",
-              "text": "Higher prices with lower output.",
-              "why": "Correct. Stagflation applies because higher prices with lower output."
+              "text": "Exports minus imports.",
+              "why": "This describes net exports (NX). It does not answer the question about short-run aggregate supply (sras)."
             },
             {
               "key": "C",
-              "text": "Exports minus imports.",
-              "why": "This describes Net exports (NX), not Stagflation. The two ideas use different relationships, mechanisms, or evidence limits."
+              "text": "Short-run production supplied at each price level.",
+              "why": "Correct. Short-run production supplied at each price level."
             },
             {
               "key": "D",
               "text": "Consumption plus investment plus government purchases plus net exports (C+I+G+NX) at each price level.",
-              "why": "This describes Aggregate demand (AD), not Stagflation. The two ideas use different relationships, mechanisms, or evidence limits."
+              "why": "This describes aggregate demand (AD). It does not answer the question about short-run aggregate supply (sras)."
             }
           ]
         },
         {
-          "prompt": "After Two Shifts, a new decision at Halvern's currency changeover requires the team to distinguish AD slope from related macroeconomics ideas. Which use of AD slope gives the strongest basis for a decision?",
-          "hint": "Identify the defining relationship, mechanism, or evidence limit for AD slope; the other choices describe different course ideas.",
-          "answer": "C",
+          "prompt": "Which statement best explains stagflation?",
+          "hint": "Identify the defining relationship or mechanism for stagflation. All needed information is in this question.",
+          "answer": "D",
+          "figure": {
+            "kind": "line",
+            "xLabel": "Real output",
+            "yLabel": "Price level",
+            "caption": "An adverse supply shock shifts short-run aggregate supply left.",
+            "series": [
+              {
+                "name": "Before",
+                "points": [
+                  [
+                    25,
+                    35
+                  ],
+                  [
+                    45,
+                    48
+                  ],
+                  [
+                    65,
+                    63
+                  ],
+                  [
+                    85,
+                    82
+                  ]
+                ]
+              },
+              {
+                "name": "After shock",
+                "points": [
+                  [
+                    15,
+                    48
+                  ],
+                  [
+                    35,
+                    61
+                  ],
+                  [
+                    55,
+                    76
+                  ],
+                  [
+                    75,
+                    95
+                  ]
+                ]
+              }
+            ]
+          },
+          "options": [
+            {
+              "key": "A",
+              "text": "Full-employment output, vertical at Yf.",
+              "why": "This describes long-run aggregate supply (LRAS). It does not answer the question about stagflation."
+            },
+            {
+              "key": "B",
+              "text": "Exports minus imports.",
+              "why": "This describes net exports (NX). It does not answer the question about stagflation."
+            },
+            {
+              "key": "C",
+              "text": "Consumption plus investment plus government purchases plus net exports (C+I+G+NX) at each price level.",
+              "why": "This describes aggregate demand (AD). It does not answer the question about stagflation."
+            },
+            {
+              "key": "D",
+              "text": "Higher prices with lower output.",
+              "why": "Correct. Higher prices with lower output."
+            }
+          ]
+        },
+        {
+          "prompt": "Which statement best explains the slope of aggregate demand?",
+          "hint": "Identify the defining relationship or mechanism for the slope of aggregate demand. All needed information is in this question.",
+          "answer": "A",
           "figure": {
             "kind": "line",
             "xLabel": "Real output",
@@ -2771,23 +2737,23 @@ export const MISSIONS = [
           "options": [
             {
               "key": "A",
-              "text": "Full-employment output, vertical at Yf.",
-              "why": "This describes Long-run aggregate supply (LRAS), not AD slope. The two ideas use different relationships, mechanisms, or evidence limits."
+              "text": "A price-level change moves along AD; spending conditions shift AD.",
+              "why": "Correct. A price-level change moves along AD; spending conditions shift AD."
             },
             {
               "key": "B",
-              "text": "Exports minus imports.",
-              "why": "This describes Net exports (NX), not AD slope. The two ideas use different relationships, mechanisms, or evidence limits."
+              "text": "Full-employment output, vertical at Yf.",
+              "why": "This describes long-run aggregate supply (LRAS). It does not answer the question about the slope of aggregate demand."
             },
             {
               "key": "C",
-              "text": "A price-level change moves along AD; spending conditions shift AD.",
-              "why": "Correct. AD slope applies because a price-level change moves along AD; spending conditions shift AD."
+              "text": "Exports minus imports.",
+              "why": "This describes net exports (NX). It does not answer the question about the slope of aggregate demand."
             },
             {
               "key": "D",
               "text": "Consumption plus investment plus government purchases plus net exports (C+I+G+NX) at each price level.",
-              "why": "This describes Aggregate demand (AD), not AD slope. The two ideas use different relationships, mechanisms, or evidence limits."
+              "why": "This describes aggregate demand (AD). It does not answer the question about the slope of aggregate demand."
             }
           ]
         }
@@ -3041,168 +3007,168 @@ export const MISSIONS = [
     "briefing": "",
     "stake": "Nine days remain. Old notes fill a tray beside bank slips. Today you decide if the returned cash is still part of the money supply.",
     "deeper": {
-      "intro": "You completed Money That Moved. Choose GO DEEPER to revisit the four decisions and explore related course ideas; this optional review does not change your metrics or delay the next mission.",
+      "intro": "Try six independent practice questions. Each includes its own context and any needed data; no mission records are required.",
       "concepts": [],
       "questions": [
         {
-          "prompt": "After Money That Moved, a new decision at Halvern's currency changeover requires the team to distinguish Narrow money (M1) from related macroeconomics ideas. Which statement correctly applies Narrow money (M1)?",
-          "hint": "Identify the defining relationship, mechanism, or evidence limit for Narrow money (M1); the other choices describe different course ideas.",
+          "prompt": "Which statement best explains narrow money (M1)?",
+          "hint": "Identify the defining relationship or mechanism for narrow money (m1). All needed information is in this question.",
           "answer": "B",
           "options": [
             {
               "key": "A",
               "text": "Deposits times reserve ratio.",
-              "why": "This describes Required reserves, not Narrow money (M1). The two ideas use different relationships, mechanisms, or evidence limits."
+              "why": "This describes required reserves. It does not answer the question about narrow money (m1)."
             },
             {
               "key": "B",
               "text": "Cash plus checking deposits. Broad money (M2): M1 plus savings and money-market funds.",
-              "why": "Correct. Narrow money (M1) applies because cash plus checking deposits. Broad money (M2): M1 plus savings and money-market funds."
+              "why": "Correct. Cash plus checking deposits. Broad money (M2): M1 plus savings and money-market funds."
             },
             {
               "key": "C",
               "text": "Total minus required reserves.",
-              "why": "This describes Excess reserves, not Narrow money (M1). The two ideas use different relationships, mechanisms, or evidence limits."
+              "why": "This describes excess reserves. It does not answer the question about narrow money (m1)."
             },
             {
               "key": "D",
               "text": "Cash can fall while deposits keep broader money available.",
-              "why": "This describes aggregates, not Narrow money (M1). The two ideas use different relationships, mechanisms, or evidence limits."
+              "why": "This describes aggregates. It does not answer the question about narrow money (m1)."
             }
           ]
         },
         {
-          "prompt": "After Money That Moved, a new decision at Halvern's currency changeover requires the team to distinguish Required reserves from related macroeconomics ideas. Which description of Required reserves should guide the team's reasoning?",
-          "hint": "Identify the defining relationship, mechanism, or evidence limit for Required reserves; the other choices describe different course ideas.",
+          "prompt": "Which statement best explains required reserves?",
+          "hint": "Identify the defining relationship or mechanism for required reserves. All needed information is in this question.",
           "answer": "C",
           "options": [
             {
               "key": "A",
               "text": "Cash plus checking deposits. Broad money (M2): M1 plus savings and money-market funds.",
-              "why": "This describes Narrow money (M1), not Required reserves. The two ideas use different relationships, mechanisms, or evidence limits."
+              "why": "This describes narrow money (M1). It does not answer the question about required reserves."
             },
             {
               "key": "B",
               "text": "Total minus required reserves.",
-              "why": "This describes Excess reserves, not Required reserves. The two ideas use different relationships, mechanisms, or evidence limits."
+              "why": "This describes excess reserves. It does not answer the question about required reserves."
             },
             {
               "key": "C",
               "text": "Deposits times reserve ratio.",
-              "why": "Correct. Required reserves applies because deposits times reserve ratio."
+              "why": "Correct. Deposits times reserve ratio."
             },
             {
               "key": "D",
               "text": "Cash can fall while deposits keep broader money available.",
-              "why": "This describes aggregates, not Required reserves. The two ideas use different relationships, mechanisms, or evidence limits."
+              "why": "This describes aggregates. It does not answer the question about required reserves."
             }
           ]
         },
         {
-          "prompt": "After Money That Moved, a new decision at Halvern's currency changeover requires the team to distinguish Excess reserves from related macroeconomics ideas. Which claim about Excess reserves is scientifically defensible?",
-          "hint": "Identify the defining relationship, mechanism, or evidence limit for Excess reserves; the other choices describe different course ideas.",
+          "prompt": "Which statement best explains excess reserves?",
+          "hint": "Identify the defining relationship or mechanism for excess reserves. All needed information is in this question.",
           "answer": "D",
           "options": [
             {
               "key": "A",
               "text": "Cash plus checking deposits. Broad money (M2): M1 plus savings and money-market funds.",
-              "why": "This describes Narrow money (M1), not Excess reserves. The two ideas use different relationships, mechanisms, or evidence limits."
+              "why": "This describes narrow money (M1). It does not answer the question about excess reserves."
             },
             {
               "key": "B",
               "text": "Deposits times reserve ratio.",
-              "why": "This describes Required reserves, not Excess reserves. The two ideas use different relationships, mechanisms, or evidence limits."
+              "why": "This describes required reserves. It does not answer the question about excess reserves."
             },
             {
               "key": "C",
               "text": "Cash can fall while deposits keep broader money available.",
-              "why": "This describes aggregates, not Excess reserves. The two ideas use different relationships, mechanisms, or evidence limits."
+              "why": "This describes aggregates. It does not answer the question about excess reserves."
             },
             {
               "key": "D",
               "text": "Total minus required reserves.",
-              "why": "Correct. Excess reserves applies because total minus required reserves."
+              "why": "Correct. Total minus required reserves."
             }
           ]
         },
         {
-          "prompt": "After Money That Moved, a new decision at Halvern's currency changeover requires the team to distinguish aggregates from related macroeconomics ideas. Which interpretation of aggregates is correct?",
-          "hint": "Identify the defining relationship, mechanism, or evidence limit for aggregates; the other choices describe different course ideas.",
+          "prompt": "Which statement best explains aggregates?",
+          "hint": "Identify the defining relationship or mechanism for aggregates. All needed information is in this question.",
           "answer": "A",
           "options": [
             {
               "key": "A",
               "text": "Cash can fall while deposits keep broader money available.",
-              "why": "Correct. aggregates applies because cash can fall while deposits keep broader money available."
+              "why": "Correct. Cash can fall while deposits keep broader money available."
             },
             {
               "key": "B",
               "text": "Cash plus checking deposits. Broad money (M2): M1 plus savings and money-market funds.",
-              "why": "This describes Narrow money (M1), not aggregates. The two ideas use different relationships, mechanisms, or evidence limits."
+              "why": "This describes narrow money (M1). It does not answer the question about aggregates."
             },
             {
               "key": "C",
               "text": "Deposits times reserve ratio.",
-              "why": "This describes Required reserves, not aggregates. The two ideas use different relationships, mechanisms, or evidence limits."
+              "why": "This describes required reserves. It does not answer the question about aggregates."
             },
             {
               "key": "D",
               "text": "Total minus required reserves.",
-              "why": "This describes Excess reserves, not aggregates. The two ideas use different relationships, mechanisms, or evidence limits."
+              "why": "This describes excess reserves. It does not answer the question about aggregates."
             }
           ]
         },
         {
-          "prompt": "After Money That Moved, a new decision at Halvern's currency changeover requires the team to distinguish money functions from related macroeconomics ideas. Which statement about money functions would earn course credit?",
-          "hint": "Identify the defining relationship, mechanism, or evidence limit for money functions; the other choices describe different course ideas.",
+          "prompt": "Which statement best explains money functions?",
+          "hint": "Identify the defining relationship or mechanism for money functions. All needed information is in this question.",
           "answer": "B",
           "options": [
             {
               "key": "A",
               "text": "Cash plus checking deposits. Broad money (M2): M1 plus savings and money-market funds.",
-              "why": "This describes Narrow money (M1), not money functions. The two ideas use different relationships, mechanisms, or evidence limits."
+              "why": "This describes narrow money (M1). It does not answer the question about money functions."
             },
             {
               "key": "B",
               "text": "Agreement among cash-return channels is not independent proof of contraction.",
-              "why": "Correct. money functions applies because agreement among cash-return channels is not independent proof of contraction."
+              "why": "Correct. Agreement among cash-return channels is not independent proof of contraction."
             },
             {
               "key": "C",
               "text": "Deposits times reserve ratio.",
-              "why": "This describes Required reserves, not money functions. The two ideas use different relationships, mechanisms, or evidence limits."
+              "why": "This describes required reserves. It does not answer the question about money functions."
             },
             {
               "key": "D",
               "text": "Total minus required reserves.",
-              "why": "This describes Excess reserves, not money functions. The two ideas use different relationships, mechanisms, or evidence limits."
+              "why": "This describes excess reserves. It does not answer the question about money functions."
             }
           ]
         },
         {
-          "prompt": "After Money That Moved, a new decision at Halvern's currency changeover requires the team to distinguish reserves/multiplier from related macroeconomics ideas. Which use of reserves/multiplier gives the strongest basis for a decision?",
-          "hint": "Identify the defining relationship, mechanism, or evidence limit for reserves/multiplier; the other choices describe different course ideas.",
+          "prompt": "A simple deposit-multiplier model gives a maximum possible expansion under its assumptions. Must actual lending reach that maximum?",
+          "hint": "Identify the defining relationship or mechanism for reserves and multiplier. All needed information is in this question.",
           "answer": "C",
           "options": [
             {
               "key": "A",
               "text": "Cash plus checking deposits. Broad money (M2): M1 plus savings and money-market funds.",
-              "why": "This describes Narrow money (M1), not reserves/multiplier. The two ideas use different relationships, mechanisms, or evidence limits."
+              "why": "This describes narrow money (M1). It does not answer the question about reserves and multiplier."
             },
             {
               "key": "B",
               "text": "Deposits times reserve ratio.",
-              "why": "This describes Required reserves, not reserves/multiplier. The two ideas use different relationships, mechanisms, or evidence limits."
+              "why": "This describes required reserves. It does not answer the question about reserves and multiplier."
             },
             {
               "key": "C",
-              "text": "The maximum is a capacity ceiling, not a promise that borrowers will demand every loan.",
-              "why": "Correct. reserves/multiplier applies because the maximum is a capacity ceiling, not a promise that borrowers will demand every loan."
+              "text": "No. It is a capacity ceiling; bank choices, borrower demand, and other constraints may reduce actual expansion.",
+              "why": "Correct. No. It is a capacity ceiling; bank choices, borrower demand, and other constraints may reduce actual expansion."
             },
             {
               "key": "D",
               "text": "Total minus required reserves.",
-              "why": "This describes Excess reserves, not reserves/multiplier. The two ideas use different relationships, mechanisms, or evidence limits."
+              "why": "This describes excess reserves. It does not answer the question about reserves and multiplier."
             }
           ]
         }
@@ -3452,252 +3418,252 @@ export const MISSIONS = [
     "briefing": "",
     "stake": "8 days until changeover. A loan quote waits beside the expected-price sheet. Today you decide whether rates should rise while output is weak.",
     "deeper": {
-      "intro": "You completed The Rate People Feel. Choose GO DEEPER to revisit the four decisions and explore related course ideas; this optional review does not change your metrics or delay the next mission.",
+      "intro": "Try six independent practice questions. Each includes its own context and any needed data; no mission records are required.",
       "concepts": [],
       "questions": [
         {
-          "prompt": "After The Rate People Feel, a new decision at Halvern's currency changeover requires the team to distinguish Money demand from related macroeconomics ideas. Which statement correctly applies Money demand?",
-          "hint": "Identify the defining relationship, mechanism, or evidence limit for Money demand; the other choices describe different course ideas.",
+          "prompt": "Which statement best explains money demand?",
+          "hint": "Identify the defining relationship or mechanism for money demand. All needed information is in this question.",
+          "answer": "D",
+          "figure": {
+            "kind": "line",
+            "xLabel": "Quantity of money",
+            "yLabel": "Nominal interest rate (%)",
+            "caption": "Money demand and the fixed money supply.",
+            "series": [
+              {
+                "name": "Money demand",
+                "points": [
+                  [
+                    20,
+                    8
+                  ],
+                  [
+                    40,
+                    6
+                  ],
+                  [
+                    60,
+                    4
+                  ],
+                  [
+                    80,
+                    2
+                  ]
+                ]
+              },
+              {
+                "name": "Money supply",
+                "points": [
+                  [
+                    55,
+                    1
+                  ],
+                  [
+                    55,
+                    9
+                  ]
+                ]
+              }
+            ]
+          },
+          "options": [
+            {
+              "key": "A",
+              "text": "Central-bank-set quantity, vertical in the model.",
+              "why": "This describes money supply. It does not answer the question about money demand."
+            },
+            {
+              "key": "B",
+              "text": "Nominal interest minus expected inflation.",
+              "why": "This describes real interest. It does not answer the question about money demand."
+            },
+            {
+              "key": "C",
+              "text": "A money surplus produces bond buying, higher bond prices, and a lower nominal rate.",
+              "why": "This describes money market. It does not answer the question about money demand."
+            },
+            {
+              "key": "D",
+              "text": "Desired liquid balances, lower at higher nominal interest.",
+              "why": "Correct. Desired liquid balances, lower at higher nominal interest."
+            }
+          ]
+        },
+        {
+          "prompt": "Which statement best explains money supply?",
+          "hint": "Identify the defining relationship or mechanism for money supply. All needed information is in this question.",
+          "answer": "A",
+          "figure": {
+            "kind": "line",
+            "xLabel": "Quantity of money",
+            "yLabel": "Nominal interest rate (%)",
+            "caption": "Money demand and the fixed money supply.",
+            "series": [
+              {
+                "name": "Money demand",
+                "points": [
+                  [
+                    20,
+                    8
+                  ],
+                  [
+                    40,
+                    6
+                  ],
+                  [
+                    60,
+                    4
+                  ],
+                  [
+                    80,
+                    2
+                  ]
+                ]
+              },
+              {
+                "name": "Money supply",
+                "points": [
+                  [
+                    55,
+                    1
+                  ],
+                  [
+                    55,
+                    9
+                  ]
+                ]
+              }
+            ]
+          },
+          "options": [
+            {
+              "key": "A",
+              "text": "Central-bank-set quantity, vertical in the model.",
+              "why": "Correct. Central-bank-set quantity, vertical in the model."
+            },
+            {
+              "key": "B",
+              "text": "Desired liquid balances, lower at higher nominal interest.",
+              "why": "This describes money demand. It does not answer the question about money supply."
+            },
+            {
+              "key": "C",
+              "text": "Nominal interest minus expected inflation.",
+              "why": "This describes real interest. It does not answer the question about money supply."
+            },
+            {
+              "key": "D",
+              "text": "A money surplus produces bond buying, higher bond prices, and a lower nominal rate.",
+              "why": "This describes money market. It does not answer the question about money supply."
+            }
+          ]
+        },
+        {
+          "prompt": "Which statement best explains real interest?",
+          "hint": "Identify the defining relationship or mechanism for real interest. All needed information is in this question.",
           "answer": "B",
-          "figure": {
-            "kind": "line",
-            "xLabel": "Quantity of money",
-            "yLabel": "Nominal interest rate (%)",
-            "caption": "Money demand and the fixed money supply.",
-            "series": [
-              {
-                "name": "Money demand",
-                "points": [
-                  [
-                    20,
-                    8
-                  ],
-                  [
-                    40,
-                    6
-                  ],
-                  [
-                    60,
-                    4
-                  ],
-                  [
-                    80,
-                    2
-                  ]
-                ]
-              },
-              {
-                "name": "Money supply",
-                "points": [
-                  [
-                    55,
-                    1
-                  ],
-                  [
-                    55,
-                    9
-                  ]
-                ]
-              }
-            ]
-          },
           "options": [
             {
               "key": "A",
-              "text": "Central-bank-set quantity, vertical in the model.",
-              "why": "This describes Money supply, not Money demand. The two ideas use different relationships, mechanisms, or evidence limits."
+              "text": "Desired liquid balances, lower at higher nominal interest.",
+              "why": "This describes money demand. It does not answer the question about real interest."
             },
             {
               "key": "B",
-              "text": "Desired liquid balances, lower at higher nominal interest.",
-              "why": "Correct. Money demand applies because desired liquid balances, lower at higher nominal interest."
+              "text": "Nominal interest minus expected inflation.",
+              "why": "Correct. Nominal interest minus expected inflation."
             },
             {
               "key": "C",
-              "text": "Nominal interest minus expected inflation.",
-              "why": "This describes Real interest, not Money demand. The two ideas use different relationships, mechanisms, or evidence limits."
+              "text": "Central-bank-set quantity, vertical in the model.",
+              "why": "This describes money supply. It does not answer the question about real interest."
             },
             {
               "key": "D",
               "text": "A money surplus produces bond buying, higher bond prices, and a lower nominal rate.",
-              "why": "This describes money market, not Money demand. The two ideas use different relationships, mechanisms, or evidence limits."
+              "why": "This describes money market. It does not answer the question about real interest."
             }
           ]
         },
         {
-          "prompt": "After The Rate People Feel, a new decision at Halvern's currency changeover requires the team to distinguish Money supply from related macroeconomics ideas. Which description of Money supply should guide the team's reasoning?",
-          "hint": "Identify the defining relationship, mechanism, or evidence limit for Money supply; the other choices describe different course ideas.",
+          "prompt": "Which statement best explains money market?",
+          "hint": "Identify the defining relationship or mechanism for money market. All needed information is in this question.",
           "answer": "C",
-          "figure": {
-            "kind": "line",
-            "xLabel": "Quantity of money",
-            "yLabel": "Nominal interest rate (%)",
-            "caption": "Money demand and the fixed money supply.",
-            "series": [
-              {
-                "name": "Money demand",
-                "points": [
-                  [
-                    20,
-                    8
-                  ],
-                  [
-                    40,
-                    6
-                  ],
-                  [
-                    60,
-                    4
-                  ],
-                  [
-                    80,
-                    2
-                  ]
-                ]
-              },
-              {
-                "name": "Money supply",
-                "points": [
-                  [
-                    55,
-                    1
-                  ],
-                  [
-                    55,
-                    9
-                  ]
-                ]
-              }
-            ]
-          },
           "options": [
             {
               "key": "A",
               "text": "Desired liquid balances, lower at higher nominal interest.",
-              "why": "This describes Money demand, not Money supply. The two ideas use different relationships, mechanisms, or evidence limits."
+              "why": "This describes money demand. It does not answer the question about money market."
             },
             {
               "key": "B",
-              "text": "Nominal interest minus expected inflation.",
-              "why": "This describes Real interest, not Money supply. The two ideas use different relationships, mechanisms, or evidence limits."
+              "text": "Central-bank-set quantity, vertical in the model.",
+              "why": "This describes money supply. It does not answer the question about money market."
             },
             {
               "key": "C",
-              "text": "Central-bank-set quantity, vertical in the model.",
-              "why": "Correct. Money supply applies because central-bank-set quantity, vertical in the model."
+              "text": "A money surplus produces bond buying, higher bond prices, and a lower nominal rate.",
+              "why": "Correct. A money surplus produces bond buying, higher bond prices, and a lower nominal rate."
             },
             {
               "key": "D",
-              "text": "A money surplus produces bond buying, higher bond prices, and a lower nominal rate.",
-              "why": "This describes money market, not Money supply. The two ideas use different relationships, mechanisms, or evidence limits."
+              "text": "Nominal interest minus expected inflation.",
+              "why": "This describes real interest. It does not answer the question about money market."
             }
           ]
         },
         {
-          "prompt": "After The Rate People Feel, a new decision at Halvern's currency changeover requires the team to distinguish Real interest from related macroeconomics ideas. Which claim about Real interest is scientifically defensible?",
-          "hint": "Identify the defining relationship, mechanism, or evidence limit for Real interest; the other choices describe different course ideas.",
+          "prompt": "Which statement best explains the relationship between nominal interest, expected inflation, and real interest?",
+          "hint": "Identify the defining relationship or mechanism for the relationship between nominal interest, expected inflation, and real interest. All needed information is in this question.",
           "answer": "D",
           "options": [
             {
               "key": "A",
               "text": "Desired liquid balances, lower at higher nominal interest.",
-              "why": "This describes Money demand, not Real interest. The two ideas use different relationships, mechanisms, or evidence limits."
+              "why": "This describes money demand. It does not answer the question about the relationship between nominal interest, expected inflation, and real interest."
             },
             {
               "key": "B",
               "text": "Central-bank-set quantity, vertical in the model.",
-              "why": "This describes Money supply, not Real interest. The two ideas use different relationships, mechanisms, or evidence limits."
+              "why": "This describes money supply. It does not answer the question about the relationship between nominal interest, expected inflation, and real interest."
             },
             {
               "key": "C",
-              "text": "A money surplus produces bond buying, higher bond prices, and a lower nominal rate.",
-              "why": "This describes money market, not Real interest. The two ideas use different relationships, mechanisms, or evidence limits."
+              "text": "Nominal interest minus expected inflation.",
+              "why": "This describes real interest. It does not answer the question about the relationship between nominal interest, expected inflation, and real interest."
             },
             {
               "key": "D",
-              "text": "Nominal interest minus expected inflation.",
-              "why": "Correct. Real interest applies because nominal interest minus expected inflation."
+              "text": "Tightness depends on the real rate, not on whether the nominal number looks high or low.",
+              "why": "Correct. Tightness depends on the real rate, not on whether the nominal number looks high or low."
             }
           ]
         },
         {
-          "prompt": "After The Rate People Feel, a new decision at Halvern's currency changeover requires the team to distinguish money market from related macroeconomics ideas. Which interpretation of money market is correct?",
-          "hint": "Identify the defining relationship, mechanism, or evidence limit for money market; the other choices describe different course ideas.",
+          "prompt": "Which statement best explains monetary chain?",
+          "hint": "Identify the defining relationship or mechanism for monetary chain. All needed information is in this question.",
           "answer": "A",
           "options": [
             {
               "key": "A",
-              "text": "A money surplus produces bond buying, higher bond prices, and a lower nominal rate.",
-              "why": "Correct. money market applies because a money surplus produces bond buying, higher bond prices, and a lower nominal rate."
-            },
-            {
-              "key": "B",
-              "text": "Desired liquid balances, lower at higher nominal interest.",
-              "why": "This describes Money demand, not money market. The two ideas use different relationships, mechanisms, or evidence limits."
-            },
-            {
-              "key": "C",
-              "text": "Central-bank-set quantity, vertical in the model.",
-              "why": "This describes Money supply, not money market. The two ideas use different relationships, mechanisms, or evidence limits."
-            },
-            {
-              "key": "D",
-              "text": "Nominal interest minus expected inflation.",
-              "why": "This describes Real interest, not money market. The two ideas use different relationships, mechanisms, or evidence limits."
-            }
-          ]
-        },
-        {
-          "prompt": "After The Rate People Feel, a new decision at Halvern's currency changeover requires the team to distinguish Fisher from related macroeconomics ideas. Which statement about Fisher would earn course credit?",
-          "hint": "Identify the defining relationship, mechanism, or evidence limit for Fisher; the other choices describe different course ideas.",
-          "answer": "B",
-          "options": [
-            {
-              "key": "A",
-              "text": "Desired liquid balances, lower at higher nominal interest.",
-              "why": "This describes Money demand, not Fisher. The two ideas use different relationships, mechanisms, or evidence limits."
-            },
-            {
-              "key": "B",
-              "text": "Tightness depends on the real rate, not on whether the nominal number looks high or low.",
-              "why": "Correct. Fisher applies because tightness depends on the real rate, not on whether the nominal number looks high or low."
-            },
-            {
-              "key": "C",
-              "text": "Central-bank-set quantity, vertical in the model.",
-              "why": "This describes Money supply, not Fisher. The two ideas use different relationships, mechanisms, or evidence limits."
-            },
-            {
-              "key": "D",
-              "text": "Nominal interest minus expected inflation.",
-              "why": "This describes Real interest, not Fisher. The two ideas use different relationships, mechanisms, or evidence limits."
-            }
-          ]
-        },
-        {
-          "prompt": "After The Rate People Feel, a new decision at Halvern's currency changeover requires the team to distinguish monetary chain from related macroeconomics ideas. Which use of monetary chain gives the strongest basis for a decision?",
-          "hint": "Identify the defining relationship, mechanism, or evidence limit for monetary chain; the other choices describe different course ideas.",
-          "answer": "C",
-          "options": [
-            {
-              "key": "A",
-              "text": "Desired liquid balances, lower at higher nominal interest.",
-              "why": "This describes Money demand, not monetary chain. The two ideas use different relationships, mechanisms, or evidence limits."
-            },
-            {
-              "key": "B",
-              "text": "Central-bank-set quantity, vertical in the model.",
-              "why": "This describes Money supply, not monetary chain. The two ideas use different relationships, mechanisms, or evidence limits."
-            },
-            {
-              "key": "C",
               "text": "A tool matters only through the chain it sets off.",
-              "why": "Correct. monetary chain applies because a tool matters only through the chain it sets off."
+              "why": "Correct. A tool matters only through the chain it sets off."
+            },
+            {
+              "key": "B",
+              "text": "Desired liquid balances, lower at higher nominal interest.",
+              "why": "This describes money demand. It does not answer the question about monetary chain."
+            },
+            {
+              "key": "C",
+              "text": "Central-bank-set quantity, vertical in the model.",
+              "why": "This describes money supply. It does not answer the question about monetary chain."
             },
             {
               "key": "D",
               "text": "Nominal interest minus expected inflation.",
-              "why": "This describes Real interest, not monetary chain. The two ideas use different relationships, mechanisms, or evidence limits."
+              "why": "This describes real interest. It does not answer the question about monetary chain."
             }
           ]
         }
@@ -3945,129 +3911,129 @@ export const MISSIONS = [
     "briefing": "",
     "stake": "7 days until changeover. A payment lamp lights while an export order is crossed out. Today you decide what the cash inflow costs as well as funds.",
     "deeper": {
-      "intro": "You completed Two Accounts. Choose GO DEEPER to revisit the four decisions and explore related course ideas; this optional review does not change your metrics or delay the next mission.",
+      "intro": "Try six independent practice questions. Each includes its own context and any needed data; no mission records are required.",
       "concepts": [],
       "questions": [
         {
-          "prompt": "After Two Accounts, a new decision at Halvern's currency changeover requires the team to distinguish Appreciation from related macroeconomics ideas. Which statement correctly applies Appreciation?",
-          "hint": "Identify the defining relationship, mechanism, or evidence limit for Appreciation; the other choices describe different course ideas.",
+          "prompt": "Which statement best explains appreciation?",
+          "hint": "Identify the defining relationship or mechanism for appreciation. All needed information is in this question.",
           "answer": "B",
           "options": [
             {
               "key": "A",
               "text": "Net exports (NX) plus net income and net transfers.",
-              "why": "This describes Current account, not Appreciation. The two ideas use different relationships, mechanisms, or evidence limits."
+              "why": "This describes current account. It does not answer the question about appreciation."
             },
             {
               "key": "B",
               "text": "A currency buys more foreign currency.",
-              "why": "Correct. Appreciation applies because a currency buys more foreign currency."
+              "why": "Correct. A currency buys more foreign currency."
             },
             {
               "key": "C",
               "text": "Cross-border asset purchases and sales.",
-              "why": "This describes Financial account, not Appreciation. The two ideas use different relationships, mechanisms, or evidence limits."
+              "why": "This describes financial account. It does not answer the question about appreciation."
             },
             {
               "key": "D",
               "text": "A current deficit is financed by a financial surplus, not free money.",
-              "why": "This describes BOP, not Appreciation. The two ideas use different relationships, mechanisms, or evidence limits."
+              "why": "This describes the balance of payments. It does not answer the question about appreciation."
             }
           ]
         },
         {
-          "prompt": "After Two Accounts, a new decision at Halvern's currency changeover requires the team to distinguish Current account from related macroeconomics ideas. Which description of Current account should guide the team's reasoning?",
-          "hint": "Identify the defining relationship, mechanism, or evidence limit for Current account; the other choices describe different course ideas.",
+          "prompt": "Which statement best explains current account?",
+          "hint": "Identify the defining relationship or mechanism for current account. All needed information is in this question.",
           "answer": "C",
           "options": [
             {
               "key": "A",
               "text": "A currency buys more foreign currency.",
-              "why": "This describes Appreciation, not Current account. The two ideas use different relationships, mechanisms, or evidence limits."
+              "why": "This describes appreciation. It does not answer the question about current account."
             },
             {
               "key": "B",
               "text": "Cross-border asset purchases and sales.",
-              "why": "This describes Financial account, not Current account. The two ideas use different relationships, mechanisms, or evidence limits."
+              "why": "This describes financial account. It does not answer the question about current account."
             },
             {
               "key": "C",
               "text": "Net exports (NX) plus net income and net transfers.",
-              "why": "Correct. Current account applies because net exports (NX) plus net income and net transfers."
+              "why": "Correct. Net exports (NX) plus net income and net transfers."
             },
             {
               "key": "D",
               "text": "A current deficit is financed by a financial surplus, not free money.",
-              "why": "This describes BOP, not Current account. The two ideas use different relationships, mechanisms, or evidence limits."
+              "why": "This describes the balance of payments. It does not answer the question about current account."
             }
           ]
         },
         {
-          "prompt": "After Two Accounts, a new decision at Halvern's currency changeover requires the team to distinguish Financial account from related macroeconomics ideas. Which claim about Financial account is scientifically defensible?",
-          "hint": "Identify the defining relationship, mechanism, or evidence limit for Financial account; the other choices describe different course ideas.",
+          "prompt": "Which statement best explains financial account?",
+          "hint": "Identify the defining relationship or mechanism for financial account. All needed information is in this question.",
           "answer": "D",
           "options": [
             {
               "key": "A",
               "text": "A currency buys more foreign currency.",
-              "why": "This describes Appreciation, not Financial account. The two ideas use different relationships, mechanisms, or evidence limits."
+              "why": "This describes appreciation. It does not answer the question about financial account."
             },
             {
               "key": "B",
               "text": "Net exports (NX) plus net income and net transfers.",
-              "why": "This describes Current account, not Financial account. The two ideas use different relationships, mechanisms, or evidence limits."
+              "why": "This describes current account. It does not answer the question about financial account."
             },
             {
               "key": "C",
               "text": "A current deficit is financed by a financial surplus, not free money.",
-              "why": "This describes BOP, not Financial account. The two ideas use different relationships, mechanisms, or evidence limits."
+              "why": "This describes the balance of payments. It does not answer the question about financial account."
             },
             {
               "key": "D",
               "text": "Cross-border asset purchases and sales.",
-              "why": "Correct. Financial account applies because cross-border asset purchases and sales."
+              "why": "Correct. Cross-border asset purchases and sales."
             }
           ]
         },
         {
-          "prompt": "After Two Accounts, a new decision at Halvern's currency changeover requires the team to distinguish BOP from related macroeconomics ideas. Which interpretation of BOP is correct?",
-          "hint": "Identify the defining relationship, mechanism, or evidence limit for BOP; the other choices describe different course ideas.",
+          "prompt": "Which statement best explains the balance of payments?",
+          "hint": "Identify the defining relationship or mechanism for the balance of payments. All needed information is in this question.",
           "answer": "A",
           "options": [
             {
               "key": "A",
               "text": "A current deficit is financed by a financial surplus, not free money.",
-              "why": "Correct. BOP applies because a current deficit is financed by a financial surplus, not free money."
+              "why": "Correct. A current deficit is financed by a financial surplus, not free money."
             },
             {
               "key": "B",
               "text": "A currency buys more foreign currency.",
-              "why": "This describes Appreciation, not BOP. The two ideas use different relationships, mechanisms, or evidence limits."
+              "why": "This describes appreciation. It does not answer the question about the balance of payments."
             },
             {
               "key": "C",
               "text": "Net exports (NX) plus net income and net transfers.",
-              "why": "This describes Current account, not BOP. The two ideas use different relationships, mechanisms, or evidence limits."
+              "why": "This describes current account. It does not answer the question about the balance of payments."
             },
             {
               "key": "D",
               "text": "Cross-border asset purchases and sales.",
-              "why": "This describes Financial account, not BOP. The two ideas use different relationships, mechanisms, or evidence limits."
+              "why": "This describes financial account. It does not answer the question about the balance of payments."
             }
           ]
         },
         {
-          "prompt": "After Two Accounts, a new decision at Halvern's currency changeover requires the team to distinguish currency demand from related macroeconomics ideas. Which statement about currency demand would earn course credit?",
-          "hint": "Identify the defining relationship, mechanism, or evidence limit for currency demand; the other choices describe different course ideas.",
+          "prompt": "Which statement best explains currency demand?",
+          "hint": "Identify the defining relationship or mechanism for currency demand. All needed information is in this question.",
           "answer": "B",
           "figure": {
             "kind": "line",
-            "xLabel": "Quantity of RATE",
-            "yLabel": "Crowns per RATE",
-            "caption": "Demand for RATE in the foreign-exchange market.",
+            "xLabel": "Quantity of currency A",
+            "yLabel": "Units of currency B per unit of A",
+            "caption": "Demand for currency A in the foreign-exchange market.",
             "series": [
               {
-                "name": "Demand for RATE",
+                "name": "Demand for currency A",
                 "points": [
                   [
                     20,
@@ -4097,49 +4063,49 @@ export const MISSIONS = [
             {
               "key": "A",
               "text": "A currency buys more foreign currency.",
-              "why": "This describes Appreciation, not currency demand. The two ideas use different relationships, mechanisms, or evidence limits."
+              "why": "This describes appreciation. It does not answer the question about currency demand."
             },
             {
               "key": "B",
               "text": "Appreciation makes exports dearer and imports cheaper.",
-              "why": "Correct. currency demand applies because appreciation makes exports dearer and imports cheaper."
+              "why": "Correct. Appreciation makes exports dearer and imports cheaper."
             },
             {
               "key": "C",
               "text": "Net exports (NX) plus net income and net transfers.",
-              "why": "This describes Current account, not currency demand. The two ideas use different relationships, mechanisms, or evidence limits."
+              "why": "This describes current account. It does not answer the question about currency demand."
             },
             {
               "key": "D",
               "text": "Cross-border asset purchases and sales.",
-              "why": "This describes Financial account, not currency demand. The two ideas use different relationships, mechanisms, or evidence limits."
+              "why": "This describes financial account. It does not answer the question about currency demand."
             }
           ]
         },
         {
-          "prompt": "After Two Accounts, a new decision at Halvern's currency changeover requires the team to distinguish appreciation/NX from related macroeconomics ideas. Which use of appreciation/NX gives the strongest basis for a decision?",
-          "hint": "Identify the defining relationship, mechanism, or evidence limit for appreciation/NX; the other choices describe different course ideas.",
+          "prompt": "Which statement best explains appreciation and NX?",
+          "hint": "Identify the defining relationship or mechanism for appreciation and nx. All needed information is in this question.",
           "answer": "C",
           "options": [
             {
               "key": "A",
               "text": "A currency buys more foreign currency.",
-              "why": "This describes Appreciation, not appreciation/NX. The two ideas use different relationships, mechanisms, or evidence limits."
+              "why": "This describes appreciation. It does not answer the question about appreciation and nx."
             },
             {
               "key": "B",
               "text": "Net exports (NX) plus net income and net transfers.",
-              "why": "This describes Current account, not appreciation/NX. The two ideas use different relationships, mechanisms, or evidence limits."
+              "why": "This describes current account. It does not answer the question about appreciation and nx."
             },
             {
               "key": "C",
               "text": "Reversing the quote tests whether currency value changes the export margin.",
-              "why": "Correct. appreciation/NX applies because reversing the quote tests whether currency value changes the export margin."
+              "why": "Correct. Reversing the quote tests whether currency value changes the export margin."
             },
             {
               "key": "D",
               "text": "Cross-border asset purchases and sales.",
-              "why": "This describes Financial account, not appreciation/NX. The two ideas use different relationships, mechanisms, or evidence limits."
+              "why": "This describes financial account. It does not answer the question about appreciation and nx."
             }
           ]
         }
@@ -4387,13 +4353,13 @@ export const MISSIONS = [
     "briefing": "",
     "stake": "6 days until changeover. The long money-growth strip lies beneath today's fuel alert. Today you decide whether a short price shock warrants tighter policy.",
     "deeper": {
-      "intro": "You completed The Temporary Tradeoff. Choose GO DEEPER to revisit the four decisions and explore related course ideas; this optional review does not change your metrics or delay the next mission.",
+      "intro": "Try six independent practice questions. Each includes its own context and any needed data; no mission records are required.",
       "concepts": [],
       "questions": [
         {
-          "prompt": "After The Temporary Tradeoff, a new decision at Halvern's currency changeover requires the team to distinguish Short-run Phillips curve (SRPC) from related macroeconomics ideas. Which statement correctly applies Short-run Phillips curve (SRPC)?",
-          "hint": "Identify the defining relationship, mechanism, or evidence limit for Short-run Phillips curve (SRPC); the other choices describe different course ideas.",
-          "answer": "B",
+          "prompt": "Which statement best explains short-run Phillips curve (SRPC)?",
+          "hint": "Identify the defining relationship or mechanism for short-run phillips curve (srpc). All needed information is in this question.",
+          "answer": "D",
           "figure": {
             "kind": "line",
             "xLabel": "Unemployment rate (%)",
@@ -4431,29 +4397,29 @@ export const MISSIONS = [
             {
               "key": "A",
               "text": "Vertical curve at the natural rate.",
-              "why": "This describes Long-run Phillips curve (LRPC), not Short-run Phillips curve (SRPC). The two ideas use different relationships, mechanisms, or evidence limits."
+              "why": "This describes long-run Phillips curve (LRPC). It does not answer the question about short-run phillips curve (srpc)."
             },
             {
               "key": "B",
-              "text": "Short-run inverse inflation-unemployment relation.",
-              "why": "Correct. Short-run Phillips curve (SRPC) applies because short-run inverse inflation-unemployment relation."
+              "text": "Long-run money changes alter prices, not real output.",
+              "why": "This describes money neutrality. It does not answer the question about short-run phillips curve (srpc)."
             },
             {
               "key": "C",
-              "text": "Long-run money changes alter prices, not real output.",
-              "why": "This describes Money neutrality, not Short-run Phillips curve (SRPC). The two ideas use different relationships, mechanisms, or evidence limits."
+              "text": "Adverse supply shifts SRPC right; AD changes move along it.",
+              "why": "This describes phillips curves. It does not answer the question about short-run phillips curve (srpc)."
             },
             {
               "key": "D",
-              "text": "Adverse supply shifts SRPC right; AD changes move along it.",
-              "why": "This describes Phillips curves, not Short-run Phillips curve (SRPC). The two ideas use different relationships, mechanisms, or evidence limits."
+              "text": "Short-run inverse inflation-unemployment relation.",
+              "why": "Correct. Short-run inverse inflation-unemployment relation."
             }
           ]
         },
         {
-          "prompt": "After The Temporary Tradeoff, a new decision at Halvern's currency changeover requires the team to distinguish Long-run Phillips curve (LRPC) from related macroeconomics ideas. Which description of Long-run Phillips curve (LRPC) should guide the team's reasoning?",
-          "hint": "Identify the defining relationship, mechanism, or evidence limit for Long-run Phillips curve (LRPC); the other choices describe different course ideas.",
-          "answer": "C",
+          "prompt": "Which statement best explains long-run Phillips curve (LRPC)?",
+          "hint": "Identify the defining relationship or mechanism for long-run phillips curve (lrpc). All needed information is in this question.",
+          "answer": "A",
           "figure": {
             "kind": "line",
             "xLabel": "Unemployment rate (%)",
@@ -4478,57 +4444,57 @@ export const MISSIONS = [
           "options": [
             {
               "key": "A",
-              "text": "Short-run inverse inflation-unemployment relation.",
-              "why": "This describes Short-run Phillips curve (SRPC), not Long-run Phillips curve (LRPC). The two ideas use different relationships, mechanisms, or evidence limits."
+              "text": "Vertical curve at the natural rate.",
+              "why": "Correct. Vertical curve at the natural rate."
             },
             {
               "key": "B",
-              "text": "Long-run money changes alter prices, not real output.",
-              "why": "This describes Money neutrality, not Long-run Phillips curve (LRPC). The two ideas use different relationships, mechanisms, or evidence limits."
+              "text": "Short-run inverse inflation-unemployment relation.",
+              "why": "This describes short-run Phillips curve (SRPC). It does not answer the question about long-run phillips curve (lrpc)."
             },
             {
               "key": "C",
-              "text": "Vertical curve at the natural rate.",
-              "why": "Correct. Long-run Phillips curve (LRPC) applies because vertical curve at the natural rate."
+              "text": "Long-run money changes alter prices, not real output.",
+              "why": "This describes money neutrality. It does not answer the question about long-run phillips curve (lrpc)."
             },
             {
               "key": "D",
               "text": "Adverse supply shifts SRPC right; AD changes move along it.",
-              "why": "This describes Phillips curves, not Long-run Phillips curve (LRPC). The two ideas use different relationships, mechanisms, or evidence limits."
+              "why": "This describes phillips curves. It does not answer the question about long-run phillips curve (lrpc)."
             }
           ]
         },
         {
-          "prompt": "After The Temporary Tradeoff, a new decision at Halvern's currency changeover requires the team to distinguish Money neutrality from related macroeconomics ideas. Which claim about Money neutrality is scientifically defensible?",
-          "hint": "Identify the defining relationship, mechanism, or evidence limit for Money neutrality; the other choices describe different course ideas.",
-          "answer": "D",
+          "prompt": "Which statement best explains money neutrality?",
+          "hint": "Identify the defining relationship or mechanism for money neutrality. All needed information is in this question.",
+          "answer": "B",
           "options": [
             {
               "key": "A",
               "text": "Short-run inverse inflation-unemployment relation.",
-              "why": "This describes Short-run Phillips curve (SRPC), not Money neutrality. The two ideas use different relationships, mechanisms, or evidence limits."
+              "why": "This describes short-run Phillips curve (SRPC). It does not answer the question about money neutrality."
             },
             {
               "key": "B",
-              "text": "Vertical curve at the natural rate.",
-              "why": "This describes Long-run Phillips curve (LRPC), not Money neutrality. The two ideas use different relationships, mechanisms, or evidence limits."
+              "text": "Long-run money changes alter prices, not real output.",
+              "why": "Correct. Long-run money changes alter prices, not real output."
             },
             {
               "key": "C",
-              "text": "Adverse supply shifts SRPC right; AD changes move along it.",
-              "why": "This describes Phillips curves, not Money neutrality. The two ideas use different relationships, mechanisms, or evidence limits."
+              "text": "Vertical curve at the natural rate.",
+              "why": "This describes long-run Phillips curve (LRPC). It does not answer the question about money neutrality."
             },
             {
               "key": "D",
-              "text": "Long-run money changes alter prices, not real output.",
-              "why": "Correct. Money neutrality applies because long-run money changes alter prices, not real output."
+              "text": "Adverse supply shifts SRPC right; AD changes move along it.",
+              "why": "This describes phillips curves. It does not answer the question about money neutrality."
             }
           ]
         },
         {
-          "prompt": "After The Temporary Tradeoff, a new decision at Halvern's currency changeover requires the team to distinguish Phillips curves from related macroeconomics ideas. Which interpretation of Phillips curves is correct?",
-          "hint": "Identify the defining relationship, mechanism, or evidence limit for Phillips curves; the other choices describe different course ideas.",
-          "answer": "A",
+          "prompt": "Which statement best explains phillips curves?",
+          "hint": "Identify the defining relationship or mechanism for phillips curves. All needed information is in this question.",
+          "answer": "C",
           "figure": {
             "kind": "line",
             "xLabel": "Unemployment rate (%)",
@@ -4565,77 +4531,77 @@ export const MISSIONS = [
           "options": [
             {
               "key": "A",
+              "text": "Short-run inverse inflation-unemployment relation.",
+              "why": "This describes short-run Phillips curve (SRPC). It does not answer the question about phillips curves."
+            },
+            {
+              "key": "B",
+              "text": "Vertical curve at the natural rate.",
+              "why": "This describes long-run Phillips curve (LRPC). It does not answer the question about phillips curves."
+            },
+            {
+              "key": "C",
               "text": "Adverse supply shifts SRPC right; AD changes move along it.",
-              "why": "Correct. Phillips curves applies because adverse supply shifts SRPC right; AD changes move along it."
-            },
-            {
-              "key": "B",
-              "text": "Short-run inverse inflation-unemployment relation.",
-              "why": "This describes Short-run Phillips curve (SRPC), not Phillips curves. The two ideas use different relationships, mechanisms, or evidence limits."
-            },
-            {
-              "key": "C",
-              "text": "Vertical curve at the natural rate.",
-              "why": "This describes Long-run Phillips curve (LRPC), not Phillips curves. The two ideas use different relationships, mechanisms, or evidence limits."
+              "why": "Correct. Adverse supply shifts SRPC right; AD changes move along it."
             },
             {
               "key": "D",
               "text": "Long-run money changes alter prices, not real output.",
-              "why": "This describes Money neutrality, not Phillips curves. The two ideas use different relationships, mechanisms, or evidence limits."
+              "why": "This describes money neutrality. It does not answer the question about phillips curves."
             }
           ]
         },
         {
-          "prompt": "After The Temporary Tradeoff, a new decision at Halvern's currency changeover requires the team to distinguish quantity theory from related macroeconomics ideas. Which statement about quantity theory would earn course credit?",
-          "hint": "Identify the defining relationship, mechanism, or evidence limit for quantity theory; the other choices describe different course ideas.",
-          "answer": "B",
+          "prompt": "Which statement best explains quantity theory?",
+          "hint": "Identify the defining relationship or mechanism for quantity theory. All needed information is in this question.",
+          "answer": "D",
           "options": [
             {
               "key": "A",
               "text": "Short-run inverse inflation-unemployment relation.",
-              "why": "This describes Short-run Phillips curve (SRPC), not quantity theory. The two ideas use different relationships, mechanisms, or evidence limits."
+              "why": "This describes short-run Phillips curve (SRPC). It does not answer the question about quantity theory."
             },
             {
               "key": "B",
+              "text": "Vertical curve at the natural rate.",
+              "why": "This describes long-run Phillips curve (LRPC). It does not answer the question about quantity theory."
+            },
+            {
+              "key": "C",
+              "text": "Long-run money changes alter prices, not real output.",
+              "why": "This describes money neutrality. It does not answer the question about quantity theory."
+            },
+            {
+              "key": "D",
               "text": "Money growth above real growth sets long-run inflation when velocity is stable.",
-              "why": "Correct. quantity theory applies because money growth above real growth sets long-run inflation when velocity is stable."
-            },
-            {
-              "key": "C",
-              "text": "Vertical curve at the natural rate.",
-              "why": "This describes Long-run Phillips curve (LRPC), not quantity theory. The two ideas use different relationships, mechanisms, or evidence limits."
-            },
-            {
-              "key": "D",
-              "text": "Long-run money changes alter prices, not real output.",
-              "why": "This describes Money neutrality, not quantity theory. The two ideas use different relationships, mechanisms, or evidence limits."
+              "why": "Correct. Money growth above real growth sets long-run inflation when velocity is stable."
             }
           ]
         },
         {
-          "prompt": "After The Temporary Tradeoff, a new decision at Halvern's currency changeover requires the team to distinguish temporary vs persistent inflation from related macroeconomics ideas. Which use of temporary vs persistent inflation gives the strongest basis for a decision?",
-          "hint": "Identify the defining relationship, mechanism, or evidence limit for temporary vs persistent inflation; the other choices describe different course ideas.",
-          "answer": "C",
+          "prompt": "Which statement best explains temporary vs persistent inflation?",
+          "hint": "Identify the defining relationship or mechanism for temporary vs persistent inflation. All needed information is in this question.",
+          "answer": "A",
           "options": [
             {
               "key": "A",
-              "text": "Short-run inverse inflation-unemployment relation.",
-              "why": "This describes Short-run Phillips curve (SRPC), not temporary vs persistent inflation. The two ideas use different relationships, mechanisms, or evidence limits."
+              "text": "If a temporary supply disruption ends and price growth slows in new data, that evidence weakens a claim of permanently elevated inflation.",
+              "why": "Correct. If a temporary supply disruption ends and price growth slows in new data, that evidence weakens a claim of permanently elevated inflation."
             },
             {
               "key": "B",
-              "text": "Vertical curve at the natural rate.",
-              "why": "This describes Long-run Phillips curve (LRPC), not temporary vs persistent inflation. The two ideas use different relationships, mechanisms, or evidence limits."
+              "text": "Short-run inverse inflation-unemployment relation.",
+              "why": "This describes short-run Phillips curve (SRPC). It does not answer the question about temporary vs persistent inflation."
             },
             {
               "key": "C",
-              "text": "Unseen normalization can reject a permanent-inflation story.",
-              "why": "Correct. temporary vs persistent inflation applies because unseen normalization can reject a permanent-inflation story."
+              "text": "Vertical curve at the natural rate.",
+              "why": "This describes long-run Phillips curve (LRPC). It does not answer the question about temporary vs persistent inflation."
             },
             {
               "key": "D",
               "text": "Long-run money changes alter prices, not real output.",
-              "why": "This describes Money neutrality, not temporary vs persistent inflation. The two ideas use different relationships, mechanisms, or evidence limits."
+              "why": "This describes money neutrality. It does not answer the question about temporary vs persistent inflation."
             }
           ]
         }
@@ -4914,168 +4880,168 @@ export const MISSIONS = [
     "briefing": "",
     "stake": "Five days remain. The wage deal will not change for six weeks. Today you decide which short-term help can arrive in time.",
     "deeper": {
-      "intro": "You completed Too Late By Itself. Choose GO DEEPER to revisit the four decisions and explore related course ideas; this optional review does not change your metrics or delay the next mission.",
+      "intro": "Try six independent practice questions. Each includes its own context and any needed data; no mission records are required.",
       "concepts": [],
       "questions": [
         {
-          "prompt": "After Too Late By Itself, a new decision at Halvern's currency changeover requires the team to distinguish Self-correction from related macroeconomics ideas. Which statement correctly applies Self-correction?",
-          "hint": "Identify the defining relationship, mechanism, or evidence limit for Self-correction; the other choices describe different course ideas.",
+          "prompt": "Which statement best explains self-correction?",
+          "hint": "Identify the defining relationship or mechanism for self-correction. All needed information is in this question.",
           "answer": "B",
           "options": [
             {
               "key": "A",
               "text": "Taxes or transfers that change without a new law.",
-              "why": "This describes Automatic stabilizer, not Self-correction. The two ideas use different relationships, mechanisms, or evidence limits."
+              "why": "This describes automatic stabilizer. It does not answer the question about self-correction."
             },
             {
               "key": "B",
               "text": "Wage and input-cost adjustment that shifts short-run aggregate supply (SRAS) toward long-run equilibrium.",
-              "why": "Correct. Self-correction applies because wage and input-cost adjustment that shifts short-run aggregate supply (SRAS) toward long-run equilibrium."
+              "why": "Correct. Wage and input-cost adjustment that shifts short-run aggregate supply (SRAS) toward long-run equilibrium."
             },
             {
               "key": "C",
               "text": "Rising real gross domestic product (GDP) per person.",
-              "why": "This describes Economic growth, not Self-correction. The two ideas use different relationships, mechanisms, or evidence limits."
+              "why": "This describes economic growth. It does not answer the question about self-correction."
             },
             {
               "key": "D",
               "text": "Stabilizers reduce the initial shock without a new vote.",
-              "why": "This describes automatic stabilizers, not Self-correction. The two ideas use different relationships, mechanisms, or evidence limits."
+              "why": "This describes automatic stabilizers. It does not answer the question about self-correction."
             }
           ]
         },
         {
-          "prompt": "After Too Late By Itself, a new decision at Halvern's currency changeover requires the team to distinguish Automatic stabilizer from related macroeconomics ideas. Which description of Automatic stabilizer should guide the team's reasoning?",
-          "hint": "Identify the defining relationship, mechanism, or evidence limit for Automatic stabilizer; the other choices describe different course ideas.",
+          "prompt": "Which statement best explains automatic stabilizer?",
+          "hint": "Identify the defining relationship or mechanism for automatic stabilizer. All needed information is in this question.",
           "answer": "C",
           "options": [
             {
               "key": "A",
               "text": "Wage and input-cost adjustment that shifts short-run aggregate supply (SRAS) toward long-run equilibrium.",
-              "why": "This describes Self-correction, not Automatic stabilizer. The two ideas use different relationships, mechanisms, or evidence limits."
+              "why": "This describes self-correction. It does not answer the question about automatic stabilizer."
             },
             {
               "key": "B",
               "text": "Rising real gross domestic product (GDP) per person.",
-              "why": "This describes Economic growth, not Automatic stabilizer. The two ideas use different relationships, mechanisms, or evidence limits."
+              "why": "This describes economic growth. It does not answer the question about automatic stabilizer."
             },
             {
               "key": "C",
               "text": "Taxes or transfers that change without a new law.",
-              "why": "Correct. Automatic stabilizer applies because taxes or transfers that change without a new law."
+              "why": "Correct. Taxes or transfers that change without a new law."
             },
             {
               "key": "D",
               "text": "Stabilizers reduce the initial shock without a new vote.",
-              "why": "This describes automatic stabilizers, not Automatic stabilizer. The two ideas use different relationships, mechanisms, or evidence limits."
+              "why": "This describes automatic stabilizers. It does not answer the question about automatic stabilizer."
             }
           ]
         },
         {
-          "prompt": "After Too Late By Itself, a new decision at Halvern's currency changeover requires the team to distinguish Economic growth from related macroeconomics ideas. Which claim about Economic growth is scientifically defensible?",
-          "hint": "Identify the defining relationship, mechanism, or evidence limit for Economic growth; the other choices describe different course ideas.",
+          "prompt": "Which statement best explains economic growth?",
+          "hint": "Identify the defining relationship or mechanism for economic growth. All needed information is in this question.",
           "answer": "D",
           "options": [
             {
               "key": "A",
               "text": "Wage and input-cost adjustment that shifts short-run aggregate supply (SRAS) toward long-run equilibrium.",
-              "why": "This describes Self-correction, not Economic growth. The two ideas use different relationships, mechanisms, or evidence limits."
+              "why": "This describes self-correction. It does not answer the question about economic growth."
             },
             {
               "key": "B",
               "text": "Taxes or transfers that change without a new law.",
-              "why": "This describes Automatic stabilizer, not Economic growth. The two ideas use different relationships, mechanisms, or evidence limits."
+              "why": "This describes automatic stabilizer. It does not answer the question about economic growth."
             },
             {
               "key": "C",
               "text": "Stabilizers reduce the initial shock without a new vote.",
-              "why": "This describes automatic stabilizers, not Economic growth. The two ideas use different relationships, mechanisms, or evidence limits."
+              "why": "This describes automatic stabilizers. It does not answer the question about economic growth."
             },
             {
               "key": "D",
               "text": "Rising real gross domestic product (GDP) per person.",
-              "why": "Correct. Economic growth applies because rising real gross domestic product (GDP) per person."
+              "why": "Correct. Rising real gross domestic product (GDP) per person."
             }
           ]
         },
         {
-          "prompt": "After Too Late By Itself, a new decision at Halvern's currency changeover requires the team to distinguish automatic stabilizers from related macroeconomics ideas. Which interpretation of automatic stabilizers is correct?",
-          "hint": "Identify the defining relationship, mechanism, or evidence limit for automatic stabilizers; the other choices describe different course ideas.",
+          "prompt": "Which statement best explains automatic stabilizers?",
+          "hint": "Identify the defining relationship or mechanism for automatic stabilizers. All needed information is in this question.",
           "answer": "A",
           "options": [
             {
               "key": "A",
               "text": "Stabilizers reduce the initial shock without a new vote.",
-              "why": "Correct. automatic stabilizers applies because stabilizers reduce the initial shock without a new vote."
+              "why": "Correct. Stabilizers reduce the initial shock without a new vote."
             },
             {
               "key": "B",
               "text": "Wage and input-cost adjustment that shifts short-run aggregate supply (SRAS) toward long-run equilibrium.",
-              "why": "This describes Self-correction, not automatic stabilizers. The two ideas use different relationships, mechanisms, or evidence limits."
+              "why": "This describes self-correction. It does not answer the question about automatic stabilizers."
             },
             {
               "key": "C",
               "text": "Taxes or transfers that change without a new law.",
-              "why": "This describes Automatic stabilizer, not automatic stabilizers. The two ideas use different relationships, mechanisms, or evidence limits."
+              "why": "This describes automatic stabilizer. It does not answer the question about automatic stabilizers."
             },
             {
               "key": "D",
               "text": "Rising real gross domestic product (GDP) per person.",
-              "why": "This describes Economic growth, not automatic stabilizers. The two ideas use different relationships, mechanisms, or evidence limits."
+              "why": "This describes economic growth. It does not answer the question about automatic stabilizers."
             }
           ]
         },
         {
-          "prompt": "After Too Late By Itself, a new decision at Halvern's currency changeover requires the team to distinguish growth resources from related macroeconomics ideas. Which statement about growth resources would earn course credit?",
-          "hint": "Identify the defining relationship, mechanism, or evidence limit for growth resources; the other choices describe different course ideas.",
+          "prompt": "Which statement best explains growth resources?",
+          "hint": "Identify the defining relationship or mechanism for growth resources. All needed information is in this question.",
           "answer": "B",
           "options": [
             {
               "key": "A",
               "text": "Wage and input-cost adjustment that shifts short-run aggregate supply (SRAS) toward long-run equilibrium.",
-              "why": "This describes Self-correction, not growth resources. The two ideas use different relationships, mechanisms, or evidence limits."
+              "why": "This describes self-correction. It does not answer the question about growth resources."
             },
             {
               "key": "B",
               "text": "Human capital, physical capital, and technology shift productive capacity; publicity does not.",
-              "why": "Correct. growth resources applies because human capital, physical capital, and technology shift productive capacity; publicity does not."
+              "why": "Correct. Human capital, physical capital, and technology shift productive capacity; publicity does not."
             },
             {
               "key": "C",
               "text": "Taxes or transfers that change without a new law.",
-              "why": "This describes Automatic stabilizer, not growth resources. The two ideas use different relationships, mechanisms, or evidence limits."
+              "why": "This describes automatic stabilizer. It does not answer the question about growth resources."
             },
             {
               "key": "D",
               "text": "Rising real gross domestic product (GDP) per person.",
-              "why": "This describes Economic growth, not growth resources. The two ideas use different relationships, mechanisms, or evidence limits."
+              "why": "This describes economic growth. It does not answer the question about growth resources."
             }
           ]
         },
         {
-          "prompt": "After Too Late By Itself, a new decision at Halvern's currency changeover requires the team to distinguish stabilization timing from related macroeconomics ideas. Which use of stabilization timing gives the strongest basis for a decision?",
-          "hint": "Identify the defining relationship, mechanism, or evidence limit for stabilization timing; the other choices describe different course ideas.",
+          "prompt": "Which statement best explains stabilization timing?",
+          "hint": "Identify the defining relationship or mechanism for stabilization timing. All needed information is in this question.",
           "answer": "C",
           "options": [
             {
               "key": "A",
               "text": "Wage and input-cost adjustment that shifts short-run aggregate supply (SRAS) toward long-run equilibrium.",
-              "why": "This describes Self-correction, not stabilization timing. The two ideas use different relationships, mechanisms, or evidence limits."
+              "why": "This describes self-correction. It does not answer the question about stabilization timing."
             },
             {
               "key": "B",
               "text": "Taxes or transfers that change without a new law.",
-              "why": "This describes Automatic stabilizer, not stabilization timing. The two ideas use different relationships, mechanisms, or evidence limits."
+              "why": "This describes automatic stabilizer. It does not answer the question about stabilization timing."
             },
             {
               "key": "C",
               "text": "Temporary support can span a lag without becoming a permanent demand expansion.",
-              "why": "Correct. stabilization timing applies because temporary support can span a lag without becoming a permanent demand expansion."
+              "why": "Correct. Temporary support can span a lag without becoming a permanent demand expansion."
             },
             {
               "key": "D",
               "text": "Rising real gross domestic product (GDP) per person.",
-              "why": "This describes Economic growth, not stabilization timing. The two ideas use different relationships, mechanisms, or evidence limits."
+              "why": "This describes economic growth. It does not answer the question about stabilization timing."
             }
           ]
         }
@@ -5323,168 +5289,168 @@ export const MISSIONS = [
     "briefing": "",
     "stake": "Four days remain. The bank clock nears the time when cash is due. Today you decide if the 4.15 exchange can clear on time.",
     "deeper": {
-      "intro": "You completed 4.15 On The Clock. Choose GO DEEPER to revisit the four decisions and explore related course ideas; this optional review does not change your metrics or delay the next mission.",
+      "intro": "Try six independent practice questions. Each includes its own context and any needed data; no mission records are required.",
       "concepts": [],
       "questions": [
         {
-          "prompt": "After 4.15 On The Clock, a new decision at Halvern's currency changeover requires the team to distinguish Conversion ratio from related macroeconomics ideas. Which statement correctly applies Conversion ratio?",
-          "hint": "Identify the defining relationship, mechanism, or evidence limit for Conversion ratio; the other choices describe different course ideas.",
-          "answer": "B",
+          "prompt": "Which statement best explains conversion ratio?",
+          "hint": "Identify the defining relationship or mechanism for conversion ratio. All needed information is in this question.",
+          "answer": "D",
           "options": [
             {
               "key": "A",
               "text": "Timed schedule that keeps required reserves available.",
-              "why": "This describes Reserve clock, not Conversion ratio. The two ideas use different relationships, mechanisms, or evidence limits."
+              "why": "This describes reserve clock. It does not answer the question about conversion ratio."
             },
             {
               "key": "B",
-              "text": "Old currency units exchanged for one new unit.",
-              "why": "Correct. Conversion ratio applies because old currency units exchanged for one new unit."
+              "text": "Exact conversion prevents rounding from creating a false price jump.",
+              "why": "This describes conversion arithmetic. It does not answer the question about conversion ratio."
             },
             {
               "key": "C",
-              "text": "Exact conversion prevents rounding from creating a false price jump.",
-              "why": "This describes conversion arithmetic, not Conversion ratio. The two ideas use different relationships, mechanisms, or evidence limits."
+              "text": "Correct totals can still fail when their timing differs.",
+              "why": "This describes reserve timing. It does not answer the question about conversion ratio."
             },
             {
               "key": "D",
-              "text": "Correct totals can still fail when their timing differs.",
-              "why": "This describes reserve timing, not Conversion ratio. The two ideas use different relationships, mechanisms, or evidence limits."
+              "text": "Old currency units exchanged for one new unit.",
+              "why": "Correct. Old currency units exchanged for one new unit."
             }
           ]
         },
         {
-          "prompt": "After 4.15 On The Clock, a new decision at Halvern's currency changeover requires the team to distinguish Reserve clock from related macroeconomics ideas. Which description of Reserve clock should guide the team's reasoning?",
-          "hint": "Identify the defining relationship, mechanism, or evidence limit for Reserve clock; the other choices describe different course ideas.",
+          "prompt": "Which statement best explains reserve clock?",
+          "hint": "Identify the defining relationship or mechanism for reserve clock. All needed information is in this question.",
+          "answer": "A",
+          "options": [
+            {
+              "key": "A",
+              "text": "Timed schedule that keeps required reserves available.",
+              "why": "Correct. Timed schedule that keeps required reserves available."
+            },
+            {
+              "key": "B",
+              "text": "Old currency units exchanged for one new unit.",
+              "why": "This describes conversion ratio. It does not answer the question about reserve clock."
+            },
+            {
+              "key": "C",
+              "text": "Exact conversion prevents rounding from creating a false price jump.",
+              "why": "This describes conversion arithmetic. It does not answer the question about reserve clock."
+            },
+            {
+              "key": "D",
+              "text": "Correct totals can still fail when their timing differs.",
+              "why": "This describes reserve timing. It does not answer the question about reserve clock."
+            }
+          ]
+        },
+        {
+          "prompt": "Which statement best explains conversion arithmetic?",
+          "hint": "Identify the defining relationship or mechanism for conversion arithmetic. All needed information is in this question.",
+          "answer": "B",
+          "options": [
+            {
+              "key": "A",
+              "text": "Old currency units exchanged for one new unit.",
+              "why": "This describes conversion ratio. It does not answer the question about conversion arithmetic."
+            },
+            {
+              "key": "B",
+              "text": "Exact conversion prevents rounding from creating a false price jump.",
+              "why": "Correct. Exact conversion prevents rounding from creating a false price jump."
+            },
+            {
+              "key": "C",
+              "text": "Timed schedule that keeps required reserves available.",
+              "why": "This describes reserve clock. It does not answer the question about conversion arithmetic."
+            },
+            {
+              "key": "D",
+              "text": "Correct totals can still fail when their timing differs.",
+              "why": "This describes reserve timing. It does not answer the question about conversion arithmetic."
+            }
+          ]
+        },
+        {
+          "prompt": "Which statement best explains reserve timing?",
+          "hint": "Identify the defining relationship or mechanism for reserve timing. All needed information is in this question.",
           "answer": "C",
           "options": [
             {
               "key": "A",
               "text": "Old currency units exchanged for one new unit.",
-              "why": "This describes Conversion ratio, not Reserve clock. The two ideas use different relationships, mechanisms, or evidence limits."
+              "why": "This describes conversion ratio. It does not answer the question about reserve timing."
             },
             {
               "key": "B",
-              "text": "Exact conversion prevents rounding from creating a false price jump.",
-              "why": "This describes conversion arithmetic, not Reserve clock. The two ideas use different relationships, mechanisms, or evidence limits."
+              "text": "Timed schedule that keeps required reserves available.",
+              "why": "This describes reserve clock. It does not answer the question about reserve timing."
             },
             {
               "key": "C",
-              "text": "Timed schedule that keeps required reserves available.",
-              "why": "Correct. Reserve clock applies because timed schedule that keeps required reserves available."
+              "text": "Correct totals can still fail when their timing differs.",
+              "why": "Correct. Correct totals can still fail when their timing differs."
             },
             {
               "key": "D",
-              "text": "Correct totals can still fail when their timing differs.",
-              "why": "This describes reserve timing, not Reserve clock. The two ideas use different relationships, mechanisms, or evidence limits."
+              "text": "Exact conversion prevents rounding from creating a false price jump.",
+              "why": "This describes conversion arithmetic. It does not answer the question about reserve timing."
             }
           ]
         },
         {
-          "prompt": "After 4.15 On The Clock, a new decision at Halvern's currency changeover requires the team to distinguish conversion arithmetic from related macroeconomics ideas. Which claim about conversion arithmetic is scientifically defensible?",
-          "hint": "Identify the defining relationship, mechanism, or evidence limit for conversion arithmetic; the other choices describe different course ideas.",
+          "prompt": "Which statement best explains conversion and forex?",
+          "hint": "Identify the defining relationship or mechanism for conversion and forex. All needed information is in this question.",
           "answer": "D",
           "options": [
             {
               "key": "A",
               "text": "Old currency units exchanged for one new unit.",
-              "why": "This describes Conversion ratio, not conversion arithmetic. The two ideas use different relationships, mechanisms, or evidence limits."
+              "why": "This describes conversion ratio. It does not answer the question about conversion and forex."
             },
             {
               "key": "B",
               "text": "Timed schedule that keeps required reserves available.",
-              "why": "This describes Reserve clock, not conversion arithmetic. The two ideas use different relationships, mechanisms, or evidence limits."
+              "why": "This describes reserve clock. It does not answer the question about conversion and forex."
             },
             {
               "key": "C",
-              "text": "Correct totals can still fail when their timing differs.",
-              "why": "This describes reserve timing, not conversion arithmetic. The two ideas use different relationships, mechanisms, or evidence limits."
+              "text": "Exact conversion prevents rounding from creating a false price jump.",
+              "why": "This describes conversion arithmetic. It does not answer the question about conversion and forex."
             },
             {
               "key": "D",
-              "text": "Exact conversion prevents rounding from creating a false price jump.",
-              "why": "Correct. conversion arithmetic applies because exact conversion prevents rounding from creating a false price jump."
+              "text": "Shared conversion dependence can manufacture agreement across prices and assets.",
+              "why": "Correct. Shared conversion dependence can manufacture agreement across prices and assets."
             }
           ]
         },
         {
-          "prompt": "After 4.15 On The Clock, a new decision at Halvern's currency changeover requires the team to distinguish reserve timing from related macroeconomics ideas. Which interpretation of reserve timing is correct?",
-          "hint": "Identify the defining relationship, mechanism, or evidence limit for reserve timing; the other choices describe different course ideas.",
+          "prompt": "Which statement best explains certification?",
+          "hint": "Identify the defining relationship or mechanism for certification. All needed information is in this question.",
           "answer": "A",
           "options": [
             {
               "key": "A",
-              "text": "Correct totals can still fail when their timing differs.",
-              "why": "Correct. reserve timing applies because correct totals can still fail when their timing differs."
-            },
-            {
-              "key": "B",
-              "text": "Old currency units exchanged for one new unit.",
-              "why": "This describes Conversion ratio, not reserve timing. The two ideas use different relationships, mechanisms, or evidence limits."
-            },
-            {
-              "key": "C",
-              "text": "Timed schedule that keeps required reserves available.",
-              "why": "This describes Reserve clock, not reserve timing. The two ideas use different relationships, mechanisms, or evidence limits."
-            },
-            {
-              "key": "D",
-              "text": "Exact conversion prevents rounding from creating a false price jump.",
-              "why": "This describes conversion arithmetic, not reserve timing. The two ideas use different relationships, mechanisms, or evidence limits."
-            }
-          ]
-        },
-        {
-          "prompt": "After 4.15 On The Clock, a new decision at Halvern's currency changeover requires the team to distinguish conversion/forex from related macroeconomics ideas. Which statement about conversion/forex would earn course credit?",
-          "hint": "Identify the defining relationship, mechanism, or evidence limit for conversion/forex; the other choices describe different course ideas.",
-          "answer": "B",
-          "options": [
-            {
-              "key": "A",
-              "text": "Old currency units exchanged for one new unit.",
-              "why": "This describes Conversion ratio, not conversion/forex. The two ideas use different relationships, mechanisms, or evidence limits."
-            },
-            {
-              "key": "B",
-              "text": "Shared conversion dependence can manufacture agreement across prices and assets.",
-              "why": "Correct. conversion/forex applies because shared conversion dependence can manufacture agreement across prices and assets."
-            },
-            {
-              "key": "C",
-              "text": "Timed schedule that keeps required reserves available.",
-              "why": "This describes Reserve clock, not conversion/forex. The two ideas use different relationships, mechanisms, or evidence limits."
-            },
-            {
-              "key": "D",
-              "text": "Exact conversion prevents rounding from creating a false price jump.",
-              "why": "This describes conversion arithmetic, not conversion/forex. The two ideas use different relationships, mechanisms, or evidence limits."
-            }
-          ]
-        },
-        {
-          "prompt": "After 4.15 On The Clock, a new decision at Halvern's currency changeover requires the team to distinguish certification from related macroeconomics ideas. Which use of certification gives the strongest basis for a decision?",
-          "hint": "Identify the defining relationship, mechanism, or evidence limit for certification; the other choices describe different course ideas.",
-          "answer": "C",
-          "options": [
-            {
-              "key": "A",
-              "text": "Old currency units exchanged for one new unit.",
-              "why": "This describes Conversion ratio, not certification. The two ideas use different relationships, mechanisms, or evidence limits."
-            },
-            {
-              "key": "B",
-              "text": "Timed schedule that keeps required reserves available.",
-              "why": "This describes Reserve clock, not certification. The two ideas use different relationships, mechanisms, or evidence limits."
-            },
-            {
-              "key": "C",
               "text": "Operational safety requires arithmetic, timing, and independent market evidence.",
-              "why": "Correct. certification applies because operational safety requires arithmetic, timing, and independent market evidence."
+              "why": "Correct. Operational safety requires arithmetic, timing, and independent market evidence."
+            },
+            {
+              "key": "B",
+              "text": "Old currency units exchanged for one new unit.",
+              "why": "This describes conversion ratio. It does not answer the question about certification."
+            },
+            {
+              "key": "C",
+              "text": "Timed schedule that keeps required reserves available.",
+              "why": "This describes reserve clock. It does not answer the question about certification."
             },
             {
               "key": "D",
               "text": "Exact conversion prevents rounding from creating a false price jump.",
-              "why": "This describes conversion arithmetic, not certification. The two ideas use different relationships, mechanisms, or evidence limits."
+              "why": "This describes conversion arithmetic. It does not answer the question about certification."
             }
           ]
         }
@@ -5728,147 +5694,147 @@ export const MISSIONS = [
     "briefing": "",
     "stake": "3 days until changeover. Loan refusals and lost export orders share the spending folder. Today you decide how much of the bridge the economy can bear.",
     "deeper": {
-      "intro": "You completed Crowded Out Twice. Choose GO DEEPER to revisit the four decisions and explore related course ideas; this optional review does not change your metrics or delay the next mission.",
+      "intro": "Try six independent practice questions. Each includes its own context and any needed data; no mission records are required.",
       "concepts": [],
       "questions": [
         {
-          "prompt": "After Crowded Out Twice, a new decision at Halvern's currency changeover requires the team to distinguish Budget deficit from related macroeconomics ideas. Which statement correctly applies Budget deficit?",
-          "hint": "Identify the defining relationship, mechanism, or evidence limit for Budget deficit; the other choices describe different course ideas.",
+          "prompt": "Which statement best explains budget deficit?",
+          "hint": "Identify the defining relationship or mechanism for budget deficit. All needed information is in this question.",
           "answer": "B",
           "options": [
             {
               "key": "A",
               "text": "Government borrowing raises real interest and reduces private investment.",
-              "why": "This describes Crowding out, not Budget deficit. The two ideas use different relationships, mechanisms, or evidence limits."
+              "why": "This describes crowding out. It does not answer the question about budget deficit."
             },
             {
               "key": "B",
               "text": "Government spending above tax revenue.",
-              "why": "Correct. Budget deficit applies because government spending above tax revenue."
+              "why": "Correct. Government spending above tax revenue."
             },
             {
               "key": "C",
               "text": "A rightward loan-demand shift raises real interest and crowds out private investment.",
-              "why": "This describes loanable funds, not Budget deficit. The two ideas use different relationships, mechanisms, or evidence limits."
+              "why": "This describes loanable funds. It does not answer the question about budget deficit."
             },
             {
               "key": "D",
               "text": "Fiscal expansion crowds out NX as well as private investment.",
-              "why": "This describes fiscal/forex, not Budget deficit. The two ideas use different relationships, mechanisms, or evidence limits."
+              "why": "This describes fiscal and forex. It does not answer the question about budget deficit."
             }
           ]
         },
         {
-          "prompt": "After Crowded Out Twice, a new decision at Halvern's currency changeover requires the team to distinguish Crowding out from related macroeconomics ideas. Which description of Crowding out should guide the team's reasoning?",
-          "hint": "Identify the defining relationship, mechanism, or evidence limit for Crowding out; the other choices describe different course ideas.",
+          "prompt": "Which statement best explains crowding out?",
+          "hint": "Identify the defining relationship or mechanism for crowding out. All needed information is in this question.",
           "answer": "C",
           "options": [
             {
               "key": "A",
               "text": "Government spending above tax revenue.",
-              "why": "This describes Budget deficit, not Crowding out. The two ideas use different relationships, mechanisms, or evidence limits."
+              "why": "This describes budget deficit. It does not answer the question about crowding out."
             },
             {
               "key": "B",
               "text": "A rightward loan-demand shift raises real interest and crowds out private investment.",
-              "why": "This describes loanable funds, not Crowding out. The two ideas use different relationships, mechanisms, or evidence limits."
+              "why": "This describes loanable funds. It does not answer the question about crowding out."
             },
             {
               "key": "C",
               "text": "Government borrowing raises real interest and reduces private investment.",
-              "why": "Correct. Crowding out applies because government borrowing raises real interest and reduces private investment."
+              "why": "Correct. Government borrowing raises real interest and reduces private investment."
             },
             {
               "key": "D",
               "text": "Fiscal expansion crowds out NX as well as private investment.",
-              "why": "This describes fiscal/forex, not Crowding out. The two ideas use different relationships, mechanisms, or evidence limits."
+              "why": "This describes fiscal and forex. It does not answer the question about crowding out."
             }
           ]
         },
         {
-          "prompt": "After Crowded Out Twice, a new decision at Halvern's currency changeover requires the team to distinguish loanable funds from related macroeconomics ideas. Which claim about loanable funds is scientifically defensible?",
-          "hint": "Identify the defining relationship, mechanism, or evidence limit for loanable funds; the other choices describe different course ideas.",
+          "prompt": "Which statement best explains loanable funds?",
+          "hint": "Identify the defining relationship or mechanism for loanable funds. All needed information is in this question.",
           "answer": "D",
           "options": [
             {
               "key": "A",
               "text": "Government spending above tax revenue.",
-              "why": "This describes Budget deficit, not loanable funds. The two ideas use different relationships, mechanisms, or evidence limits."
+              "why": "This describes budget deficit. It does not answer the question about loanable funds."
             },
             {
               "key": "B",
               "text": "Government borrowing raises real interest and reduces private investment.",
-              "why": "This describes Crowding out, not loanable funds. The two ideas use different relationships, mechanisms, or evidence limits."
+              "why": "This describes crowding out. It does not answer the question about loanable funds."
             },
             {
               "key": "C",
               "text": "Fiscal expansion crowds out NX as well as private investment.",
-              "why": "This describes fiscal/forex, not loanable funds. The two ideas use different relationships, mechanisms, or evidence limits."
+              "why": "This describes fiscal and forex. It does not answer the question about loanable funds."
             },
             {
               "key": "D",
               "text": "A rightward loan-demand shift raises real interest and crowds out private investment.",
-              "why": "Correct. loanable funds applies because a rightward loan-demand shift raises real interest and crowds out private investment."
+              "why": "Correct. A rightward loan-demand shift raises real interest and crowds out private investment."
             }
           ]
         },
         {
-          "prompt": "After Crowded Out Twice, a new decision at Halvern's currency changeover requires the team to distinguish fiscal/forex from related macroeconomics ideas. Which interpretation of fiscal/forex is correct?",
-          "hint": "Identify the defining relationship, mechanism, or evidence limit for fiscal/forex; the other choices describe different course ideas.",
+          "prompt": "Which statement best explains fiscal and forex?",
+          "hint": "Identify the defining relationship or mechanism for fiscal and forex. All needed information is in this question.",
           "answer": "A",
           "options": [
             {
               "key": "A",
               "text": "Fiscal expansion crowds out NX as well as private investment.",
-              "why": "Correct. fiscal/forex applies because fiscal expansion crowds out NX as well as private investment."
+              "why": "Correct. Fiscal expansion crowds out NX as well as private investment."
             },
             {
               "key": "B",
               "text": "Government spending above tax revenue.",
-              "why": "This describes Budget deficit, not fiscal/forex. The two ideas use different relationships, mechanisms, or evidence limits."
+              "why": "This describes budget deficit. It does not answer the question about fiscal and forex."
             },
             {
               "key": "C",
               "text": "Government borrowing raises real interest and reduces private investment.",
-              "why": "This describes Crowding out, not fiscal/forex. The two ideas use different relationships, mechanisms, or evidence limits."
+              "why": "This describes crowding out. It does not answer the question about fiscal and forex."
             },
             {
               "key": "D",
               "text": "A rightward loan-demand shift raises real interest and crowds out private investment.",
-              "why": "This describes loanable funds, not fiscal/forex. The two ideas use different relationships, mechanisms, or evidence limits."
+              "why": "This describes loanable funds. It does not answer the question about fiscal and forex."
             }
           ]
         },
         {
-          "prompt": "After Crowded Out Twice, a new decision at Halvern's currency changeover requires the team to distinguish fiscal redesign from related macroeconomics ideas. Which statement about fiscal redesign would earn course credit?",
-          "hint": "Identify the defining relationship, mechanism, or evidence limit for fiscal redesign; the other choices describe different course ideas.",
+          "prompt": "Which statement best explains fiscal redesign?",
+          "hint": "Identify the defining relationship or mechanism for fiscal redesign. All needed information is in this question.",
           "answer": "B",
           "options": [
             {
               "key": "A",
               "text": "Government spending above tax revenue.",
-              "why": "This describes Budget deficit, not fiscal redesign. The two ideas use different relationships, mechanisms, or evidence limits."
+              "why": "This describes budget deficit. It does not answer the question about fiscal redesign."
             },
             {
               "key": "B",
               "text": "Targeted temporary support reduces crowding out while preserving long-run growth.",
-              "why": "Correct. fiscal redesign applies because targeted temporary support reduces crowding out while preserving long-run growth."
+              "why": "Correct. Targeted temporary support reduces crowding out while preserving long-run growth."
             },
             {
               "key": "C",
               "text": "Government borrowing raises real interest and reduces private investment.",
-              "why": "This describes Crowding out, not fiscal redesign. The two ideas use different relationships, mechanisms, or evidence limits."
+              "why": "This describes crowding out. It does not answer the question about fiscal redesign."
             },
             {
               "key": "D",
               "text": "A rightward loan-demand shift raises real interest and crowds out private investment.",
-              "why": "This describes loanable funds, not fiscal redesign. The two ideas use different relationships, mechanisms, or evidence limits."
+              "why": "This describes loanable funds. It does not answer the question about fiscal redesign."
             }
           ]
         },
         {
-          "prompt": "After Crowded Out Twice, a new decision at Halvern's currency changeover requires the team to distinguish Production possibilities curve (PPC) from related macroeconomics ideas. Which use of Production possibilities curve (PPC) gives the strongest basis for a decision?",
-          "hint": "Identify the defining relationship, mechanism, or evidence limit for Production possibilities curve (PPC); the other choices describe different course ideas.",
+          "prompt": "Which statement best explains production possibilities curve (PPC)?",
+          "hint": "Identify the defining relationship or mechanism for production possibilities curve (ppc). All needed information is in this question.",
           "answer": "C",
           "figure": {
             "kind": "line",
@@ -5911,22 +5877,22 @@ export const MISSIONS = [
             {
               "key": "A",
               "text": "Government spending above tax revenue.",
-              "why": "This describes Budget deficit, not Production possibilities curve (PPC). The two ideas use different relationships, mechanisms, or evidence limits."
+              "why": "This describes budget deficit. It does not answer the question about production possibilities curve (ppc)."
             },
             {
               "key": "B",
               "text": "Government borrowing raises real interest and reduces private investment.",
-              "why": "This describes Crowding out, not Production possibilities curve (PPC). The two ideas use different relationships, mechanisms, or evidence limits."
+              "why": "This describes crowding out. It does not answer the question about production possibilities curve (ppc)."
             },
             {
               "key": "C",
               "text": "A graph of the maximum combinations of two outputs an economy can produce with current resources and technology.",
-              "why": "Correct. Production possibilities curve (PPC) applies because a graph of the maximum combinations of two outputs an economy can produce with current resources and technology."
+              "why": "Correct. A graph of the maximum combinations of two outputs an economy can produce with current resources and technology."
             },
             {
               "key": "D",
               "text": "A rightward loan-demand shift raises real interest and crowds out private investment.",
-              "why": "This describes loanable funds, not Production possibilities curve (PPC). The two ideas use different relationships, mechanisms, or evidence limits."
+              "why": "This describes loanable funds. It does not answer the question about production possibilities curve (ppc)."
             }
           ]
         }
@@ -6170,67 +6136,67 @@ export const MISSIONS = [
     "briefing": "",
     "stake": "Two days remain. A new fuel alert lands beside the passed cash test. Today you decide whether to delay the launch or add short-term help.",
     "deeper": {
-      "intro": "You completed First-Week Cover. Choose GO DEEPER to revisit the four decisions and explore related course ideas; this optional review does not change your metrics or delay the next mission.",
+      "intro": "Try six independent practice questions. Each includes its own context and any needed data; no mission records are required.",
       "concepts": [],
       "questions": [
         {
-          "prompt": "After First-Week Cover, a new decision at Halvern's currency changeover requires the team to distinguish Policy lag from related macroeconomics ideas. Which statement correctly applies Policy lag?",
-          "hint": "Identify the defining relationship, mechanism, or evidence limit for Policy lag; the other choices describe different course ideas.",
-          "answer": "B",
-          "options": [
-            {
-              "key": "A",
-              "text": "A precommitted threshold that activates action.",
-              "why": "This describes Trigger, not Policy lag. The two ideas use different relationships, mechanisms, or evidence limits."
-            },
-            {
-              "key": "B",
-              "text": "Delay between action and full economic effect.",
-              "why": "Correct. Policy lag applies because delay between action and full economic effect."
-            },
-            {
-              "key": "C",
-              "text": "Total planned spending at each price level.",
-              "why": "This describes Aggregate demand (AD), not Policy lag. The two ideas use different relationships, mechanisms, or evidence limits."
-            },
-            {
-              "key": "D",
-              "text": "A real supply shock can hurt output without invalidating the currency conversion.",
-              "why": "This describes supply shock, not Policy lag. The two ideas use different relationships, mechanisms, or evidence limits."
-            }
-          ]
-        },
-        {
-          "prompt": "After First-Week Cover, a new decision at Halvern's currency changeover requires the team to distinguish Trigger from related macroeconomics ideas. Which description of Trigger should guide the team's reasoning?",
-          "hint": "Identify the defining relationship, mechanism, or evidence limit for Trigger; the other choices describe different course ideas.",
-          "answer": "C",
-          "options": [
-            {
-              "key": "A",
-              "text": "Delay between action and full economic effect.",
-              "why": "This describes Policy lag, not Trigger. The two ideas use different relationships, mechanisms, or evidence limits."
-            },
-            {
-              "key": "B",
-              "text": "Total planned spending at each price level.",
-              "why": "This describes Aggregate demand (AD), not Trigger. The two ideas use different relationships, mechanisms, or evidence limits."
-            },
-            {
-              "key": "C",
-              "text": "A precommitted threshold that activates action.",
-              "why": "Correct. Trigger applies because a precommitted threshold that activates action."
-            },
-            {
-              "key": "D",
-              "text": "A real supply shock can hurt output without invalidating the currency conversion.",
-              "why": "This describes supply shock, not Trigger. The two ideas use different relationships, mechanisms, or evidence limits."
-            }
-          ]
-        },
-        {
-          "prompt": "After First-Week Cover, a new decision at Halvern's currency changeover requires the team to distinguish Aggregate demand (AD) from related macroeconomics ideas. Which claim about Aggregate demand (AD) is scientifically defensible?",
-          "hint": "Identify the defining relationship, mechanism, or evidence limit for Aggregate demand (AD); the other choices describe different course ideas.",
+          "prompt": "Which statement best explains policy lag?",
+          "hint": "Identify the defining relationship or mechanism for policy lag. All needed information is in this question.",
           "answer": "D",
+          "options": [
+            {
+              "key": "A",
+              "text": "A precommitted threshold that activates action.",
+              "why": "This describes trigger. It does not answer the question about policy lag."
+            },
+            {
+              "key": "B",
+              "text": "Total planned spending at each price level.",
+              "why": "This describes aggregate demand (AD). It does not answer the question about policy lag."
+            },
+            {
+              "key": "C",
+              "text": "A real supply shock can hurt output without invalidating the currency conversion.",
+              "why": "This describes supply shock. It does not answer the question about policy lag."
+            },
+            {
+              "key": "D",
+              "text": "Delay between action and full economic effect.",
+              "why": "Correct. Delay between action and full economic effect."
+            }
+          ]
+        },
+        {
+          "prompt": "Which statement best explains trigger?",
+          "hint": "Identify the defining relationship or mechanism for trigger. All needed information is in this question.",
+          "answer": "A",
+          "options": [
+            {
+              "key": "A",
+              "text": "A precommitted threshold that activates action.",
+              "why": "Correct. A precommitted threshold that activates action."
+            },
+            {
+              "key": "B",
+              "text": "Delay between action and full economic effect.",
+              "why": "This describes policy lag. It does not answer the question about trigger."
+            },
+            {
+              "key": "C",
+              "text": "Total planned spending at each price level.",
+              "why": "This describes aggregate demand (AD). It does not answer the question about trigger."
+            },
+            {
+              "key": "D",
+              "text": "A real supply shock can hurt output without invalidating the currency conversion.",
+              "why": "This describes supply shock. It does not answer the question about trigger."
+            }
+          ]
+        },
+        {
+          "prompt": "Which statement best explains aggregate demand (AD)?",
+          "hint": "Identify the defining relationship or mechanism for aggregate demand (ad). All needed information is in this question.",
+          "answer": "B",
           "figure": {
             "kind": "line",
             "xLabel": "Real output",
@@ -6268,203 +6234,203 @@ export const MISSIONS = [
             {
               "key": "A",
               "text": "Delay between action and full economic effect.",
-              "why": "This describes Policy lag, not Aggregate demand (AD). The two ideas use different relationships, mechanisms, or evidence limits."
+              "why": "This describes policy lag. It does not answer the question about aggregate demand (ad)."
             },
             {
               "key": "B",
-              "text": "A precommitted threshold that activates action.",
-              "why": "This describes Trigger, not Aggregate demand (AD). The two ideas use different relationships, mechanisms, or evidence limits."
+              "text": "Total planned spending at each price level.",
+              "why": "Correct. Total planned spending at each price level."
             },
             {
               "key": "C",
+              "text": "A precommitted threshold that activates action.",
+              "why": "This describes trigger. It does not answer the question about aggregate demand (ad)."
+            },
+            {
+              "key": "D",
               "text": "A real supply shock can hurt output without invalidating the currency conversion.",
-              "why": "This describes supply shock, not Aggregate demand (AD). The two ideas use different relationships, mechanisms, or evidence limits."
-            },
-            {
-              "key": "D",
-              "text": "Total planned spending at each price level.",
-              "why": "Correct. Aggregate demand (AD) applies because total planned spending at each price level."
+              "why": "This describes supply shock. It does not answer the question about aggregate demand (ad)."
             }
           ]
         },
         {
-          "prompt": "After First-Week Cover, a new decision at Halvern's currency changeover requires the team to distinguish supply shock from related macroeconomics ideas. Which interpretation of supply shock is correct?",
-          "hint": "Identify the defining relationship, mechanism, or evidence limit for supply shock; the other choices describe different course ideas.",
-          "answer": "A",
-          "figure": {
-            "kind": "line",
-            "xLabel": "Real output",
-            "yLabel": "Price level",
-            "caption": "An adverse supply shock shifts short-run aggregate supply left.",
-            "series": [
-              {
-                "name": "Before",
-                "points": [
-                  [
-                    25,
-                    35
-                  ],
-                  [
-                    45,
-                    48
-                  ],
-                  [
-                    65,
-                    63
-                  ],
-                  [
-                    85,
-                    82
-                  ]
-                ]
-              },
-              {
-                "name": "After shock",
-                "points": [
-                  [
-                    15,
-                    48
-                  ],
-                  [
-                    35,
-                    61
-                  ],
-                  [
-                    55,
-                    76
-                  ],
-                  [
-                    75,
-                    95
-                  ]
-                ]
-              }
-            ]
-          },
-          "options": [
-            {
-              "key": "A",
-              "text": "A real supply shock can hurt output without invalidating the currency conversion.",
-              "why": "Correct. supply shock applies because a real supply shock can hurt output without invalidating the currency conversion."
-            },
-            {
-              "key": "B",
-              "text": "Delay between action and full economic effect.",
-              "why": "This describes Policy lag, not supply shock. The two ideas use different relationships, mechanisms, or evidence limits."
-            },
-            {
-              "key": "C",
-              "text": "A precommitted threshold that activates action.",
-              "why": "This describes Trigger, not supply shock. The two ideas use different relationships, mechanisms, or evidence limits."
-            },
-            {
-              "key": "D",
-              "text": "Total planned spending at each price level.",
-              "why": "This describes Aggregate demand (AD), not supply shock. The two ideas use different relationships, mechanisms, or evidence limits."
-            }
-          ]
-        },
-        {
-          "prompt": "After First-Week Cover, a new decision at Halvern's currency changeover requires the team to distinguish CPI/supply from related macroeconomics ideas. Which statement about CPI/supply would earn course credit?",
-          "hint": "Identify the defining relationship, mechanism, or evidence limit for CPI/supply; the other choices describe different course ideas.",
-          "answer": "B",
-          "figure": {
-            "kind": "line",
-            "xLabel": "Real output",
-            "yLabel": "Price level",
-            "caption": "An adverse supply shock shifts short-run aggregate supply left.",
-            "series": [
-              {
-                "name": "Before",
-                "points": [
-                  [
-                    25,
-                    35
-                  ],
-                  [
-                    45,
-                    48
-                  ],
-                  [
-                    65,
-                    63
-                  ],
-                  [
-                    85,
-                    82
-                  ]
-                ]
-              },
-              {
-                "name": "After shock",
-                "points": [
-                  [
-                    15,
-                    48
-                  ],
-                  [
-                    35,
-                    61
-                  ],
-                  [
-                    55,
-                    76
-                  ],
-                  [
-                    75,
-                    95
-                  ]
-                ]
-              }
-            ]
-          },
-          "options": [
-            {
-              "key": "A",
-              "text": "Delay between action and full economic effect.",
-              "why": "This describes Policy lag, not CPI/supply. The two ideas use different relationships, mechanisms, or evidence limits."
-            },
-            {
-              "key": "B",
-              "text": "A bounded relative-price shock should not be mistaken for unlimited inflation.",
-              "why": "Correct. CPI/supply applies because a bounded relative-price shock should not be mistaken for unlimited inflation."
-            },
-            {
-              "key": "C",
-              "text": "A precommitted threshold that activates action.",
-              "why": "This describes Trigger, not CPI/supply. The two ideas use different relationships, mechanisms, or evidence limits."
-            },
-            {
-              "key": "D",
-              "text": "Total planned spending at each price level.",
-              "why": "This describes Aggregate demand (AD), not CPI/supply. The two ideas use different relationships, mechanisms, or evidence limits."
-            }
-          ]
-        },
-        {
-          "prompt": "After First-Week Cover, a new decision at Halvern's currency changeover requires the team to distinguish integrated policy from related macroeconomics ideas. Which use of integrated policy gives the strongest basis for a decision?",
-          "hint": "Identify the defining relationship, mechanism, or evidence limit for integrated policy; the other choices describe different course ideas.",
+          "prompt": "A currency conversion is arithmetically correct and payments clear, but a shortage raises imported fuel prices. What follows?",
+          "hint": "Identify the defining relationship or mechanism for supply shock. All needed information is in this question.",
           "answer": "C",
+          "figure": {
+            "kind": "line",
+            "xLabel": "Real output",
+            "yLabel": "Price level",
+            "caption": "An adverse supply shock shifts short-run aggregate supply left.",
+            "series": [
+              {
+                "name": "Before",
+                "points": [
+                  [
+                    25,
+                    35
+                  ],
+                  [
+                    45,
+                    48
+                  ],
+                  [
+                    65,
+                    63
+                  ],
+                  [
+                    85,
+                    82
+                  ]
+                ]
+              },
+              {
+                "name": "After shock",
+                "points": [
+                  [
+                    15,
+                    48
+                  ],
+                  [
+                    35,
+                    61
+                  ],
+                  [
+                    55,
+                    76
+                  ],
+                  [
+                    75,
+                    95
+                  ]
+                ]
+              }
+            ]
+          },
           "options": [
             {
               "key": "A",
               "text": "Delay between action and full economic effect.",
-              "why": "This describes Policy lag, not integrated policy. The two ideas use different relationships, mechanisms, or evidence limits."
+              "why": "This describes policy lag. It does not answer the question about supply shock."
             },
             {
               "key": "B",
               "text": "A precommitted threshold that activates action.",
-              "why": "This describes Trigger, not integrated policy. The two ideas use different relationships, mechanisms, or evidence limits."
+              "why": "This describes trigger. It does not answer the question about supply shock."
             },
             {
               "key": "C",
-              "text": "Robust policy preserves the sound ratio while treating the separate real shock.",
-              "why": "Correct. integrated policy applies because robust policy preserves the sound ratio while treating the separate real shock."
+              "text": "The real supply shock can hurt output without proving that the currency conversion is wrong.",
+              "why": "Correct. The real supply shock can hurt output without proving that the currency conversion is wrong."
             },
             {
               "key": "D",
               "text": "Total planned spending at each price level.",
-              "why": "This describes Aggregate demand (AD), not integrated policy. The two ideas use different relationships, mechanisms, or evidence limits."
+              "why": "This describes aggregate demand (AD). It does not answer the question about supply shock."
+            }
+          ]
+        },
+        {
+          "prompt": "Which statement best explains CPI and supply?",
+          "hint": "Identify the defining relationship or mechanism for cpi and supply. All needed information is in this question.",
+          "answer": "D",
+          "figure": {
+            "kind": "line",
+            "xLabel": "Real output",
+            "yLabel": "Price level",
+            "caption": "An adverse supply shock shifts short-run aggregate supply left.",
+            "series": [
+              {
+                "name": "Before",
+                "points": [
+                  [
+                    25,
+                    35
+                  ],
+                  [
+                    45,
+                    48
+                  ],
+                  [
+                    65,
+                    63
+                  ],
+                  [
+                    85,
+                    82
+                  ]
+                ]
+              },
+              {
+                "name": "After shock",
+                "points": [
+                  [
+                    15,
+                    48
+                  ],
+                  [
+                    35,
+                    61
+                  ],
+                  [
+                    55,
+                    76
+                  ],
+                  [
+                    75,
+                    95
+                  ]
+                ]
+              }
+            ]
+          },
+          "options": [
+            {
+              "key": "A",
+              "text": "Delay between action and full economic effect.",
+              "why": "This describes policy lag. It does not answer the question about cpi and supply."
+            },
+            {
+              "key": "B",
+              "text": "A precommitted threshold that activates action.",
+              "why": "This describes trigger. It does not answer the question about cpi and supply."
+            },
+            {
+              "key": "C",
+              "text": "Total planned spending at each price level.",
+              "why": "This describes aggregate demand (AD). It does not answer the question about cpi and supply."
+            },
+            {
+              "key": "D",
+              "text": "A bounded relative-price shock should not be mistaken for unlimited inflation.",
+              "why": "Correct. A bounded relative-price shock should not be mistaken for unlimited inflation."
+            }
+          ]
+        },
+        {
+          "prompt": "A currency conversion passes independent arithmetic and payment tests, but imported fuel becomes more expensive. Which policy distinction matters?",
+          "hint": "Identify the defining relationship or mechanism for integrated policy. All needed information is in this question.",
+          "answer": "A",
+          "options": [
+            {
+              "key": "A",
+              "text": "A valid conversion can be retained while the separate supply shock is addressed on its own evidence.",
+              "why": "Correct. A valid conversion can be retained while the separate supply shock is addressed on its own evidence."
+            },
+            {
+              "key": "B",
+              "text": "Delay between action and full economic effect.",
+              "why": "This describes policy lag. It does not answer the question about integrated policy."
+            },
+            {
+              "key": "C",
+              "text": "A precommitted threshold that activates action.",
+              "why": "This describes trigger. It does not answer the question about integrated policy."
+            },
+            {
+              "key": "D",
+              "text": "Total planned spending at each price level.",
+              "why": "This describes aggregate demand (AD). It does not answer the question about integrated policy."
             }
           ]
         }
@@ -6712,120 +6678,120 @@ export const MISSIONS = [
     "briefing": "",
     "stake": "One day remains. New notes wait under a cloth at the shut counter. Today you decide whether to open with the signed rules.",
     "deeper": {
-      "intro": "You completed Sign With Conditions. Choose GO DEEPER to revisit the four decisions and explore related course ideas; this optional review does not change your metrics or delay the next mission.",
+      "intro": "Try six independent practice questions. Each includes its own context and any needed data; no mission records are required.",
       "concepts": [],
       "questions": [
         {
-          "prompt": "After Sign With Conditions, a new decision at Halvern's currency changeover requires the team to distinguish national snapshot from related macroeconomics ideas. Which statement correctly applies national snapshot?",
-          "hint": "Identify the defining relationship, mechanism, or evidence limit for national snapshot; the other choices describe different course ideas.",
+          "prompt": "Real output is below potential. Payment failures remain below an announced action threshold, and inflation remains below its intervention limit. Which summary matches these facts?",
+          "hint": "Identify the defining relationship or mechanism for national snapshot. All needed information is in this question.",
           "answer": "B",
           "options": [
             {
               "key": "A",
               "text": "A workable stance needs both borrowing conditions and bank capacity.",
-              "why": "This describes Fisher and reserves, not national snapshot. The two ideas use different relationships, mechanisms, or evidence limits."
+              "why": "This describes fisher and reserves. It does not answer the question about national snapshot."
             },
             {
               "key": "B",
-              "text": "Output is weak, but the payment trigger has not fired and inflation is below its stop limit.",
-              "why": "Correct. national snapshot applies because output is weak, but the payment trigger has not fired and inflation is below its stop limit."
+              "text": "Output is weak, but neither the payment nor inflation trigger has fired.",
+              "why": "Correct. Output is weak, but neither the payment nor inflation trigger has fired."
             },
             {
               "key": "C",
-              "text": "The final rate is credible only if domestic and foreign consequences remain visible.",
-              "why": "This describes linked policy consequences, not national snapshot. The two ideas use different relationships, mechanisms, or evidence limits."
+              "text": "An interest-rate assessment should include domestic investment and international capital and trade effects.",
+              "why": "This describes linked policy consequences. It does not answer the question about national snapshot."
             },
             {
               "key": "D",
               "text": "Conditions turn one rate choice into a testable policy rather than a guess.",
-              "why": "This describes final policy, not national snapshot. The two ideas use different relationships, mechanisms, or evidence limits."
+              "why": "This describes final policy. It does not answer the question about national snapshot."
             }
           ]
         },
         {
-          "prompt": "After Sign With Conditions, a new decision at Halvern's currency changeover requires the team to distinguish Fisher and reserves from related macroeconomics ideas. Which description of Fisher and reserves should guide the team's reasoning?",
-          "hint": "Identify the defining relationship, mechanism, or evidence limit for Fisher and reserves; the other choices describe different course ideas.",
+          "prompt": "Why should a credit-policy assessment consider both the real interest rate and banks' available reserves?",
+          "hint": "Identify the defining relationship or mechanism for fisher and reserves. All needed information is in this question.",
           "answer": "C",
           "options": [
             {
               "key": "A",
               "text": "Output is weak, but the payment trigger has not fired and inflation is below its stop limit.",
-              "why": "This describes national snapshot, not Fisher and reserves. The two ideas use different relationships, mechanisms, or evidence limits."
+              "why": "This describes national snapshot. It does not answer the question about fisher and reserves."
             },
             {
               "key": "B",
-              "text": "The final rate is credible only if domestic and foreign consequences remain visible.",
-              "why": "This describes linked policy consequences, not Fisher and reserves. The two ideas use different relationships, mechanisms, or evidence limits."
+              "text": "An interest-rate assessment should include domestic investment and international capital and trade effects.",
+              "why": "This describes linked policy consequences. It does not answer the question about fisher and reserves."
             },
             {
               "key": "C",
-              "text": "A workable stance needs both borrowing conditions and bank capacity.",
-              "why": "Correct. Fisher and reserves applies because a workable stance needs both borrowing conditions and bank capacity."
+              "text": "Borrowing conditions and banking capacity are separate constraints on lending.",
+              "why": "Correct. Borrowing conditions and banking capacity are separate constraints on lending."
             },
             {
               "key": "D",
               "text": "Conditions turn one rate choice into a testable policy rather than a guess.",
-              "why": "This describes final policy, not Fisher and reserves. The two ideas use different relationships, mechanisms, or evidence limits."
+              "why": "This describes final policy. It does not answer the question about fisher and reserves."
             }
           ]
         },
         {
-          "prompt": "After Sign With Conditions, a new decision at Halvern's currency changeover requires the team to distinguish linked policy consequences from related macroeconomics ideas. Which claim about linked policy consequences is scientifically defensible?",
-          "hint": "Identify the defining relationship, mechanism, or evidence limit for linked policy consequences; the other choices describe different course ideas.",
+          "prompt": "Which statement best explains linked policy consequences?",
+          "hint": "Identify the defining relationship or mechanism for linked policy consequences. All needed information is in this question.",
           "answer": "D",
           "options": [
             {
               "key": "A",
               "text": "Output is weak, but the payment trigger has not fired and inflation is below its stop limit.",
-              "why": "This describes national snapshot, not linked policy consequences. The two ideas use different relationships, mechanisms, or evidence limits."
+              "why": "This describes national snapshot. It does not answer the question about linked policy consequences."
             },
             {
               "key": "B",
               "text": "A workable stance needs both borrowing conditions and bank capacity.",
-              "why": "This describes Fisher and reserves, not linked policy consequences. The two ideas use different relationships, mechanisms, or evidence limits."
+              "why": "This describes fisher and reserves. It does not answer the question about linked policy consequences."
             },
             {
               "key": "C",
               "text": "Conditions turn one rate choice into a testable policy rather than a guess.",
-              "why": "This describes final policy, not linked policy consequences. The two ideas use different relationships, mechanisms, or evidence limits."
+              "why": "This describes final policy. It does not answer the question about linked policy consequences."
             },
             {
               "key": "D",
-              "text": "The final rate is credible only if domestic and foreign consequences remain visible.",
-              "why": "Correct. linked policy consequences applies because the final rate is credible only if domestic and foreign consequences remain visible."
+              "text": "An interest-rate assessment should include domestic investment and international capital and trade effects.",
+              "why": "Correct. An interest-rate assessment should include domestic investment and international capital and trade effects."
             }
           ]
         },
         {
-          "prompt": "After Sign With Conditions, a new decision at Halvern's currency changeover requires the team to distinguish final policy from related macroeconomics ideas. Which interpretation of final policy is correct?",
-          "hint": "Identify the defining relationship, mechanism, or evidence limit for final policy; the other choices describe different course ideas.",
+          "prompt": "Why state the evidence conditions that would cause an interest-rate decision to be revised?",
+          "hint": "Identify the defining relationship or mechanism for final policy. All needed information is in this question.",
           "answer": "A",
           "options": [
             {
               "key": "A",
-              "text": "Conditions turn one rate choice into a testable policy rather than a guess.",
-              "why": "Correct. final policy applies because conditions turn one rate choice into a testable policy rather than a guess."
+              "text": "They make the policy testable and revisable instead of leaving its continuation to an unstated preference.",
+              "why": "Correct. They make the policy testable and revisable instead of leaving its continuation to an unstated preference."
             },
             {
               "key": "B",
               "text": "Output is weak, but the payment trigger has not fired and inflation is below its stop limit.",
-              "why": "This describes national snapshot, not final policy. The two ideas use different relationships, mechanisms, or evidence limits."
+              "why": "This describes national snapshot. It does not answer the question about final policy."
             },
             {
               "key": "C",
               "text": "A workable stance needs both borrowing conditions and bank capacity.",
-              "why": "This describes Fisher and reserves, not final policy. The two ideas use different relationships, mechanisms, or evidence limits."
+              "why": "This describes fisher and reserves. It does not answer the question about final policy."
             },
             {
               "key": "D",
-              "text": "The final rate is credible only if domestic and foreign consequences remain visible.",
-              "why": "This describes linked policy consequences, not final policy. The two ideas use different relationships, mechanisms, or evidence limits."
+              "text": "An interest-rate assessment should include domestic investment and international capital and trade effects.",
+              "why": "This describes linked policy consequences. It does not answer the question about final policy."
             }
           ]
         },
         {
-          "prompt": "After Sign With Conditions, a new decision at Halvern's currency changeover requires the team to distinguish Production possibilities curve (PPC) from related macroeconomics ideas. Which statement about Production possibilities curve (PPC) would earn course credit?",
-          "hint": "Identify the defining relationship, mechanism, or evidence limit for Production possibilities curve (PPC); the other choices describe different course ideas.",
+          "prompt": "Which statement best explains production possibilities curve (PPC)?",
+          "hint": "Identify the defining relationship or mechanism for production possibilities curve (ppc). All needed information is in this question.",
           "answer": "B",
           "figure": {
             "kind": "line",
@@ -6868,49 +6834,49 @@ export const MISSIONS = [
             {
               "key": "A",
               "text": "Output is weak, but the payment trigger has not fired and inflation is below its stop limit.",
-              "why": "This describes national snapshot, not Production possibilities curve (PPC). The two ideas use different relationships, mechanisms, or evidence limits."
+              "why": "This describes national snapshot. It does not answer the question about production possibilities curve (ppc)."
             },
             {
               "key": "B",
               "text": "A graph of the maximum combinations of two outputs an economy can produce with current resources and technology.",
-              "why": "Correct. Production possibilities curve (PPC) applies because a graph of the maximum combinations of two outputs an economy can produce with current resources and technology."
+              "why": "Correct. A graph of the maximum combinations of two outputs an economy can produce with current resources and technology."
             },
             {
               "key": "C",
               "text": "A workable stance needs both borrowing conditions and bank capacity.",
-              "why": "This describes Fisher and reserves, not Production possibilities curve (PPC). The two ideas use different relationships, mechanisms, or evidence limits."
+              "why": "This describes fisher and reserves. It does not answer the question about production possibilities curve (ppc)."
             },
             {
               "key": "D",
-              "text": "The final rate is credible only if domestic and foreign consequences remain visible.",
-              "why": "This describes linked policy consequences, not Production possibilities curve (PPC). The two ideas use different relationships, mechanisms, or evidence limits."
+              "text": "An interest-rate assessment should include domestic investment and international capital and trade effects.",
+              "why": "This describes linked policy consequences. It does not answer the question about production possibilities curve (ppc)."
             }
           ]
         },
         {
-          "prompt": "After Sign With Conditions, a new decision at Halvern's currency changeover requires the team to distinguish Scarcity from related macroeconomics ideas. Which use of Scarcity gives the strongest basis for a decision?",
-          "hint": "Identify the defining relationship, mechanism, or evidence limit for Scarcity; the other choices describe different course ideas.",
+          "prompt": "Which statement best explains scarcity?",
+          "hint": "Identify the defining relationship or mechanism for scarcity. All needed information is in this question.",
           "answer": "C",
           "options": [
             {
               "key": "A",
               "text": "Output is weak, but the payment trigger has not fired and inflation is below its stop limit.",
-              "why": "This describes national snapshot, not Scarcity. The two ideas use different relationships, mechanisms, or evidence limits."
+              "why": "This describes national snapshot. It does not answer the question about scarcity."
             },
             {
               "key": "B",
               "text": "A workable stance needs both borrowing conditions and bank capacity.",
-              "why": "This describes Fisher and reserves, not Scarcity. The two ideas use different relationships, mechanisms, or evidence limits."
+              "why": "This describes fisher and reserves. It does not answer the question about scarcity."
             },
             {
               "key": "C",
               "text": "Limited resources cannot satisfy every want, so every choice gives up an alternative.",
-              "why": "Correct. Scarcity applies because limited resources cannot satisfy every want, so every choice gives up an alternative."
+              "why": "Correct. Limited resources cannot satisfy every want, so every choice gives up an alternative."
             },
             {
               "key": "D",
-              "text": "The final rate is credible only if domestic and foreign consequences remain visible.",
-              "why": "This describes linked policy consequences, not Scarcity. The two ideas use different relationships, mechanisms, or evidence limits."
+              "text": "An interest-rate assessment should include domestic investment and international capital and trade effects.",
+              "why": "This describes linked policy consequences. It does not answer the question about scarcity."
             }
           ]
         }

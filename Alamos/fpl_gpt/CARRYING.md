@@ -1,5 +1,7 @@
 **FIRST PERSON LEARNING**
 
+**Player-copy editing rule:** Within each displayed passage, state each fact, equation, variable definition, and instruction once. Integrate new givens into the existing wording; do not append a paraphrase of the setup. A source panel may repeat essential inputs so it stands alone, but render it as its own surface rather than concatenating it with the question setup. Go Deeper questions must still supply their own context and data without referring to earlier cases.
+
 **CARRYING CAPACITY**
 
 AP Environmental Science Campaign Implementation Bible
@@ -41,7 +43,10 @@ The Vellan Island council must decide in fifteen days whether a second ferry can
 
 ### Opening sequence - exact player copy
 
-You are the island planning lead, which means you test what a second ferry would cost the people who live here. At Vellan Island, you will use environmental science to make the call. The council votes in fifteen days. More sailings could keep the school open. Too much demand could ruin the wells and reef.
+You are the island planning lead, which means you test what a second ferry would cost the people who live here. At Vellan Island, you will use environmental science to make the call. The council votes in fifteen days. More sailings could keep the school open; too much demand could ruin the wells and reef. Island Resources Officer Mara Voss hands you the evidence ledger and says, “I want our children to be able to stay here when they’re grown.”
+
+**Opening-card requirement:** The character quote is the final player-visible text on this card; place no explanatory sentence after it. Keep it brief and natural: it should add the speaker’s concern or commitment rather than summarize the preceding setup. Show the whole opening together with one Continue action.
+
 
 ### Four campaign metrics and victory
 
@@ -275,6 +280,11 @@ Every mission below includes exact briefing copy, a mission-card glossary/primer
 **Ending card - exact player copy:** The second ferry ties up beside the posted limits. Tomas checks the cargo before the ramp drops. Beyond the quay, cups dry by the school tap and the reef boats leave under their catch cap. Vellan has room for another sailing, with rules to keep it home.
 
 **Delivery:** Keep player control and normal world view. No new graded stop follows the final accepted decision. The ending card appears after the player reaches the payoff view, or through an accessible View ending control that skips movement without skipping any scientific gate. Optional review and worked examples remain available through the completed mission menu.
+
+
+### Standalone Go Deeper question contract
+
+Each optional review question must work when copied out on its own. Supply its setting, givens, units, definitions, and any required figure within that question. Do not mention a mission title, a prior case, a teammate rechecking earlier work, a completed plan, or unseen cards, observations, or results. Do not assume that another review question was read. Choices, hints, and feedback obey the same rule. Use brief conceptual questions or complete applied problems; figures must match the question rather than merely share its course.
 
 # Mission 1 - The Catch That Vanished
 
@@ -723,139 +733,152 @@ Mission decision: Count water, food, energy, materials, waste, people, and habit
 
 **Availability:** Reveal only after mission completion when the player selects **GO DEEPER**. This section is optional, ungraded for campaign progress, and does not change metrics, Recovery Points, or the next-mission unlock.
 
-**Secondary briefing card - exact player copy:** You completed The Catch That Vanished. Choose GO DEEPER to revisit the four decisions and explore related course ideas; this optional review does not change your metrics or delay the next mission.
+**Secondary briefing card - exact player copy:** Try six independent practice questions. Each includes its own context and any needed data; no mission records are required.
 
 ### Review focus
 
-No additional prerequisite is required. These AP-style questions apply the mission's course ideas to follow-up evidence, including related topics not required in the four main stops.
+No additional prerequisite is required. These practice questions review related course ideas. Each question stands alone, including its choices and figure.
 
 ### Review question 1
 
-**Prompt - exact player copy:** In a follow-up to The Catch That Vanished, the electronic ledger counts ferry tickets, fuel, and landed fish but ignores rain, groundwater, sunlight, and waste. The next action depends on selecting the conclusion that fits all of those facts. Which environmental-science conclusion correctly applies System?
+
+**Prompt - exact player copy:** Which statement best explains system?
 
 **Options - exact player copy:**
 
-- A. System boundaries must include every materially affected store; retry after the omitted-store labels flash.
-- B. A set of connected parts studied together. Reservoir: a place where matter is stored. Flux: an amount moving between stores per unit time. Watershed: land whose water drains to one shared water body.
-- C. Matter changes form but remains in its cycle; feedback identifies the first mismatched process.
-- D. Energy degrades to heat; atoms remain available in other forms. Wrong items pause with a pathway hint.
+- A. System boundaries must include every materially affected store
+- B. A set of connected parts studied together.
+- C. Matter changes form but remains in its cycle
+- D. Energy degrades to heat; atoms remain available in other forms.
 
 **Correct answer:** B
 
-**Hint - exact player copy:** Use the stated evidence and the conditions for System; do not choose an option merely because it names a familiar term.
+**Hint - exact player copy:** Identify the defining relationship or mechanism for system. All needed information is in this question.
 
 **Option feedback - exact player copy:**
 
-- A: This describes system boundary, not System. It does not account for the quantities, conditions, or evidence in this environmental science case.
-- B: Correct. a set of connected parts studied together. Reservoir: a place where matter is stored. Flux: an amount moving between stores per unit time. Watershed: land whose water drains to one shared water body.
-- C: This describes carbon/nitrogen/phosphorus/water cycles, not System. It does not account for the quantities, conditions, or evidence in this environmental science case.
-- D: This describes energy flow versus matter cycling, not System. It does not account for the quantities, conditions, or evidence in this environmental science case.
+- A: This describes system boundary. It does not answer the question about system.
+- B: Correct. A set of connected parts studied together.
+- C: This describes carbon and nitrogen and phosphorus and water cycles. It does not answer the question about system.
+- D: This describes energy flow versus matter cycling. It does not answer the question about system.
+
 ### Review question 2
 
-**Prompt - exact player copy:** the island council receives a second case related to The Catch That Vanished: the electronic ledger counts ferry tickets, fuel, and landed fish but ignores rain, groundwater, sunlight, and waste. The next action depends on selecting the conclusion that fits all of those facts. Which environmental-science conclusion correctly applies system boundary?
+
+**Prompt - exact player copy:** A town counts purchased water but omits rainfall, groundwater, and wastewater. What is the main problem with its water-system boundary?
 
 **Options - exact player copy:**
 
-- A. A set of connected parts studied together. Reservoir: a place where matter is stored. Flux: an amount moving between stores per unit time. Watershed: land whose water drains to one shared water body.
-- B. Matter changes form but remains in its cycle; feedback identifies the first mismatched process.
-- C. System boundaries must include every materially affected store; retry after the omitted-store labels flash.
-- D. Energy degrades to heat; atoms remain available in other forms. Wrong items pause with a pathway hint.
+- A. A set of connected parts studied together.
+- B. Matter changes form but remains in its cycle
+- C. It omits important stores and flows, so the budget cannot account for all water entering, leaving, or remaining in the system.
+- D. Energy degrades to heat; atoms remain available in other forms.
 
 **Correct answer:** C
 
-**Hint - exact player copy:** Use the stated evidence and the conditions for system boundary; do not choose an option merely because it names a familiar term.
+**Hint - exact player copy:** Identify the defining relationship or mechanism for system boundary. All needed information is in this question.
 
 **Option feedback - exact player copy:**
 
-- A: This describes System, not system boundary. It does not account for the quantities, conditions, or evidence in this environmental science case.
-- B: This describes carbon/nitrogen/phosphorus/water cycles, not system boundary. It does not account for the quantities, conditions, or evidence in this environmental science case.
-- C: Correct. system boundaries must include every materially affected store; retry after the omitted-store labels flash.
-- D: This describes energy flow versus matter cycling, not system boundary. It does not account for the quantities, conditions, or evidence in this environmental science case.
+- A: This describes system. It does not answer the question about system boundary.
+- B: This describes carbon and nitrogen and phosphorus and water cycles. It does not answer the question about system boundary.
+- C: Correct. It omits important stores and flows, so the budget cannot account for all water entering, leaving, or remaining in the system.
+- D: This describes energy flow versus matter cycling. It does not answer the question about system boundary.
+
 ### Review question 3
 
-**Prompt - exact player copy:** A teammate rechecks The Catch That Vanished using new evidence: with the boundary fixed, four unlabeled flow cards remain in the paper book. Assign a response to each condition now so the crew has an action rule it can follow under pressure. Which environmental-science conclusion correctly applies carbon/nitrogen/phosphorus/water cycles?
+
+**Prompt - exact player copy:** Which statement describes how matter behaves in biogeochemical cycles?
 
 **Options - exact player copy:**
 
-- A. A set of connected parts studied together. Reservoir: a place where matter is stored. Flux: an amount moving between stores per unit time. Watershed: land whose water drains to one shared water body.
-- B. System boundaries must include every materially affected store; retry after the omitted-store labels flash.
-- C. Energy degrades to heat; atoms remain available in other forms. Wrong items pause with a pathway hint.
-- D. Matter changes form but remains in its cycle; feedback identifies the first mismatched process.
+- A. A set of connected parts studied together.
+- B. System boundaries must include every materially affected store
+- C. Energy degrades to heat; atoms remain available in other forms.
+- D. Atoms move among stores and change chemical form; they are not destroyed when they leave one store.
 
 **Correct answer:** D
 
-**Hint - exact player copy:** Use the stated evidence and the conditions for carbon/nitrogen/phosphorus/water cycles; do not choose an option merely because it names a familiar term.
+**Hint - exact player copy:** Identify the defining relationship or mechanism for carbon and nitrogen and phosphorus and water cycles. All needed information is in this question.
 
 **Option feedback - exact player copy:**
 
-- A: This describes System, not carbon/nitrogen/phosphorus/water cycles. It does not account for the quantities, conditions, or evidence in this environmental science case.
-- B: This describes system boundary, not carbon/nitrogen/phosphorus/water cycles. It does not account for the quantities, conditions, or evidence in this environmental science case.
-- C: This describes energy flow versus matter cycling, not carbon/nitrogen/phosphorus/water cycles. It does not account for the quantities, conditions, or evidence in this environmental science case.
-- D: Correct. matter changes form but remains in its cycle; feedback identifies the first mismatched process.
+- A: This describes system. It does not answer the question about carbon and nitrogen and phosphorus and water cycles.
+- B: This describes system boundary. It does not answer the question about carbon and nitrogen and phosphorus and water cycles.
+- C: This describes energy flow versus matter cycling. It does not answer the question about carbon and nitrogen and phosphorus and water cycles.
+- D: Correct. Atoms move among stores and change chemical form; they are not destroyed when they leave one store.
+
 ### Review question 4
 
-**Prompt - exact player copy:** An unseen case extends The Catch That Vanished: because the four matter ledgers now close, the remaining cards can expose a dangerous accounting mistake. Sort the displayed items now so the later decision does not mix cases governed by different evidence. Which environmental-science conclusion correctly applies energy flow versus matter cycling?
+
+**Prompt - exact player copy:** How does energy flow through an ecosystem differ from the cycling of matter?
 
 **Options - exact player copy:**
 
-- A. Energy degrades to heat; atoms remain available in other forms. Wrong items pause with a pathway hint.
-- B. A set of connected parts studied together. Reservoir: a place where matter is stored. Flux: an amount moving between stores per unit time. Watershed: land whose water drains to one shared water body.
-- C. System boundaries must include every materially affected store; retry after the omitted-store labels flash.
-- D. Matter changes form but remains in its cycle; feedback identifies the first mismatched process.
+- A. Energy is dispersed as heat during transfers, while atoms can be reused in different chemical forms.
+- B. A set of connected parts studied together.
+- C. System boundaries must include every materially affected store
+- D. Matter changes form but remains in its cycle
 
 **Correct answer:** A
 
-**Hint - exact player copy:** Use the stated evidence and the conditions for energy flow versus matter cycling; do not choose an option merely because it names a familiar term.
+**Hint - exact player copy:** Identify the defining relationship or mechanism for energy flow versus matter cycling. All needed information is in this question.
 
 **Option feedback - exact player copy:**
 
-- A: Correct. energy degrades to heat; atoms remain available in other forms. Wrong items pause with a pathway hint.
-- B: This describes System, not energy flow versus matter cycling. It does not account for the quantities, conditions, or evidence in this environmental science case.
-- C: This describes system boundary, not energy flow versus matter cycling. It does not account for the quantities, conditions, or evidence in this environmental science case.
-- D: This describes carbon/nitrogen/phosphorus/water cycles, not energy flow versus matter cycling. It does not account for the quantities, conditions, or evidence in this environmental science case.
+- A: Correct. Energy is dispersed as heat during transfers, while atoms can be reused in different chemical forms.
+- B: This describes system. It does not answer the question about energy flow versus matter cycling.
+- C: This describes system boundary. It does not answer the question about energy flow versus matter cycling.
+- D: This describes carbon and nitrogen and phosphorus and water cycles. It does not answer the question about energy flow versus matter cycling.
+
 ### Review question 5
 
-**Prompt - exact player copy:** Before another The Catch That Vanished decision, the team knows this: the cycle map shows where matter should go, yet the sales screen and tax total agree exactly. Open the dependencies now so the team can distinguish independent evidence from readings that repeat one source. Which environmental-science conclusion correctly applies dependent evidence?
+
+**Prompt - exact player copy:** Two reports copy their totals from the same source file. How many independent checks do those reports provide on that file?
 
 **Options - exact player copy:**
 
-- A. A set of connected parts studied together. Reservoir: a place where matter is stored. Flux: an amount moving between stores per unit time. Watershed: land whose water drains to one shared water body.
-- B. Repeated outputs from one source are one line of evidence, not two; retry traces dependencies.
-- C. System boundaries must include every materially affected store; retry after the omitted-store labels flash.
-- D. Matter changes form but remains in its cycle; feedback identifies the first mismatched process.
+- A. A set of connected parts studied together.
+- B. They repeat one source and do not independently validate it.
+- C. System boundaries must include every materially affected store
+- D. Matter changes form but remains in its cycle
 
 **Correct answer:** B
 
-**Hint - exact player copy:** Use the stated evidence and the conditions for dependent evidence; do not choose an option merely because it names a familiar term.
+**Hint - exact player copy:** Identify the defining relationship or mechanism for dependent evidence. All needed information is in this question.
 
 **Option feedback - exact player copy:**
 
-- A: This describes System, not dependent evidence. It does not account for the quantities, conditions, or evidence in this environmental science case.
-- B: Correct. repeated outputs from one source are one line of evidence, not two; retry traces dependencies.
-- C: This describes system boundary, not dependent evidence. It does not account for the quantities, conditions, or evidence in this environmental science case.
-- D: This describes carbon/nitrogen/phosphorus/water cycles, not dependent evidence. It does not account for the quantities, conditions, or evidence in this environmental science case.
+- A: This describes system. It does not answer the question about dependent evidence.
+- B: Correct. They repeat one source and do not independently validate it.
+- C: This describes system boundary. It does not answer the question about dependent evidence.
+- D: This describes carbon and nitrogen and phosphorus and water cycles. It does not answer the question about dependent evidence.
+
 ### Review question 6
 
-**Prompt - exact player copy:** the island council applies the lesson from The Catch That Vanished to this follow-up: the electronic ledger counts ferry tickets, fuel, and landed fish but ignores rain, groundwater, sunlight, and waste. The next action depends on selecting the conclusion that fits all of those facts. Which environmental-science conclusion correctly applies Infiltration?
+
+**Prompt - exact player copy:** Which statement best explains infiltration?
 
 **Options - exact player copy:**
 
-- A. A set of connected parts studied together. Reservoir: a place where matter is stored. Flux: an amount moving between stores per unit time. Watershed: land whose water drains to one shared water body.
-- B. System boundaries must include every materially affected store; retry after the omitted-store labels flash.
-- C. Water entering soil. Recharge: water reaching and replenishing an aquifer. Aquifer: underground material that stores and transmits groundwater. Uncertainty: a measured range within which the defensible value may lie.
-- D. Matter changes form but remains in its cycle; feedback identifies the first mismatched process.
+- A. A set of connected parts studied together.
+- B. System boundaries must include every materially affected store
+- C. Water entering soil.
+- D. Matter changes form but remains in its cycle
 
 **Correct answer:** C
 
-**Hint - exact player copy:** Use the stated evidence and the conditions for Infiltration; do not choose an option merely because it names a familiar term.
+**Hint - exact player copy:** Identify the defining relationship or mechanism for infiltration. All needed information is in this question.
 
 **Option feedback - exact player copy:**
 
-- A: This describes System, not Infiltration. It does not account for the quantities, conditions, or evidence in this environmental science case.
-- B: This describes system boundary, not Infiltration. It does not account for the quantities, conditions, or evidence in this environmental science case.
-- C: Correct. water entering soil. Recharge: water reaching and replenishing an aquifer. Aquifer: underground material that stores and transmits groundwater. Uncertainty: a measured range within which the defensible value may lie.
-- D: This describes carbon/nitrogen/phosphorus/water cycles, not Infiltration. It does not account for the quantities, conditions, or evidence in this environmental science case.
-**Optional review completion - exact player copy:** Excellent work. You went beyond the required mission and strengthened the ideas behind your decision.
+- A: This describes system. It does not answer the question about infiltration.
+- B: This describes system boundary. It does not answer the question about infiltration.
+- C: Correct. Water entering soil.
+- D: This describes carbon and nitrogen and phosphorus and water cycles. It does not answer the question about infiltration.
+
+**Optional review completion - exact player copy:** Good work. You have completed six independent practice questions.
+
 ## Quick concept review
 - Matter cycles, while usable energy flows and becomes heat.
 - A system boundary includes every affected store and pathway.
@@ -1260,139 +1283,152 @@ Mission decision: Use 136,800 cubic metres per year as the planning withdrawal c
 
 **Availability:** Reveal only after mission completion when the player selects **GO DEEPER**. This section is optional, ungraded for campaign progress, and does not change metrics, Recovery Points, or the next-mission unlock.
 
-**Secondary briefing card - exact player copy:** You completed The Dry-Year Line. Choose GO DEEPER to revisit the four decisions and explore related course ideas; this optional review does not change your metrics or delay the next mission.
+**Secondary briefing card - exact player copy:** Try six independent practice questions. Each includes its own context and any needed data; no mission records are required.
 
 ### Review focus
 
-No additional prerequisite is required. These AP-style questions apply the mission's course ideas to follow-up evidence, including related topics not required in the four main stops.
+No additional prerequisite is required. These practice questions review related course ideas. Each question stands alone, including its choices and figure.
 
 ### Review question 1
 
-**Prompt - exact player copy:** In a follow-up to The Dry-Year Line, the island ledger now has a water page, but its four destination rows are blank. Close the ledger now so the next decision uses every real input and output exactly once. Which environmental-science conclusion correctly applies Infiltration?
+
+**Prompt - exact player copy:** Which statement best explains infiltration?
 
 **Options - exact player copy:**
 
-- A. The full input must be conserved; feedback displays the unclosed remainder.
-- B. Water entering soil. Recharge: water reaching and replenishing an aquifer. Aquifer: underground material that stores and transmits groundwater. Uncertainty: a measured range within which the defensible value may lie.
-- C. One metre spread over one square metre is one cubic metre; unit tiles remain visible on retry.
-- D. Holdout years test generalization; wet or mean rules overfit favorable conditions.
-
-**Correct answer:** B
-
-**Hint - exact player copy:** Use the stated evidence and the conditions for Infiltration; do not choose an option merely because it names a familiar term.
-
-**Option feedback - exact player copy:**
-
-- A: This describes water budget, not Infiltration. It does not account for the quantities, conditions, or evidence in this environmental science case.
-- B: Correct. water entering soil. Recharge: water reaching and replenishing an aquifer. Aquifer: underground material that stores and transmits groundwater. Uncertainty: a measured range within which the defensible value may lie.
-- C: This describes unit conversion, not Infiltration. It does not account for the quantities, conditions, or evidence in this environmental science case.
-- D: This describes model validation, not Infiltration. It does not account for the quantities, conditions, or evidence in this environmental science case.
-### Review question 2
-
-**Prompt - exact player copy:** the island council receives a second case related to The Dry-Year Line: the island ledger now has a water page, but its four destination rows are blank. Close the ledger now so the next decision uses every real input and output exactly once. Which environmental-science conclusion correctly applies water budget?
-
-**Options - exact player copy:**
-
-- A. Water entering soil. Recharge: water reaching and replenishing an aquifer. Aquifer: underground material that stores and transmits groundwater. Uncertainty: a measured range within which the defensible value may lie.
-- B. One metre spread over one square metre is one cubic metre; unit tiles remain visible on retry.
-- C. The full input must be conserved; feedback displays the unclosed remainder.
-- D. Holdout years test generalization; wet or mean rules overfit favorable conditions.
-
-**Correct answer:** C
-
-**Hint - exact player copy:** Use the stated evidence and the conditions for water budget; do not choose an option merely because it names a familiar term.
-
-**Option feedback - exact player copy:**
-
-- A: This describes Infiltration, not water budget. It does not account for the quantities, conditions, or evidence in this environmental science case.
-- B: This describes unit conversion, not water budget. It does not account for the quantities, conditions, or evidence in this environmental science case.
-- C: Correct. the full input must be conserved; feedback displays the unclosed remainder.
-- D: This describes model validation, not water budget. It does not account for the quantities, conditions, or evidence in this environmental science case.
-### Review question 3
-
-**Prompt - exact player copy:** A teammate rechecks The Dry-Year Line using new evidence: with recharge depth established, Nkemdi needs the amount of water entering the usable aquifer area. Which environmental-science conclusion correctly applies unit conversion?
-
-**Options - exact player copy:**
-
-- A. Water entering soil. Recharge: water reaching and replenishing an aquifer. Aquifer: underground material that stores and transmits groundwater. Uncertainty: a measured range within which the defensible value may lie.
-- B. The full input must be conserved; feedback displays the unclosed remainder.
+- A. The full input must be conserved
+- B. One metre spread over one square metre is one cubic metre
 - C. Holdout years test generalization; wet or mean rules overfit favorable conditions.
-- D. One metre spread over one square metre is one cubic metre; unit tiles remain visible on retry.
+- D. Water entering soil.
 
 **Correct answer:** D
 
-**Hint - exact player copy:** Use the stated evidence and the conditions for unit conversion; do not choose an option merely because it names a familiar term.
+**Hint - exact player copy:** Identify the defining relationship or mechanism for infiltration. All needed information is in this question.
 
 **Option feedback - exact player copy:**
 
-- A: This describes Infiltration, not unit conversion. It does not account for the quantities, conditions, or evidence in this environmental science case.
-- B: This describes water budget, not unit conversion. It does not account for the quantities, conditions, or evidence in this environmental science case.
-- C: This describes model validation, not unit conversion. It does not account for the quantities, conditions, or evidence in this environmental science case.
-- D: Correct. one metre spread over one square metre is one cubic metre; unit tiles remain visible on retry.
-### Review question 4
+- A: This describes water budget. It does not answer the question about infiltration.
+- B: This describes unit conversion. It does not answer the question about infiltration.
+- C: This describes model validation. It does not answer the question about infiltration.
+- D: Correct. Water entering soil.
 
-**Prompt - exact player copy:** An unseen case extends The Dry-Year Line: the volume calculation fits the first ten years, so the dry years remain hidden. Which environmental-science conclusion correctly applies model validation?
+### Review question 2
+
+
+**Prompt - exact player copy:** A reservoir receives 100 m³ of water, releases 65 m³, and loses 15 m³ to evaporation. There are no other flows. What happens to storage?
 
 **Options - exact player copy:**
 
-- A. Holdout years test generalization; wet or mean rules overfit favorable conditions.
-- B. Water entering soil. Recharge: water reaching and replenishing an aquifer. Aquifer: underground material that stores and transmits groundwater. Uncertainty: a measured range within which the defensible value may lie.
-- C. The full input must be conserved; feedback displays the unclosed remainder.
-- D. One metre spread over one square metre is one cubic metre; unit tiles remain visible on retry.
+- A. Storage increases by 20 m³ because input minus total output equals storage change.
+- B. Water entering soil.
+- C. One metre spread over one square metre is one cubic metre
+- D. Holdout years test generalization; wet or mean rules overfit favorable conditions.
 
 **Correct answer:** A
 
-**Hint - exact player copy:** Use the stated evidence and the conditions for model validation; do not choose an option merely because it names a familiar term.
+**Hint - exact player copy:** Identify the defining relationship or mechanism for water budget. All needed information is in this question.
 
 **Option feedback - exact player copy:**
 
-- A: Correct. holdout years test generalization; wet or mean rules overfit favorable conditions.
-- B: This describes Infiltration, not model validation. It does not account for the quantities, conditions, or evidence in this environmental science case.
-- C: This describes water budget, not model validation. It does not account for the quantities, conditions, or evidence in this environmental science case.
-- D: This describes unit conversion, not model validation. It does not account for the quantities, conditions, or evidence in this environmental science case.
-### Review question 5
+- A: Correct. Storage increases by 20 m³ because input minus total output equals storage change.
+- B: This describes infiltration. It does not answer the question about water budget.
+- C: This describes unit conversion. It does not answer the question about water budget.
+- D: This describes model validation. It does not answer the question about water budget.
 
-**Prompt - exact player copy:** Before another Groundwater Recharge Estimate decision, the team knows this: because 144,000 m³/yr survives most held-out years, only measurement bias can still overturn it. Test the conclusion across the supported uncertainty range now, before the team treats it as robust. Which environmental-science conclusion correctly applies uncertainty margin?
+### Review question 3
+
+
+**Prompt - exact player copy:** Rainfall depth is 1 m over an area of 1 m². What volume of water falls?
 
 **Options - exact player copy:**
 
-- A. Water entering soil. Recharge: water reaching and replenishing an aquifer. Aquifer: underground material that stores and transmits groundwater. Uncertainty: a measured range within which the defensible value may lie.
-- B. Negative bias lowers credible recharge; feedback shows which candidates fail at -5%.
-- C. The full input must be conserved; feedback displays the unclosed remainder.
-- D. One metre spread over one square metre is one cubic metre; unit tiles remain visible on retry.
+- A. Water entering soil.
+- B. 1 m³.
+- C. The full input must be conserved
+- D. Holdout years test generalization; wet or mean rules overfit favorable conditions.
 
 **Correct answer:** B
 
-**Hint - exact player copy:** Use the stated evidence and the conditions for uncertainty margin; do not choose an option merely because it names a familiar term.
+**Hint - exact player copy:** Identify the defining relationship or mechanism for unit conversion. All needed information is in this question.
 
 **Option feedback - exact player copy:**
 
-- A: This describes Infiltration, not uncertainty margin. It does not account for the quantities, conditions, or evidence in this environmental science case.
-- B: Correct. negative bias lowers credible recharge; feedback shows which candidates fail at -5%.
-- C: This describes water budget, not uncertainty margin. It does not account for the quantities, conditions, or evidence in this environmental science case.
-- D: This describes unit conversion, not uncertainty margin. It does not account for the quantities, conditions, or evidence in this environmental science case.
-### Review question 6
+- A: This describes infiltration. It does not answer the question about unit conversion.
+- B: Correct. 1 m³.
+- C: This describes water budget. It does not answer the question about unit conversion.
+- D: This describes model validation. It does not answer the question about unit conversion.
 
-**Prompt - exact player copy:** the island council applies the lesson from The Dry-Year Line to this follow-up: the island ledger now has a water page, but its four destination rows are blank. Close the ledger now so the next decision uses every real input and output exactly once. Which environmental-science conclusion correctly applies System?
+### Review question 4
+
+
+**Prompt - exact player copy:** A recharge model is fitted to ten years of data. Why evaluate it on years excluded from fitting?
 
 **Options - exact player copy:**
 
-- A. Water entering soil. Recharge: water reaching and replenishing an aquifer. Aquifer: underground material that stores and transmits groundwater. Uncertainty: a measured range within which the defensible value may lie.
-- B. The full input must be conserved; feedback displays the unclosed remainder.
-- C. A set of connected parts studied together. Reservoir: a place where matter is stored. Flux: an amount moving between stores per unit time. Watershed: land whose water drains to one shared water body.
-- D. One metre spread over one square metre is one cubic metre; unit tiles remain visible on retry.
+- A. Water entering soil.
+- B. The full input must be conserved
+- C. To test whether it predicts conditions it was not adjusted to reproduce.
+- D. One metre spread over one square metre is one cubic metre
 
 **Correct answer:** C
 
-**Hint - exact player copy:** Use the stated evidence and the conditions for System; do not choose an option merely because it names a familiar term.
+**Hint - exact player copy:** Identify the defining relationship or mechanism for model validation. All needed information is in this question.
 
 **Option feedback - exact player copy:**
 
-- A: This describes Infiltration, not System. It does not account for the quantities, conditions, or evidence in this environmental science case.
-- B: This describes water budget, not System. It does not account for the quantities, conditions, or evidence in this environmental science case.
-- C: Correct. a set of connected parts studied together. Reservoir: a place where matter is stored. Flux: an amount moving between stores per unit time. Watershed: land whose water drains to one shared water body.
-- D: This describes unit conversion, not System. It does not account for the quantities, conditions, or evidence in this environmental science case.
-**Optional review completion - exact player copy:** Excellent work. You went beyond the required mission and strengthened the ideas behind your decision.
+- A: This describes infiltration. It does not answer the question about model validation.
+- B: This describes water budget. It does not answer the question about model validation.
+- C: Correct. To test whether it predicts conditions it was not adjusted to reproduce.
+- D: This describes unit conversion. It does not answer the question about model validation.
+
+### Review question 5
+
+
+**Prompt - exact player copy:** A water estimate may be biased upward by as much as 5%. How should a withdrawal plan be tested?
+
+**Options - exact player copy:**
+
+- A. Water entering soil.
+- B. The full input must be conserved
+- C. One metre spread over one square metre is one cubic metre
+- D. Check the plan against the lower plausible available-water estimate, not only the reported central value.
+
+**Correct answer:** D
+
+**Hint - exact player copy:** Identify the defining relationship or mechanism for uncertainty margin. All needed information is in this question.
+
+**Option feedback - exact player copy:**
+
+- A: This describes infiltration. It does not answer the question about uncertainty margin.
+- B: This describes water budget. It does not answer the question about uncertainty margin.
+- C: This describes unit conversion. It does not answer the question about uncertainty margin.
+- D: Correct. Check the plan against the lower plausible available-water estimate, not only the reported central value.
+
+### Review question 6
+
+
+**Prompt - exact player copy:** Which statement best explains system?
+
+**Options - exact player copy:**
+
+- A. A set of connected parts studied together.
+- B. Water entering soil.
+- C. The full input must be conserved
+- D. One metre spread over one square metre is one cubic metre
+
+**Correct answer:** A
+
+**Hint - exact player copy:** Identify the defining relationship or mechanism for system. All needed information is in this question.
+
+**Option feedback - exact player copy:**
+
+- A: Correct. A set of connected parts studied together.
+- B: This describes infiltration. It does not answer the question about system.
+- C: This describes water budget. It does not answer the question about system.
+- D: This describes unit conversion. It does not answer the question about system.
+
+**Optional review completion - exact player copy:** Good work. You have completed six independent practice questions.
+
 ## Quick concept review
 - Water entering a watershed must be balanced among all destinations.
 - Depth times area gives volume when units are converted.
@@ -1746,177 +1782,181 @@ Mission decision: Limit ferry growth to what farms and wild systems can support.
 
 **Availability:** Reveal only after mission completion when the player selects **GO DEEPER**. This section is optional, ungraded for campaign progress, and does not change metrics, Recovery Points, or the next-mission unlock.
 
-**Secondary briefing card - exact player copy:** You completed The Sack and the Reef. Choose GO DEEPER to revisit the four decisions and explore related course ideas; this optional review does not change your metrics or delay the next mission.
+**Secondary briefing card - exact player copy:** Try six independent practice questions. Each includes its own context and any needed data; no mission records are required.
 
 ### Review focus
 
-No additional prerequisite is required. These AP-style questions apply the mission's course ideas to follow-up evidence, including related topics not required in the four main stops.
+No additional prerequisite is required. These practice questions review related course ideas. Each question stands alone, including its choices and figure.
 
 ### Review question 1
 
-**Prompt - exact player copy:** In a follow-up to The Sack and the Reef, the water ceiling is now fixed, but the common can still be overstocked by counting all captured sunlight. Which environmental-science conclusion correctly applies Net primary productivity (NPP)?
+
+**Prompt - exact player copy:** Which statement best explains net primary productivity (NPP)?
 
 **Options - exact player copy:**
 
-- A. All solar energy captured by plants before subtracting respiration. Trophic level: a feeding position in a food web. Succession: predictable community change after new land or disturbance. Niche: the resources and conditions a species uses.
+- A. All solar energy captured by plants before subtracting respiration.
 - B. Plant energy stored after plants use some energy for respiration.
 - C. Plants use part of GPP, and most remaining energy is lost as heat between levels.
-- D. Existing soil preserves nutrients and organisms; feedback highlights the missing prerequisite.
+- D. Existing soil preserves nutrients and organisms
 
 **Correct answer:** B
 
-**Hint - exact player copy:** Use the stated evidence and the conditions for Net primary productivity (NPP); do not choose an option merely because it names a familiar term.
+**Hint - exact player copy:** Identify the defining relationship or mechanism for net primary productivity (npp). All needed information is in this question.
 
 **Option feedback - exact player copy:**
 
-- A: This describes Gross primary productivity (GPP), not Net primary productivity (NPP). It does not account for the quantities, conditions, or evidence in this environmental science case.
-- B: Correct. plant energy stored after plants use some energy for respiration.
-- C: This describes GPP/NPP and 10% law, not Net primary productivity (NPP). It does not account for the quantities, conditions, or evidence in this environmental science case.
-- D: This describes succession, biomes, aquatic zones, not Net primary productivity (NPP). It does not account for the quantities, conditions, or evidence in this environmental science case.
+- A: This describes gross primary productivity (GPP). It does not answer the question about net primary productivity (npp).
+- B: Correct. Plant energy stored after plants use some energy for respiration.
+- C: This describes gross and net primary productivity and trophic energy transfer. It does not answer the question about net primary productivity (npp).
+- D: This describes succession, biomes, aquatic zones. It does not answer the question about net primary productivity (npp).
+
 ### Review question 2
 
-**Prompt - exact player copy:** the island council receives a second case related to The Sack and the Reef: the water ceiling is now fixed, but the common can still be overstocked by counting all captured sunlight. Which environmental-science conclusion correctly applies Gross primary productivity (GPP)?
+
+**Prompt - exact player copy:** Which statement best explains gross primary productivity (GPP)?
 
 **Options - exact player copy:**
 
 - A. Plant energy stored after plants use some energy for respiration.
 - B. Plants use part of GPP, and most remaining energy is lost as heat between levels.
-- C. All solar energy captured by plants before subtracting respiration. Trophic level: a feeding position in a food web. Succession: predictable community change after new land or disturbance. Niche: the resources and conditions a species uses.
-- D. Existing soil preserves nutrients and organisms; feedback highlights the missing prerequisite.
+- C. All solar energy captured by plants before subtracting respiration.
+- D. Existing soil preserves nutrients and organisms
 
 **Correct answer:** C
 
-**Hint - exact player copy:** Use the stated evidence and the conditions for Gross primary productivity (GPP); do not choose an option merely because it names a familiar term.
+**Hint - exact player copy:** Identify the defining relationship or mechanism for gross primary productivity (gpp). All needed information is in this question.
 
 **Option feedback - exact player copy:**
 
-- A: This describes Net primary productivity (NPP), not Gross primary productivity (GPP). It does not account for the quantities, conditions, or evidence in this environmental science case.
-- B: This describes GPP/NPP and 10% law, not Gross primary productivity (GPP). It does not account for the quantities, conditions, or evidence in this environmental science case.
-- C: Correct. all solar energy captured by plants before subtracting respiration. Trophic level: a feeding position in a food web. Succession: predictable community change after new land or disturbance. Niche: the resources and conditions a species uses.
-- D: This describes succession, biomes, aquatic zones, not Gross primary productivity (GPP). It does not account for the quantities, conditions, or evidence in this environmental science case.
+- A: This describes net primary productivity (NPP). It does not answer the question about gross primary productivity (gpp).
+- B: This describes gross and net primary productivity and trophic energy transfer. It does not answer the question about gross primary productivity (gpp).
+- C: Correct. All solar energy captured by plants before subtracting respiration.
+- D: This describes succession, biomes, aquatic zones. It does not answer the question about gross primary productivity (gpp).
+
 ### Review question 3
 
-**Prompt - exact player copy:** A teammate rechecks The Sack and the Reef using new evidence: the water ceiling is now fixed, but the common can still be overstocked by counting all captured sunlight. Which environmental-science conclusion correctly applies GPP/NPP and 10% law?
+
+**Prompt - exact player copy:** Which statement best explains gross and net primary productivity and trophic energy transfer?
 
 **Options - exact player copy:**
 
 - A. Plant energy stored after plants use some energy for respiration.
-- B. All solar energy captured by plants before subtracting respiration. Trophic level: a feeding position in a food web. Succession: predictable community change after new land or disturbance. Niche: the resources and conditions a species uses.
-- C. Existing soil preserves nutrients and organisms; feedback highlights the missing prerequisite.
+- B. All solar energy captured by plants before subtracting respiration.
+- C. Existing soil preserves nutrients and organisms
 - D. Plants use part of GPP, and most remaining energy is lost as heat between levels.
 
 **Correct answer:** D
 
-**Hint - exact player copy:** Use the stated evidence and the conditions for GPP/NPP and 10% law; do not choose an option merely because it names a familiar term.
+**Hint - exact player copy:** Identify the defining relationship or mechanism for gross and net primary productivity and trophic energy transfer. All needed information is in this question.
 
 **Option feedback - exact player copy:**
 
-- A: This describes Net primary productivity (NPP), not GPP/NPP and 10% law. It does not account for the quantities, conditions, or evidence in this environmental science case.
-- B: This describes Gross primary productivity (GPP), not GPP/NPP and 10% law. It does not account for the quantities, conditions, or evidence in this environmental science case.
-- C: This describes succession, biomes, aquatic zones, not GPP/NPP and 10% law. It does not account for the quantities, conditions, or evidence in this environmental science case.
-- D: Correct. plants use part of GPP, and most remaining energy is lost as heat between levels.
+- A: This describes net primary productivity (NPP). It does not answer the question about gross and net primary productivity and trophic energy transfer.
+- B: This describes gross primary productivity (GPP). It does not answer the question about gross and net primary productivity and trophic energy transfer.
+- C: This describes succession, biomes, aquatic zones. It does not answer the question about gross and net primary productivity and trophic energy transfer.
+- D: Correct. Plants use part of GPP, and most remaining energy is lost as heat between levels.
+
 ### Review question 4
 
-**Prompt - exact player copy:** An unseen case extends The Sack and the Reef: with grazing energy capped, Iona points to a burned field where soil remains. Which environmental-science conclusion correctly applies succession, biomes, aquatic zones?
+
+**Prompt - exact player copy:** Why can recovery after a forest fire be faster than colonization of newly exposed bare rock?
 
 **Options - exact player copy:**
 
-- A. Existing soil preserves nutrients and organisms; feedback highlights the missing prerequisite.
+- A. The burned site may retain soil, nutrients, seeds, and surviving organisms.
 - B. Plant energy stored after plants use some energy for respiration.
-- C. All solar energy captured by plants before subtracting respiration. Trophic level: a feeding position in a food web. Succession: predictable community change after new land or disturbance. Niche: the resources and conditions a species uses.
+- C. All solar energy captured by plants before subtracting respiration.
 - D. Plants use part of GPP, and most remaining energy is lost as heat between levels.
 
 **Correct answer:** A
 
-**Hint - exact player copy:** Use the stated evidence and the conditions for succession, biomes, aquatic zones; do not choose an option merely because it names a familiar term.
+**Hint - exact player copy:** Identify the defining relationship or mechanism for succession, biomes, aquatic zones. All needed information is in this question.
 
 **Option feedback - exact player copy:**
 
-- A: Correct. existing soil preserves nutrients and organisms; feedback highlights the missing prerequisite.
-- B: This describes Net primary productivity (NPP), not succession, biomes, aquatic zones. It does not account for the quantities, conditions, or evidence in this environmental science case.
-- C: This describes Gross primary productivity (GPP), not succession, biomes, aquatic zones. It does not account for the quantities, conditions, or evidence in this environmental science case.
-- D: This describes GPP/NPP and 10% law, not succession, biomes, aquatic zones. It does not account for the quantities, conditions, or evidence in this environmental science case.
+- A: Correct. The burned site may retain soil, nutrients, seeds, and surviving organisms.
+- B: This describes net primary productivity (NPP). It does not answer the question about succession, biomes, aquatic zones.
+- C: This describes gross primary productivity (GPP). It does not answer the question about succession, biomes, aquatic zones.
+- D: This describes gross and net primary productivity and trophic energy transfer. It does not answer the question about succession, biomes, aquatic zones.
+
 ### Review question 5
 
-**Prompt - exact player copy:** Before another Ecological Limits decision, the team knows this: because damaged soils recover at different rates, species using them also face different risk. Rank the cases now so limited time goes first to the failures that can change the mission decision. Which interpretation of the displayed evidence correctly uses the mission concept?
+
+**Prompt - exact player copy:** Which conclusion is supported by these survival results?
 
 **Figure - exact player copy:**
 
 ```json
 {
   "kind": "bars",
-  "xLabel": "Habitat condition",
-  "yLabel": "Relative survival",
-  "caption": "A generalist retains survival across more habitat conditions.",
+  "xLabel": "Category",
+  "yLabel": "Survival (%)",
+  "caption": "Survival under two habitat conditions",
   "bars": [
     {
-      "name": "Generalist, condition 1",
-      "value": 72
+      "name": "Broad-niche, wet",
+      "value": 70
     },
     {
-      "name": "Generalist, condition 2",
-      "value": 68
+      "name": "Broad-niche, dry",
+      "value": 65
     },
     {
-      "name": "Generalist, condition 3",
-      "value": 64
-    },
-    {
-      "name": "Specialist, condition 1",
+      "name": "Narrow-niche, wet",
       "value": 90
     },
     {
-      "name": "Specialist, condition 2",
-      "value": 42
-    },
-    {
-      "name": "Specialist, condition 3",
-      "value": 8
+      "name": "Narrow-niche, dry",
+      "value": 10
     }
   ]
 }
 ```
 
-
 **Options - exact player copy:**
 
-- A. Plant energy stored after plants use some energy for respiration.
-- B. Narrow niches and isolation limit recolonization; feedback contrasts niche breadth.
-- C. All solar energy captured by plants before subtracting respiration. Trophic level: a feeding position in a food web. Succession: predictable community change after new land or disturbance. Niche: the resources and conditions a species uses.
-- D. Plants use part of GPP, and most remaining energy is lost as heat between levels.
+- A. The broad-niche species dies out in dry conditions.
+- B. The narrow-niche species is more vulnerable to the tested dry condition.
+- C. Both species respond equally to drying.
+- D. The results prove every narrow-niche species always does worse.
 
 **Correct answer:** B
 
-**Hint - exact player copy:** Read the axes, units, direction, and any threshold before comparing the choices.
+**Hint - exact player copy:** Compare each species across the same two conditions.
 
 **Option feedback - exact player copy:**
 
-- A: This describes Net primary productivity (NPP), not generalist/specialist, island biogeography, life history preview. It does not account for the quantities, conditions, or evidence in this environmental science case.
-- B: Correct. narrow niches and isolation limit recolonization; feedback contrasts niche breadth.
-- C: This describes Gross primary productivity (GPP), not generalist/specialist, island biogeography, life history preview. It does not account for the quantities, conditions, or evidence in this environmental science case.
-- D: This describes GPP/NPP and 10% law, not generalist/specialist, island biogeography, life history preview. It does not account for the quantities, conditions, or evidence in this environmental science case.
+- A: Its dry-condition survival is 65%.
+- B: Correct. The narrow-niche species is more vulnerable to the tested dry condition.
+- C: Their changes in survival are very different.
+- D: The data cover two species and two conditions, not all environments.
+
 ### Review question 6
 
-**Prompt - exact player copy:** the island council applies the lesson from The Sack and the Reef to this follow-up: the energy and habitat limits are mapped, yet fertilizer is proposed as the escape. Run the reversible comparison now so the crew can tell whether the proposed cause changes the measured response. Which environmental-science conclusion correctly applies limiting nutrients and controlled experiment?
+
+**Prompt - exact player copy:** How can an experiment test whether nitrogen limits plant growth?
 
 **Options - exact player copy:**
 
 - A. Plant energy stored after plants use some energy for respiration.
-- B. All solar energy captured by plants before subtracting respiration. Trophic level: a feeding position in a food web. Succession: predictable community change after new land or disturbance. Niche: the resources and conditions a species uses.
-- C. Holding other variables fixed and reversing nitrogen isolates its effect; retry identifies any changed control.
+- B. All solar energy captured by plants before subtracting respiration.
+- C. Change nitrogen supply while holding other important conditions fixed, and compare growth with a control.
 - D. Plants use part of GPP, and most remaining energy is lost as heat between levels.
 
 **Correct answer:** C
 
-**Hint - exact player copy:** Use the stated evidence and the conditions for limiting nutrients and controlled experiment; do not choose an option merely because it names a familiar term.
+**Hint - exact player copy:** Identify the defining relationship or mechanism for limiting nutrients and controlled experiment. All needed information is in this question.
 
 **Option feedback - exact player copy:**
 
-- A: This describes Net primary productivity (NPP), not limiting nutrients and controlled experiment. It does not account for the quantities, conditions, or evidence in this environmental science case.
-- B: This describes Gross primary productivity (GPP), not limiting nutrients and controlled experiment. It does not account for the quantities, conditions, or evidence in this environmental science case.
-- C: Correct. holding other variables fixed and reversing nitrogen isolates its effect; retry identifies any changed control.
-- D: This describes GPP/NPP and 10% law, not limiting nutrients and controlled experiment. It does not account for the quantities, conditions, or evidence in this environmental science case.
-**Optional review completion - exact player copy:** Excellent work. You went beyond the required mission and strengthened the ideas behind your decision.
+- A: This describes net primary productivity (NPP). It does not answer the question about limiting nutrients and controlled experiment.
+- B: This describes gross primary productivity (GPP). It does not answer the question about limiting nutrients and controlled experiment.
+- C: Correct. Change nitrogen supply while holding other important conditions fixed, and compare growth with a control.
+- D: This describes gross and net primary productivity and trophic energy transfer. It does not answer the question about limiting nutrients and controlled experiment.
+
+**Optional review completion - exact player copy:** Good work. You have completed six independent practice questions.
+
 ## Quick concept review
 - NPP is plant energy left after respiration.
 - About 10% of energy reaches the next trophic level.
@@ -2346,89 +2386,165 @@ Mission decision: The well is salty because pumping lowered fresh water pressure
 
 **Availability:** Reveal only after mission completion when the player selects **GO DEEPER**. This section is optional, ungraded for campaign progress, and does not change metrics, Recovery Points, or the next-mission unlock.
 
-**Secondary briefing card - exact player copy:** You completed Salt Before Summer. Choose GO DEEPER to revisit the four decisions and explore related course ideas; this optional review does not change your metrics or delay the next mission.
+**Secondary briefing card - exact player copy:** Try six independent practice questions. Each includes its own context and any needed data; no mission records are required.
 
 ### Review focus
 
-No additional prerequisite is required. These AP-style questions apply the mission's course ideas to follow-up evidence, including related topics not required in the four main stops.
+No additional prerequisite is required. These practice questions review related course ideas. Each question stands alone, including its choices and figure.
 
 ### Review question 1
 
-**Prompt - exact player copy:** In a follow-up to Salt Before Summer, the nitrate surplus points toward groundwater, and the chloride warning demands a travel-time check. Assign a response to each condition now so the crew has an action rule it can follow under pressure. Which environmental-science conclusion correctly applies Porosity?
+
+**Prompt - exact player copy:** Which statement best explains porosity?
 
 **Options - exact player copy:**
 
 - A. Weathering creates particles; texture and horizons govern water movement.
-- B. The fraction of material made of open space. Permeability: how readily connected pores transmit water. Saltwater intrusion: seawater moving into a freshwater aquifer. Soil horizon: a layer formed by additions, losses, movement, and change.
-- C. Different tracers separate seawater from fertilizer; retry overlays the quiet nitrate series.
-- D. Visitor sewage or fertilizer should raise nitrate; road salt would not track falling aquifer head.
+- B. Different tracers separate seawater from fertilizer
+- C. Visitor sewage or fertilizer should raise nitrate; road salt would not track falling aquifer head.
+- D. The fraction of material made of open space.
 
-**Correct answer:** B
+**Correct answer:** D
 
-**Hint - exact player copy:** Use the stated evidence and the conditions for Porosity; do not choose an option merely because it names a familiar term.
+**Hint - exact player copy:** Identify the defining relationship or mechanism for porosity. All needed information is in this question.
 
 **Option feedback - exact player copy:**
 
-- A: This describes soil horizons/weathering/texture, not Porosity. It does not account for the quantities, conditions, or evidence in this environmental science case.
-- B: Correct. the fraction of material made of open space. Permeability: how readily connected pores transmit water. Saltwater intrusion: seawater moving into a freshwater aquifer. Soil horizon: a layer formed by additions, losses, movement, and change.
-- C: This describes aquifer profile, not Porosity. It does not account for the quantities, conditions, or evidence in this environmental science case.
-- D: This describes coupled groundwater evidence, not Porosity. It does not account for the quantities, conditions, or evidence in this environmental science case.
+- A: This describes soil horizons and weathering and texture. It does not answer the question about porosity.
+- B: This describes tracing a source of groundwater contamination. It does not answer the question about porosity.
+- C: This describes coupled groundwater evidence. It does not answer the question about porosity.
+- D: Correct. The fraction of material made of open space.
+
 ### Review question 2
 
-**Prompt - exact player copy:** the island council receives a second case related to Salt Before Summer: the nitrate surplus points toward groundwater, and the chloride warning demands a travel-time check. Assign a response to each condition now so the crew has an action rule it can follow under pressure. Which environmental-science conclusion correctly applies soil horizons/weathering/texture?
+
+**Prompt - exact player copy:** Which relationship links soil formation to water movement?
 
 **Options - exact player copy:**
 
-- A. The fraction of material made of open space. Permeability: how readily connected pores transmit water. Saltwater intrusion: seawater moving into a freshwater aquifer. Soil horizon: a layer formed by additions, losses, movement, and change.
-- B. Different tracers separate seawater from fertilizer; retry overlays the quiet nitrate series.
-- C. Weathering creates particles; texture and horizons govern water movement.
+- A. Weathering creates soil particles; particle texture and soil structure affect how water moves and is stored.
+- B. The fraction of material made of open space.
+- C. Different tracers separate seawater from fertilizer
 - D. Visitor sewage or fertilizer should raise nitrate; road salt would not track falling aquifer head.
 
-**Correct answer:** C
+**Correct answer:** A
 
-**Hint - exact player copy:** Use the stated evidence and the conditions for soil horizons/weathering/texture; do not choose an option merely because it names a familiar term.
+**Hint - exact player copy:** Identify the defining relationship or mechanism for soil horizons and weathering and texture. All needed information is in this question.
 
 **Option feedback - exact player copy:**
 
-- A: This describes Porosity, not soil horizons/weathering/texture. It does not account for the quantities, conditions, or evidence in this environmental science case.
-- B: This describes aquifer profile, not soil horizons/weathering/texture. It does not account for the quantities, conditions, or evidence in this environmental science case.
-- C: Correct. weathering creates particles; texture and horizons govern water movement.
-- D: This describes coupled groundwater evidence, not soil horizons/weathering/texture. It does not account for the quantities, conditions, or evidence in this environmental science case.
+- A: Correct. Weathering creates soil particles; particle texture and soil structure affect how water moves and is stored.
+- B: This describes porosity. It does not answer the question about soil horizons and weathering and texture.
+- C: This describes tracing a source of groundwater contamination. It does not answer the question about soil horizons and weathering and texture.
+- D: This describes coupled groundwater evidence. It does not answer the question about soil horizons and weathering and texture.
+
 ### Review question 3
 
-**Prompt - exact player copy:** A teammate rechecks Salt Before Summer using new evidence: the nitrate surplus points toward groundwater, and the chloride warning demands a travel-time check. Assign a response to each condition now so the crew has an action rule it can follow under pressure. Which interpretation of the displayed evidence correctly uses the mission concept?
+
+**Prompt - exact player copy:** Which measured change should a source explanation account for?
+
+**Figure - exact player copy:**
+
+```json
+{
+  "kind": "bars",
+  "xLabel": "Category",
+  "yLabel": "Concentration (mg/L)",
+  "caption": "Matched groundwater samples",
+  "bars": [
+    {
+      "name": "Upstream nitrate",
+      "value": 2
+    },
+    {
+      "name": "Downstream nitrate",
+      "value": 2
+    },
+    {
+      "name": "Upstream chloride",
+      "value": 50
+    },
+    {
+      "name": "Downstream chloride",
+      "value": 200
+    }
+  ]
+}
+```
+
+**Options - exact player copy:**
+
+- A. Both nitrate and chloride quadruple.
+- B. Chloride rises downstream while nitrate stays the same.
+- C. Only nitrate rises.
+- D. Neither tracer changes.
+
+**Correct answer:** B
+
+**Hint - exact player copy:** Compare the same tracer at the two locations.
+
+**Option feedback - exact player copy:**
+
+- A: Nitrate remains at 2 mg/L.
+- B: Correct. Chloride rises downstream while nitrate stays the same.
+- C: The plotted change is in chloride.
+- D: Chloride changes from 50 to 200 mg/L.
+
+### Review question 4
+
+
+**Prompt - exact player copy:** A coastal well becomes saltier as freshwater head falls, while nitrate remains unchanged. Which explanation best fits this pattern?
+
+**Options - exact player copy:**
+
+- A. The fraction of material made of open space.
+- B. Weathering creates particles; texture and horizons govern water movement.
+- C. Reduced freshwater pressure allows seawater intrusion; the quiet nitrate record weakens a fertilizer explanation.
+- D. Different tracers separate seawater from fertilizer
+
+**Correct answer:** C
+
+**Hint - exact player copy:** Identify the defining relationship or mechanism for coupled groundwater evidence. All needed information is in this question.
+
+**Option feedback - exact player copy:**
+
+- A: This describes porosity. It does not answer the question about coupled groundwater evidence.
+- B: This describes soil horizons and weathering and texture. It does not answer the question about coupled groundwater evidence.
+- C: Correct. Reduced freshwater pressure allows seawater intrusion; the quiet nitrate record weakens a fertilizer explanation.
+- D: This describes tracing a source of groundwater contamination. It does not answer the question about coupled groundwater evidence.
+
+### Review question 5
+
+
+**Prompt - exact player copy:** A rule is fixed in advance: stop at the first check with a reading of at least 5 units. At which plotted time should the stop occur?
 
 **Figure - exact player copy:**
 
 ```json
 {
   "kind": "line",
-  "xLabel": "Distance inland (km)",
-  "yLabel": "Chloride (mg/L)",
-  "caption": "Chloride decreases with distance from the coast.",
+  "xLabel": "Time (min)",
+  "yLabel": "Reading (units)",
+  "caption": "Readings at four successive checks",
   "series": [
     {
-      "name": "Chloride",
+      "name": "Reading",
       "points": [
         [
           0,
-          620
+          2
+        ],
+        [
+          1,
+          3
         ],
         [
           2,
-          410
+          5
         ],
         [
-          4,
-          240
-        ],
-        [
-          6,
-          130
-        ],
-        [
-          8,
-          75
+          3,
+          6
         ]
       ]
     }
@@ -2436,131 +2552,49 @@ No additional prerequisite is required. These AP-style questions apply the missi
 }
 ```
 
-
 **Options - exact player copy:**
 
-- A. The fraction of material made of open space. Permeability: how readily connected pores transmit water. Saltwater intrusion: seawater moving into a freshwater aquifer. Soil horizon: a layer formed by additions, losses, movement, and change.
-- B. Weathering creates particles; texture and horizons govern water movement.
-- C. Visitor sewage or fertilizer should raise nitrate; road salt would not track falling aquifer head.
-- D. Different tracers separate seawater from fertilizer; retry overlays the quiet nitrate series.
+- A. 1 minute.
+- B. 3 minutes.
+- C. No stop is needed because the average is below 5.
+- D. 2 minutes.
 
 **Correct answer:** D
 
-**Hint - exact player copy:** Read the axes, units, direction, and any threshold before comparing the choices.
+**Hint - exact player copy:** At least includes equality.
 
 **Option feedback - exact player copy:**
 
-- A: This describes Porosity, not aquifer profile. It does not account for the quantities, conditions, or evidence in this environmental science case.
-- B: This describes soil horizons/weathering/texture, not aquifer profile. It does not account for the quantities, conditions, or evidence in this environmental science case.
-- C: This describes coupled groundwater evidence, not aquifer profile. It does not account for the quantities, conditions, or evidence in this environmental science case.
-- D: Correct. different tracers separate seawater from fertilizer; retry overlays the quiet nitrate series.
-### Review question 4
+- A: The reading is only 3 units at 1 minute.
+- B: Waiting until 3 minutes misses the first qualifying check.
+- C: The rule applies to each reading, not the average.
+- D: Correct. 2 minutes.
 
-**Prompt - exact player copy:** An unseen case extends Salt Before Summer: the probe found a coastal salt front before the tourist peak. Which environmental-science conclusion correctly applies coupled groundwater evidence?
+### Review question 6
+
+
+**Prompt - exact player copy:** Which statement best explains system?
 
 **Options - exact player copy:**
 
-- A. Visitor sewage or fertilizer should raise nitrate; road salt would not track falling aquifer head.
-- B. The fraction of material made of open space. Permeability: how readily connected pores transmit water. Saltwater intrusion: seawater moving into a freshwater aquifer. Soil horizon: a layer formed by additions, losses, movement, and change.
+- A. A set of connected parts studied together.
+- B. The fraction of material made of open space.
 - C. Weathering creates particles; texture and horizons govern water movement.
-- D. Different tracers separate seawater from fertilizer; retry overlays the quiet nitrate series.
+- D. Different tracers separate seawater from fertilizer
 
 **Correct answer:** A
 
-**Hint - exact player copy:** Use the stated evidence and the conditions for coupled groundwater evidence; do not choose an option merely because it names a familiar term.
+**Hint - exact player copy:** Identify the defining relationship or mechanism for system. All needed information is in this question.
 
 **Option feedback - exact player copy:**
 
-- A: Correct. visitor sewage or fertilizer should raise nitrate; road salt would not track falling aquifer head.
-- B: This describes Porosity, not coupled groundwater evidence. It does not account for the quantities, conditions, or evidence in this environmental science case.
-- C: This describes soil horizons/weathering/texture, not coupled groundwater evidence. It does not account for the quantities, conditions, or evidence in this environmental science case.
-- D: This describes aquifer profile, not coupled groundwater evidence. It does not account for the quantities, conditions, or evidence in this environmental science case.
-### Review question 5
+- A: Correct. A set of connected parts studied together.
+- B: This describes porosity. It does not answer the question about system.
+- C: This describes soil horizons and weathering and texture. It does not answer the question about system.
+- D: This describes tracing a source of groundwater contamination. It does not answer the question about system.
 
-**Prompt - exact player copy:** Before another Aquifer Warning decision, the team knows this: the nitrate surplus points toward groundwater, and the chloride warning demands a travel-time check. Assign a response to each condition now so the crew has an action rule it can follow under pressure. Which interpretation of the displayed evidence correctly uses the mission concept?
+**Optional review completion - exact player copy:** Good work. You have completed six independent practice questions.
 
-**Figure - exact player copy:**
-
-```json
-{
-  "kind": "line",
-  "xLabel": "Ordered measurement",
-  "yLabel": "Decision quantity",
-  "caption": "Measurements approach and then cross the action threshold.",
-  "series": [
-    {
-      "name": "Measured",
-      "points": [
-        [
-          1,
-          42
-        ],
-        [
-          2,
-          48
-        ],
-        [
-          3,
-          55
-        ],
-        [
-          4,
-          63
-        ],
-        [
-          5,
-          71
-        ]
-      ]
-    }
-  ],
-  "limit": {
-    "at": 60,
-    "label": "Action threshold"
-  }
-}
-```
-
-
-**Options - exact player copy:**
-
-- A. The fraction of material made of open space. Permeability: how readily connected pores transmit water. Saltwater intrusion: seawater moving into a freshwater aquifer. Soil horizon: a layer formed by additions, losses, movement, and change.
-- B. Freshwater pressure holds seawater back; waiting below 1.0 m advances the front.
-- C. Weathering creates particles; texture and horizons govern water movement.
-- D. Different tracers separate seawater from fertilizer; retry overlays the quiet nitrate series.
-
-**Correct answer:** B
-
-**Hint - exact player copy:** Read the axes, units, direction, and any threshold before comparing the choices.
-
-**Option feedback - exact player copy:**
-
-- A: This describes Porosity, not environmental thresholds. It does not account for the quantities, conditions, or evidence in this environmental science case.
-- B: Correct. freshwater pressure holds seawater back; waiting below 1.0 m advances the front.
-- C: This describes soil horizons/weathering/texture, not environmental thresholds. It does not account for the quantities, conditions, or evidence in this environmental science case.
-- D: This describes aquifer profile, not environmental thresholds. It does not account for the quantities, conditions, or evidence in this environmental science case.
-### Review question 6
-
-**Prompt - exact player copy:** the island council applies the lesson from Salt Before Summer to this follow-up: with the permeable coastal layer identified, take depth readings from inland to shore. Sample the locations in order now so the crew can identify where the system first departs from normal. Which environmental-science conclusion correctly applies System?
-
-**Options - exact player copy:**
-
-- A. The fraction of material made of open space. Permeability: how readily connected pores transmit water. Saltwater intrusion: seawater moving into a freshwater aquifer. Soil horizon: a layer formed by additions, losses, movement, and change.
-- B. Weathering creates particles; texture and horizons govern water movement.
-- C. A set of connected parts studied together. Reservoir: a place where matter is stored. Flux: an amount moving between stores per unit time. Watershed: land whose water drains to one shared water body.
-- D. Different tracers separate seawater from fertilizer; retry overlays the quiet nitrate series.
-
-**Correct answer:** C
-
-**Hint - exact player copy:** Use the stated evidence and the conditions for System; do not choose an option merely because it names a familiar term.
-
-**Option feedback - exact player copy:**
-
-- A: This describes Porosity, not System. It does not account for the quantities, conditions, or evidence in this environmental science case.
-- B: This describes soil horizons/weathering/texture, not System. It does not account for the quantities, conditions, or evidence in this environmental science case.
-- C: Correct. a set of connected parts studied together. Reservoir: a place where matter is stored. Flux: an amount moving between stores per unit time. Watershed: land whose water drains to one shared water body.
-- D: This describes aquifer profile, not System. It does not account for the quantities, conditions, or evidence in this environmental science case.
-**Optional review completion - exact player copy:** Excellent work. You went beyond the required mission and strengthened the ideas behind your decision.
 ## Quick concept review
 - Soil texture affects storage and water movement.
 - Quiet nitrate helped distinguish seawater from farm runoff.
@@ -3055,15 +3089,16 @@ The screen also shows `TIME {elapsed} / TARGET`, `INCORRECT SUBMISSIONS {incorre
 
 **Availability:** Reveal only after mission completion when the player selects **GO DEEPER**. This section is optional, ungraded for campaign progress, and does not change metrics, Recovery Points, or the next-mission unlock.
 
-**Secondary briefing card - exact player copy:** You completed The Same Catch, Twice the Work. Choose GO DEEPER to revisit the four decisions and explore related course ideas; this optional review does not change your metrics or delay the next mission.
+**Secondary briefing card - exact player copy:** Try six independent practice questions. Each includes its own context and any needed data; no mission records are required.
 
 ### Review focus
 
-No additional prerequisite is required. These AP-style questions apply the mission's course ideas to follow-up evidence, including related topics not required in the four main stops.
+No additional prerequisite is required. These practice questions review related course ideas. Each question stands alone, including its choices and figure.
 
 ### Review question 1
 
-**Prompt - exact player copy:** In a follow-up to The Same Catch, Twice the Work, the paper column recovered on Day 1 includes boat-hours that the electronic sales record omitted. Which environmental-science conclusion correctly applies Generalist?
+
+**Prompt - exact player copy:** Which statement best explains generalist?
 
 **Options - exact player copy:**
 
@@ -3074,17 +3109,19 @@ No additional prerequisite is required. These AP-style questions apply the missi
 
 **Correct answer:** B
 
-**Hint - exact player copy:** Use the stated evidence and the conditions for Generalist; do not choose an option merely because it names a familiar term.
+**Hint - exact player copy:** Identify the defining relationship or mechanism for generalist. All needed information is in this question.
 
 **Option feedback - exact player copy:**
 
-- A: This describes Specialist, not Generalist. It does not account for the quantities, conditions, or evidence in this environmental science case.
-- B: Correct. species with a broad niche.
-- C: This describes K-selected, not Generalist. It does not account for the quantities, conditions, or evidence in this environmental science case.
-- D: This describes Carrying capacity, not Generalist. It does not account for the quantities, conditions, or evidence in this environmental science case.
+- A: This describes specialist. It does not answer the question about generalist.
+- B: Correct. Species with a broad niche.
+- C: This describes k-selected. It does not answer the question about generalist.
+- D: This describes carrying capacity. It does not answer the question about generalist.
+
 ### Review question 2
 
-**Prompt - exact player copy:** the island council receives a second case related to The Same Catch, Twice the Work: the paper column recovered on Day 1 includes boat-hours that the electronic sales record omitted. Which environmental-science conclusion correctly applies Specialist?
+
+**Prompt - exact player copy:** Which statement best explains specialist?
 
 **Options - exact player copy:**
 
@@ -3095,17 +3132,19 @@ No additional prerequisite is required. These AP-style questions apply the missi
 
 **Correct answer:** C
 
-**Hint - exact player copy:** Use the stated evidence and the conditions for Specialist; do not choose an option merely because it names a familiar term.
+**Hint - exact player copy:** Identify the defining relationship or mechanism for specialist. All needed information is in this question.
 
 **Option feedback - exact player copy:**
 
-- A: This describes Generalist, not Specialist. It does not account for the quantities, conditions, or evidence in this environmental science case.
-- B: This describes K-selected, not Specialist. It does not account for the quantities, conditions, or evidence in this environmental science case.
-- C: Correct. species with a narrow niche. r-selected: many young, short lives, high early mortality.
-- D: This describes Carrying capacity, not Specialist. It does not account for the quantities, conditions, or evidence in this environmental science case.
+- A: This describes generalist. It does not answer the question about specialist.
+- B: This describes k-selected. It does not answer the question about specialist.
+- C: Correct. Species with a narrow niche. r-selected: many young, short lives, high early mortality.
+- D: This describes carrying capacity. It does not answer the question about specialist.
+
 ### Review question 3
 
-**Prompt - exact player copy:** A teammate rechecks The Same Catch, Twice the Work using new evidence: the paper column recovered on Day 1 includes boat-hours that the electronic sales record omitted. Which environmental-science conclusion correctly applies K-selected?
+
+**Prompt - exact player copy:** Which statement best explains k-selected?
 
 **Options - exact player copy:**
 
@@ -3116,17 +3155,19 @@ No additional prerequisite is required. These AP-style questions apply the missi
 
 **Correct answer:** D
 
-**Hint - exact player copy:** Use the stated evidence and the conditions for K-selected; do not choose an option merely because it names a familiar term.
+**Hint - exact player copy:** Identify the defining relationship or mechanism for k-selected. All needed information is in this question.
 
 **Option feedback - exact player copy:**
 
-- A: This describes Generalist, not K-selected. It does not account for the quantities, conditions, or evidence in this environmental science case.
-- B: This describes Specialist, not K-selected. It does not account for the quantities, conditions, or evidence in this environmental science case.
-- C: This describes Carrying capacity, not K-selected. It does not account for the quantities, conditions, or evidence in this environmental science case.
-- D: Correct. few young, long lives, stable populations.
+- A: This describes generalist. It does not answer the question about k-selected.
+- B: This describes specialist. It does not answer the question about k-selected.
+- C: This describes carrying capacity. It does not answer the question about k-selected.
+- D: Correct. Few young, long lives, stable populations.
+
 ### Review question 4
 
-**Prompt - exact player copy:** An unseen case extends The Same Catch, Twice the Work: the paper column recovered on Day 1 includes boat-hours that the electronic sales record omitted. Which environmental-science conclusion correctly applies Carrying capacity?
+
+**Prompt - exact player copy:** Which statement best explains carrying capacity?
 
 **Options - exact player copy:**
 
@@ -3137,57 +3178,63 @@ No additional prerequisite is required. These AP-style questions apply the missi
 
 **Correct answer:** A
 
-**Hint - exact player copy:** Use the stated evidence and the conditions for Carrying capacity; do not choose an option merely because it names a familiar term.
+**Hint - exact player copy:** Identify the defining relationship or mechanism for carrying capacity. All needed information is in this question.
 
 **Option feedback - exact player copy:**
 
-- A: Correct. largest population an environment can sustain.
-- B: This describes Generalist, not Carrying capacity. It does not account for the quantities, conditions, or evidence in this environmental science case.
-- C: This describes Specialist, not Carrying capacity. It does not account for the quantities, conditions, or evidence in this environmental science case.
-- D: This describes K-selected, not Carrying capacity. It does not account for the quantities, conditions, or evidence in this environmental science case.
+- A: Correct. Largest population an environment can sustain.
+- B: This describes generalist. It does not answer the question about carrying capacity.
+- C: This describes specialist. It does not answer the question about carrying capacity.
+- D: This describes k-selected. It does not answer the question about carrying capacity.
+
 ### Review question 5
 
-**Prompt - exact player copy:** Before another Fishery Ceiling decision, the team knows this: the paper column recovered on Day 1 includes boat-hours that the electronic sales record omitted. Which environmental-science conclusion correctly applies catch per unit effort | population limits | D1 trace | RETRIEVE | L2 | clue?
+
+**Prompt - exact player copy:** A fishery lands the same catch as last year but doubles its boat-hours. What warning does this provide?
 
 **Options - exact player copy:**
 
 - A. Species with a broad niche.
-- B. Falling catch per effort signals depletion hidden by added work.
+- B. Catch per unit effort has fallen, which can signal depletion masked by greater fishing effort.
 - C. Species with a narrow niche. r-selected: many young, short lives, high early mortality.
 - D. Few young, long lives, stable populations.
 
 **Correct answer:** B
 
-**Hint - exact player copy:** Use the stated evidence and the conditions for catch per unit effort | population limits | D1 trace | RETRIEVE | L2 | clue; do not choose an option merely because it names a familiar term.
+**Hint - exact player copy:** Identify the defining relationship or mechanism for catch per unit effort. All needed information is in this question.
 
 **Option feedback - exact player copy:**
 
-- A: This describes Generalist, not catch per unit effort | population limits | D1 trace | RETRIEVE | L2 | clue. It does not account for the quantities, conditions, or evidence in this environmental science case.
-- B: Correct. falling catch per effort signals depletion hidden by added work
-- C: This describes Specialist, not catch per unit effort | population limits | D1 trace | RETRIEVE | L2 | clue. It does not account for the quantities, conditions, or evidence in this environmental science case.
-- D: This describes K-selected, not catch per unit effort | population limits | D1 trace | RETRIEVE | L2 | clue. It does not account for the quantities, conditions, or evidence in this environmental science case.
+- A: This describes generalist. It does not answer the question about catch per unit effort.
+- B: Correct. Catch per unit effort has fallen, which can signal depletion masked by greater fishing effort.
+- C: This describes specialist. It does not answer the question about catch per unit effort.
+- D: This describes k-selected. It does not answer the question about catch per unit effort.
+
 ### Review question 6
 
-**Prompt - exact player copy:** the island council applies the lesson from The Same Catch, Twice the Work to this follow-up: because catch efficiency fell 40%, landings no longer measure stock health. The next action depends on selecting the conclusion that fits all of those facts. Which environmental-science conclusion correctly applies survivorship/life history | population limits | 5.1 | INTRODUCE | L3 | evidence?
+
+**Prompt - exact player copy:** A fish species loses most offspring before adulthood. Why can nursery habitat be important even while adults remain common?
 
 **Options - exact player copy:**
 
 - A. Species with a broad niche.
 - B. Species with a narrow niche. r-selected: many young, short lives, high early mortality.
-- C. High early mortality makes nursery habitat decisive even when adults remain visible.
+- C. High early mortality makes successful juvenile survival important to future recruitment.
 - D. Few young, long lives, stable populations.
 
 **Correct answer:** C
 
-**Hint - exact player copy:** Use the stated evidence and the conditions for survivorship/life history | population limits | 5.1 | INTRODUCE | L3 | evidence; do not choose an option merely because it names a familiar term.
+**Hint - exact player copy:** Identify the defining relationship or mechanism for survivorship and life history. All needed information is in this question.
 
 **Option feedback - exact player copy:**
 
-- A: This describes Generalist, not survivorship/life history | population limits | 5.1 | INTRODUCE | L3 | evidence. It does not account for the quantities, conditions, or evidence in this environmental science case.
-- B: This describes Specialist, not survivorship/life history | population limits | 5.1 | INTRODUCE | L3 | evidence. It does not account for the quantities, conditions, or evidence in this environmental science case.
-- C: Correct. high early mortality makes nursery habitat decisive even when adults remain visible
-- D: This describes K-selected, not survivorship/life history | population limits | 5.1 | INTRODUCE | L3 | evidence. It does not account for the quantities, conditions, or evidence in this environmental science case.
-**Optional review completion - exact player copy:** Excellent work. You went beyond the required mission and strengthened the ideas behind your decision.
+- A: This describes generalist. It does not answer the question about survivorship and life history.
+- B: This describes specialist. It does not answer the question about survivorship and life history.
+- C: Correct. High early mortality makes successful juvenile survival important to future recruitment.
+- D: This describes k-selected. It does not answer the question about survivorship and life history.
+
+**Optional review completion - exact player copy:** Good work. You have completed six independent practice questions.
+
 ## Quick concept review
 - Re-read the mechanism established by the four stops.
 - Re-use the governing equation or causal comparison with units.
@@ -3540,15 +3587,39 @@ The screen also shows `TIME {elapsed} / TARGET`, `INCORRECT SUBMISSIONS {incorre
 
 **Availability:** Reveal only after mission completion when the player selects **GO DEEPER**. This section is optional, ungraded for campaign progress, and does not change metrics, Recovery Points, or the next-mission unlock.
 
-**Secondary briefing card - exact player copy:** You completed Who Checks the Limit?. Choose GO DEEPER to revisit the four decisions and explore related course ideas; this optional review does not change your metrics or delay the next mission.
+**Secondary briefing card - exact player copy:** Try six independent practice questions. Each includes its own context and any needed data; no mission records are required.
 
 ### Review focus
 
-No additional prerequisite is required. These AP-style questions apply the mission's course ideas to follow-up evidence, including related topics not required in the four main stops.
+No additional prerequisite is required. These practice questions review related course ideas. Each question stands alone, including its choices and figure.
 
 ### Review question 1
 
-**Prompt - exact player copy:** In a follow-up to Who Checks the Limit?, with practices matched to mechanisms, the common needs a 100-point package. Spend the evidence budget now on tests that can distinguish the explanations still in play. Which environmental-science conclusion correctly applies Tragedy of the commons?
+
+**Prompt - exact player copy:** Which statement best explains tragedy of the commons?
+
+**Options - exact player copy:**
+
+- A. Harvest that does not reduce future supply.
+- B. Productive land and water needed to support consumption and waste.
+- C. Pest control combining monitoring, prevention, and limited targeted treatment.
+- D. Overuse of a shared resource.
+
+**Correct answer:** D
+
+**Hint - exact player copy:** Identify the defining relationship or mechanism for tragedy of the commons. All needed information is in this question.
+
+**Option feedback - exact player copy:**
+
+- A: This describes sustainable yield. It does not answer the question about tragedy of the commons.
+- B: This describes ecological footprint. It does not answer the question about tragedy of the commons.
+- C: This describes integrated pest management (IPM). It does not answer the question about tragedy of the commons.
+- D: Correct. Overuse of a shared resource.
+
+### Review question 2
+
+
+**Prompt - exact player copy:** Which statement best explains sustainable yield?
 
 **Options - exact player copy:**
 
@@ -3557,19 +3628,21 @@ No additional prerequisite is required. These AP-style questions apply the missi
 - C. Productive land and water needed to support consumption and waste.
 - D. Pest control combining monitoring, prevention, and limited targeted treatment.
 
-**Correct answer:** B
+**Correct answer:** A
 
-**Hint - exact player copy:** Use the stated evidence and the conditions for Tragedy of the commons; do not choose an option merely because it names a familiar term.
+**Hint - exact player copy:** Identify the defining relationship or mechanism for sustainable yield. All needed information is in this question.
 
 **Option feedback - exact player copy:**
 
-- A: This describes Sustainable yield, not Tragedy of the commons. It does not account for the quantities, conditions, or evidence in this environmental science case.
-- B: Correct. overuse of a shared resource.
-- C: This describes Ecological footprint, not Tragedy of the commons. It does not account for the quantities, conditions, or evidence in this environmental science case.
-- D: This describes Integrated pest management (IPM), not Tragedy of the commons. It does not account for the quantities, conditions, or evidence in this environmental science case.
-### Review question 2
+- A: Correct. Harvest that does not reduce future supply.
+- B: This describes tragedy of the commons. It does not answer the question about sustainable yield.
+- C: This describes ecological footprint. It does not answer the question about sustainable yield.
+- D: This describes integrated pest management (IPM). It does not answer the question about sustainable yield.
 
-**Prompt - exact player copy:** the island council receives a second case related to Who Checks the Limit?: the fish ceiling is posted, but four landing claims support the morning catch. Before the record can be signed, identify which claims have independent support and which must remain unverified. Which environmental-science conclusion correctly applies Sustainable yield?
+### Review question 3
+
+
+**Prompt - exact player copy:** Which statement best explains ecological footprint?
 
 **Options - exact player copy:**
 
@@ -3578,19 +3651,21 @@ No additional prerequisite is required. These AP-style questions apply the missi
 - C. Harvest that does not reduce future supply.
 - D. Pest control combining monitoring, prevention, and limited targeted treatment.
 
-**Correct answer:** C
+**Correct answer:** B
 
-**Hint - exact player copy:** Use the stated evidence and the conditions for Sustainable yield; do not choose an option merely because it names a familiar term.
+**Hint - exact player copy:** Identify the defining relationship or mechanism for ecological footprint. All needed information is in this question.
 
 **Option feedback - exact player copy:**
 
-- A: This describes Tragedy of the commons, not Sustainable yield. It does not account for the quantities, conditions, or evidence in this environmental science case.
-- B: This describes Ecological footprint, not Sustainable yield. It does not account for the quantities, conditions, or evidence in this environmental science case.
-- C: Correct. harvest that does not reduce future supply.
-- D: This describes Integrated pest management (IPM), not Sustainable yield. It does not account for the quantities, conditions, or evidence in this environmental science case.
-### Review question 3
+- A: This describes tragedy of the commons. It does not answer the question about ecological footprint.
+- B: Correct. Productive land and water needed to support consumption and waste.
+- C: This describes sustainable yield. It does not answer the question about ecological footprint.
+- D: This describes integrated pest management (IPM). It does not answer the question about ecological footprint.
 
-**Prompt - exact player copy:** A teammate rechecks Who Checks the Limit? using new evidence: the fish ceiling is posted, but four landing claims support the morning catch. Before the record can be signed, identify which claims have independent support and which must remain unverified. Which environmental-science conclusion correctly applies Ecological footprint?
+### Review question 4
+
+
+**Prompt - exact player copy:** Which statement best explains integrated pest management (IPM)?
 
 **Options - exact player copy:**
 
@@ -3599,80 +3674,65 @@ No additional prerequisite is required. These AP-style questions apply the missi
 - C. Pest control combining monitoring, prevention, and limited targeted treatment.
 - D. Productive land and water needed to support consumption and waste.
 
-**Correct answer:** D
+**Correct answer:** C
 
-**Hint - exact player copy:** Use the stated evidence and the conditions for Ecological footprint; do not choose an option merely because it names a familiar term.
+**Hint - exact player copy:** Identify the defining relationship or mechanism for integrated pest management (ipm). All needed information is in this question.
 
 **Option feedback - exact player copy:**
 
-- A: This describes Tragedy of the commons, not Ecological footprint. It does not account for the quantities, conditions, or evidence in this environmental science case.
-- B: This describes Sustainable yield, not Ecological footprint. It does not account for the quantities, conditions, or evidence in this environmental science case.
-- C: This describes Integrated pest management (IPM), not Ecological footprint. It does not account for the quantities, conditions, or evidence in this environmental science case.
-- D: Correct. productive land and water needed to support consumption and waste.
-### Review question 4
+- A: This describes tragedy of the commons. It does not answer the question about integrated pest management (ipm).
+- B: This describes sustainable yield. It does not answer the question about integrated pest management (ipm).
+- C: Correct. Pest control combining monitoring, prevention, and limited targeted treatment.
+- D: This describes ecological footprint. It does not answer the question about integrated pest management (ipm).
 
-**Prompt - exact player copy:** An unseen case extends Who Checks the Limit?: the fish ceiling is posted, but four landing claims support the morning catch. Before the record can be signed, identify which claims have independent support and which must remain unverified. Which environmental-science conclusion correctly applies Integrated pest management (IPM)?
+### Review question 5
+
+
+**Prompt - exact player copy:** A fishing operator has paid a permit fee. What does that receipt alone establish?
 
 **Options - exact player copy:**
 
-- A. Pest control combining monitoring, prevention, and limited targeted treatment.
+- A. Overuse of a shared resource.
+- B. Harvest that does not reduce future supply.
+- C. Productive land and water needed to support consumption and waste.
+- D. Payment, not compliance with catch or habitat limits.
+
+**Correct answer:** D
+
+**Hint - exact player copy:** Identify the defining relationship or mechanism for compliance records. All needed information is in this question.
+
+**Option feedback - exact player copy:**
+
+- A: This describes tragedy of the commons. It does not answer the question about compliance records.
+- B: This describes sustainable yield. It does not answer the question about compliance records.
+- C: This describes ecological footprint. It does not answer the question about compliance records.
+- D: Correct. Payment, not compliance with catch or habitat limits.
+
+### Review question 6
+
+
+**Prompt - exact player copy:** Two inspections cost the same, but only one could reveal a violation that changes enforcement. Which has greater decision value?
+
+**Options - exact player copy:**
+
+- A. The inspection whose result could change the enforcement action.
 - B. Overuse of a shared resource.
 - C. Harvest that does not reduce future supply.
 - D. Productive land and water needed to support consumption and waste.
 
 **Correct answer:** A
 
-**Hint - exact player copy:** Use the stated evidence and the conditions for Integrated pest management (IPM); do not choose an option merely because it names a familiar term.
+**Hint - exact player copy:** Identify the defining relationship or mechanism for monitoring design. All needed information is in this question.
 
 **Option feedback - exact player copy:**
 
-- A: Correct. pest control combining monitoring, prevention, and limited targeted treatment.
-- B: This describes Tragedy of the commons, not Integrated pest management (IPM). It does not account for the quantities, conditions, or evidence in this environmental science case.
-- C: This describes Sustainable yield, not Integrated pest management (IPM). It does not account for the quantities, conditions, or evidence in this environmental science case.
-- D: This describes Ecological footprint, not Integrated pest management (IPM). It does not account for the quantities, conditions, or evidence in this environmental science case.
-### Review question 5
+- A: Correct. The inspection whose result could change the enforcement action.
+- B: This describes tragedy of the commons. It does not answer the question about monitoring design.
+- C: This describes sustainable yield. It does not answer the question about monitoring design.
+- D: This describes ecological footprint. It does not answer the question about monitoring design.
 
-**Prompt - exact player copy:** Before another Enforcement Plan decision, the team knows this: the fish ceiling is posted, but four landing claims support the morning catch. Before the record can be signed, identify which claims have independent support and which must remain unverified. Which environmental-science conclusion correctly applies compliance records | evidence | D5 | PRACTICE | L3 | obstacle?
+**Optional review completion - exact player copy:** Good work. You have completed six independent practice questions.
 
-**Options - exact player copy:**
-
-- A. Overuse of a shared resource.
-- B. A receipt proves payment, not ecological compliance.
-- C. Harvest that does not reduce future supply.
-- D. Productive land and water needed to support consumption and waste.
-
-**Correct answer:** B
-
-**Hint - exact player copy:** Use the stated evidence and the conditions for compliance records | evidence | D5 | PRACTICE | L3 | obstacle; do not choose an option merely because it names a familiar term.
-
-**Option feedback - exact player copy:**
-
-- A: This describes Tragedy of the commons, not compliance records | evidence | D5 | PRACTICE | L3 | obstacle. It does not account for the quantities, conditions, or evidence in this environmental science case.
-- B: Correct. a receipt proves payment, not ecological compliance
-- C: This describes Sustainable yield, not compliance records | evidence | D5 | PRACTICE | L3 | obstacle. It does not account for the quantities, conditions, or evidence in this environmental science case.
-- D: This describes Ecological footprint, not compliance records | evidence | D5 | PRACTICE | L3 | obstacle. It does not account for the quantities, conditions, or evidence in this environmental science case.
-### Review question 6
-
-**Prompt - exact player copy:** the island council applies the lesson from Who Checks the Limit? to this follow-up: because the catch cannot prove where it was taken, the council has forty monitoring credits. Choose the next measurement now based on whether its result could change the decision. Which environmental-science conclusion correctly applies monitoring design | policy | 6.1 | COMBINE | L5 | decision?
-
-**Options - exact player copy:**
-
-- A. Overuse of a shared resource.
-- B. Harvest that does not reduce future supply.
-- C. Evidence has value only if it can change enforcement.
-- D. Productive land and water needed to support consumption and waste.
-
-**Correct answer:** C
-
-**Hint - exact player copy:** Use the stated evidence and the conditions for monitoring design | policy | 6.1 | COMBINE | L5 | decision; do not choose an option merely because it names a familiar term.
-
-**Option feedback - exact player copy:**
-
-- A: This describes Tragedy of the commons, not monitoring design | policy | 6.1 | COMBINE | L5 | decision. It does not account for the quantities, conditions, or evidence in this environmental science case.
-- B: This describes Sustainable yield, not monitoring design | policy | 6.1 | COMBINE | L5 | decision. It does not account for the quantities, conditions, or evidence in this environmental science case.
-- C: Correct. evidence has value only if it can change enforcement
-- D: This describes Ecological footprint, not monitoring design | policy | 6.1 | COMBINE | L5 | decision. It does not account for the quantities, conditions, or evidence in this environmental science case.
-**Optional review completion - exact player copy:** Excellent work. You went beyond the required mission and strengthened the ideas behind your decision.
 ## Quick concept review
 - Re-read the mechanism established by the four stops.
 - Re-use the governing equation or causal comparison with units.
@@ -4101,7 +4161,7 @@ The screen also shows `TIME {elapsed} / TARGET`, `INCORRECT SUBMISSIONS {incorre
 
 **Availability:** Reveal only after mission completion when the player selects **GO DEEPER**. This section is optional, ungraded for campaign progress, and does not change metrics, Recovery Points, or the next-mission unlock.
 
-**Secondary briefing card - exact player copy:** You completed The Wet Trail. Choose GO DEEPER to revisit the four decisions and explore related course ideas; this optional review does not change your metrics or delay the next mission.
+**Secondary briefing card - exact player copy:** Try six independent practice questions. Each includes its own context and any needed data; no mission records are required.
 
 ### Additional concepts kept out of the required mission card
 
@@ -4109,7 +4169,8 @@ The screen also shows `TIME {elapsed} / TARGET`, `INCORRECT SUBMISSIONS {incorre
 
 ### Review question 1
 
-**Prompt - exact player copy:** In a follow-up to The Wet Trail, the enforcement ledger counts waste delivered to the tip, but mass still leaves the cell. Open the dependencies now so the team can distinguish independent evidence from readings that repeat one source. Which environmental-science conclusion correctly applies Anaerobic?
+
+**Prompt - exact player copy:** Which statement best explains anaerobic?
 
 **Options - exact player copy:**
 
@@ -4120,17 +4181,19 @@ The screen also shows `TIME {elapsed} / TARGET`, `INCORRECT SUBMISSIONS {incorre
 
 **Correct answer:** B
 
-**Hint - exact player copy:** Use the stated evidence and the conditions for Anaerobic; do not choose an option merely because it names a familiar term.
+**Hint - exact player copy:** Identify the defining relationship or mechanism for anaerobic. All needed information is in this question.
 
 **Option feedback - exact player copy:**
 
-- A: This describes Leachate, not Anaerobic. It does not account for the quantities, conditions, or evidence in this environmental science case.
-- B: Correct. without oxygen.
-- C: This describes Point source, not Anaerobic. It does not account for the quantities, conditions, or evidence in this environmental science case.
-- D: This describes Nonpoint source, not Anaerobic. It does not account for the quantities, conditions, or evidence in this environmental science case.
+- A: This describes leachate. It does not answer the question about anaerobic.
+- B: Correct. Without oxygen.
+- C: This describes point source. It does not answer the question about anaerobic.
+- D: This describes nonpoint source. It does not answer the question about anaerobic.
+
 ### Review question 2
 
-**Prompt - exact player copy:** the island council receives a second case related to The Wet Trail: because leachate can enter groundwater, the treatment proposal must remove hazards in the right order. Build the causal path now so the crew knows which step changes the material or signal before it reaches the next location. Which environmental-science conclusion correctly applies Leachate?
+
+**Prompt - exact player copy:** Which statement best explains leachate?
 
 **Options - exact player copy:**
 
@@ -4141,17 +4204,19 @@ The screen also shows `TIME {elapsed} / TARGET`, `INCORRECT SUBMISSIONS {incorre
 
 **Correct answer:** C
 
-**Hint - exact player copy:** Use the stated evidence and the conditions for Leachate; do not choose an option merely because it names a familiar term.
+**Hint - exact player copy:** Identify the defining relationship or mechanism for leachate. All needed information is in this question.
 
 **Option feedback - exact player copy:**
 
-- A: This describes Anaerobic, not Leachate. It does not account for the quantities, conditions, or evidence in this environmental science case.
-- B: This describes Point source, not Leachate. It does not account for the quantities, conditions, or evidence in this environmental science case.
-- C: Correct. polluted liquid draining through waste.
-- D: This describes Nonpoint source, not Leachate. It does not account for the quantities, conditions, or evidence in this environmental science case.
+- A: This describes anaerobic. It does not answer the question about leachate.
+- B: This describes point source. It does not answer the question about leachate.
+- C: Correct. Polluted liquid draining through waste.
+- D: This describes nonpoint source. It does not answer the question about leachate.
+
 ### Review question 3
 
-**Prompt - exact player copy:** A teammate rechecks The Wet Trail using new evidence: the enforcement ledger counts waste delivered to the tip, but mass still leaves the cell. Open the dependencies now so the team can distinguish independent evidence from readings that repeat one source. Which environmental-science conclusion correctly applies Point source?
+
+**Prompt - exact player copy:** Which statement best explains point source?
 
 **Options - exact player copy:**
 
@@ -4162,17 +4227,19 @@ The screen also shows `TIME {elapsed} / TARGET`, `INCORRECT SUBMISSIONS {incorre
 
 **Correct answer:** D
 
-**Hint - exact player copy:** Use the stated evidence and the conditions for Point source; do not choose an option merely because it names a familiar term.
+**Hint - exact player copy:** Identify the defining relationship or mechanism for point source. All needed information is in this question.
 
 **Option feedback - exact player copy:**
 
-- A: This describes Anaerobic, not Point source. It does not account for the quantities, conditions, or evidence in this environmental science case.
-- B: This describes Leachate, not Point source. It does not account for the quantities, conditions, or evidence in this environmental science case.
-- C: This describes Nonpoint source, not Point source. It does not account for the quantities, conditions, or evidence in this environmental science case.
-- D: Correct. one identifiable outlet.
+- A: This describes anaerobic. It does not answer the question about point source.
+- B: This describes leachate. It does not answer the question about point source.
+- C: This describes nonpoint source. It does not answer the question about point source.
+- D: Correct. One identifiable outlet.
+
 ### Review question 4
 
-**Prompt - exact player copy:** An unseen case extends The Wet Trail: the enforcement ledger counts waste delivered to the tip, but mass still leaves the cell. Open the dependencies now so the team can distinguish independent evidence from readings that repeat one source. Which environmental-science conclusion correctly applies Nonpoint source?
+
+**Prompt - exact player copy:** Which statement best explains nonpoint source?
 
 **Options - exact player copy:**
 
@@ -4183,17 +4250,19 @@ The screen also shows `TIME {elapsed} / TARGET`, `INCORRECT SUBMISSIONS {incorre
 
 **Correct answer:** A
 
-**Hint - exact player copy:** Use the stated evidence and the conditions for Nonpoint source; do not choose an option merely because it names a familiar term.
+**Hint - exact player copy:** Identify the defining relationship or mechanism for nonpoint source. All needed information is in this question.
 
 **Option feedback - exact player copy:**
 
-- A: Correct. diffuse runoff.
-- B: This describes Anaerobic, not Nonpoint source. It does not account for the quantities, conditions, or evidence in this environmental science case.
-- C: This describes Leachate, not Nonpoint source. It does not account for the quantities, conditions, or evidence in this environmental science case.
-- D: This describes Point source, not Nonpoint source. It does not account for the quantities, conditions, or evidence in this environmental science case.
+- A: Correct. Diffuse runoff.
+- B: This describes anaerobic. It does not answer the question about nonpoint source.
+- C: This describes leachate. It does not answer the question about nonpoint source.
+- D: This describes point source. It does not answer the question about nonpoint source.
+
 ### Review question 5
 
-**Prompt - exact player copy:** Before another Hidden Losses decision, the team knows this: because leachate can enter groundwater, the treatment proposal must remove hazards in the right order. Build the causal path now so the crew knows which step changes the material or signal before it reaches the next location. Which environmental-science conclusion correctly applies Sewage treatment?
+
+**Prompt - exact player copy:** Which statement best explains sewage treatment?
 
 **Options - exact player copy:**
 
@@ -4204,36 +4273,40 @@ The screen also shows `TIME {elapsed} / TARGET`, `INCORRECT SUBMISSIONS {incorre
 
 **Correct answer:** B
 
-**Hint - exact player copy:** Use the stated evidence and the conditions for Sewage treatment; do not choose an option merely because it names a familiar term.
+**Hint - exact player copy:** Identify the defining relationship or mechanism for sewage treatment. All needed information is in this question.
 
 **Option feedback - exact player copy:**
 
-- A: This describes Anaerobic, not Sewage treatment. It does not account for the quantities, conditions, or evidence in this environmental science case.
-- B: Correct. primary settling, secondary bacterial breakdown, tertiary nutrient removal.
-- C: This describes Leachate, not Sewage treatment. It does not account for the quantities, conditions, or evidence in this environmental science case.
-- D: This describes Point source, not Sewage treatment. It does not account for the quantities, conditions, or evidence in this environmental science case.
+- A: This describes anaerobic. It does not answer the question about sewage treatment.
+- B: Correct. Primary settling, secondary bacterial breakdown, tertiary nutrient removal.
+- C: This describes leachate. It does not answer the question about sewage treatment.
+- D: This describes point source. It does not answer the question about sewage treatment.
+
 ### Review question 6
 
-**Prompt - exact player copy:** the island council applies the lesson from The Wet Trail to this follow-up: the enforcement ledger counts waste delivered to the tip, but mass still leaves the cell. Open the dependencies now so the team can distinguish independent evidence from readings that repeat one source. Which environmental-science conclusion correctly applies landfill pathways | pollution | D1 | RETRIEVE | L3 | clue?
+
+**Prompt - exact player copy:** Rain enters a landfill and later emerges as contaminated liquid. What environmental pathway does this show?
 
 **Options - exact player copy:**
 
 - A. Without oxygen.
 - B. Polluted liquid draining through waste.
-- C. Trace the hidden exports connects the measured environmental mechanism to the next island condition.
+- C. Water can carry dissolved pollutants out as leachate, even when solid waste stays in place.
 - D. One identifiable outlet.
 
 **Correct answer:** C
 
-**Hint - exact player copy:** Use the stated evidence and the conditions for landfill pathways | pollution | D1 | RETRIEVE | L3 | clue; do not choose an option merely because it names a familiar term.
+**Hint - exact player copy:** Identify the defining relationship or mechanism for landfill pathways. All needed information is in this question.
 
 **Option feedback - exact player copy:**
 
-- A: This describes Anaerobic, not landfill pathways | pollution | D1 | RETRIEVE | L3 | clue. It does not account for the quantities, conditions, or evidence in this environmental science case.
-- B: This describes Leachate, not landfill pathways | pollution | D1 | RETRIEVE | L3 | clue. It does not account for the quantities, conditions, or evidence in this environmental science case.
-- C: Correct. trace the hidden exports connects the measured environmental mechanism to the next island condition.
-- D: This describes Point source, not landfill pathways | pollution | D1 | RETRIEVE | L3 | clue. It does not account for the quantities, conditions, or evidence in this environmental science case.
-**Optional review completion - exact player copy:** Excellent work. You went beyond the required mission and strengthened the ideas behind your decision.
+- A: This describes anaerobic. It does not answer the question about landfill pathways.
+- B: This describes leachate. It does not answer the question about landfill pathways.
+- C: Correct. Water can carry dissolved pollutants out as leachate, even when solid waste stays in place.
+- D: This describes point source. It does not answer the question about landfill pathways.
+
+**Optional review completion - exact player copy:** Good work. You have completed six independent practice questions.
+
 ## Quick concept review
 - Re-read the mechanism established by the four stops.
 - Re-use the governing equation or causal comparison with units.
@@ -4618,182 +4691,186 @@ The screen also shows `TIME {elapsed} / TARGET`, `INCORRECT SUBMISSIONS {incorre
 
 **Availability:** Reveal only after mission completion when the player selects **GO DEEPER**. This section is optional, ungraded for campaign progress, and does not change metrics, Recovery Points, or the next-mission unlock.
 
-**Secondary briefing card - exact player copy:** You completed The Cups Stay Empty. Choose GO DEEPER to revisit the four decisions and explore related course ideas; this optional review does not change your metrics or delay the next mission.
+**Secondary briefing card - exact player copy:** Try six independent practice questions. Each includes its own context and any needed data; no mission records are required.
 
 ### Review focus
 
-No additional prerequisite is required. These AP-style questions apply the mission's course ideas to follow-up evidence, including related topics not required in the four main stops.
+No additional prerequisite is required. These practice questions review related course ideas. Each question stands alone, including its choices and figure.
 
 ### Review question 1
 
-**Prompt - exact player copy:** In a follow-up to The Cups Stay Empty, because the increase begins on the school branch, concentration alone understates who is at risk. Which environmental-science conclusion correctly applies Dose?
+
+**Prompt - exact player copy:** Which statement best explains dose?
 
 **Options - exact player copy:**
 
 - A. Effect begins above a dose.
-- B. Amount of a substance received per body mass.
-- C. Fraction absorbed. Median lethal dose (LD50): dose lethal to half a test population; lower means more toxic.
-- D. Probe the nitrate network connects the measured environmental mechanism to the next island condition.
+- B. Fraction absorbed. Median lethal dose (LD50): dose lethal to half a test population; lower means more toxic.
+- C. Probe the nitrate network connects the measured environmental mechanism to the environmental outcome.
+- D. Amount of a substance received per body mass.
 
-**Correct answer:** B
+**Correct answer:** D
 
-**Hint - exact player copy:** Use the stated evidence and the conditions for Dose; do not choose an option merely because it names a familiar term.
+**Hint - exact player copy:** Identify the defining relationship or mechanism for dose. All needed information is in this question.
 
 **Option feedback - exact player copy:**
 
-- A: This describes Threshold response, not Dose. It does not account for the quantities, conditions, or evidence in this environmental science case.
-- B: Correct. amount of a substance received per body mass.
-- C: This describes Bioavailability, not Dose. It does not account for the quantities, conditions, or evidence in this environmental science case.
-- D: This describes nitrate spatial pattern | pollution | D7 | PRACTICE | L3 | evidence, not Dose. It does not account for the quantities, conditions, or evidence in this environmental science case.
+- A: This describes threshold response. It does not answer the question about dose.
+- B: This describes bioavailability. It does not answer the question about dose.
+- C: This describes nitrate spatial pattern. It does not answer the question about dose.
+- D: Correct. Amount of a substance received per body mass.
+
 ### Review question 2
 
-**Prompt - exact player copy:** the island council receives a second case related to The Cups Stay Empty: the repaired main removes quantity loss but not the nitrate gradient. Sample the locations in order now so the crew can identify where the system first departs from normal. Which interpretation of the displayed evidence correctly uses the mission concept?
+
+**Prompt - exact player copy:** A rule is fixed in advance: stop at the first check with a reading of at least 5 units. At which plotted time should the stop occur?
 
 **Figure - exact player copy:**
 
 ```json
 {
   "kind": "line",
-  "xLabel": "Ordered measurement",
-  "yLabel": "Decision quantity",
-  "caption": "Measurements approach and then cross the action threshold.",
+  "xLabel": "Time (min)",
+  "yLabel": "Reading (units)",
+  "caption": "Readings at four successive checks",
   "series": [
     {
-      "name": "Measured",
+      "name": "Reading",
       "points": [
         [
+          0,
+          2
+        ],
+        [
           1,
-          42
+          3
         ],
         [
           2,
-          48
+          5
         ],
         [
           3,
-          55
-        ],
-        [
-          4,
-          63
-        ],
-        [
-          5,
-          71
+          6
         ]
       ]
     }
-  ],
-  "limit": {
-    "at": 60,
-    "label": "Action threshold"
-  }
+  ]
 }
 ```
 
+**Options - exact player copy:**
+
+- A. 2 minutes.
+- B. 1 minute.
+- C. 3 minutes.
+- D. No stop is needed because the average is below 5.
+
+**Correct answer:** A
+
+**Hint - exact player copy:** At least includes equality.
+
+**Option feedback - exact player copy:**
+
+- A: Correct. 2 minutes.
+- B: The reading is only 3 units at 1 minute.
+- C: Waiting until 3 minutes misses the first qualifying check.
+- D: The rule applies to each reading, not the average.
+
+### Review question 3
+
+
+**Prompt - exact player copy:** Which statement best explains bioavailability?
 
 **Options - exact player copy:**
 
 - A. Amount of a substance received per body mass.
 - B. Fraction absorbed. Median lethal dose (LD50): dose lethal to half a test population; lower means more toxic.
 - C. Effect begins above a dose.
-- D. Probe the nitrate network connects the measured environmental mechanism to the next island condition.
+- D. Probe the nitrate network connects the measured environmental mechanism to the environmental outcome.
 
-**Correct answer:** C
+**Correct answer:** B
 
-**Hint - exact player copy:** Read the axes, units, direction, and any threshold before comparing the choices.
+**Hint - exact player copy:** Identify the defining relationship or mechanism for bioavailability. All needed information is in this question.
 
 **Option feedback - exact player copy:**
 
-- A: This describes Dose, not Threshold response. It does not account for the quantities, conditions, or evidence in this environmental science case.
-- B: This describes Bioavailability, not Threshold response. It does not account for the quantities, conditions, or evidence in this environmental science case.
-- C: Correct. effect begins above a dose.
-- D: This describes nitrate spatial pattern | pollution | D7 | PRACTICE | L3 | evidence, not Threshold response. It does not account for the quantities, conditions, or evidence in this environmental science case.
-### Review question 3
+- A: This describes dose. It does not answer the question about bioavailability.
+- B: Correct. Fraction absorbed. Median lethal dose (LD50): dose lethal to half a test population; lower means more toxic.
+- C: This describes threshold response. It does not answer the question about bioavailability.
+- D: This describes nitrate spatial pattern. It does not answer the question about bioavailability.
 
-**Prompt - exact player copy:** A teammate rechecks The Cups Stay Empty using new evidence: the repaired main removes quantity loss but not the nitrate gradient. Sample the locations in order now so the crew can identify where the system first departs from normal. Which environmental-science conclusion correctly applies Bioavailability?
+### Review question 4
+
+
+**Prompt - exact player copy:** Water contains 2 mg/L nitrate upstream of a garden, 12 mg/L just downstream, and 11 mg/L farther downstream. Where should source testing focus first?
 
 **Options - exact player copy:**
 
 - A. Amount of a substance received per body mass.
 - B. Effect begins above a dose.
-- C. Probe the nitrate network connects the measured environmental mechanism to the next island condition.
+- C. On inputs near the garden, while additional tests check whether that location actually causes the increase.
 - D. Fraction absorbed. Median lethal dose (LD50): dose lethal to half a test population; lower means more toxic.
 
-**Correct answer:** D
+**Correct answer:** C
 
-**Hint - exact player copy:** Use the stated evidence and the conditions for Bioavailability; do not choose an option merely because it names a familiar term.
+**Hint - exact player copy:** Identify the defining relationship or mechanism for nitrate spatial pattern. All needed information is in this question.
 
 **Option feedback - exact player copy:**
 
-- A: This describes Dose, not Bioavailability. It does not account for the quantities, conditions, or evidence in this environmental science case.
-- B: This describes Threshold response, not Bioavailability. It does not account for the quantities, conditions, or evidence in this environmental science case.
-- C: This describes nitrate spatial pattern | pollution | D7 | PRACTICE | L3 | evidence, not Bioavailability. It does not account for the quantities, conditions, or evidence in this environmental science case.
-- D: Correct. fraction absorbed. Median lethal dose (LD50): dose lethal to half a test population; lower means more toxic.
-### Review question 4
+- A: This describes dose. It does not answer the question about nitrate spatial pattern.
+- B: This describes threshold response. It does not answer the question about nitrate spatial pattern.
+- C: Correct. On inputs near the garden, while additional tests check whether that location actually causes the increase.
+- D: This describes bioavailability. It does not answer the question about nitrate spatial pattern.
 
-**Prompt - exact player copy:** An unseen case extends The Cups Stay Empty: the repaired main removes quantity loss but not the nitrate gradient. Sample the locations in order now so the crew can identify where the system first departs from normal. Which environmental-science conclusion correctly applies nitrate spatial pattern | pollution | D7 | PRACTICE | L3 | evidence?
+### Review question 5
+
+
+**Prompt - exact player copy:** A 20 kg child and a 60 kg adult each ingest 6 mg of a substance. Who receives the higher dose per kilogram?
 
 **Options - exact player copy:**
 
-- A. Probe the nitrate network connects the measured environmental mechanism to the next island condition.
+- A. Amount of a substance received per body mass.
+- B. Effect begins above a dose.
+- C. Fraction absorbed. Median lethal dose (LD50): dose lethal to half a test population; lower means more toxic.
+- D. The child receives 0.30 mg/kg, three times the adult's 0.10 mg/kg.
+
+**Correct answer:** D
+
+**Hint - exact player copy:** Identify the defining relationship or mechanism for dose. All needed information is in this question.
+
+**Option feedback - exact player copy:**
+
+- A: This describes dose. It does not answer the question about dose.
+- B: This describes threshold response. It does not answer the question about dose.
+- C: This describes bioavailability. It does not answer the question about dose.
+- D: Correct. The child receives 0.30 mg/kg, three times the adult's 0.10 mg/kg.
+
+### Review question 6
+
+
+**Prompt - exact player copy:** Nitrate falls when a garden drain is isolated and rises when it is restored. Other inputs and sampling times are controlled. What does the reversal support?
+
+**Options - exact player copy:**
+
+- A. The garden drain contributes to the nitrate increase under the tested conditions.
 - B. Amount of a substance received per body mass.
 - C. Effect begins above a dose.
 - D. Fraction absorbed. Median lethal dose (LD50): dose lethal to half a test population; lower means more toxic.
 
 **Correct answer:** A
 
-**Hint - exact player copy:** Use the stated evidence and the conditions for nitrate spatial pattern | pollution | D7 | PRACTICE | L3 | evidence; do not choose an option merely because it names a familiar term.
+**Hint - exact player copy:** Identify the defining relationship or mechanism for testing a pollution source by controlled reversal. All needed information is in this question.
 
 **Option feedback - exact player copy:**
 
-- A: Correct. probe the nitrate network connects the measured environmental mechanism to the next island condition.
-- B: This describes Dose, not nitrate spatial pattern | pollution | D7 | PRACTICE | L3 | evidence. It does not account for the quantities, conditions, or evidence in this environmental science case.
-- C: This describes Threshold response, not nitrate spatial pattern | pollution | D7 | PRACTICE | L3 | evidence. It does not account for the quantities, conditions, or evidence in this environmental science case.
-- D: This describes Bioavailability, not nitrate spatial pattern | pollution | D7 | PRACTICE | L3 | evidence. It does not account for the quantities, conditions, or evidence in this environmental science case.
-### Review question 5
+- A: Correct. The garden drain contributes to the nitrate increase under the tested conditions.
+- B: This describes dose. It does not answer the question about testing a pollution source by controlled reversal.
+- C: This describes threshold response. It does not answer the question about testing a pollution source by controlled reversal.
+- D: This describes bioavailability. It does not answer the question about testing a pollution source by controlled reversal.
 
-**Prompt - exact player copy:** Before another School-Water Finding decision, the team knows this: because the increase begins on the school branch, concentration alone understates who is at risk. Which environmental-science conclusion correctly applies dose | pollution | 8?
+**Optional review completion - exact player copy:** Good work. You have completed six independent practice questions.
 
-**Options - exact player copy:**
-
-- A. Amount of a substance received per body mass.
-- B. Compare child and adult dose connects the measured environmental mechanism to the next island condition.
-- C. Effect begins above a dose.
-- D. Fraction absorbed. Median lethal dose (LD50): dose lethal to half a test population; lower means more toxic.
-
-**Correct answer:** B
-
-**Hint - exact player copy:** Use the stated evidence and the conditions for dose | pollution | 8; do not choose an option merely because it names a familiar term.
-
-**Option feedback - exact player copy:**
-
-- A: This describes Dose, not dose | pollution | 8. It does not account for the quantities, conditions, or evidence in this environmental science case.
-- B: Correct. compare child and adult dose connects the measured environmental mechanism to the next island condition.
-- C: This describes Threshold response, not dose | pollution | 8. It does not account for the quantities, conditions, or evidence in this environmental science case.
-- D: This describes Bioavailability, not dose | pollution | 8. It does not account for the quantities, conditions, or evidence in this environmental science case.
-### Review question 6
-
-**Prompt - exact player copy:** the island council applies the lesson from The Cups Stay Empty to this follow-up: the dose comparison makes the school tap urgent, while the branch location narrows the source. Commit the prediction and run the test now so the measurement can fairly accept or reject the proposed model. Which environmental-science conclusion correctly applies source timing | causality | D3 | RETRIEVE | L4 | twist?
-
-**Options - exact player copy:**
-
-- A. Amount of a substance received per body mass.
-- B. Effect begins above a dose.
-- C. , measure, interpret, and restore normal flow.
-- D. Fraction absorbed. Median lethal dose (LD50): dose lethal to half a test population; lower means more toxic.
-
-**Correct answer:** C
-
-**Hint - exact player copy:** Use the stated evidence and the conditions for source timing | causality | D3 | RETRIEVE | L4 | twist; do not choose an option merely because it names a familiar term.
-
-**Option feedback - exact player copy:**
-
-- A: This describes Dose, not source timing | causality | D3 | RETRIEVE | L4 | twist. It does not account for the quantities, conditions, or evidence in this environmental science case.
-- B: This describes Threshold response, not source timing | causality | D3 | RETRIEVE | L4 | twist. It does not account for the quantities, conditions, or evidence in this environmental science case.
-- C: Correct. , measure, interpret, and restore normal flow
-- D: This describes Bioavailability, not source timing | causality | D3 | RETRIEVE | L4 | twist. It does not account for the quantities, conditions, or evidence in this environmental science case.
-**Optional review completion - exact player copy:** Excellent work. You went beyond the required mission and strengthened the ideas behind your decision.
 ## Quick concept review
 - Re-read the mechanism established by the four stops.
 - Re-use the governing equation or causal comparison with units.
@@ -5210,15 +5287,16 @@ The screen also shows `TIME {elapsed} / TARGET`, `INCORRECT SUBMISSIONS {incorre
 
 **Availability:** Reveal only after mission completion when the player selects **GO DEEPER**. This section is optional, ungraded for campaign progress, and does not change metrics, Recovery Points, or the next-mission unlock.
 
-**Secondary briefing card - exact player copy:** You completed Before the Next Rain. Choose GO DEEPER to revisit the four decisions and explore related course ideas; this optional review does not change your metrics or delay the next mission.
+**Secondary briefing card - exact player copy:** Try six independent practice questions. Each includes its own context and any needed data; no mission records are required.
 
 ### Review focus
 
-No additional prerequisite is required. These AP-style questions apply the mission's course ideas to follow-up evidence, including related topics not required in the four main stops.
+No additional prerequisite is required. These practice questions review related course ideas. Each question stands alone, including its choices and figure.
 
 ### Review question 1
 
-**Prompt - exact player copy:** In a follow-up to Before the Next Rain, the school pathway is closed, but mixed tip loads can recreate it or add persistent toxins. Sort the displayed items now so the later decision does not mix cases governed by different evidence. Which environmental-science conclusion correctly applies Bioaccumulation?
+
+**Prompt - exact player copy:** Which statement best explains bioaccumulation?
 
 **Options - exact player copy:**
 
@@ -5229,17 +5307,19 @@ No additional prerequisite is required. These AP-style questions apply the missi
 
 **Correct answer:** B
 
-**Hint - exact player copy:** Use the stated evidence and the conditions for Bioaccumulation; do not choose an option merely because it names a familiar term.
+**Hint - exact player copy:** Identify the defining relationship or mechanism for bioaccumulation. All needed information is in this question.
 
 **Option feedback - exact player copy:**
 
-- A: This describes Biomagnification, not Bioaccumulation. It does not account for the quantities, conditions, or evidence in this environmental science case.
-- B: Correct. pollutant buildup within one organism.
-- C: This describes Persistent organic pollutant, not Bioaccumulation. It does not account for the quantities, conditions, or evidence in this environmental science case.
-- D: This describes Eutrophication, not Bioaccumulation. It does not account for the quantities, conditions, or evidence in this environmental science case.
+- A: This describes biomagnification. It does not answer the question about bioaccumulation.
+- B: Correct. Pollutant buildup within one organism.
+- C: This describes persistent organic pollutant. It does not answer the question about bioaccumulation.
+- D: This describes eutrophication. It does not answer the question about bioaccumulation.
+
 ### Review question 2
 
-**Prompt - exact player copy:** the island council receives a second case related to Before the Next Rain: the school pathway is closed, but mixed tip loads can recreate it or add persistent toxins. Sort the displayed items now so the later decision does not mix cases governed by different evidence. Which environmental-science conclusion correctly applies Biomagnification?
+
+**Prompt - exact player copy:** Which statement best explains biomagnification?
 
 **Options - exact player copy:**
 
@@ -5250,17 +5330,19 @@ No additional prerequisite is required. These AP-style questions apply the missi
 
 **Correct answer:** C
 
-**Hint - exact player copy:** Use the stated evidence and the conditions for Biomagnification; do not choose an option merely because it names a familiar term.
+**Hint - exact player copy:** Identify the defining relationship or mechanism for biomagnification. All needed information is in this question.
 
 **Option feedback - exact player copy:**
 
-- A: This describes Bioaccumulation, not Biomagnification. It does not account for the quantities, conditions, or evidence in this environmental science case.
-- B: This describes Persistent organic pollutant, not Biomagnification. It does not account for the quantities, conditions, or evidence in this environmental science case.
-- C: Correct. rising concentration at higher trophic levels.
-- D: This describes Eutrophication, not Biomagnification. It does not account for the quantities, conditions, or evidence in this environmental science case.
+- A: This describes bioaccumulation. It does not answer the question about biomagnification.
+- B: This describes persistent organic pollutant. It does not answer the question about biomagnification.
+- C: Correct. Rising concentration at higher trophic levels.
+- D: This describes eutrophication. It does not answer the question about biomagnification.
+
 ### Review question 3
 
-**Prompt - exact player copy:** A teammate rechecks Before the Next Rain using new evidence: the school pathway is closed, but mixed tip loads can recreate it or add persistent toxins. Sort the displayed items now so the later decision does not mix cases governed by different evidence. Which environmental-science conclusion correctly applies Persistent organic pollutant?
+
+**Prompt - exact player copy:** Which statement best explains persistent organic pollutant?
 
 **Options - exact player copy:**
 
@@ -5271,17 +5353,19 @@ No additional prerequisite is required. These AP-style questions apply the missi
 
 **Correct answer:** D
 
-**Hint - exact player copy:** Use the stated evidence and the conditions for Persistent organic pollutant; do not choose an option merely because it names a familiar term.
+**Hint - exact player copy:** Identify the defining relationship or mechanism for persistent organic pollutant. All needed information is in this question.
 
 **Option feedback - exact player copy:**
 
-- A: This describes Bioaccumulation, not Persistent organic pollutant. It does not account for the quantities, conditions, or evidence in this environmental science case.
-- B: This describes Biomagnification, not Persistent organic pollutant. It does not account for the quantities, conditions, or evidence in this environmental science case.
-- C: This describes Eutrophication, not Persistent organic pollutant. It does not account for the quantities, conditions, or evidence in this environmental science case.
-- D: Correct. long-lived carbon chemical such as dichlorodiphenyltrichloroethane (DDT) or a polychlorinated biphenyl (PCB).
+- A: This describes bioaccumulation. It does not answer the question about persistent organic pollutant.
+- B: This describes biomagnification. It does not answer the question about persistent organic pollutant.
+- C: This describes eutrophication. It does not answer the question about persistent organic pollutant.
+- D: Correct. Long-lived carbon chemical such as dichlorodiphenyltrichloroethane (DDT) or a polychlorinated biphenyl (PCB).
+
 ### Review question 4
 
-**Prompt - exact player copy:** An unseen case extends Before the Next Rain: the school pathway is closed, but mixed tip loads can recreate it or add persistent toxins. Sort the displayed items now so the later decision does not mix cases governed by different evidence. Which environmental-science conclusion correctly applies Eutrophication?
+
+**Prompt - exact player copy:** Which statement best explains eutrophication?
 
 **Options - exact player copy:**
 
@@ -5292,57 +5376,63 @@ No additional prerequisite is required. These AP-style questions apply the missi
 
 **Correct answer:** A
 
-**Hint - exact player copy:** Use the stated evidence and the conditions for Eutrophication; do not choose an option merely because it names a familiar term.
+**Hint - exact player copy:** Identify the defining relationship or mechanism for eutrophication. All needed information is in this question.
 
 **Option feedback - exact player copy:**
 
-- A: Correct. nutrient enrichment leading to algae and oxygen loss.
-- B: This describes Bioaccumulation, not Eutrophication. It does not account for the quantities, conditions, or evidence in this environmental science case.
-- C: This describes Biomagnification, not Eutrophication. It does not account for the quantities, conditions, or evidence in this environmental science case.
-- D: This describes Persistent organic pollutant, not Eutrophication. It does not account for the quantities, conditions, or evidence in this environmental science case.
+- A: Correct. Nutrient enrichment leading to algae and oxygen loss.
+- B: This describes bioaccumulation. It does not answer the question about eutrophication.
+- C: This describes biomagnification. It does not answer the question about eutrophication.
+- D: This describes persistent organic pollutant. It does not answer the question about eutrophication.
+
 ### Review question 5
 
-**Prompt - exact player copy:** Before another Before the Next Rain decision, the team knows this: the school pathway is closed, but mixed tip loads can recreate it or add persistent toxins. Sort the displayed items now so the later decision does not mix cases governed by different evidence. Which environmental-science conclusion correctly applies pollutant properties | pollution | D7 | RETRIEVE | L2 | evidence?
+
+**Prompt - exact player copy:** Why should persistent toxic chemicals be separated from ordinary compostable waste?
 
 **Options - exact player copy:**
 
 - A. Pollutant buildup within one organism.
-- B. Sort the mixed waste connects the measured environmental mechanism to the next island condition.
+- B. They can remain in the environment and expose organisms after the other waste has decomposed.
 - C. Rising concentration at higher trophic levels.
 - D. Long-lived carbon chemical such as dichlorodiphenyltrichloroethane (DDT) or a polychlorinated biphenyl (PCB).
 
 **Correct answer:** B
 
-**Hint - exact player copy:** Use the stated evidence and the conditions for pollutant properties | pollution | D7 | RETRIEVE | L2 | evidence; do not choose an option merely because it names a familiar term.
+**Hint - exact player copy:** Identify the defining relationship or mechanism for pollutant properties. All needed information is in this question.
 
 **Option feedback - exact player copy:**
 
-- A: This describes Bioaccumulation, not pollutant properties | pollution | D7 | RETRIEVE | L2 | evidence. It does not account for the quantities, conditions, or evidence in this environmental science case.
-- B: Correct. sort the mixed waste connects the measured environmental mechanism to the next island condition.
-- C: This describes Biomagnification, not pollutant properties | pollution | D7 | RETRIEVE | L2 | evidence. It does not account for the quantities, conditions, or evidence in this environmental science case.
-- D: This describes Persistent organic pollutant, not pollutant properties | pollution | D7 | RETRIEVE | L2 | evidence. It does not account for the quantities, conditions, or evidence in this environmental science case.
+- A: This describes bioaccumulation. It does not answer the question about pollutant properties.
+- B: Correct. They can remain in the environment and expose organisms after the other waste has decomposed.
+- C: This describes biomagnification. It does not answer the question about pollutant properties.
+- D: This describes persistent organic pollutant. It does not answer the question about pollutant properties.
+
 ### Review question 6
 
-**Prompt - exact player copy:** the island council applies the lesson from Before the Next Rain to this follow-up: with hazards classified, their locations reveal different controls. Match the evidence to the live explanations now so the investigation carries forward only supported claims. Which environmental-science conclusion correctly applies point and nonpoint fate | pollution | 9?
+
+**Prompt - exact player copy:** How do a factory discharge pipe and runoff from many farms differ as pollution sources?
 
 **Options - exact player copy:**
 
 - A. Pollutant buildup within one organism.
 - B. Rising concentration at higher trophic levels.
-- C. Map source and fate connects the measured environmental mechanism to the next island condition.
+- C. The pipe is a point source; the distributed runoff is a nonpoint source.
 - D. Long-lived carbon chemical such as dichlorodiphenyltrichloroethane (DDT) or a polychlorinated biphenyl (PCB).
 
 **Correct answer:** C
 
-**Hint - exact player copy:** Use the stated evidence and the conditions for point and nonpoint fate | pollution | 9; do not choose an option merely because it names a familiar term.
+**Hint - exact player copy:** Identify the defining relationship or mechanism for point and nonpoint fate. All needed information is in this question.
 
 **Option feedback - exact player copy:**
 
-- A: This describes Bioaccumulation, not point and nonpoint fate | pollution | 9. It does not account for the quantities, conditions, or evidence in this environmental science case.
-- B: This describes Biomagnification, not point and nonpoint fate | pollution | 9. It does not account for the quantities, conditions, or evidence in this environmental science case.
-- C: Correct. map source and fate connects the measured environmental mechanism to the next island condition.
-- D: This describes Persistent organic pollutant, not point and nonpoint fate | pollution | 9. It does not account for the quantities, conditions, or evidence in this environmental science case.
-**Optional review completion - exact player copy:** Excellent work. You went beyond the required mission and strengthened the ideas behind your decision.
+- A: This describes bioaccumulation. It does not answer the question about point and nonpoint fate.
+- B: This describes biomagnification. It does not answer the question about point and nonpoint fate.
+- C: Correct. The pipe is a point source; the distributed runoff is a nonpoint source.
+- D: This describes persistent organic pollutant. It does not answer the question about point and nonpoint fate.
+
+**Optional review completion - exact player copy:** Good work. You have completed six independent practice questions.
+
 ## Quick concept review
 - Re-read the mechanism established by the four stops.
 - Re-use the governing equation or causal comparison with units.
@@ -5836,15 +5926,39 @@ The screen also shows `TIME {elapsed} / TARGET`, `INCORRECT SUBMISSIONS {incorre
 
 **Availability:** Reveal only after mission completion when the player selects **GO DEEPER**. This section is optional, ungraded for campaign progress, and does not change metrics, Recovery Points, or the next-mission unlock.
 
-**Secondary briefing card - exact player copy:** You completed Two Stresses, One Reef. Choose GO DEEPER to revisit the four decisions and explore related course ideas; this optional review does not change your metrics or delay the next mission.
+**Secondary briefing card - exact player copy:** Try six independent practice questions. Each includes its own context and any needed data; no mission records are required.
 
 ### Review focus
 
-No additional prerequisite is required. These AP-style questions apply the mission's course ideas to follow-up evidence, including related topics not required in the four main stops.
+No additional prerequisite is required. These practice questions review related course ideas. Each question stands alone, including its choices and figure.
 
 ### Review question 1
 
-**Prompt - exact player copy:** In a follow-up to Two Stresses, One Reef, the new controls target nutrients, but Rafi’s heat-only model fits the average oxygen level. Which environmental-science conclusion correctly applies Dissolved oxygen?
+
+**Prompt - exact player copy:** Which statement best explains dissolved oxygen?
+
+**Options - exact player copy:**
+
+- A. Warming that lowers oxygen solubility.
+- B. Falling seawater pH as carbon dioxide enters water.
+- C. Water with too little oxygen for most animals.
+- D. Oxygen gas available in water.
+
+**Correct answer:** D
+
+**Hint - exact player copy:** Identify the defining relationship or mechanism for dissolved oxygen. All needed information is in this question.
+
+**Option feedback - exact player copy:**
+
+- A: This describes thermal pollution. It does not answer the question about dissolved oxygen.
+- B: This describes ocean acidification. It does not answer the question about dissolved oxygen.
+- C: This describes dead zone. It does not answer the question about dissolved oxygen.
+- D: Correct. Oxygen gas available in water.
+
+### Review question 2
+
+
+**Prompt - exact player copy:** Which statement best explains thermal pollution?
 
 **Options - exact player copy:**
 
@@ -5853,19 +5967,21 @@ No additional prerequisite is required. These AP-style questions apply the missi
 - C. Falling seawater pH as carbon dioxide enters water.
 - D. Water with too little oxygen for most animals.
 
-**Correct answer:** B
+**Correct answer:** A
 
-**Hint - exact player copy:** Use the stated evidence and the conditions for Dissolved oxygen; do not choose an option merely because it names a familiar term.
+**Hint - exact player copy:** Identify the defining relationship or mechanism for thermal pollution. All needed information is in this question.
 
 **Option feedback - exact player copy:**
 
-- A: This describes Thermal pollution, not Dissolved oxygen. It does not account for the quantities, conditions, or evidence in this environmental science case.
-- B: Correct. oxygen gas available in water.
-- C: This describes Ocean acidification, not Dissolved oxygen. It does not account for the quantities, conditions, or evidence in this environmental science case.
-- D: This describes Dead zone, not Dissolved oxygen. It does not account for the quantities, conditions, or evidence in this environmental science case.
-### Review question 2
+- A: Correct. Warming that lowers oxygen solubility.
+- B: This describes dissolved oxygen. It does not answer the question about thermal pollution.
+- C: This describes ocean acidification. It does not answer the question about thermal pollution.
+- D: This describes dead zone. It does not answer the question about thermal pollution.
 
-**Prompt - exact player copy:** the island council receives a second case related to Two Stresses, One Reef: the new controls target nutrients, but Rafi’s heat-only model fits the average oxygen level. Which environmental-science conclusion correctly applies Thermal pollution?
+### Review question 3
+
+
+**Prompt - exact player copy:** Which statement best explains ocean acidification?
 
 **Options - exact player copy:**
 
@@ -5874,19 +5990,21 @@ No additional prerequisite is required. These AP-style questions apply the missi
 - C. Warming that lowers oxygen solubility.
 - D. Water with too little oxygen for most animals.
 
-**Correct answer:** C
+**Correct answer:** B
 
-**Hint - exact player copy:** Use the stated evidence and the conditions for Thermal pollution; do not choose an option merely because it names a familiar term.
+**Hint - exact player copy:** Identify the defining relationship or mechanism for ocean acidification. All needed information is in this question.
 
 **Option feedback - exact player copy:**
 
-- A: This describes Dissolved oxygen, not Thermal pollution. It does not account for the quantities, conditions, or evidence in this environmental science case.
-- B: This describes Ocean acidification, not Thermal pollution. It does not account for the quantities, conditions, or evidence in this environmental science case.
-- C: Correct. warming that lowers oxygen solubility.
-- D: This describes Dead zone, not Thermal pollution. It does not account for the quantities, conditions, or evidence in this environmental science case.
-### Review question 3
+- A: This describes dissolved oxygen. It does not answer the question about ocean acidification.
+- B: Correct. Falling seawater pH as carbon dioxide enters water.
+- C: This describes thermal pollution. It does not answer the question about ocean acidification.
+- D: This describes dead zone. It does not answer the question about ocean acidification.
 
-**Prompt - exact player copy:** A teammate rechecks Two Stresses, One Reef using new evidence: the tank reveals combined heat and nutrients, yet shell loss occurs beyond the inner bloom. The next action depends on selecting the conclusion that fits all of those facts. Which environmental-science conclusion correctly applies Ocean acidification?
+### Review question 4
+
+
+**Prompt - exact player copy:** Which statement best explains dead zone?
 
 **Options - exact player copy:**
 
@@ -5895,80 +6013,65 @@ No additional prerequisite is required. These AP-style questions apply the missi
 - C. Water with too little oxygen for most animals.
 - D. Falling seawater pH as carbon dioxide enters water.
 
-**Correct answer:** D
+**Correct answer:** C
 
-**Hint - exact player copy:** Use the stated evidence and the conditions for Ocean acidification; do not choose an option merely because it names a familiar term.
+**Hint - exact player copy:** Identify the defining relationship or mechanism for dead zone. All needed information is in this question.
 
 **Option feedback - exact player copy:**
 
-- A: This describes Dissolved oxygen, not Ocean acidification. It does not account for the quantities, conditions, or evidence in this environmental science case.
-- B: This describes Thermal pollution, not Ocean acidification. It does not account for the quantities, conditions, or evidence in this environmental science case.
-- C: This describes Dead zone, not Ocean acidification. It does not account for the quantities, conditions, or evidence in this environmental science case.
-- D: Correct. falling seawater pH as carbon dioxide enters water.
-### Review question 4
+- A: This describes dissolved oxygen. It does not answer the question about dead zone.
+- B: This describes thermal pollution. It does not answer the question about dead zone.
+- C: Correct. Water with too little oxygen for most animals.
+- D: This describes ocean acidification. It does not answer the question about dead zone.
 
-**Prompt - exact player copy:** An unseen case extends Two Stresses, One Reef: the tank reveals combined heat and nutrients, yet shell loss occurs beyond the inner bloom. The next action depends on selecting the conclusion that fits all of those facts. Which environmental-science conclusion correctly applies Dead zone?
+### Review question 5
+
+
+**Prompt - exact player copy:** A model repeatedly underpredicts low oxygen during warm weeks. What does that residual pattern suggest?
 
 **Options - exact player copy:**
 
-- A. Water with too little oxygen for most animals.
+- A. Oxygen gas available in water.
+- B. Warming that lowers oxygen solubility.
+- C. Falling seawater pH as carbon dioxide enters water.
+- D. The model may omit a temperature-related process; the errors are not simply balanced random scatter.
+
+**Correct answer:** D
+
+**Hint - exact player copy:** Identify the defining relationship or mechanism for temporal pattern. All needed information is in this question.
+
+**Option feedback - exact player copy:**
+
+- A: This describes dissolved oxygen. It does not answer the question about temporal pattern.
+- B: This describes thermal pollution. It does not answer the question about temporal pattern.
+- C: This describes ocean acidification. It does not answer the question about temporal pattern.
+- D: Correct. The model may omit a temperature-related process; the errors are not simply balanced random scatter.
+
+### Review question 6
+
+
+**Prompt - exact player copy:** A study tests cool and warm water, each with low and high nutrients. What can this four-treatment design reveal?
+
+**Options - exact player copy:**
+
+- A. The effects of heat and nutrients separately and whether their combined effect differs from the sum of their separate effects.
 - B. Oxygen gas available in water.
 - C. Warming that lowers oxygen solubility.
 - D. Falling seawater pH as carbon dioxide enters water.
 
 **Correct answer:** A
 
-**Hint - exact player copy:** Use the stated evidence and the conditions for Dead zone; do not choose an option merely because it names a familiar term.
+**Hint - exact player copy:** Identify the defining relationship or mechanism for factorial stressors. All needed information is in this question.
 
 **Option feedback - exact player copy:**
 
-- A: Correct. water with too little oxygen for most animals.
-- B: This describes Dissolved oxygen, not Dead zone. It does not account for the quantities, conditions, or evidence in this environmental science case.
-- C: This describes Thermal pollution, not Dead zone. It does not account for the quantities, conditions, or evidence in this environmental science case.
-- D: This describes Ocean acidification, not Dead zone. It does not account for the quantities, conditions, or evidence in this environmental science case.
-### Review question 5
+- A: Correct. The effects of heat and nutrients separately and whether their combined effect differs from the sum of their separate effects.
+- B: This describes dissolved oxygen. It does not answer the question about factorial stressors.
+- C: This describes thermal pollution. It does not answer the question about factorial stressors.
+- D: This describes ocean acidification. It does not answer the question about factorial stressors.
 
-**Prompt - exact player copy:** Before another Reef Evidence decision, the team knows this: the new controls target nutrients, but Rafi’s heat-only model fits the average oxygen level. Which environmental-science conclusion correctly applies temporal pattern | uncertainty | D2 | RETRIEVE | L4 | clue?
+**Optional review completion - exact player copy:** Good work. You have completed six independent practice questions.
 
-**Options - exact player copy:**
-
-- A. Oxygen gas available in water.
-- B. Read the patterned residuals connects the measured environmental mechanism to the next island condition.
-- C. Warming that lowers oxygen solubility.
-- D. Falling seawater pH as carbon dioxide enters water.
-
-**Correct answer:** B
-
-**Hint - exact player copy:** Use the stated evidence and the conditions for temporal pattern | uncertainty | D2 | RETRIEVE | L4 | clue; do not choose an option merely because it names a familiar term.
-
-**Option feedback - exact player copy:**
-
-- A: This describes Dissolved oxygen, not temporal pattern | uncertainty | D2 | RETRIEVE | L4 | clue. It does not account for the quantities, conditions, or evidence in this environmental science case.
-- B: Correct. read the patterned residuals connects the measured environmental mechanism to the next island condition.
-- C: This describes Thermal pollution, not temporal pattern | uncertainty | D2 | RETRIEVE | L4 | clue. It does not account for the quantities, conditions, or evidence in this environmental science case.
-- D: This describes Ocean acidification, not temporal pattern | uncertainty | D2 | RETRIEVE | L4 | clue. It does not account for the quantities, conditions, or evidence in this environmental science case.
-### Review question 6
-
-**Prompt - exact player copy:** the island council applies the lesson from Two Stresses, One Reef to this follow-up: because patterned errors follow nitrate pulses, test temperature and nitrate separately and together. Run the reversible comparison now so the crew can tell whether the proposed cause changes the measured response. Which environmental-science conclusion correctly applies factorial stressors | causality | D9 | COMBINE | L4 | reveal?
-
-**Options - exact player copy:**
-
-- A. Oxygen gas available in water.
-- B. Warming that lowers oxygen solubility.
-- C. Control heat and nutrients connects the measured environmental mechanism to the next island condition.
-- D. Falling seawater pH as carbon dioxide enters water.
-
-**Correct answer:** C
-
-**Hint - exact player copy:** Use the stated evidence and the conditions for factorial stressors | causality | D9 | COMBINE | L4 | reveal; do not choose an option merely because it names a familiar term.
-
-**Option feedback - exact player copy:**
-
-- A: This describes Dissolved oxygen, not factorial stressors | causality | D9 | COMBINE | L4 | reveal. It does not account for the quantities, conditions, or evidence in this environmental science case.
-- B: This describes Thermal pollution, not factorial stressors | causality | D9 | COMBINE | L4 | reveal. It does not account for the quantities, conditions, or evidence in this environmental science case.
-- C: Correct. control heat and nutrients connects the measured environmental mechanism to the next island condition.
-- D: This describes Ocean acidification, not factorial stressors | causality | D9 | COMBINE | L4 | reveal. It does not account for the quantities, conditions, or evidence in this environmental science case.
-**Optional review completion - exact player copy:** Excellent work. You went beyond the required mission and strengthened the ideas behind your decision.
 ## Quick concept review
 - Re-read the mechanism established by the four stops.
 - Re-use the governing equation or causal comparison with units.
@@ -6325,7 +6428,7 @@ The screen also shows `TIME {elapsed} / TARGET`, `INCORRECT SUBMISSIONS {incorre
 
 **Availability:** Reveal only after mission completion when the player selects **GO DEEPER**. This section is optional, ungraded for campaign progress, and does not change metrics, Recovery Points, or the next-mission unlock.
 
-**Secondary briefing card - exact player copy:** You completed After Dusk. Choose GO DEEPER to revisit the four decisions and explore related course ideas; this optional review does not change your metrics or delay the next mission.
+**Secondary briefing card - exact player copy:** Try six independent practice questions. Each includes its own context and any needed data; no mission records are required.
 
 ### Additional concepts kept out of the required mission card
 
@@ -6333,7 +6436,8 @@ The screen also shows `TIME {elapsed} / TARGET`, `INCORRECT SUBMISSIONS {incorre
 
 ### Review question 1
 
-**Prompt - exact player copy:** In a follow-up to After Dusk, the reef conditions add new electric loads, while essential evening demand must remain firm. Close the ledger now so the next decision uses every real input and output exactly once. Which environmental-science conclusion correctly applies Thermal inversion?
+
+**Prompt - exact player copy:** Which statement best explains thermal inversion?
 
 **Options - exact player copy:**
 
@@ -6344,17 +6448,19 @@ The screen also shows `TIME {elapsed} / TARGET`, `INCORRECT SUBMISSIONS {incorre
 
 **Correct answer:** B
 
-**Hint - exact player copy:** Use the stated evidence and the conditions for Thermal inversion; do not choose an option merely because it names a familiar term.
+**Hint - exact player copy:** Identify the defining relationship or mechanism for thermal inversion. All needed information is in this question.
 
 **Option feedback - exact player copy:**
 
-- A: This describes Capacity factor, not Thermal inversion. It does not account for the quantities, conditions, or evidence in this environmental science case.
-- B: Correct. warm air trapping cooler polluted air below.
-- C: This describes Energy return on investment (EROI), not Thermal inversion. It does not account for the quantities, conditions, or evidence in this environmental science case.
-- D: This describes Primary pollutant, not Thermal inversion. It does not account for the quantities, conditions, or evidence in this environmental science case.
+- A: This describes capacity factor. It does not answer the question about thermal inversion.
+- B: Correct. Warm air trapping cooler polluted air below.
+- C: This describes energy return on investment (EROI). It does not answer the question about thermal inversion.
+- D: This describes primary pollutant. It does not answer the question about thermal inversion.
+
 ### Review question 2
 
-**Prompt - exact player copy:** the island council receives a second case related to After Dusk: the peak ledger leaves only fifteen kilowatts, and the turbine plate promises 250 kilowatts. Which environmental-science conclusion correctly applies Capacity factor?
+
+**Prompt - exact player copy:** Which statement best explains capacity factor?
 
 **Options - exact player copy:**
 
@@ -6365,17 +6471,19 @@ The screen also shows `TIME {elapsed} / TARGET`, `INCORRECT SUBMISSIONS {incorre
 
 **Correct answer:** C
 
-**Hint - exact player copy:** Use the stated evidence and the conditions for Capacity factor; do not choose an option merely because it names a familiar term.
+**Hint - exact player copy:** Identify the defining relationship or mechanism for capacity factor. All needed information is in this question.
 
 **Option feedback - exact player copy:**
 
-- A: This describes Thermal inversion, not Capacity factor. It does not account for the quantities, conditions, or evidence in this environmental science case.
-- B: This describes Energy return on investment (EROI), not Capacity factor. It does not account for the quantities, conditions, or evidence in this environmental science case.
-- C: Correct. actual energy divided by maximum possible energy.
-- D: This describes Primary pollutant, not Capacity factor. It does not account for the quantities, conditions, or evidence in this environmental science case.
+- A: This describes thermal inversion. It does not answer the question about capacity factor.
+- B: This describes energy return on investment (EROI). It does not answer the question about capacity factor.
+- C: Correct. Actual energy divided by maximum possible energy.
+- D: This describes primary pollutant. It does not answer the question about capacity factor.
+
 ### Review question 3
 
-**Prompt - exact player copy:** A teammate rechecks After Dusk using new evidence: the reef conditions add new electric loads, while essential evening demand must remain firm. Close the ledger now so the next decision uses every real input and output exactly once. Which environmental-science conclusion correctly applies Energy return on investment (EROI)?
+
+**Prompt - exact player copy:** Which statement best explains energy return on investment (EROI)?
 
 **Options - exact player copy:**
 
@@ -6386,17 +6494,19 @@ The screen also shows `TIME {elapsed} / TARGET`, `INCORRECT SUBMISSIONS {incorre
 
 **Correct answer:** D
 
-**Hint - exact player copy:** Use the stated evidence and the conditions for Energy return on investment (EROI); do not choose an option merely because it names a familiar term.
+**Hint - exact player copy:** Identify the defining relationship or mechanism for energy return on investment (eroi). All needed information is in this question.
 
 **Option feedback - exact player copy:**
 
-- A: This describes Thermal inversion, not Energy return on investment (EROI). It does not account for the quantities, conditions, or evidence in this environmental science case.
-- B: This describes Capacity factor, not Energy return on investment (EROI). It does not account for the quantities, conditions, or evidence in this environmental science case.
-- C: This describes Primary pollutant, not Energy return on investment (EROI). It does not account for the quantities, conditions, or evidence in this environmental science case.
-- D: Correct. energy returned divided by energy invested.
+- A: This describes thermal inversion. It does not answer the question about energy return on investment (eroi).
+- B: This describes capacity factor. It does not answer the question about energy return on investment (eroi).
+- C: This describes primary pollutant. It does not answer the question about energy return on investment (eroi).
+- D: Correct. Energy returned divided by energy invested.
+
 ### Review question 4
 
-**Prompt - exact player copy:** An unseen case extends After Dusk: because nameplate power overstates wind supply, backup fuels remain in the plan. Match the evidence to the live explanations now so the investigation carries forward only supported claims. Which environmental-science conclusion correctly applies Primary pollutant?
+
+**Prompt - exact player copy:** Which statement best explains primary pollutant?
 
 **Options - exact player copy:**
 
@@ -6407,17 +6517,19 @@ The screen also shows `TIME {elapsed} / TARGET`, `INCORRECT SUBMISSIONS {incorre
 
 **Correct answer:** A
 
-**Hint - exact player copy:** Use the stated evidence and the conditions for Primary pollutant; do not choose an option merely because it names a familiar term.
+**Hint - exact player copy:** Identify the defining relationship or mechanism for primary pollutant. All needed information is in this question.
 
 **Option feedback - exact player copy:**
 
-- A: Correct. emitted directly.
-- B: This describes Thermal inversion, not Primary pollutant. It does not account for the quantities, conditions, or evidence in this environmental science case.
-- C: This describes Capacity factor, not Primary pollutant. It does not account for the quantities, conditions, or evidence in this environmental science case.
-- D: This describes Energy return on investment (EROI), not Primary pollutant. It does not account for the quantities, conditions, or evidence in this environmental science case.
+- A: Correct. Emitted directly.
+- B: This describes thermal inversion. It does not answer the question about primary pollutant.
+- C: This describes capacity factor. It does not answer the question about primary pollutant.
+- D: This describes energy return on investment (EROI). It does not answer the question about primary pollutant.
+
 ### Review question 5
 
-**Prompt - exact player copy:** Before another After Dusk decision, the team knows this: because nameplate power overstates wind supply, backup fuels remain in the plan. Match the evidence to the live explanations now so the investigation carries forward only supported claims. Which environmental-science conclusion correctly applies Secondary pollutant?
+
+**Prompt - exact player copy:** Which statement best explains secondary pollutant?
 
 **Options - exact player copy:**
 
@@ -6428,58 +6540,65 @@ The screen also shows `TIME {elapsed} / TARGET`, `INCORRECT SUBMISSIONS {incorre
 
 **Correct answer:** B
 
-**Hint - exact player copy:** Use the stated evidence and the conditions for Secondary pollutant; do not choose an option merely because it names a familiar term.
+**Hint - exact player copy:** Identify the defining relationship or mechanism for secondary pollutant. All needed information is in this question.
 
 **Option feedback - exact player copy:**
 
-- A: This describes Thermal inversion, not Secondary pollutant. It does not account for the quantities, conditions, or evidence in this environmental science case.
-- B: Correct. formed in air.
-- C: This describes Capacity factor, not Secondary pollutant. It does not account for the quantities, conditions, or evidence in this environmental science case.
-- D: This describes Energy return on investment (EROI), not Secondary pollutant. It does not account for the quantities, conditions, or evidence in this environmental science case.
+- A: This describes thermal inversion. It does not answer the question about secondary pollutant.
+- B: Correct. Formed in air.
+- C: This describes capacity factor. It does not answer the question about secondary pollutant.
+- D: This describes energy return on investment (EROI). It does not answer the question about secondary pollutant.
+
 ### Review question 6
 
-**Prompt - exact player copy:** the island council applies the lesson from After Dusk to this follow-up: the reef conditions add new electric loads, while essential evening demand must remain firm. Close the ledger now so the next decision uses every real input and output exactly once. Which interpretation of the displayed evidence correctly uses the mission concept?
+
+**Prompt - exact player copy:** The supply must cover essential load and preserve the stated reserve. How much additional load can be served?
 
 **Figure - exact player copy:**
 
 ```json
 {
   "kind": "bars",
-  "xLabel": "Plan",
-  "yLabel": "Daily energy demand (MWh)",
-  "caption": "Efficiency lowers the island's daily energy demand.",
+  "xLabel": "Category",
+  "yLabel": "Power (kW)",
+  "caption": "Power available and required",
   "bars": [
     {
-      "name": "Current plan",
-      "value": 100
+      "name": "Supply",
+      "value": 180
     },
     {
-      "name": "Efficiency plan",
-      "value": 76
+      "name": "Essential load",
+      "value": 150
+    },
+    {
+      "name": "Protected reserve",
+      "value": 15
     }
   ]
 }
 ```
 
-
 **Options - exact player copy:**
 
-- A. Warm air trapping cooler polluted air below.
-- B. Actual energy divided by maximum possible energy.
-- C. Close the peak-power ledger connects the measured environmental mechanism to the next island condition.
-- D. Energy returned divided by energy invested.
+- A. 30 kW.
+- B. 45 kW.
+- C. 15 kW.
+- D. 0 kW.
 
 **Correct answer:** C
 
-**Hint - exact player copy:** Read the axes, units, direction, and any threshold before comparing the choices.
+**Hint - exact player copy:** Subtract both essential demand and reserve from supply.
 
 **Option feedback - exact player copy:**
 
-- A: This describes Thermal inversion, not demand and efficiency | energy | D7 ledger | RETRIEVE | L2 | foundation. It does not account for the quantities, conditions, or evidence in this environmental science case.
-- B: This describes Capacity factor, not demand and efficiency | energy | D7 ledger | RETRIEVE | L2 | foundation. It does not account for the quantities, conditions, or evidence in this environmental science case.
-- C: Correct. close the peak-power ledger connects the measured environmental mechanism to the next island condition.
-- D: This describes Energy return on investment (EROI), not demand and efficiency | energy | D7 ledger | RETRIEVE | L2 | foundation. It does not account for the quantities, conditions, or evidence in this environmental science case.
-**Optional review completion - exact player copy:** Excellent work. You went beyond the required mission and strengthened the ideas behind your decision.
+- A: That uses the protected reserve.
+- B: That exceeds supply after the essential load.
+- C: Correct. 15 kW.
+- D: There is 15 kW left after both requirements.
+
+**Optional review completion - exact player copy:** Good work. You have completed six independent practice questions.
+
 ## Quick concept review
 - Re-read the mechanism established by the four stops.
 - Re-use the governing equation or causal comparison with units.
@@ -6861,15 +6980,39 @@ The screen also shows `TIME {elapsed} / TARGET`, `INCORRECT SUBMISSIONS {incorre
 
 **Availability:** Reveal only after mission completion when the player selects **GO DEEPER**. This section is optional, ungraded for campaign progress, and does not change metrics, Recovery Points, or the next-mission unlock.
 
-**Secondary briefing card - exact player copy:** You completed The Crate Is Late. Choose GO DEEPER to revisit the four decisions and explore related course ideas; this optional review does not change your metrics or delay the next mission.
+**Secondary briefing card - exact player copy:** Try six independent practice questions. Each includes its own context and any needed data; no mission records are required.
 
 ### Review focus
 
-No additional prerequisite is required. These AP-style questions apply the mission's course ideas to follow-up evidence, including related topics not required in the four main stops.
+No additional prerequisite is required. These practice questions review related course ideas. Each question stands alone, including its choices and figure.
 
 ### Review question 1
 
-**Prompt - exact player copy:** In a follow-up to The Crate Is Late, the portfolio assumes repaired wind before ferry day, but the crated gearbox carries several schedule claims. Before the record can be signed, identify which claims have independent support and which must remain unverified. Which environmental-science conclusion correctly applies Greenhouse gas?
+
+**Prompt - exact player copy:** Which statement best explains greenhouse gas?
+
+**Options - exact player copy:**
+
+- A. Heat trapped relative to carbon dioxide.
+- B. Time for half a radioactive sample to decay.
+- C. Power available steadily.
+- D. Gas that absorbs outgoing heat.
+
+**Correct answer:** D
+
+**Hint - exact player copy:** Identify the defining relationship or mechanism for greenhouse gas. All needed information is in this question.
+
+**Option feedback - exact player copy:**
+
+- A: This describes global warming potential. It does not answer the question about greenhouse gas.
+- B: This describes half-life. It does not answer the question about greenhouse gas.
+- C: This describes base load. It does not answer the question about greenhouse gas.
+- D: Correct. Gas that absorbs outgoing heat.
+
+### Review question 2
+
+
+**Prompt - exact player copy:** Which statement best explains global warming potential?
 
 **Options - exact player copy:**
 
@@ -6878,19 +7021,21 @@ No additional prerequisite is required. These AP-style questions apply the missi
 - C. Time for half a radioactive sample to decay.
 - D. Power available steadily.
 
-**Correct answer:** B
+**Correct answer:** A
 
-**Hint - exact player copy:** Use the stated evidence and the conditions for Greenhouse gas; do not choose an option merely because it names a familiar term.
+**Hint - exact player copy:** Identify the defining relationship or mechanism for global warming potential. All needed information is in this question.
 
 **Option feedback - exact player copy:**
 
-- A: This describes Global warming potential, not Greenhouse gas. It does not account for the quantities, conditions, or evidence in this environmental science case.
-- B: Correct. gas that absorbs outgoing heat.
-- C: This describes Half-life, not Greenhouse gas. It does not account for the quantities, conditions, or evidence in this environmental science case.
-- D: This describes Base load, not Greenhouse gas. It does not account for the quantities, conditions, or evidence in this environmental science case.
-### Review question 2
+- A: Correct. Heat trapped relative to carbon dioxide.
+- B: This describes greenhouse gas. It does not answer the question about global warming potential.
+- C: This describes half-life. It does not answer the question about global warming potential.
+- D: This describes base load. It does not answer the question about global warming potential.
 
-**Prompt - exact player copy:** the island council receives a second case related to The Crate Is Late: the portfolio assumes repaired wind before ferry day, but the crated gearbox carries several schedule claims. Before the record can be signed, identify which claims have independent support and which must remain unverified. Which environmental-science conclusion correctly applies Global warming potential?
+### Review question 3
+
+
+**Prompt - exact player copy:** Which statement best explains half-life?
 
 **Options - exact player copy:**
 
@@ -6899,19 +7044,21 @@ No additional prerequisite is required. These AP-style questions apply the missi
 - C. Heat trapped relative to carbon dioxide.
 - D. Power available steadily.
 
-**Correct answer:** C
+**Correct answer:** B
 
-**Hint - exact player copy:** Use the stated evidence and the conditions for Global warming potential; do not choose an option merely because it names a familiar term.
+**Hint - exact player copy:** Identify the defining relationship or mechanism for half-life. All needed information is in this question.
 
 **Option feedback - exact player copy:**
 
-- A: This describes Greenhouse gas, not Global warming potential. It does not account for the quantities, conditions, or evidence in this environmental science case.
-- B: This describes Half-life, not Global warming potential. It does not account for the quantities, conditions, or evidence in this environmental science case.
-- C: Correct. heat trapped relative to carbon dioxide.
-- D: This describes Base load, not Global warming potential. It does not account for the quantities, conditions, or evidence in this environmental science case.
-### Review question 3
+- A: This describes greenhouse gas. It does not answer the question about half-life.
+- B: Correct. Time for half a radioactive sample to decay.
+- C: This describes global warming potential. It does not answer the question about half-life.
+- D: This describes base load. It does not answer the question about half-life.
 
-**Prompt - exact player copy:** A teammate rechecks The Crate Is Late using new evidence: the portfolio assumes repaired wind before ferry day, but the crated gearbox carries several schedule claims. Before the record can be signed, identify which claims have independent support and which must remain unverified. Which environmental-science conclusion correctly applies Half-life?
+### Review question 4
+
+
+**Prompt - exact player copy:** Which statement best explains base load?
 
 **Options - exact player copy:**
 
@@ -6920,80 +7067,65 @@ No additional prerequisite is required. These AP-style questions apply the missi
 - C. Power available steadily.
 - D. Time for half a radioactive sample to decay.
 
-**Correct answer:** D
+**Correct answer:** C
 
-**Hint - exact player copy:** Use the stated evidence and the conditions for Half-life; do not choose an option merely because it names a familiar term.
+**Hint - exact player copy:** Identify the defining relationship or mechanism for base load. All needed information is in this question.
 
 **Option feedback - exact player copy:**
 
-- A: This describes Greenhouse gas, not Half-life. It does not account for the quantities, conditions, or evidence in this environmental science case.
-- B: This describes Global warming potential, not Half-life. It does not account for the quantities, conditions, or evidence in this environmental science case.
-- C: This describes Base load, not Half-life. It does not account for the quantities, conditions, or evidence in this environmental science case.
-- D: Correct. time for half a radioactive sample to decay.
-### Review question 4
+- A: This describes greenhouse gas. It does not answer the question about base load.
+- B: This describes global warming potential. It does not answer the question about base load.
+- C: Correct. Power available steadily.
+- D: This describes half-life. It does not answer the question about base load.
 
-**Prompt - exact player copy:** An unseen case extends The Crate Is Late: captured methane can run safely after the exhaust repair, but its output is limited. Before the plan can proceed, divide the limited supply so every required use is covered. Which environmental-science conclusion correctly applies Base load?
+### Review question 5
+
+
+**Prompt - exact player copy:** A power plan counts a turbine whose replacement gearbox arrives after the demand deadline. What must change?
 
 **Options - exact player copy:**
 
-- A. Power available steadily.
+- A. Gas that absorbs outgoing heat.
+- B. Heat trapped relative to carbon dioxide.
+- C. Time for half a radioactive sample to decay.
+- D. The plan must exclude that unavailable output and meet demand using equipment ready before the deadline.
+
+**Correct answer:** D
+
+**Hint - exact player copy:** Identify the defining relationship or mechanism for feasibility. All needed information is in this question.
+
+**Option feedback - exact player copy:**
+
+- A: This describes greenhouse gas. It does not answer the question about feasibility.
+- B: This describes global warming potential. It does not answer the question about feasibility.
+- C: This describes half-life. It does not answer the question about feasibility.
+- D: Correct. The plan must exclude that unavailable output and meet demand using equipment ready before the deadline.
+
+### Review question 6
+
+
+**Prompt - exact player copy:** A gas collector is tested with flow, temperature, and measurement settings fixed. Captured gas rises when a leak is sealed and falls when reopened. What does this support?
+
+**Options - exact player copy:**
+
+- A. Sealing the leak increases capture under the controlled test conditions.
 - B. Gas that absorbs outgoing heat.
 - C. Heat trapped relative to carbon dioxide.
 - D. Time for half a radioactive sample to decay.
 
 **Correct answer:** A
 
-**Hint - exact player copy:** Use the stated evidence and the conditions for Base load; do not choose an option merely because it names a familiar term.
+**Hint - exact player copy:** Identify the defining relationship or mechanism for methane capture. All needed information is in this question.
 
 **Option feedback - exact player copy:**
 
-- A: Correct. power available steadily.
-- B: This describes Greenhouse gas, not Base load. It does not account for the quantities, conditions, or evidence in this environmental science case.
-- C: This describes Global warming potential, not Base load. It does not account for the quantities, conditions, or evidence in this environmental science case.
-- D: This describes Half-life, not Base load. It does not account for the quantities, conditions, or evidence in this environmental science case.
-### Review question 5
+- A: Correct. Sealing the leak increases capture under the controlled test conditions.
+- B: This describes greenhouse gas. It does not answer the question about methane capture.
+- C: This describes global warming potential. It does not answer the question about methane capture.
+- D: This describes half-life. It does not answer the question about methane capture.
 
-**Prompt - exact player copy:** Before another Leak and Turbine Case decision, the team knows this: the portfolio assumes repaired wind before ferry day, but the crated gearbox carries several schedule claims. Before the record can be signed, identify which claims have independent support and which must remain unverified. Which environmental-science conclusion correctly applies feasibility | evidence | D6 compliance | RETRIEVE | L3 | obstacle?
+**Optional review completion - exact player copy:** Good work. You have completed six independent practice questions.
 
-**Options - exact player copy:**
-
-- A. Gas that absorbs outgoing heat.
-- B. Audit the gearbox schedule connects the measured environmental mechanism to the next island condition.
-- C. Heat trapped relative to carbon dioxide.
-- D. Time for half a radioactive sample to decay.
-
-**Correct answer:** B
-
-**Hint - exact player copy:** Use the stated evidence and the conditions for feasibility | evidence | D6 compliance | RETRIEVE | L3 | obstacle; do not choose an option merely because it names a familiar term.
-
-**Option feedback - exact player copy:**
-
-- A: This describes Greenhouse gas, not feasibility | evidence | D6 compliance | RETRIEVE | L3 | obstacle. It does not account for the quantities, conditions, or evidence in this environmental science case.
-- B: Correct. audit the gearbox schedule connects the measured environmental mechanism to the next island condition.
-- C: This describes Global warming potential, not feasibility | evidence | D6 compliance | RETRIEVE | L3 | obstacle. It does not account for the quantities, conditions, or evidence in this environmental science case.
-- D: This describes Half-life, not feasibility | evidence | D6 compliance | RETRIEVE | L3 | obstacle. It does not account for the quantities, conditions, or evidence in this environmental science case.
-### Review question 6
-
-**Prompt - exact player copy:** the island council applies the lesson from The Crate Is Late to this follow-up: because wind cannot return before the vote, captured landfill gas may bridge the gap. Commit the prediction and run the test now so the measurement can fairly accept or reject the proposed model. Which environmental-science conclusion correctly applies methane capture | causality | D7 | RETRIEVE | L4 | evidence?
-
-**Options - exact player copy:**
-
-- A. Gas that absorbs outgoing heat.
-- B. Heat trapped relative to carbon dioxide.
-- C. Verify methane capture connects the measured environmental mechanism to the next island condition.
-- D. Time for half a radioactive sample to decay.
-
-**Correct answer:** C
-
-**Hint - exact player copy:** Use the stated evidence and the conditions for methane capture | causality | D7 | RETRIEVE | L4 | evidence; do not choose an option merely because it names a familiar term.
-
-**Option feedback - exact player copy:**
-
-- A: This describes Greenhouse gas, not methane capture | causality | D7 | RETRIEVE | L4 | evidence. It does not account for the quantities, conditions, or evidence in this environmental science case.
-- B: This describes Global warming potential, not methane capture | causality | D7 | RETRIEVE | L4 | evidence. It does not account for the quantities, conditions, or evidence in this environmental science case.
-- C: Correct. verify methane capture connects the measured environmental mechanism to the next island condition.
-- D: This describes Half-life, not methane capture | causality | D7 | RETRIEVE | L4 | evidence. It does not account for the quantities, conditions, or evidence in this environmental science case.
-**Optional review completion - exact player copy:** Excellent work. You went beyond the required mission and strengthened the ideas behind your decision.
 ## Quick concept review
 - Re-read the mechanism established by the four stops.
 - Re-use the governing equation or causal comparison with units.
@@ -7413,15 +7545,16 @@ The screen also shows `TIME {elapsed} / TARGET`, `INCORRECT SUBMISSIONS {incorre
 
 **Availability:** Reveal only after mission completion when the player selects **GO DEEPER**. This section is optional, ungraded for campaign progress, and does not change metrics, Recovery Points, or the next-mission unlock.
 
-**Secondary briefing card - exact player copy:** You completed What Came Ashore. Choose GO DEEPER to revisit the four decisions and explore related course ideas; this optional review does not change your metrics or delay the next mission.
+**Secondary briefing card - exact player copy:** Try six independent practice questions. Each includes its own context and any needed data; no mission records are required.
 
 ### Review focus
 
-No additional prerequisite is required. These AP-style questions apply the mission's course ideas to follow-up evidence, including related topics not required in the four main stops.
+No additional prerequisite is required. These practice questions review related course ideas. Each question stands alone, including its choices and figure.
 
 ### Review question 1
 
-**Prompt - exact player copy:** In a follow-up to What Came Ashore, the power bridge keeps the ferry feasible, but its cargo includes living hitchhikers. Sort the displayed items now so the later decision does not mix cases governed by different evidence. Which environmental-science conclusion correctly applies Invasive species?
+
+**Prompt - exact player copy:** Which statement best explains invasive species?
 
 **Options - exact player copy:**
 
@@ -7432,17 +7565,19 @@ No additional prerequisite is required. These AP-style questions apply the missi
 
 **Correct answer:** B
 
-**Hint - exact player copy:** Use the stated evidence and the conditions for Invasive species; do not choose an option merely because it names a familiar term.
+**Hint - exact player copy:** Identify the defining relationship or mechanism for invasive species. All needed information is in this question.
 
 **Option feedback - exact player copy:**
 
-- A: This describes Endemic, not Invasive species. It does not account for the quantities, conditions, or evidence in this environmental science case.
-- B: Correct. introduced organism that spreads and causes harm.
-- C: This describes Convention on International Trade in Endangered Species (CITES), not Invasive species. It does not account for the quantities, conditions, or evidence in this environmental science case.
-- D: This describes Endangered Species Act, not Invasive species. It does not account for the quantities, conditions, or evidence in this environmental science case.
+- A: This describes endemic. It does not answer the question about invasive species.
+- B: Correct. Introduced organism that spreads and causes harm.
+- C: This describes convention on International Trade in Endangered Species (CITES). It does not answer the question about invasive species.
+- D: This describes endangered Species Act. It does not answer the question about invasive species.
+
 ### Review question 2
 
-**Prompt - exact player copy:** the island council receives a second case related to What Came Ashore: the power bridge keeps the ferry feasible, but its cargo includes living hitchhikers. Sort the displayed items now so the later decision does not mix cases governed by different evidence. Which environmental-science conclusion correctly applies Endemic?
+
+**Prompt - exact player copy:** Which statement best explains endemic?
 
 **Options - exact player copy:**
 
@@ -7453,17 +7588,19 @@ No additional prerequisite is required. These AP-style questions apply the missi
 
 **Correct answer:** C
 
-**Hint - exact player copy:** Use the stated evidence and the conditions for Endemic; do not choose an option merely because it names a familiar term.
+**Hint - exact player copy:** Identify the defining relationship or mechanism for endemic. All needed information is in this question.
 
 **Option feedback - exact player copy:**
 
-- A: This describes Invasive species, not Endemic. It does not account for the quantities, conditions, or evidence in this environmental science case.
-- B: This describes Convention on International Trade in Endangered Species (CITES), not Endemic. It does not account for the quantities, conditions, or evidence in this environmental science case.
-- C: Correct. native to one limited place.
-- D: This describes Endangered Species Act, not Endemic. It does not account for the quantities, conditions, or evidence in this environmental science case.
+- A: This describes invasive species. It does not answer the question about endemic.
+- B: This describes convention on International Trade in Endangered Species (CITES). It does not answer the question about endemic.
+- C: Correct. Native to one limited place.
+- D: This describes endangered Species Act. It does not answer the question about endemic.
+
 ### Review question 3
 
-**Prompt - exact player copy:** A teammate rechecks What Came Ashore using new evidence: the power bridge keeps the ferry feasible, but its cargo includes living hitchhikers. Sort the displayed items now so the later decision does not mix cases governed by different evidence. Which environmental-science conclusion correctly applies Convention on International Trade in Endangered Species (CITES)?
+
+**Prompt - exact player copy:** Which statement best explains convention on International Trade in Endangered Species (CITES)?
 
 **Options - exact player copy:**
 
@@ -7474,17 +7611,19 @@ No additional prerequisite is required. These AP-style questions apply the missi
 
 **Correct answer:** D
 
-**Hint - exact player copy:** Use the stated evidence and the conditions for Convention on International Trade in Endangered Species (CITES); do not choose an option merely because it names a familiar term.
+**Hint - exact player copy:** Identify the defining relationship or mechanism for convention on international trade in endangered species (cites). All needed information is in this question.
 
 **Option feedback - exact player copy:**
 
-- A: This describes Invasive species, not Convention on International Trade in Endangered Species (CITES). It does not account for the quantities, conditions, or evidence in this environmental science case.
-- B: This describes Endemic, not Convention on International Trade in Endangered Species (CITES). It does not account for the quantities, conditions, or evidence in this environmental science case.
-- C: This describes Endangered Species Act, not Convention on International Trade in Endangered Species (CITES). It does not account for the quantities, conditions, or evidence in this environmental science case.
-- D: Correct. treaty controlling trade in threatened species.
+- A: This describes invasive species. It does not answer the question about convention on international trade in endangered species (cites).
+- B: This describes endemic. It does not answer the question about convention on international trade in endangered species (cites).
+- C: This describes endangered Species Act. It does not answer the question about convention on international trade in endangered species (cites).
+- D: Correct. Treaty controlling trade in threatened species.
+
 ### Review question 4
 
-**Prompt - exact player copy:** An unseen case extends What Came Ashore: the power bridge keeps the ferry feasible, but its cargo includes living hitchhikers. Sort the displayed items now so the later decision does not mix cases governed by different evidence. Which environmental-science conclusion correctly applies Endangered Species Act?
+
+**Prompt - exact player copy:** Which statement best explains endangered Species Act?
 
 **Options - exact player copy:**
 
@@ -7495,57 +7634,63 @@ No additional prerequisite is required. These AP-style questions apply the missi
 
 **Correct answer:** A
 
-**Hint - exact player copy:** Use the stated evidence and the conditions for Endangered Species Act; do not choose an option merely because it names a familiar term.
+**Hint - exact player copy:** Identify the defining relationship or mechanism for endangered species act. All needed information is in this question.
 
 **Option feedback - exact player copy:**
 
-- A: Correct. united States law protecting listed species and habitat.
-- B: This describes Invasive species, not Endangered Species Act. It does not account for the quantities, conditions, or evidence in this environmental science case.
-- C: This describes Endemic, not Endangered Species Act. It does not account for the quantities, conditions, or evidence in this environmental science case.
-- D: This describes Convention on International Trade in Endangered Species (CITES), not Endangered Species Act. It does not account for the quantities, conditions, or evidence in this environmental science case.
+- A: Correct. United States law protecting listed species and habitat.
+- B: This describes invasive species. It does not answer the question about endangered species act.
+- C: This describes endemic. It does not answer the question about endangered species act.
+- D: This describes convention on International Trade in Endangered Species (CITES). It does not answer the question about endangered species act.
+
 ### Review question 5
 
-**Prompt - exact player copy:** Before another Biosecurity Rule decision, the team knows this: the power bridge keeps the ferry feasible, but its cargo includes living hitchhikers. Sort the displayed items now so the later decision does not mix cases governed by different evidence. Which environmental-science conclusion correctly applies arrival screening | biodiversity | D3 | RETRIEVE | L2 | clue?
+
+**Prompt - exact player copy:** Why inspect soil on incoming cargo before releasing it into a new habitat?
 
 **Options - exact player copy:**
 
 - A. Introduced organism that spreads and causes harm.
-- B. Screen the arriving cargo connects the measured environmental mechanism to the next island condition.
+- B. Soil can carry organisms that establish and spread outside their native range.
 - C. Native to one limited place.
 - D. Treaty controlling trade in threatened species.
 
 **Correct answer:** B
 
-**Hint - exact player copy:** Use the stated evidence and the conditions for arrival screening | biodiversity | D3 | RETRIEVE | L2 | clue; do not choose an option merely because it names a familiar term.
+**Hint - exact player copy:** Identify the defining relationship or mechanism for arrival screening. All needed information is in this question.
 
 **Option feedback - exact player copy:**
 
-- A: This describes Invasive species, not arrival screening | biodiversity | D3 | RETRIEVE | L2 | clue. It does not account for the quantities, conditions, or evidence in this environmental science case.
-- B: Correct. screen the arriving cargo connects the measured environmental mechanism to the next island condition.
-- C: This describes Endemic, not arrival screening | biodiversity | D3 | RETRIEVE | L2 | clue. It does not account for the quantities, conditions, or evidence in this environmental science case.
-- D: This describes Convention on International Trade in Endangered Species (CITES), not arrival screening | biodiversity | D3 | RETRIEVE | L2 | clue. It does not account for the quantities, conditions, or evidence in this environmental science case.
+- A: This describes invasive species. It does not answer the question about arrival screening.
+- B: Correct. Soil can carry organisms that establish and spread outside their native range.
+- C: This describes endemic. It does not answer the question about arrival screening.
+- D: This describes convention on International Trade in Endangered Species (CITES). It does not answer the question about arrival screening.
+
 ### Review question 6
 
-**Prompt - exact player copy:** the island council applies the lesson from What Came Ashore to this follow-up: inspection identifies risky cargo, yet the council needs to know whether its survey would detect escapees. Run the known signal through the pipeline now so the team knows what the real search can recover. Which environmental-science conclusion correctly applies invasion detection | uncertainty | 13?
+
+**Prompt - exact player copy:** A survey detects only 60% of known planted test specimens. What does a negative field survey mean?
 
 **Options - exact player copy:**
 
 - A. Introduced organism that spreads and causes harm.
 - B. Native to one limited place.
-- C. Test survey recovery connects the measured environmental mechanism to the next island condition.
+- C. No detection does not prove absence because the survey can miss organisms that are present.
 - D. Treaty controlling trade in threatened species.
 
 **Correct answer:** C
 
-**Hint - exact player copy:** Use the stated evidence and the conditions for invasion detection | uncertainty | 13; do not choose an option merely because it names a familiar term.
+**Hint - exact player copy:** Identify the defining relationship or mechanism for invasion detection. All needed information is in this question.
 
 **Option feedback - exact player copy:**
 
-- A: This describes Invasive species, not invasion detection | uncertainty | 13. It does not account for the quantities, conditions, or evidence in this environmental science case.
-- B: This describes Endemic, not invasion detection | uncertainty | 13. It does not account for the quantities, conditions, or evidence in this environmental science case.
-- C: Correct. test survey recovery connects the measured environmental mechanism to the next island condition.
-- D: This describes Convention on International Trade in Endangered Species (CITES), not invasion detection | uncertainty | 13. It does not account for the quantities, conditions, or evidence in this environmental science case.
-**Optional review completion - exact player copy:** Excellent work. You went beyond the required mission and strengthened the ideas behind your decision.
+- A: This describes invasive species. It does not answer the question about invasion detection.
+- B: This describes endemic. It does not answer the question about invasion detection.
+- C: Correct. No detection does not prove absence because the survey can miss organisms that are present.
+- D: This describes convention on International Trade in Endangered Species (CITES). It does not answer the question about invasion detection.
+
+**Optional review completion - exact player copy:** Good work. You have completed six independent practice questions.
+
 ## Quick concept review
 - Re-read the mechanism established by the four stops.
 - Re-use the governing equation or causal comparison with units.
@@ -8008,15 +8153,39 @@ The screen also shows `TIME {elapsed} / TARGET`, `INCORRECT SUBMISSIONS {incorre
 
 **Availability:** Reveal only after mission completion when the player selects **GO DEEPER**. This section is optional, ungraded for campaign progress, and does not change metrics, Recovery Points, or the next-mission unlock.
 
-**Secondary briefing card - exact player copy:** You completed Seats Are Not People. Choose GO DEEPER to revisit the four decisions and explore related course ideas; this optional review does not change your metrics or delay the next mission.
+**Secondary briefing card - exact player copy:** Try six independent practice questions. Each includes its own context and any needed data; no mission records are required.
 
 ### Review focus
 
-No additional prerequisite is required. These AP-style questions apply the mission's course ideas to follow-up evidence, including related topics not required in the four main stops.
+No additional prerequisite is required. These practice questions review related course ideas. Each question stands alone, including its choices and figure.
 
 ### Review question 1
 
-**Prompt - exact player copy:** In a follow-up to Seats Are Not People, the biosecurity rule counts arrivals, but permanent demand begins with residents already here. The next action depends on selecting the conclusion that fits all of those facts. Which environmental-science conclusion correctly applies Total fertility rate?
+
+**Prompt - exact player copy:** Which statement best explains total fertility rate?
+
+**Options - exact player copy:**
+
+- A. Continued growth from a large reproductive-age group.
+- B. Shift from high birth/death rates toward low rates.
+- C. Demand beyond available biological capacity.
+- D. Average births per woman; about 2.1 replaces a population without migration.
+
+**Correct answer:** D
+
+**Hint - exact player copy:** Identify the defining relationship or mechanism for total fertility rate. All needed information is in this question.
+
+**Option feedback - exact player copy:**
+
+- A: This describes population momentum. It does not answer the question about total fertility rate.
+- B: This describes demographic transition. It does not answer the question about total fertility rate.
+- C: This describes overshoot. It does not answer the question about total fertility rate.
+- D: Correct. Average births per woman; about 2.1 replaces a population without migration.
+
+### Review question 2
+
+
+**Prompt - exact player copy:** Which statement best explains population momentum?
 
 **Options - exact player copy:**
 
@@ -8025,49 +8194,30 @@ No additional prerequisite is required. These AP-style questions apply the missi
 - C. Shift from high birth/death rates toward low rates.
 - D. Demand beyond available biological capacity.
 
-**Correct answer:** B
+**Correct answer:** A
 
-**Hint - exact player copy:** Use the stated evidence and the conditions for Total fertility rate; do not choose an option merely because it names a familiar term.
-
-**Option feedback - exact player copy:**
-
-- A: This describes Population momentum, not Total fertility rate. It does not account for the quantities, conditions, or evidence in this environmental science case.
-- B: Correct. average births per woman; about 2.1 replaces a population without migration.
-- C: This describes Demographic transition, not Total fertility rate. It does not account for the quantities, conditions, or evidence in this environmental science case.
-- D: This describes Overshoot, not Total fertility rate. It does not account for the quantities, conditions, or evidence in this environmental science case.
-### Review question 2
-
-**Prompt - exact player copy:** the island council receives a second case related to Seats Are Not People: the biosecurity rule counts arrivals, but permanent demand begins with residents already here. The next action depends on selecting the conclusion that fits all of those facts. Which environmental-science conclusion correctly applies Population momentum?
-
-**Options - exact player copy:**
-
-- A. Average births per woman; about 2.1 replaces a population without migration.
-- B. Shift from high birth/death rates toward low rates.
-- C. Continued growth from a large reproductive-age group.
-- D. Demand beyond available biological capacity.
-
-**Correct answer:** C
-
-**Hint - exact player copy:** Use the stated evidence and the conditions for Population momentum; do not choose an option merely because it names a familiar term.
+**Hint - exact player copy:** Identify the defining relationship or mechanism for population momentum. All needed information is in this question.
 
 **Option feedback - exact player copy:**
 
-- A: This describes Total fertility rate, not Population momentum. It does not account for the quantities, conditions, or evidence in this environmental science case.
-- B: This describes Demographic transition, not Population momentum. It does not account for the quantities, conditions, or evidence in this environmental science case.
-- C: Correct. continued growth from a large reproductive-age group.
-- D: This describes Overshoot, not Population momentum. It does not account for the quantities, conditions, or evidence in this environmental science case.
+- A: Correct. Continued growth from a large reproductive-age group.
+- B: This describes total fertility rate. It does not answer the question about population momentum.
+- C: This describes demographic transition. It does not answer the question about population momentum.
+- D: This describes overshoot. It does not answer the question about population momentum.
+
 ### Review question 3
 
-**Prompt - exact player copy:** A teammate rechecks Seats Are Not People using new evidence: the biosecurity rule counts arrivals, but permanent demand begins with residents already here. The next action depends on selecting the conclusion that fits all of those facts. Which interpretation of the displayed evidence correctly uses the mission concept?
+
+**Prompt - exact player copy:** Ignoring migration, at which stage is the natural rate of increase greatest?
 
 **Figure - exact player copy:**
 
 ```json
 {
   "kind": "line",
-  "xLabel": "Transition stage",
-  "yLabel": "Rate per 1,000 people",
-  "caption": "Birth rates fall after death rates during a demographic transition.",
+  "xLabel": "Stage",
+  "yLabel": "Annual events per 1000 people",
+  "caption": "An idealized demographic transition; ignore migration",
   "series": [
     {
       "name": "Birth rate",
@@ -8078,15 +8228,15 @@ No additional prerequisite is required. These AP-style questions apply the missi
         ],
         [
           2,
-          38
+          40
         ],
         [
           3,
-          26
+          25
         ],
         [
           4,
-          14
+          12
         ]
       ]
     },
@@ -8099,11 +8249,11 @@ No additional prerequisite is required. These AP-style questions apply the missi
         ],
         [
           2,
-          20
+          15
         ],
         [
           3,
-          12
+          10
         ],
         [
           4,
@@ -8115,6 +8265,28 @@ No additional prerequisite is required. These AP-style questions apply the missi
 }
 ```
 
+**Options - exact player copy:**
+
+- A. Stage 1.
+- B. Stage 2.
+- C. Stage 3.
+- D. Stage 4.
+
+**Correct answer:** B
+
+**Hint - exact player copy:** Subtract death rate from birth rate at each stage.
+
+**Option feedback - exact player copy:**
+
+- A: The birth-minus-death gap is only 2 per 1000.
+- B: Correct. Stage 2.
+- C: Its gap is 15, smaller than stage 2’s 25.
+- D: Its gap is only 2 per 1000.
+
+### Review question 4
+
+
+**Prompt - exact player copy:** Which statement best explains overshoot?
 
 **Options - exact player copy:**
 
@@ -8123,80 +8295,65 @@ No additional prerequisite is required. These AP-style questions apply the missi
 - C. Demand beyond available biological capacity.
 - D. Shift from high birth/death rates toward low rates.
 
-**Correct answer:** D
+**Correct answer:** C
 
-**Hint - exact player copy:** Read the axes, units, direction, and any threshold before comparing the choices.
+**Hint - exact player copy:** Identify the defining relationship or mechanism for overshoot. All needed information is in this question.
 
 **Option feedback - exact player copy:**
 
-- A: This describes Total fertility rate, not Demographic transition. It does not account for the quantities, conditions, or evidence in this environmental science case.
-- B: This describes Population momentum, not Demographic transition. It does not account for the quantities, conditions, or evidence in this environmental science case.
-- C: This describes Overshoot, not Demographic transition. It does not account for the quantities, conditions, or evidence in this environmental science case.
-- D: Correct. shift from high birth/death rates toward low rates.
-### Review question 4
+- A: This describes total fertility rate. It does not answer the question about overshoot.
+- B: This describes population momentum. It does not answer the question about overshoot.
+- C: Correct. Demand beyond available biological capacity.
+- D: This describes demographic transition. It does not answer the question about overshoot.
 
-**Prompt - exact player copy:** An unseen case extends Seats Are Not People: the biosecurity rule counts arrivals, but permanent demand begins with residents already here. The next action depends on selecting the conclusion that fits all of those facts. Which environmental-science conclusion correctly applies Overshoot?
+### Review question 5
+
+
+**Prompt - exact player copy:** Two populations have the same total size, but one has many more young people. Why can their future growth differ?
 
 **Options - exact player copy:**
 
-- A. Demand beyond available biological capacity.
+- A. Average births per woman; about 2.1 replaces a population without migration.
+- B. Continued growth from a large reproductive-age group.
+- C. Shift from high birth/death rates toward low rates.
+- D. Their age structures create different numbers of people entering reproductive ages.
+
+**Correct answer:** D
+
+**Hint - exact player copy:** Identify the defining relationship or mechanism for age structure. All needed information is in this question.
+
+**Option feedback - exact player copy:**
+
+- A: This describes total fertility rate. It does not answer the question about age structure.
+- B: This describes population momentum. It does not answer the question about age structure.
+- C: This describes demographic transition. It does not answer the question about age structure.
+- D: Correct. Their age structures create different numbers of people entering reproductive ages.
+
+### Review question 6
+
+
+**Prompt - exact player copy:** A population has 100 births, 60 deaths, 30 immigrants, and 10 emigrants in one year. What is its net change?
+
+**Options - exact player copy:**
+
+- A. An increase of 60 people: 100-60+30-10.
 - B. Average births per woman; about 2.1 replaces a population without migration.
 - C. Continued growth from a large reproductive-age group.
 - D. Shift from high birth/death rates toward low rates.
 
 **Correct answer:** A
 
-**Hint - exact player copy:** Use the stated evidence and the conditions for Overshoot; do not choose an option merely because it names a familiar term.
+**Hint - exact player copy:** Identify the defining relationship or mechanism for population growth. All needed information is in this question.
 
 **Option feedback - exact player copy:**
 
-- A: Correct. demand beyond available biological capacity.
-- B: This describes Total fertility rate, not Overshoot. It does not account for the quantities, conditions, or evidence in this environmental science case.
-- C: This describes Population momentum, not Overshoot. It does not account for the quantities, conditions, or evidence in this environmental science case.
-- D: This describes Demographic transition, not Overshoot. It does not account for the quantities, conditions, or evidence in this environmental science case.
-### Review question 5
+- A: Correct. An increase of 60 people: 100-60+30-10.
+- B: This describes total fertility rate. It does not answer the question about population growth.
+- C: This describes population momentum. It does not answer the question about population growth.
+- D: This describes demographic transition. It does not answer the question about population growth.
 
-**Prompt - exact player copy:** Before another Population Outlook decision, the team knows this: the biosecurity rule counts arrivals, but permanent demand begins with residents already here. The next action depends on selecting the conclusion that fits all of those facts. Which environmental-science conclusion correctly applies age structure | populations | D8 dose | RETRIEVE | L3 | evidence?
+**Optional review completion - exact player copy:** Good work. You have completed six independent practice questions.
 
-**Options - exact player copy:**
-
-- A. Average births per woman; about 2.1 replaces a population without migration.
-- B. Read the age structure connects the measured environmental mechanism to the next island condition.
-- C. Continued growth from a large reproductive-age group.
-- D. Shift from high birth/death rates toward low rates.
-
-**Correct answer:** B
-
-**Hint - exact player copy:** Use the stated evidence and the conditions for age structure | populations | D8 dose | RETRIEVE | L3 | evidence; do not choose an option merely because it names a familiar term.
-
-**Option feedback - exact player copy:**
-
-- A: This describes Total fertility rate, not age structure | populations | D8 dose | RETRIEVE | L3 | evidence. It does not account for the quantities, conditions, or evidence in this environmental science case.
-- B: Correct. read the age structure connects the measured environmental mechanism to the next island condition.
-- C: This describes Population momentum, not age structure | populations | D8 dose | RETRIEVE | L3 | evidence. It does not account for the quantities, conditions, or evidence in this environmental science case.
-- D: This describes Demographic transition, not age structure | populations | D8 dose | RETRIEVE | L3 | evidence. It does not account for the quantities, conditions, or evidence in this environmental science case.
-### Review question 6
-
-**Prompt - exact player copy:** the island council applies the lesson from Seats Are Not People to this follow-up: the age structure suggests decline, yet births and deaths must test that reading. Which environmental-science conclusion correctly applies population growth | populations | 14?
-
-**Options - exact player copy:**
-
-- A. Average births per woman; about 2.1 replaces a population without migration.
-- B. Continued growth from a large reproductive-age group.
-- C. Calculate population growth connects the measured environmental mechanism to the next island condition.
-- D. Shift from high birth/death rates toward low rates.
-
-**Correct answer:** C
-
-**Hint - exact player copy:** Use the stated evidence and the conditions for population growth | populations | 14; do not choose an option merely because it names a familiar term.
-
-**Option feedback - exact player copy:**
-
-- A: This describes Total fertility rate, not population growth | populations | 14. It does not account for the quantities, conditions, or evidence in this environmental science case.
-- B: This describes Population momentum, not population growth | populations | 14. It does not account for the quantities, conditions, or evidence in this environmental science case.
-- C: Correct. calculate population growth connects the measured environmental mechanism to the next island condition.
-- D: This describes Demographic transition, not population growth | populations | 14. It does not account for the quantities, conditions, or evidence in this environmental science case.
-**Optional review completion - exact player copy:** Excellent work. You went beyond the required mission and strengthened the ideas behind your decision.
 ## Quick concept review
 - Re-read the mechanism established by the four stops.
 - Re-use the governing equation or causal comparison with units.
@@ -8572,139 +8729,152 @@ The screen also shows `TIME {elapsed} / TARGET`, `INCORRECT SUBMISSIONS {incorre
 
 **Availability:** Reveal only after mission completion when the player selects **GO DEEPER**. This section is optional, ungraded for campaign progress, and does not change metrics, Recovery Points, or the next-mission unlock.
 
-**Secondary briefing card - exact player copy:** You completed The Second Berth. Choose GO DEEPER to revisit the four decisions and explore related course ideas; this optional review does not change your metrics or delay the next mission.
+**Secondary briefing card - exact player copy:** Try six independent practice questions. Each includes its own context and any needed data; no mission records are required.
 
 ### Review focus
 
-No additional prerequisite is required. These AP-style questions apply the mission's course ideas to follow-up evidence, including related topics not required in the four main stops.
+No additional prerequisite is required. These practice questions review related course ideas. Each question stands alone, including its choices and figure.
 
 ### Review question 1
 
-**Prompt - exact player copy:** In a follow-up to The Second Berth, the current plan balances all four ledgers, but climate effects alter several at once. Match the evidence to the live explanations now so the investigation carries forward only supported claims. Which environmental-science conclusion correctly applies Radiative forcing?
+
+**Prompt - exact player copy:** Which statement best explains radiative forcing?
 
 **Options - exact player copy:**
 
 - A. Reducing causes of environmental change.
 - B. Change in Earth's energy balance in W/m².
 - C. Reducing harm from impacts.
-- D. Threshold beyond which feedback drives further change.
+- D. Threshold beyond which
 
 **Correct answer:** B
 
-**Hint - exact player copy:** Use the stated evidence and the conditions for Radiative forcing; do not choose an option merely because it names a familiar term.
+**Hint - exact player copy:** Identify the defining relationship or mechanism for radiative forcing. All needed information is in this question.
 
 **Option feedback - exact player copy:**
 
-- A: This describes Mitigation, not Radiative forcing. It does not account for the quantities, conditions, or evidence in this environmental science case.
-- B: Correct. change in Earth's energy balance in W/m².
-- C: This describes Adaptation, not Radiative forcing. It does not account for the quantities, conditions, or evidence in this environmental science case.
-- D: This describes Tipping point, not Radiative forcing. It does not account for the quantities, conditions, or evidence in this environmental science case.
+- A: This describes mitigation. It does not answer the question about radiative forcing.
+- B: Correct. Change in Earth's energy balance in W/m².
+- C: This describes adaptation. It does not answer the question about radiative forcing.
+- D: This describes tipping point. It does not answer the question about radiative forcing.
+
 ### Review question 2
 
-**Prompt - exact player copy:** the island council receives a second case related to The Second Berth: the current plan balances all four ledgers, but climate effects alter several at once. Match the evidence to the live explanations now so the investigation carries forward only supported claims. Which environmental-science conclusion correctly applies Mitigation?
+
+**Prompt - exact player copy:** Which statement best explains mitigation?
 
 **Options - exact player copy:**
 
 - A. Change in Earth's energy balance in W/m².
 - B. Reducing harm from impacts.
 - C. Reducing causes of environmental change.
-- D. Threshold beyond which feedback drives further change.
+- D. Threshold beyond which
 
 **Correct answer:** C
 
-**Hint - exact player copy:** Use the stated evidence and the conditions for Mitigation; do not choose an option merely because it names a familiar term.
+**Hint - exact player copy:** Identify the defining relationship or mechanism for mitigation. All needed information is in this question.
 
 **Option feedback - exact player copy:**
 
-- A: This describes Radiative forcing, not Mitigation. It does not account for the quantities, conditions, or evidence in this environmental science case.
-- B: This describes Adaptation, not Mitigation. It does not account for the quantities, conditions, or evidence in this environmental science case.
-- C: Correct. reducing causes of environmental change.
-- D: This describes Tipping point, not Mitigation. It does not account for the quantities, conditions, or evidence in this environmental science case.
+- A: This describes radiative forcing. It does not answer the question about mitigation.
+- B: This describes adaptation. It does not answer the question about mitigation.
+- C: Correct. Reducing causes of environmental change.
+- D: This describes tipping point. It does not answer the question about mitigation.
+
 ### Review question 3
 
-**Prompt - exact player copy:** A teammate rechecks The Second Berth using new evidence: the current plan balances all four ledgers, but climate effects alter several at once. Match the evidence to the live explanations now so the investigation carries forward only supported claims. Which environmental-science conclusion correctly applies Adaptation?
+
+**Prompt - exact player copy:** Which statement best explains adaptation?
 
 **Options - exact player copy:**
 
 - A. Change in Earth's energy balance in W/m².
 - B. Reducing causes of environmental change.
-- C. Threshold beyond which feedback drives further change.
+- C. Threshold beyond which
 - D. Reducing harm from impacts.
 
 **Correct answer:** D
 
-**Hint - exact player copy:** Use the stated evidence and the conditions for Adaptation; do not choose an option merely because it names a familiar term.
+**Hint - exact player copy:** Identify the defining relationship or mechanism for adaptation. All needed information is in this question.
 
 **Option feedback - exact player copy:**
 
-- A: This describes Radiative forcing, not Adaptation. It does not account for the quantities, conditions, or evidence in this environmental science case.
-- B: This describes Mitigation, not Adaptation. It does not account for the quantities, conditions, or evidence in this environmental science case.
-- C: This describes Tipping point, not Adaptation. It does not account for the quantities, conditions, or evidence in this environmental science case.
-- D: Correct. reducing harm from impacts.
+- A: This describes radiative forcing. It does not answer the question about adaptation.
+- B: This describes mitigation. It does not answer the question about adaptation.
+- C: This describes tipping point. It does not answer the question about adaptation.
+- D: Correct. Reducing harm from impacts.
+
 ### Review question 4
 
-**Prompt - exact player copy:** An unseen case extends The Second Berth: the current plan balances all four ledgers, but climate effects alter several at once. Match the evidence to the live explanations now so the investigation carries forward only supported claims. Which environmental-science conclusion correctly applies Tipping point?
+
+**Prompt - exact player copy:** Which statement best explains tipping point?
 
 **Options - exact player copy:**
 
-- A. Threshold beyond which feedback drives further change.
+- A. Threshold beyond which
 - B. Change in Earth's energy balance in W/m².
 - C. Reducing causes of environmental change.
 - D. Reducing harm from impacts.
 
 **Correct answer:** A
 
-**Hint - exact player copy:** Use the stated evidence and the conditions for Tipping point; do not choose an option merely because it names a familiar term.
+**Hint - exact player copy:** Identify the defining relationship or mechanism for tipping point. All needed information is in this question.
 
 **Option feedback - exact player copy:**
 
-- A: Correct. threshold beyond which feedback drives further change.
-- B: This describes Radiative forcing, not Tipping point. It does not account for the quantities, conditions, or evidence in this environmental science case.
-- C: This describes Mitigation, not Tipping point. It does not account for the quantities, conditions, or evidence in this environmental science case.
-- D: This describes Adaptation, not Tipping point. It does not account for the quantities, conditions, or evidence in this environmental science case.
+- A: Correct. Threshold beyond which
+- B: This describes radiative forcing. It does not answer the question about tipping point.
+- C: This describes mitigation. It does not answer the question about tipping point.
+- D: This describes adaptation. It does not answer the question about tipping point.
+
 ### Review question 5
 
-**Prompt - exact player copy:** Before another Conditional Ferry Recommendation decision, the team knows this: the current plan balances all four ledgers, but climate effects alter several at once. Match the evidence to the live explanations now so the investigation carries forward only supported claims. Which environmental-science conclusion correctly applies global change | climate | D10-D12 | RETRIEVE | L4 | synthesis?
+
+**Prompt - exact player copy:** How do cutting greenhouse-gas emissions and raising a flood barrier differ?
 
 **Options - exact player copy:**
 
 - A. Change in Earth's energy balance in W/m².
-- B. Match climate mechanisms connects the measured environmental mechanism to the next island condition.
+- B. Emission cuts mitigate a cause of climate change; the barrier adapts to an impact.
 - C. Reducing causes of environmental change.
 - D. Reducing harm from impacts.
 
 **Correct answer:** B
 
-**Hint - exact player copy:** Use the stated evidence and the conditions for global change | climate | D10-D12 | RETRIEVE | L4 | synthesis; do not choose an option merely because it names a familiar term.
+**Hint - exact player copy:** Identify the defining relationship or mechanism for global change. All needed information is in this question.
 
 **Option feedback - exact player copy:**
 
-- A: This describes Radiative forcing, not global change | climate | D10-D12 | RETRIEVE | L4 | synthesis. It does not account for the quantities, conditions, or evidence in this environmental science case.
-- B: Correct. match climate mechanisms connects the measured environmental mechanism to the next island condition.
-- C: This describes Mitigation, not global change | climate | D10-D12 | RETRIEVE | L4 | synthesis. It does not account for the quantities, conditions, or evidence in this environmental science case.
-- D: This describes Adaptation, not global change | climate | D10-D12 | RETRIEVE | L4 | synthesis. It does not account for the quantities, conditions, or evidence in this environmental science case.
+- A: This describes radiative forcing. It does not answer the question about global change.
+- B: Correct. Emission cuts mitigate a cause of climate change; the barrier adapts to an impact.
+- C: This describes mitigation. It does not answer the question about global change.
+- D: This describes adaptation. It does not answer the question about global change.
+
 ### Review question 6
 
-**Prompt - exact player copy:** the island council applies the lesson from The Second Berth to this follow-up: climate pathways are identified, yet visitor cap and drought reserve trade off while matching today’s water total. Add the missing constraint now so the team can separate the explanations that still fit the earlier evidence. Which environmental-science conclusion correctly applies coupled capacity | uncertainty | all keystones | COMBINE | L5 | crisis?
+
+**Prompt - exact player copy:** Two visitor plans use the same water today but leave different reserves during drought. Which extra comparison can distinguish them?
 
 **Options - exact player copy:**
 
 - A. Change in Earth's energy balance in W/m².
 - B. Reducing causes of environmental change.
-- C. Collapse the final degeneracy connects the measured environmental mechanism to the next island condition.
+- C. Compare their water demand and remaining reserve under the same drought conditions.
 - D. Reducing harm from impacts.
 
 **Correct answer:** C
 
-**Hint - exact player copy:** Use the stated evidence and the conditions for coupled capacity | uncertainty | all keystones | COMBINE | L5 | crisis; do not choose an option merely because it names a familiar term.
+**Hint - exact player copy:** Identify the defining relationship or mechanism for coupled capacity. All needed information is in this question.
 
 **Option feedback - exact player copy:**
 
-- A: This describes Radiative forcing, not coupled capacity | uncertainty | all keystones | COMBINE | L5 | crisis. It does not account for the quantities, conditions, or evidence in this environmental science case.
-- B: This describes Mitigation, not coupled capacity | uncertainty | all keystones | COMBINE | L5 | crisis. It does not account for the quantities, conditions, or evidence in this environmental science case.
-- C: Correct. collapse the final degeneracy connects the measured environmental mechanism to the next island condition.
-- D: This describes Adaptation, not coupled capacity | uncertainty | all keystones | COMBINE | L5 | crisis. It does not account for the quantities, conditions, or evidence in this environmental science case.
-**Optional review completion - exact player copy:** Excellent work. You went beyond the required mission and strengthened the ideas behind your decision.
+- A: This describes radiative forcing. It does not answer the question about coupled capacity.
+- B: This describes mitigation. It does not answer the question about coupled capacity.
+- C: Correct. Compare their water demand and remaining reserve under the same drought conditions.
+- D: This describes adaptation. It does not answer the question about coupled capacity.
+
+**Optional review completion - exact player copy:** Good work. You have completed six independent practice questions.
+
 ## Quick concept review
 - Re-read the mechanism established by the four stops.
 - Re-use the governing equation or causal comparison with units.

@@ -1389,10 +1389,10 @@ export const CURRICULUM = {
     {
       "day": 1,
       "title": "Cancel the false zero",
-      "scene": "The water-level prediction H(t)=(t^2-36)/(t-6) cm is undefined at minute 6 even though the surrounding readings are finite. The logger predicts reservoir height with H(t)=(t^2-36)/(t-6), where t is minutes and H is centimetres. Because H(6) is undefined, find L=lim_(t->6)H(t), the height approached near minute 6, and compare it with the spike.",
+      "scene": "The logger models water level as H(t)=(t^2-36)/(t-6), where t is in minutes and H is in centimetres. Nearby readings are finite, but the formula is undefined at t=6. Find L=lim_(t->6)H(t) to test whether this gap in the formula implies a physical spike.",
       "place": "",
       "at": "storage-board",
-      "story": "The water-level prediction H(t)=(t^2-36)/(t-6) cm is undefined at minute 6 even though the surrounding readings are finite. The logger predicts reservoir height with H(t)=(t^2-36)/(t-6), where t is minutes and H is centimetres. Because H(6) is undefined, find L=lim_(t->6)H(t), the height approached near minute 6, and compare it with the spike.",
+      "story": "The logger models water level as H(t)=(t^2-36)/(t-6), where t is in minutes and H is in centimetres. Nearby readings are finite, but the formula is undefined at t=6. Find L=lim_(t->6)H(t) to test whether this gap in the formula implies a physical spike.",
       "game": {
         "type": "DERIVE",
         "title": "Cancel the false zero",
@@ -1467,10 +1467,10 @@ export const CURRICULUM = {
     {
       "day": 2,
       "title": "Rationalize the float transform",
-      "scene": "With the algebraic hole repaired, the float conversion still returns 0/0 near zero displacement. The float sensor uses A(h)=[sqrt(16+h)-4]/h for its level-change gain after displacement h. Because A(0) gives 0/0, find L=lim_(h->0)A(h), the gain approached during tiny float motions.",
+      "scene": "The float sensor uses A(h)=[sqrt(16+h)-4]/h for its level-change gain after displacement h. Substitution at h=0 gives the indeterminate form 0/0. Find L=lim_(h->0)A(h) to predict the gain during tiny float motions.",
       "place": "",
       "at": "level-desk",
-      "story": "With the algebraic hole repaired, the float conversion still returns 0/0 near zero displacement. The float sensor uses A(h)=[sqrt(16+h)-4]/h for its level-change gain after displacement h. Because A(0) gives 0/0, find L=lim_(h->0)A(h), the gain approached during tiny float motions.",
+      "story": "The float sensor uses A(h)=[sqrt(16+h)-4]/h for its level-change gain after displacement h. Substitution at h=0 gives the indeterminate form 0/0. Find L=lim_(h->0)A(h) to predict the gain during tiny float motions.",
       "game": {
         "type": "DERIVE",
         "title": "Rationalize the float transform",
@@ -2720,10 +2720,10 @@ export const CURRICULUM = {
     {
       "day": 10,
       "title": "Verify FTC Part 2",
-      "scene": "Because exact total matches the numerical scale, test the live accumulator A(x)=integral0^x I(t)dt. Because exact total matches the numerical scale, test the live accumulator A(x)=integral_0^x I(t)dt. Predict A'(12), advance the clock around hour 12, and compare the measured accumulation slope with inflow.",
+      "scene": "The exact total agrees with the numerical estimate. Now test the live accumulator A(x)=integral_0^x I(t)dt. Predict A'(12), advance the clock around hour 12, and compare the measured accumulation slope with inflow.",
       "place": "",
       "at": "trace-bench",
-      "story": "Because exact total matches the numerical scale, test the live accumulator A(x)=integral0^x I(t)dt. Because exact total matches the numerical scale, test the live accumulator A(x)=integral_0^x I(t)dt. Predict A'(12), advance the clock around hour 12, and compare the measured accumulation slope with inflow.",
+      "story": "The exact total agrees with the numerical estimate. Now test the live accumulator A(x)=integral_0^x I(t)dt. Predict A'(12), advance the clock around hour 12, and compare the measured accumulation slope with inflow.",
       "game": {
         "type": "VERIFY",
         "title": "Verify FTC Part 2",

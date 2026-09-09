@@ -1,5 +1,7 @@
 **FIRST PERSON LEARNING**
 
+**Player-copy editing rule:** Within each displayed passage, state each fact, equation, variable definition, and instruction once. Integrate new givens into the existing wording; do not append a paraphrase of the setup. A source panel may repeat essential inputs so it stands alone, but render it as its own surface rather than concatenating it with the question setup. Go Deeper questions must still supply their own context and data without referring to earlier cases.
+
 **SAFETY FACTOR**
 
 AP Physics 1 Campaign Implementation Bible
@@ -70,9 +72,12 @@ Implementation remains linear at the evidence level. Wrong answers teach, permit
 
 ### Opening sequence - exact player copy, five sentences
 
-You are the ride engineer, which means you prove which rides can carry people again. At Corbin Park, you will use physics to make the call. The inspectors return in fifteen days. The park has been shut since the October test. Families need proof behind each ride limit.
+You are the ride engineer, which means you prove which rides can carry people again. At Corbin Park, you will use physics to make the call. The inspectors return in fifteen days. The park has been shut since the October test; families need proof behind each ride limit. Maya Hart, the park operations lead, hands you the keys and says, “I want these gates open as much as anyone, but you have my word: a ride stays shut until you’re satisfied.”
 
-**Delivery:** Show all four sentences together over the normal midway view at spawn. One Continue dismisses the card, reveals the four-bar HUD, and activates Mission 1. Do not run `TRIAL`, `GREET`, or another map tour before the first real investigation.
+**Opening-card requirement:** The character quote is the final player-visible text on this card; place no explanatory sentence after it. Keep it brief and natural: it should add the speaker’s concern or commitment rather than summarize the preceding setup. Show the whole opening together with one Continue action.
+
+
+**Delivery:** Show all five sentences together over the normal midway view at spawn. One Continue dismisses the card, reveals the four-bar HUD, and activates Mission 1. Do not run `TRIAL`, `GREET`, or another map tour before the first real investigation.
 
 ### Concrete stakes
 
@@ -405,6 +410,11 @@ The repository importer and schema remain the final authority for field spelling
 **Ending card - exact player copy:** The wheel turns above the lit midway. The ship swings within its posted timing rule, and the carousel music starts. Beyond the crowd, the coaster gate stays shut beneath its measured closure card. Corbin Park is open, with every promise on the certificate still visible.
 
 **Delivery:** Keep player control and normal world view. No new graded stop follows the final accepted decision. The ending card appears after the player reaches the payoff view, or through an accessible View ending control that skips movement without skipping any scientific gate. Optional review and worked examples remain available through the completed mission menu.
+
+
+### Standalone Go Deeper question contract
+
+Each optional review question must work when copied out on its own. Supply its setting, givens, units, definitions, and any required figure within that question. Do not mention a mission title, a prior case, a teammate rechecking earlier work, a completed plan, or unseen cards, observations, or results. Do not assume that another review question was read. Choices, hints, and feedback obey the same rule. Use brief conceptual questions or complete applied problems; figures must match the question rather than merely share its course.
 
 # Mission 1 - Three Clocks
 
@@ -839,7 +849,7 @@ Mission decision: The three records do not prove one brake fault. The Ferris Whe
 
 **Availability:** Reveal only after mission completion when the player selects **GO DEEPER**. This section is optional, ungraded for campaign progress, and does not change metrics, Recovery Points, or the next-mission unlock.
 
-**Secondary briefing card - exact player copy:** You completed Three Clocks. Choose GO DEEPER to revisit the four decisions and explore related course ideas; this optional review does not change your metrics or delay the next mission.
+**Secondary briefing card - exact player copy:** Try six independent practice questions. Each includes its own context and any needed data; no mission records are required.
 
 ### Additional concepts kept out of the required mission card
 
@@ -847,7 +857,8 @@ Mission decision: The three records do not prove one brake fault. The Ferris Whe
 
 ### Review question 1
 
-**Prompt - exact player copy:** In a follow-up to Three Clocks, the prediction is fixed at 2.25 m before the brake turns. Commit the prediction and run the test now so the measurement can fairly accept or reject the proposed model. Which prediction or calculation correctly applies Independent evidence to this case?
+
+**Prompt - exact player copy:** Which statement best explains independent evidence?
 
 **Options - exact player copy:**
 
@@ -858,17 +869,19 @@ Mission decision: The three records do not prove one brake fault. The Ferris Whe
 
 **Correct answer:** B
 
-**Hint - exact player copy:** Use the stated evidence and the conditions for Independent evidence; do not choose an option merely because it names a familiar term.
+**Hint - exact player copy:** Identify the defining relationship or mechanism for independent evidence. All needed information is in this question.
 
 **Option feedback - exact player copy:**
 
-- A: This describes Position, not Independent evidence. It does not account for the quantities, conditions, or evidence in this physics case.
-- B: Correct. independent evidence is a measurement that does not rely on the same hidden instrument, clock, calibration, or assumption as another measurement.
-- C: This describes Velocity, not Independent evidence. It does not account for the quantities, conditions, or evidence in this physics case.
-- D: This describes Acceleration, not Independent evidence. It does not account for the quantities, conditions, or evidence in this physics case.
+- A: This describes position. It does not answer the question about independent evidence.
+- B: Correct. Independent evidence is a measurement that does not rely on the same hidden instrument, clock, calibration, or assumption as another measurement.
+- C: This describes velocity. It does not answer the question about independent evidence.
+- D: This describes acceleration. It does not answer the question about independent evidence.
+
 ### Review question 2
 
-**Prompt - exact player copy:** Horizon Park receives a second case related to Three Clocks: the hub schedule records position but never labels velocity or acceleration. Which interpretation of the displayed evidence correctly uses the mission concept?
+
+**Prompt - exact player copy:** The graph samples x(t)=2t² metres. What is the object’s position at t=2 s?
 
 **Figure - exact player copy:**
 
@@ -877,7 +890,7 @@ Mission decision: The three records do not prove one brake fault. The Ferris Whe
   "kind": "line",
   "xLabel": "Time (s)",
   "yLabel": "Position (m)",
-  "caption": "Ride position increases with a changing slope.",
+  "caption": "Samples of x(t)=2t², with t in seconds",
   "series": [
     {
       "name": "Position",
@@ -908,27 +921,28 @@ Mission decision: The three records do not prove one brake fault. The Ferris Whe
 }
 ```
 
-
 **Options - exact player copy:**
 
-- A. Independent evidence is a measurement that does not rely on the same hidden instrument, clock, calibration, or assumption as another measurement.
-- B. Velocity is how quickly position changes, including direction; its sign follows the chosen axis.
-- C. Position is an object's location relative to a chosen zero point and positive direction.
-- D. Acceleration is how quickly velocity changes; slowing down does not always mean negative acceleration.
+- A. 4 m.
+- B. 8 m/s.
+- C. 8 m.
+- D. 16 m.
 
 **Correct answer:** C
 
-**Hint - exact player copy:** Read the axes, units, direction, and any threshold before comparing the choices.
+**Hint - exact player copy:** Read position from the vertical axis.
 
 **Option feedback - exact player copy:**
 
-- A: This describes Independent evidence, not Position. It does not account for the quantities, conditions, or evidence in this physics case.
-- B: This describes Velocity, not Position. It does not account for the quantities, conditions, or evidence in this physics case.
-- C: Correct. position is an object's location relative to a chosen zero point and positive direction.
-- D: This describes Acceleration, not Position. It does not account for the quantities, conditions, or evidence in this physics case.
+- A: This uses 2t rather than 2t².
+- B: That is a velocity unit, not a position unit.
+- C: Correct. 8 m.
+- D: Substituting t=2 gives 2×4, not 16.
+
 ### Review question 3
 
-**Prompt - exact player copy:** A teammate rechecks Three Clocks using new evidence: the hub schedule records position but never labels velocity or acceleration. Which interpretation of the displayed evidence correctly uses the mission concept?
+
+**Prompt - exact player copy:** The graph samples x(t)=2t² metres. What is the instantaneous velocity at t=2 s?
 
 **Figure - exact player copy:**
 
@@ -936,11 +950,11 @@ Mission decision: The three records do not prove one brake fault. The Ferris Whe
 {
   "kind": "line",
   "xLabel": "Time (s)",
-  "yLabel": "Velocity (m/s)",
-  "caption": "Ride velocity changes over the test interval.",
+  "yLabel": "Position (m)",
+  "caption": "Samples of x(t)=2t², with t in seconds",
   "series": [
     {
-      "name": "Velocity",
+      "name": "Position",
       "points": [
         [
           0,
@@ -948,7 +962,7 @@ Mission decision: The three records do not prove one brake fault. The Ferris Whe
         ],
         [
           1,
-          4
+          2
         ],
         [
           2,
@@ -956,11 +970,11 @@ Mission decision: The three records do not prove one brake fault. The Ferris Whe
         ],
         [
           3,
-          8
+          18
         ],
         [
           4,
-          4
+          32
         ]
       ]
     }
@@ -968,27 +982,28 @@ Mission decision: The three records do not prove one brake fault. The Ferris Whe
 }
 ```
 
-
 **Options - exact player copy:**
 
-- A. Independent evidence is a measurement that does not rely on the same hidden instrument, clock, calibration, or assumption as another measurement.
-- B. Position is an object's location relative to a chosen zero point and positive direction.
-- C. Acceleration is how quickly velocity changes; slowing down does not always mean negative acceleration.
-- D. Velocity is how quickly position changes, including direction; its sign follows the chosen axis.
+- A. 4 m/s.
+- B. 8 m.
+- C. 0 m/s.
+- D. 8 m/s.
 
 **Correct answer:** D
 
-**Hint - exact player copy:** Read the axes, units, direction, and any threshold before comparing the choices.
+**Hint - exact player copy:** Differentiate the stated position function.
 
 **Option feedback - exact player copy:**
 
-- A: This describes Independent evidence, not Velocity. It does not account for the quantities, conditions, or evidence in this physics case.
-- B: This describes Position, not Velocity. It does not account for the quantities, conditions, or evidence in this physics case.
-- C: This describes Acceleration, not Velocity. It does not account for the quantities, conditions, or evidence in this physics case.
-- D: Correct. velocity is how quickly position changes, including direction; its sign follows the chosen axis.
+- A: The derivative is 4t, which equals 8 at t=2.
+- B: This gives position units, not velocity units.
+- C: The position curve has a positive slope at t=2.
+- D: Correct. 8 m/s.
+
 ### Review question 4
 
-**Prompt - exact player copy:** An unseen case extends Three Clocks: the hub schedule records position but never labels velocity or acceleration. Which interpretation of the displayed evidence correctly uses the mission concept?
+
+**Prompt - exact player copy:** The graph samples x(t)=2t² metres. What is its acceleration?
 
 **Figure - exact player copy:**
 
@@ -996,31 +1011,31 @@ Mission decision: The three records do not prove one brake fault. The Ferris Whe
 {
   "kind": "line",
   "xLabel": "Time (s)",
-  "yLabel": "Acceleration (m/s2)",
-  "caption": "Ride acceleration changes sign during the test.",
+  "yLabel": "Position (m)",
+  "caption": "Samples of x(t)=2t², with t in seconds",
   "series": [
     {
-      "name": "Acceleration",
+      "name": "Position",
       "points": [
         [
           0,
-          4
-        ],
-        [
-          1,
-          4
-        ],
-        [
-          2,
           0
         ],
         [
+          1,
+          2
+        ],
+        [
+          2,
+          8
+        ],
+        [
           3,
-          -4
+          18
         ],
         [
           4,
-          -4
+          32
         ]
       ]
     }
@@ -1028,27 +1043,28 @@ Mission decision: The three records do not prove one brake fault. The Ferris Whe
 }
 ```
 
-
 **Options - exact player copy:**
 
-- A. Acceleration is how quickly velocity changes; slowing down does not always mean negative acceleration.
-- B. Independent evidence is a measurement that does not rely on the same hidden instrument, clock, calibration, or assumption as another measurement.
-- C. Position is an object's location relative to a chosen zero point and positive direction.
-- D. Velocity is how quickly position changes, including direction; its sign follows the chosen axis.
+- A. 4 m/s².
+- B. 2 m/s².
+- C. 4t m/s².
+- D. 0 m/s².
 
 **Correct answer:** A
 
-**Hint - exact player copy:** Read the axes, units, direction, and any threshold before comparing the choices.
+**Hint - exact player copy:** Acceleration is the second derivative of position.
 
 **Option feedback - exact player copy:**
 
-- A: Correct. acceleration is how quickly velocity changes; slowing down does not always mean negative acceleration.
-- B: This describes Independent evidence, not Acceleration. It does not account for the quantities, conditions, or evidence in this physics case.
-- C: This describes Position, not Acceleration. It does not account for the quantities, conditions, or evidence in this physics case.
-- D: This describes Velocity, not Acceleration. It does not account for the quantities, conditions, or evidence in this physics case.
+- A: Correct. 4 m/s².
+- B: Differentiate twice: x′=4t and x″=4.
+- C: 4t is the velocity expression, not the second derivative.
+- D: The position curve has a changing slope.
+
 ### Review question 5
 
-**Prompt - exact player copy:** Before another Three Clocks decision, the team knows this: the hub schedule records position but never labels velocity or acceleration. Which statistical conclusion or procedure correctly uses Slope?
+
+**Prompt - exact player copy:** Which statement best explains slope?
 
 **Options - exact player copy:**
 
@@ -1059,17 +1075,19 @@ Mission decision: The three records do not prove one brake fault. The Ferris Whe
 
 **Correct answer:** B
 
-**Hint - exact player copy:** Use the stated evidence and the conditions for Slope; do not choose an option merely because it names a familiar term.
+**Hint - exact player copy:** Identify the defining relationship or mechanism for slope. All needed information is in this question.
 
 **Option feedback - exact player copy:**
 
-- A: This describes Independent evidence, not Slope. It does not account for the quantities, conditions, or evidence in this physics case.
-- B: Correct. slope is rise divided by run on a graph; position-time slope is velocity and velocity-time slope is acceleration.
-- C: This describes Position, not Slope. It does not account for the quantities, conditions, or evidence in this physics case.
-- D: This describes Velocity, not Slope. It does not account for the quantities, conditions, or evidence in this physics case.
+- A: This describes independent evidence. It does not answer the question about slope.
+- B: Correct. Slope is rise divided by run on a graph; position-time slope is velocity and velocity-time slope is acceleration.
+- C: This describes position. It does not answer the question about slope.
+- D: This describes velocity. It does not answer the question about slope.
+
 ### Review question 6
 
-**Prompt - exact player copy:** Horizon Park applies the lesson from Three Clocks to this follow-up: the hub schedule records position but never labels velocity or acceleration. Which interpretation of the displayed evidence correctly uses the mission concept?
+
+**Prompt - exact player copy:** The velocity graph is linear over the shown interval. Which description is correct?
 
 **Figure - exact player copy:**
 
@@ -1077,31 +1095,27 @@ Mission decision: The three records do not prove one brake fault. The Ferris Whe
 {
   "kind": "line",
   "xLabel": "Time (s)",
-  "yLabel": "Position (m)",
-  "caption": "Ride position increases with a changing slope.",
+  "yLabel": "Velocity (m/s)",
+  "caption": "Velocity decreases linearly",
   "series": [
     {
-      "name": "Position",
+      "name": "Velocity",
       "points": [
         [
           0,
-          0
-        ],
-        [
-          1,
-          2
-        ],
-        [
-          2,
           8
         ],
         [
-          3,
-          18
+          1,
+          6
         ],
         [
-          4,
-          32
+          2,
+          4
+        ],
+        [
+          3,
+          2
         ]
       ]
     }
@@ -1109,25 +1123,26 @@ Mission decision: The three records do not prove one brake fault. The Ferris Whe
 }
 ```
 
-
 **Options - exact player copy:**
 
-- A. Independent evidence is a measurement that does not rely on the same hidden instrument, clock, calibration, or assumption as another measurement.
-- B. Position is an object's location relative to a chosen zero point and positive direction.
-- C. The position keeps increasing, so velocity remains positive. The slope becomes smaller at a steady rate, which indicates negative acceleration under the chosen positive direction.
-- D. Velocity is how quickly position changes, including direction; its sign follows the chosen axis.
+- A. It moves backward because acceleration is negative.
+- B. Its acceleration is +2 m/s².
+- C. The object moves in the positive direction with acceleration -2 m/s².
+- D. Its acceleration is zero because the graph is straight.
 
 **Correct answer:** C
 
-**Hint - exact player copy:** Read the axes, units, direction, and any threshold before comparing the choices.
+**Hint - exact player copy:** Velocity gives direction; the slope gives acceleration.
 
 **Option feedback - exact player copy:**
 
-- A: This describes Independent evidence, not graph interpretation. It does not account for the quantities, conditions, or evidence in this physics case.
-- B: This describes Position, not graph interpretation. It does not account for the quantities, conditions, or evidence in this physics case.
-- C: Correct. the position keeps increasing, so velocity remains positive. The slope becomes smaller at a steady rate, which indicates negative acceleration under the chosen positive direction.
-- D: This describes Velocity, not graph interpretation. It does not account for the quantities, conditions, or evidence in this physics case.
-**Optional review completion - exact player copy:** Excellent work. You went beyond the required mission and strengthened the ideas behind your decision.
+- A: Velocity remains positive throughout the interval.
+- B: The velocity slope is negative.
+- C: Correct. The object moves in the positive direction with acceleration -2 m/s².
+- D: A straight velocity graph has constant acceleration; zero acceleration would require a horizontal line.
+
+**Optional review completion - exact player copy:** Good work. You have completed six independent practice questions.
+
 ## Quick concept review
 
 - Position-time slope is velocity; velocity-time slope is acceleration.
@@ -1538,7 +1553,7 @@ Mission decision: A weak support did not cause the October stop. The loaded fram
 
 **Availability:** Reveal only after mission completion when the player selects **GO DEEPER**. This section is optional, ungraded for campaign progress, and does not change metrics, Recovery Points, or the next-mission unlock.
 
-**Secondary briefing card - exact player copy:** You completed What Pushes Back. Choose GO DEEPER to revisit the four decisions and explore related course ideas; this optional review does not change your metrics or delay the next mission.
+**Secondary briefing card - exact player copy:** Try six independent practice questions. Each includes its own context and any needed data; no mission records are required.
 
 ### Additional concepts kept out of the required mission card
 
@@ -1547,7 +1562,31 @@ Mission decision: A weak support did not cause the October stop. The loaded fram
 
 ### Review question 1
 
-**Prompt - exact player copy:** In a follow-up to What Pushes Back, the empty ship and sixty riders will be tested together, but the notebooks list their masses separately. The next action depends on selecting the conclusion that fits all of those facts. Which prediction or calculation correctly applies analysis to this case?
+
+**Prompt - exact player copy:** Which statement best explains normal force?
+
+**Options - exact player copy:**
+
+- A. Tension is a pulling force carried along a rope, chain, or support member.
+- B. System is the object or group chosen for analysis; interactions crossing its boundary are external forces.
+- C. Free-body diagram is a drawing of one chosen system with every external force acting on it.
+- D. Normal force is a contact force perpendicular to a surface.
+
+**Correct answer:** D
+
+**Hint - exact player copy:** Identify the defining relationship or mechanism for normal force. All needed information is in this question.
+
+**Option feedback - exact player copy:**
+
+- A: This describes tension. It does not answer the question about normal force.
+- B: This describes system. It does not answer the question about normal force.
+- C: This describes free-body diagram. It does not answer the question about normal force.
+- D: Correct. Normal force is a contact force perpendicular to a surface.
+
+### Review question 2
+
+
+**Prompt - exact player copy:** Which statement best explains tension?
 
 **Options - exact player copy:**
 
@@ -1556,19 +1595,21 @@ Mission decision: A weak support did not cause the October stop. The loaded fram
 - C. System is the object or group chosen for analysis; interactions crossing its boundary are external forces.
 - D. Free-body diagram is a drawing of one chosen system with every external force acting on it.
 
-**Correct answer:** B
+**Correct answer:** A
 
-**Hint - exact player copy:** Use the stated evidence and the conditions for analysis; do not choose an option merely because it names a familiar term.
+**Hint - exact player copy:** Identify the defining relationship or mechanism for tension. All needed information is in this question.
 
 **Option feedback - exact player copy:**
 
-- A: This describes Tension, not Normal force. It does not account for the quantities, conditions, or evidence in this physics case.
-- B: Correct. normal force is a contact force perpendicular to a surface.
-- C: This describes System, not Normal force. It does not account for the quantities, conditions, or evidence in this physics case.
-- D: This describes Free-body diagram, not Normal force. It does not account for the quantities, conditions, or evidence in this physics case.
-### Review question 2
+- A: Correct. Tension is a pulling force carried along a rope, chain, or support member.
+- B: This describes normal force. It does not answer the question about tension.
+- C: This describes system. It does not answer the question about tension.
+- D: This describes free-body diagram. It does not answer the question about tension.
 
-**Prompt - exact player copy:** Horizon Park receives a second case related to What Pushes Back: the empty ship and sixty riders will be tested together, but the notebooks list their masses separately. The next action depends on selecting the conclusion that fits all of those facts. Which prediction or calculation correctly applies analysis to this case?
+### Review question 3
+
+
+**Prompt - exact player copy:** Which statement best explains system?
 
 **Options - exact player copy:**
 
@@ -1577,19 +1618,21 @@ Mission decision: A weak support did not cause the October stop. The loaded fram
 - C. Tension is a pulling force carried along a rope, chain, or support member.
 - D. Free-body diagram is a drawing of one chosen system with every external force acting on it.
 
-**Correct answer:** C
+**Correct answer:** B
 
-**Hint - exact player copy:** Use the stated evidence and the conditions for analysis; do not choose an option merely because it names a familiar term.
+**Hint - exact player copy:** Identify the defining relationship or mechanism for system. All needed information is in this question.
 
 **Option feedback - exact player copy:**
 
-- A: This describes Normal force, not Tension. It does not account for the quantities, conditions, or evidence in this physics case.
-- B: This describes System, not Tension. It does not account for the quantities, conditions, or evidence in this physics case.
-- C: Correct. tension is a pulling force carried along a rope, chain, or support member.
-- D: This describes Free-body diagram, not Tension. It does not account for the quantities, conditions, or evidence in this physics case.
-### Review question 3
+- A: This describes normal force. It does not answer the question about system.
+- B: Correct. System is the object or group chosen for analysis; interactions crossing its boundary are external forces.
+- C: This describes tension. It does not answer the question about system.
+- D: This describes free-body diagram. It does not answer the question about system.
 
-**Prompt - exact player copy:** A teammate rechecks What Pushes Back using new evidence: the empty ship and sixty riders will be tested together, but the notebooks list their masses separately. The next action depends on selecting the conclusion that fits all of those facts. Which prediction or calculation correctly applies analysis to this case?
+### Review question 4
+
+
+**Prompt - exact player copy:** Which statement best explains free-body diagram?
 
 **Options - exact player copy:**
 
@@ -1598,80 +1641,65 @@ Mission decision: A weak support did not cause the October stop. The loaded fram
 - C. Free-body diagram is a drawing of one chosen system with every external force acting on it.
 - D. System is the object or group chosen for analysis; interactions crossing its boundary are external forces.
 
-**Correct answer:** D
+**Correct answer:** C
 
-**Hint - exact player copy:** Use the stated evidence and the conditions for analysis; do not choose an option merely because it names a familiar term.
+**Hint - exact player copy:** Identify the defining relationship or mechanism for free-body diagram. All needed information is in this question.
 
 **Option feedback - exact player copy:**
 
-- A: This describes Normal force, not System. It does not account for the quantities, conditions, or evidence in this physics case.
-- B: This describes Tension, not System. It does not account for the quantities, conditions, or evidence in this physics case.
-- C: This describes Free-body diagram, not System. It does not account for the quantities, conditions, or evidence in this physics case.
-- D: Correct. system is the object or group chosen for analysis; interactions crossing its boundary are external forces.
-### Review question 4
+- A: This describes normal force. It does not answer the question about free-body diagram.
+- B: This describes tension. It does not answer the question about free-body diagram.
+- C: Correct. Free-body diagram is a drawing of one chosen system with every external force acting on it.
+- D: This describes system. It does not answer the question about free-body diagram.
 
-**Prompt - exact player copy:** An unseen case extends What Pushes Back: the empty ship and sixty riders will be tested together, but the notebooks list their masses separately. The next action depends on selecting the conclusion that fits all of those facts. Which prediction or calculation correctly applies analysis to this case?
+### Review question 5
+
+
+**Prompt - exact player copy:** Which statement best explains weight?
 
 **Options - exact player copy:**
 
-- A. Free-body diagram is a drawing of one chosen system with every external force acting on it.
+- A. Normal force is a contact force perpendicular to a surface.
+- B. Tension is a pulling force carried along a rope, chain, or support member.
+- C. System is the object or group chosen for analysis; interactions crossing its boundary are external forces.
+- D. Weight is earth's gravitational force on an object, directed downward and equal to mg near the surface.
+
+**Correct answer:** D
+
+**Hint - exact player copy:** Identify the defining relationship or mechanism for weight. All needed information is in this question.
+
+**Option feedback - exact player copy:**
+
+- A: This describes normal force. It does not answer the question about weight.
+- B: This describes tension. It does not answer the question about weight.
+- C: This describes system. It does not answer the question about weight.
+- D: Correct. Weight is earth's gravitational force on an object, directed downward and equal to mg near the surface.
+
+### Review question 6
+
+
+**Prompt - exact player copy:** Which statement best explains equilibrium?
+
+**Options - exact player copy:**
+
+- A. Equilibrium is a state with zero net force and therefore no acceleration.
 - B. Normal force is a contact force perpendicular to a surface.
 - C. Tension is a pulling force carried along a rope, chain, or support member.
 - D. System is the object or group chosen for analysis; interactions crossing its boundary are external forces.
 
 **Correct answer:** A
 
-**Hint - exact player copy:** Use the stated evidence and the conditions for analysis; do not choose an option merely because it names a familiar term.
+**Hint - exact player copy:** Identify the defining relationship or mechanism for equilibrium. All needed information is in this question.
 
 **Option feedback - exact player copy:**
 
-- A: Correct. free-body diagram is a drawing of one chosen system with every external force acting on it.
-- B: This describes Normal force, not Free-body diagram. It does not account for the quantities, conditions, or evidence in this physics case.
-- C: This describes Tension, not Free-body diagram. It does not account for the quantities, conditions, or evidence in this physics case.
-- D: This describes System, not Free-body diagram. It does not account for the quantities, conditions, or evidence in this physics case.
-### Review question 5
+- A: Correct. Equilibrium is a state with zero net force and therefore no acceleration.
+- B: This describes normal force. It does not answer the question about equilibrium.
+- C: This describes tension. It does not answer the question about equilibrium.
+- D: This describes system. It does not answer the question about equilibrium.
 
-**Prompt - exact player copy:** Before another What Pushes Back decision, the team knows this: the empty ship and sixty riders will be tested together, but the notebooks list their masses separately. The next action depends on selecting the conclusion that fits all of those facts. Which prediction or calculation correctly applies analysis to this case?
+**Optional review completion - exact player copy:** Good work. You have completed six independent practice questions.
 
-**Options - exact player copy:**
-
-- A. Normal force is a contact force perpendicular to a surface.
-- B. Weight is earth's gravitational force on an object, directed downward and equal to mg near the surface.
-- C. Tension is a pulling force carried along a rope, chain, or support member.
-- D. System is the object or group chosen for analysis; interactions crossing its boundary are external forces.
-
-**Correct answer:** B
-
-**Hint - exact player copy:** Use the stated evidence and the conditions for analysis; do not choose an option merely because it names a familiar term.
-
-**Option feedback - exact player copy:**
-
-- A: This describes Normal force, not Weight. It does not account for the quantities, conditions, or evidence in this physics case.
-- B: Correct. weight is earth's gravitational force on an object, directed downward and equal to mg near the surface.
-- C: This describes Tension, not Weight. It does not account for the quantities, conditions, or evidence in this physics case.
-- D: This describes System, not Weight. It does not account for the quantities, conditions, or evidence in this physics case.
-### Review question 6
-
-**Prompt - exact player copy:** Horizon Park applies the lesson from What Pushes Back to this follow-up: the empty ship and sixty riders will be tested together, but the notebooks list their masses separately. The next action depends on selecting the conclusion that fits all of those facts. Which prediction or calculation correctly applies analysis to this case?
-
-**Options - exact player copy:**
-
-- A. Normal force is a contact force perpendicular to a surface.
-- B. Tension is a pulling force carried along a rope, chain, or support member.
-- C. Equilibrium is a state with zero net force and therefore no acceleration.
-- D. System is the object or group chosen for analysis; interactions crossing its boundary are external forces.
-
-**Correct answer:** C
-
-**Hint - exact player copy:** Use the stated evidence and the conditions for analysis; do not choose an option merely because it names a familiar term.
-
-**Option feedback - exact player copy:**
-
-- A: This describes Normal force, not Equilibrium. It does not account for the quantities, conditions, or evidence in this physics case.
-- B: This describes Tension, not Equilibrium. It does not account for the quantities, conditions, or evidence in this physics case.
-- C: Correct. equilibrium is a state with zero net force and therefore no acceleration.
-- D: This describes System, not Equilibrium. It does not account for the quantities, conditions, or evidence in this physics case.
-**Optional review completion - exact player copy:** Excellent work. You went beyond the required mission and strengthened the ideas behind your decision.
 ## Quick concept review
 
 - Choose the system before drawing forces.
@@ -2175,7 +2203,7 @@ Mission decision: The Carousel may run at 4.00 m/s. Its chair angle stays below 
 
 **Availability:** Reveal only after mission completion when the player selects **GO DEEPER**. This section is optional, ungraded for campaign progress, and does not change metrics, Recovery Points, or the next-mission unlock.
 
-**Secondary briefing card - exact player copy:** You completed Turning Inward. Choose GO DEEPER to revisit the four decisions and explore related course ideas; this optional review does not change your metrics or delay the next mission.
+**Secondary briefing card - exact player copy:** Try six independent practice questions. Each includes its own context and any needed data; no mission records are required.
 
 ### Additional concepts kept out of the required mission card
 
@@ -2183,71 +2211,65 @@ Mission decision: The Carousel may run at 4.00 m/s. Its chair angle stays below 
 
 ### Review question 1
 
-**Prompt - exact player copy:** In a follow-up to Turning Inward, the chair travels at steady speed, but its velocity arrow turns continuously around the platform. Which interpretation of the displayed evidence correctly uses the mission concept?
+
+**Prompt - exact player copy:** A rule is fixed in advance: stop at the first check with a reading of at least 5 units. At which plotted time should the stop occur?
 
 **Figure - exact player copy:**
 
 ```json
 {
   "kind": "line",
-  "xLabel": "Ordered measurement",
-  "yLabel": "Decision quantity",
-  "caption": "Measurements approach and then cross the action threshold.",
+  "xLabel": "Time (min)",
+  "yLabel": "Reading (units)",
+  "caption": "Readings at four successive checks",
   "series": [
     {
-      "name": "Measured",
+      "name": "Reading",
       "points": [
         [
+          0,
+          2
+        ],
+        [
           1,
-          42
+          3
         ],
         [
           2,
-          48
+          5
         ],
         [
           3,
-          55
-        ],
-        [
-          4,
-          63
-        ],
-        [
-          5,
-          71
+          6
         ]
       ]
     }
-  ],
-  "limit": {
-    "at": 60,
-    "label": "Action threshold"
-  }
+  ]
 }
 ```
 
-
 **Options - exact player copy:**
 
-- A. Uniform circular motion is motion around a circle at constant speed while velocity changes direction.
-- B. Operating threshold is a precommitted value that triggers an action when reached or crossed.
-- C. Centripetal acceleration is acceleration directed toward the center of a circular path.
-- D. Radial direction is the inward or outward direction along a circle's radius.
+- A. 1 minute.
+- B. 2 minutes.
+- C. 3 minutes.
+- D. No stop is needed because the average is below 5.
 
 **Correct answer:** B
 
-**Hint - exact player copy:** Read the axes, units, direction, and any threshold before comparing the choices.
+**Hint - exact player copy:** At least includes equality.
 
 **Option feedback - exact player copy:**
 
-- A: This describes Uniform circular motion, not Operating threshold. It does not account for the quantities, conditions, or evidence in this physics case.
-- B: Correct. operating threshold is a precommitted value that triggers an action when reached or crossed.
-- C: This describes Centripetal acceleration, not Operating threshold. It does not account for the quantities, conditions, or evidence in this physics case.
-- D: This describes Radial direction, not Operating threshold. It does not account for the quantities, conditions, or evidence in this physics case.
+- A: The reading is only 3 units at 1 minute.
+- B: Correct. 2 minutes.
+- C: Waiting until 3 minutes misses the first qualifying check.
+- D: The rule applies to each reading, not the average.
+
 ### Review question 2
 
-**Prompt - exact player copy:** Horizon Park receives a second case related to Turning Inward: the chair travels at steady speed, but its velocity arrow turns continuously around the platform. Which prediction or calculation correctly applies Uniform circular motion to this case?
+
+**Prompt - exact player copy:** Which statement best explains uniform circular motion?
 
 **Options - exact player copy:**
 
@@ -2258,77 +2280,63 @@ Mission decision: The Carousel may run at 4.00 m/s. Its chair angle stays below 
 
 **Correct answer:** C
 
-**Hint - exact player copy:** Use the stated evidence and the conditions for Uniform circular motion; do not choose an option merely because it names a familiar term.
+**Hint - exact player copy:** Identify the defining relationship or mechanism for uniform circular motion. All needed information is in this question.
 
 **Option feedback - exact player copy:**
 
-- A: This describes Operating threshold, not Uniform circular motion. It does not account for the quantities, conditions, or evidence in this physics case.
-- B: This describes Centripetal acceleration, not Uniform circular motion. It does not account for the quantities, conditions, or evidence in this physics case.
-- C: Correct. uniform circular motion is motion around a circle at constant speed while velocity changes direction.
-- D: This describes Radial direction, not Uniform circular motion. It does not account for the quantities, conditions, or evidence in this physics case.
+- A: This describes operating threshold. It does not answer the question about uniform circular motion.
+- B: This describes centripetal acceleration. It does not answer the question about uniform circular motion.
+- C: Correct. Uniform circular motion is motion around a circle at constant speed while velocity changes direction.
+- D: This describes radial direction. It does not answer the question about uniform circular motion.
+
 ### Review question 3
 
-**Prompt - exact player copy:** A teammate rechecks Turning Inward using new evidence: the chair travels at steady speed, but its velocity arrow turns continuously around the platform. Which interpretation of the displayed evidence correctly uses the mission concept?
+
+**Prompt - exact player copy:** At a fixed radius of 2 m, the graph shows inward acceleration for two speeds. Which relationship explains the change?
 
 **Figure - exact player copy:**
 
 ```json
 {
-  "kind": "line",
-  "xLabel": "Time (s)",
-  "yLabel": "Acceleration (m/s2)",
-  "caption": "Ride acceleration changes sign during the test.",
-  "series": [
+  "kind": "bars",
+  "xLabel": "Speed",
+  "yLabel": "Inward acceleration (m/s²)",
+  "caption": "Circular motion at a fixed radius of 2 m",
+  "bars": [
     {
-      "name": "Acceleration",
-      "points": [
-        [
-          0,
-          4
-        ],
-        [
-          1,
-          4
-        ],
-        [
-          2,
-          0
-        ],
-        [
-          3,
-          -4
-        ],
-        [
-          4,
-          -4
-        ]
-      ]
+      "name": "2 m/s",
+      "value": 2
+    },
+    {
+      "name": "4 m/s",
+      "value": 8
     }
   ]
 }
 ```
 
-
 **Options - exact player copy:**
 
-- A. Operating threshold is a precommitted value that triggers an action when reached or crossed.
-- B. Uniform circular motion is motion around a circle at constant speed while velocity changes direction.
-- C. Radial direction is the inward or outward direction along a circle's radius.
-- D. Centripetal acceleration is acceleration directed toward the center of a circular path.
+- A. a=v/r, so doubling speed doubles acceleration.
+- B. a=r/v², so acceleration falls as speed rises.
+- C. Acceleration is zero at either constant speed.
+- D. a=v²/r, so doubling speed quadruples inward acceleration.
 
 **Correct answer:** D
 
-**Hint - exact player copy:** Read the axes, units, direction, and any threshold before comparing the choices.
+**Hint - exact player copy:** Constant speed does not mean constant velocity around a circle.
 
 **Option feedback - exact player copy:**
 
-- A: This describes Operating threshold, not Centripetal acceleration. It does not account for the quantities, conditions, or evidence in this physics case.
-- B: This describes Uniform circular motion, not Centripetal acceleration. It does not account for the quantities, conditions, or evidence in this physics case.
-- C: This describes Radial direction, not Centripetal acceleration. It does not account for the quantities, conditions, or evidence in this physics case.
-- D: Correct. centripetal acceleration is acceleration directed toward the center of a circular path.
+- A: This misses the squared speed dependence.
+- B: It reverses the required relationship.
+- C: Velocity changes direction even when speed is constant.
+- D: Correct. a=v²/r, so doubling speed quadruples inward acceleration.
+
 ### Review question 4
 
-**Prompt - exact player copy:** An unseen case extends Turning Inward: the chair travels at steady speed, but its velocity arrow turns continuously around the platform. Which prediction or calculation correctly applies Radial direction to this case?
+
+**Prompt - exact player copy:** Which statement best explains radial direction?
 
 **Options - exact player copy:**
 
@@ -2339,17 +2347,19 @@ Mission decision: The Carousel may run at 4.00 m/s. Its chair angle stays below 
 
 **Correct answer:** A
 
-**Hint - exact player copy:** Use the stated evidence and the conditions for Radial direction; do not choose an option merely because it names a familiar term.
+**Hint - exact player copy:** Identify the defining relationship or mechanism for radial direction. All needed information is in this question.
 
 **Option feedback - exact player copy:**
 
-- A: Correct. radial direction is the inward or outward direction along a circle's radius.
-- B: This describes Operating threshold, not Radial direction. It does not account for the quantities, conditions, or evidence in this physics case.
-- C: This describes Uniform circular motion, not Radial direction. It does not account for the quantities, conditions, or evidence in this physics case.
-- D: This describes Centripetal acceleration, not Radial direction. It does not account for the quantities, conditions, or evidence in this physics case.
+- A: Correct. Radial direction is the inward or outward direction along a circle's radius.
+- B: This describes operating threshold. It does not answer the question about radial direction.
+- C: This describes uniform circular motion. It does not answer the question about radial direction.
+- D: This describes centripetal acceleration. It does not answer the question about radial direction.
+
 ### Review question 5
 
-**Prompt - exact player copy:** Before another Turning Inward decision, the team knows this: the chair travels at steady speed, but its velocity arrow turns continuously around the platform. Which prediction or calculation correctly applies Tangential direction to this case?
+
+**Prompt - exact player copy:** Which statement best explains tangential direction?
 
 **Options - exact player copy:**
 
@@ -2360,75 +2370,61 @@ Mission decision: The Carousel may run at 4.00 m/s. Its chair angle stays below 
 
 **Correct answer:** B
 
-**Hint - exact player copy:** Use the stated evidence and the conditions for Tangential direction; do not choose an option merely because it names a familiar term.
+**Hint - exact player copy:** Identify the defining relationship or mechanism for tangential direction. All needed information is in this question.
 
 **Option feedback - exact player copy:**
 
-- A: This describes Operating threshold, not Tangential direction. It does not account for the quantities, conditions, or evidence in this physics case.
-- B: Correct. tangential direction is the direction touching a circular path at one point; instantaneous velocity points this way.
-- C: This describes Uniform circular motion, not Tangential direction. It does not account for the quantities, conditions, or evidence in this physics case.
-- D: This describes Centripetal acceleration, not Tangential direction. It does not account for the quantities, conditions, or evidence in this physics case.
+- A: This describes operating threshold. It does not answer the question about tangential direction.
+- B: Correct. Tangential direction is the direction touching a circular path at one point; instantaneous velocity points this way.
+- C: This describes uniform circular motion. It does not answer the question about tangential direction.
+- D: This describes centripetal acceleration. It does not answer the question about tangential direction.
+
 ### Review question 6
 
-**Prompt - exact player copy:** Horizon Park applies the lesson from Turning Inward to this follow-up: the chair travels at steady speed, but its velocity arrow turns continuously around the platform. Which interpretation of the displayed evidence correctly uses the mission concept?
+
+**Prompt - exact player copy:** At a fixed radius of 2 m, the graph shows inward acceleration for two speeds. Which relationship explains the change?
 
 **Figure - exact player copy:**
 
 ```json
 {
-  "kind": "line",
-  "xLabel": "Time (s)",
-  "yLabel": "Acceleration (m/s2)",
-  "caption": "Ride acceleration changes sign during the test.",
-  "series": [
+  "kind": "bars",
+  "xLabel": "Speed",
+  "yLabel": "Inward acceleration (m/s²)",
+  "caption": "Circular motion at a fixed radius of 2 m",
+  "bars": [
     {
-      "name": "Acceleration",
-      "points": [
-        [
-          0,
-          4
-        ],
-        [
-          1,
-          4
-        ],
-        [
-          2,
-          0
-        ],
-        [
-          3,
-          -4
-        ],
-        [
-          4,
-          -4
-        ]
-      ]
+      "name": "2 m/s",
+      "value": 2
+    },
+    {
+      "name": "4 m/s",
+      "value": 8
     }
   ]
 }
 ```
 
-
 **Options - exact player copy:**
 
-- A. Operating threshold is a precommitted value that triggers an action when reached or crossed.
-- B. Uniform circular motion is motion around a circle at constant speed while velocity changes direction.
-- C. Direction changes by the same small angle as the position around the circle. Dividing the velocity change by time produces v²/r.
-- D. Centripetal acceleration is acceleration directed toward the center of a circular path.
+- A. a=v/r, so doubling speed doubles acceleration.
+- B. a=r/v², so acceleration falls as speed rises.
+- C. a=v²/r, so doubling speed quadruples inward acceleration.
+- D. Acceleration is zero at either constant speed.
 
 **Correct answer:** C
 
-**Hint - exact player copy:** Read the axes, units, direction, and any threshold before comparing the choices.
+**Hint - exact player copy:** Constant speed does not mean constant velocity around a circle.
 
 **Option feedback - exact player copy:**
 
-- A: This describes Operating threshold, not circular acceleration. It does not account for the quantities, conditions, or evidence in this physics case.
-- B: This describes Uniform circular motion, not circular acceleration. It does not account for the quantities, conditions, or evidence in this physics case.
-- C: Correct. direction changes by the same small angle as the position around the circle. Dividing the velocity change by time produces v²/r.
-- D: This describes Centripetal acceleration, not circular acceleration. It does not account for the quantities, conditions, or evidence in this physics case.
-**Optional review completion - exact player copy:** Excellent work. You went beyond the required mission and strengthened the ideas behind your decision.
+- A: This misses the squared speed dependence.
+- B: It reverses the required relationship.
+- C: Correct. a=v²/r, so doubling speed quadruples inward acceleration.
+- D: Velocity changes direction even when speed is constant.
+
+**Optional review completion - exact player copy:** Good work. You have completed six independent practice questions.
+
 ## Quick concept review
 
 - Circular motion accelerates inward even at constant speed.
@@ -2828,15 +2824,39 @@ Mission decision: Dry-floor friction explains the Bumper Car stop. It does not e
 
 **Availability:** Reveal only after mission completion when the player selects **GO DEEPER**. This section is optional, ungraded for campaign progress, and does not change metrics, Recovery Points, or the next-mission unlock.
 
-**Secondary briefing card - exact player copy:** You completed Where the Energy Went. Choose GO DEEPER to revisit the four decisions and explore related course ideas; this optional review does not change your metrics or delay the next mission.
+**Secondary briefing card - exact player copy:** Try six independent practice questions. Each includes its own context and any needed data; no mission records are required.
 
 ### Review focus
 
-No additional prerequisite is required. These AP-style questions apply the mission's course ideas to follow-up evidence, including related topics not required in the four main stops.
+No additional prerequisite is required. These practice questions review related course ideas. Each question stands alone, including its choices and figure.
 
 ### Review question 1
 
-**Prompt - exact player copy:** In a follow-up to Where the Energy Went, with the fourfold increase established, close the car's energy ledger from 4.0 m/s to rest. Which prediction or calculation correctly applies Work to this case?
+
+**Prompt - exact player copy:** Which statement best explains work?
+
+**Options - exact player copy:**
+
+- A. Kinetic energy is energy of motion, equal to one-half mass times speed squared.
+- B. Power is the rate at which energy is transferred or work is done.
+- C. Nonconservative force is a force such as friction that transfers mechanical energy into heat or deformation along a path.
+- D. Work is energy transferred when a force acts through a displacement; only the force component along the motion contributes.
+
+**Correct answer:** D
+
+**Hint - exact player copy:** Identify the defining relationship or mechanism for work. All needed information is in this question.
+
+**Option feedback - exact player copy:**
+
+- A: This describes kinetic energy. It does not answer the question about work.
+- B: This describes power. It does not answer the question about work.
+- C: This describes nonconservative force. It does not answer the question about work.
+- D: Correct. Work is energy transferred when a force acts through a displacement; only the force component along the motion contributes.
+
+### Review question 2
+
+
+**Prompt - exact player copy:** Which statement best explains kinetic energy?
 
 **Options - exact player copy:**
 
@@ -2845,19 +2865,21 @@ No additional prerequisite is required. These AP-style questions apply the missi
 - C. Power is the rate at which energy is transferred or work is done.
 - D. Nonconservative force is a force such as friction that transfers mechanical energy into heat or deformation along a path.
 
-**Correct answer:** B
+**Correct answer:** A
 
-**Hint - exact player copy:** Use the stated evidence and the conditions for Work; do not choose an option merely because it names a familiar term.
+**Hint - exact player copy:** Identify the defining relationship or mechanism for kinetic energy. All needed information is in this question.
 
 **Option feedback - exact player copy:**
 
-- A: This describes Kinetic energy, not Work. It does not account for the quantities, conditions, or evidence in this physics case.
-- B: Correct. work is energy transferred when a force acts through a displacement; only the force component along the motion contributes.
-- C: This describes Power, not Work. It does not account for the quantities, conditions, or evidence in this physics case.
-- D: This describes Nonconservative force, not Work. It does not account for the quantities, conditions, or evidence in this physics case.
-### Review question 2
+- A: Correct. Kinetic energy is energy of motion, equal to one-half mass times speed squared.
+- B: This describes work. It does not answer the question about kinetic energy.
+- C: This describes power. It does not answer the question about kinetic energy.
+- D: This describes nonconservative force. It does not answer the question about kinetic energy.
 
-**Prompt - exact player copy:** Horizon Park receives a second case related to Where the Energy Went: a normal test runs at 2.0 m/s, while the October log reports 4.0 m/s. Which prediction or calculation correctly applies Kinetic energy to this case?
+### Review question 3
+
+
+**Prompt - exact player copy:** Which statement best explains power?
 
 **Options - exact player copy:**
 
@@ -2866,19 +2888,21 @@ No additional prerequisite is required. These AP-style questions apply the missi
 - C. Kinetic energy is energy of motion, equal to one-half mass times speed squared.
 - D. Nonconservative force is a force such as friction that transfers mechanical energy into heat or deformation along a path.
 
-**Correct answer:** C
+**Correct answer:** B
 
-**Hint - exact player copy:** Use the stated evidence and the conditions for Kinetic energy; do not choose an option merely because it names a familiar term.
+**Hint - exact player copy:** Identify the defining relationship or mechanism for power. All needed information is in this question.
 
 **Option feedback - exact player copy:**
 
-- A: This describes Work, not Kinetic energy. It does not account for the quantities, conditions, or evidence in this physics case.
-- B: This describes Power, not Kinetic energy. It does not account for the quantities, conditions, or evidence in this physics case.
-- C: Correct. kinetic energy is energy of motion, equal to one-half mass times speed squared.
-- D: This describes Nonconservative force, not Kinetic energy. It does not account for the quantities, conditions, or evidence in this physics case.
-### Review question 3
+- A: This describes work. It does not answer the question about power.
+- B: Correct. Power is the rate at which energy is transferred or work is done.
+- C: This describes kinetic energy. It does not answer the question about power.
+- D: This describes nonconservative force. It does not answer the question about power.
 
-**Prompt - exact player copy:** A teammate rechecks Where the Energy Went using new evidence: a normal test runs at 2.0 m/s, while the October log reports 4.0 m/s. Which statistical conclusion or procedure correctly uses Power?
+### Review question 4
+
+
+**Prompt - exact player copy:** Which statement best explains nonconservative force?
 
 **Options - exact player copy:**
 
@@ -2887,80 +2911,65 @@ No additional prerequisite is required. These AP-style questions apply the missi
 - C. Nonconservative force is a force such as friction that transfers mechanical energy into heat or deformation along a path.
 - D. Power is the rate at which energy is transferred or work is done.
 
-**Correct answer:** D
+**Correct answer:** C
 
-**Hint - exact player copy:** Use the stated evidence and the conditions for Power; do not choose an option merely because it names a familiar term.
+**Hint - exact player copy:** Identify the defining relationship or mechanism for nonconservative force. All needed information is in this question.
 
 **Option feedback - exact player copy:**
 
-- A: This describes Work, not Power. It does not account for the quantities, conditions, or evidence in this physics case.
-- B: This describes Kinetic energy, not Power. It does not account for the quantities, conditions, or evidence in this physics case.
-- C: This describes Nonconservative force, not Power. It does not account for the quantities, conditions, or evidence in this physics case.
-- D: Correct. power is the rate at which energy is transferred or work is done.
-### Review question 4
+- A: This describes work. It does not answer the question about nonconservative force.
+- B: This describes kinetic energy. It does not answer the question about nonconservative force.
+- C: Correct. Nonconservative force is a force such as friction that transfers mechanical energy into heat or deformation along a path.
+- D: This describes power. It does not answer the question about nonconservative force.
 
-**Prompt - exact player copy:** An unseen case extends Where the Energy Went: a normal test runs at 2.0 m/s, while the October log reports 4.0 m/s. Which prediction or calculation correctly applies Nonconservative force to this case?
+### Review question 5
+
+
+**Prompt - exact player copy:** Which statement best explains kinetic-energy scaling?
 
 **Options - exact player copy:**
 
-- A. Nonconservative force is a force such as friction that transfers mechanical energy into heat or deformation along a path.
+- A. Work is energy transferred when a force acts through a displacement; only the force component along the motion contributes.
+- B. Kinetic energy is energy of motion, equal to one-half mass times speed squared.
+- C. Power is the rate at which energy is transferred or work is done.
+- D. Mass is unchanged and K is proportional to v².
+
+**Correct answer:** D
+
+**Hint - exact player copy:** Identify the defining relationship or mechanism for kinetic-energy scaling. All needed information is in this question.
+
+**Option feedback - exact player copy:**
+
+- A: This describes work. It does not answer the question about kinetic-energy scaling.
+- B: This describes kinetic energy. It does not answer the question about kinetic-energy scaling.
+- C: This describes power. It does not answer the question about kinetic-energy scaling.
+- D: Correct. Mass is unchanged and K is proportional to v².
+
+### Review question 6
+
+
+**Prompt - exact player copy:** A block slides to rest on a horizontal rough surface. Its initial speed is v, kinetic friction coefficient is μ, and gravitational acceleration is g. Air drag is negligible. Which relation gives the stopping distance d?
+
+**Options - exact player copy:**
+
+- A. μmgd=½mv²; mass cancels, and the normal force does no work because it is perpendicular to motion.
 - B. Work is energy transferred when a force acts through a displacement; only the force component along the motion contributes.
 - C. Kinetic energy is energy of motion, equal to one-half mass times speed squared.
 - D. Power is the rate at which energy is transferred or work is done.
 
 **Correct answer:** A
 
-**Hint - exact player copy:** Use the stated evidence and the conditions for Nonconservative force; do not choose an option merely because it names a familiar term.
+**Hint - exact player copy:** Identify the defining relationship or mechanism for work-energy. All needed information is in this question.
 
 **Option feedback - exact player copy:**
 
-- A: Correct. nonconservative force is a force such as friction that transfers mechanical energy into heat or deformation along a path.
-- B: This describes Work, not Nonconservative force. It does not account for the quantities, conditions, or evidence in this physics case.
-- C: This describes Kinetic energy, not Nonconservative force. It does not account for the quantities, conditions, or evidence in this physics case.
-- D: This describes Power, not Nonconservative force. It does not account for the quantities, conditions, or evidence in this physics case.
-### Review question 5
+- A: Correct. μmgd=½mv²; mass cancels, and the normal force does no work because it is perpendicular to motion.
+- B: This describes work. It does not answer the question about work-energy.
+- C: This describes kinetic energy. It does not answer the question about work-energy.
+- D: This describes power. It does not answer the question about work-energy.
 
-**Prompt - exact player copy:** Before another Where the Energy Went decision, the team knows this: a normal test runs at 2.0 m/s, while the October log reports 4.0 m/s. Which prediction or calculation correctly applies Kinetic-energy scaling to this case?
+**Optional review completion - exact player copy:** Good work. You have completed six independent practice questions.
 
-**Options - exact player copy:**
-
-- A. Work is energy transferred when a force acts through a displacement; only the force component along the motion contributes.
-- B. Mass is unchanged and K is proportional to v².
-- C. Kinetic energy is energy of motion, equal to one-half mass times speed squared.
-- D. Power is the rate at which energy is transferred or work is done.
-
-**Correct answer:** B
-
-**Hint - exact player copy:** Use the stated evidence and the conditions for Kinetic-energy scaling; do not choose an option merely because it names a familiar term.
-
-**Option feedback - exact player copy:**
-
-- A: This describes Work, not Kinetic-energy scaling. It does not account for the quantities, conditions, or evidence in this physics case.
-- B: Correct. mass is unchanged and K is proportional to v².
-- C: This describes Kinetic energy, not Kinetic-energy scaling. It does not account for the quantities, conditions, or evidence in this physics case.
-- D: This describes Power, not Kinetic-energy scaling. It does not account for the quantities, conditions, or evidence in this physics case.
-### Review question 6
-
-**Prompt - exact player copy:** Horizon Park applies the lesson from Where the Energy Went to this follow-up: with the fourfold increase established, close the car's energy ledger from 4.0 m/s to rest. Which prediction or calculation correctly applies Work-energy to this case?
-
-**Options - exact player copy:**
-
-- A. Work is energy transferred when a force acts through a displacement; only the force component along the motion contributes.
-- B. Kinetic energy is energy of motion, equal to one-half mass times speed squared.
-- C. Μmgd = 1/2 mv²; mass cancels. The normal force does no work because it is perpendicular to motion.
-- D. Power is the rate at which energy is transferred or work is done.
-
-**Correct answer:** C
-
-**Hint - exact player copy:** Use the stated evidence and the conditions for Work-energy; do not choose an option merely because it names a familiar term.
-
-**Option feedback - exact player copy:**
-
-- A: This describes Work, not Work-energy. It does not account for the quantities, conditions, or evidence in this physics case.
-- B: This describes Kinetic energy, not Work-energy. It does not account for the quantities, conditions, or evidence in this physics case.
-- C: Correct. μmgd = 1/2 mv²; mass cancels. The normal force does no work because it is perpendicular to motion.
-- D: This describes Power, not Work-energy. It does not account for the quantities, conditions, or evidence in this physics case.
-**Optional review completion - exact player copy:** Excellent work. You went beyond the required mission and strengthened the ideas behind your decision.
 ## Quick concept review
 
 - `K = 1/2 mv²`; doubling speed quadruples kinetic energy.
@@ -3212,7 +3221,7 @@ mapping: ["Abort before arming", "Abort before release", "Authorize unmanned rel
 
 **Question card story-science connection - exact player copy:** The predicted brake-entry speed sets the measurement range and helps define the abort condition.
 
-**Fixture source panel - exact player copy:** The test mass falls 36.0 m from rest before entering the brake stack. Derive its entry speed so Chen can set the sensor range and the abort threshold before release. Given v0 = 0 m/s, downward acceleration a = 9.80 m/s^2, and downward displacement Delta x = 36.0 m, use v^2 = v0^2 + 2a Delta x.
+**Fixture source panel - exact player copy:** The test mass falls from rest through Delta x=36.0 m before entering the brake stack. Take downward as positive: v0=0 m/s and a=9.80 m/s². Use v²=v0²+2a Delta x to derive the entry speed so Chen can set the sensor range and abort threshold before release.
 
 **Source-panel timing:** Show at this stop’s declared fixture before its DERIVE choices unlock. Keep visible while the player works. These are model inputs and prior observations, not new measurements or an accepted answer. Symbolic derivations stay symbolic; do not invent a number merely to force substitution.
 
@@ -3418,15 +3427,16 @@ Mission decision: One tower test may run with no riders. The speed mark, sensor,
 
 **Availability:** Reveal only after mission completion when the player selects **GO DEEPER**. This section is optional, ungraded for campaign progress, and does not change metrics, Recovery Points, or the next-mission unlock.
 
-**Secondary briefing card - exact player copy:** You completed The Missing Procedure. Choose GO DEEPER to revisit the four decisions and explore related course ideas; this optional review does not change your metrics or delay the next mission.
+**Secondary briefing card - exact player copy:** Try six independent practice questions. Each includes its own context and any needed data; no mission records are required.
 
 ### Review focus
 
-No additional prerequisite is required. These AP-style questions apply the mission's course ideas to follow-up evidence, including related topics not required in the four main stops.
+No additional prerequisite is required. These practice questions review related course ideas. Each question stands alone, including its choices and figure.
 
 ### Review question 1
 
-**Prompt - exact player copy:** In a follow-up to The Missing Procedure, the test mass falls 36.0 m from rest before entering the brake stack. Which prediction or calculation correctly applies Free fall to this case?
+
+**Prompt - exact player copy:** Which statement best explains free fall?
 
 **Options - exact player copy:**
 
@@ -3437,17 +3447,19 @@ No additional prerequisite is required. These AP-style questions apply the missi
 
 **Correct answer:** B
 
-**Hint - exact player copy:** Use the stated evidence and the conditions for Free fall; do not choose an option merely because it names a familiar term.
+**Hint - exact player copy:** Identify the defining relationship or mechanism for free fall. All needed information is in this question.
 
 **Option feedback - exact player copy:**
 
-- A: This describes Apparent weight, not Free fall. It does not account for the quantities, conditions, or evidence in this physics case.
-- B: Correct. free fall is motion under gravity alone after release.
-- C: This describes Stopping acceleration, not Free fall. It does not account for the quantities, conditions, or evidence in this physics case.
-- D: This describes Attestation, not Free fall. It does not account for the quantities, conditions, or evidence in this physics case.
+- A: This describes apparent weight. It does not answer the question about free fall.
+- B: Correct. Free fall is motion under gravity alone after release.
+- C: This describes stopping acceleration. It does not answer the question about free fall.
+- D: This describes attestation. It does not answer the question about free fall.
+
 ### Review question 2
 
-**Prompt - exact player copy:** Horizon Park receives a second case related to The Missing Procedure: the notebooks list every task but never state a complete order. Assign a response to each condition now so the crew has an action rule it can follow under pressure. Which prediction or calculation correctly applies Apparent weight to this case?
+
+**Prompt - exact player copy:** Which statement best explains apparent weight?
 
 **Options - exact player copy:**
 
@@ -3458,17 +3470,19 @@ No additional prerequisite is required. These AP-style questions apply the missi
 
 **Correct answer:** C
 
-**Hint - exact player copy:** Use the stated evidence and the conditions for Apparent weight; do not choose an option merely because it names a familiar term.
+**Hint - exact player copy:** Identify the defining relationship or mechanism for apparent weight. All needed information is in this question.
 
 **Option feedback - exact player copy:**
 
-- A: This describes Free fall, not Apparent weight. It does not account for the quantities, conditions, or evidence in this physics case.
-- B: This describes Stopping acceleration, not Apparent weight. It does not account for the quantities, conditions, or evidence in this physics case.
-- C: Correct. apparent weight is the support force a rider feels; it can differ from gravitational weight during acceleration.
-- D: This describes Attestation, not Apparent weight. It does not account for the quantities, conditions, or evidence in this physics case.
+- A: This describes free fall. It does not answer the question about apparent weight.
+- B: This describes stopping acceleration. It does not answer the question about apparent weight.
+- C: Correct. Apparent weight is the support force a rider feels; it can differ from gravitational weight during acceleration.
+- D: This describes attestation. It does not answer the question about apparent weight.
+
 ### Review question 3
 
-**Prompt - exact player copy:** A teammate rechecks The Missing Procedure using new evidence: the notebooks list every task but never state a complete order. Assign a response to each condition now so the crew has an action rule it can follow under pressure. Which interpretation of the displayed evidence correctly uses the mission concept?
+
+**Prompt - exact player copy:** The velocity graph is linear over the shown interval. Which description is correct?
 
 **Figure - exact player copy:**
 
@@ -3476,31 +3490,27 @@ No additional prerequisite is required. These AP-style questions apply the missi
 {
   "kind": "line",
   "xLabel": "Time (s)",
-  "yLabel": "Acceleration (m/s2)",
-  "caption": "Ride acceleration changes sign during the test.",
+  "yLabel": "Velocity (m/s)",
+  "caption": "Velocity decreases linearly",
   "series": [
     {
-      "name": "Acceleration",
+      "name": "Velocity",
       "points": [
         [
           0,
-          4
+          8
         ],
         [
           1,
-          4
+          6
         ],
         [
           2,
-          0
+          4
         ],
         [
           3,
-          -4
-        ],
-        [
-          4,
-          -4
+          2
         ]
       ]
     }
@@ -3508,27 +3518,28 @@ No additional prerequisite is required. These AP-style questions apply the missi
 }
 ```
 
-
 **Options - exact player copy:**
 
-- A. Free fall is motion under gravity alone after release.
-- B. Apparent weight is the support force a rider feels; it can differ from gravitational weight during acceleration.
-- C. Attestation is checking that a claim is backed by the correct record, identity, time, and physical condition.
-- D. Stopping acceleration is the change in velocity per time while the brake brings the car to rest.
+- A. It moves backward because acceleration is negative.
+- B. Its acceleration is +2 m/s².
+- C. Its acceleration is zero because the graph is straight.
+- D. The object moves in the positive direction with acceleration -2 m/s².
 
 **Correct answer:** D
 
-**Hint - exact player copy:** Read the axes, units, direction, and any threshold before comparing the choices.
+**Hint - exact player copy:** Velocity gives direction; the slope gives acceleration.
 
 **Option feedback - exact player copy:**
 
-- A: This describes Free fall, not Stopping acceleration. It does not account for the quantities, conditions, or evidence in this physics case.
-- B: This describes Apparent weight, not Stopping acceleration. It does not account for the quantities, conditions, or evidence in this physics case.
-- C: This describes Attestation, not Stopping acceleration. It does not account for the quantities, conditions, or evidence in this physics case.
-- D: Correct. stopping acceleration is the change in velocity per time while the brake brings the car to rest.
+- A: Velocity remains positive throughout the interval.
+- B: The velocity slope is negative.
+- C: A straight velocity graph has constant acceleration; zero acceleration would require a horizontal line.
+- D: Correct. The object moves in the positive direction with acceleration -2 m/s².
+
 ### Review question 4
 
-**Prompt - exact player copy:** An unseen case extends The Missing Procedure: the notebooks list every task but never state a complete order. Assign a response to each condition now so the crew has an action rule it can follow under pressure. Which statistical conclusion or procedure correctly uses Attestation?
+
+**Prompt - exact player copy:** Which statement best explains attestation?
 
 **Options - exact player copy:**
 
@@ -3539,17 +3550,19 @@ No additional prerequisite is required. These AP-style questions apply the missi
 
 **Correct answer:** A
 
-**Hint - exact player copy:** Use the stated evidence and the conditions for Attestation; do not choose an option merely because it names a familiar term.
+**Hint - exact player copy:** Identify the defining relationship or mechanism for attestation. All needed information is in this question.
 
 **Option feedback - exact player copy:**
 
-- A: Correct. attestation is checking that a claim is backed by the correct record, identity, time, and physical condition.
-- B: This describes Free fall, not Attestation. It does not account for the quantities, conditions, or evidence in this physics case.
-- C: This describes Apparent weight, not Attestation. It does not account for the quantities, conditions, or evidence in this physics case.
-- D: This describes Stopping acceleration, not Attestation. It does not account for the quantities, conditions, or evidence in this physics case.
+- A: Correct. Attestation is checking that a claim is backed by the correct record, identity, time, and physical condition.
+- B: This describes free fall. It does not answer the question about attestation.
+- C: This describes apparent weight. It does not answer the question about attestation.
+- D: This describes stopping acceleration. It does not answer the question about attestation.
+
 ### Review question 5
 
-**Prompt - exact player copy:** Before another Missing Procedure decision, the team knows this: the notebooks list every task but never state a complete order. Assign a response to each condition now so the crew has an action rule it can follow under pressure. Which prediction or calculation correctly applies Experimental procedure to this case?
+
+**Prompt - exact player copy:** Which statement best explains experimental procedure?
 
 **Options - exact player copy:**
 
@@ -3560,36 +3573,40 @@ No additional prerequisite is required. These AP-style questions apply the missi
 
 **Correct answer:** B
 
-**Hint - exact player copy:** Use the stated evidence and the conditions for Experimental procedure; do not choose an option merely because it names a familiar term.
+**Hint - exact player copy:** Identify the defining relationship or mechanism for experimental procedure. All needed information is in this question.
 
 **Option feedback - exact player copy:**
 
-- A: This describes Free fall, not Experimental procedure. It does not account for the quantities, conditions, or evidence in this physics case.
-- B: Correct. each abort occurs before the hazardous step it protects.
-- C: This describes Apparent weight, not Experimental procedure. It does not account for the quantities, conditions, or evidence in this physics case.
-- D: This describes Stopping acceleration, not Experimental procedure. It does not account for the quantities, conditions, or evidence in this physics case.
+- A: This describes free fall. It does not answer the question about experimental procedure.
+- B: Correct. Each abort occurs before the hazardous step it protects.
+- C: This describes apparent weight. It does not answer the question about experimental procedure.
+- D: This describes stopping acceleration. It does not answer the question about experimental procedure.
+
 ### Review question 6
 
-**Prompt - exact player copy:** Horizon Park applies the lesson from The Missing Procedure to this follow-up: the test mass falls 36.0 m from rest before entering the brake stack. Which prediction or calculation correctly applies Free-fall kinematics to this case?
+
+**Prompt - exact player copy:** An object falls 36.0 m from rest with no air resistance. Take downward as positive and g=9.80 m/s². Which statement describes its motion?
 
 **Options - exact player copy:**
 
 - A. Free fall is motion under gravity alone after release.
 - B. Apparent weight is the support force a rider feels; it can differ from gravitational weight during acceleration.
-- C. Gravity increases downward speed over the 36.0 m free-fall distance.
+- C. Gravity increases its downward speed; v²=2g×36.0 gives the speed just before the fall ends.
 - D. Stopping acceleration is the change in velocity per time while the brake brings the car to rest.
 
 **Correct answer:** C
 
-**Hint - exact player copy:** Use the stated evidence and the conditions for Free-fall kinematics; do not choose an option merely because it names a familiar term.
+**Hint - exact player copy:** Identify the defining relationship or mechanism for free-fall kinematics. All needed information is in this question.
 
 **Option feedback - exact player copy:**
 
-- A: This describes Free fall, not Free-fall kinematics. It does not account for the quantities, conditions, or evidence in this physics case.
-- B: This describes Apparent weight, not Free-fall kinematics. It does not account for the quantities, conditions, or evidence in this physics case.
-- C: Correct. gravity increases downward speed over the 36.0 m free-fall distance.
-- D: This describes Stopping acceleration, not Free-fall kinematics. It does not account for the quantities, conditions, or evidence in this physics case.
-**Optional review completion - exact player copy:** Excellent work. You went beyond the required mission and strengthened the ideas behind your decision.
+- A: This describes free fall. It does not answer the question about free-fall kinematics.
+- B: This describes apparent weight. It does not answer the question about free-fall kinematics.
+- C: Correct. Gravity increases its downward speed; v²=2g×36.0 gives the speed just before the fall ends.
+- D: This describes stopping acceleration. It does not answer the question about free-fall kinematics.
+
+**Optional review completion - exact player copy:** Good work. You have completed six independent practice questions.
+
 ## Quick concept review
 
 - Use `v² = v0² + 2aΔx` when time is not needed.
@@ -3988,7 +4005,7 @@ Mission decision: The new controller did not cause the October event. It came la
 
 **Availability:** Reveal only after mission completion when the player selects **GO DEEPER**. This section is optional, ungraded for campaign progress, and does not change metrics, Recovery Points, or the next-mission unlock.
 
-**Secondary briefing card - exact player copy:** You completed One Source, Three Readings. Choose GO DEEPER to revisit the four decisions and explore related course ideas; this optional review does not change your metrics or delay the next mission.
+**Secondary briefing card - exact player copy:** Try six independent practice questions. Each includes its own context and any needed data; no mission records are required.
 
 ### Additional concepts kept out of the required mission card
 
@@ -3997,7 +4014,31 @@ Mission decision: The new controller did not cause the October event. It came la
 
 ### Review question 1
 
-**Prompt - exact player copy:** In a follow-up to One Source, Three Readings, the service list names a replacement controller, but the crate still carries its factory seal. Run the reversible comparison now so the crew can tell whether the proposed cause changes the measured response. Which prediction or calculation correctly applies Upstream dependency to this case?
+
+**Prompt - exact player copy:** Which statement best explains upstream dependency?
+
+**Options - exact player copy:**
+
+- A. Calibration is comparison that connects an instrument reading to a known physical value.
+- B. Causal test is an intervention that changes one proposed cause and checks whether the predicted response follows.
+- C. Quiet reading is a normal measurement that can rule out explanations predicting an alarm there.
+- D. Upstream dependency is a shared earlier source that several later readings rely on.
+
+**Correct answer:** D
+
+**Hint - exact player copy:** Identify the defining relationship or mechanism for upstream dependency. All needed information is in this question.
+
+**Option feedback - exact player copy:**
+
+- A: This describes calibration. It does not answer the question about upstream dependency.
+- B: This describes causal test. It does not answer the question about upstream dependency.
+- C: This describes quiet reading. It does not answer the question about upstream dependency.
+- D: Correct. Upstream dependency is a shared earlier source that several later readings rely on.
+
+### Review question 2
+
+
+**Prompt - exact player copy:** Which statement best explains calibration?
 
 **Options - exact player copy:**
 
@@ -4006,19 +4047,21 @@ Mission decision: The new controller did not cause the October event. It came la
 - C. Causal test is an intervention that changes one proposed cause and checks whether the predicted response follows.
 - D. Quiet reading is a normal measurement that can rule out explanations predicting an alarm there.
 
-**Correct answer:** B
+**Correct answer:** A
 
-**Hint - exact player copy:** Use the stated evidence and the conditions for Upstream dependency; do not choose an option merely because it names a familiar term.
+**Hint - exact player copy:** Identify the defining relationship or mechanism for calibration. All needed information is in this question.
 
 **Option feedback - exact player copy:**
 
-- A: This describes Calibration, not Upstream dependency. It does not account for the quantities, conditions, or evidence in this physics case.
-- B: Correct. upstream dependency is a shared earlier source that several later readings rely on.
-- C: This describes Causal test, not Upstream dependency. It does not account for the quantities, conditions, or evidence in this physics case.
-- D: This describes Quiet reading, not Upstream dependency. It does not account for the quantities, conditions, or evidence in this physics case.
-### Review question 2
+- A: Correct. Calibration is comparison that connects an instrument reading to a known physical value.
+- B: This describes upstream dependency. It does not answer the question about calibration.
+- C: This describes causal test. It does not answer the question about calibration.
+- D: This describes quiet reading. It does not answer the question about calibration.
 
-**Prompt - exact player copy:** Horizon Park receives a second case related to One Source, Three Readings: the replacement controller is excluded, yet the three October speeds still agree too closely. Open the dependencies now so the team can distinguish independent evidence from readings that repeat one source. Which prediction or calculation correctly applies Calibration to this case?
+### Review question 3
+
+
+**Prompt - exact player copy:** Which statement best explains causal test?
 
 **Options - exact player copy:**
 
@@ -4027,19 +4070,21 @@ Mission decision: The new controller did not cause the October event. It came la
 - C. Calibration is comparison that connects an instrument reading to a known physical value.
 - D. Quiet reading is a normal measurement that can rule out explanations predicting an alarm there.
 
-**Correct answer:** C
+**Correct answer:** B
 
-**Hint - exact player copy:** Use the stated evidence and the conditions for Calibration; do not choose an option merely because it names a familiar term.
+**Hint - exact player copy:** Identify the defining relationship or mechanism for causal test. All needed information is in this question.
 
 **Option feedback - exact player copy:**
 
-- A: This describes Upstream dependency, not Calibration. It does not account for the quantities, conditions, or evidence in this physics case.
-- B: This describes Causal test, not Calibration. It does not account for the quantities, conditions, or evidence in this physics case.
-- C: Correct. calibration is comparison that connects an instrument reading to a known physical value.
-- D: This describes Quiet reading, not Calibration. It does not account for the quantities, conditions, or evidence in this physics case.
-### Review question 3
+- A: This describes upstream dependency. It does not answer the question about causal test.
+- B: Correct. Causal test is an intervention that changes one proposed cause and checks whether the predicted response follows.
+- C: This describes calibration. It does not answer the question about causal test.
+- D: This describes quiet reading. It does not answer the question about causal test.
 
-**Prompt - exact player copy:** A teammate rechecks One Source, Three Readings using new evidence: the service list names a replacement controller, but the crate still carries its factory seal. Run the reversible comparison now so the crew can tell whether the proposed cause changes the measured response. Which statistical conclusion or procedure correctly uses Causal test?
+### Review question 4
+
+
+**Prompt - exact player copy:** Which statement best explains quiet reading?
 
 **Options - exact player copy:**
 
@@ -4048,80 +4093,65 @@ Mission decision: The new controller did not cause the October event. It came la
 - C. Quiet reading is a normal measurement that can rule out explanations predicting an alarm there.
 - D. Causal test is an intervention that changes one proposed cause and checks whether the predicted response follows.
 
-**Correct answer:** D
+**Correct answer:** C
 
-**Hint - exact player copy:** Use the stated evidence and the conditions for Causal test; do not choose an option merely because it names a familiar term.
+**Hint - exact player copy:** Identify the defining relationship or mechanism for quiet reading. All needed information is in this question.
 
 **Option feedback - exact player copy:**
 
-- A: This describes Upstream dependency, not Causal test. It does not account for the quantities, conditions, or evidence in this physics case.
-- B: This describes Calibration, not Causal test. It does not account for the quantities, conditions, or evidence in this physics case.
-- C: This describes Quiet reading, not Causal test. It does not account for the quantities, conditions, or evidence in this physics case.
-- D: Correct. causal test is an intervention that changes one proposed cause and checks whether the predicted response follows.
-### Review question 4
+- A: This describes upstream dependency. It does not answer the question about quiet reading.
+- B: This describes calibration. It does not answer the question about quiet reading.
+- C: Correct. Quiet reading is a normal measurement that can rule out explanations predicting an alarm there.
+- D: This describes causal test. It does not answer the question about quiet reading.
 
-**Prompt - exact player copy:** An unseen case extends One Source, Three Readings: the replacement controller is excluded, yet the three October speeds still agree too closely. Open the dependencies now so the team can distinguish independent evidence from readings that repeat one source. Which prediction or calculation correctly applies Quiet reading to this case?
+### Review question 5
+
+
+**Prompt - exact player copy:** Which statement best explains spring constant?
 
 **Options - exact player copy:**
 
-- A. Quiet reading is a normal measurement that can rule out explanations predicting an alarm there.
+- A. Upstream dependency is a shared earlier source that several later readings rely on.
+- B. Calibration is comparison that connects an instrument reading to a known physical value.
+- C. Causal test is an intervention that changes one proposed cause and checks whether the predicted response follows.
+- D. Spring constant is a measure of spring stiffness; a larger value means more force is required for the same stretch or compression.
+
+**Correct answer:** D
+
+**Hint - exact player copy:** Identify the defining relationship or mechanism for spring constant. All needed information is in this question.
+
+**Option feedback - exact player copy:**
+
+- A: This describes upstream dependency. It does not answer the question about spring constant.
+- B: This describes calibration. It does not answer the question about spring constant.
+- C: This describes causal test. It does not answer the question about spring constant.
+- D: Correct. Spring constant is a measure of spring stiffness; a larger value means more force is required for the same stretch or compression.
+
+### Review question 6
+
+
+**Prompt - exact player copy:** A motor fails on Monday. A proposed cause is a replacement controller that arrived sealed on Wednesday and has never been connected. What does that timeline show?
+
+**Options - exact player copy:**
+
+- A. The replacement controller cannot have caused the Monday failure because it was absent and disconnected at the time.
 - B. Upstream dependency is a shared earlier source that several later readings rely on.
 - C. Calibration is comparison that connects an instrument reading to a known physical value.
 - D. Causal test is an intervention that changes one proposed cause and checks whether the predicted response follows.
 
 **Correct answer:** A
 
-**Hint - exact player copy:** Use the stated evidence and the conditions for Quiet reading; do not choose an option merely because it names a familiar term.
+**Hint - exact player copy:** Identify the defining relationship or mechanism for causal intervention. All needed information is in this question.
 
 **Option feedback - exact player copy:**
 
-- A: Correct. quiet reading is a normal measurement that can rule out explanations predicting an alarm there.
-- B: This describes Upstream dependency, not Quiet reading. It does not account for the quantities, conditions, or evidence in this physics case.
-- C: This describes Calibration, not Quiet reading. It does not account for the quantities, conditions, or evidence in this physics case.
-- D: This describes Causal test, not Quiet reading. It does not account for the quantities, conditions, or evidence in this physics case.
-### Review question 5
+- A: Correct. The replacement controller cannot have caused the Monday failure because it was absent and disconnected at the time.
+- B: This describes upstream dependency. It does not answer the question about causal intervention.
+- C: This describes calibration. It does not answer the question about causal intervention.
+- D: This describes causal test. It does not answer the question about causal intervention.
 
-**Prompt - exact player copy:** Before another One Source, Three Readings decision, the team knows this: the service list names a replacement controller, but the crate still carries its factory seal. Run the reversible comparison now so the crew can tell whether the proposed cause changes the measured response. Which prediction or calculation correctly applies Spring constant to this case?
+**Optional review completion - exact player copy:** Good work. You have completed six independent practice questions.
 
-**Options - exact player copy:**
-
-- A. Upstream dependency is a shared earlier source that several later readings rely on.
-- B. Spring constant is a measure of spring stiffness; a larger value means more force is required for the same stretch or compression.
-- C. Calibration is comparison that connects an instrument reading to a known physical value.
-- D. Causal test is an intervention that changes one proposed cause and checks whether the predicted response follows.
-
-**Correct answer:** B
-
-**Hint - exact player copy:** Use the stated evidence and the conditions for Spring constant; do not choose an option merely because it names a familiar term.
-
-**Option feedback - exact player copy:**
-
-- A: This describes Upstream dependency, not Spring constant. It does not account for the quantities, conditions, or evidence in this physics case.
-- B: Correct. spring constant is a measure of spring stiffness; a larger value means more force is required for the same stretch or compression.
-- C: This describes Calibration, not Spring constant. It does not account for the quantities, conditions, or evidence in this physics case.
-- D: This describes Causal test, not Spring constant. It does not account for the quantities, conditions, or evidence in this physics case.
-### Review question 6
-
-**Prompt - exact player copy:** Horizon Park applies the lesson from One Source, Three Readings to this follow-up: the service list names a replacement controller, but the crate still carries its factory seal. Run the reversible comparison now so the crew can tell whether the proposed cause changes the measured response. Which prediction or calculation correctly applies Causal intervention to this case?
-
-**Options - exact player copy:**
-
-- A. Upstream dependency is a shared earlier source that several later readings rely on.
-- B. Calibration is comparison that connects an instrument reading to a known physical value.
-- C. It is unpowered, disconnected, and still sealed. A proposed cause must be connected before the event.
-- D. Causal test is an intervention that changes one proposed cause and checks whether the predicted response follows.
-
-**Correct answer:** C
-
-**Hint - exact player copy:** Use the stated evidence and the conditions for Causal intervention; do not choose an option merely because it names a familiar term.
-
-**Option feedback - exact player copy:**
-
-- A: This describes Upstream dependency, not Causal intervention. It does not account for the quantities, conditions, or evidence in this physics case.
-- B: This describes Calibration, not Causal intervention. It does not account for the quantities, conditions, or evidence in this physics case.
-- C: Correct. it is unpowered, disconnected, and still sealed. A proposed cause must be connected before the event.
-- D: This describes Causal test, not Causal intervention. It does not account for the quantities, conditions, or evidence in this physics case.
-**Optional review completion - exact player copy:** Excellent work. You went beyond the required mission and strengthened the ideas behind your decision.
 ## Quick concept review
 
 - A cause must precede and connect to its effect.
@@ -4536,7 +4566,7 @@ Mission decision: Hart did not raise the crash risk in the Bumper Car test. The 
 
 **Availability:** Reveal only after mission completion when the player selects **GO DEEPER**. This section is optional, ungraded for campaign progress, and does not change metrics, Recovery Points, or the next-mission unlock.
 
-**Secondary briefing card - exact player copy:** You completed The Card in Hart's Hand. Choose GO DEEPER to revisit the four decisions and explore related course ideas; this optional review does not change your metrics or delay the next mission.
+**Secondary briefing card - exact player copy:** Try six independent practice questions. Each includes its own context and any needed data; no mission records are required.
 
 ### Additional concepts kept out of the required mission card
 
@@ -4544,7 +4574,8 @@ Mission decision: Hart did not raise the crash risk in the Bumper Car test. The 
 
 ### Review question 1
 
-**Prompt - exact player copy:** In a follow-up to The Card in Hart's Hand, a 240 kg car moves right at 4.0 m/s while a 260 kg car moves left at 2.0 m/s. Which prediction or calculation correctly applies Center of mass to this case?
+
+**Prompt - exact player copy:** Which statement best explains center of mass?
 
 **Options - exact player copy:**
 
@@ -4555,17 +4586,19 @@ Mission decision: Hart did not raise the crash risk in the Bumper Car test. The 
 
 **Correct answer:** B
 
-**Hint - exact player copy:** Use the stated evidence and the conditions for Center of mass; do not choose an option merely because it names a familiar term.
+**Hint - exact player copy:** Identify the defining relationship or mechanism for center of mass. All needed information is in this question.
 
 **Option feedback - exact player copy:**
 
-- A: This describes Momentum, not Center of mass. It does not account for the quantities, conditions, or evidence in this physics case.
-- B: Correct. center of mass is the mass-weighted average position or velocity of a system.
-- C: This describes Impulse, not Center of mass. It does not account for the quantities, conditions, or evidence in this physics case.
-- D: This describes Isolated system, not Center of mass. It does not account for the quantities, conditions, or evidence in this physics case.
+- A: This describes momentum. It does not answer the question about center of mass.
+- B: Correct. Center of mass is the mass-weighted average position or velocity of a system.
+- C: This describes impulse. It does not answer the question about center of mass.
+- D: This describes isolated system. It does not answer the question about center of mass.
+
 ### Review question 2
 
-**Prompt - exact player copy:** Horizon Park receives a second case related to The Card in Hart's Hand: a 240 kg car moves right at 4.0 m/s while a 260 kg car moves left at 2.0 m/s. Which prediction or calculation correctly applies Momentum to this case?
+
+**Prompt - exact player copy:** Which statement best explains momentum?
 
 **Options - exact player copy:**
 
@@ -4576,17 +4609,19 @@ Mission decision: Hart did not raise the crash risk in the Bumper Car test. The 
 
 **Correct answer:** C
 
-**Hint - exact player copy:** Use the stated evidence and the conditions for Momentum; do not choose an option merely because it names a familiar term.
+**Hint - exact player copy:** Identify the defining relationship or mechanism for momentum. All needed information is in this question.
 
 **Option feedback - exact player copy:**
 
-- A: This describes Center of mass, not Momentum. It does not account for the quantities, conditions, or evidence in this physics case.
-- B: This describes Impulse, not Momentum. It does not account for the quantities, conditions, or evidence in this physics case.
-- C: Correct. momentum is mass times velocity; it is a vector and carries the velocity's direction.
-- D: This describes Isolated system, not Momentum. It does not account for the quantities, conditions, or evidence in this physics case.
+- A: This describes center of mass. It does not answer the question about momentum.
+- B: This describes impulse. It does not answer the question about momentum.
+- C: Correct. Momentum is mass times velocity; it is a vector and carries the velocity's direction.
+- D: This describes isolated system. It does not answer the question about momentum.
+
 ### Review question 3
 
-**Prompt - exact player copy:** A teammate rechecks The Card in Hart's Hand using new evidence: the independent sensors measure a 0.88 m/s joined speed and a 0.22 s padded stop for the 70 kg dummy. Commit the prediction and run the test now so the measurement can fairly accept or reject the proposed model. Which prediction or calculation correctly applies Impulse to this case?
+
+**Prompt - exact player copy:** Which statement best explains impulse?
 
 **Options - exact player copy:**
 
@@ -4597,17 +4632,19 @@ Mission decision: Hart did not raise the crash risk in the Bumper Car test. The 
 
 **Correct answer:** D
 
-**Hint - exact player copy:** Use the stated evidence and the conditions for Impulse; do not choose an option merely because it names a familiar term.
+**Hint - exact player copy:** Identify the defining relationship or mechanism for impulse. All needed information is in this question.
 
 **Option feedback - exact player copy:**
 
-- A: This describes Center of mass, not Impulse. It does not account for the quantities, conditions, or evidence in this physics case.
-- B: This describes Momentum, not Impulse. It does not account for the quantities, conditions, or evidence in this physics case.
-- C: This describes Isolated system, not Impulse. It does not account for the quantities, conditions, or evidence in this physics case.
-- D: Correct. impulse is force applied over time; it equals the change in momentum.
+- A: This describes center of mass. It does not answer the question about impulse.
+- B: This describes momentum. It does not answer the question about impulse.
+- C: This describes isolated system. It does not answer the question about impulse.
+- D: Correct. Impulse is force applied over time; it equals the change in momentum.
+
 ### Review question 4
 
-**Prompt - exact player copy:** An unseen case extends The Card in Hart's Hand: a 240 kg car moves right at 4.0 m/s while a 260 kg car moves left at 2.0 m/s. Which prediction or calculation correctly applies Isolated system to this case?
+
+**Prompt - exact player copy:** Which statement best explains isolated system?
 
 **Options - exact player copy:**
 
@@ -4618,17 +4655,19 @@ Mission decision: Hart did not raise the crash risk in the Bumper Car test. The 
 
 **Correct answer:** A
 
-**Hint - exact player copy:** Use the stated evidence and the conditions for Isolated system; do not choose an option merely because it names a familiar term.
+**Hint - exact player copy:** Identify the defining relationship or mechanism for isolated system. All needed information is in this question.
 
 **Option feedback - exact player copy:**
 
-- A: Correct. isolated system is a chosen system with negligible net external impulse during the interval studied.
-- B: This describes Center of mass, not Isolated system. It does not account for the quantities, conditions, or evidence in this physics case.
-- C: This describes Momentum, not Isolated system. It does not account for the quantities, conditions, or evidence in this physics case.
-- D: This describes Impulse, not Isolated system. It does not account for the quantities, conditions, or evidence in this physics case.
+- A: Correct. Isolated system is a chosen system with negligible net external impulse during the interval studied.
+- B: This describes center of mass. It does not answer the question about isolated system.
+- C: This describes momentum. It does not answer the question about isolated system.
+- D: This describes impulse. It does not answer the question about isolated system.
+
 ### Review question 5
 
-**Prompt - exact player copy:** Before another Card in Hart's Hand decision, the team knows this: the test coupler makes the cars move together after impact, so kinetic energy is not conserved through the hit. Which prediction or calculation correctly applies Inelastic collision to this case?
+
+**Prompt - exact player copy:** Which statement best explains inelastic collision?
 
 **Options - exact player copy:**
 
@@ -4639,17 +4678,19 @@ Mission decision: Hart did not raise the crash risk in the Bumper Car test. The 
 
 **Correct answer:** B
 
-**Hint - exact player copy:** Use the stated evidence and the conditions for Inelastic collision; do not choose an option merely because it names a familiar term.
+**Hint - exact player copy:** Identify the defining relationship or mechanism for inelastic collision. All needed information is in this question.
 
 **Option feedback - exact player copy:**
 
-- A: This describes Center of mass, not Inelastic collision. It does not account for the quantities, conditions, or evidence in this physics case.
-- B: Correct. inelastic collision is a collision that conserves system momentum but not kinetic energy.
-- C: This describes Momentum, not Inelastic collision. It does not account for the quantities, conditions, or evidence in this physics case.
-- D: This describes Impulse, not Inelastic collision. It does not account for the quantities, conditions, or evidence in this physics case.
+- A: This describes center of mass. It does not answer the question about inelastic collision.
+- B: Correct. Inelastic collision is a collision that conserves system momentum but not kinetic energy.
+- C: This describes momentum. It does not answer the question about inelastic collision.
+- D: This describes impulse. It does not answer the question about inelastic collision.
+
 ### Review question 6
 
-**Prompt - exact player copy:** Horizon Park applies the lesson from The Card in Hart's Hand to this follow-up: a 240 kg car moves right at 4.0 m/s while a 260 kg car moves left at 2.0 m/s. Which prediction or calculation correctly applies Signed momentum to this case?
+
+**Prompt - exact player copy:** Which statement best explains signed momentum?
 
 **Options - exact player copy:**
 
@@ -4660,15 +4701,17 @@ Mission decision: Hart did not raise the crash risk in the Bumper Car test. The 
 
 **Correct answer:** C
 
-**Hint - exact player copy:** Use the stated evidence and the conditions for Signed momentum; do not choose an option merely because it names a familiar term.
+**Hint - exact player copy:** Identify the defining relationship or mechanism for signed momentum. All needed information is in this question.
 
 **Option feedback - exact player copy:**
 
-- A: This describes Center of mass, not Signed momentum. It does not account for the quantities, conditions, or evidence in this physics case.
-- B: This describes Momentum, not Signed momentum. It does not account for the quantities, conditions, or evidence in this physics case.
-- C: Correct. opposite directions receive opposite signs.
-- D: This describes Impulse, not Signed momentum. It does not account for the quantities, conditions, or evidence in this physics case.
-**Optional review completion - exact player copy:** Excellent work. You went beyond the required mission and strengthened the ideas behind your decision.
+- A: This describes center of mass. It does not answer the question about signed momentum.
+- B: This describes momentum. It does not answer the question about signed momentum.
+- C: Correct. Opposite directions receive opposite signs.
+- D: This describes impulse. It does not answer the question about signed momentum.
+
+**Optional review completion - exact player copy:** Good work. You have completed six independent practice questions.
+
 ## Quick concept review
 
 - Momentum is a signed vector.
@@ -5116,7 +5159,7 @@ Mission decision: Hart stopped a larger risk. The Pirate Ship drive was close to
 
 **Availability:** Reveal only after mission completion when the player selects **GO DEEPER**. This section is optional, ungraded for campaign progress, and does not change metrics, Recovery Points, or the next-mission unlock.
 
-**Secondary briefing card - exact player copy:** You completed Six Seconds. Choose GO DEEPER to revisit the four decisions and explore related course ideas; this optional review does not change your metrics or delay the next mission.
+**Secondary briefing card - exact player copy:** Try six independent practice questions. Each includes its own context and any needed data; no mission records are required.
 
 ### Additional concepts kept out of the required mission card
 
@@ -5125,7 +5168,31 @@ Mission decision: Hart stopped a larger risk. The Pirate Ship drive was close to
 
 ### Review question 1
 
-**Prompt - exact player copy:** In a follow-up to Six Seconds, near-resonant driving grows the ship's swing, while the independently measured bumper stop remains below its force limit. Which prediction or calculation correctly applies Restoring force to this case?
+
+**Prompt - exact player copy:** Which statement best explains restoring force?
+
+**Options - exact player copy:**
+
+- A. Damping is transfer of oscillation energy that reduces amplitude over time.
+- B. Oscillation is repeated motion around an equilibrium position.
+- C. Period is time for one complete cycle.
+- D. Restoring force is a force directed back toward equilibrium.
+
+**Correct answer:** D
+
+**Hint - exact player copy:** Identify the defining relationship or mechanism for restoring force. All needed information is in this question.
+
+**Option feedback - exact player copy:**
+
+- A: This describes damping. It does not answer the question about restoring force.
+- B: This describes oscillation. It does not answer the question about restoring force.
+- C: This describes period. It does not answer the question about restoring force.
+- D: Correct. Restoring force is a force directed back toward equilibrium.
+
+### Review question 2
+
+
+**Prompt - exact player copy:** Which statement best explains damping?
 
 **Options - exact player copy:**
 
@@ -5134,19 +5201,21 @@ Mission decision: Hart stopped a larger risk. The Pirate Ship drive was close to
 - C. Oscillation is repeated motion around an equilibrium position.
 - D. Period is time for one complete cycle.
 
-**Correct answer:** B
+**Correct answer:** A
 
-**Hint - exact player copy:** Use the stated evidence and the conditions for Restoring force; do not choose an option merely because it names a familiar term.
+**Hint - exact player copy:** Identify the defining relationship or mechanism for damping. All needed information is in this question.
 
 **Option feedback - exact player copy:**
 
-- A: This describes Damping, not Restoring force. It does not account for the quantities, conditions, or evidence in this physics case.
-- B: Correct. restoring force is a force directed back toward equilibrium.
-- C: This describes Oscillation, not Restoring force. It does not account for the quantities, conditions, or evidence in this physics case.
-- D: This describes Period, not Restoring force. It does not account for the quantities, conditions, or evidence in this physics case.
-### Review question 2
+- A: Correct. Damping is transfer of oscillation energy that reduces amplitude over time.
+- B: This describes restoring force. It does not answer the question about damping.
+- C: This describes oscillation. It does not answer the question about damping.
+- D: This describes period. It does not answer the question about damping.
 
-**Prompt - exact player copy:** Horizon Park receives a second case related to Six Seconds: with the drive disconnected, sweep the displacement trace and mark successive peaks. Which prediction or calculation correctly applies Damping to this case?
+### Review question 3
+
+
+**Prompt - exact player copy:** Which statement best explains oscillation?
 
 **Options - exact player copy:**
 
@@ -5155,19 +5224,21 @@ Mission decision: Hart stopped a larger risk. The Pirate Ship drive was close to
 - C. Damping is transfer of oscillation energy that reduces amplitude over time.
 - D. Period is time for one complete cycle.
 
-**Correct answer:** C
+**Correct answer:** B
 
-**Hint - exact player copy:** Use the stated evidence and the conditions for Damping; do not choose an option merely because it names a familiar term.
+**Hint - exact player copy:** Identify the defining relationship or mechanism for oscillation. All needed information is in this question.
 
 **Option feedback - exact player copy:**
 
-- A: This describes Restoring force, not Damping. It does not account for the quantities, conditions, or evidence in this physics case.
-- B: This describes Oscillation, not Damping. It does not account for the quantities, conditions, or evidence in this physics case.
-- C: Correct. damping is transfer of oscillation energy that reduces amplitude over time.
-- D: This describes Period, not Damping. It does not account for the quantities, conditions, or evidence in this physics case.
-### Review question 3
+- A: This describes restoring force. It does not answer the question about oscillation.
+- B: Correct. Oscillation is repeated motion around an equilibrium position.
+- C: This describes damping. It does not answer the question about oscillation.
+- D: This describes period. It does not answer the question about oscillation.
 
-**Prompt - exact player copy:** A teammate rechecks Six Seconds using new evidence: with the drive disconnected, sweep the displacement trace and mark successive peaks. Which prediction or calculation correctly applies Oscillation to this case?
+### Review question 4
+
+
+**Prompt - exact player copy:** Which statement best explains period?
 
 **Options - exact player copy:**
 
@@ -5176,80 +5247,65 @@ Mission decision: Hart stopped a larger risk. The Pirate Ship drive was close to
 - C. Period is time for one complete cycle.
 - D. Oscillation is repeated motion around an equilibrium position.
 
-**Correct answer:** D
+**Correct answer:** C
 
-**Hint - exact player copy:** Use the stated evidence and the conditions for Oscillation; do not choose an option merely because it names a familiar term.
+**Hint - exact player copy:** Identify the defining relationship or mechanism for period. All needed information is in this question.
 
 **Option feedback - exact player copy:**
 
-- A: This describes Restoring force, not Oscillation. It does not account for the quantities, conditions, or evidence in this physics case.
-- B: This describes Damping, not Oscillation. It does not account for the quantities, conditions, or evidence in this physics case.
-- C: This describes Period, not Oscillation. It does not account for the quantities, conditions, or evidence in this physics case.
-- D: Correct. oscillation is repeated motion around an equilibrium position.
-### Review question 4
+- A: This describes restoring force. It does not answer the question about period.
+- B: This describes damping. It does not answer the question about period.
+- C: Correct. Period is time for one complete cycle.
+- D: This describes oscillation. It does not answer the question about period.
 
-**Prompt - exact player copy:** An unseen case extends Six Seconds: with the drive disconnected, sweep the displacement trace and mark successive peaks. Which prediction or calculation correctly applies Period to this case?
+### Review question 5
+
+
+**Prompt - exact player copy:** Which statement best explains natural period?
 
 **Options - exact player copy:**
 
-- A. Period is time for one complete cycle.
+- A. Restoring force is a force directed back toward equilibrium.
+- B. Damping is transfer of oscillation energy that reduces amplitude over time.
+- C. Oscillation is repeated motion around an equilibrium position.
+- D. Natural period is the period a system follows when displaced and released without repeated driving.
+
+**Correct answer:** D
+
+**Hint - exact player copy:** Identify the defining relationship or mechanism for natural period. All needed information is in this question.
+
+**Option feedback - exact player copy:**
+
+- A: This describes restoring force. It does not answer the question about natural period.
+- B: This describes damping. It does not answer the question about natural period.
+- C: This describes oscillation. It does not answer the question about natural period.
+- D: Correct. Natural period is the period a system follows when displaced and released without repeated driving.
+
+### Review question 6
+
+
+**Prompt - exact player copy:** Which statement best explains resonance?
+
+**Options - exact player copy:**
+
+- A. Resonance is large response produced when repeated driving occurs near a system's natural frequency.
 - B. Restoring force is a force directed back toward equilibrium.
 - C. Damping is transfer of oscillation energy that reduces amplitude over time.
 - D. Oscillation is repeated motion around an equilibrium position.
 
 **Correct answer:** A
 
-**Hint - exact player copy:** Use the stated evidence and the conditions for Period; do not choose an option merely because it names a familiar term.
+**Hint - exact player copy:** Identify the defining relationship or mechanism for resonance. All needed information is in this question.
 
 **Option feedback - exact player copy:**
 
-- A: Correct. period is time for one complete cycle.
-- B: This describes Restoring force, not Period. It does not account for the quantities, conditions, or evidence in this physics case.
-- C: This describes Damping, not Period. It does not account for the quantities, conditions, or evidence in this physics case.
-- D: This describes Oscillation, not Period. It does not account for the quantities, conditions, or evidence in this physics case.
-### Review question 5
+- A: Correct. Resonance is large response produced when repeated driving occurs near a system's natural frequency.
+- B: This describes restoring force. It does not answer the question about resonance.
+- C: This describes damping. It does not answer the question about resonance.
+- D: This describes oscillation. It does not answer the question about resonance.
 
-**Prompt - exact player copy:** Before another Six Seconds decision, the team knows this: with the drive disconnected, sweep the displacement trace and mark successive peaks. Which prediction or calculation correctly applies Natural period to this case?
+**Optional review completion - exact player copy:** Good work. You have completed six independent practice questions.
 
-**Options - exact player copy:**
-
-- A. Restoring force is a force directed back toward equilibrium.
-- B. Natural period is the period a system follows when displaced and released without repeated driving.
-- C. Damping is transfer of oscillation energy that reduces amplitude over time.
-- D. Oscillation is repeated motion around an equilibrium position.
-
-**Correct answer:** B
-
-**Hint - exact player copy:** Use the stated evidence and the conditions for Natural period; do not choose an option merely because it names a familiar term.
-
-**Option feedback - exact player copy:**
-
-- A: This describes Restoring force, not Natural period. It does not account for the quantities, conditions, or evidence in this physics case.
-- B: Correct. natural period is the period a system follows when displaced and released without repeated driving.
-- C: This describes Damping, not Natural period. It does not account for the quantities, conditions, or evidence in this physics case.
-- D: This describes Oscillation, not Natural period. It does not account for the quantities, conditions, or evidence in this physics case.
-### Review question 6
-
-**Prompt - exact player copy:** Horizon Park applies the lesson from Six Seconds to this follow-up: run low-power drives at separated intervals, then return to 5.85 s. Run the reversible comparison now so the crew can tell whether the proposed cause changes the measured response. Which prediction or calculation correctly applies Resonance to this case?
-
-**Options - exact player copy:**
-
-- A. Restoring force is a force directed back toward equilibrium.
-- B. Damping is transfer of oscillation energy that reduces amplitude over time.
-- C. Resonance is large response produced when repeated driving occurs near a system's natural frequency.
-- D. Oscillation is repeated motion around an equilibrium position.
-
-**Correct answer:** C
-
-**Hint - exact player copy:** Use the stated evidence and the conditions for Resonance; do not choose an option merely because it names a familiar term.
-
-**Option feedback - exact player copy:**
-
-- A: This describes Restoring force, not Resonance. It does not account for the quantities, conditions, or evidence in this physics case.
-- B: This describes Damping, not Resonance. It does not account for the quantities, conditions, or evidence in this physics case.
-- C: Correct. resonance is large response produced when repeated driving occurs near a system's natural frequency.
-- D: This describes Oscillation, not Resonance. It does not account for the quantities, conditions, or evidence in this physics case.
-**Optional review completion - exact player copy:** Excellent work. You went beyond the required mission and strengthened the ideas behind your decision.
 ## Quick concept review
 
 - Period measures one complete cycle.
@@ -5799,7 +5855,7 @@ Mission decision: The Ferris Wheel may run only after an outside check of arm ni
 
 **Availability:** Reveal only after mission completion when the player selects **GO DEEPER**. This section is optional, ungraded for campaign progress, and does not change metrics, Recovery Points, or the next-mission unlock.
 
-**Secondary briefing card - exact player copy:** You completed Arm Nine. Choose GO DEEPER to revisit the four decisions and explore related course ideas; this optional review does not change your metrics or delay the next mission.
+**Secondary briefing card - exact player copy:** Try six independent practice questions. Each includes its own context and any needed data; no mission records are required.
 
 ### Additional concepts kept out of the required mission card
 
@@ -5807,7 +5863,8 @@ Mission decision: The Ferris Wheel may run only after an outside check of arm ni
 
 ### Review question 1
 
-**Prompt - exact player copy:** In a follow-up to Arm Nine, twelve test gondolas are loaded unevenly around the wheel, creating clockwise and counterclockwise moments. Which prediction or calculation correctly applies Rotational equilibrium to this case?
+
+**Prompt - exact player copy:** Which statement best explains rotational equilibrium?
 
 **Options - exact player copy:**
 
@@ -5818,17 +5875,19 @@ Mission decision: The Ferris Wheel may run only after an outside check of arm ni
 
 **Correct answer:** B
 
-**Hint - exact player copy:** Use the stated evidence and the conditions for Rotational equilibrium; do not choose an option merely because it names a familiar term.
+**Hint - exact player copy:** Identify the defining relationship or mechanism for rotational equilibrium. All needed information is in this question.
 
 **Option feedback - exact player copy:**
 
-- A: This describes Torque, not Rotational equilibrium. It does not account for the quantities, conditions, or evidence in this physics case.
-- B: Correct. rotational equilibrium is zero net torque and no angular acceleration.
-- C: This describes Lever arm, not Rotational equilibrium. It does not account for the quantities, conditions, or evidence in this physics case.
-- D: This describes Rotational inertia, not Rotational equilibrium. It does not account for the quantities, conditions, or evidence in this physics case.
+- A: This describes torque. It does not answer the question about rotational equilibrium.
+- B: Correct. Rotational equilibrium is zero net torque and no angular acceleration.
+- C: This describes lever arm. It does not answer the question about rotational equilibrium.
+- D: This describes rotational inertia. It does not answer the question about rotational equilibrium.
+
 ### Review question 2
 
-**Prompt - exact player copy:** Horizon Park receives a second case related to Arm Nine: twelve test gondolas are loaded unevenly around the wheel, creating clockwise and counterclockwise moments. Which prediction or calculation correctly applies Torque to this case?
+
+**Prompt - exact player copy:** Which statement best explains torque?
 
 **Options - exact player copy:**
 
@@ -5839,17 +5898,19 @@ Mission decision: The Ferris Wheel may run only after an outside check of arm ni
 
 **Correct answer:** C
 
-**Hint - exact player copy:** Use the stated evidence and the conditions for Torque; do not choose an option merely because it names a familiar term.
+**Hint - exact player copy:** Identify the defining relationship or mechanism for torque. All needed information is in this question.
 
 **Option feedback - exact player copy:**
 
-- A: This describes Rotational equilibrium, not Torque. It does not account for the quantities, conditions, or evidence in this physics case.
-- B: This describes Lever arm, not Torque. It does not account for the quantities, conditions, or evidence in this physics case.
-- C: Correct. torque is the turning effect of a force about a pivot or axis.
-- D: This describes Rotational inertia, not Torque. It does not account for the quantities, conditions, or evidence in this physics case.
+- A: This describes rotational equilibrium. It does not answer the question about torque.
+- B: This describes lever arm. It does not answer the question about torque.
+- C: Correct. Torque is the turning effect of a force about a pivot or axis.
+- D: This describes rotational inertia. It does not answer the question about torque.
+
 ### Review question 3
 
-**Prompt - exact player copy:** A teammate rechecks Arm Nine using new evidence: twelve test gondolas are loaded unevenly around the wheel, creating clockwise and counterclockwise moments. Which prediction or calculation correctly applies Lever arm to this case?
+
+**Prompt - exact player copy:** Which statement best explains lever arm?
 
 **Options - exact player copy:**
 
@@ -5860,17 +5921,19 @@ Mission decision: The Ferris Wheel may run only after an outside check of arm ni
 
 **Correct answer:** D
 
-**Hint - exact player copy:** Use the stated evidence and the conditions for Lever arm; do not choose an option merely because it names a familiar term.
+**Hint - exact player copy:** Identify the defining relationship or mechanism for lever arm. All needed information is in this question.
 
 **Option feedback - exact player copy:**
 
-- A: This describes Rotational equilibrium, not Lever arm. It does not account for the quantities, conditions, or evidence in this physics case.
-- B: This describes Torque, not Lever arm. It does not account for the quantities, conditions, or evidence in this physics case.
-- C: This describes Rotational inertia, not Lever arm. It does not account for the quantities, conditions, or evidence in this physics case.
-- D: Correct. lever arm is perpendicular distance from the axis to the force's line of action.
+- A: This describes rotational equilibrium. It does not answer the question about lever arm.
+- B: This describes torque. It does not answer the question about lever arm.
+- C: This describes rotational inertia. It does not answer the question about lever arm.
+- D: Correct. Lever arm is perpendicular distance from the axis to the force's line of action.
+
 ### Review question 4
 
-**Prompt - exact player copy:** An unseen case extends Arm Nine: the wheel is balanced, but balance does not predict how quickly it stops. Which prediction or calculation correctly applies Rotational inertia to this case?
+
+**Prompt - exact player copy:** Which statement best explains rotational inertia?
 
 **Options - exact player copy:**
 
@@ -5881,17 +5944,19 @@ Mission decision: The Ferris Wheel may run only after an outside check of arm ni
 
 **Correct answer:** A
 
-**Hint - exact player copy:** Use the stated evidence and the conditions for Rotational inertia; do not choose an option merely because it names a familiar term.
+**Hint - exact player copy:** Identify the defining relationship or mechanism for rotational inertia. All needed information is in this question.
 
 **Option feedback - exact player copy:**
 
-- A: Correct. rotational inertia is resistance to angular acceleration determined by mass and its distance from the axis.
-- B: This describes Rotational equilibrium, not Rotational inertia. It does not account for the quantities, conditions, or evidence in this physics case.
-- C: This describes Torque, not Rotational inertia. It does not account for the quantities, conditions, or evidence in this physics case.
-- D: This describes Lever arm, not Rotational inertia. It does not account for the quantities, conditions, or evidence in this physics case.
+- A: Correct. Rotational inertia is resistance to angular acceleration determined by mass and its distance from the axis.
+- B: This describes rotational equilibrium. It does not answer the question about rotational inertia.
+- C: This describes torque. It does not answer the question about rotational inertia.
+- D: This describes lever arm. It does not answer the question about rotational inertia.
+
 ### Review question 5
 
-**Prompt - exact player copy:** Before another Arm Nine decision, the team knows this: torque balance and wind stress now define a restricted region, while arm nine still requires inspection. Write the action threshold now, before new evidence or operational pressure can move it. Which prediction or calculation correctly applies Operating envelope to this case?
+
+**Prompt - exact player copy:** Which statement best explains operating envelope?
 
 **Options - exact player copy:**
 
@@ -5902,17 +5967,19 @@ Mission decision: The Ferris Wheel may run only after an outside check of arm ni
 
 **Correct answer:** B
 
-**Hint - exact player copy:** Use the stated evidence and the conditions for Operating envelope; do not choose an option merely because it names a familiar term.
+**Hint - exact player copy:** Identify the defining relationship or mechanism for operating envelope. All needed information is in this question.
 
 **Option feedback - exact player copy:**
 
-- A: This describes Rotational equilibrium, not Operating envelope. It does not account for the quantities, conditions, or evidence in this physics case.
-- B: Correct. operating envelope is the set of loads and conditions inside which operation is permitted.
-- C: This describes Torque, not Operating envelope. It does not account for the quantities, conditions, or evidence in this physics case.
-- D: This describes Lever arm, not Operating envelope. It does not account for the quantities, conditions, or evidence in this physics case.
+- A: This describes rotational equilibrium. It does not answer the question about operating envelope.
+- B: Correct. Operating envelope is the set of loads and conditions inside which operation is permitted.
+- C: This describes torque. It does not answer the question about operating envelope.
+- D: This describes lever arm. It does not answer the question about operating envelope.
+
 ### Review question 6
 
-**Prompt - exact player copy:** Horizon Park applies the lesson from Arm Nine to this follow-up: twelve test gondolas are loaded unevenly around the wheel, creating clockwise and counterclockwise moments. Which prediction or calculation correctly applies Torque equilibrium to this case?
+
+**Prompt - exact player copy:** Which statement best explains torque equilibrium?
 
 **Options - exact player copy:**
 
@@ -5923,15 +5990,17 @@ Mission decision: The Ferris Wheel may run only after an outside check of arm ni
 
 **Correct answer:** C
 
-**Hint - exact player copy:** Use the stated evidence and the conditions for Torque equilibrium; do not choose an option merely because it names a familiar term.
+**Hint - exact player copy:** Identify the defining relationship or mechanism for torque equilibrium. All needed information is in this question.
 
 **Option feedback - exact player copy:**
 
-- A: This describes Rotational equilibrium, not Torque equilibrium. It does not account for the quantities, conditions, or evidence in this physics case.
-- B: This describes Torque, not Torque equilibrium. It does not account for the quantities, conditions, or evidence in this physics case.
-- C: Correct. a force through the axle has zero lever arm and creates no torque about that axis.
-- D: This describes Lever arm, not Torque equilibrium. It does not account for the quantities, conditions, or evidence in this physics case.
-**Optional review completion - exact player copy:** Excellent work. You went beyond the required mission and strengthened the ideas behind your decision.
+- A: This describes rotational equilibrium. It does not answer the question about torque equilibrium.
+- B: This describes torque. It does not answer the question about torque equilibrium.
+- C: Correct. A force through the axle has zero lever arm and creates no torque about that axis.
+- D: This describes lever arm. It does not answer the question about torque equilibrium.
+
+**Optional review completion - exact player copy:** Good work. You have completed six independent practice questions.
+
 ## Quick concept review
 
 - Torque is force times perpendicular lever arm.
@@ -6394,15 +6463,39 @@ Mission decision: One empty coaster run may test the old plan. The axle sensor w
 
 **Availability:** Reveal only after mission completion when the player selects **GO DEEPER**. This section is optional, ungraded for campaign progress, and does not change metrics, Recovery Points, or the next-mission unlock.
 
-**Secondary briefing card - exact player copy:** You completed The Loop on Paper. Choose GO DEEPER to revisit the four decisions and explore related course ideas; this optional review does not change your metrics or delay the next mission.
+**Secondary briefing card - exact player copy:** Try six independent practice questions. Each includes its own context and any needed data; no mission records are required.
 
 ### Review focus
 
-No additional prerequisite is required. These AP-style questions apply the mission's course ideas to follow-up evidence, including related topics not required in the four main stops.
+No additional prerequisite is required. These practice questions review related course ideas. Each question stands alone, including its choices and figure.
 
 ### Review question 1
 
-**Prompt - exact player copy:** In a follow-up to The Loop on Paper, the train starts nearly from rest at 26 m and reaches the loop crown at 20 m. Which prediction or calculation correctly applies Gravitational potential energy to this case?
+
+**Prompt - exact player copy:** Which statement best explains gravitational potential energy?
+
+**Options - exact player copy:**
+
+- A. Mechanical energy is the sum of kinetic and potential energies tracked for a system.
+- B. Loop contact condition is the minimum inward acceleration needed for the train to remain in contact at the loop crown.
+- C. Residual is observed value minus model prediction; its pattern can reveal model failure.
+- D. Gravitational potential energy is energy associated with height in a near-Earth system, represented by mgh relative to a chosen zero.
+
+**Correct answer:** D
+
+**Hint - exact player copy:** Identify the defining relationship or mechanism for gravitational potential energy. All needed information is in this question.
+
+**Option feedback - exact player copy:**
+
+- A: This describes mechanical energy. It does not answer the question about gravitational potential energy.
+- B: This describes loop contact condition. It does not answer the question about gravitational potential energy.
+- C: This describes residual. It does not answer the question about gravitational potential energy.
+- D: Correct. Gravitational potential energy is energy associated with height in a near-Earth system, represented by mgh relative to a chosen zero.
+
+### Review question 2
+
+
+**Prompt - exact player copy:** Which statement best explains mechanical energy?
 
 **Options - exact player copy:**
 
@@ -6411,19 +6504,21 @@ No additional prerequisite is required. These AP-style questions apply the missi
 - C. Loop contact condition is the minimum inward acceleration needed for the train to remain in contact at the loop crown.
 - D. Residual is observed value minus model prediction; its pattern can reveal model failure.
 
-**Correct answer:** B
+**Correct answer:** A
 
-**Hint - exact player copy:** Use the stated evidence and the conditions for Gravitational potential energy; do not choose an option merely because it names a familiar term.
+**Hint - exact player copy:** Identify the defining relationship or mechanism for mechanical energy. All needed information is in this question.
 
 **Option feedback - exact player copy:**
 
-- A: This describes Mechanical energy, not Gravitational potential energy. It does not account for the quantities, conditions, or evidence in this physics case.
-- B: Correct. gravitational potential energy is energy associated with height in a near-Earth system, represented by mgh relative to a chosen zero.
-- C: This describes Loop contact condition, not Gravitational potential energy. It does not account for the quantities, conditions, or evidence in this physics case.
-- D: This describes Residual, not Gravitational potential energy. It does not account for the quantities, conditions, or evidence in this physics case.
-### Review question 2
+- A: Correct. Mechanical energy is the sum of kinetic and potential energies tracked for a system.
+- B: This describes gravitational potential energy. It does not answer the question about mechanical energy.
+- C: This describes loop contact condition. It does not answer the question about mechanical energy.
+- D: This describes residual. It does not answer the question about mechanical energy.
 
-**Prompt - exact player copy:** Horizon Park receives a second case related to The Loop on Paper: the independent encoder is chosen, but the empty train still must climb 26 m in 70 s. Which prediction or calculation correctly applies Mechanical energy to this case?
+### Review question 3
+
+
+**Prompt - exact player copy:** Which statement best explains loop contact condition?
 
 **Options - exact player copy:**
 
@@ -6432,152 +6527,126 @@ No additional prerequisite is required. These AP-style questions apply the missi
 - C. Mechanical energy is the sum of kinetic and potential energies tracked for a system.
 - D. Residual is observed value minus model prediction; its pattern can reveal model failure.
 
-**Correct answer:** C
+**Correct answer:** B
 
-**Hint - exact player copy:** Use the stated evidence and the conditions for Mechanical energy; do not choose an option merely because it names a familiar term.
-
-**Option feedback - exact player copy:**
-
-- A: This describes Gravitational potential energy, not Mechanical energy. It does not account for the quantities, conditions, or evidence in this physics case.
-- B: This describes Loop contact condition, not Mechanical energy. It does not account for the quantities, conditions, or evidence in this physics case.
-- C: Correct. mechanical energy is the sum of kinetic and potential energies tracked for a system.
-- D: This describes Residual, not Mechanical energy. It does not account for the quantities, conditions, or evidence in this physics case.
-### Review question 3
-
-**Prompt - exact player copy:** A teammate rechecks The Loop on Paper using new evidence: at the loop crown, inward points downward and the rail cannot pull the train toward the sky. Which prediction or calculation correctly applies Loop contact condition to this case?
-
-**Options - exact player copy:**
-
-- A. Gravitational potential energy is energy associated with height in a near-Earth system, represented by mgh relative to a chosen zero.
-- B. Mechanical energy is the sum of kinetic and potential energies tracked for a system.
-- C. Residual is observed value minus model prediction; its pattern can reveal model failure.
-- D. Loop contact condition is the minimum inward acceleration needed for the train to remain in contact at the loop crown.
-
-**Correct answer:** D
-
-**Hint - exact player copy:** Use the stated evidence and the conditions for Loop contact condition; do not choose an option merely because it names a familiar term.
+**Hint - exact player copy:** Identify the defining relationship or mechanism for loop contact condition. All needed information is in this question.
 
 **Option feedback - exact player copy:**
 
-- A: This describes Gravitational potential energy, not Loop contact condition. It does not account for the quantities, conditions, or evidence in this physics case.
-- B: This describes Mechanical energy, not Loop contact condition. It does not account for the quantities, conditions, or evidence in this physics case.
-- C: This describes Residual, not Loop contact condition. It does not account for the quantities, conditions, or evidence in this physics case.
-- D: Correct. loop contact condition is the minimum inward acceleration needed for the train to remain in contact at the loop crown.
+- A: This describes gravitational potential energy. It does not answer the question about loop contact condition.
+- B: Correct. Loop contact condition is the minimum inward acceleration needed for the train to remain in contact at the loop crown.
+- C: This describes mechanical energy. It does not answer the question about loop contact condition.
+- D: This describes residual. It does not answer the question about loop contact condition.
+
 ### Review question 4
 
-**Prompt - exact player copy:** An unseen case extends The Loop on Paper: the train starts nearly from rest at 26 m and reaches the loop crown at 20 m. Which interpretation of the displayed evidence correctly uses the mission concept?
+
+**Prompt - exact player copy:** A model has the residuals shown. Residual means observed value minus predicted value. Which conclusion best fits the pattern?
 
 **Figure - exact player copy:**
 
 ```json
 {
   "kind": "line",
-  "xLabel": "Ordered observation",
-  "yLabel": "Residual",
-  "caption": "Residuals reveal whether error is random or structured.",
+  "xLabel": "Input value",
+  "yLabel": "Observed minus predicted (units)",
+  "caption": "Residuals from a fitted model",
   "series": [
     {
       "name": "Residual",
       "points": [
         [
           0,
-          1.5
+          0
         ],
         [
           1,
-          -1.2
+          2
         ],
         [
           2,
-          1.0
+          4
         ],
         [
           3,
-          -0.8
+          6
         ],
         [
           4,
-          0.6
-        ],
-        [
-          5,
-          -0.4
-        ],
-        [
-          6,
-          0.2
+          8
         ]
       ]
     }
-  ],
-  "limit": {
-    "at": 0,
-    "label": "Zero residual"
-  }
+  ]
 }
 ```
 
+**Options - exact player copy:**
+
+- A. The model increasingly overpredicts.
+- B. The errors have no relation to the input.
+- C. The model increasingly underpredicts as the input grows.
+- D. The model fits every observation exactly.
+
+**Correct answer:** C
+
+**Hint - exact player copy:** Use the sign of observed minus predicted and check for a pattern.
+
+**Option feedback - exact player copy:**
+
+- A: Positive residuals mean observations exceed predictions, not the reverse.
+- B: Residuals rise systematically with the input.
+- C: Correct. The model increasingly underpredicts as the input grows.
+- D: An exact fit would have zero residual at every point.
+
+### Review question 5
+
+
+**Prompt - exact player copy:** Which statement best explains energy conservation?
 
 **Options - exact player copy:**
 
-- A. Residual is observed value minus model prediction; its pattern can reveal model failure.
+- A. Gravitational potential energy is energy associated with height in a near-Earth system, represented by mgh relative to a chosen zero.
+- B. Mechanical energy is the sum of kinetic and potential energies tracked for a system.
+- C. Loop contact condition is the minimum inward acceleration needed for the train to remain in contact at the loop crown.
+- D. The lost gravitational potential energy becomes kinetic energy when no losses are included.
+
+**Correct answer:** D
+
+**Hint - exact player copy:** Identify the defining relationship or mechanism for energy conservation. All needed information is in this question.
+
+**Option feedback - exact player copy:**
+
+- A: This describes gravitational potential energy. It does not answer the question about energy conservation.
+- B: This describes mechanical energy. It does not answer the question about energy conservation.
+- C: This describes loop contact condition. It does not answer the question about energy conservation.
+- D: Correct. The lost gravitational potential energy becomes kinetic energy when no losses are included.
+
+### Review question 6
+
+
+**Prompt - exact player copy:** Which statement best explains loop-top dynamics?
+
+**Options - exact player copy:**
+
+- A. At the limit, gravity alone supplies the inward acceleration.
 - B. Gravitational potential energy is energy associated with height in a near-Earth system, represented by mgh relative to a chosen zero.
 - C. Mechanical energy is the sum of kinetic and potential energies tracked for a system.
 - D. Loop contact condition is the minimum inward acceleration needed for the train to remain in contact at the loop crown.
 
 **Correct answer:** A
 
-**Hint - exact player copy:** Read the axes, units, direction, and any threshold before comparing the choices.
+**Hint - exact player copy:** Identify the defining relationship or mechanism for loop-top dynamics. All needed information is in this question.
 
 **Option feedback - exact player copy:**
 
-- A: Correct. residual is observed value minus model prediction; its pattern can reveal model failure.
-- B: This describes Gravitational potential energy, not Residual. It does not account for the quantities, conditions, or evidence in this physics case.
-- C: This describes Mechanical energy, not Residual. It does not account for the quantities, conditions, or evidence in this physics case.
-- D: This describes Loop contact condition, not Residual. It does not account for the quantities, conditions, or evidence in this physics case.
-### Review question 5
+- A: Correct. At the limit, gravity alone supplies the inward acceleration.
+- B: This describes gravitational potential energy. It does not answer the question about loop-top dynamics.
+- C: This describes mechanical energy. It does not answer the question about loop-top dynamics.
+- D: This describes loop contact condition. It does not answer the question about loop-top dynamics.
 
-**Prompt - exact player copy:** Before another Loop on Paper decision, the team knows this: the train starts nearly from rest at 26 m and reaches the loop crown at 20 m. Which prediction or calculation correctly applies Energy conservation to this case?
+**Optional review completion - exact player copy:** Good work. You have completed six independent practice questions.
 
-**Options - exact player copy:**
-
-- A. Gravitational potential energy is energy associated with height in a near-Earth system, represented by mgh relative to a chosen zero.
-- B. The lost gravitational potential energy becomes kinetic energy when no losses are included.
-- C. Mechanical energy is the sum of kinetic and potential energies tracked for a system.
-- D. Loop contact condition is the minimum inward acceleration needed for the train to remain in contact at the loop crown.
-
-**Correct answer:** B
-
-**Hint - exact player copy:** Use the stated evidence and the conditions for Energy conservation; do not choose an option merely because it names a familiar term.
-
-**Option feedback - exact player copy:**
-
-- A: This describes Gravitational potential energy, not Energy conservation. It does not account for the quantities, conditions, or evidence in this physics case.
-- B: Correct. the lost gravitational potential energy becomes kinetic energy when no losses are included.
-- C: This describes Mechanical energy, not Energy conservation. It does not account for the quantities, conditions, or evidence in this physics case.
-- D: This describes Loop contact condition, not Energy conservation. It does not account for the quantities, conditions, or evidence in this physics case.
-### Review question 6
-
-**Prompt - exact player copy:** Horizon Park applies the lesson from The Loop on Paper to this follow-up: at the loop crown, inward points downward and the rail cannot pull the train toward the sky. Which prediction or calculation correctly applies Loop-top dynamics to this case?
-
-**Options - exact player copy:**
-
-- A. Gravitational potential energy is energy associated with height in a near-Earth system, represented by mgh relative to a chosen zero.
-- B. Mechanical energy is the sum of kinetic and potential energies tracked for a system.
-- C. At the limit, gravity alone supplies the inward acceleration.
-- D. Loop contact condition is the minimum inward acceleration needed for the train to remain in contact at the loop crown.
-
-**Correct answer:** C
-
-**Hint - exact player copy:** Use the stated evidence and the conditions for Loop-top dynamics; do not choose an option merely because it names a familiar term.
-
-**Option feedback - exact player copy:**
-
-- A: This describes Gravitational potential energy, not Loop-top dynamics. It does not account for the quantities, conditions, or evidence in this physics case.
-- B: This describes Mechanical energy, not Loop-top dynamics. It does not account for the quantities, conditions, or evidence in this physics case.
-- C: Correct. at the limit, gravity alone supplies the inward acceleration.
-- D: This describes Loop contact condition, not Loop-top dynamics. It does not account for the quantities, conditions, or evidence in this physics case.
-**Optional review completion - exact player copy:** Excellent work. You went beyond the required mission and strengthened the ideas behind your decision.
 ## Quick concept review
 
 - Use energy between positions and forces at the loop crown.
@@ -6846,7 +6915,7 @@ probe:
 
 **Question card story-science connection - exact player copy:** Required pump power tells the crew how much shared plant capacity the flume test needs.
 
-**Fixture source panel - exact player copy:** The cleaned valve must deliver 0.45 m³/s against 7.0 m of head at 70% efficiency. Derive the volume-flow relationship and electrical input power required by that full planned operating duty. Given flow Q = 0.45 m^3/s, head H = 7.0 m, water density rho = 1000 kg/m^3, g = 9.80 m/s^2, and efficiency eta = 0.70, use P_useful = rho gQH and P_input = P_useful/eta.
+**Fixture source panel - exact player copy:** The cleaned valve must deliver flow Q=0.45 m³/s against head H=7.0 m at efficiency eta=0.70. With water density rho=1000 kg/m³ and g=9.80 m/s², use P_useful=rho gQH and P_input=P_useful/eta to derive the volume-flow relationship and electrical input power for the planned duty.
 
 **Source-panel timing:** Show at this stop’s declared fixture before its DERIVE choices unlock. Keep visible while the player works. These are model inputs and prior observations, not new measurements or an accepted answer. Symbolic derivations stay symbolic; do not invent a number merely to force substitution.
 
@@ -7040,7 +7109,7 @@ Mission decision: The Log Flume can run at 0.45 m3/s and 44.1 kW once the gate i
 
 **Availability:** Reveal only after mission completion when the player selects **GO DEEPER**. This section is optional, ungraded for campaign progress, and does not change metrics, Recovery Points, or the next-mission unlock.
 
-**Secondary briefing card - exact player copy:** You completed Water Has a Budget. Choose GO DEEPER to revisit the four decisions and explore related course ideas; this optional review does not change your metrics or delay the next mission.
+**Secondary briefing card - exact player copy:** Try six independent practice questions. Each includes its own context and any needed data; no mission records are required.
 
 ### Additional concepts kept out of the required mission card
 
@@ -7048,7 +7117,8 @@ Mission decision: The Log Flume can run at 0.45 m3/s and 44.1 kW once the gate i
 
 ### Review question 1
 
-**Prompt - exact player copy:** In a follow-up to Water Has a Budget, the cleaned valve must deliver 0.45 m³/s against 7.0 m of head at 70% efficiency. Which prediction or calculation correctly applies Flow rate to this case?
+
+**Prompt - exact player copy:** Which statement best explains flow rate?
 
 **Options - exact player copy:**
 
@@ -7059,17 +7129,19 @@ Mission decision: The Log Flume can run at 0.45 m3/s and 44.1 kW once the gate i
 
 **Correct answer:** B
 
-**Hint - exact player copy:** Use the stated evidence and the conditions for Flow rate; do not choose an option merely because it names a familiar term.
+**Hint - exact player copy:** Identify the defining relationship or mechanism for flow rate. All needed information is in this question.
 
 **Option feedback - exact player copy:**
 
-- A: This describes Pressure, not Flow rate. It does not account for the quantities, conditions, or evidence in this physics case.
-- B: Correct. flow rate is volume passing a location per time.
-- C: This describes Gauge pressure, not Flow rate. It does not account for the quantities, conditions, or evidence in this physics case.
-- D: This describes Buoyant force, not Flow rate. It does not account for the quantities, conditions, or evidence in this physics case.
+- A: This describes pressure. It does not answer the question about flow rate.
+- B: Correct. Flow rate is volume passing a location per time.
+- C: This describes gauge pressure. It does not answer the question about flow rate.
+- D: This describes buoyant force. It does not answer the question about flow rate.
+
 ### Review question 2
 
-**Prompt - exact player copy:** Horizon Park receives a second case related to Water Has a Budget: take readings at the lake intake, header, gate ram, log hull, downstream side of the gate valve, and channel inlet. Sample the locations in order now so the crew can identify where the system first departs from normal. Which prediction or calculation correctly applies Pressure to this case?
+
+**Prompt - exact player copy:** Which statement best explains pressure?
 
 **Options - exact player copy:**
 
@@ -7080,17 +7152,19 @@ Mission decision: The Log Flume can run at 0.45 m3/s and 44.1 kW once the gate i
 
 **Correct answer:** C
 
-**Hint - exact player copy:** Use the stated evidence and the conditions for Pressure; do not choose an option merely because it names a familiar term.
+**Hint - exact player copy:** Identify the defining relationship or mechanism for pressure. All needed information is in this question.
 
 **Option feedback - exact player copy:**
 
-- A: This describes Flow rate, not Pressure. It does not account for the quantities, conditions, or evidence in this physics case.
-- B: This describes Gauge pressure, not Pressure. It does not account for the quantities, conditions, or evidence in this physics case.
-- C: Correct. pressure is force per area; fluid pressure acts in all directions at a point.
-- D: This describes Buoyant force, not Pressure. It does not account for the quantities, conditions, or evidence in this physics case.
+- A: This describes flow rate. It does not answer the question about pressure.
+- B: This describes gauge pressure. It does not answer the question about pressure.
+- C: Correct. Pressure is force per area; fluid pressure acts in all directions at a point.
+- D: This describes buoyant force. It does not answer the question about pressure.
+
 ### Review question 3
 
-**Prompt - exact player copy:** A teammate rechecks Water Has a Budget using new evidence: take readings at the lake intake, header, gate ram, log hull, downstream side of the gate valve, and channel inlet. Sample the locations in order now so the crew can identify where the system first departs from normal. Which prediction or calculation correctly applies Gauge pressure to this case?
+
+**Prompt - exact player copy:** Which statement best explains gauge pressure?
 
 **Options - exact player copy:**
 
@@ -7101,17 +7175,19 @@ Mission decision: The Log Flume can run at 0.45 m3/s and 44.1 kW once the gate i
 
 **Correct answer:** D
 
-**Hint - exact player copy:** Use the stated evidence and the conditions for Gauge pressure; do not choose an option merely because it names a familiar term.
+**Hint - exact player copy:** Identify the defining relationship or mechanism for gauge pressure. All needed information is in this question.
 
 **Option feedback - exact player copy:**
 
-- A: This describes Flow rate, not Gauge pressure. It does not account for the quantities, conditions, or evidence in this physics case.
-- B: This describes Pressure, not Gauge pressure. It does not account for the quantities, conditions, or evidence in this physics case.
-- C: This describes Buoyant force, not Gauge pressure. It does not account for the quantities, conditions, or evidence in this physics case.
-- D: Correct. gauge pressure is pressure above atmospheric pressure.
+- A: This describes flow rate. It does not answer the question about gauge pressure.
+- B: This describes pressure. It does not answer the question about gauge pressure.
+- C: This describes buoyant force. It does not answer the question about gauge pressure.
+- D: Correct. Gauge pressure is pressure above atmospheric pressure.
+
 ### Review question 4
 
-**Prompt - exact player copy:** An unseen case extends Water Has a Budget: take readings at the lake intake, header, gate ram, log hull, downstream side of the gate valve, and channel inlet. Sample the locations in order now so the crew can identify where the system first departs from normal. Which prediction or calculation correctly applies Buoyant force to this case?
+
+**Prompt - exact player copy:** Which statement best explains buoyant force?
 
 **Options - exact player copy:**
 
@@ -7122,17 +7198,19 @@ Mission decision: The Log Flume can run at 0.45 m3/s and 44.1 kW once the gate i
 
 **Correct answer:** A
 
-**Hint - exact player copy:** Use the stated evidence and the conditions for Buoyant force; do not choose an option merely because it names a familiar term.
+**Hint - exact player copy:** Identify the defining relationship or mechanism for buoyant force. All needed information is in this question.
 
 **Option feedback - exact player copy:**
 
-- A: Correct. buoyant force is upward force equal to the weight of displaced fluid.
-- B: This describes Flow rate, not Buoyant force. It does not account for the quantities, conditions, or evidence in this physics case.
-- C: This describes Pressure, not Buoyant force. It does not account for the quantities, conditions, or evidence in this physics case.
-- D: This describes Gauge pressure, not Buoyant force. It does not account for the quantities, conditions, or evidence in this physics case.
+- A: Correct. Buoyant force is upward force equal to the weight of displaced fluid.
+- B: This describes flow rate. It does not answer the question about buoyant force.
+- C: This describes pressure. It does not answer the question about buoyant force.
+- D: This describes gauge pressure. It does not answer the question about buoyant force.
+
 ### Review question 5
 
-**Prompt - exact player copy:** Before another Water Has a Budget decision, the team knows this: the cleaned valve must deliver 0.45 m³/s against 7.0 m of head at 70% efficiency. Which condition or conclusion correctly determines continuity here?
+
+**Prompt - exact player copy:** Which statement best explains continuity?
 
 **Options - exact player copy:**
 
@@ -7143,36 +7221,40 @@ Mission decision: The Log Flume can run at 0.45 m3/s and 44.1 kW once the gate i
 
 **Correct answer:** B
 
-**Hint - exact player copy:** Use the stated evidence and the conditions for Continuity; do not choose an option merely because it names a familiar term.
+**Hint - exact player copy:** Identify the defining relationship or mechanism for continuity. All needed information is in this question.
 
 **Option feedback - exact player copy:**
 
-- A: This describes Flow rate, not Continuity. It does not account for the quantities, conditions, or evidence in this physics case.
-- B: Correct. continuity is conservation of volume flow for steady incompressible fluid.
-- C: This describes Pressure, not Continuity. It does not account for the quantities, conditions, or evidence in this physics case.
-- D: This describes Gauge pressure, not Continuity. It does not account for the quantities, conditions, or evidence in this physics case.
+- A: This describes flow rate. It does not answer the question about continuity.
+- B: Correct. Continuity is conservation of volume flow for steady incompressible fluid.
+- C: This describes pressure. It does not answer the question about continuity.
+- D: This describes gauge pressure. It does not answer the question about continuity.
+
 ### Review question 6
 
-**Prompt - exact player copy:** Horizon Park applies the lesson from Water Has a Budget to this follow-up: take readings at the lake intake, header, gate ram, log hull, downstream side of the gate valve, and channel inlet. Sample the locations in order now so the crew can identify where the system first departs from normal. Which prediction or calculation correctly applies Hydrostatic pressure to this case?
+
+**Prompt - exact player copy:** Pressure in a water line matches its expected level before a valve but is much lower immediately after it and farther downstream. The flow is steady. Where should testing focus first?
 
 **Options - exact player copy:**
 
 - A. Flow rate is volume passing a location per time.
 - B. Pressure is force per area; fluid pressure acts in all directions at a point.
-- C. Intake and header agree with ρgh, the ram carries equal pressure, and the floating log's 5.39 kN buoyant force matches its weight. The sudden pressure loss begins after the valve and persists downstream.
+- C. On a restriction or pressure loss at the valve, rather than on a source that would also lower the upstream pressure.
 - D. Gauge pressure is pressure above atmospheric pressure.
 
 **Correct answer:** C
 
-**Hint - exact player copy:** Use the stated evidence and the conditions for Hydrostatic pressure; do not choose an option merely because it names a familiar term.
+**Hint - exact player copy:** Identify the defining relationship or mechanism for hydrostatic pressure. All needed information is in this question.
 
 **Option feedback - exact player copy:**
 
-- A: This describes Flow rate, not Hydrostatic pressure. It does not account for the quantities, conditions, or evidence in this physics case.
-- B: This describes Pressure, not Hydrostatic pressure. It does not account for the quantities, conditions, or evidence in this physics case.
-- C: Correct. intake and header agree with ρgh, the ram carries equal pressure, and the floating log's 5.39 kN buoyant force matches its weight. The sudden pressure loss begins after the valve and persists downstream.
-- D: This describes Gauge pressure, not Hydrostatic pressure. It does not account for the quantities, conditions, or evidence in this physics case.
-**Optional review completion - exact player copy:** Excellent work. You went beyond the required mission and strengthened the ideas behind your decision.
+- A: This describes flow rate. It does not answer the question about hydrostatic pressure.
+- B: This describes pressure. It does not answer the question about hydrostatic pressure.
+- C: Correct. On a restriction or pressure loss at the valve, rather than on a source that would also lower the upstream pressure.
+- D: This describes gauge pressure. It does not answer the question about hydrostatic pressure.
+
+**Optional review completion - exact player copy:** Good work. You have completed six independent practice questions.
+
 ## Quick concept review
 
 - Fluid gauge pressure is `ρgh`.
@@ -7661,54 +7743,64 @@ Mission decision: Both tested ride setups meet the game force limits. The padded
 
 **Availability:** Reveal only after mission completion when the player selects **GO DEEPER**. This section is optional, ungraded for campaign progress, and does not change metrics, Recovery Points, or the next-mission unlock.
 
-**Secondary briefing card - exact player copy:** You completed The Force a Rider Feels. Choose GO DEEPER to revisit the four decisions and explore related course ideas; this optional review does not change your metrics or delay the next mission.
+**Secondary briefing card - exact player copy:** Try six independent practice questions. Each includes its own context and any needed data; no mission records are required.
 
 ### Review focus
 
-No additional prerequisite is required. These AP-style questions apply the mission's course ideas to follow-up evidence, including related topics not required in the four main stops.
+No additional prerequisite is required. These practice questions review related course ideas. Each question stands alone, including its choices and figure.
 
 ### Review question 1
 
-**Prompt - exact player copy:** In a follow-up to The Force a Rider Feels, the joined test cars move at 0.88 m/s after impact, and the 70 kg dummy stops with them. Which interpretation of the displayed evidence correctly uses the mission concept?
+
+**Prompt - exact player copy:** A fictional test allows a peak support force of at most 6 times weight. The bars include each trial’s uncertainty allowance. Which conclusion follows?
 
 **Figure - exact player copy:**
 
 ```json
 {
-  "kind": "line",
-  "xLabel": "Time (s)",
-  "yLabel": "Force on rider (N)",
-  "caption": "Force rises to a brief peak during the stop.",
-  "series": [
+  "kind": "bars",
+  "xLabel": "Category",
+  "yLabel": "Peak support force / weight",
+  "caption": "Worst supported peak load for each tested configuration",
+  "bars": [
     {
-      "name": "Force",
-      "points": [
-        [
-          0,
-          0
-        ],
-        [
-          0.5,
-          300
-        ],
-        [
-          1.0,
-          900
-        ],
-        [
-          1.5,
-          500
-        ],
-        [
-          2.0,
-          100
-        ]
-      ]
+      "name": "Trial 1",
+      "value": 4.8
+    },
+    {
+      "name": "Trial 2",
+      "value": 5.2
+    },
+    {
+      "name": "Trial 3",
+      "value": 5.56
     }
   ]
 }
 ```
 
+**Options - exact player copy:**
+
+- A. Trial 3 fails because 5.56 is greater than 5.
+- B. All untested configurations are also safe.
+- C. Only the average of the three bars needs to pass.
+- D. All three tested configurations pass this load limit.
+
+**Correct answer:** D
+
+**Hint - exact player copy:** Compare each bar with 6; do not broaden the claim beyond the tests.
+
+**Option feedback - exact player copy:**
+
+- A: The stated limit is 6, not 5.
+- B: The graph supports only the tested configurations and stated limit.
+- C: Each configuration must meet the limit individually.
+- D: Correct. All three tested configurations pass this load limit.
+
+### Review question 2
+
+
+**Prompt - exact player copy:** Which statement best explains load factor?
 
 **Options - exact player copy:**
 
@@ -7717,19 +7809,21 @@ No additional prerequisite is required. These AP-style questions apply the missi
 - C. Configuration is the exact mass, speed, brake state, restraint, and procedure under which a result applies.
 - D. It moves from 0.88 m/s to rest.
 
-**Correct answer:** B
+**Correct answer:** A
 
-**Hint - exact player copy:** Read the axes, units, direction, and any threshold before comparing the choices.
+**Hint - exact player copy:** Identify the defining relationship or mechanism for load factor. All needed information is in this question.
 
 **Option feedback - exact player copy:**
 
-- A: This describes Load factor, not Peak force. It does not account for the quantities, conditions, or evidence in this physics case.
-- B: Correct. peak force is largest force reached during an interval; it may exceed the average force.
-- C: This describes Configuration, not Peak force. It does not account for the quantities, conditions, or evidence in this physics case.
-- D: This describes Collision energy and momentum, not Peak force. It does not account for the quantities, conditions, or evidence in this physics case.
-### Review question 2
+- A: Correct. Load factor is support force divided by ordinary weight mg; a reading of 5.4 means the support force is 5.4 times weight.
+- B: This describes peak force. It does not answer the question about load factor.
+- C: This describes configuration. It does not answer the question about load factor.
+- D: This describes collision energy and momentum. It does not answer the question about load factor.
 
-**Prompt - exact player copy:** Horizon Park receives a second case related to The Force a Rider Feels: use the bumper momentum and tower entry speed to build each path from motion through stopping time or distance to rider load. Build the causal path now so the crew knows which step changes the material or signal before it reaches the next location. Which prediction or calculation correctly applies Load factor to this case?
+### Review question 3
+
+
+**Prompt - exact player copy:** Which statement best explains configuration?
 
 **Options - exact player copy:**
 
@@ -7738,144 +7832,122 @@ No additional prerequisite is required. These AP-style questions apply the missi
 - C. Load factor is support force divided by ordinary weight mg; a reading of 5.4 means the support force is 5.4 times weight.
 - D. It moves from 0.88 m/s to rest.
 
-**Correct answer:** C
+**Correct answer:** B
 
-**Hint - exact player copy:** Use the stated evidence and the conditions for Load factor; do not choose an option merely because it names a familiar term.
+**Hint - exact player copy:** Identify the defining relationship or mechanism for configuration. All needed information is in this question.
 
 **Option feedback - exact player copy:**
 
-- A: This describes Peak force, not Load factor. It does not account for the quantities, conditions, or evidence in this physics case.
-- B: This describes Configuration, not Load factor. It does not account for the quantities, conditions, or evidence in this physics case.
-- C: Correct. load factor is support force divided by ordinary weight mg; a reading of 5.4 means the support force is 5.4 times weight.
-- D: This describes Collision energy and momentum, not Load factor. It does not account for the quantities, conditions, or evidence in this physics case.
-### Review question 3
+- A: This describes peak force. It does not answer the question about configuration.
+- B: Correct. Configuration is the exact mass, speed, brake state, restraint, and procedure under which a result applies.
+- C: This describes load factor. It does not answer the question about configuration.
+- D: This describes collision energy and momentum. It does not answer the question about configuration.
 
-**Prompt - exact player copy:** A teammate rechecks The Force a Rider Feels using new evidence: both force results pass, but old records mix masses, restraints, and sensors. Before the record can be signed, identify which claims have independent support and which must remain unverified. Which prediction or calculation correctly applies Configuration to this case?
+### Review question 4
+
+
+**Prompt - exact player copy:** A pair of carts moves together at 0.88 m/s and is then brought to rest by padding. What change in velocity should be used for the stopping impulse?
 
 **Options - exact player copy:**
 
 - A. Peak force is largest force reached during an interval; it may exceed the average force.
 - B. Load factor is support force divided by ordinary weight mg; a reading of 5.4 means the support force is 5.4 times weight.
-- C. It moves from 0.88 m/s to rest.
+- C. Δv=0-0.88=-0.88 m/s along the original positive direction.
 - D. Configuration is the exact mass, speed, brake state, restraint, and procedure under which a result applies.
 
-**Correct answer:** D
+**Correct answer:** C
 
-**Hint - exact player copy:** Use the stated evidence and the conditions for Configuration; do not choose an option merely because it names a familiar term.
+**Hint - exact player copy:** Identify the defining relationship or mechanism for collision energy and momentum. All needed information is in this question.
 
 **Option feedback - exact player copy:**
 
-- A: This describes Peak force, not Configuration. It does not account for the quantities, conditions, or evidence in this physics case.
-- B: This describes Load factor, not Configuration. It does not account for the quantities, conditions, or evidence in this physics case.
-- C: This describes Collision energy and momentum, not Configuration. It does not account for the quantities, conditions, or evidence in this physics case.
-- D: Correct. configuration is the exact mass, speed, brake state, restraint, and procedure under which a result applies.
-### Review question 4
+- A: This describes peak force. It does not answer the question about collision energy and momentum.
+- B: This describes load factor. It does not answer the question about collision energy and momentum.
+- C: Correct. Δv=0-0.88=-0.88 m/s along the original positive direction.
+- D: This describes configuration. It does not answer the question about collision energy and momentum.
 
-**Prompt - exact player copy:** An unseen case extends The Force a Rider Feels: the joined test cars move at 0.88 m/s after impact, and the 70 kg dummy stops with them. Which prediction or calculation correctly applies Collision energy and momentum to this case?
-
-**Options - exact player copy:**
-
-- A. It moves from 0.88 m/s to rest.
-- B. Peak force is largest force reached during an interval; it may exceed the average force.
-- C. Load factor is support force divided by ordinary weight mg; a reading of 5.4 means the support force is 5.4 times weight.
-- D. Configuration is the exact mass, speed, brake state, restraint, and procedure under which a result applies.
-
-**Correct answer:** A
-
-**Hint - exact player copy:** Use the stated evidence and the conditions for Collision energy and momentum; do not choose an option merely because it names a familiar term.
-
-**Option feedback - exact player copy:**
-
-- A: Correct. it moves from 0.88 m/s to rest.
-- B: This describes Peak force, not Collision energy and momentum. It does not account for the quantities, conditions, or evidence in this physics case.
-- C: This describes Load factor, not Collision energy and momentum. It does not account for the quantities, conditions, or evidence in this physics case.
-- D: This describes Configuration, not Collision energy and momentum. It does not account for the quantities, conditions, or evidence in this physics case.
 ### Review question 5
 
-**Prompt - exact player copy:** Before another Force a Rider Feels decision, the team knows this: use the bumper momentum and tower entry speed to build each path from motion through stopping time or distance to rider load. Build the causal path now so the crew knows which step changes the material or signal before it reaches the next location. Which prediction or calculation correctly applies Causal transfer to this case?
+
+**Prompt - exact player copy:** Which statement best explains causal transfer?
 
 **Options - exact player copy:**
 
 - A. Peak force is largest force reached during an interval; it may exceed the average force.
-- B. Force is not read directly from distance; the intermediate time or acceleration relation matters.
-- C. Load factor is support force divided by ordinary weight mg; a reading of 5.4 means the support force is 5.4 times weight.
-- D. Configuration is the exact mass, speed, brake state, restraint, and procedure under which a result applies.
+- B. Load factor is support force divided by ordinary weight mg; a reading of 5.4 means the support force is 5.4 times weight.
+- C. Configuration is the exact mass, speed, brake state, restraint, and procedure under which a result applies.
+- D. Force is not read directly from distance; the intermediate time or acceleration relation matters.
 
-**Correct answer:** B
+**Correct answer:** D
 
-**Hint - exact player copy:** Use the stated evidence and the conditions for Causal transfer; do not choose an option merely because it names a familiar term.
+**Hint - exact player copy:** Identify the defining relationship or mechanism for causal transfer. All needed information is in this question.
 
 **Option feedback - exact player copy:**
 
-- A: This describes Peak force, not Causal transfer. It does not account for the quantities, conditions, or evidence in this physics case.
-- B: Correct. force is not read directly from distance; the intermediate time or acceleration relation matters.
-- C: This describes Load factor, not Causal transfer. It does not account for the quantities, conditions, or evidence in this physics case.
-- D: This describes Configuration, not Causal transfer. It does not account for the quantities, conditions, or evidence in this physics case.
+- A: This describes peak force. It does not answer the question about causal transfer.
+- B: This describes load factor. It does not answer the question about causal transfer.
+- C: This describes configuration. It does not answer the question about causal transfer.
+- D: Correct. Force is not read directly from distance; the intermediate time or acceleration relation matters.
+
 ### Review question 6
 
-**Prompt - exact player copy:** Horizon Park applies the lesson from The Force a Rider Feels to this follow-up: the joined test cars move at 0.88 m/s after impact, and the 70 kg dummy stops with them. Which interpretation of the displayed evidence correctly uses the mission concept?
+
+**Prompt - exact player copy:** A rule is fixed in advance: stop at the first check with a reading of at least 5 units. At which plotted time should the stop occur?
 
 **Figure - exact player copy:**
 
 ```json
 {
   "kind": "line",
-  "xLabel": "Ordered measurement",
-  "yLabel": "Decision quantity",
-  "caption": "Measurements approach and then cross the action threshold.",
+  "xLabel": "Time (min)",
+  "yLabel": "Reading (units)",
+  "caption": "Readings at four successive checks",
   "series": [
     {
-      "name": "Measured",
+      "name": "Reading",
       "points": [
         [
+          0,
+          2
+        ],
+        [
           1,
-          42
+          3
         ],
         [
           2,
-          48
+          5
         ],
         [
           3,
-          55
-        ],
-        [
-          4,
-          63
-        ],
-        [
-          5,
-          71
+          6
         ]
       ]
     }
-  ],
-  "limit": {
-    "at": 60,
-    "label": "Action threshold"
-  }
+  ]
 }
 ```
 
-
 **Options - exact player copy:**
 
-- A. Peak force is largest force reached during an interval; it may exceed the average force.
-- B. Load factor is support force divided by ordinary weight mg; a reading of 5.4 means the support force is 5.4 times weight.
-- C. The worst supported case is 5.56 times weight. That does not certify untested masses or settings.
-- D. Configuration is the exact mass, speed, brake state, restraint, and procedure under which a result applies.
+- A. 2 minutes.
+- B. 1 minute.
+- C. 3 minutes.
+- D. No stop is needed because the average is below 5.
 
-**Correct answer:** C
+**Correct answer:** A
 
-**Hint - exact player copy:** Read the axes, units, direction, and any threshold before comparing the choices.
+**Hint - exact player copy:** At least includes equality.
 
 **Option feedback - exact player copy:**
 
-- A: This describes Peak force, not Uncertainty and threshold. It does not account for the quantities, conditions, or evidence in this physics case.
-- B: This describes Load factor, not Uncertainty and threshold. It does not account for the quantities, conditions, or evidence in this physics case.
-- C: Correct. the worst supported case is 5.56 times weight. That does not certify untested masses or settings.
-- D: This describes Configuration, not Uncertainty and threshold. It does not account for the quantities, conditions, or evidence in this physics case.
-**Optional review completion - exact player copy:** Excellent work. You went beyond the required mission and strengthened the ideas behind your decision.
+- A: Correct. 2 minutes.
+- B: The reading is only 3 units at 1 minute.
+- C: Waiting until 3 minutes misses the first qualifying check.
+- D: The rule applies to each reading, not the average.
+
+**Optional review completion - exact player copy:** Good work. You have completed six independent practice questions.
+
 ## Quick concept review
 
 - Momentum change fixes impulse.
@@ -8342,15 +8414,16 @@ Mission decision: The three rides need one shared work plan. Carousel speed stay
 
 **Availability:** Reveal only after mission completion when the player selects **GO DEEPER**. This section is optional, ungraded for campaign progress, and does not change metrics, Recovery Points, or the next-mission unlock.
 
-**Secondary briefing card - exact player copy:** You completed One Park, Not Seven Machines. Choose GO DEEPER to revisit the four decisions and explore related course ideas; this optional review does not change your metrics or delay the next mission.
+**Secondary briefing card - exact player copy:** Try six independent practice questions. Each includes its own context and any needed data; no mission records are required.
 
 ### Review focus
 
-No additional prerequisite is required. These AP-style questions apply the mission's course ideas to follow-up evidence, including related topics not required in the four main stops.
+No additional prerequisite is required. These practice questions review related course ideas. Each question stands alone, including its choices and figure.
 
 ### Review question 1
 
-**Prompt - exact player copy:** In a follow-up to One Park, Not Seven Machines, the wheel's balanced test load increases rotational inertia without changing its operating angular speed. Which prediction or calculation correctly applies Angular momentum to this case?
+
+**Prompt - exact player copy:** Which statement best explains angular momentum?
 
 **Options - exact player copy:**
 
@@ -8361,17 +8434,19 @@ No additional prerequisite is required. These AP-style questions apply the missi
 
 **Correct answer:** B
 
-**Hint - exact player copy:** Use the stated evidence and the conditions for Angular momentum; do not choose an option merely because it names a familiar term.
+**Hint - exact player copy:** Identify the defining relationship or mechanism for angular momentum. All needed information is in this question.
 
 **Option feedback - exact player copy:**
 
-- A: This describes Rotational kinetic energy, not Angular momentum. It does not account for the quantities, conditions, or evidence in this physics case.
-- B: Correct. angular momentum is rotational quantity equal to rotational inertia times angular velocity for a rigid body about a fixed axis.
-- C: This describes Degeneracy, not Angular momentum. It does not account for the quantities, conditions, or evidence in this physics case.
-- D: This describes Protected reserve, not Angular momentum. It does not account for the quantities, conditions, or evidence in this physics case.
+- A: This describes rotational kinetic energy. It does not answer the question about angular momentum.
+- B: Correct. Angular momentum is rotational quantity equal to rotational inertia times angular velocity for a rigid body about a fixed axis.
+- C: This describes degeneracy. It does not answer the question about angular momentum.
+- D: This describes protected reserve. It does not answer the question about angular momentum.
+
 ### Review question 2
 
-**Prompt - exact player copy:** Horizon Park receives a second case related to One Park, Not Seven Machines: the wheel's balanced test load increases rotational inertia without changing its operating angular speed. Which prediction or calculation correctly applies Rotational kinetic energy to this case?
+
+**Prompt - exact player copy:** Which statement best explains rotational kinetic energy?
 
 **Options - exact player copy:**
 
@@ -8382,17 +8457,19 @@ No additional prerequisite is required. These AP-style questions apply the missi
 
 **Correct answer:** C
 
-**Hint - exact player copy:** Use the stated evidence and the conditions for Rotational kinetic energy; do not choose an option merely because it names a familiar term.
+**Hint - exact player copy:** Identify the defining relationship or mechanism for rotational kinetic energy. All needed information is in this question.
 
 **Option feedback - exact player copy:**
 
-- A: This describes Angular momentum, not Rotational kinetic energy. It does not account for the quantities, conditions, or evidence in this physics case.
-- B: This describes Degeneracy, not Rotational kinetic energy. It does not account for the quantities, conditions, or evidence in this physics case.
-- C: Correct. rotational kinetic energy is energy of rotation, equal to one-half rotational inertia times angular speed squared.
-- D: This describes Protected reserve, not Rotational kinetic energy. It does not account for the quantities, conditions, or evidence in this physics case.
+- A: This describes angular momentum. It does not answer the question about rotational kinetic energy.
+- B: This describes degeneracy. It does not answer the question about rotational kinetic energy.
+- C: Correct. Rotational kinetic energy is energy of rotation, equal to one-half rotational inertia times angular speed squared.
+- D: This describes protected reserve. It does not answer the question about rotational kinetic energy.
+
 ### Review question 3
 
-**Prompt - exact player copy:** A teammate rechecks One Park, Not Seven Machines using new evidence: several speed and radius pairs produce the same chair angle, so that observation alone cannot choose the schedule. Add the missing constraint now so the team can separate the explanations that still fit the earlier evidence. Which prediction or calculation correctly applies Degeneracy to this case?
+
+**Prompt - exact player copy:** Which statement best explains degeneracy?
 
 **Options - exact player copy:**
 
@@ -8403,17 +8480,19 @@ No additional prerequisite is required. These AP-style questions apply the missi
 
 **Correct answer:** D
 
-**Hint - exact player copy:** Use the stated evidence and the conditions for Degeneracy; do not choose an option merely because it names a familiar term.
+**Hint - exact player copy:** Identify the defining relationship or mechanism for degeneracy. All needed information is in this question.
 
 **Option feedback - exact player copy:**
 
-- A: This describes Angular momentum, not Degeneracy. It does not account for the quantities, conditions, or evidence in this physics case.
-- B: This describes Rotational kinetic energy, not Degeneracy. It does not account for the quantities, conditions, or evidence in this physics case.
-- C: This describes Protected reserve, not Degeneracy. It does not account for the quantities, conditions, or evidence in this physics case.
-- D: Correct. degeneracy is a situation where more than one setting fits limited evidence until another physical constraint is applied.
+- A: This describes angular momentum. It does not answer the question about degeneracy.
+- B: This describes rotational kinetic energy. It does not answer the question about degeneracy.
+- C: This describes protected reserve. It does not answer the question about degeneracy.
+- D: Correct. Degeneracy is a situation where more than one setting fits limited evidence until another physical constraint is applied.
+
 ### Review question 4
 
-**Prompt - exact player copy:** An unseen case extends One Park, Not Seven Machines: the three rides need operating power, monitoring, and a protected emergency reserve. Before the plan can proceed, divide the limited supply so every required use is covered. Which prediction or calculation correctly applies Protected reserve to this case?
+
+**Prompt - exact player copy:** Which statement best explains protected reserve?
 
 **Options - exact player copy:**
 
@@ -8424,17 +8503,19 @@ No additional prerequisite is required. These AP-style questions apply the missi
 
 **Correct answer:** A
 
-**Hint - exact player copy:** Use the stated evidence and the conditions for Protected reserve; do not choose an option merely because it names a familiar term.
+**Hint - exact player copy:** Identify the defining relationship or mechanism for protected reserve. All needed information is in this question.
 
 **Option feedback - exact player copy:**
 
-- A: Correct. protected reserve is capacity kept available for shutdown or recovery rather than ordinary operation.
-- B: This describes Angular momentum, not Protected reserve. It does not account for the quantities, conditions, or evidence in this physics case.
-- C: This describes Rotational kinetic energy, not Protected reserve. It does not account for the quantities, conditions, or evidence in this physics case.
-- D: This describes Degeneracy, not Protected reserve. It does not account for the quantities, conditions, or evidence in this physics case.
+- A: Correct. Protected reserve is capacity kept available for shutdown or recovery rather than ordinary operation.
+- B: This describes angular momentum. It does not answer the question about protected reserve.
+- C: This describes rotational kinetic energy. It does not answer the question about protected reserve.
+- D: This describes degeneracy. It does not answer the question about protected reserve.
+
 ### Review question 5
 
-**Prompt - exact player copy:** Before another One Park, Not Seven Machines decision, the team knows this: several speed and radius pairs produce the same chair angle, so that observation alone cannot choose the schedule. Add the missing constraint now so the team can separate the explanations that still fit the earlier evidence. Which prediction or calculation correctly applies Competing settings to this case?
+
+**Prompt - exact player copy:** Which statement best explains competing settings?
 
 **Options - exact player copy:**
 
@@ -8445,17 +8526,19 @@ No additional prerequisite is required. These AP-style questions apply the missi
 
 **Correct answer:** B
 
-**Hint - exact player copy:** Use the stated evidence and the conditions for Competing settings; do not choose an option merely because it names a familiar term.
+**Hint - exact player copy:** Identify the defining relationship or mechanism for competing settings. All needed information is in this question.
 
 **Option feedback - exact player copy:**
 
-- A: This describes Angular momentum, not Competing settings. It does not account for the quantities, conditions, or evidence in this physics case.
-- B: Correct. the angle relation alone admits many pairs; measured geometry and available power add independent constraints.
-- C: This describes Rotational kinetic energy, not Competing settings. It does not account for the quantities, conditions, or evidence in this physics case.
-- D: This describes Degeneracy, not Competing settings. It does not account for the quantities, conditions, or evidence in this physics case.
+- A: This describes angular momentum. It does not answer the question about competing settings.
+- B: Correct. The angle relation alone admits many pairs; measured geometry and available power add independent constraints.
+- C: This describes rotational kinetic energy. It does not answer the question about competing settings.
+- D: This describes degeneracy. It does not answer the question about competing settings.
+
 ### Review question 6
 
-**Prompt - exact player copy:** Horizon Park applies the lesson from One Park, Not Seven Machines to this follow-up: the wheel's balanced test load increases rotational inertia without changing its operating angular speed. Which prediction or calculation correctly applies Rotational energy and momentum to this case?
+
+**Prompt - exact player copy:** Which statement best explains rotational energy and momentum?
 
 **Options - exact player copy:**
 
@@ -8466,15 +8549,17 @@ No additional prerequisite is required. These AP-style questions apply the missi
 
 **Correct answer:** C
 
-**Hint - exact player copy:** Use the stated evidence and the conditions for Rotational energy and momentum; do not choose an option merely because it names a familiar term.
+**Hint - exact player copy:** Identify the defining relationship or mechanism for rotational energy and momentum. All needed information is in this question.
 
 **Option feedback - exact player copy:**
 
-- A: This describes Angular momentum, not Rotational energy and momentum. It does not account for the quantities, conditions, or evidence in this physics case.
-- B: This describes Rotational kinetic energy, not Rotational energy and momentum. It does not account for the quantities, conditions, or evidence in this physics case.
-- C: Correct. radius enters inertia as r².
-- D: This describes Degeneracy, not Rotational energy and momentum. It does not account for the quantities, conditions, or evidence in this physics case.
-**Optional review completion - exact player copy:** Excellent work. You went beyond the required mission and strengthened the ideas behind your decision.
+- A: This describes angular momentum. It does not answer the question about rotational energy and momentum.
+- B: This describes rotational kinetic energy. It does not answer the question about rotational energy and momentum.
+- C: Correct. Radius enters inertia as r².
+- D: This describes degeneracy. It does not answer the question about rotational energy and momentum.
+
+**Optional review completion - exact player copy:** Good work. You have completed six independent practice questions.
+
 ## Quick concept review
 
 - `L=Iω` and `Krot=1/2 Iω²` describe rotating motion.
@@ -8755,7 +8840,7 @@ holdout:
 
 **Question card story-science connection - exact player copy:** The revised speed margin determines whether the independently measured train speed is sufficient for the real loop.
 
-**Fixture source panel - exact player copy:** The physical crown radius is 7.4 m, not 5.6 m. Rebuild the contact minimum and add Corbin Park's fictional 1.0 m/s safety margin before comparing the new independent measured speed. Given physical radius r = 7.4 m, g = 9.80 m/s^2, required margin 1.00 m/s, and measured crown speed 9.40 m/s, use v_min = sqrt(gr) and v_required = v_min + margin.
+**Fixture source panel - exact player copy:** The physical crown radius is r=7.4 m; the drawing had shown 5.6 m. Using g=9.80 m/s², rebuild v_min=sqrt(gr), then add Corbin Park's fictional 1.00 m/s margin to obtain v_required. Compare it with the independent measured crown speed of 9.40 m/s.
 
 **Source-panel timing:** Show at this stop’s declared fixture before its DERIVE choices unlock. Keep visible while the player works. These are model inputs and prior observations, not new measurements or an accepted answer. Symbolic derivations stay symbolic; do not invent a number merely to force substitution.
 
@@ -8964,60 +9049,57 @@ Mission decision: The coaster does not have enough loop margin. Its measured spe
 
 **Availability:** Reveal only after mission completion when the player selects **GO DEEPER**. This section is optional, ungraded for campaign progress, and does not change metrics, Recovery Points, or the next-mission unlock.
 
-**Secondary briefing card - exact player copy:** You completed The Wrong Radius. Choose GO DEEPER to revisit the four decisions and explore related course ideas; this optional review does not change your metrics or delay the next mission.
+**Secondary briefing card - exact player copy:** Try six independent practice questions. Each includes its own context and any needed data; no mission records are required.
 
 ### Review focus
 
-No additional prerequisite is required. These AP-style questions apply the mission's course ideas to follow-up evidence, including related topics not required in the four main stops.
+No additional prerequisite is required. These practice questions review related course ideas. Each question stands alone, including its choices and figure.
 
 ### Review question 1
 
-**Prompt - exact player copy:** In a follow-up to The Wrong Radius, fit the drawing-based model to the visible lift height, crown height, losses, and 5.6 m radius. Which interpretation of the displayed evidence correctly uses the mission concept?
+
+**Prompt - exact player copy:** The predictions were frozen before the plotted test observations were revealed. Why is this comparison useful?
 
 **Figure - exact player copy:**
 
 ```json
 {
   "kind": "line",
-  "xLabel": "Time (h)",
-  "yLabel": "Water level (m)",
-  "caption": "A fitted model is compared with later holdout measurements.",
+  "xLabel": "Input",
+  "yLabel": "Response (units)",
+  "caption": "Predictions fixed before test observations were revealed",
   "series": [
     {
-      "name": "Model",
+      "name": "Frozen prediction",
       "points": [
         [
           0,
-          10
+          2
         ],
         [
           1,
-          12
+          4
         ],
         [
           2,
-          15
-        ],
-        [
-          3,
-          19
-        ],
-        [
-          4,
-          24
+          6
         ]
       ]
     },
     {
-      "name": "Holdout",
+      "name": "Held-out observation",
       "points": [
         [
-          3,
-          20
+          0,
+          2.1
         ],
         [
-          4,
-          27
+          1,
+          3.9
+        ],
+        [
+          2,
+          6.2
         ]
       ]
     }
@@ -9025,6 +9107,28 @@ No additional prerequisite is required. These AP-style questions apply the missi
 }
 ```
 
+**Options - exact player copy:**
+
+- A. It proves the model is exact for all possible inputs.
+- B. It makes the test observations part of the training data retroactively.
+- C. It removes all uncertainty from the observations.
+- D. It tests prediction on data that did not set the model.
+
+**Correct answer:** D
+
+**Hint - exact player copy:** Ask whether the model could have been tuned to these test values.
+
+**Option feedback - exact player copy:**
+
+- A: Agreement at these inputs cannot establish universal correctness.
+- B: The prediction was fixed without using these observations.
+- C: Withholding data does not eliminate measurement uncertainty.
+- D: Correct. It tests prediction on data that did not set the model.
+
+### Review question 2
+
+
+**Prompt - exact player copy:** Which statement best explains model input?
 
 **Options - exact player copy:**
 
@@ -9033,19 +9137,21 @@ No additional prerequisite is required. These AP-style questions apply the missi
 - C. Safety margin is amount by which a measured result exceeds a required boundary.
 - D. Falsification is evidence showing that a model or assumption fails a stated test.
 
-**Correct answer:** B
+**Correct answer:** A
 
-**Hint - exact player copy:** Read the axes, units, direction, and any threshold before comparing the choices.
+**Hint - exact player copy:** Identify the defining relationship or mechanism for model input. All needed information is in this question.
 
 **Option feedback - exact player copy:**
 
-- A: This describes Model input, not Holdout data. It does not account for the quantities, conditions, or evidence in this physics case.
-- B: Correct. holdout data are measurements hidden until a model and prediction are fixed.
-- C: This describes Safety margin, not Holdout data. It does not account for the quantities, conditions, or evidence in this physics case.
-- D: This describes Falsification, not Holdout data. It does not account for the quantities, conditions, or evidence in this physics case.
-### Review question 2
+- A: Correct. Model input is a measured or assumed quantity used to produce a prediction.
+- B: This describes holdout data. It does not answer the question about model input.
+- C: This describes safety margin. It does not answer the question about model input.
+- D: This describes falsification. It does not answer the question about model input.
 
-**Prompt - exact player copy:** Horizon Park receives a second case related to The Wrong Radius: compare residuals for the coaster's copied radius, the tower's measured release height, and the flume's measured depth. Which prediction or calculation correctly applies Model input to this case?
+### Review question 3
+
+
+**Prompt - exact player copy:** Which statement best explains safety margin?
 
 **Options - exact player copy:**
 
@@ -9054,19 +9160,21 @@ No additional prerequisite is required. These AP-style questions apply the missi
 - C. Model input is a measured or assumed quantity used to produce a prediction.
 - D. Falsification is evidence showing that a model or assumption fails a stated test.
 
-**Correct answer:** C
+**Correct answer:** B
 
-**Hint - exact player copy:** Use the stated evidence and the conditions for Model input; do not choose an option merely because it names a familiar term.
+**Hint - exact player copy:** Identify the defining relationship or mechanism for safety margin. All needed information is in this question.
 
 **Option feedback - exact player copy:**
 
-- A: This describes Holdout data, not Model input. It does not account for the quantities, conditions, or evidence in this physics case.
-- B: This describes Safety margin, not Model input. It does not account for the quantities, conditions, or evidence in this physics case.
-- C: Correct. model input is a measured or assumed quantity used to produce a prediction.
-- D: This describes Falsification, not Model input. It does not account for the quantities, conditions, or evidence in this physics case.
-### Review question 3
+- A: This describes holdout data. It does not answer the question about safety margin.
+- B: Correct. Safety margin is amount by which a measured result exceeds a required boundary.
+- C: This describes model input. It does not answer the question about safety margin.
+- D: This describes falsification. It does not answer the question about safety margin.
 
-**Prompt - exact player copy:** A teammate rechecks The Wrong Radius using new evidence: the physical crown radius is 7.4 m, not 5.6 m. Which prediction or calculation correctly applies Safety margin to this case?
+### Review question 4
+
+
+**Prompt - exact player copy:** Which statement best explains falsification?
 
 **Options - exact player copy:**
 
@@ -9075,80 +9183,65 @@ No additional prerequisite is required. These AP-style questions apply the missi
 - C. Falsification is evidence showing that a model or assumption fails a stated test.
 - D. Safety margin is amount by which a measured result exceeds a required boundary.
 
-**Correct answer:** D
+**Correct answer:** C
 
-**Hint - exact player copy:** Use the stated evidence and the conditions for Safety margin; do not choose an option merely because it names a familiar term.
+**Hint - exact player copy:** Identify the defining relationship or mechanism for falsification. All needed information is in this question.
 
 **Option feedback - exact player copy:**
 
-- A: This describes Holdout data, not Safety margin. It does not account for the quantities, conditions, or evidence in this physics case.
-- B: This describes Model input, not Safety margin. It does not account for the quantities, conditions, or evidence in this physics case.
-- C: This describes Falsification, not Safety margin. It does not account for the quantities, conditions, or evidence in this physics case.
-- D: Correct. safety margin is amount by which a measured result exceeds a required boundary.
-### Review question 4
+- A: This describes holdout data. It does not answer the question about falsification.
+- B: This describes model input. It does not answer the question about falsification.
+- C: Correct. Falsification is evidence showing that a model or assumption fails a stated test.
+- D: This describes safety margin. It does not answer the question about falsification.
 
-**Prompt - exact player copy:** An unseen case extends The Wrong Radius: fit the drawing-based model to the visible lift height, crown height, losses, and 5.6 m radius. Which prediction or calculation correctly applies Falsification to this case?
+### Review question 5
+
+
+**Prompt - exact player copy:** A model requires speed v=√(gr)+1.0 m/s at a loop crown. A calculation uses r=5.6 m, but the actual radius has not been measured. What limits the conclusion?
 
 **Options - exact player copy:**
 
-- A. Falsification is evidence showing that a model or assumption fails a stated test.
+- A. Holdout data are measurements hidden until a model and prediction are fixed.
+- B. Model input is a measured or assumed quantity used to produce a prediction.
+- C. Safety margin is amount by which a measured result exceeds a required boundary.
+- D. The calculated requirement is conditional on the assumed radius; the physical geometry must be checked before applying it.
+
+**Correct answer:** D
+
+**Hint - exact player copy:** Identify the defining relationship or mechanism for model validation. All needed information is in this question.
+
+**Option feedback - exact player copy:**
+
+- A: This describes holdout data. It does not answer the question about model validation.
+- B: This describes model input. It does not answer the question about model validation.
+- C: This describes safety margin. It does not answer the question about model validation.
+- D: Correct. The calculated requirement is conditional on the assumed radius; the physical geometry must be checked before applying it.
+
+### Review question 6
+
+
+**Prompt - exact player copy:** A loop's minimum contact speed is 8.52 m/s. A separate rule requires 1.00 m/s above that value. A train reaches 9.40 m/s. Does it meet both requirements?
+
+**Options - exact player copy:**
+
+- A. It exceeds the contact minimum but falls below the separate 9.52 m/s operating requirement.
 - B. Holdout data are measurements hidden until a model and prediction are fixed.
 - C. Model input is a measured or assumed quantity used to produce a prediction.
 - D. Safety margin is amount by which a measured result exceeds a required boundary.
 
 **Correct answer:** A
 
-**Hint - exact player copy:** Use the stated evidence and the conditions for Falsification; do not choose an option merely because it names a familiar term.
+**Hint - exact player copy:** Identify the defining relationship or mechanism for circular dynamics plus margin. All needed information is in this question.
 
 **Option feedback - exact player copy:**
 
-- A: Correct. falsification is evidence showing that a model or assumption fails a stated test.
-- B: This describes Holdout data, not Falsification. It does not account for the quantities, conditions, or evidence in this physics case.
-- C: This describes Model input, not Falsification. It does not account for the quantities, conditions, or evidence in this physics case.
-- D: This describes Safety margin, not Falsification. It does not account for the quantities, conditions, or evidence in this physics case.
-### Review question 5
+- A: Correct. It exceeds the contact minimum but falls below the separate 9.52 m/s operating requirement.
+- B: This describes holdout data. It does not answer the question about circular dynamics plus margin.
+- C: This describes model input. It does not answer the question about circular dynamics plus margin.
+- D: This describes safety margin. It does not answer the question about circular dynamics plus margin.
 
-**Prompt - exact player copy:** Before another Wrong Radius decision, the team knows this: fit the drawing-based model to the visible lift height, crown height, losses, and 5.6 m radius. Which prediction or calculation correctly applies Model validation to this case?
+**Optional review completion - exact player copy:** Good work. You have completed six independent practice questions.
 
-**Options - exact player copy:**
-
-- A. Holdout data are measurements hidden until a model and prediction are fixed.
-- B. The model uses √(gr)+1.0 m/s; its result is conditional on r=5.6 m.
-- C. Model input is a measured or assumed quantity used to produce a prediction.
-- D. Safety margin is amount by which a measured result exceeds a required boundary.
-
-**Correct answer:** B
-
-**Hint - exact player copy:** Use the stated evidence and the conditions for Model validation; do not choose an option merely because it names a familiar term.
-
-**Option feedback - exact player copy:**
-
-- A: This describes Holdout data, not Model validation. It does not account for the quantities, conditions, or evidence in this physics case.
-- B: Correct. the model uses √(gr)+1.0 m/s; its result is conditional on r=5.6 m.
-- C: This describes Model input, not Model validation. It does not account for the quantities, conditions, or evidence in this physics case.
-- D: This describes Safety margin, not Model validation. It does not account for the quantities, conditions, or evidence in this physics case.
-### Review question 6
-
-**Prompt - exact player copy:** Horizon Park applies the lesson from The Wrong Radius to this follow-up: the physical crown radius is 7.4 m, not 5.6 m. Which prediction or calculation correctly applies Circular dynamics plus margin to this case?
-
-**Options - exact player copy:**
-
-- A. Holdout data are measurements hidden until a model and prediction are fixed.
-- B. Model input is a measured or assumed quantity used to produce a prediction.
-- C. The train may retain contact above 8.52 m/s but does not meet the separate required margin.
-- D. Safety margin is amount by which a measured result exceeds a required boundary.
-
-**Correct answer:** C
-
-**Hint - exact player copy:** Use the stated evidence and the conditions for Circular dynamics plus margin; do not choose an option merely because it names a familiar term.
-
-**Option feedback - exact player copy:**
-
-- A: This describes Holdout data, not Circular dynamics plus margin. It does not account for the quantities, conditions, or evidence in this physics case.
-- B: This describes Model input, not Circular dynamics plus margin. It does not account for the quantities, conditions, or evidence in this physics case.
-- C: Correct. the train may retain contact above 8.52 m/s but does not meet the separate required margin.
-- D: This describes Safety margin, not Circular dynamics plus margin. It does not account for the quantities, conditions, or evidence in this physics case.
-**Optional review completion - exact player copy:** Excellent work. You went beyond the required mission and strengthened the ideas behind your decision.
 ## Quick concept review
 
 - Freeze a model before revealing holdout data.
@@ -9606,15 +9699,16 @@ The wheel turns above the lit midway. The ship swings within its posted timing r
 
 **Availability:** Reveal only after mission completion when the player selects **GO DEEPER**. This section is optional, ungraded for campaign progress, and does not change metrics, Recovery Points, or the next-mission unlock.
 
-**Secondary briefing card - exact player copy:** You completed The Name on the Certificate. Choose GO DEEPER to revisit the four decisions and explore related course ideas; this optional review does not change your metrics or delay the next mission.
+**Secondary briefing card - exact player copy:** Try six independent practice questions. Each includes its own context and any needed data; no mission records are required.
 
 ### Review focus
 
-No additional prerequisite is required. These AP-style questions apply the mission's course ideas to follow-up evidence, including related topics not required in the four main stops.
+No additional prerequisite is required. These practice questions review related course ideas. Each question stands alone, including its choices and figure.
 
 ### Review question 1
 
-**Prompt - exact player copy:** In a follow-up to The Name on the Certificate, read every final ride condition, inspection, threshold, and closure reason. Before the record can be signed, identify which claims have independent support and which must remain unverified. Which prediction or calculation correctly applies Binding condition to this case?
+
+**Prompt - exact player copy:** Which statement best explains binding condition?
 
 **Options - exact player copy:**
 
@@ -9625,17 +9719,19 @@ No additional prerequisite is required. These AP-style questions apply the missi
 
 **Correct answer:** B
 
-**Hint - exact player copy:** Use the stated evidence and the conditions for Binding condition; do not choose an option merely because it names a familiar term.
+**Hint - exact player copy:** Identify the defining relationship or mechanism for binding condition. All needed information is in this question.
 
 **Option feedback - exact player copy:**
 
-- A: This describes Robust decision, not Binding condition. It does not account for the quantities, conditions, or evidence in this physics case.
-- B: Correct. binding condition is a requirement that must pass for a decision to remain valid.
-- C: This describes Conditional approval, not Binding condition. It does not account for the quantities, conditions, or evidence in this physics case.
-- D: This describes Closure, not Binding condition. It does not account for the quantities, conditions, or evidence in this physics case.
+- A: This describes robust decision. It does not answer the question about binding condition.
+- B: Correct. Binding condition is a requirement that must pass for a decision to remain valid.
+- C: This describes conditional approval. It does not answer the question about binding condition.
+- D: This describes closure. It does not answer the question about binding condition.
+
 ### Review question 2
 
-**Prompt - exact player copy:** Horizon Park receives a second case related to The Name on the Certificate: move speed, time, wind, radius, force, flow, and power through their supported uncertainties. Test the conclusion across the supported uncertainty range now, before the team treats it as robust. Which prediction or calculation correctly applies Robust decision to this case?
+
+**Prompt - exact player copy:** Which statement best explains robust decision?
 
 **Options - exact player copy:**
 
@@ -9646,17 +9742,19 @@ No additional prerequisite is required. These AP-style questions apply the missi
 
 **Correct answer:** C
 
-**Hint - exact player copy:** Use the stated evidence and the conditions for Robust decision; do not choose an option merely because it names a familiar term.
+**Hint - exact player copy:** Identify the defining relationship or mechanism for robust decision. All needed information is in this question.
 
 **Option feedback - exact player copy:**
 
-- A: This describes Binding condition, not Robust decision. It does not account for the quantities, conditions, or evidence in this physics case.
-- B: This describes Conditional approval, not Robust decision. It does not account for the quantities, conditions, or evidence in this physics case.
-- C: Correct. robust decision is a decision that stays the same across the supported uncertainty range.
-- D: This describes Closure, not Robust decision. It does not account for the quantities, conditions, or evidence in this physics case.
+- A: This describes binding condition. It does not answer the question about robust decision.
+- B: This describes conditional approval. It does not answer the question about robust decision.
+- C: Correct. Robust decision is a decision that stays the same across the supported uncertainty range.
+- D: This describes closure. It does not answer the question about robust decision.
+
 ### Review question 3
 
-**Prompt - exact player copy:** A teammate rechecks The Name on the Certificate using new evidence: the Casebook still contains true observations beside rejected explanations. Match the evidence to the live explanations now so the investigation carries forward only supported claims. Which prediction or calculation correctly applies Conditional approval to this case?
+
+**Prompt - exact player copy:** Which statement best explains conditional approval?
 
 **Options - exact player copy:**
 
@@ -9667,17 +9765,19 @@ No additional prerequisite is required. These AP-style questions apply the missi
 
 **Correct answer:** D
 
-**Hint - exact player copy:** Use the stated evidence and the conditions for Conditional approval; do not choose an option merely because it names a familiar term.
+**Hint - exact player copy:** Identify the defining relationship or mechanism for conditional approval. All needed information is in this question.
 
 **Option feedback - exact player copy:**
 
-- A: This describes Binding condition, not Conditional approval. It does not account for the quantities, conditions, or evidence in this physics case.
-- B: This describes Robust decision, not Conditional approval. It does not account for the quantities, conditions, or evidence in this physics case.
-- C: This describes Closure, not Conditional approval. It does not account for the quantities, conditions, or evidence in this physics case.
-- D: Correct. conditional approval is permission to operate only while named limits and checks remain satisfied.
+- A: This describes binding condition. It does not answer the question about conditional approval.
+- B: This describes robust decision. It does not answer the question about conditional approval.
+- C: This describes closure. It does not answer the question about conditional approval.
+- D: Correct. Conditional approval is permission to operate only while named limits and checks remain satisfied.
+
 ### Review question 4
 
-**Prompt - exact player copy:** An unseen case extends The Name on the Certificate: read every final ride condition, inspection, threshold, and closure reason. Before the record can be signed, identify which claims have independent support and which must remain unverified. Which prediction or calculation correctly applies Closure to this case?
+
+**Prompt - exact player copy:** Which statement best explains closure?
 
 **Options - exact player copy:**
 
@@ -9688,57 +9788,63 @@ No additional prerequisite is required. These AP-style questions apply the missi
 
 **Correct answer:** A
 
-**Hint - exact player copy:** Use the stated evidence and the conditions for Closure; do not choose an option merely because it names a familiar term.
+**Hint - exact player copy:** Identify the defining relationship or mechanism for closure. All needed information is in this question.
 
 **Option feedback - exact player copy:**
 
-- A: Correct. closure is a defensible safety decision when a binding condition fails or remains unverified.
-- B: This describes Binding condition, not Closure. It does not account for the quantities, conditions, or evidence in this physics case.
-- C: This describes Robust decision, not Closure. It does not account for the quantities, conditions, or evidence in this physics case.
-- D: This describes Conditional approval, not Closure. It does not account for the quantities, conditions, or evidence in this physics case.
+- A: Correct. Closure is a defensible safety decision when a binding condition fails or remains unverified.
+- B: This describes binding condition. It does not answer the question about closure.
+- C: This describes robust decision. It does not answer the question about closure.
+- D: This describes conditional approval. It does not answer the question about closure.
+
 ### Review question 5
 
-**Prompt - exact player copy:** Before another Name on the Certificate decision, the team knows this: the Casebook still contains true observations beside rejected explanations. Match the evidence to the live explanations now so the investigation carries forward only supported claims. Which prediction or calculation correctly applies Evidence reconciliation to this case?
+
+**Prompt - exact player copy:** A new timestamp shows that an emergency stop preceded a equipment failure rather than followed it. How should the explanation change?
 
 **Options - exact player copy:**
 
 - A. Binding condition is a requirement that must pass for a decision to remain valid.
-- B. Fair twists change what evidence supports, not what physically happened.
+- B. Revise which causal claims the evidence supports while preserving the recorded events themselves.
 - C. Robust decision is a decision that stays the same across the supported uncertainty range.
 - D. Conditional approval is permission to operate only while named limits and checks remain satisfied.
 
 **Correct answer:** B
 
-**Hint - exact player copy:** Use the stated evidence and the conditions for Evidence reconciliation; do not choose an option merely because it names a familiar term.
+**Hint - exact player copy:** Identify the defining relationship or mechanism for evidence reconciliation. All needed information is in this question.
 
 **Option feedback - exact player copy:**
 
-- A: This describes Binding condition, not Evidence reconciliation. It does not account for the quantities, conditions, or evidence in this physics case.
-- B: Correct. fair twists change what evidence supports, not what physically happened.
-- C: This describes Robust decision, not Evidence reconciliation. It does not account for the quantities, conditions, or evidence in this physics case.
-- D: This describes Conditional approval, not Evidence reconciliation. It does not account for the quantities, conditions, or evidence in this physics case.
+- A: This describes binding condition. It does not answer the question about evidence reconciliation.
+- B: Correct. Revise which causal claims the evidence supports while preserving the recorded events themselves.
+- C: This describes robust decision. It does not answer the question about evidence reconciliation.
+- D: This describes conditional approval. It does not answer the question about evidence reconciliation.
+
 ### Review question 6
 
-**Prompt - exact player copy:** Horizon Park applies the lesson from The Name on the Certificate to this follow-up: move speed, time, wind, radius, force, flow, and power through their supported uncertainties. Test the conclusion across the supported uncertainty range now, before the team treats it as robust. Which prediction or calculation correctly applies Robustness to this case?
+
+**Prompt - exact player copy:** One design fails its required margin for every plausible measurement value. Two other designs pass all their limits across the same uncertainty analysis. Which decision is supported?
 
 **Options - exact player copy:**
 
 - A. Binding condition is a requirement that must pass for a decision to remain valid.
 - B. Robust decision is a decision that stays the same across the supported uncertainty range.
-- C. The coaster margin remains negative, while the other decisions retain their named limits.
+- C. Reject the consistently failing design and retain approval of the two passing designs only within their tested conditions.
 - D. Conditional approval is permission to operate only while named limits and checks remain satisfied.
 
 **Correct answer:** C
 
-**Hint - exact player copy:** Use the stated evidence and the conditions for Robustness; do not choose an option merely because it names a familiar term.
+**Hint - exact player copy:** Identify the defining relationship or mechanism for robustness. All needed information is in this question.
 
 **Option feedback - exact player copy:**
 
-- A: This describes Binding condition, not Robustness. It does not account for the quantities, conditions, or evidence in this physics case.
-- B: This describes Robust decision, not Robustness. It does not account for the quantities, conditions, or evidence in this physics case.
-- C: Correct. the coaster margin remains negative, while the other decisions retain their named limits.
-- D: This describes Conditional approval, not Robustness. It does not account for the quantities, conditions, or evidence in this physics case.
-**Optional review completion - exact player copy:** Excellent work. You went beyond the required mission and strengthened the ideas behind your decision.
+- A: This describes binding condition. It does not answer the question about robustness.
+- B: This describes robust decision. It does not answer the question about robustness.
+- C: Correct. Reject the consistently failing design and retain approval of the two passing designs only within their tested conditions.
+- D: This describes conditional approval. It does not answer the question about robustness.
+
+**Optional review completion - exact player copy:** Good work. You have completed six independent practice questions.
+
 ## Quick concept review
 
 - Choose the model that matches the system and interval.
