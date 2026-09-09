@@ -23,6 +23,7 @@ import {
 import { mat } from '../../engine/world/materials.js';
 import { driveable } from '../../engine/world/driving.js';
 import { animate, spin, sway, bob } from '../../engine/world/animators.js';
+import { storyOutdoors } from './story.js';
 
 // ---------------------------------------------------------------- the island
 //
@@ -133,6 +134,9 @@ export function decorate(scene, ctx){
   flock(scene, ctx);
   oldLight(scene, ctx);
   tipYard(scene, ctx);
+  // The bible's changing world — aftermaths, the three landmark spaces, the
+  // second ferry — and the alive layer. Last, so it can read what is here.
+  storyOutdoors(scene, ctx);
 }
 
 // ------------------------------------------------------------------- the quay

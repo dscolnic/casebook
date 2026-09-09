@@ -23,6 +23,7 @@ import { INTERIORS } from './interiors.js';
 import { FIXTURES } from './fixtures.js';
 import { MINOR_INTERIORS } from './minors.js';
 import { decorate, fitOutRoom, fitOutSpine } from './props.js';
+import { dressRoom } from './story.js';
 import metrics from './metrics.js';
 import { OPENING, ENDING } from './cards.js';
 
@@ -204,6 +205,9 @@ export default {
   // Theme hooks. `decorate` is called by the outdoor world, the two fit-out
   // hooks by the interior one; the unused ones are ignored.
   decorate,
+  // The fifteen physical aftermaths on their Home fixtures, and the Befores that
+  // stand at the next one. See story.js and ../fpl_gpt/SAFETY.md §7.1.
+  dressRoom,
   fitOutRoom,
   fitOutSpine,
 };

@@ -34,6 +34,8 @@ import { animate, sway, flicker, patrol } from '../../engine/world/animators.js'
 // is the same arithmetic the board in the Drop Tower prints, so the park and the
 // board can never disagree about which rides are signed.
 import { deliveryPieces } from '../../engine/core/delivery.js';
+// The bible's story layer — the fifteen aftermaths, the landmarks, the finale.
+import { storyOutdoors } from './story.js';
 
 const PI = Math.PI;
 
@@ -101,7 +103,16 @@ const RIDE_DAY = {
   BUMPER: 6,
   SHIP: 7,
   WHEEL: 8,
-  COASTER: 9,
+  // THE COASTER NEVER RUNS IN THIS CAMPAIGN. The mapping above was derived for
+  // the first Safety Factor, whose day 9 regraded the loop and signed it. The
+  // v2 bible (../fpl_gpt/SAFETY.md) closes it: mission 14 hangs `CLOSED: 9.40
+  // M/S AVAILABLE / 9.52 M/S REQUIRED` on the release, §7.1 says "Keep coaster
+  // CLOSED", and the ending card has "the coaster gate stays shut beneath its
+  // measured closure card". A train circling a loop the certificate refuses
+  // would contradict the one red verdict the whole campaign is built toward, so
+  // the train stays parked in the station all fifteen days. story.js carries
+  // the card.
+  COASTER: Infinity,
   FLUME: 11,
   TOWER: 12,
 };
@@ -1244,6 +1255,13 @@ export function decorate(scene, ctx){
     flume.spill.visible = certified.FLUME;
     for(const t of tarps) t.mesh.visible = !(t.ride && certified[t.ride]);
   });
+
+  // ------------------------------------------------------- the story layer
+  // Everything the bible says changes as the missions are accepted — the status
+  // board, the operating cards and their lights, the arm-nine barricade, the
+  // three landmarks, the gate opening on the crowd — plus the living extras.
+  // Last, so its state hooks run after the one above and can read `certified`.
+  storyOutdoors(scene, { ...ctx, certified });
 }
 
 /** Fit out one room. Unused: this theme's rooms come from the outdoor world. */

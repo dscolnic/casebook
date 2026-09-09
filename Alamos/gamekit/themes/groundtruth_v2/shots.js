@@ -75,6 +75,28 @@ export const VIEWS = [
     note: 'what two hundred metres looks like from the other end of it' },
   { name: 'launch-control', at: { x: -17, z: 44 }, yaw: 0,
     note: 'radar on one screen, four mills on the other, and the season board' },
+
+  // ---- the story layer (story.js). All day-1 states, for the reason above.
+  { name: 'the-season-header', at: { x: 8, z: 50 }, yaw: 0,
+    note: 'the board off the spawn with the bible\'s mission header on it: "MISSION 1 - 15 DAYS '
+      + 'UNTIL THE LAST STORM WINDOW CLOSES." One fewer each day; MISSION 15 COMPLETE at the end' },
+  { name: 'the-storm-gallery', at: { x: 24, z: 47 }, yaw: 270,
+    note: 'the landmark east of the crew shelter, from its open side: a roofed room whose whole '
+      + 'north face is a thick pane looking down the flat at the mast, the glass-side display on '
+      + 'the east wall dark until the mission-14 shot trace' },
+  { name: 'through-the-gallery-glass', at: { x: 32, z: 47.2 }, yaw: 0,
+    note: 'standing at the bench inside, looking through the pane at the mast — the sheltered '
+      + 'view the final shot is witnessed from in §8.1' },
+  { name: 'the-season-wall', at: { x: -30, z: 49 }, yaw: 0,
+    note: 'the free-standing wall west of the spawn: the damaged outstation photo framed and '
+      + 'captioned, the empty frame beside it that the signed last page fills after Stop 60, and '
+      + 'the space the bagged-card photo joins after Stop 32' },
+  { name: 'stage-lamps-over-the-hall-door', at: { x: 34, z: 30 }, yaw: 0,
+    note: 'the twelve stage lamps in a strip under the Impulse Hall parapet: dark on day 1, '
+      + 'charging in a sweep from mission 6, steady for the final shot' },
+  { name: 'the-wind-sock', at: { x: -4, z: 66 }, yaw: 270,
+    note: 'hard over on the sea wind by the spawn, with the mast-tip corona a faint violet '
+      + 'point sixty metres up behind it if the frame holds it' },
 ];
 
 export default VIEWS;

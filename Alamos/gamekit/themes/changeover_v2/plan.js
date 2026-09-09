@@ -82,9 +82,11 @@ export const FLOORS = [
     id: 0, label: '45', name: 'Counter floor',
     rooms: [
       { id: 'COUNTER', side: 'w', z0: Z0,  z1: 0.4, name: 'Counter Room',    kind: 'station',  group: 'COUNTER', door: 'wide' },
-      { id: 'CASHIER', side: 'w', z0: 4.8, z1: Z1,  name: "Cashiers' Room",  kind: 'quiet' },
+      // The bible's three landmark-only spaces (§3) are these three rooms, named
+      // for what the bible calls them; story.js dresses them. See minors.js.
+      { id: 'CASHIER', side: 'w', z0: 4.8, z1: Z1,  name: "Clerks' Break Room", kind: 'quiet' },
       { id: 'NOTES',   side: 'e', z0: Z0,  z1: 1.0, name: 'Note Room',       kind: 'workroom', group: 'NOTES', door: 'wide' },
-      { id: 'STRONG',  side: 'e', z0: 1.0, z1: Z1,  name: 'Strongroom',      kind: 'supply' },
+      { id: 'STRONG',  side: 'e', z0: 1.0, z1: Z1,  name: 'Cash Loading Bay', kind: 'supply' },
     ],
     seats: [[-6.4, 8.0, Math.PI / 2], [-6.4, 9.6, Math.PI / 2], [-9.2, 8.8, -Math.PI / 2]],
     spots: { spine: [[-1.4, -9], [1.4, -4], [-1.4, 2], [1.4, 7], [-1.4, 12]], open: [[5.6, 6.0], [-5.6, 10.0]] },
@@ -120,7 +122,7 @@ export const FLOORS = [
       // Open to the corridor: the one room on the four floors with nothing
       // between the door and the glass, which is where people stand when a
       // number they have been arguing about all morning finally lands.
-      { id: 'LOOKOUT', side: 'e', z0: 1.0, z1: Z1,  name: 'Observation Room', kind: 'reception', open: true },
+      { id: 'LOOKOUT', side: 'e', z0: 1.0, z1: Z1,  name: 'Street Balcony',  kind: 'reception', open: true },
     ],
     seats: [[-6.4, 8.4, Math.PI / 2], [-6.4, 10.0, Math.PI / 2], [-9.2, 9.2, -Math.PI / 2]],
     spots: { spine: [[1.4, -9], [-1.4, -4], [1.4, 2], [-1.4, 7], [1.4, 12]], open: [[6.4, 6.0], [6.4, 10.0]] },
@@ -140,7 +142,10 @@ export const FLOORS = [
   {
     id: 4, label: '49', name: 'Statistics floor',
     rooms: [
-      { id: 'STATS',    side: 'w', z0: Z0,  z1: 0.4, name: 'Statistics Floor',  kind: 'lab',      door: 'wide' },
+      // `group:` on both, or the 29 stops in these two areas have nowhere to
+      // happen: `stopMeshes` is keyed by a room's group, and worldParity was red
+      // on exactly these two for as long as the floors existed.
+      { id: 'STATS',    side: 'w', z0: Z0,  z1: 0.4, name: 'Statistics Floor',  kind: 'lab',      group: 'STATS',  door: 'wide' },
       { id: 'BASKET',   side: 'w', z0: 4.8, z1: Z1,  name: 'Basket Room',       kind: 'workroom' },
       { id: 'ACCOUNTS', side: 'e', z0: Z0,  z1: 1.0, name: 'Accounts Desk',     kind: 'station' },
       { id: 'REVISION', side: 'e', z0: 1.0, z1: Z1,  name: 'Revisions Room',    kind: 'workroom' },
@@ -151,7 +156,7 @@ export const FLOORS = [
   {
     id: 5, label: '50', name: 'Open-economy floor',
     rooms: [
-      { id: 'OPENEC',   side: 'w', z0: Z0,  z1: 0.4, name: 'Open-Economy Floor', kind: 'lab',     door: 'wide' },
+      { id: 'OPENEC',   side: 'w', z0: Z0,  z1: 0.4, name: 'Open-Economy Floor', kind: 'lab',     group: 'OPENEC', door: 'wide' },
       { id: 'WIRES',    side: 'w', z0: 4.8, z1: Z1,  name: 'Wire Terminus',      kind: 'workroom' },
       { id: 'CUSTOMS',  side: 'e', z0: Z0,  z1: 1.0, name: 'Customs Desk',       kind: 'station' },
       { id: 'SHIPPING', side: 'e', z0: 1.0, z1: Z1,  name: 'Shipping Room',      kind: 'workroom' },
@@ -172,7 +177,7 @@ export const plan = {
   // footprints, every partition and every notice coincident with three others,
   // and no lift, because the one-floor builder does not know about one. It
   // rendered, and it looked like a glitching corridor with no way up.
-  world: 'themes/changeover/world.js',
+  world: 'themes/changeover_v2/world.js',
   metrics: METRICS,
   rise: RISE,
   floors: FLOORS,
@@ -211,7 +216,7 @@ export const plan = {
     // `west` and `east` are what is on each side of the corridor at that point,
     // and the sign puts them on the correct hand for whichever way you are
     // walking. The first one is the whole reason a player can find the lift.
-    { z: LIFT.z1 + 1.4, west: 'Lift · floors 45–50', east: 'Strongroom' },
+    { z: LIFT.z1 + 1.4, west: 'Lift · floors 45–50', east: 'Cash loading bay' },
     { z: Z0 + 3.2, west: 'Counter room', east: 'Note room' },
   ],
   // Fallback for anything that asks the plan rather than a floor.

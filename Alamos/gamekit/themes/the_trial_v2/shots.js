@@ -78,6 +78,30 @@ const CURATED = [
   { name: 'master-file', at: { x: 2.6, z: 74.0 }, yaw: E,
     note: 'the trial master file behind its cage — the gate should line up with the door '
       + 'and the shelving should all be on the far side of the mesh' },
+
+  // ---------------------------------------------------------------- the story
+  { name: 'site-wall', at: { x: 0.8, z: 47.6 }, yaw: W,
+    note: 'THE SITE WALL, story.js: 31 hospital cards in four rows on a dark board, a lamp '
+      + 'on each, the mission header on the panel above. On day 1 every lamp is green and '
+      + 'every card reads "enrolling"; nothing from the corridor kit hung over it' },
+  { name: 'board-antechamber', at: { x: 0.6, z: 77.6 }, yaw: W,
+    note: 'seven empty coat hooks on a rail north of the board room door, two dark lamps '
+      + 'above them, the landmark card between; the plant south of the door. Coats and '
+      + 'lit lamps only from mission 14' },
+  { name: 'evidence-cabinet', at: { x: 3.2, z: 77.4 }, yaw: N,
+    note: 'the evidence cabinet against the master file\'s far wall, outside the cage, its '
+      + 'door standing open into the room until mission 11; the small table in front of it. '
+      + 'Neither may block the cage gate' },
+  { name: 'courier-bay', at: { x: 6.5, z: -3.4 }, yaw: N,
+    note: 'Goods In: the courier bay shelves on the north wall with sealed cases on three '
+      + 'shelves and the landmark card above. QUARANTINED appears from mission 8' },
+  { name: 'visitor-alcove', at: { x: -4.6, z: -0.6 }, yaw: N,
+    note: 'Screening: the bench against the corridor wall with the travel bag on it, the '
+      + 'visitor badge clipped beside it, the landmark card above. Dr. Holt stands here on '
+      + 'missions 4 and 5 only' },
+  { name: 'end-window-rain', at: { x: 0, z: 78.0 }, yaw: N,
+    note: 'the unblinded floor\'s north end: a framed pane across the corridor with rain '
+      + 'streaking down it. It must read as a window, not a lit rectangle' },
 ];
 
 /**

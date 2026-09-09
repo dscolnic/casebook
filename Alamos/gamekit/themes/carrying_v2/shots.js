@@ -56,6 +56,28 @@ export const VIEWS = [
     note: 'past the station to open water — nothing should be on this horizon' },
   { name: 'the-south-coast', at: { x: 40, z: 92 }, yaw: S,
     note: 'the south-east bearing: the mainland smudge the ferry comes from' },
+  // The story layer — see story.js. Missions accepted decide what is here.
+  { name: 'the-island-board-header', at: { x: 19, z: 74 }, yaw: N,
+    note: 'the header post beside the Island Board: "MISSION n - … DAYS UNTIL THE VOTE." '
+      + 'readable from the apron, and the puddles on the apron while it drizzles' },
+  { name: 'the-quay-walk', at: { x: -6, z: 112 }, yaw: S,
+    note: 'down the Quay Walk to the limit board and the piles of the unfinished second '
+      + 'berth. Before mission 12 the board is blank and there is no fence; from 12 a fenced '
+      + 'frame; on the win a deck, four posted limits and the second ferry alongside' },
+  { name: 'the-second-berth', at: { x: -6, z: 121 }, yaw: S,
+    note: 'over the rail at the berth: piles in the water, the frame beams from mission 12, '
+      + 'and on the win the second ferry bow-in with its ramp down on the deck' },
+  { name: 'the-net-shed', at: { x: 36, z: 100 }, yaw: S,
+    note: 'into the open front of the Net Shed: chalk tallies on the back board, nets hanging '
+      + 'west, and from mission 5 the effort-limit card pinned beside them' },
+  { name: 'the-school-porch', at: { x: 49, z: 9 }, yaw: S,
+    note: 'the north door of the school: six small boots west of it, the water hatch east of '
+      + 'it closed until mission 8 and open after, the cups out of their box, the bell post' },
+  { name: 'the-washing-line', at: { x: 66, z: 44 }, yaw: N,
+    note: 'behind the school: six things on the line, all of them moving' },
+  { name: 'the-gulls', at: { x: 18, z: 118 }, yaw: S,
+    note: 'the quay from its root: gulls on the coping that lift and circle the harbour when '
+      + 'the player arrives here, and the working boat on its loop off the head' },
 ];
 
 export default VIEWS;

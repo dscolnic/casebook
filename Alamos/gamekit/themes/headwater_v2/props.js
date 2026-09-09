@@ -20,6 +20,9 @@ import * as THREE from 'three';
 import { furnishRoom, furnishCorridor, furnishingMaterials, markWallMounted, markStructure }
   from '../../engine/world/interiorKit.js';
 import { scrollUV } from '../../engine/world/animators.js';
+// The story layer: the bible's fifteen physical aftermaths, the three landmark
+// spaces and the finale, keyed to the campaign through world.js's state hook.
+import { dressRoom, storySpine, storyExtras } from './story.js';
 
 // ---------------------------------------------------------------- textures
 //
@@ -464,6 +467,15 @@ export function decorate(scene, ctx){
   const bays = Math.ceil(ZLEN / BAY);
   const scrolls = [];              // every texture that has to be slid, and how fast
 
+  // THE TWO GATED BAYS ARE DRY UNTIL THE RELEASE. The bible has the hoist
+  // resting "at its baseline mark above a dry spillway" on day 7 and water
+  // moving only in the graded staged operation of the last mission; the seven
+  // ungated bays are the free overflow crest and run all fortnight. Every mesh
+  // that is water in a gated bay is collected here and handed to story.js, which
+  // hides it until the gates open and shows it as they rise.
+  const GATED_Z0 = [64, 90];
+  const gated = new Map(GATED_Z0.map(z => [z, { z0: z, cz: z + BAY / 2, water: [], leaf: null, lugs: [] }]));
+
   for(let i = 0; i < bays; i++){
     const z0 = Z0 + i * BAY, cz = z0 + BAY / 2;
     const w = BAY - PIER;
@@ -474,6 +486,10 @@ export function decorate(scene, ctx){
 
     // The lip the water leaves from.
     put(15, 3.2, w, FALL_X - 0.6, HEAD + 1.6, cz, M.rock);
+    const G = gated.get(z0) ?? null;
+    // A gated bay has a face to be dry: wet concrete down the chute, behind the
+    // water when it runs and the only thing there when it does not.
+    if(G) put(1.2, HEAD - POOL + 6, w, FALL_X + 2.4, (HEAD + POOL) / 2, cz, M.deck);
 
     // Two opaque sheets. **Water is opaque**: the first version stacked five
     // translucent sheets, twenty-two translucent streaks and seven mist veils,
@@ -489,7 +505,7 @@ export function decorate(scene, ctx){
     const back = M.sheet.clone();
     back.transparent = false; back.opacity = 1;
     back.color.setHex(0x8fb3c2); back.emissive.setHex(0x4e7c8a); back.emissiveIntensity = 0.35;
-    put(2.4, HEAD - POOL + 6, w, FALL_X + 0.8, (HEAD + POOL) / 2, cz, back);
+    G?.water.push(put(2.4, HEAD - POOL + 6, w, FALL_X + 0.8, (HEAD + POOL) / 2, cz, back));
 
     // The front sheet carries the moving water itself: a tile of vertical
     // streaks, wrapped, scrolled downward. The map is on `emissiveMap` as well
@@ -511,7 +527,7 @@ export function decorate(scene, ctx){
     front.emissiveMap = frontTex;
     front.needsUpdate = true;
     scrolls.push([frontTex, 0.62]);
-    put(1.6, HEAD - POOL + 4, w - 1.6, FALL_X - 1.4, (HEAD + POOL) / 2 - 1, cz, front);
+    G?.water.push(put(1.6, HEAD - POOL + 4, w - 1.6, FALL_X - 1.4, (HEAD + POOL) / 2 - 1, cz, front));
 
     // And a second, faster, thinner veil in front of everything else — the spray
     // that peels off the face of a fall and runs ahead of it. Transparent, so it
@@ -527,7 +543,7 @@ export function decorate(scene, ctx){
     veil.emissiveMap = veilTex;
     veil.needsUpdate = true;
     scrolls.push([veilTex, 1.55]);
-    put(0.3, HEAD - POOL, w - 2.4, FALL_X - 3.6, (HEAD + POOL) / 2 - 2, cz, veil);
+    G?.water.push(put(0.3, HEAD - POOL, w - 2.4, FALL_X - 3.6, (HEAD + POOL) / 2 - 2, cz, veil));
 
     // The boil where this bay hits the pool: its own pad, on its own phase, so
     // the foot of the fall churns unevenly the way it actually does. One band
@@ -535,6 +551,7 @@ export function decorate(scene, ctx){
     const boil = M.spray.clone();
     boil.opacity = 0.16;
     const boilMesh = put(11, 2.6, w - 1.0, FALL_X - 2.2, POOL + 2.2, cz, boil);
+    G?.water.push(boilMesh);
     (ctx.__boils ??= []).push({ mat: boil, mesh: boilMesh, y0: boilMesh.position.y,
       phase: i * 1.7 + 0.4 });
 
@@ -553,6 +570,7 @@ export function decorate(scene, ctx){
       // thing above the sheets behind them — so the four shades stay four.
       mat.emissiveIntensity = 0.75 + ((k + i) % 3) * 0.45;
       const streak = put(0.5, h, 0.42 + ((k * 7) % 9) / 12, FALL_X - 2.5, HEAD - h / 2 + 2, z, mat);
+      G?.water.push(streak);
       ctx.__streaks.push({ m: streak, mat, base: mat.emissiveIntensity, y0: streak.position.y, phase: k * 0.7 + i * 1.3 });
     }
 
@@ -561,7 +579,7 @@ export function decorate(scene, ctx){
     // *inside* the building, over every window.
     const mist = M.spray.clone();
     mist.opacity = 0.13;
-    put(7, 16, w, FALL_X - 4.5, POOL + 10, cz, mist);
+    G?.water.push(put(7, 16, w, FALL_X - 4.5, POOL + 10, cz, mist));
     (ctx.__mists ??= []).push({ mat: mist, phase: i * 0.9 });
   }
 
@@ -712,10 +730,14 @@ export function decorate(scene, ctx){
     for(const s of [-1, 1]){
       put(0.12, 4.2, 0.12, FALL_X + 1.5, CREST_Y + 5.2, gcz + s * 4.6, M.steel);
     }
-    // The leaf itself, hoisted clear of the sill with the water running under it.
-    put(0.7, 6.0, BAY - PIER - 1.2, FALL_X - 0.4, CREST_Y + 3.6, gcz, M.gate);
+    // The leaf itself. Built hoisted; story.js seats it on the sill until the
+    // release and lifts it, in signed order, when the last mission is accepted.
+    const G = gated.get(gz0);
+    const leaf = put(0.7, 6.0, BAY - PIER - 1.2, FALL_X - 0.4, CREST_Y + 3.6, gcz, M.gate);
+    if(G) G.leaf = leaf;
     for(const s of [-1, 1]){
-      put(0.9, 0.5, 0.5, FALL_X - 0.4, CREST_Y + 6.4, gcz + s * 5.2, M.gate);
+      const lug = put(0.9, 0.5, 0.5, FALL_X - 0.4, CREST_Y + 6.4, gcz + s * 5.2, M.gate);
+      G?.lugs.push(lug);
     }
   }
 
@@ -746,7 +768,11 @@ export function decorate(scene, ctx){
   markStructure([dome], 'sky');
   scene.add(dome);
 
-  void ctx;
+  // ---- the story, outside the glass: the gated bays and their release, the
+  // level gauge on the pier, the valley below the dam, the crest access gate,
+  // and the weather closing in. See story.js.
+  storyExtras(scene, { ...ctx, put, materials: M, gated: [...gated.values()],
+    geom: { Z0, Z1, ZMID, ZLEN, GLASS_X, FALL_X, ROCK_X, HEAD, POOL, BAY, PIER, CREST_Y, WALK_X } });
 }
 
 
@@ -868,6 +894,9 @@ export function fitOutRoom(room, ctx){
     ],
     target: seated ? 11 : 15,
   });
+
+  // The bible's aftermaths at their home fixtures, and the shift kitchen.
+  dressRoom(room.id, room, ctx);
 }
 
 /**
@@ -951,4 +980,8 @@ export function fitOutSpine(ctx){
         body: 'Engineer, mechanic and one of the operations staff. Nights are two.' },
     ],
   });
+
+  // Rain on this level's glass, the storm board, the valley lookout and the
+  // crest rail — whichever of them this level carries.
+  storySpine(ctx);
 }

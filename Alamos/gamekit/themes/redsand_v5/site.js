@@ -200,6 +200,13 @@ export const site = {
     { id: 'ASSAY', enter: 'ASSAY', name: 'Assay Lab', sub: 'Nothing is signed for until it has been measured here',
       x: -54, z: -14, w: 15, d: 11, h: 5.0, facing: 0, colour: 0x94897a },
 
+    // §3's `suit-locker`, the second of the three landmark-only spaces (the
+    // habitat mess is the HAB room above; the pad walk is outdoors). Behind the
+    // spawn, off the habitat spur, door toward it; nothing within twenty metres of
+    // the spawn point. story.js dresses it.
+    { id: 'LOCKER', enter: 'LOCKER', name: 'Suit Locker', sub: 'Empty boots line up under crew names',
+      x: -30, z: 62, w: 12, d: 9, h: 4.4, facing: PI, colour: 0x9a948a },
+
     { id: 'CUT', enter: 'CUT', name: 'The Ice Cut', sub: 'Where the water is dug',
       x: -96, z: -272, w: 18, d: 12, h: 4.4, facing: 0, colour: 0x9d9a8f },
   ],

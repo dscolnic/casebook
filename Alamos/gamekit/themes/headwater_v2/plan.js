@@ -102,14 +102,19 @@ export const LEVELS = [
     spine: { z0: 104, z1: 122 },
     stairUp: null,
     rooms: [
-      { id: 'ARCHIVE', side: 'w', z0: 105, z1: 112, name: 'Records & Rating Curves', kind: 'supply' },
+      // The Forecast Archive is a group in content/groups.js — missions 3, 6, 8, 11,
+      // 13, 14 and 15 send the player here — and for as long as this room carried
+      // no `group` those stops had nowhere to happen and worldParity said so.
+      { id: 'ARCHIVE', side: 'w', z0: 105, z1: 112, name: 'Forecast Archive', kind: 'supply', group: 'ARCHIVE', door: 'wide' },
       { id: 'BRIEF', side: 'w', z0: 112, z1: 121, name: 'Briefing Room', kind: 'quiet' },
     ],
   },
 ];
 
 export const plan = {
-  world: 'themes/headwater/world.js',
+  // The theme's own shim: the engine's levels world plus the campaign-state hook
+  // story.js hangs the fifteen aftermaths on. See world.js.
+  world: 'themes/headwater_v2/world.js',
   metrics: METRICS,
   rise: LEVEL_RISE,
   levels: LEVELS,
@@ -159,9 +164,11 @@ export const plan = {
       [1.6, 24], [-1.6, 29], [1.6, 35], [-1.6, 40],
       [1.6, 50], [-1.6, 56], [1.6, 62], [-1.6, 68],
       [1.6, 80], [-1.6, 86], [1.6, 92], [-1.6, 97],
-      [1.6, 107], [-1.6, 113], [1.6, 119],
+      // Nothing past z = 118 on the lookout: the crest access gate stands there
+      // (story.js), latched until the last mission.
+      [1.6, 107], [-1.6, 113], [1.6, 115.5],
     ],
-    open: [[1.9, 52], [1.9, 64], [1.9, 110], [1.9, 118]],
+    open: [[1.9, 52], [1.9, 64], [1.9, 110], [1.9, 114.5]],
   },
   anchors: {
     base:  [[1.9, 52], [1.9, 64], [-1.6, 56], [1.6, 62]],

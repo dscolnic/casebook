@@ -70,6 +70,36 @@ export const VIEWS = [
   { name: 'the-valley-road', at: { x: 200, z: 340 }, yaw: S,
     note: 'the switchbacks and the headlights coming up them; nothing on this '
       + 'horizon but the far ranges and the sky reaching down to them' },
+
+  // ------------------------------------------------------ the story layer
+  // story.js: the world changing mission by mission. Run with `--day 15` (or
+  // a won save) for the convoy, the open shutter and the tracking dish.
+  { name: 'mission-header', at: { x: 12, z: 60 }, yaw: N,
+    note: 'the header board beside the road at the spawn — the bible\'s own line, '
+      + 'MISSION n - h HOURS TO THE PREDICTED ENCOUNTER, under its red hood lamp' },
+
+  { name: 'dome-catwalk', at: { x: -118, z: 50 }, yaw: N,
+    note: 'the disused dome on its plinth, the railed deck south of it and the '
+      + 'shutter leaves — a slit of sky until mission 15, then open with the '
+      + 'dome\'s red working light inside' },
+
+  { name: 'ridge-terrace', at: { x: 40, z: 164 }, yaw: S,
+    note: 'the terrace at the boundary: the rail along the drop, two benches, '
+      + 'the binoculars, the sign — and the town a kilometre and a half below. '
+      + 'From mission 12 amber beacons wave across it; once won, marked buses leave' },
+
+  { name: 'night-kitchen', at: { x: -33.5, z: 115 }, yaw: N,
+    note: 'the porch on the west end of the Night Crew Quarters under its one '
+      + 'warm lamp: cold cups, the untouched meal, the dawn clock, the radio — '
+      + 'and from mission 11 the closed Aegis binder by the cup' },
+
+  { name: 'the-generator', at: { x: -80, z: 92 }, yaw: N,
+    note: 'the running set outside the fuel bund, its amber inspection lamp '
+      + 'shimmering at the engine\'s own frequency, exhaust off the stack' },
+
+  { name: 'the-dish-parked', at: { x: -965, z: 400 }, yaw: N,
+    note: 'the radar stowed at zenith on any night but 7 and 14 — compare with '
+      + '"the-radar", which is the same view on an echo night, dish down and sweeping' },
 ];
 
 export default VIEWS;

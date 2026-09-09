@@ -26,6 +26,13 @@ export const MINOR_INTERIORS = {
       { label: 'Record window', value: '1 µs', status: 'high' },
     ] },
   },
+  // The bible's `crew-shelter` landmark (§3), in its own words: the Before and
+  // the Visible change. No station panel — story.js dresses the room with the
+  // helmets, the locker and the crew-clear board, keyed to the firing days.
+  SHELTER: {
+    caption: 'Named helmets hang beside the crew-clear board.',
+    standLine: 'For each authorized firing, the helmets are stored inside and the crew-clear lamps must pass before the shot.',
+  },
   ROCKETS: {
     caption: 'Two-metre rockets, spools of fine wire and igniters, counted out before a shot '
       + 'and counted back after it.',

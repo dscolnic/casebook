@@ -61,7 +61,7 @@ export const FIXTURES = {
     // `lab-bench`, not `tip-lab-bench`: days 8 and 13 point their `at:` here by
     // that id, and a stop pointed at a fixture the area does not declare lands
     // the player back at the stand with no sign the placement was dropped.
-    { id: 'lab-bench', name: 'Pollutant cards', build: 'bench', wall: 'left', along: -0.45,
+    { id: 'tip-lab-bench', name: 'Pollutant cards', build: 'bench', wall: 'left', along: -0.45,
       caption: "Pollutant cards, alarm logs, fuel samples, and a hood-scorched notebook occupy the small yard laboratory." },
   ],
   SCHOOL: [

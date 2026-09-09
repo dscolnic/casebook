@@ -24,6 +24,8 @@ import { FIXTURES } from './fixtures.js';
 import { decorate, fitOutRoom, fitOutSpine } from './props.js';
 import metrics from './metrics.js';
 import { OPENING, ENDING } from './cards.js';
+// The three landmark-only spaces of §3, named and captioned. story.js dresses them.
+import { MINOR_INTERIORS, MINOR_COPY } from './minors.js';
 
 export default {
   // AP Macroeconomics is usually grade 11-12.
@@ -86,7 +88,8 @@ export default {
   // See STOPS_IN_ORDER in engine/core/constants.js.
   stopOrder: 'sequential',
 
-  content: { GROUPS, MISSIONS, CURRICULUM, BALLPARK_CALCS, JARGON, ROSTER, LEADERS, AVATARS, COPY, WARMUPS },
+  // The landmark rooms' doors read the bible's own `Before` line — see minors.js.
+  content: { GROUPS, MISSIONS, CURRICULUM, BALLPARK_CALCS, JARGON, ROSTER, LEADERS, AVATARS, COPY: { ...COPY, ...MINOR_COPY }, WARMUPS },
 
   people: {
     OUTFITS,
@@ -105,7 +108,7 @@ export default {
   // What is inside each room the player walks into, from book.yml. Rooms are
   // built by engine/world/interiorBuilding.js on first entry, in a district
   // four kilometres from the town.
-  interiors: INTERIORS,
+  interiors: { ...INTERIORS, ...MINOR_INTERIORS },
   // The objects a question is asked AT, declared by the campaign bible.
   fixtures: FIXTURES,
   // How those rooms are built: 'lab' (vinyl, screens), 'timber' (board walls,

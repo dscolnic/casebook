@@ -17,6 +17,7 @@ import { flyable } from '../../engine/world/flying.js';
 import { driveable } from '../../engine/world/driving.js';
 import { PADS, site } from './site.js';
 import { animate, blink, flicker, sway } from '../../engine/world/animators.js';
+import { storyOutdoors } from './story.js';
 
 /** Red service lighting. Emissive only — never a real light. */
 const RED = 0xd8321c;
@@ -633,6 +634,8 @@ export function decorate(scene, ctx){
   const y = (x, z) => groundHeight(x, z);
   const soft = (s) => { if(s) softColliders.push(s); };
   const glow = (m) => { if(m) lightPanels.push(m); };
+  // The disused dome on the saddle, handed to story.js at the end of this function.
+  let oldDome = null;
 
   // ------------------------------------------------------------ the domes
   // Each on its own summit, thirteen hundred metres apart, which is the whole
@@ -660,7 +663,10 @@ export function decorate(scene, ctx){
   // collider at all.
   const radar = dish(scene, -965, 350, y(-965, 350), 15);
   soft(radar.soft);
-  animate(sway(radar.azimuth, 'y', 0.34, (Math.PI * 2) / 130));
+  // Whether it sweeps is the campaign's to say: the bible has it tracking on the
+  // two echo nights (missions 7 and 14) and after the win, and stowed otherwise.
+  // story.js drives the mount from `ctx.story.radar`; the unconditional sweep
+  // that used to be here made every night an echo night.
 
   // ------------------------------------------------------- the sky itself
   // The band the whole site exists to look at.
@@ -853,6 +859,9 @@ export function decorate(scene, ctx){
   {
     const ox = -118, oz = 34, oY = y(ox, oz);
     const old = dome(scene, ox, oz, oY + 3.2, 5.4, { facing: Math.PI * 0.8 });
+    // story.js builds the Dome Catwalk on this one — the plinth under it, the
+    // deck, and the shutter leaves that stand closed to a slit until mission 15.
+    oldDome = old;
     soft(old.soft);
     // Crates against it, and the shutter track rusted over rather than open.
     box(scene, 1.1, 3.6, 0.28, ox + 5.2, oY + 6.4, oz + 1.2, MATERIALS.paintedSteel(0x6b4a36));
@@ -1027,6 +1036,13 @@ export function decorate(scene, ctx){
     if(heli.rotors.main) heli.rotors.main.rotation.y += dt * 0.55;
     if(heli.rotors.tail) heli.rotors.tail.rotation.x += dt * 0.9;
   });
+
+  // ------------------------------------------------------------- the story
+  // The world changing mission by mission — the header board, the dish parked or
+  // tracking, the catwalk's shutter, the ridge terrace and the convoy, the night
+  // kitchen — and the alive pass beyond the bible. Last, so it can read
+  // everything above through `ctx.story`.
+  storyOutdoors(scene, { ...ctx, story: { radar, domes: { d1, d2, old: oldDome } } });
 }
 
 export default decorate;

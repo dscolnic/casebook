@@ -83,7 +83,9 @@ export const FIXTURES = {
       wall: 'right', along: -0.45,
       caption: "Head at the machine, logged every hour, beside the pressure the pipe was rated to." },
   ],
-  FOREARCH: [
+  // Keyed by the GROUP id, which is `ARCHIVE` in content/groups.js — under
+  // `FOREARCH` these three were declared for a room that does not exist.
+  ARCHIVE: [
     { id: 'frozen-models', name: 'Forecast versions frozen at issuance', build: 'rack', wall: 'back', along: 0,
       caption: "Forecast versions frozen at issuance, never overwritten by what happened later." },
     { id: 'holdout-drawer', name: 'holdout drawer', build: 'rack', wall: 'left', along: 0,

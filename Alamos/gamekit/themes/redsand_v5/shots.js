@@ -64,6 +64,17 @@ export const shots = [
   // Where the sweep stopped: clean panels on one side, a fortnight of dust on
   // the other, and the machine that drew the line parked on it.
   { name: 'the-sweep-boundary', at: { x: 94, z: 40 }, yaw: 0 },
+
+  // THE STORY LAYER (story.js). The shift board at the spawn; the crew gate in
+  // the berm gap with the pad walk board on it; the reactor branch in the
+  // corridor between the two east berms, which goes yellow on mission 3; the
+  // farm gauge; the suit locker's door; and the ice haul on the long track.
+  { name: 'the-shift-board', at: { x: -2, z: 54 }, yaw: 248 },
+  { name: 'the-crew-gate', at: { x: 6, z: -86 }, yaw: 0 },
+  { name: 'the-reactor-branch', at: { x: 7, z: 12 }, yaw: 100 },
+  { name: 'the-farm-gauge', at: { x: 4, z: -66 }, yaw: 90 },
+  { name: 'the-suit-locker', at: { x: -30, z: 48 }, yaw: 180 },
+  { name: 'the-ice-haul', at: { x: -92, z: -120 }, yaw: 0 },
 ];
 
 export default shots;

@@ -31,6 +31,7 @@ import {
 import { driveable } from '../../engine/world/driving.js';
 import { animate, spin, blink, sway } from '../../engine/world/animators.js';
 import { site } from './site.js';
+import { storyOutdoors } from './story.js';
 
 /** Where the mast stands, and how tall it is. Read by everything below. */
 const MAST = { x: 0, z: -20, h: 60, w: 1.9 };
@@ -590,6 +591,11 @@ export function decorate(scene, ctx){
   // Placed last, after the vehicles, so `blocked` knows where they are parked.
   cloudDeck(scene, ctx);
   puddles(scene, ctx, at);
+
+  // The season made visible: the mission header off the spawn, the three
+  // landmark spaces, the storm building over the flat, the mast-tip corona, the
+  // stage lamps, and the witnessed final shot. See story.js.
+  storyOutdoors(scene, ctx);
 }
 
 /** Not used: this theme is outdoor, and its rooms come from interiorBuilding. */

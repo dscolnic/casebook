@@ -22,6 +22,7 @@ import { COPY } from './content/copy.js';
 import { INTERIORS } from './interiors.js';
 import { MINOR_INTERIORS } from './minors.js';
 import { FIXTURES } from './fixtures.js';
+import { dressRoom } from './story.js';
 import { decorate, fitOutRoom, fitOutSpine } from './props.js';
 import metrics from './metrics.js';
 import { OPENING, ENDING } from './cards.js';
@@ -200,6 +201,9 @@ export default {
   // Theme hooks. `decorate` is called by the outdoor world, the two fit-out
   // hooks by the interior one; the unused ones are ignored.
   decorate,
+  // The fifteen aftermaths on their home fixtures, the tide board's header and
+  // the condition board's final status. See story.js.
+  dressRoom,
   fitOutRoom,
   fitOutSpine,
 };

@@ -21,6 +21,7 @@ import { ROSTER, LEADERS, AVATARS } from './content/roster.js';
 import { COPY } from './content/copy.js';
 import { INTERIORS } from './interiors.js';
 import { MINOR_INTERIORS } from './minors.js';
+import { dressRoom } from './story.js';
 import { FIXTURES } from './fixtures.js';
 import { decorate, fitOutRoom, fitOutSpine } from './props.js';
 import metrics from './metrics.js';
@@ -208,4 +209,7 @@ export default {
   decorate,
   fitOutRoom,
   fitOutSpine,
+  // The bible's fifteen physical aftermaths and the crew shelter, on the walls
+  // of the rooms they happen in, keyed to the mission that writes each. story.js.
+  dressRoom,
 };

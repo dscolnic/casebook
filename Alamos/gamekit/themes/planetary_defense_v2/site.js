@@ -92,7 +92,7 @@ const LANDMARKS = [
   // thresholds) are Survey & Response's own questions about the people this
   // office exists for, and it stands 46 m from the Entry & Consequences Lab —
   // the same corner of the range. See fixtures.js's TOWN key and minors.js.
-  { id: 'TOWN', enter: 'TOWN', name: 'Valle Seco Emergency Office', sub: 'The people the numbers are about',
+  { id: 'TOWN', group: 'TOWN', name: 'Valle Seco Emergency Office', sub: 'The people the numbers are about',
     x: 95, z: 810, w: 16, d: 11, h: 4.6, facing: PI, colour: 0x5b5854, roof: 'gable', siding: 'stucco' },
 ];
 

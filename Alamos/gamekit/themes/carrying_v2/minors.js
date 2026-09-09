@@ -12,6 +12,11 @@
 // sailing actually draws. It is the island answering a question the player is
 // already carrying up the road.
 //
+// The bible's three landmark-only spaces — the Quay Walk, the School Porch and
+// the Net Shed — are OUTDOORS and are not in here: none of them has a wall to
+// stand behind, so story.js builds each as a walkable structure with its Before
+// and its Visible change keyed to the trigger stop. Nothing opens a room.
+//
 // Hand-written, and merged over the generated `interiors.js` in theme.js.
 // `import-book.mjs` never writes this file. See gamekit/PLACEMENT_PASS.md.
 export const MINOR_INTERIORS = {

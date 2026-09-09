@@ -50,6 +50,7 @@ import { furnishRoom, furnishCorridor, furnishingMaterials, markWallMounted, mar
   paintMural, spineSolidSpans }
   from '../../engine/world/interiorKit.js';
 import { LEVELS } from './plan.js';
+import { dressRoom, dressSpine } from './story.js';
 
 /**
  * Which floor a z is on. `fitOutRoom` and `fitOutSpine` are both handed one
@@ -682,6 +683,13 @@ export function fitOutRoom(room, ctx){
       break;
   }
 
+  // The story: the props the bible keys to each mission, the landmark spaces
+  // and the room's own extras — see story.js. It runs after this room's own
+  // fittings and before the kit fills in, and hands back the wall it took and
+  // the floor it needs kept clear.
+  const story = dressRoom(room.id, room, ctx);
+  for(const [x0, x1, z0, z1] of story.reserve) reserve(x0, x1, z0, z1);
+
   furnishRoom({
     box: (w, h, d, x, y, z, material, ry = 0) => box(w, h, d, x, y, z, material, ry),
     mats: furnishingMaterials({ surface: M.frame, metal: M.rail, dark: M.base, pale: M.wall }),
@@ -741,6 +749,8 @@ export function fitOutRoom(room, ctx){
       ...(room.id === 'RANDOM' ? [{ x: b.xOuter - f * 1.0, z: b.cz, r: 2.2 }] : []),
       // The kitchen's table and its counter, in a room three metres deep.
       ...(room.id === 'TEA' ? [{ x: -7.2, z: 51.5, r: 1.5 }, { x: -9.3, z: 51.5, r: 1.5 }] : []),
+      // The evidence cabinet, the courier shelves, the visitor's bench.
+      ...story.keepClear,
       // Nothing on top of a chair somebody is going to be sitting in.
       ...((ctx.plan?.seats ?? []).filter(([x, z]) =>
         z > room.z0 && z < room.z1 && (f > 0 ? x > b.xInner : x < b.xInner))
@@ -954,6 +964,11 @@ export function fitOutSpine(ctx){
     return false;               // no room on this side here: no wall either
   };
 
+  // The site wall, the board antechamber, the clock, the trolley — story.js.
+  // Before the corridor kit, so it knows which wall is spoken for.
+  const story = dressSpine(ctx);
+  spineTaken.push(...story.taken);
+
   furnishCorridor({
     box: (w, h, d, x, y, z, material, ry = 0) => box(w, h, d, x, y, z, material, ry),
     mats: furnishingMaterials({ surface: M.frame, metal: M.rail, dark: M.base, pale: M.wall }),
@@ -978,6 +993,7 @@ export function fitOutSpine(ctx){
       { x: 0, z: sp.z0 + 1.5, r: 2.2 }, { x: 0, z: sp.z1 - 1.5, r: 2.2 },
       ...(level === 0 ? [{ z: 6.5, r: 1.7 }] : []),
       ...(level === 1 ? [{ z: 41.0, r: 1.7 }, { z: 31.0, r: 1.5 }, { z: 36.6, r: 1.5 }] : []),
+      ...story.keepClear,
     ],
     signs: [
       { style: 'banner', tag: 'FENWICK COORDINATING CENTRE', heading: 'CLARION-3', accent: '#1f4e6b',

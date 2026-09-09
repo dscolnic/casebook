@@ -72,6 +72,17 @@ export const shots = [
   // The two that are about the park being shut rather than about a ride.
   { name: 'boarded-stalls', at: { x: 4, z: 40 }, yaw: 90 },
   { name: 'from-the-lake-back', at: { x: 0, z: -130 }, yaw: 180 },
+  // ------------------------------------------------------- the story layer
+  // story.js. The status board by the gate and the crane at arm nine read at
+  // any sol; the Midway Walk's lamps and the ride cards want `--sol 13` or more;
+  // the ticket court's route lanes come at 13 and the gate and the crowd on the
+  // finale. The Workshop door's OPENS TOMORROW shows only at `--sol 5`.
+  { name: 'story-status-board', at: { x: -4, z: 60 }, yaw: 60 },
+  { name: 'story-arm-nine-barricade', at: { x: 3, z: 44 }, yaw: 90 },
+  { name: 'story-midway-walk', at: { x: -4, z: -30 }, yaw: 60 },
+  { name: 'story-ticket-court', at: { x: 0, z: 102 }, yaw: 0 },
+  { name: 'story-staff-room', at: { x: 52, z: 50 }, yaw: 270 },
+  { name: 'story-workshop-door', at: { x: -38, z: 46 }, yaw: 90 },
 ];
 
 export default shots;

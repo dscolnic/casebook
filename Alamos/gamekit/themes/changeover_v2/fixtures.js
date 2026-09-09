@@ -31,7 +31,10 @@ export const FIXTURES = {
     { id: 'return-chute', name: 'return chute', build: 'vessel', wall: 'back', along: -0.45,
       caption: "The locked mouth where retired notes drop into custody one sealed bundle at a time." },
   ],
-  STATFLOO: [
+  // Keyed by the ROOM GROUP, which is what the tower builds fixtures for. The
+  // generator wrote STATFLOO / OPENFLOO from the bible's place names and no room
+  // has either id, so these nine fixtures were never built anywhere.
+  STATS: [
     { id: 'output-ledger', name: 'Production accounts', build: 'board', wall: 'back', along: 0,
       caption: "Production accounts, exclusions, and the expenditure columns that must close to one total." },
     { id: 'calculating-desk', name: 'Pencils', build: 'bench', wall: 'left', along: 0,
@@ -53,7 +56,7 @@ export const FIXTURES = {
     { id: 'money-market-console', name: 'Money supply', build: 'vessel', wall: 'back', along: -0.45,
       caption: "Money supply, money demand, and the clearing rate glow above the supervision switches." },
   ],
-  OPENFLOO: [
+  OPENEC: [
     { id: 'payment-wires', name: 'payment wires', build: 'board', wall: 'back', along: 0,
       caption: "Current- and financial-account entries run along paired wires toward the same balance." },
     { id: 'forex-console', name: 'forex console', build: 'vessel', wall: 'left', along: 0,

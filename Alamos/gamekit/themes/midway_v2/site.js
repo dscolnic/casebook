@@ -140,7 +140,7 @@ export const site = {
     // unnamed until the day the campaign sends somebody through it: the workshop
     // on day 5, the plant room on day 10, the boarded stalls on day 11. Ground is
     // never fenced — the whole park is walkable from the first morning.
-    { id: 'WORKSHOP', enter: 'WORKSHOP', name: 'Workshop', sub: "Brennan's bench, and eleven notebooks",
+    { id: 'WORKSHOP', group: 'WORKSHOP', name: 'Workshop', sub: "Brennan's bench, and eleven notebooks",
       x: -54, z: 46, w: 20, d: 13, h: 5.4, facing: PI / 2, colour: 0x8d7f6a, roof: 'gable', siding: 'board' },
     { id: 'ARCADE', enter: 'ARCADE', name: 'Arcade and Stalls', sub: 'Boarded, and not on the list',
       x: 40, z: 44, w: 24, d: 12, h: 5.0, facing: PI, colour: 0x8a5a49 },

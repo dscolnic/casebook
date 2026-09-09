@@ -40,6 +40,9 @@ import { site } from './site.js';
 // vite alias and the dev checks load this file in plain node. The theme arrives
 // through `decorate`'s context instead.
 import { deliveryProgress } from '../../engine/core/delivery.js';
+// The story layer: the shift board, the aftermaths' outdoor readouts, the pad
+// walk and the §8.1 finale. Runs last, off the same ctx.
+import { storyOutdoors } from './story.js';
 
 /** Regolith, in three shades. Dark on paper, because the sky IBL is tinted warm. */
 const DIRT = () => MATERIALS.paintedSteel(0x6f4a35);
@@ -1305,6 +1308,9 @@ export function decorate(scene, ctx){
   // controller writes `group.position` and `group.rotation.y` on the same objects
   // every frame, so reading them is the whole hook.
   roverTracks(scene, at, driven.filter(Boolean));
+
+  // The campaign's own story on the plain — see story.js.
+  storyOutdoors(scene, ctx);
 }
 
 /** Fit out one room. `bounds` gives the room's inner/outer faces and centre. */

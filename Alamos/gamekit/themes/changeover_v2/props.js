@@ -22,6 +22,7 @@ import * as THREE from 'three';
 import { furnishRoom, furnishCorridor, furnishingMaterials, markStructure }
   from '../../engine/world/interiorKit.js';
 import { patrol } from '../../engine/world/animators.js';
+import { dressRoom, storySpine, storyOutdoors } from './story.js';
 
 // --------------------------------------------------------------- the outside
 //
@@ -283,13 +284,34 @@ export function decorate(scene, ctx){
    * metres that is not animation, it is the line breathing.
    */
   let qHead = 0, qClock = 0;
+  /**
+   * THE QUEUE'S SHAPE IS THE CAMPAIGN'S. §3 stages it — one rope lane before
+   * the changeover, two once the first-round measures land, an assisted lane
+   * from mission 11, and on the last day a short orderly line that moves. So
+   * the count, the lane count and the step period are state rather than
+   * constants, and `story.js` sets them through `setQueue`. A person beyond
+   * `qShown` is parked under the plaza rather than deleted: an InstancedMesh's
+   * count is fixed at build time, and the plaza is 180 m below the floors.
+   */
+  let qShown = queueN, qLanes = 1, qPeriod = 3.4;
+  const setQueue = ({ count, lanes, period } = {}) => {
+    if(Number.isFinite(count)) qShown = Math.max(0, Math.min(queueN, Math.round(count)));
+    if(Number.isFinite(lanes)) qLanes = Math.max(1, Math.round(lanes));
+    if(Number.isFinite(period)) qPeriod = Math.max(0.2, period);
+    drawQueue();
+  };
   const drawQueue = () => {
     for(let i = 0; i < queueN; i++){
       // Minus, not plus. Slot 0 is the head of the queue, so stepping *up* is
       // toward a lower index; the first version of this had the whole line
       // walking away from the counter and it looked entirely convincing.
       const [x, z] = QSLOT[(i - qHead + queueN) % queueN];
-      tmp.position.set(x, PLAZA_Y + 0.9, z);
+      // Folded into `qLanes` lanes: the same slots, but each lane after the
+      // first stands half a metre across and a stride back, so a hundred and
+      // twenty people in three lanes read as a third of the length rather
+      // than a third of the crowd.
+      const lane = qLanes > 1 ? i % qLanes : 0;
+      tmp.position.set(x + lane * 0.55, i < qShown ? PLAZA_Y + 0.9 : PLAZA_Y - 6, z - lane * 1.6);
       tmp.rotation.set(0, 0, 0);
       tmp.updateMatrix();
       queue.setMatrixAt(i, tmp.matrix);
@@ -300,7 +322,7 @@ export function decorate(scene, ctx){
   scene.add(queue);
   ctx?.animate?.((t, dt) => {
     qClock += dt;
-    if(qClock < 3.4) return;
+    if(qClock < qPeriod) return;
     qClock = 0;
     qHead = (qHead + 1) % queueN;
     drawQueue();
@@ -688,6 +710,10 @@ export function decorate(scene, ctx){
       }
     });
   }
+
+  // ---- the campaign, out of the windows: the queue's shape, the shop boards
+  // repricing, the cages leaving on changeover day. See story.js.
+  storyOutdoors(scene, { ...ctx, plazaY: PLAZA_Y, plate: PLATE, setQueue });
 }
 
 // ------------------------------------------------------------- the interiors
@@ -959,6 +985,11 @@ export function fitOutRoom(room, ctx){
   // it is what a curtain wall actually has at the floor.
   markStructure([box(0.42, 0.34, room.z1 - room.z0 - 0.6, b.xOuter - f * 0.24, 0.17, b.cz, M.base)], 'cill');
 
+  // The bible's aftermaths, before the furniture pass: what `dressRoom` builds
+  // is the room's reason for existing, and its `keepClear` is how the kit is
+  // told not to stand a filing cabinet in front of it.
+  const story = dressRoom(room.id, room, ctx) ?? {};
+
   furnishRoom({
     box: (w, h, d, x, y, z, material, ry = 0) => box(w, h, d, x, y, z, material, ry),
     mats: furnishingMaterials({ surface: M.frame, metal: M.rail, dark: M.base, pale: M.wall }),
@@ -1004,6 +1035,7 @@ export function fitOutRoom(room, ctx){
     seed: `changeover-${room.id}`,
     hard, soft,
     keepClear: [
+      ...(story.keepClear ?? []),
       ...(opening ? [{ x: b.xInner + f * 1.2, z: opening.cz ?? b.cz, r: 2.2 }] : []),
       ...(room.group ? [{ x: b.xOuter - f * 1.5, z: b.cz, r: 2.4 }] : []),
       ...(big ? [{ x: b.cx, z: b.cz, r: 3.4 }] : []),
@@ -1029,6 +1061,10 @@ export function fitOutSpine(ctx){
   const sp = plan.spine ?? { z0: -12, z1: 14 };
   const hw = P.corridorHalfWidth;
   const L = plan.lift ?? { side: 'w', z0: 0.4, z1: 4.8 };
+
+  // The corridor's half of the story layer: the lift indicator that says which
+  // plate you are on, and the days-to-changeover board. See story.js.
+  storySpine(ctx);
 
   const fid = floor?.id ?? 0;
   const tone = toneMats(fid);

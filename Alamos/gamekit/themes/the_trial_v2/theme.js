@@ -22,6 +22,7 @@ import { COPY } from './content/copy.js';
 import { INTERIORS } from './interiors.js';
 import { FIXTURES } from './fixtures.js';
 import { decorate, fitOutRoom, fitOutSpine } from './props.js';
+import { dressRoom, dressSpine, storyExtras } from './story.js';
 import metrics from './metrics.js';
 import { OPENING, ENDING } from './cards.js';
 
@@ -189,4 +190,11 @@ export default {
   decorate,
   fitOutRoom,
   fitOutSpine,
+  // The story layer — fifteen physical aftermaths, three landmark spaces, the
+  // §8.1 finale — see story.js. `props.js` calls these from its own two hooks;
+  // they are registered here so the manifest says the layer exists. The world
+  // reaches them through `world.js`, which wraps `updateWorldFromState`.
+  dressRoom,
+  dressSpine,
+  storyExtras,
 };

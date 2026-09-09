@@ -116,6 +116,12 @@ export const MINOR_INTERIORS = {
       { label: 'Batches signed this season', value: '11', status: 'normal' },
     ] },
   },
+  // §3 `suit-locker`, in the bible's own words. No station panel: what is in
+  // here is the six racks story.js builds, and they carry the state.
+  LOCKER: {
+    caption: 'Empty boots line up under crew names.',
+    standLine: 'On final GO the crew takes the suits to the pad.',
+  },
   CUT: {
     caption: 'Where the water is dug. The ground here was eight percent ice in the spring.',
     standLine: 'The plant runs on whatever this face gives up, and it is giving up less.',

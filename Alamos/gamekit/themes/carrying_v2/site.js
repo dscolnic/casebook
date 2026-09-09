@@ -97,7 +97,7 @@ const LANDMARKS = [
     x: -30, z: 96, w: 14, d: 9, h: 4.8, facing: PI, colour: 0x8b8577, roof: 'gable', siding: 'wood' },
   { id: 'SCHOOL', enter: 'SCHOOL', name: 'Island School', sub: 'Nineteen on the register',
     x: 48, z: 24, w: 16, d: 11, h: 6.0, facing: PI, colour: 0xa79c85, roof: 'gable', siding: 'stucco' },
-  { id: 'CHAPEL', enter: 'CHAPEL', name: 'Chapel and Hall', sub: 'Where the council meets',
+  { id: 'CHAPEL', group: 'CHAPEL', name: 'Chapel and Hall', sub: 'Where the council meets',
     x: -46, z: 12, w: 13, d: 16, h: 8.4, facing: PI / 2, colour: 0xa8a196, roof: 'gable', siding: 'stucco' },
   // At (-8, -366) the tower stood at radius 366 on a rim of ~354: its ground was
   // y = −8.7, two and a half metres UNDER the sea, and the point still showed a
@@ -153,6 +153,8 @@ export const site = {
   },
 
   // A fine drizzle off the sea, most days. Light enough to walk through.
+  // story.js sets it per day from here: heavier on the rain day (mission 2),
+  // cleared for the ferry on the fifteenth and once the campaign is won.
   weather: { kind: 'drizzle', density: 0.35, wind: { x: 1.6, z: -1.0 } },
 
   paths: [

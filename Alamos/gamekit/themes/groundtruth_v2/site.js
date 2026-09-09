@@ -113,9 +113,12 @@ export const site = {
     // carried `place: Screened Room` since this game shipped and the door was
     // shut; the first of them is on day 2, which is when the room now opens.
     // See ./minors.js and ./fixtures.js under the same key.
-    { id: 'SCREEN', name: 'Screened Room', sub: 'Conducting sheet on all six faces', enter: 'SCREEN',
+    { id: 'SCREEN', group: 'SCREEN', name: 'Screened Room', sub: 'Conducting sheet on all six faces',
       x: 19, z: 26, w: 7, d: 6, h: 3.2, facing: PI, colour: 0x7f858a },
-    { id: 'SHELTER', name: 'Crew Shelter', sub: 'Where the flat is watched from',
+    // A landmark space in the bible (§3 `crew-shelter`): named helmets beside the
+    // crew-clear board, stored inside on a firing day. Opened by `enter:`; the
+    // room is dressed in story.js and described in minors.js.
+    { id: 'SHELTER', name: 'Crew Shelter', sub: 'Where the flat is watched from', enter: 'SHELTER',
       x: 17, z: 42, w: 9, d: 6, h: 3.0, facing: PI, colour: 0xc9a23f, roof: 'gable', siding: 'board' },
     // A hundred and five metres out past the mast, on the pad spur, and the
     // furthest thing on this site anybody can walk into. No lesson is asked in
