@@ -2577,8 +2577,14 @@ const VERIFY = {
       if(st.done || !st.ran) return;
       st.done = true;
       const [rlo, rhi] = v.passRatio ?? [0.5, 2];
-      const ratio = st.measured === null ? null : st.pred / (st.measured || 1);
-      const ok = st.measured !== null && ratio >= rlo && ratio <= rhi;
+      // THE SAME BAND, WHATEVER THE SIGN. `pred / measured` inverts when the
+      // measurement is negative — a campaign that measures a profit of −10 a
+      // shift would grade −11 as outside 0.9…1.1 and +5 as inside it. The band
+      // is the two products, in whichever order the sign puts them.
+      const edges = st.measured === null ? null
+        : [st.measured * rlo, st.measured * rhi];
+      const ok = st.measured !== null
+        && st.pred >= Math.min(...edges) && st.pred <= Math.max(...edges);
       ctx.commit(ok,
         st.measured === null
           ? `predicted ${nf(st.pred, d)}${p.unit ? ' ' + p.unit : ''}, never measured`

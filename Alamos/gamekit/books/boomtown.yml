@@ -1109,7 +1109,7 @@ missions:
 # ============================================================ MISSION 1
 # Lifted from ../fpl_gpt/BOOMTOWN_AP_Microeconomics_Campaign_Implementation_Bible_v1.0.md by tools/v10extract.mjs. Every quoted string below is
 # the bible's, verbatim; engine/dev/bibleParity.mjs holds it to that.
-- title: "# Mission 1 — THE MISSING BREAKFAST"
+- title: "THE MISSING BREAKFAST"
   card:
     header: "SIX WEEKS TO THE FREIGHT AGREEMENT — STAGE 1 OF 15"
     title: "THE MISSING BREAKFAST"
@@ -1466,7 +1466,7 @@ missions:
 # ============================================================ MISSION 2
 # Lifted from ../fpl_gpt/BOOMTOWN_AP_Microeconomics_Campaign_Implementation_Bible_v1.0.md by tools/v10extract.mjs. Every quoted string below is
 # the bible's, verbatim; engine/dev/bibleParity.mjs holds it to that.
-- title: "# Mission 2 — THE QUEUE THAT GREW"
+- title: "THE QUEUE THAT GREW"
   card:
     header: "SIX WEEKS TO THE FREIGHT AGREEMENT — STAGE 2 OF 15"
     title: "THE QUEUE THAT GREW"
@@ -1835,7 +1835,7 @@ missions:
 # ============================================================ MISSION 3
 # Lifted from ../fpl_gpt/BOOMTOWN_AP_Microeconomics_Campaign_Implementation_Bible_v1.0.md by tools/v10extract.mjs. Every quoted string below is
 # the bible's, verbatim; engine/dev/bibleParity.mjs holds it to that.
-- title: "# Mission 3 — THE EMPTY ROOMS"
+- title: "THE EMPTY ROOMS"
   card:
     header: "SIX WEEKS TO THE FREIGHT AGREEMENT — STAGE 3 OF 15"
     title: "THE EMPTY ROOMS"
@@ -2200,7 +2200,7 @@ missions:
 # ============================================================ MISSION 4
 # Lifted from ../fpl_gpt/BOOMTOWN_AP_Microeconomics_Campaign_Implementation_Bible_v1.0.md by tools/v10extract.mjs. Every quoted string below is
 # the bible's, verbatim; engine/dev/bibleParity.mjs holds it to that.
-- title: "# Mission 4 — TOO MANY HANDS"
+- title: "TOO MANY HANDS"
   card:
     header: "SIX WEEKS TO THE FREIGHT AGREEMENT — STAGE 4 OF 15"
     title: "TOO MANY HANDS"
@@ -2559,7 +2559,7 @@ missions:
 # ============================================================ MISSION 5
 # Lifted from ../fpl_gpt/BOOMTOWN_AP_Microeconomics_Campaign_Implementation_Bible_v1.0.md by tools/v10extract.mjs. Every quoted string below is
 # the bible's, verbatim; engine/dev/bibleParity.mjs holds it to that.
-- title: "# Mission 5 — THE RENT PROMISE"
+- title: "THE RENT PROMISE"
   card:
     header: "SIX WEEKS TO THE FREIGHT AGREEMENT — STAGE 5 OF 15"
     title: "THE RENT PROMISE"
@@ -2927,7 +2927,7 @@ missions:
 # ============================================================ MISSION 6
 # Lifted from ../fpl_gpt/BOOMTOWN_AP_Microeconomics_Campaign_Implementation_Bible_v1.0.md by tools/v10extract.mjs. Every quoted string below is
 # the bible's, verbatim; engine/dev/bibleParity.mjs holds it to that.
-- title: "# Mission 6 — WHO PAYS THE FEE"
+- title: "WHO PAYS THE FEE"
   card:
     header: "SIX WEEKS TO THE FREIGHT AGREEMENT — STAGE 6 OF 15"
     title: "WHO PAYS THE FEE"
@@ -3285,7 +3285,7 @@ missions:
 # ============================================================ MISSION 7
 # Lifted from ../fpl_gpt/BOOMTOWN_AP_Microeconomics_Campaign_Implementation_Bible_v1.0.md by tools/v10extract.mjs. Every quoted string below is
 # the bible's, verbatim; engine/dev/bibleParity.mjs holds it to that.
-- title: "# Mission 7 — THE SHUTTERED SUPPLIER"
+- title: "THE SHUTTERED SUPPLIER"
   card:
     header: "SIX WEEKS TO THE FREIGHT AGREEMENT — STAGE 7 OF 15"
     title: "THE SHUTTERED SUPPLIER"
@@ -3645,7 +3645,7 @@ missions:
 # ============================================================ MISSION 8
 # Lifted from ../fpl_gpt/BOOMTOWN_AP_Microeconomics_Campaign_Implementation_Bible_v1.0.md by tools/v10extract.mjs. Every quoted string below is
 # the bible's, verbatim; engine/dev/bibleParity.mjs holds it to that.
-- title: "# Mission 8 — A STREET FULL OF SIGNS"
+- title: "A STREET FULL OF SIGNS"
   card:
     header: "SIX WEEKS TO THE FREIGHT AGREEMENT — STAGE 8 OF 15"
     title: "A STREET FULL OF SIGNS"
@@ -3922,9 +3922,9 @@ missions:
       - The market price falls
       - Economic profit tends toward zero
     order:
+      - 0
       - 1
       - 2
-      - 3
       - 3
     axis: causal order
     ends:
@@ -3983,7 +3983,7 @@ missions:
 # ============================================================ MISSION 9
 # Lifted from ../fpl_gpt/BOOMTOWN_AP_Microeconomics_Campaign_Implementation_Bible_v1.0.md by tools/v10extract.mjs. Every quoted string below is
 # the bible's, verbatim; engine/dev/bibleParity.mjs holds it to that.
-- title: "# Mission 9 — THE ONLY BIG PAYROLL"
+- title: "THE ONLY BIG PAYROLL"
   card:
     header: "SIX WEEKS TO THE FREIGHT AGREEMENT — STAGE 9 OF 15"
     title: "THE ONLY BIG PAYROLL"
@@ -4347,7 +4347,7 @@ missions:
 # ============================================================ MISSION 10
 # Lifted from ../fpl_gpt/BOOMTOWN_AP_Microeconomics_Campaign_Implementation_Bible_v1.0.md by tools/v10extract.mjs. Every quoted string below is
 # the bible's, verbatim; engine/dev/bibleParity.mjs holds it to that.
-- title: "# Mission 10 — THE EMPTY FREIGHT SLOT"
+- title: "THE EMPTY FREIGHT SLOT"
   card:
     header: "SIX WEEKS TO THE FREIGHT AGREEMENT — STAGE 10 OF 15"
     title: "THE EMPTY FREIGHT SLOT"
@@ -4717,7 +4717,7 @@ missions:
 # ============================================================ MISSION 11
 # Lifted from ../fpl_gpt/BOOMTOWN_AP_Microeconomics_Campaign_Implementation_Bible_v1.0.md by tools/v10extract.mjs. Every quoted string below is
 # the bible's, verbatim; engine/dev/bibleParity.mjs holds it to that.
-- title: "# Mission 11 — TWO OFFERS, ONE GATE"
+- title: "TWO OFFERS, ONE GATE"
   card:
     header: "SIX WEEKS TO THE FREIGHT AGREEMENT — STAGE 11 OF 15"
     title: "TWO OFFERS, ONE GATE"
@@ -5071,7 +5071,7 @@ missions:
 # ============================================================ MISSION 12
 # Lifted from ../fpl_gpt/BOOMTOWN_AP_Microeconomics_Campaign_Implementation_Bible_v1.0.md by tools/v10extract.mjs. Every quoted string below is
 # the bible's, verbatim; engine/dev/bibleParity.mjs holds it to that.
-- title: "# Mission 12 — THE WATER BELOW"
+- title: "THE WATER BELOW"
   card:
     header: "SIX WEEKS TO THE FREIGHT AGREEMENT — STAGE 12 OF 15"
     title: "THE WATER BELOW"
@@ -5429,7 +5429,7 @@ missions:
 # ============================================================ MISSION 13
 # Lifted from ../fpl_gpt/BOOMTOWN_AP_Microeconomics_Campaign_Implementation_Bible_v1.0.md by tools/v10extract.mjs. Every quoted string below is
 # the bible's, verbatim; engine/dev/bibleParity.mjs holds it to that.
-- title: "# Mission 13 — THE CHEAPER FILTER"
+- title: "THE CHEAPER FILTER"
   card:
     header: "SIX WEEKS TO THE FREIGHT AGREEMENT — STAGE 13 OF 15"
     title: "THE CHEAPER FILTER"
@@ -5798,7 +5798,7 @@ missions:
 # ============================================================ MISSION 14
 # Lifted from ../fpl_gpt/BOOMTOWN_AP_Microeconomics_Campaign_Implementation_Bible_v1.0.md by tools/v10extract.mjs. Every quoted string below is
 # the bible's, verbatim; engine/dev/bibleParity.mjs holds it to that.
-- title: "# Mission 14 — THE LINE THAT PAYS FOR ITSELF"
+- title: "THE LINE THAT PAYS FOR ITSELF"
   card:
     header: "SIX WEEKS TO THE FREIGHT AGREEMENT — STAGE 14 OF 15"
     title: "THE LINE THAT PAYS FOR ITSELF"
@@ -6171,7 +6171,7 @@ missions:
 # ============================================================ MISSION 15
 # Lifted from ../fpl_gpt/BOOMTOWN_AP_Microeconomics_Campaign_Implementation_Bible_v1.0.md by tools/v10extract.mjs. Every quoted string below is
 # the bible's, verbatim; engine/dev/bibleParity.mjs holds it to that.
-- title: "# Mission 15 — THE TOWN THAT STAYS"
+- title: "THE TOWN THAT STAYS"
   card:
     header: "SIX WEEKS TO THE FREIGHT AGREEMENT — STAGE 15 OF 15"
     title: "THE TOWN THAT STAYS"
@@ -6635,27 +6635,4 @@ interiors:
 
 # --------------------------------------------------------------- the warm-ups
 
-warmups:
-  greet:
-    title: The mesa is full of people who cannot tell you what they do
-    why: Meet the people in each division so you know who can help when the work begins.
-  trial-near:
-    title: Walk the mesa before you are trusted with an errand on it
-    why: Visit the main buildings now so you can cross the mesa quickly when an urgent job starts.
-  follow:
-    title: Keep up with the commanding general
-    why: Keep up with the commanding general so you can see which parts of the lab need help.
-  hunt:
-    title: Five detectors signed out, and the log accounts for three
-    item: {name: detector, plural: detectors}
-    why: Find the two missing detectors so every later count can be tied to the right instrument.
-  canvass:
-    title: Who is worried about the same thing you are
-    why: Ask each division about the problem so you know whether anyone has already solved part of it.
-  evade:
-    title: The security officer with questions about your notebook
-    why: Avoid the security officer until the laboratory director can explain why your notebook was in the wrong building.
-  tag:
-    title: Catch the theory chief before the Tuesday meeting
-    why: Reach the theory chief before his meeting so your team uses the corrected number this afternoon.
 

@@ -278,9 +278,9 @@
       - The market price falls
       - Economic profit tends toward zero
     order:
+      - 0
       - 1
       - 2
-      - 3
       - 3
     axis: causal order
     ends:

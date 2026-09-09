@@ -2623,7 +2623,18 @@ function gameFor(s, at, group, day){
       const [lo, hi] = b.passRatio ?? [];
       need(numeric(lo) && numeric(hi) && +lo < 1 && +hi > 1,
         'a verify `passRatio` brackets 1 — [0.5, 2] means "within a factor of two either way"');
-      need(+p.min / +b.truth < +lo || +p.max / +b.truth > +hi,
+      // A RATIO BAND AROUND A NEGATIVE TRUTH IS THE SAME BAND, FLIPPED.
+      //
+      // Dividing by the truth is right while the truth is positive and inverts
+      // both comparisons when it is not: Boomtown's stop predicts a profit of
+      // −10 dollars a shift over a −50…50 range, where −50 is as wrong as a
+      // prediction can be, and `p.min / truth` came out +5, which is not below
+      // 0.9, so the board was refused for having no losing prediction in it.
+      // The band's two edges are `truth × lo` and `truth × hi`; which of them is
+      // the low one depends on the sign, so they are sorted rather than assumed.
+      const band = [+b.truth * +lo, +b.truth * +hi];
+      const bLo = Math.min(...band), bHi = Math.max(...band);
+      need(+p.min < bLo || +p.max > bHi,
         'every prediction in the range passes — widen the range or tighten the ratio, or the'
         + ' prediction is not being tested');
       need(String(b.measurement?.label ?? '').trim(),
@@ -2755,9 +2766,12 @@ function gameFor(s, at, group, day){
         if(v === undefined) return true;         // no stated limit: survives everything
         return end === 'max' ? v >= +a.max : v <= +a.min;
       };
+      // Read the same way the refusal below reads it, or the two disagree about
+      // which end is hard and the board is refused for the reading it was not
+      // given: the robust candidate survives, and something does not.
       const decidesAs = (end) => {
         const s2 = ids.filter(id => holdsAt(id, end));
-        return s2.length === 1 && s2[0] === String(b.robust);
+        return s2.includes(String(b.robust)) && s2.length < ids.length;
       };
       const stated = String(a.worst ?? '').toLowerCase();
       const worst = ['min', 'max'].includes(stated) ? stated
@@ -2772,19 +2786,30 @@ function gameFor(s, at, group, day){
       // refusal into an accurate one.
       const otherEnd = worst === 'max' ? 'min' : 'max';
       const otherSide = ids.filter(id => holdsAt(id, otherEnd));
-      need(survivors.length === 1 && survivors[0] === String(b.robust),
-        survivors.length === 0
+      // THE SLIDER HAS TO ELIMINATE SOMETHING; IT NEED NOT ELIMINATE EVERYTHING.
+      //
+      // The rule was "exactly one candidate survives, and it is the robust one",
+      // which is one shape of a good board and not the only one. Boomtown's
+      // three plans are eliminated to two by moving the overrun to the top, and
+      // the second criterion chooses between those two — the slider does a
+      // third of the work and the table does the rest, which is a legitimate
+      // argument and not a CHOICE with a slider stuck to it. What is still
+      // refused is a board where NOTHING is eliminated (the slider changes
+      // nothing at all) and one where the answer does not survive its own range.
+      const eliminated = ids.length - survivors.length;
+      need(survivors.includes(String(b.robust)) && eliminated >= 1,
+        survivors.length === ids.length
+          ? 'every candidate survives the whole range, so the slider decides nothing and the'
+            + ' board is a CHOICE'
+          : survivors.length === 0
           ? `no candidate survives the ${worst === 'max' ? 'top' : 'bottom'} of the range`
             + (otherSide.length
               ? ` — read the other way round, ${otherSide.length} survive`
                 + ` (${otherSide.join(', ')}); say which end is the hard one with`
                 + ' `assumption.worst: min|max`'
               : ' — the stop cannot be answered')
-          : !survivors.includes(String(b.robust))
-            ? `the robust candidate "${b.robust}" does not survive its own range; "${survivors[0]}"`
-              + ' does'
-            : `${survivors.length} candidates survive the whole range, so the slider decides`
-              + ' nothing and the board is a CHOICE');
+          : `the robust candidate "${b.robust}" does not survive its own range; "${survivors[0]}"`
+            + ' does');
       // At the nominal the robust one must NOT be the obvious pick, or there was
       // never a trap. `optimiseOn` names the criterion everybody is looking at.
       need(String(b.optimiseOn ?? '').trim(),
@@ -2832,9 +2857,21 @@ function gameFor(s, at, group, day){
         + ' good and being a cost');
       const wantsHigh = dirOf(b.optimiseOn).startsWith('max');
       const best = ids.reduce((x, y) => ((wantsHigh ? at(y) > at(x) : at(y) < at(x)) ? y : x));
+      const wouldTrap = crits.map(c => String(c.key ?? '')).filter((key) => {
+        if(!key || key === String(b.optimiseOn)) return false;
+        const on = (id) => +(((b.scores ?? {})[id] ?? {})[key] ?? NaN);
+        if(!ids.every(id => Number.isFinite(on(id)))) return false;
+        const high = dirOf(key).startsWith('max');
+        const top = ids.reduce((x, y) => ((high ? on(y) > on(x) : on(y) < on(x)) ? y : x));
+        return top !== String(b.robust);
+      });
       need(best !== String(b.robust),
         `the robust candidate also wins on ${b.optimiseOn} at the nominal — nothing is traded`
-        + ' away by choosing well, so moving the slider teaches nothing');
+        + ' away by choosing well, so moving the slider teaches nothing'
+        + (wouldTrap.length
+          ? `. \`${wouldTrap[0]}\` would: the candidate that leads on it at the nominal is not the`
+            + ' robust one'
+          : ''));
       // And every criterion has to name a score field that exists. `instruments.js`
       // renders the table as scores[candidate][criterion.key], so a key naming
       // nothing prints an em dash in every cell of that column — which is what

@@ -58,6 +58,21 @@ export const convertCanonical = (b, stop = {}) => {
   const order = [];
   const stray = [];
   for(const entry of said){
+    // AN ID WINS OVER A POSITION, and the two look identical when a board
+    // numbers its cards from one. Boomtown writes `cards: [{id: "1"}, {id:
+    // "2"}, {id: "3"}, {id: "4"}]` and `order: ["1","2","3","4"]`, which is its
+    // own ids in its own order. Read as positions first, "1" became index 1,
+    // "2" index 2, "3" index 3 — and "4" fell out of range, so it was read as
+    // an id and ALSO became index 3. The board came through as [1, 2, 3, 3]:
+    // three cards in the wrong place, one card twice, one never on the rail.
+    // Refused, correctly, for not using every card exactly once — about a board
+    // that lists all four.
+    //
+    // The ids are explicit and the positions are an inference, so the explicit
+    // one is tried first. A board with no ids, or an order naming none of them,
+    // falls through to positions exactly as before.
+    const at = ids.indexOf(str(entry));
+    if(at >= 0){ order.push(at); continue; }
     // A POSITION IS A NUMBER, NOT A STRING WITH A DIGIT IN IT. `num` reads the
     // digits out of anything, so a card id like `step2` would come back as 2 and
     // silently place the third card. Only a real number, or a string of nothing
@@ -66,9 +81,7 @@ export const convertCanonical = (b, stop = {}) => {
       order.push(Number(entry));
       continue;
     }
-    const at = ids.indexOf(str(entry));
-    if(at < 0) stray.push(str(entry));
-    else order.push(at);
+    stray.push(str(entry));
   }
   if(stray.length){
     owes.push(`the order names \`${stray.join('`, `')}\`, which no card on this board carries — the`
@@ -144,6 +157,26 @@ export function selftest(){
   const two = { cards: [{ id: 'a', label: 'A' }, { id: 'b', label: 'B' }], order: ['a', 'b'] };
   ok(convertCanonical(two).owes.some(o => /at least three/.test(o)),
     'two cards is a pair, not an ordering');
+
+  // CARDS NUMBERED FROM ONE, which is where an id and a position collide. Both
+  // cases fail if the precedence is put back: the order comes out [1, 2, 3, 3]
+  // and the board is then refused for not using every card.
+  const numbered = {
+    cards: [{ id: '1', label: 'Profit attracts entrants' },
+            { id: '2', label: 'Supply expands' },
+            { id: '3', label: 'Price falls' },
+            { id: '4', label: 'Profit tends to zero' }],
+    order: ['1', '2', '3', '4'],
+  };
+  const n = convertCanonical(numbered);
+  ok(n.extra.order.join() === '0,1,2,3',
+    `cards numbered from one came out [${n.extra.order.join(', ')}], not [0, 1, 2, 3]`);
+  ok(!n.owes.some(o => /every card/.test(o)),
+    `a board listing all four cards was refused: ${n.owes.join(' / ')}`);
+  // …and a board that really does mean positions still means them.
+  const positional = { cards: [{ label: 'A' }, { label: 'B' }, { label: 'C' }], order: [2, 0, 1] };
+  ok(convertCanonical(positional).extra.order.join() === '2,0,1',
+    'a positional order stopped being positional');
 
   if(fails.length){ console.error(`SEQUENCE selftest: ${fails.length} failure(s)`); for(const f of fails) console.error('  ' + f); process.exitCode = 1; }
   else console.log('SEQUENCE selftest: ok');
