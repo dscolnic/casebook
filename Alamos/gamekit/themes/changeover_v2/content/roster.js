@@ -9,7 +9,7 @@ export const ROSTER = [
     "role": "Board Chair and mission authority",
     "division": "STATS",
     "color": "#6b7f8a",
-    "bio": "<p>Mara Venn is Board Chair and mission authority. Wants a credible on-time conversion. Equates decisiveness with a high rate. Learns that a defensible rule includes conditions for changing course.</p>"
+    "bio": "<p>Her public promise is an orderly conversion on the announced date; revising a policy can look like losing control. A forceful interest-rate move can feel more credible than a conditional rule.</p>"
   },
   {
     "id": "voss",
@@ -17,7 +17,7 @@ export const ROSTER = [
     "role": "counter operations lead",
     "division": "NOTES",
     "color": "#8a6f4a",
-    "bio": "<p>Eli Voss is counter operations lead. Wants keep families moving. Treats every queue as a cash shortage. Learns to separate visible congestion from national monetary evidence.</p>"
+    "bio": "<p>He faces the families waiting at the counters and has to explain delays in person. A visible queue looks like evidence that the country needs more cash.</p>"
   },
   {
     "id": "pell",
@@ -25,7 +25,7 @@ export const ROSTER = [
     "role": "national accounts chief",
     "division": "PRICES",
     "color": "#3f8f7a",
-    "bio": "<p>Idris Pell is national accounts chief. Wants publish defensible output data. Trusts aggregates before composition. Moves from exact totals to transparent scope and dependency.</p>"
+    "bio": "<p>His office must publish a total that other policy teams will treat as the state of the economy. An exactly balanced aggregate can conceal a misleading interpretation of its parts.</p>"
   },
   {
     "id": "saye",
@@ -33,7 +33,7 @@ export const ROSTER = [
     "role": "price statistics lead",
     "division": "STATS",
     "color": "#6b7f8a",
-    "bio": "<p>Lina Saye is price statistics lead. Wants protect the basket's integrity. Defends fixed weights too long. Preserves history while publishing a representative companion measure.</p>"
+    "bio": "<p>She has protected a continuous price history that wage negotiators rely on; revising the basket risks breaking that comparison. Preserving fixed weights can overshadow households whose purchases no longer resemble the basket.</p>"
   },
   {
     "id": "arendt",
@@ -41,7 +41,7 @@ export const ROSTER = [
     "role": "bank supervision lead",
     "division": "BANKS",
     "color": "#5f7fa8",
-    "bio": "<p>Tomas Arendt is bank supervision lead. Wants prevent a bank run. Focuses on maximum lending rather than willing lending. Learns that capacity, timing, and behavior are separate constraints.</p>"
+    "bio": "<p>Banks expect him to prevent a run, while the counters need usable funds at a particular hour. Maximum lending capacity can look like a promise that banks will lend immediately.</p>"
   },
   {
     "id": "corren",
@@ -49,7 +49,7 @@ export const ROSTER = [
     "role": "open-economy analyst",
     "division": "TRADE",
     "color": "#4a7f8a",
-    "bio": "<p>Nia Corren is open-economy analyst. Wants keep payments and trade clearing. Initially treats appreciation as strength alone. Makes the financing benefit and export cost visible together.</p>"
+    "bio": "<p>She has presented incoming capital as a sign of confidence and must now explain what the same exchange-rate move costs exporters. Appreciation initially looks like strength without its trade consequences.</p>"
   },
   {
     "id": "dane",
@@ -57,7 +57,7 @@ export const ROSTER = [
     "role": "finance minister",
     "division": "RATE",
     "color": "#8a5c7f",
-    "bio": "<p>Rhea Dane is finance minister. Wants show control before launch. Underweights lags and crowding out. Replaces an announcement-first plan with a smaller conditional bridge.</p>"
+    "bio": "<p>She has backed a support package that people expect to see quickly; shrinking it carries a visible political cost. The announcement is immediate while implementation lags and displaced investment are less visible.</p>"
   },
   {
     "id": "vale",
@@ -65,7 +65,7 @@ export const ROSTER = [
     "role": "export council liaison",
     "division": "OPENEC",
     "color": "#6b7f8a",
-    "bio": "<p>Soren Vale is export council liaison. Wants protect orders and jobs. Treats depreciation as costless. Accepts a stable conversion with targeted first-week cover.</p>"
+    "bio": "<p>He represents firms trying to keep orders and jobs through the conversion and wants the board to hear their losses. A cheaper currency can look costless when only export sales are considered.</p>"
   }
 ];
 

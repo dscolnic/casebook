@@ -64,49 +64,60 @@ roster:
   division: SAFE
   pronouns: "she/her"
   bio: |
-    Mara Voss is Trial director and mission authority. Wants a defensible board decision on day 15. Schedule pressure can make a settled-looking number feel final. Says, "What can that number honestly claim?" She moves from deadline-first to evidence-first.
+    She has promised the board a defensible decision on day fifteen and must explain if the
+    strongest-looking headline weakens. A settled-looking number can feel final when a deadline
+    is close.
 - id: navarro
   name: "Eli Navarro"
   role: "SITE division operations lead"
   division: SITE
   pronouns: "he/him"
   bio: |
-    Eli Navarro is division operations lead. Wants keep hospitals enrolling and queries moving. Fast sites look efficient before representativeness is checked. Says, "Who is missing?" He ultimately pauses the fastest site himself.
+    He has held up fast-enrolling hospitals as examples while trying to keep recruitment and
+    queries moving. Recruitment speed can look like quality before the missing patients and
+    regions are examined.
 - id: shah
   name: "Priya Shah"
   role: "Randomisation and blinding lead"
   division: RAND
   pronouns: "she/her"
   bio: |
-    Priya Shah is Randomisation and blinding lead. Wants preserve treatment concealment and causal validity. A correct allocation file can hide failures in physical kit handling. Says, "Could anyone predict the next box?" She accepts an audit beyond her records.
+    She has built a correct allocation record and must now show that the handling of actual kits
+    preserves what the file promises. A valid digital sequence can hide predictable physical
+    handling.
 - id: reed
   name: "Tomas Reed"
   role: "STAT division trial statistician"
   division: STAT
   pronouns: "he/him"
   bio: |
-    Tomas Reed is division trial statistician. Wants protect the analysis plan and statistical power. Formal significance can distract him from bias and practical size. Says, "State the parameter first." He presents uncertainty before the headline.
+    He has defended the analysis plan and wants its work to yield a useful result when the board
+    meets. Formal significance can overshadow bias, multiplicity and practical size.
 - id: okafor
   name: "Amina Okafor"
   role: "Endpoint adjudication lead"
   division: ENDP
   pronouns: "she/her"
   bio: |
-    Amina Okafor is Endpoint adjudication lead. Wants count the same clinical event the same way everywhere. Precise rules can still measure the wrong construct. Says, "What exactly was counted?" She revises the endpoint rule.
+    Sites rely on her event definitions, so changing a rule can require revisiting records
+    already treated as settled. Precise counting rules can still measure the wrong construct.
 - id: wu
   name: "Lena Wu"
   role: "REG division regulatory and registry lead"
   division: REG
   pronouns: "she/her"
   bio: |
-    Lena Wu is division regulatory and registry lead. Wants keep every change transparent and reproducible. Documentation can verify a record without verifying a patient's condition. Says, "Was that promised before the data?" She distinguishes audit trail from truth.
+    Lena must preserve a traceable record even when it includes inconvenient changes. A complete
+    audit trail can seem to verify the patient evidence itself.
 - id: berg
   name: "Jonas Berg"
   role: "Safety monitoring chair"
   division: SAFE
   pronouns: "he/him"
   bio: |
-    Jonas Berg is Safety monitoring chair. Wants prevent avoidable patient harm. Early clusters can tempt him to stop before accounting for chance and exposure. Says, "What would change the decision?" He accepts continuation only with enforceable triggers.
+    He is accountable for patients exposed while the board waits and for patients who might lose
+    a useful treatment if it stops too soon. An early cluster can demand attention before chance
+    and exposure have been properly considered.
 
 glossary:
   - name: Randomisation

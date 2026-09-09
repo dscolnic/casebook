@@ -1,6 +1,8 @@
 **FIRST PERSON LEARNING**
 
-**Player-copy editing rule:** Within each displayed passage, state each fact, equation, variable definition, and instruction once. Integrate new givens into the existing wording; do not append a paraphrase of the setup. A source panel may repeat essential inputs so it stands alone, but render it as its own surface rather than concatenating it with the question setup. Go Deeper questions must still supply their own context and data without referring to earlier cases.
+**Editorial revision:** Character profiles, evidence-driven scenes and biography checks; 2026-09-09. All prior copy and opening-quote fixes retained.
+
+**Player-copy editing rule:** Raise a blocking `REPETITION_FLAG` for unresolved duplicated meaning within a displayed passage, including paraphrases, repeated formulas/definitions and concatenated setup/source copy. Review candidate matches semantically and document any separate-surface exception. Apply REP-001–REP-005 in Giant Gate v2.8.  Within each displayed passage, state each fact, equation, variable definition, and instruction once. Integrate new givens into the existing wording; do not append a paraphrase of the setup. A source panel may repeat essential inputs so it stands alone, but render it as its own surface rather than concatenating it with the question setup. Go Deeper questions must still supply their own context and data without referring to earlier cases.
 
 **SAFETY FACTOR**
 
@@ -226,7 +228,17 @@ Carousel, Bumper Cars, and Drop Tower open in verified configurations. Pirate Sh
 
 ## 4. Character bible
 
-### Maya Hart - WHEEL park operations lead and mission authority
+### Profile and scene delivery contract
+
+The compact material below is a designer reference. The individual Character ID entries are the authoritative full profiles; reference rows and headings are not additional people. Render only the explicitly labeled bio fields in the optional roster. Wants, blind spots and future arc descriptions are designer-only. Keep the existing names, role aliases and division assignments; the explicit profiles add ownership and scene bindings without changing any person-stop owner.
+
+Each character has an entrance/evidence encounter, a required evidence-triggered turn and a later demonstrated change, embedded at the relevant mission stops below. These scenes are part of the story route, not prerequisites added by the roster. Opening handovers and established entrances play once. When an existing beat already supplies the same action or sentence at that trigger, render that action or sentence once and use this exact reaction as its character component; retain all distinct travel, science and outcome content. Sequence multiple scenes by their order in the chapter. Do not concatenate setup/source panels or duplicate the accepted answer in dialogue.
+
+All physical actions use the existing fixture and its records. A radio speaker can direct the player’s visible record handling; no new carried item, prop, fixture, resource or measurement is implied. Preserve original lock and release conditions, including partial clearance and no-go endings. The roster can be skipped in full with no effect on progress. The three greeting variants are state-selected optional conversations, not an automatic speech queue.
+
+### Compact designer reference
+
+**Maya Hart - WHEEL park operations lead and mission authority**
 
 **First entrance:** At the Ferris Wheel, removing the brake arming key before a technician can repeat an unapproved powered test.
 
@@ -240,7 +252,7 @@ Carousel, Bumper Cars, and Drop Tower open in verified configurations. Pirate Sh
 
 **Arc:** Her missing operator card makes her look responsible for the October event. The player later proves that her interruption prevented resonance, and she ends by accepting a scientifically justified coaster closure.
 
-### Linh Chen - BUMPER instrumentation and test lead
+**Linh Chen - BUMPER instrumentation and test lead**
 
 **First entrance:** At the bumper-car dummy, fastening separate accelerometers to the seat frame and floor pan.
 
@@ -254,7 +266,7 @@ Carousel, Bumper Cars, and Drop Tower open in verified configurations. Pirate Sh
 
 **Arc:** Chen discovers the shared chain, then insists that the coaster model face unseen physical geometry.
 
-### Luka Kovač - TOWER mechanical lead, working the coaster and the flume
+**Luka Kovač - TOWER mechanical lead, working the coaster and the flume**
 
 **First entrance:** At the coaster station, disassembling the portable speed wheel instead of declaring it sound from its service label.
 
@@ -268,7 +280,7 @@ Carousel, Bumper Cars, and Drop Tower open in verified configurations. Pirate Sh
 
 **Arc:** Kovač moves from replacing the likely part to measuring the system before naming a failure.
 
-### Tunde Idowu - CAROUSEL controls engineer
+**Tunde Idowu - CAROUSEL controls engineer**
 
 **First entrance:** At the Carousel Drive House, refusing to open the replacement-controller crate until a controlled test can justify the change.
 
@@ -282,7 +294,7 @@ Carousel, Bumper Cars, and Drop Tower open in verified configurations. Pirate Sh
 
 **Arc:** Idowu first defends the controls, then helps write the forbidden timing band that makes the pirate ship operable.
 
-### Ruth Brennan - SHIP former chief engineer and keeper of the notebooks
+**Ruth Brennan - SHIP former chief engineer and keeper of the notebooks**
 
 **First entrance:** In the Workshop, placing eleven notebooks in date order while admitting that none contains a complete test procedure.
 
@@ -298,27 +310,332 @@ Carousel, Bumper Cars, and Drop Tower open in verified configurations. Pirate Sh
 
 **Division ownership:** `SHIP` former chief engineer and ride-history authority.
 
-### Ana Silva - WORKSHOP reliability engineer
+**Ana Silva - WORKSHOP reliability engineer**
 
 **First entrance:** In Brennan's Workshop, separating current inspection records from inherited notebooks.
 
 **Wants:** A repair plan that can be reproduced. **Blind spot:** Initially assumes documentation gaps imply mechanical failure. **Gameplay use:** `WORKSHOP` division ownership, procedure checks, and evidence triage. **Verbal habit:** “Which record can we repeat?”
 
-### Priya Nair - COASTER geometry engineer
+**Priya Nair - COASTER geometry engineer**
 
 **First entrance:** At the Coaster Station, measuring the crown radius from the rail rather than the drawing.
 
 **Wants:** A physically correct coaster model. **Blind spot:** Initially trusts survey marks more than operating data. **Gameplay use:** `COASTER` division ownership, geometry, circular motion, and holdout testing. **Verbal habit:** “Measure the curve we have.”
 
-### Mateo Ruiz - FLUME hydraulics engineer
+**Mateo Ruiz - FLUME hydraulics engineer**
 
 **First entrance:** In the Flume Pumphouse, checking pressure at every header station before touching the pump.
 
 **Wants:** Stable flow without consuming shared reserve. **Blind spot:** Initially treats a good pump curve as sufficient system proof. **Gameplay use:** `FLUME` division ownership, pressure, continuity, power, and probe tests. **Verbal habit:** “Where does the head go?”
 
-### Minor voices
+**Minor voices**
 
 Use an unnamed county clerk, ride mechanic, or seasonal worker only to show a consequence. No minor voice introduces a subplot or exists merely to ask a school question.
+
+### Relationship evidence map
+
+| People | Planted commitment | Evidence-driven turn | Later changed practice |
+|---|---|---|---|
+| Maya Hart / Ruth Brennan | `safety-maya-entrance`: “Keep my interruption in the record; we need to know what the machine was doing when I stopped it.” | Stop 32, `safety-maya-turn` | Stop 60, `safety-maya-payoff` |
+| Linh Chen / Ana Silva | `safety-chen-entrance`: “Check my instruments as carefully as you check the inherited notebooks.” | Stop 23, `safety-chen-turn` | Stop 55, `safety-chen-payoff` |
+| Tunde Idowu / Luka Kovač | `safety-tunde-entrance`: “Before we replace the controller, let us test what its command makes the mechanism do.” | Stop 31, `safety-tunde-turn` | Stop 52, `safety-tunde-payoff` |
+
+### Maya Hart
+
+- **Character ID:** `person-maya-hart`
+- **Display name:** Maya Hart
+- **Role:** park operations lead
+- **Pronouns:** she/her
+- **Allowed short name:** Maya
+- **Area ownership:** Ferris Wheel machine room; Bumper Car Pavilion; Front Gate. Existing division assignments in the reference summary also remain in force; presence elsewhere is explicitly by radio.
+- **First entrance:** Removes the brake arming key before an unapproved powered test can be repeated. The established entrance is retained; the scene below stages the first evidence encounter in this arc. Binding: `safety-maya-entrance`, On arrival at Ferris Wheel machine room during Mission 1, when Stop 1 is the next active stop; if the player is already here, fire once on that stop’s existing activation instead of requiring re-entry, at `hub-schedule`.
+- **Wants and personal stake:** Her missing operator card places her own interruption of the October test under suspicion; she still has to decide which rides may reopen.
+- **Blind spot:** Experienced operators and remembered settings can feel more trustworthy than an incomplete model.
+- **Scientific domain:** operating authority and conditional reopening.
+- **Decision function:** Supplies the operating authority and conditional reopening constraint to the existing decisions at Stops 32 and 60; the player still submits the answer and the existing authority still controls authorization.
+- **Verbal habit:** “What can we sign our names to?”
+- **Relationship pressure:** Ruth Brennan: Her missing operator card places her own interruption of the October test under suspicion; she still has to decide which rides may reopen.
+- **Arc, with source evidence:** After Stop 32 (Reinterpret the interruption), `safety-maya-turn` makes the accepted evidence personally consequential. After Stop 60 (Attest the certificate), `safety-maya-payoff` shows the resulting change in practice: Signs the accepted certificate while leaving the coaster closure in force.
+- **Cost of changing:** The character must revise or qualify the commitment described under personal stake in front of the player and Ruth Brennan; the old interpretation remains reviewable rather than silently overwritten.
+- **Gameplay necessity:** Removing this character removes the accountable owner of operating authority and conditional reopening, the commitment above, and the witnessed correction in `safety-maya-turn`. Reassigning their questions alone would not preserve those scenes or constraints.
+
+**Bio passage - exact player copy:** Maya is responsible for deciding which rides may reopen. Her own intervention during the October test is part of the record the inquiry must explain.
+
+**Bio reflection question - exact player copy:** Why is the October record personally difficult for Maya?
+
+**Bio reveal answer - exact player copy:** Her own intervention is part of the event being investigated while she remains responsible for the reopening decision.
+
+**Bio feedback - exact player copy:** Connect Maya’s responsibility for reopening with the scrutiny of her own intervention.
+
+**Bio check behavior:** On explicit opening of this character’s optional roster page after their first encounter, show only the bio passage and reflection question. Reveal answer and feedback only when the player selects Show answer; allow reconsideration and reopening. This is an unscored reading reflection, with no automatic correctness judgment, stop number, RP, timer cost, mission prerequisite, mastery credit, story flag or unlock. No answer or future arc is required to continue. Designer profile fields and future dialogue are not player-visible biography text.
+
+**Conditional greeting binding:** On explicit Talk to Maya after the character has been introduced, use the highest satisfied row only. Later states override earlier ones. A state changes only from the existing accepted-stop record, never from reading the bio. Lines may be reopened on explicit request; do not autoplay a greeting already spoken as a scene line at that encounter. No new travel or required conversation is created. Presence is local only at the character’s existing location; otherwise use the established radio connection. Log spoken text; pause the timer while it is open.
+
+| Priority | Condition | Exact greeting |
+|---:|---|---|
+| 30 | Stop 60 accepted | “The coaster stays shut; my name on the certificate has to mean that too.” |
+| 20 | Stop 32 accepted; Stop 60 not accepted | “I stopped that run, and I needed you to find out whether stopping it was right.” |
+| 10 | Introduced; Stop 32 not accepted; fallback | “What can we sign our names to?” |
+
+### Linh Chen
+
+- **Character ID:** `person-linh-chen`
+- **Display name:** Linh Chen
+- **Role:** instrumentation and test lead
+- **Pronouns:** she/her
+- **Allowed short name:** Chen
+- **Area ownership:** Bumper Car Pavilion; Brennan's Workshop; Drop Tower Control. Existing division assignments in the reference summary also remain in force; presence elsewhere is explicitly by radio.
+- **First entrance:** Fastens separate accelerometers to the dummy’s seat frame and floor pan. The established entrance is retained; the scene below stages the first evidence encounter in this arc. Binding: `safety-chen-entrance`, On arrival at Bumper Car Pavilion during Mission 4, when Stop 13 is the next active stop; if the player is already here, fire once on that stop’s existing activation instead of requiring re-entry, at `car-on-stands`.
+- **Wants and personal stake:** She has installed separate instruments to make the county case stronger and must disclose when that separation is only apparent.
+- **Blind spot:** Different displays can share a clock or calibration and therefore the same error.
+- **Scientific domain:** measurement independence and uncertainty.
+- **Decision function:** Supplies the measurement independence and uncertainty constraint to the existing decisions at Stops 23 and 55; the player still submits the answer and the existing authority still controls authorization.
+- **Verbal habit:** “What measured that?”
+- **Relationship pressure:** Ana Silva: She has installed separate instruments to make the county case stronger and must disclose when that separation is only apparent.
+- **Arc, with source evidence:** After Stop 23 (Trace the agreement), `safety-chen-turn` makes the accepted evidence personally consequential. After Stop 55 (Compare residual fields), `safety-chen-payoff` shows the resulting change in practice: Places the residual fields beside the independent geometry evidence.
+- **Cost of changing:** The character must revise or qualify the commitment described under personal stake in front of the player and Ana Silva; the old interpretation remains reviewable rather than silently overwritten.
+- **Gameplay necessity:** Removing this character removes the accountable owner of measurement independence and uncertainty, the commitment above, and the witnessed correction in `safety-chen-turn`. Reassigning their questions alone would not preserve those scenes or constraints.
+
+**Bio passage - exact player copy:** She has installed separate instruments to make the county case stronger and must disclose when that separation is only apparent. Different displays can share a clock or calibration and therefore the same error.
+
+**Bio reflection question - exact player copy:** Why might Chen’s separate instruments fail to provide independent confirmation?
+
+**Bio reveal answer - exact player copy:** They can still depend on a common clock or calibration, so separate displays alone do not establish independence.
+
+**Bio feedback - exact player copy:** A common upstream source can carry one error into several displays.
+
+**Bio check behavior:** On explicit opening of this character’s optional roster page after their first encounter, show only the bio passage and reflection question. Reveal answer and feedback only when the player selects Show answer; allow reconsideration and reopening. This is an unscored reading reflection, with no automatic correctness judgment, stop number, RP, timer cost, mission prerequisite, mastery credit, story flag or unlock. No answer or future arc is required to continue. Designer profile fields and future dialogue are not player-visible biography text.
+
+**Conditional greeting binding:** On explicit Talk to Chen after the character has been introduced, use the highest satisfied row only. Later states override earlier ones. A state changes only from the existing accepted-stop record, never from reading the bio. Lines may be reopened on explicit request; do not autoplay a greeting already spoken as a scene line at that encounter. No new travel or required conversation is created. Presence is local only at the character’s existing location; otherwise use the established radio connection. Log spoken text; pause the timer while it is open.
+
+| Priority | Condition | Exact greeting |
+|---:|---|---|
+| 30 | Stop 55 accepted | “Keep the spatial disagreement visible; an average would hide the part that matters.” |
+| 20 | Stop 23 accepted; Stop 55 not accepted | “I gave us another display; that was not necessarily another witness.” |
+| 10 | Introduced; Stop 23 not accepted; fallback | “What measured that?” |
+
+### Luka Kovač
+
+- **Character ID:** `person-luka-kovac`
+- **Display name:** Luka Kovač
+- **Role:** mechanical lead
+- **Pronouns:** he/him
+- **Allowed short name:** Luka
+- **Area ownership:** Pirate Ship console; Brennan's Workshop; Flume Pumphouse. Existing division assignments in the reference summary also remain in force; presence elsewhere is explicitly by radio.
+- **First entrance:** Disassembles the portable speed wheel rather than accepting its service label as proof. The established entrance is retained; the scene below stages the first evidence encounter in this arc. Binding: `safety-luka-entrance`, On arrival at Pirate Ship console during Mission 2, when Stop 5 is the next active stop; if the player is already here, fire once on that stop’s existing activation instead of requiring re-entry, at `seat-frame`.
+- **Wants and personal stake:** He must choose repairs that crews can finish before inspection and prefers faults he knows how to replace.
+- **Blind spot:** Familiar wear can become the first explanation for unrelated symptoms.
+- **Scientific domain:** loads, friction, work and physical diagnosis.
+- **Decision function:** Supplies the loads, friction, work and physical diagnosis constraint to the existing decisions at Stops 24 and 56; the player still submits the answer and the existing authority still controls authorization.
+- **Verbal habit:** “What changed on the machine?”
+- **Relationship pressure:** The player relies on Luka for loads, friction, work and physical diagnosis; their shared working assumption is challenged in `safety-luka-turn`.
+- **Arc, with source evidence:** After Stop 24 (Name the cause that fits), `safety-luka-turn` makes the accepted evidence personally consequential. After Stop 56 (Diagnose the failed certificate), `safety-luka-payoff` shows the resulting change in practice: Keeps the failed-certificate explanation with the physical survey rather than ordering another speculative part.
+- **Cost of changing:** The character must revise or qualify the commitment described under personal stake in front of the player; the old interpretation remains reviewable rather than silently overwritten.
+- **Gameplay necessity:** Removing this character removes the accountable owner of loads, friction, work and physical diagnosis, the commitment above, and the witnessed correction in `safety-luka-turn`. Reassigning their questions alone would not preserve those scenes or constraints.
+
+**Bio passage - exact player copy:** He must choose repairs that crews can finish before inspection and prefers faults he knows how to replace. Familiar wear can become the first explanation for unrelated symptoms.
+
+**Bio reflection question - exact player copy:** Why is a familiar worn part a tempting explanation for Luka?
+
+**Bio reveal answer - exact player copy:** It offers a concrete repair he can schedule, even before the evidence establishes that it caused the fault.
+
+**Bio feedback - exact player copy:** The repair’s familiarity does not establish its causal relevance.
+
+**Bio check behavior:** On explicit opening of this character’s optional roster page after their first encounter, show only the bio passage and reflection question. Reveal answer and feedback only when the player selects Show answer; allow reconsideration and reopening. This is an unscored reading reflection, with no automatic correctness judgment, stop number, RP, timer cost, mission prerequisite, mastery credit, story flag or unlock. No answer or future arc is required to continue. Designer profile fields and future dialogue are not player-visible biography text.
+
+**Conditional greeting binding:** On explicit Talk to Luka after the character has been introduced, use the highest satisfied row only. Later states override earlier ones. A state changes only from the existing accepted-stop record, never from reading the bio. Lines may be reopened on explicit request; do not autoplay a greeting already spoken as a scene line at that encounter. No new travel or required conversation is created. Presence is local only at the character’s existing location; otherwise use the established radio connection. Log spoken text; pause the timer while it is open.
+
+| Priority | Condition | Exact greeting |
+|---:|---|---|
+| 30 | Stop 56 accepted | “We fix the model and the evidence before we send someone for another wheel.” |
+| 20 | Stop 24 accepted; Stop 56 not accepted | “Replacing a familiar part would have been easier than explaining why it was not the cause.” |
+| 10 | Introduced; Stop 24 not accepted; fallback | “What changed on the machine?” |
+
+### Tunde Idowu
+
+- **Character ID:** `person-tunde-idowu`
+- **Display name:** Tunde Idowu
+- **Role:** controls engineer
+- **Pronouns:** he/him
+- **Allowed short name:** Tunde
+- **Area ownership:** Carousel Drive House; Pirate Ship console. Existing division assignments in the reference summary also remain in force; presence elsewhere is explicitly by radio.
+- **First entrance:** Keeps the replacement-controller crate closed until a controlled test justifies using it. The established entrance is retained; the scene below stages the first evidence encounter in this arc. Binding: `safety-tunde-entrance`, On arrival at Carousel Drive House during Mission 3, when Stop 9 is the next active stop; if the player is already here, fire once on that stop’s existing activation instead of requiring re-entry, at `chain-rig`.
+- **Wants and personal stake:** An unopened replacement controller could absorb time and money; he must defend the current controls without ignoring how they drive the mechanics.
+- **Blind spot:** Command correctness can seem separable from mechanical resonance.
+- **Scientific domain:** drive timing and reversible tests.
+- **Decision function:** Supplies the drive timing and reversible tests constraint to the existing decisions at Stops 31 and 52; the player still submits the answer and the existing authority still controls authorization.
+- **Verbal habit:** “Change one thing, then change it back.”
+- **Relationship pressure:** Luka Kovač: An unopened replacement controller could absorb time and money; he must defend the current controls without ignoring how they drive the mechanics.
+- **Arc, with source evidence:** After Stop 31 (Establish resonance by reversal), `safety-tunde-turn` makes the accepted evidence personally consequential. After Stop 52 (Commit the joint rules), `safety-tunde-payoff` shows the resulting change in practice: Retains the forbidden timing band in the accepted joint operating rules.
+- **Cost of changing:** The character must revise or qualify the commitment described under personal stake in front of the player and Luka Kovač; the old interpretation remains reviewable rather than silently overwritten.
+- **Gameplay necessity:** Removing this character removes the accountable owner of drive timing and reversible tests, the commitment above, and the witnessed correction in `safety-tunde-turn`. Reassigning their questions alone would not preserve those scenes or constraints.
+
+**Bio passage - exact player copy:** An unopened replacement controller could absorb time and money; he must defend the current controls without ignoring how they drive the mechanics. Command correctness can seem separable from mechanical resonance.
+
+**Bio reflection question - exact player copy:** Why does Tunde resist opening the replacement-controller crate immediately?
+
+**Bio reveal answer - exact player copy:** A replacement should follow evidence about the cause rather than consume scarce work time on suspicion.
+
+**Bio feedback - exact player copy:** Preserving the crate is a way to reserve effort until a replacement is justified.
+
+**Bio check behavior:** On explicit opening of this character’s optional roster page after their first encounter, show only the bio passage and reflection question. Reveal answer and feedback only when the player selects Show answer; allow reconsideration and reopening. This is an unscored reading reflection, with no automatic correctness judgment, stop number, RP, timer cost, mission prerequisite, mastery credit, story flag or unlock. No answer or future arc is required to continue. Designer profile fields and future dialogue are not player-visible biography text.
+
+**Conditional greeting binding:** On explicit Talk to Tunde after the character has been introduced, use the highest satisfied row only. Later states override earlier ones. A state changes only from the existing accepted-stop record, never from reading the bio. Lines may be reopened on explicit request; do not autoplay a greeting already spoken as a scene line at that encounter. No new travel or required conversation is created. Presence is local only at the character’s existing location; otherwise use the established radio connection. Log spoken text; pause the timer while it is open.
+
+| Priority | Condition | Exact greeting |
+|---:|---|---|
+| 30 | Stop 52 accepted | “Keep that band out of the schedule, even when each separate setting looks acceptable.” |
+| 20 | Stop 31 accepted; Stop 52 not accepted | “The controller can obey its command perfectly and still drive the ship at the wrong rhythm.” |
+| 10 | Introduced; Stop 31 not accepted; fallback | “Change one thing, then change it back.” |
+
+### Ruth Brennan
+
+- **Character ID:** `person-ruth-brennan`
+- **Display name:** Ruth Brennan
+- **Role:** former chief engineer
+- **Pronouns:** she/her
+- **Allowed short name:** Ruth
+- **Area ownership:** Brennan's Workshop; Coaster Station. Existing division assignments in the reference summary also remain in force; presence elsewhere is explicitly by radio.
+- **First entrance:** Places eleven notebooks in date order and admits that none contains a complete procedure. The established entrance is retained; the scene below stages the first evidence encounter in this arc. Binding: `safety-ruth-entrance`, On arrival at Brennan's Workshop during Mission 5, when Stop 17 is the next active stop; if the player is already here, fire once on that stop’s existing activation instead of requiring re-entry, at `bench-notebooks`.
+- **Wants and personal stake:** The notebooks preserve forty-one years of work by people she trained; admitting their limits can sound like dismissing that work.
+- **Blind spot:** A long uneventful history can make copied dimensions and remembered settings seem current.
+- **Scientific domain:** historical records and reproducible procedures.
+- **Decision function:** Supplies the historical records and reproducible procedures constraint to the existing decisions at Stops 23 and 54; the player still submits the answer and the existing authority still controls authorization.
+- **Verbal habit:** “That is how we always ran it.”
+- **Relationship pressure:** The player relies on Ruth for historical records and reproducible procedures; their shared working assumption is challenged in `safety-ruth-turn`.
+- **Arc, with source evidence:** After Stop 23 (Trace the agreement), `safety-ruth-turn` makes the accepted evidence personally consequential. After Stop 54 (Recompute for the real loop), `safety-ruth-payoff` shows the resulting change in practice: Places the corrected crown measurement beside the old drawing without erasing either.
+- **Cost of changing:** The character must revise or qualify the commitment described under personal stake in front of the player; the old interpretation remains reviewable rather than silently overwritten.
+- **Gameplay necessity:** Removing this character removes the accountable owner of historical records and reproducible procedures, the commitment above, and the witnessed correction in `safety-ruth-turn`. Reassigning their questions alone would not preserve those scenes or constraints.
+
+**Bio passage - exact player copy:** The notebooks preserve forty-one years of work by people she trained; admitting their limits can sound like dismissing that work. A long uneventful history can make copied dimensions and remembered settings seem current.
+
+**Bio reflection question - exact player copy:** Why is it hard for Ruth to question the notebooks?
+
+**Bio reveal answer - exact player copy:** They represent decades of skilled work and training, though that history does not prove the present machine matches every copied entry.
+
+**Bio feedback - exact player copy:** Respect for earlier crews does not make their records current measurements.
+
+**Bio check behavior:** On explicit opening of this character’s optional roster page after their first encounter, show only the bio passage and reflection question. Reveal answer and feedback only when the player selects Show answer; allow reconsideration and reopening. This is an unscored reading reflection, with no automatic correctness judgment, stop number, RP, timer cost, mission prerequisite, mastery credit, story flag or unlock. No answer or future arc is required to continue. Designer profile fields and future dialogue are not player-visible biography text.
+
+**Conditional greeting binding:** On explicit Talk to Ruth after the character has been introduced, use the highest satisfied row only. Later states override earlier ones. A state changes only from the existing accepted-stop record, never from reading the bio. Lines may be reopened on explicit request; do not autoplay a greeting already spoken as a scene line at that encounter. No new travel or required conversation is created. Presence is local only at the character’s existing location; otherwise use the established radio connection. Log spoken text; pause the timer while it is open.
+
+| Priority | Condition | Exact greeting |
+|---:|---|---|
+| 30 | Stop 54 accepted | “Keep the old page as history; use the measured curve for the next decision.” |
+| 20 | Stop 23 accepted; Stop 54 not accepted | “Those were careful people copying a record; they were not taking eleven new measurements.” |
+| 10 | Introduced; Stop 23 not accepted; fallback | “That is how we always ran it.” |
+
+### Ana Silva
+
+- **Character ID:** `person-ana-silva`
+- **Display name:** Ana Silva
+- **Role:** reliability engineer
+- **Pronouns:** she/her
+- **Allowed short name:** Ana
+- **Area ownership:** Brennan's Workshop. Existing division assignments in the reference summary also remain in force; presence elsewhere is explicitly by radio.
+- **First entrance:** Separates current inspection records from the inherited notebooks in the workshop. The established entrance is retained; the scene below stages the first evidence encounter in this arc. Binding: `safety-ana-entrance`, On arrival at Brennan's Workshop during Mission 5, when Stop 17 is the next active stop; if the player is already here, fire once on that stop’s existing activation instead of requiring re-entry, at `bench-notebooks`.
+- **Wants and personal stake:** She must turn incomplete inherited records into a repair plan that another crew can reproduce.
+- **Blind spot:** A documentation gap can initially look like evidence of a mechanical failure.
+- **Scientific domain:** repeatable inspections and evidence triage.
+- **Decision function:** Supplies the repeatable inspections and evidence triage constraint to the existing decisions at Stops 24 and 48; the player still submits the answer and the existing authority still controls authorization.
+- **Verbal habit:** “Which record can we repeat?”
+- **Relationship pressure:** The player relies on Ana for repeatable inspections and evidence triage; their shared working assumption is challenged in `safety-ana-turn`.
+- **Arc, with source evidence:** After Stop 24 (Name the cause that fits), `safety-ana-turn` makes the accepted evidence personally consequential. After Stop 48 (Attest both configurations), `safety-ana-payoff` shows the resulting change in practice: Files the two accepted configuration attestations as separate reproducible records.
+- **Cost of changing:** The character must revise or qualify the commitment described under personal stake in front of the player; the old interpretation remains reviewable rather than silently overwritten.
+- **Gameplay necessity:** Removing this character removes the accountable owner of repeatable inspections and evidence triage, the commitment above, and the witnessed correction in `safety-ana-turn`. Reassigning their questions alone would not preserve those scenes or constraints.
+
+**Bio passage - exact player copy:** She must turn incomplete inherited records into a repair plan that another crew can reproduce. A documentation gap can initially look like evidence of a mechanical failure.
+
+**Bio reflection question - exact player copy:** What can Ana infer from an incomplete inspection record?
+
+**Bio reveal answer - exact player copy:** It limits what can be verified, but it does not by itself identify a mechanical fault.
+
+**Bio feedback - exact player copy:** Missing proof and a proved failure are different findings.
+
+**Bio check behavior:** On explicit opening of this character’s optional roster page after their first encounter, show only the bio passage and reflection question. Reveal answer and feedback only when the player selects Show answer; allow reconsideration and reopening. This is an unscored reading reflection, with no automatic correctness judgment, stop number, RP, timer cost, mission prerequisite, mastery credit, story flag or unlock. No answer or future arc is required to continue. Designer profile fields and future dialogue are not player-visible biography text.
+
+**Conditional greeting binding:** On explicit Talk to Ana after the character has been introduced, use the highest satisfied row only. Later states override earlier ones. A state changes only from the existing accepted-stop record, never from reading the bio. Lines may be reopened on explicit request; do not autoplay a greeting already spoken as a scene line at that encounter. No new travel or required conversation is created. Presence is local only at the character’s existing location; otherwise use the established radio connection. Log spoken text; pause the timer while it is open.
+
+| Priority | Condition | Exact greeting |
+|---:|---|---|
+| 30 | Stop 48 accepted | “The next crew can repeat each configuration without guessing what this page meant.” |
+| 20 | Stop 24 accepted; Stop 48 not accepted | “An absent procedure tells us what we cannot claim; it does not name the failed part.” |
+| 10 | Introduced; Stop 24 not accepted; fallback | “Which record can we repeat?” |
+
+### Priya Nair
+
+- **Character ID:** `person-priya-nair`
+- **Display name:** Priya Nair
+- **Role:** geometry engineer
+- **Pronouns:** she/her
+- **Allowed short name:** Priya
+- **Area ownership:** Coaster Station; Flume Pumphouse. Existing division assignments in the reference summary also remain in force; presence elsewhere is explicitly by radio.
+- **First entrance:** Measures the crown radius from the rail rather than treating the drawing as the machine. The established entrance is retained; the scene below stages the first evidence encounter in this arc. Binding: `safety-priya-entrance`, On arrival at Coaster Station during Mission 10, when Stop 37 is the next active stop; if the player is already here, fire once on that stop’s existing activation instead of requiring re-entry, at `profile-drawing`.
+- **Wants and personal stake:** Her survey determines whether the coaster model describes the rail people will actually ride.
+- **Blind spot:** Survey marks alone can feel sufficient before operating data test their consequences.
+- **Scientific domain:** physical geometry and contact conditions.
+- **Decision function:** Supplies the physical geometry and contact conditions constraint to the existing decisions at Stops 54 and 56; the player still submits the answer and the existing authority still controls authorization.
+- **Verbal habit:** “Measure the curve we have.”
+- **Relationship pressure:** The player relies on Priya for physical geometry and contact conditions; their shared working assumption is challenged in `safety-priya-turn`.
+- **Arc, with source evidence:** After Stop 54 (Recompute for the real loop), `safety-priya-turn` makes the accepted evidence personally consequential. After Stop 56 (Diagnose the failed certificate), `safety-priya-payoff` shows the resulting change in practice: Retains the failed contact-margin comparison beside the closure record.
+- **Cost of changing:** The character must revise or qualify the commitment described under personal stake in front of the player; the old interpretation remains reviewable rather than silently overwritten.
+- **Gameplay necessity:** Removing this character removes the accountable owner of physical geometry and contact conditions, the commitment above, and the witnessed correction in `safety-priya-turn`. Reassigning their questions alone would not preserve those scenes or constraints.
+
+**Bio passage - exact player copy:** Her survey determines whether the coaster model describes the rail people will actually ride. Survey marks alone can feel sufficient before operating data test their consequences.
+
+**Bio reflection question - exact player copy:** Why must Priya compare the survey with operating data?
+
+**Bio reveal answer - exact player copy:** A physical measurement improves the model, but actual operation still has to satisfy the resulting requirement.
+
+**Bio feedback - exact player copy:** An improved model still needs a comparison with actual operation.
+
+**Bio check behavior:** On explicit opening of this character’s optional roster page after their first encounter, show only the bio passage and reflection question. Reveal answer and feedback only when the player selects Show answer; allow reconsideration and reopening. This is an unscored reading reflection, with no automatic correctness judgment, stop number, RP, timer cost, mission prerequisite, mastery credit, story flag or unlock. No answer or future arc is required to continue. Designer profile fields and future dialogue are not player-visible biography text.
+
+**Conditional greeting binding:** On explicit Talk to Priya after the character has been introduced, use the highest satisfied row only. Later states override earlier ones. A state changes only from the existing accepted-stop record, never from reading the bio. Lines may be reopened on explicit request; do not autoplay a greeting already spoken as a scene line at that encounter. No new travel or required conversation is created. Presence is local only at the character’s existing location; otherwise use the established radio connection. Log spoken text; pause the timer while it is open.
+
+| Priority | Condition | Exact greeting |
+|---:|---|---|
+| 30 | Stop 56 accepted | “A corrected drawing cannot make that run pass.” |
+| 20 | Stop 54 accepted; Stop 56 not accepted | “This is the curve we have; now the measured run has to meet its requirement.” |
+| 10 | Introduced; Stop 54 not accepted; fallback | “Measure the curve we have.” |
+
+### Mateo Ruiz
+
+- **Character ID:** `person-mateo-ruiz`
+- **Display name:** Mateo Ruiz
+- **Role:** hydraulics engineer
+- **Pronouns:** he/him
+- **Allowed short name:** Mateo
+- **Area ownership:** Flume Pumphouse; Boarded Arcade. Existing division assignments in the reference summary also remain in force; presence elsewhere is explicitly by radio.
+- **First entrance:** Checks each header pressure before touching the pump. The established entrance is retained; the scene below stages the first evidence encounter in this arc. Binding: `safety-mateo-entrance`, On arrival at Flume Pumphouse during Mission 11, when Stop 41 is the next active stop; if the player is already here, fire once on that stop’s existing activation instead of requiring re-entry, at `header-gauge`.
+- **Wants and personal stake:** He must restore stable flume flow without consuming power needed elsewhere in the park.
+- **Blind spot:** A sound pump curve can seem like proof that the whole installed system will perform.
+- **Scientific domain:** flow continuity, head and shared power.
+- **Decision function:** Supplies the flow continuity, head and shared power constraint to the existing decisions at Stops 42 and 44; the player still submits the answer and the existing authority still controls authorization.
+- **Verbal habit:** “Where does the head go?”
+- **Relationship pressure:** The player relies on Mateo for flow continuity, head and shared power; their shared working assumption is challenged in `safety-mateo-turn`.
+- **Arc, with source evidence:** After Stop 42 (Build the flow and power result), `safety-mateo-turn` makes the accepted evidence personally consequential. After Stop 44 (Use the water arc as a speed check), `safety-mateo-payoff` shows the resulting change in practice: Keeps the independent water-arc speed check with the accepted operating evidence.
+- **Cost of changing:** The character must revise or qualify the commitment described under personal stake in front of the player; the old interpretation remains reviewable rather than silently overwritten.
+- **Gameplay necessity:** Removing this character removes the accountable owner of flow continuity, head and shared power, the commitment above, and the witnessed correction in `safety-mateo-turn`. Reassigning their questions alone would not preserve those scenes or constraints.
+
+**Bio passage - exact player copy:** He must restore stable flume flow without consuming power needed elsewhere in the park. A sound pump curve can seem like proof that the whole installed system will perform.
+
+**Bio reflection question - exact player copy:** Why does Mateo check the header before adjusting the pump?
+
+**Bio reveal answer - exact player copy:** The flow problem can lie in the installed system, and changing the pump first could miss that cause.
+
+**Bio feedback - exact player copy:** Inspect the whole installed flow path before changing a single component.
+
+**Bio check behavior:** On explicit opening of this character’s optional roster page after their first encounter, show only the bio passage and reflection question. Reveal answer and feedback only when the player selects Show answer; allow reconsideration and reopening. This is an unscored reading reflection, with no automatic correctness judgment, stop number, RP, timer cost, mission prerequisite, mastery credit, story flag or unlock. No answer or future arc is required to continue. Designer profile fields and future dialogue are not player-visible biography text.
+
+**Conditional greeting binding:** On explicit Talk to Mateo after the character has been introduced, use the highest satisfied row only. Later states override earlier ones. A state changes only from the existing accepted-stop record, never from reading the bio. Lines may be reopened on explicit request; do not autoplay a greeting already spoken as a scene line at that encounter. No new travel or required conversation is created. Presence is local only at the character’s existing location; otherwise use the established radio connection. Log spoken text; pause the timer while it is open.
+
+| Priority | Condition | Exact greeting |
+|---:|---|---|
+| 30 | Stop 44 accepted | “Now we have a check on the moving water, not just a prediction from the pump.” |
+| 20 | Stop 42 accepted; Stop 44 not accepted | “The pump curve does not pay the losses between the pump and the water we need.” |
+| 10 | Introduced; Stop 42 not accepted; fallback | “Where does the head go?” |
+
 
 ## 5. Character direction and non-cinematic delivery
 
@@ -627,6 +944,18 @@ Hart demonstrates authority by preventing a risky test. Chen values measurement 
 ## Key concepts, explained here
 
 Position, velocity, and acceleration describe different features of motion. The sign depends on the chosen axis. A graph can reveal motion through slope, but it does not identify a physical cause. A prediction followed by a direct measurement tests one brake; it does not automatically validate unrelated records.
+
+### Character scene: safety-maya-entrance
+
+**Trigger:** On arrival at Ferris Wheel machine room during Mission 1, when Stop 1 is the next active stop; if the player is already here, fire once on that stop’s existing activation instead of requiring re-entry.
+**Location and presence:** `hub-schedule` in Ferris Wheel machine room. Maya Hart, park operations lead, speaks by radio unless already placed locally by the existing beat; do not teleport or duplicate the character. Any second speaker is explicitly remote.
+**Presentation:** Normal playable view; existing fixture evidence plus radio/nearby bubbles. Continue the existing arrival beat before the question opens. This is authored scene content, not another graded interaction.
+**Exact action / accessible description:** Removes the brake arming key before an unapproved powered test can be repeated.
+**Exact dialogue:**
+- Maya Hart, park operations lead: “Keep my interruption in the record; we need to know what the machine was doing when I stopped it.”
+
+**World-state effect:** No result is added or revealed; the encounter introduces the record or equipment already available for this stop.
+**Controls, persistence and retry:** Pause the timer during bubbles; one Continue per bubble restores control. At most two bubbles in this scene. Fire once per relevant accepted-state transition, not on wrong submissions; mission retry restores its snapshot and replay status. Retain accepted record and completed lines in the log. Use `safety-maya-entrance` only as a story-presentation key, never as a stop or fixture ID. No RP, metric, mastery or travel-unlock effect. At Stop 60 this is part of the existing pre-ending reaction; do not delay the ending with optional roster material.
 
 ## Stop 1 - Read the stopping trace
 
@@ -1346,6 +1675,18 @@ Kovač supplies a plausible mechanical explanation. Hart insists that passing a 
 
 A free-body diagram begins with a chosen system. External forces cross that system boundary. When acceleration is zero, the vector sum of forces is zero even though each support may carry a large force. Quiet sideways readings can rule out a tilted or bent load path.
 
+### Character scene: safety-luka-entrance
+
+**Trigger:** On arrival at Pirate Ship console during Mission 2, when Stop 5 is the next active stop; if the player is already here, fire once on that stop’s existing activation instead of requiring re-entry.
+**Location and presence:** `seat-frame` in Pirate Ship console. Luka Kovač, mechanical lead, speaks by radio unless already placed locally by the existing beat; do not teleport or duplicate the character. Any second speaker is explicitly remote.
+**Presentation:** Normal playable view; existing fixture evidence plus radio/nearby bubbles. Continue the existing arrival beat before the question opens. This is authored scene content, not another graded interaction.
+**Exact action / accessible description:** Disassembles the portable speed wheel rather than accepting its service label as proof.
+**Exact dialogue:**
+- Luka Kovač, mechanical lead: “I can get a replacement part here before inspection; first I need to know that replacing it will address the fault.”
+
+**World-state effect:** No result is added or revealed; the encounter introduces the record or equipment already available for this stop.
+**Controls, persistence and retry:** Pause the timer during bubbles; one Continue per bubble restores control. At most two bubbles in this scene. Fire once per relevant accepted-state transition, not on wrong submissions; mission retry restores its snapshot and replay status. Retain accepted record and completed lines in the log. Use `safety-luka-entrance` only as a story-presentation key, never as a stop or fixture ID. No RP, metric, mastery or travel-unlock effect. At Stop 60 this is part of the existing pre-ending reaction; do not delay the ending with optional roster material.
+
 ## Stop 5 - Choose the system
 
 **Format/placement:** CHOICE, asked at Luka Kovač beside `seat-frame`.
@@ -1902,6 +2243,18 @@ Idowu rejects replacement by assumption. Kovač finds a genuine mechanical issue
 ## Key concepts, explained here
 
 Velocity changes when direction changes. A chair moving around the carousel therefore accelerates inward even at constant speed. Real forces, here chain tension and weight, combine to provide the net inward force. The hanging angle makes the inward requirement visible.
+
+### Character scene: safety-tunde-entrance
+
+**Trigger:** On arrival at Carousel Drive House during Mission 3, when Stop 9 is the next active stop; if the player is already here, fire once on that stop’s existing activation instead of requiring re-entry.
+**Location and presence:** `chain-rig` in Carousel Drive House. Tunde Idowu, controls engineer, speaks by radio unless already placed locally by the existing beat; do not teleport or duplicate the character. Any second speaker is explicitly remote.
+**Presentation:** Normal playable view; existing fixture evidence plus radio/nearby bubbles. Continue the existing arrival beat before the question opens. This is authored scene content, not another graded interaction.
+**Exact action / accessible description:** Keeps the replacement-controller crate closed until a controlled test justifies using it.
+**Exact dialogue:**
+- Tunde Idowu, controls engineer: “Before we replace the controller, let us test what its command makes the mechanism do.”
+
+**World-state effect:** No result is added or revealed; the encounter introduces the record or equipment already available for this stop.
+**Controls, persistence and retry:** Pause the timer during bubbles; one Continue per bubble restores control. At most two bubbles in this scene. Fire once per relevant accepted-state transition, not on wrong submissions; mission retry restores its snapshot and replay status. Retain accepted record and completed lines in the log. Use `safety-tunde-entrance` only as a story-presentation key, never as a stop or fixture ID. No RP, metric, mastery or travel-unlock effect. At Stop 60 this is part of the existing pre-ending reaction; do not delay the ending with optional roster material.
 
 ## Stop 9 - Derive the inward acceleration
 
@@ -2628,6 +2981,18 @@ Chen insists on evidence independence. Kovač correctly identifies friction as a
 
 Work transfers energy. A stopping car loses kinetic energy because friction does negative work, while the floor and tires gain thermal energy. Since kinetic energy grows with speed squared, a small speed increase can lengthen the stop substantially.
 
+### Character scene: safety-chen-entrance
+
+**Trigger:** On arrival at Bumper Car Pavilion during Mission 4, when Stop 13 is the next active stop; if the player is already here, fire once on that stop’s existing activation instead of requiring re-entry.
+**Location and presence:** `car-on-stands` in Bumper Car Pavilion. Linh Chen, instrumentation and test lead, speaks by radio unless already placed locally by the existing beat; do not teleport or duplicate the character. Any second speaker is explicitly remote.
+**Presentation:** Normal playable view; existing fixture evidence plus radio/nearby bubbles. Continue the existing arrival beat before the question opens. This is authored scene content, not another graded interaction.
+**Exact action / accessible description:** Fastens separate accelerometers to the dummy’s seat frame and floor pan.
+**Exact dialogue:**
+- Linh Chen, instrumentation and test lead: “Check my instruments as carefully as you check the inherited notebooks.”
+
+**World-state effect:** No result is added or revealed; the encounter introduces the record or equipment already available for this stop.
+**Controls, persistence and retry:** Pause the timer during bubbles; one Continue per bubble restores control. At most two bubbles in this scene. Fire once per relevant accepted-state transition, not on wrong submissions; mission retry restores its snapshot and replay status. Retain accepted record and completed lines in the log. Use `safety-chen-entrance` only as a story-presentation key, never as a stop or fixture ID. No RP, metric, mastery or travel-unlock effect. At Stop 60 this is part of the existing pre-ending reaction; do not delay the ending with optional roster material.
+
 ## Stop 13 - Speed squared
 
 **Format/placement:** BALLPARK, asked at `car-on-stands`.
@@ -3172,6 +3537,30 @@ Brennan admits the notebooks are incomplete instead of defending them. Hart limi
 ## Key concepts, explained here
 
 Free-fall speed follows from gravitational acceleration and distance. Stopping over a short distance requires a large upward acceleration. The seat's upward force must both balance weight and produce that acceleration, so apparent weight exceeds `mg` during braking.
+
+### Character scene: safety-ruth-entrance
+
+**Trigger:** On arrival at Brennan's Workshop during Mission 5, when Stop 17 is the next active stop; if the player is already here, fire once on that stop’s existing activation instead of requiring re-entry.
+**Location and presence:** `bench-notebooks` in Brennan's Workshop. Ruth Brennan, former chief engineer, speaks by radio unless already placed locally by the existing beat; do not teleport or duplicate the character. Any second speaker is explicitly remote.
+**Presentation:** Normal playable view; existing fixture evidence plus radio/nearby bubbles. Continue the existing arrival beat before the question opens. This is authored scene content, not another graded interaction.
+**Exact action / accessible description:** Places eleven notebooks in date order and admits that none contains a complete procedure.
+**Exact dialogue:**
+- Ruth Brennan, former chief engineer: “People I trained filled these books; I want their work preserved even where it cannot answer today’s question.”
+
+**World-state effect:** No result is added or revealed; the encounter introduces the record or equipment already available for this stop.
+**Controls, persistence and retry:** Pause the timer during bubbles; one Continue per bubble restores control. At most two bubbles in this scene. Fire once per relevant accepted-state transition, not on wrong submissions; mission retry restores its snapshot and replay status. Retain accepted record and completed lines in the log. Use `safety-ruth-entrance` only as a story-presentation key, never as a stop or fixture ID. No RP, metric, mastery or travel-unlock effect. At Stop 60 this is part of the existing pre-ending reaction; do not delay the ending with optional roster material.
+
+### Character scene: safety-ana-entrance
+
+**Trigger:** On arrival at Brennan's Workshop during Mission 5, when Stop 17 is the next active stop; if the player is already here, fire once on that stop’s existing activation instead of requiring re-entry.
+**Location and presence:** `bench-notebooks` in Brennan's Workshop. Ana Silva, reliability engineer, speaks by radio unless already placed locally by the existing beat; do not teleport or duplicate the character. Any second speaker is explicitly remote.
+**Presentation:** Normal playable view; existing fixture evidence plus radio/nearby bubbles. Continue the existing arrival beat before the question opens. This is authored scene content, not another graded interaction.
+**Exact action / accessible description:** Separates current inspection records from the inherited notebooks in the workshop.
+**Exact dialogue:**
+- Ana Silva, reliability engineer: “Another crew has to repeat the repair after we leave; I need a procedure they can actually follow.”
+
+**World-state effect:** No result is added or revealed; the encounter introduces the record or equipment already available for this stop.
+**Controls, persistence and retry:** Pause the timer during bubbles; one Continue per bubble restores control. At most two bubbles in this scene. Fire once per relevant accepted-state transition, not on wrong submissions; mission retry restores its snapshot and replay status. Retain accepted record and completed lines in the log. Use `safety-ana-entrance` only as a story-presentation key, never as a stop or fixture ID. No RP, metric, mastery or travel-unlock effect. At Stop 60 this is part of the existing pre-ending reaction; do not delay the ending with optional roster material.
 
 ## Stop 17 - Put the test in a safe order
 
@@ -3940,6 +4329,32 @@ trace:
 
 **State/output:** Merge the three dependency lines visually.
 
+### Character scene: safety-chen-turn
+
+**Trigger:** After Stop 23 is accepted.
+**Location and presence:** `bench-notebooks` in Brennan's Workshop. Linh Chen, instrumentation and test lead, speaks by radio unless already placed locally by the existing beat; do not teleport or duplicate the character. Any second speaker is explicitly remote.
+**Presentation:** Normal playable view; existing fixture evidence plus radio/nearby bubbles. Run after accepted-result feedback and before the existing departure or mission-outcome beat. This is authored scene content, not another graded interaction.
+**Exact action / accessible description:** Marks the shared source in the notebook trace instead of counting it twice.
+**Exact dialogue:**
+- Linh Chen, instrumentation and test lead: “I gave us another display; that was not necessarily another witness.”
+- Ana Silva, reliability engineer (radio): “I will mark the common source so the next crew does not count the displays twice.”
+
+**World-state effect:** Preserve the existing accepted result and attach this reaction to its mission-log entry. The physical record remains at this fixture with the accepted scope; no new measurement, repair, signature authority or clearance is created by dialogue.
+**Controls, persistence and retry:** Pause the timer during bubbles; one Continue per bubble restores control. At most two bubbles in this scene. Fire once per relevant accepted-state transition, not on wrong submissions; mission retry restores its snapshot and replay status. Retain accepted record and completed lines in the log. Use `safety-chen-turn` only as a story-presentation key, never as a stop or fixture ID. No RP, metric, mastery or travel-unlock effect. At Stop 60 this is part of the existing pre-ending reaction; do not delay the ending with optional roster material.
+
+### Character scene: safety-ruth-turn
+
+**Trigger:** After Stop 23 is accepted.
+**Location and presence:** `bench-notebooks` in Brennan's Workshop. Ruth Brennan, former chief engineer, speaks by radio unless already placed locally by the existing beat; do not teleport or duplicate the character. Any second speaker is explicitly remote.
+**Presentation:** Normal playable view; existing fixture evidence plus radio/nearby bubbles. Run after accepted-result feedback and before the existing departure or mission-outcome beat. This is authored scene content, not another graded interaction.
+**Exact action / accessible description:** Keeps the common-source links visible among the notebook entries.
+**Exact dialogue:**
+- Ruth Brennan, former chief engineer: “Those were careful people copying a record; they were not taking eleven new measurements.”
+
+**World-state effect:** Preserve the existing accepted result and attach this reaction to its mission-log entry. The physical record remains at this fixture with the accepted scope; no new measurement, repair, signature authority or clearance is created by dialogue.
+**Controls, persistence and retry:** Pause the timer during bubbles; one Continue per bubble restores control. At most two bubbles in this scene. Fire once per relevant accepted-state transition, not on wrong submissions; mission retry restores its snapshot and replay status. Retain accepted record and completed lines in the log. Use `safety-ruth-turn` only as a story-presentation key, never as a stop or fixture ID. No RP, metric, mastery or travel-unlock effect. At Stop 60 this is part of the existing pre-ending reaction; do not delay the ending with optional roster material.
+
+
 ## Stop 24 - Name the cause that fits
 
 **Format/placement:** DIAGNOSIS, asked at `workshop-diagnosis-board`.
@@ -3982,6 +4397,31 @@ answer: shared_cal
 **Wrong-path feedback:** (controller) The replacement controller arrived after the event and was never installed. (all_brakes) Independent local brake tests are quiet, so three identical brake failures do not fit. (gravity) A gravity change would also shift independent acceleration and period evidence, which it does not.
 
 **State/output:** Reject common-controller theory; unlock independent retesting plan.
+
+### Character scene: safety-luka-turn
+
+**Trigger:** After Stop 24 is accepted.
+**Location and presence:** `workshop-diagnosis-board` in Brennan's Workshop. Luka Kovač, mechanical lead, speaks by radio unless already placed locally by the existing beat; do not teleport or duplicate the character. Any second speaker is explicitly remote.
+**Presentation:** Normal playable view; existing fixture evidence plus radio/nearby bubbles. Run after accepted-result feedback and before the existing departure or mission-outcome beat. This is authored scene content, not another graded interaction.
+**Exact action / accessible description:** Sets the completed causal diagnosis beside the proposed replacement work.
+**Exact dialogue:**
+- Luka Kovač, mechanical lead: “Replacing a familiar part would have been easier than explaining why it was not the cause.”
+
+**World-state effect:** Preserve the existing accepted result and attach this reaction to its mission-log entry. The physical record remains at this fixture with the accepted scope; no new measurement, repair, signature authority or clearance is created by dialogue.
+**Controls, persistence and retry:** Pause the timer during bubbles; one Continue per bubble restores control. At most two bubbles in this scene. Fire once per relevant accepted-state transition, not on wrong submissions; mission retry restores its snapshot and replay status. Retain accepted record and completed lines in the log. Use `safety-luka-turn` only as a story-presentation key, never as a stop or fixture ID. No RP, metric, mastery or travel-unlock effect. At Stop 60 this is part of the existing pre-ending reaction; do not delay the ending with optional roster material.
+
+### Character scene: safety-ana-turn
+
+**Trigger:** After Stop 24 is accepted.
+**Location and presence:** `workshop-diagnosis-board` in Brennan's Workshop. Ana Silva, reliability engineer, speaks by radio unless already placed locally by the existing beat; do not teleport or duplicate the character. Any second speaker is explicitly remote.
+**Presentation:** Normal playable view; existing fixture evidence plus radio/nearby bubbles. Run after accepted-result feedback and before the existing departure or mission-outcome beat. This is authored scene content, not another graded interaction.
+**Exact action / accessible description:** Keeps missing documentation distinct from the accepted physical diagnosis.
+**Exact dialogue:**
+- Ana Silva, reliability engineer: “An absent procedure tells us what we cannot claim; it does not name the failed part.”
+
+**World-state effect:** Preserve the existing accepted result and attach this reaction to its mission-log entry. The physical record remains at this fixture with the accepted scope; no new measurement, repair, signature authority or clearance is created by dialogue.
+**Controls, persistence and retry:** Pause the timer during bubbles; one Continue per bubble restores control. At most two bubbles in this scene. Fire once per relevant accepted-state transition, not on wrong submissions; mission retry restores its snapshot and replay status. Retain accepted record and completed lines in the log. Use `safety-ana-turn` only as a story-presentation key, never as a stop or fixture ID. No RP, metric, mastery or travel-unlock effect. At Stop 60 this is part of the existing pre-ending reaction; do not delay the ending with optional roster material.
+
 
 ## Mission outcome
 
@@ -5094,6 +5534,20 @@ control:
 
 **State/output:** Set `evidence_flags.resonance_verified = true`.
 
+### Character scene: safety-tunde-turn
+
+**Trigger:** After Stop 31 is accepted.
+**Location and presence:** `drive-console` in Pirate Ship console. Tunde Idowu, controls engineer, speaks by radio unless already placed locally by the existing beat; do not teleport or duplicate the character. Any second speaker is explicitly remote.
+**Presentation:** Normal playable view; existing fixture evidence plus radio/nearby bubbles. Run after accepted-result feedback and before the existing departure or mission-outcome beat. This is authored scene content, not another graded interaction.
+**Exact action / accessible description:** Adds the resonance reversal result beside the command-timing record.
+**Exact dialogue:**
+- Tunde Idowu, controls engineer: “The controller can obey its command perfectly and still drive the ship at the wrong rhythm.”
+- Luka Kovač, mechanical lead (radio): “That gives us a mechanical response to explain, not a controller to blame by default.”
+
+**World-state effect:** Preserve the existing accepted result and attach this reaction to its mission-log entry. The physical record remains at this fixture with the accepted scope; no new measurement, repair, signature authority or clearance is created by dialogue.
+**Controls, persistence and retry:** Pause the timer during bubbles; one Continue per bubble restores control. At most two bubbles in this scene. Fire once per relevant accepted-state transition, not on wrong submissions; mission retry restores its snapshot and replay status. Retain accepted record and completed lines in the log. Use `safety-tunde-turn` only as a story-presentation key, never as a stop or fixture ID. No RP, metric, mastery or travel-unlock effect. At Stop 60 this is part of the existing pre-ending reaction; do not delay the ending with optional roster material.
+
+
 ## Stop 32 - Reinterpret the interruption
 
 **Format/placement:** DIAGNOSIS, asked at `collision-evidence-panel`.
@@ -5136,6 +5590,20 @@ answer: prevented
 **Wrong-path feedback:** (caused) Amplitude growth begins before Hart's stop, so the override cannot have created it. (mass) Rider mass cancels from the small-angle period model. (brake) A shared brake fault does not explain the drive-interval dependence or the quiet collision-force evidence.
 
 **State/output:** Set `hart_vindicated = true`; unlock forbidden drive-band design.
+
+### Character scene: safety-maya-turn
+
+**Trigger:** After Stop 32 is accepted.
+**Location and presence:** `collision-evidence-panel` in Bumper Car Pavilion. Maya Hart, park operations lead, speaks by radio unless already placed locally by the existing beat; do not teleport or duplicate the character. Any second speaker is explicitly remote.
+**Presentation:** Normal playable view; existing fixture evidence plus radio/nearby bubbles. Run after accepted-result feedback and before the existing departure or mission-outcome beat. This is authored scene content, not another graded interaction.
+**Exact action / accessible description:** Leaves the interruption record beside the accepted resonance explanation.
+**Exact dialogue:**
+- Maya Hart, park operations lead: “I stopped that run, and I needed you to find out whether stopping it was right.”
+- Ruth Brennan, former chief engineer (radio): “Your card belongs beside the timing trace, not outside the case.”
+
+**World-state effect:** Preserve the existing accepted result and attach this reaction to its mission-log entry. The physical record remains at this fixture with the accepted scope; no new measurement, repair, signature authority or clearance is created by dialogue.
+**Controls, persistence and retry:** Pause the timer during bubbles; one Continue per bubble restores control. At most two bubbles in this scene. Fire once per relevant accepted-state transition, not on wrong submissions; mission retry restores its snapshot and replay status. Retain accepted record and completed lines in the log. Use `safety-maya-turn` only as a story-presentation key, never as a stop or fixture ID. No RP, metric, mastery or travel-unlock effect. At Stop 60 this is part of the existing pre-ending reaction; do not delay the ending with optional roster material.
+
 
 ## Mission outcome
 
@@ -6206,6 +6674,18 @@ Kovač distrusts the speed wheel but initially trusts the drawing. Chen labels t
 
 Energy predicts speed between heights; circular dynamics tests contact at the crown. These steps answer different questions. A residual pattern can expose a biased measuring device even when the average error is small.
 
+### Character scene: safety-priya-entrance
+
+**Trigger:** On arrival at Coaster Station during Mission 10, when Stop 37 is the next active stop; if the player is already here, fire once on that stop’s existing activation instead of requiring re-entry.
+**Location and presence:** `profile-drawing` in Coaster Station. Priya Nair, geometry engineer, speaks by radio unless already placed locally by the existing beat; do not teleport or duplicate the character. Any second speaker is explicitly remote.
+**Presentation:** Normal playable view; existing fixture evidence plus radio/nearby bubbles. Continue the existing arrival beat before the question opens. This is authored scene content, not another graded interaction.
+**Exact action / accessible description:** Measures the crown radius from the rail rather than treating the drawing as the machine.
+**Exact dialogue:**
+- Priya Nair, geometry engineer: “My survey will go into the reopening case; the drawing must describe the rail the car will use.”
+
+**World-state effect:** No result is added or revealed; the encounter introduces the record or equipment already available for this stop.
+**Controls, persistence and retry:** Pause the timer during bubbles; one Continue per bubble restores control. At most two bubbles in this scene. Fire once per relevant accepted-state transition, not on wrong submissions; mission retry restores its snapshot and replay status. Retain accepted record and completed lines in the log. Use `safety-priya-entrance` only as a story-presentation key, never as a stop or fixture ID. No RP, metric, mastery or travel-unlock effect. At Stop 60 this is part of the existing pre-ending reaction; do not delay the ending with optional roster material.
+
 ## Stop 37 - Estimate the ideal crown speed
 
 **Format/placement:** BALLPARK, asked at `profile-drawing`.
@@ -6857,6 +7337,18 @@ Chen wants an independent measurement. Idowu accepts a schedule restriction rath
 
 Depth creates pressure. Buoyancy depends on displaced fluid. Continuity connects channel area to flow speed. Pump power adds gravitational energy to a flowing volume, and efficiency determines the required input.
 
+### Character scene: safety-mateo-entrance
+
+**Trigger:** On arrival at Flume Pumphouse during Mission 11, when Stop 41 is the next active stop; if the player is already here, fire once on that stop’s existing activation instead of requiring re-entry.
+**Location and presence:** `header-gauge` in Flume Pumphouse. Mateo Ruiz, hydraulics engineer, speaks by radio unless already placed locally by the existing beat; do not teleport or duplicate the character. Any second speaker is explicitly remote.
+**Presentation:** Normal playable view; existing fixture evidence plus radio/nearby bubbles. Continue the existing arrival beat before the question opens. This is authored scene content, not another graded interaction.
+**Exact action / accessible description:** Checks each header pressure before touching the pump.
+**Exact dialogue:**
+- Mateo Ruiz, hydraulics engineer: “The flume shares this supply with the rest of the park; I cannot solve its flow problem by spending everyone else’s reserve.”
+
+**World-state effect:** No result is added or revealed; the encounter introduces the record or equipment already available for this stop.
+**Controls, persistence and retry:** Pause the timer during bubbles; one Continue per bubble restores control. At most two bubbles in this scene. Fire once per relevant accepted-state transition, not on wrong submissions; mission retry restores its snapshot and replay status. Retain accepted record and completed lines in the log. Use `safety-mateo-entrance` only as a story-presentation key, never as a stop or fixture ID. No RP, metric, mastery or travel-unlock effect. At Stop 60 this is part of the existing pre-ending reaction; do not delay the ending with optional roster material.
+
 ## Stop 41 - Probe the header
 
 **Format/placement:** PROBE, asked at `header-gauge`.
@@ -6985,6 +7477,19 @@ derive:
 
 **State/output:** Mark duty point on `pump-curve` and send 44.1 kW request to Plant Room.
 
+### Character scene: safety-mateo-turn
+
+**Trigger:** After Stop 42 is accepted.
+**Location and presence:** `pumphouse-board` in Flume Pumphouse. Mateo Ruiz, hydraulics engineer, speaks by radio unless already placed locally by the existing beat; do not teleport or duplicate the character. Any second speaker is explicitly remote.
+**Presentation:** Normal playable view; existing fixture evidence plus radio/nearby bubbles. Run after accepted-result feedback and before the existing departure or mission-outcome beat. This is authored scene content, not another graded interaction.
+**Exact action / accessible description:** Places the full-duty input-power calculation beside the pump record.
+**Exact dialogue:**
+- Mateo Ruiz, hydraulics engineer: “The pump curve does not pay the losses between the pump and the water we need.”
+
+**World-state effect:** Preserve the existing accepted result and attach this reaction to its mission-log entry. The physical record remains at this fixture with the accepted scope; no new measurement, repair, signature authority or clearance is created by dialogue.
+**Controls, persistence and retry:** Pause the timer during bubbles; one Continue per bubble restores control. At most two bubbles in this scene. Fire once per relevant accepted-state transition, not on wrong submissions; mission retry restores its snapshot and replay status. Retain accepted record and completed lines in the log. Use `safety-mateo-turn` only as a story-presentation key, never as a stop or fixture ID. No RP, metric, mastery or travel-unlock effect. At Stop 60 this is part of the existing pre-ending reaction; do not delay the ending with optional roster material.
+
+
 ## Stop 43 - Allocate shared plant power
 
 **Format/placement:** ALLOCATE, asked at `motor-plate`.
@@ -7086,6 +7591,19 @@ lob:
 **Wrong-path feedback:** Split launch velocity into horizontal and vertical components.
 
 **State/output:** Set `evidence_flags.flume_speed_independent = true`.
+
+### Character scene: safety-mateo-payoff
+
+**Trigger:** After Stop 44 is accepted.
+**Location and presence:** `stall-cannon` in Boarded Arcade. Mateo Ruiz, hydraulics engineer, speaks by radio unless already placed locally by the existing beat; do not teleport or duplicate the character. Any second speaker is explicitly remote.
+**Presentation:** Normal playable view; existing fixture evidence plus radio/nearby bubbles. Run after accepted-result feedback and before the existing departure or mission-outcome beat. This is authored scene content, not another graded interaction.
+**Exact action / accessible description:** Keeps the independent water-arc speed check with the accepted operating evidence.
+**Exact dialogue:**
+- Mateo Ruiz, hydraulics engineer: “Now we have a check on the moving water, not just a prediction from the pump.”
+
+**World-state effect:** Preserve the existing accepted result and attach this reaction to its mission-log entry. The physical record remains at this fixture with the accepted scope; no new measurement, repair, signature authority or clearance is created by dialogue.
+**Controls, persistence and retry:** Pause the timer during bubbles; one Continue per bubble restores control. At most two bubbles in this scene. Fire once per relevant accepted-state transition, not on wrong submissions; mission retry restores its snapshot and replay status. Retain accepted record and completed lines in the log. Use `safety-mateo-payoff` only as a story-presentation key, never as a stop or fixture ID. No RP, metric, mastery or travel-unlock effect. At Stop 60 this is part of the existing pre-ending reaction; do not delay the ending with optional roster material.
+
 
 ## Mission outcome
 
@@ -7720,6 +8238,19 @@ attest:
 **Wrong-path feedback:** (old_allloads) The old signature cannot extend today's verified bumper and tower configurations to every passenger load.
 
 **State/output:** Set `ride_status.bumper=pass`, `ride_status.tower=pass`.
+
+### Character scene: safety-ana-payoff
+
+**Trigger:** After Stop 48 is accepted.
+**Location and presence:** `configuration-desk` in Brennan's Workshop. Ana Silva, reliability engineer, speaks by radio unless already placed locally by the existing beat; do not teleport or duplicate the character. Any second speaker is explicitly remote.
+**Presentation:** Normal playable view; existing fixture evidence plus radio/nearby bubbles. Run after accepted-result feedback and before the existing departure or mission-outcome beat. This is authored scene content, not another graded interaction.
+**Exact action / accessible description:** Files the two accepted configuration attestations as separate reproducible records.
+**Exact dialogue:**
+- Ana Silva, reliability engineer: “The next crew can repeat each configuration without guessing what this page meant.”
+
+**World-state effect:** Preserve the existing accepted result and attach this reaction to its mission-log entry. The physical record remains at this fixture with the accepted scope; no new measurement, repair, signature authority or clearance is created by dialogue.
+**Controls, persistence and retry:** Pause the timer during bubbles; one Continue per bubble restores control. At most two bubbles in this scene. Fire once per relevant accepted-state transition, not on wrong submissions; mission retry restores its snapshot and replay status. Retain accepted record and completed lines in the log. Use `safety-ana-payoff` only as a story-presentation key, never as a stop or fixture ID. No RP, metric, mastery or travel-unlock effect. At Stop 60 this is part of the existing pre-ending reaction; do not delay the ending with optional roster material.
+
 
 ## Mission outcome
 
@@ -8392,6 +8923,20 @@ trigger:
 
 **State/output:** Set `joint_rotating_plan = verified`.
 
+### Character scene: safety-tunde-payoff
+
+**Trigger:** After Stop 52 is accepted.
+**Location and presence:** `ship-rule-console` in Pirate Ship console. Tunde Idowu, controls engineer, speaks by radio unless already placed locally by the existing beat; do not teleport or duplicate the character. Any second speaker is explicitly remote.
+**Presentation:** Normal playable view; existing fixture evidence plus radio/nearby bubbles. Run after accepted-result feedback and before the existing departure or mission-outcome beat. This is authored scene content, not another graded interaction.
+**Exact action / accessible description:** Retains the forbidden timing band in the accepted joint operating rules.
+**Exact dialogue:**
+- Tunde Idowu, controls engineer: “Keep that band out of the schedule, even when each separate setting looks acceptable.”
+- Luka Kovač, mechanical lead (radio): “I will keep the mechanical limits tied to those timing settings.”
+
+**World-state effect:** Preserve the existing accepted result and attach this reaction to its mission-log entry. The physical record remains at this fixture with the accepted scope; no new measurement, repair, signature authority or clearance is created by dialogue.
+**Controls, persistence and retry:** Pause the timer during bubbles; one Continue per bubble restores control. At most two bubbles in this scene. Fire once per relevant accepted-state transition, not on wrong submissions; mission retry restores its snapshot and replay status. Retain accepted record and completed lines in the log. Use `safety-tunde-payoff` only as a story-presentation key, never as a stop or fixture ID. No RP, metric, mastery or travel-unlock effect. At Stop 60 this is part of the existing pre-ending reaction; do not delay the ending with optional roster material.
+
+
 ## Mission outcome
 
 Mission decision: The three rides need one shared work plan. Carousel speed stays below 4.20 m/s. Pirate Ship drive time stays outside 5.70 to 6.30 s. The wheel needs its check, wind below 8.0 m/s, and saved stop power.
@@ -8910,6 +9455,31 @@ derive:
 
 **State/output:** Set `coaster_margin = fail`.
 
+### Character scene: safety-ruth-payoff
+
+**Trigger:** After Stop 54 is accepted.
+**Location and presence:** `crown-tape` in Coaster Station. Ruth Brennan, former chief engineer, speaks by radio unless already placed locally by the existing beat; do not teleport or duplicate the character. Any second speaker is explicitly remote.
+**Presentation:** Normal playable view; existing fixture evidence plus radio/nearby bubbles. Run after accepted-result feedback and before the existing departure or mission-outcome beat. This is authored scene content, not another graded interaction.
+**Exact action / accessible description:** Places the corrected crown measurement beside the old drawing without erasing either.
+**Exact dialogue:**
+- Ruth Brennan, former chief engineer: “Keep the old page as history; use the measured curve for the next decision.”
+
+**World-state effect:** Preserve the existing accepted result and attach this reaction to its mission-log entry. The physical record remains at this fixture with the accepted scope; no new measurement, repair, signature authority or clearance is created by dialogue.
+**Controls, persistence and retry:** Pause the timer during bubbles; one Continue per bubble restores control. At most two bubbles in this scene. Fire once per relevant accepted-state transition, not on wrong submissions; mission retry restores its snapshot and replay status. Retain accepted record and completed lines in the log. Use `safety-ruth-payoff` only as a story-presentation key, never as a stop or fixture ID. No RP, metric, mastery or travel-unlock effect. At Stop 60 this is part of the existing pre-ending reaction; do not delay the ending with optional roster material.
+
+### Character scene: safety-priya-turn
+
+**Trigger:** After Stop 54 is accepted.
+**Location and presence:** `crown-tape` in Coaster Station. Priya Nair, geometry engineer, speaks by radio unless already placed locally by the existing beat; do not teleport or duplicate the character. Any second speaker is explicitly remote.
+**Presentation:** Normal playable view; existing fixture evidence plus radio/nearby bubbles. Run after accepted-result feedback and before the existing departure or mission-outcome beat. This is authored scene content, not another graded interaction.
+**Exact action / accessible description:** Leaves the physical crown measurement beside the frozen old prediction.
+**Exact dialogue:**
+- Priya Nair, geometry engineer: “This is the curve we have; now the measured run has to meet its requirement.”
+
+**World-state effect:** Preserve the existing accepted result and attach this reaction to its mission-log entry. The physical record remains at this fixture with the accepted scope; no new measurement, repair, signature authority or clearance is created by dialogue.
+**Controls, persistence and retry:** Pause the timer during bubbles; one Continue per bubble restores control. At most two bubbles in this scene. Fire once per relevant accepted-state transition, not on wrong submissions; mission retry restores its snapshot and replay status. Retain accepted record and completed lines in the log. Use `safety-priya-turn` only as a story-presentation key, never as a stop or fixture ID. No RP, metric, mastery or travel-unlock effect. At Stop 60 this is part of the existing pre-ending reaction; do not delay the ending with optional roster material.
+
+
 ## Stop 55 - Compare residual fields
 
 **Format/placement:** RESIDUAL, asked at `witness-sheet`.
@@ -8983,6 +9553,20 @@ residual:
 
 **State/output:** Set `failure_scope = coaster_geometry`.
 
+### Character scene: safety-chen-payoff
+
+**Trigger:** After Stop 55 is accepted.
+**Location and presence:** `witness-sheet` in Drop Tower Control. Linh Chen, instrumentation and test lead, speaks by radio unless already placed locally by the existing beat; do not teleport or duplicate the character. Any second speaker is explicitly remote.
+**Presentation:** Normal playable view; existing fixture evidence plus radio/nearby bubbles. Run after accepted-result feedback and before the existing departure or mission-outcome beat. This is authored scene content, not another graded interaction.
+**Exact action / accessible description:** Places the residual fields beside the independent geometry evidence.
+**Exact dialogue:**
+- Linh Chen, instrumentation and test lead: “Keep the spatial disagreement visible; an average would hide the part that matters.”
+- Ana Silva, reliability engineer (radio): “The independent geometry check stays with the inspection record.”
+
+**World-state effect:** Preserve the existing accepted result and attach this reaction to its mission-log entry. The physical record remains at this fixture with the accepted scope; no new measurement, repair, signature authority or clearance is created by dialogue.
+**Controls, persistence and retry:** Pause the timer during bubbles; one Continue per bubble restores control. At most two bubbles in this scene. Fire once per relevant accepted-state transition, not on wrong submissions; mission retry restores its snapshot and replay status. Retain accepted record and completed lines in the log. Use `safety-chen-payoff` only as a story-presentation key, never as a stop or fixture ID. No RP, metric, mastery or travel-unlock effect. At Stop 60 this is part of the existing pre-ending reaction; do not delay the ending with optional roster material.
+
+
 ## Stop 56 - Diagnose the failed certificate
 
 **Format/placement:** DIAGNOSIS, asked at `flume-case-stand`.
@@ -9026,6 +9610,31 @@ answer: geometry
 **Wrong-path feedback:** (gravity) Independently verified Tower and Flume geometry contradict a gravity-model failure. (brake) A brake fault cannot create the measured 1.8 m radius mismatch. (power) The empty run fits the motor plate, and lift power cannot explain the tape-versus-drawing discrepancy.
 
 **State/output:** Set `ride_status.coaster = closed_geometry`; trigger Twist 3.
+
+### Character scene: safety-luka-payoff
+
+**Trigger:** After Stop 56 is accepted.
+**Location and presence:** `flume-case-stand` in Flume Pumphouse. Luka Kovač, mechanical lead, speaks by radio unless already placed locally by the existing beat; do not teleport or duplicate the character. Any second speaker is explicitly remote.
+**Presentation:** Normal playable view; existing fixture evidence plus radio/nearby bubbles. Run after accepted-result feedback and before the existing departure or mission-outcome beat. This is authored scene content, not another graded interaction.
+**Exact action / accessible description:** Keeps the failed-certificate explanation with the physical survey rather than ordering another speculative part.
+**Exact dialogue:**
+- Luka Kovač, mechanical lead: “We fix the model and the evidence before we send someone for another wheel.”
+
+**World-state effect:** Preserve the existing accepted result and attach this reaction to its mission-log entry. The physical record remains at this fixture with the accepted scope; no new measurement, repair, signature authority or clearance is created by dialogue.
+**Controls, persistence and retry:** Pause the timer during bubbles; one Continue per bubble restores control. At most two bubbles in this scene. Fire once per relevant accepted-state transition, not on wrong submissions; mission retry restores its snapshot and replay status. Retain accepted record and completed lines in the log. Use `safety-luka-payoff` only as a story-presentation key, never as a stop or fixture ID. No RP, metric, mastery or travel-unlock effect. At Stop 60 this is part of the existing pre-ending reaction; do not delay the ending with optional roster material.
+
+### Character scene: safety-priya-payoff
+
+**Trigger:** After Stop 56 is accepted.
+**Location and presence:** `flume-case-stand` in Flume Pumphouse. Priya Nair, geometry engineer, speaks by radio unless already placed locally by the existing beat; do not teleport or duplicate the character. Any second speaker is explicitly remote.
+**Presentation:** Normal playable view; existing fixture evidence plus radio/nearby bubbles. Run after accepted-result feedback and before the existing departure or mission-outcome beat. This is authored scene content, not another graded interaction.
+**Exact action / accessible description:** Retains the failed contact-margin comparison beside the closure record.
+**Exact dialogue:**
+- Priya Nair, geometry engineer: “A corrected drawing cannot make that run pass.”
+
+**World-state effect:** Preserve the existing accepted result and attach this reaction to its mission-log entry. The physical record remains at this fixture with the accepted scope; no new measurement, repair, signature authority or clearance is created by dialogue.
+**Controls, persistence and retry:** Pause the timer during bubbles; one Continue per bubble restores control. At most two bubbles in this scene. Fire once per relevant accepted-state transition, not on wrong submissions; mission retry restores its snapshot and replay status. Retain accepted record and completed lines in the log. Use `safety-priya-payoff` only as a story-presentation key, never as a stop or fixture ID. No RP, metric, mastery or travel-unlock effect. At Stop 60 this is part of the existing pre-ending reaction; do not delay the ending with optional roster material.
+
 
 ## Mission outcome
 
@@ -9689,6 +10298,20 @@ attest:
 **Allocation prompt:** Spend points on any unlocked bar or save them in the Recovery Bank.  
 **Canonical QA example:** Within target, 0 wrong, 12 RP; allocate all 12 to Reserve. Result: 100 | 100 | 100 | 100.  
 **Final gate:** Lock all four bars and reveal `SIGN CERTIFICATE`. Otherwise show `CERTIFICATE HOLD - RECOVERY INCOMPLETE`.
+
+### Character scene: safety-maya-payoff
+
+**Trigger:** After Stop 60 is accepted.
+**Location and presence:** `certificate-table` in Front Gate. Maya Hart, park operations lead, speaks by radio unless already placed locally by the existing beat; do not teleport or duplicate the character. Any second speaker is explicitly remote.
+**Presentation:** Normal playable view; existing fixture evidence plus radio/nearby bubbles. Run after accepted-result feedback and before the existing departure or mission-outcome beat. This is authored scene content, not another graded interaction.
+**Exact action / accessible description:** Signs the accepted certificate while leaving the coaster closure in force.
+**Exact dialogue:**
+- Maya Hart, park operations lead: “The coaster stays shut; my name on the certificate has to mean that too.”
+- Ruth Brennan, former chief engineer (radio): “I will preserve the closure with the other operating rules.”
+
+**World-state effect:** Preserve the existing accepted result and attach this reaction to its mission-log entry. The physical record remains at this fixture with the accepted scope; no new measurement, repair, signature authority or clearance is created by dialogue.
+**Controls, persistence and retry:** Pause the timer during bubbles; one Continue per bubble restores control. At most two bubbles in this scene. Fire once per relevant accepted-state transition, not on wrong submissions; mission retry restores its snapshot and replay status. Retain accepted record and completed lines in the log. Use `safety-maya-payoff` only as a story-presentation key, never as a stop or fixture ID. No RP, metric, mastery or travel-unlock effect. At Stop 60 this is part of the existing pre-ending reaction; do not delay the ending with optional roster material.
+
 
 ## Mission outcome and epilogue - no further quiz
 

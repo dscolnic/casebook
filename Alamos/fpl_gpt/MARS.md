@@ -1,6 +1,8 @@
 **FIRST PERSON LEARNING**
 
-**Player-copy editing rule:** Within each displayed passage, state each fact, equation, variable definition, and instruction once. Integrate new givens into the existing wording; do not append a paraphrase of the setup. A source panel may repeat essential inputs so it stands alone, but render it as its own surface rather than concatenating it with the question setup. Go Deeper questions must still supply their own context and data without referring to earlier cases.
+**Editorial revision:** Character profiles, evidence-driven scenes and biography checks; 2026-09-09. All prior copy and opening-quote fixes retained.
+
+**Player-copy editing rule:** Raise a blocking `REPETITION_FLAG` for unresolved duplicated meaning within a displayed passage, including paraphrases, repeated formulas/definitions and concatenated setup/source copy. Review candidate matches semantically and document any separate-surface exception. Apply REP-001–REP-005 in Giant Gate v2.8.  Within each displayed passage, state each fact, equation, variable definition, and instruction once. Integrate new givens into the existing wording; do not append a paraphrase of the setup. A source panel may repeat essential inputs so it stands alone, but render it as its own surface rather than concatenating it with the question setup. Go Deeper questions must still supply their own context and data without referring to earlier cases.
 
 **RED SAND: FULL TANK**
 
@@ -330,7 +332,17 @@ NO-GO is a supported hold scene whenever any existing amount, assay, thermal, po
 
 ## 4. Character bible
 
-### Commander Laila Abiola - mission authority
+### Profile and scene delivery contract
+
+The compact material below is a designer reference. The individual Character ID entries are the authoritative full profiles; reference rows and headings are not additional people. Render only the explicitly labeled bio fields in the optional roster. Wants, blind spots and future arc descriptions are designer-only. Keep the existing names, role aliases and division assignments; the explicit profiles add ownership and scene bindings without changing any person-stop owner.
+
+Each character has an entrance/evidence encounter, a required evidence-triggered turn and a later demonstrated change, embedded at the relevant mission stops below. These scenes are part of the story route, not prerequisites added by the roster. Opening handovers and established entrances play once. When an existing beat already supplies the same action or sentence at that trigger, render that action or sentence once and use this exact reaction as its character component; retain all distinct travel, science and outcome content. Sequence multiple scenes by their order in the chapter. Do not concatenate setup/source panels or duplicate the accepted answer in dialogue.
+
+All physical actions use the existing fixture and its records. A radio speaker can direct the player’s visible record handling; no new carried item, prop, fixture, resource or measurement is implied. Preserve original lock and release conditions, including partial clearance and no-go endings. The roster can be skipped in full with no effect on progress. The three greeting variants are state-selected optional conversations, not an automatic speech queue.
+
+### Compact designer reference
+
+**Commander Laila Abiola - mission authority**
 
 First entrance: Plant Control, already cancelling a nonessential rover
 trip as the four mission bars appear.
@@ -348,7 +360,7 @@ DIAGNOSIS can be asked at her.
 composition. She changes because the player shows that "green" channels
 can share one bad dependency.
 
-### Ingrid Sundqvist - production and catalyst lead
+**Ingrid Sundqvist - production and catalyst lead**
 
 **First entrance:** Atmosphere Intake, scraping frost from a compressor
 sight glass herself.
@@ -366,7 +378,7 @@ are scientifically tempting, never foolish.
 the person who helps validate his safer high-pressure/lower-temperature
 plan.
 
-### Dr. Tomás Herrera - reactor and safety engineer
+**Dr. Tomás Herrera - reactor and safety engineer**
 
 **First entrance:** Hydrogen Store, quietly asking for the raw sensor
 timestamps while others argue about a leak.
@@ -382,7 +394,7 @@ experiments, and the human mystery.
 **Arc:** Apparent saboteur in Missions 7-9; vindicated by the player's
 holdout and stress tests in Mission 10; openly collaborates thereafter.
 
-### Mei-Ling Cho - water and cryogenics engineer
+**Mei-Ling Cho - water and cryogenics engineer**
 
 **First entrance:** Catalyst Bay, refusing to accept a residue sample
 with a broken chain of custody.
@@ -400,7 +412,7 @@ phase behavior, brines, and the water recycle loop.
 accepts that her cold-end analyzer and the control-room estimate share
 the same calibration source.
 
-### Rosalind Achebe - PHASE analytical and electrochemistry lead
+**Rosalind Achebe - PHASE analytical and electrochemistry lead**
 
 **First entrance:** Water Plant, carrying a sealed standard instead of
 trusting the wall meter.
@@ -416,7 +428,7 @@ Faraday's law, assays, thresholds.
 **Arc:** Her insistence on an independent sample causes Twist 3 and
 saves the launch from a false-ready state.
 
-### Yusuf Demir - power and life-support officer
+**Yusuf Demir - power and life-support officer**
 
 **First entrance:** Reactor Hall, opening the habitat reserve breaker
 log while everyone else discusses reactor output.
@@ -433,13 +445,244 @@ systems, and irreversible trade-offs.
 **Arc:** Moves from opposing extra production power to designing the
 timed power diversion that makes the final recovery possible.
 
-### Minor voices
+**Minor voices**
 
 Use no more than one minor voice in a scene: a rover operator at the Ice
 Cut, a maintenance technician in Catalyst Bay, a pad controller, and a
 habitat medic. They provide observations or consequences, not new
 subplots. Never introduce a named person only to ask one school
 question.
+
+### Relationship evidence map
+
+| People | Planted commitment | Evidence-driven turn | Later changed practice |
+|---|---|---|---|
+| Ingrid Sundqvist / Dr. Tomás Herrera | `mars-ingrid-entrance`: “I need an explanation for lost output that the production crew can test.” | Stop 40, `mars-ingrid-turn` | Stop 44, `mars-ingrid-payoff` |
+| Commander Laila Abiola / Rosalind Achebe | `mars-abiola-entrance`: “Tell me which measurement could stop a launch even if the tank looks full.” | Stop 53, `mars-abiola-turn` | Stop 60, `mars-abiola-payoff` |
+| Yusuf Demir / Mei-Ling Cho | `mars-yusuf-entrance`: “Show me what the recycle loop can return before I promise more habitat power.” | Stop 48, `mars-yusuf-turn` | Stop 52, `mars-yusuf-payoff` |
+
+### Commander Laila Abiola
+
+- **Character ID:** `person-commander-laila-abiola`
+- **Display name:** Commander Laila Abiola
+- **Role:** mission commander
+- **Pronouns:** she/her
+- **Allowed short name:** Abiola
+- **Area ownership:** Plant Control; Tank Farm; Pad Office. Existing division assignments in the reference summary also remain in force; presence elsewhere is explicitly by radio.
+- **First entrance:** Cancels a nonessential rover trip and hands the player the plant key at arrival. The existing opening card supplies this entrance; the mission encounter below continues it without replaying the handover. Binding: `mars-abiola-entrance`, On arrival at Plant Control during Mission 1, when Stop 1 is the next active stop; if the player is already here, fire once on that stop’s existing activation instead of requiring re-entry, at `sample-tray`.
+- **Wants and personal stake:** She must bring the crew home while protecting the resources they need if launch is delayed.
+- **Blind spot:** Several green dashboard channels can feel like independent confirmation.
+- **Scientific domain:** launch authority and independent readiness evidence.
+- **Decision function:** Supplies the launch authority and independent readiness evidence constraint to the existing decisions at Stops 53 and 60; the player still submits the answer and the existing authority still controls authorization.
+- **Verbal habit:** “What supports the launch decision?”
+- **Relationship pressure:** Rosalind Achebe: She must bring the crew home while protecting the resources they need if launch is delayed.
+- **Arc, with source evidence:** After Stop 53 (Trace every green light), `mars-abiola-turn` makes the accepted evidence personally consequential. After Stop 60 (Commander's recommendation), `mars-abiola-payoff` shows the resulting change in practice: Applies the accepted final recommendation to the existing boarding state, retaining either the launch authorization or the failed checks.
+- **Cost of changing:** The character must revise or qualify the commitment described under personal stake in front of the player and Rosalind Achebe; the old interpretation remains reviewable rather than silently overwritten.
+- **Gameplay necessity:** Removing this character removes the accountable owner of launch authority and independent readiness evidence, the commitment above, and the witnessed correction in `mars-abiola-turn`. Reassigning their questions alone would not preserve those scenes or constraints.
+
+**Bio passage - exact player copy:** She must bring the crew home while protecting the resources they need if launch is delayed. Several green dashboard channels can feel like independent confirmation.
+
+**Bio reflection question - exact player copy:** Why must Abiola ask for more than a full tank?
+
+**Bio reveal answer - exact player copy:** She is responsible for a usable, safe propellant supply and for the crew’s launch decision, not just a production total.
+
+**Bio feedback - exact player copy:** Quantity, composition and launch acceptance are distinct claims.
+
+**Bio check behavior:** On explicit opening of this character’s optional roster page after their first encounter, show only the bio passage and reflection question. Reveal answer and feedback only when the player selects Show answer; allow reconsideration and reopening. This is an unscored reading reflection, with no automatic correctness judgment, stop number, RP, timer cost, mission prerequisite, mastery credit, story flag or unlock. No answer or future arc is required to continue. Designer profile fields and future dialogue are not player-visible biography text.
+
+**Conditional greeting binding:** On explicit Talk to Abiola after the character has been introduced, use the highest satisfied row only. Later states override earlier ones. A state changes only from the existing accepted-stop record, never from reading the bio. Lines may be reopened on explicit request; do not autoplay a greeting already spoken as a scene line at that encounter. No new travel or required conversation is created. Presence is local only at the character’s existing location; otherwise use the established radio connection. Log spoken text; pause the timer while it is open.
+
+| Priority | Condition | Exact greeting |
+|---:|---|---|
+| 30 | Stop 60 accepted | “This is the decision supported by the samples; the color of the dashboard does not overrule it.” |
+| 20 | Stop 53 accepted; Stop 60 not accepted | “I asked for a full tank; I also owe this crew proof of what is in it.” |
+| 10 | Introduced; Stop 53 not accepted; fallback | “What supports the launch decision?” |
+
+### Ingrid Sundqvist
+
+- **Character ID:** `person-ingrid-sundqvist`
+- **Display name:** Ingrid Sundqvist
+- **Role:** production and catalyst lead
+- **Pronouns:** she/her
+- **Allowed short name:** Ingrid
+- **Area ownership:** Atmosphere Intake; Plant Control. Existing division assignments in the reference summary also remain in force; presence elsewhere is explicitly by radio.
+- **First entrance:** Scrapes frost from the compressor sight glass before discussing production targets. The established entrance is retained; the scene below stages the first evidence encounter in this arc. Binding: `mars-ingrid-entrance`, On arrival at Atmosphere Intake during Mission 2, when Stop 5 is the next active stop; if the player is already here, fire once on that stop’s existing activation instead of requiring re-entry, at `intake-calculation-board`.
+- **Wants and personal stake:** Each lost shift reduces the fuel available to the crew; Herrera’s output-cutting override looks like work she cannot recover.
+- **Blind spot:** Higher rate is her first remedy even when yield or quality is the binding limit.
+- **Scientific domain:** throughput, rates and catalyst performance.
+- **Decision function:** Supplies the throughput, rates and catalyst performance constraint to the existing decisions at Stops 40 and 44; the player still submits the answer and the existing authority still controls authorization.
+- **Verbal habit:** “What limits the next kilogram?”
+- **Relationship pressure:** Dr. Tomás Herrera: Each lost shift reduces the fuel available to the crew; Herrera’s output-cutting override looks like work she cannot recover.
+- **Arc, with source evidence:** After Stop 40 (What did Herrera know, and when?), `mars-ingrid-turn` makes the accepted evidence personally consequential. After Stop 44 (Two plans look equally fast), `mars-ingrid-payoff` shows the resulting change in practice: Signs the tested operating-point record supporting the safer recovery plan.
+- **Cost of changing:** The character must revise or qualify the commitment described under personal stake in front of the player and Dr. Tomás Herrera; the old interpretation remains reviewable rather than silently overwritten.
+- **Gameplay necessity:** Removing this character removes the accountable owner of throughput, rates and catalyst performance, the commitment above, and the witnessed correction in `mars-ingrid-turn`. Reassigning their questions alone would not preserve those scenes or constraints.
+
+**Bio passage - exact player copy:** Ingrid is responsible for recovering lost production before the launch window closes. Higher rate is her first remedy, even when yield or quality may be the actual limit.
+
+**Bio reflection question - exact player copy:** Why does Ingrid feel strong pressure to recover every lost shift?
+
+**Bio reveal answer - exact player copy:** Lost production leaves less fuel and less time before the launch window, making an immediate rate increase tempting.
+
+**Bio feedback - exact player copy:** Explain the time pressure without treating an output loss as proof of wrongdoing.
+
+**Bio check behavior:** On explicit opening of this character’s optional roster page after their first encounter, show only the bio passage and reflection question. Reveal answer and feedback only when the player selects Show answer; allow reconsideration and reopening. This is an unscored reading reflection, with no automatic correctness judgment, stop number, RP, timer cost, mission prerequisite, mastery credit, story flag or unlock. No answer or future arc is required to continue. Designer profile fields and future dialogue are not player-visible biography text.
+
+**Conditional greeting binding:** On explicit Talk to Ingrid after the character has been introduced, use the highest satisfied row only. Later states override earlier ones. A state changes only from the existing accepted-stop record, never from reading the bio. Lines may be reopened on explicit request; do not autoplay a greeting already spoken as a scene line at that encounter. No new travel or required conversation is created. Presence is local only at the character’s existing location; otherwise use the established radio connection. Log spoken text; pause the timer while it is open.
+
+| Priority | Condition | Exact greeting |
+|---:|---|---|
+| 30 | Stop 44 accepted | “Use this operating point; we can recover output without bringing back the condition you stopped.” |
+| 20 | Stop 40 accepted; Stop 44 not accepted | “I saw the lost output and blamed you before I had the whole temperature record.” |
+| 10 | Introduced; Stop 40 not accepted; fallback | “What limits the next kilogram?” |
+
+### Dr. Tomás Herrera
+
+- **Character ID:** `person-dr-tomas-herrera`
+- **Display name:** Dr. Tomás Herrera
+- **Role:** reactor and safety engineer
+- **Pronouns:** he/him
+- **Allowed short name:** Herrera
+- **Area ownership:** Hydrogen Store; Plant Control. Existing division assignments in the reference summary also remain in force; presence elsewhere is explicitly by radio.
+- **First entrance:** Requests the raw sensor timestamps at Hydrogen Store while the leak argument continues. The established entrance is retained; the scene below stages the first evidence encounter in this arc. Binding: `mars-herrera-entrance`, On arrival at Hydrogen Store during Mission 3, when Stop 9 is the next active stop; if the player is already here, fire once on that stop’s existing activation instead of requiring re-entry, at `store-scales`.
+- **Wants and personal stake:** He made the override and held back incomplete thermal evidence because he feared command would react before he could explain it.
+- **Blind spot:** Withholding uncertain evidence seems protective even though it damages trust and delays review.
+- **Scientific domain:** thermal limits, equilibrium and causal tests.
+- **Decision function:** Supplies the thermal limits, equilibrium and causal tests constraint to the existing decisions at Stops 40 and 44; the player still submits the answer and the existing authority still controls authorization.
+- **Verbal habit:** “What happened before the temperature moved?”
+- **Relationship pressure:** The player relies on Herrera for thermal limits, equilibrium and causal tests; their shared working assumption is challenged in `mars-herrera-turn`.
+- **Arc, with source evidence:** After Stop 40 (What did Herrera know, and when?), `mars-herrera-turn` makes the accepted evidence personally consequential. After Stop 44 (Two plans look equally fast), `mars-herrera-payoff` shows the resulting change in practice: Shares the tested operating envelope with production rather than retaining a private safety account.
+- **Cost of changing:** The character must revise or qualify the commitment described under personal stake in front of the player; the old interpretation remains reviewable rather than silently overwritten.
+- **Gameplay necessity:** Removing this character removes the accountable owner of thermal limits, equilibrium and causal tests, the commitment above, and the witnessed correction in `mars-herrera-turn`. Reassigning their questions alone would not preserve those scenes or constraints.
+
+**Bio passage - exact player copy:** Herrera is responsible for keeping the reactor inside a tested thermal envelope. He worries that others will act on an incomplete record before he can explain its limits.
+
+**Bio reflection question - exact player copy:** Why should Herrera share the limits of an incomplete record with the crew?
+
+**Bio reveal answer - exact player copy:** The crew needs to evaluate the same uncertainty and risks together, rather than act on different accounts.
+
+**Bio feedback - exact player copy:** Shared uncertainty can be examined; undisclosed uncertainty cannot be evaluated by the team.
+
+**Bio check behavior:** On explicit opening of this character’s optional roster page after their first encounter, show only the bio passage and reflection question. Reveal answer and feedback only when the player selects Show answer; allow reconsideration and reopening. This is an unscored reading reflection, with no automatic correctness judgment, stop number, RP, timer cost, mission prerequisite, mastery credit, story flag or unlock. No answer or future arc is required to continue. Designer profile fields and future dialogue are not player-visible biography text.
+
+**Conditional greeting binding:** On explicit Talk to Herrera after the character has been introduced, use the highest satisfied row only. Later states override earlier ones. A state changes only from the existing accepted-stop record, never from reading the bio. Lines may be reopened on explicit request; do not autoplay a greeting already spoken as a scene line at that encounter. No new travel or required conversation is created. Presence is local only at the character’s existing location; otherwise use the established radio connection. Log spoken text; pause the timer while it is open.
+
+| Priority | Condition | Exact greeting |
+|---:|---|---|
+| 30 | Stop 44 accepted | “You have the same record I do; we change the plan together when the evidence changes.” |
+| 20 | Stop 40 accepted; Stop 44 not accepted | “The override had a reason; keeping the record from you made that reason harder to test.” |
+| 10 | Introduced; Stop 40 not accepted; fallback | “What happened before the temperature moved?” |
+
+### Mei-Ling Cho
+
+- **Character ID:** `person-mei-ling-cho`
+- **Display name:** Mei-Ling Cho
+- **Role:** water and cryogenics engineer
+- **Pronouns:** she/her
+- **Allowed short name:** Cho
+- **Area ownership:** Catalyst Bay; Tank Farm; Assay Lab. Existing division assignments in the reference summary also remain in force; presence elsewhere is explicitly by radio.
+- **First entrance:** Refuses a residue sample whose chain of custody is broken. The established entrance is retained; the scene below stages the first evidence encounter in this arc. Binding: `mars-cho-entrance`, On arrival at Catalyst Bay during Mission 4, when Stop 13 is the next active stop; if the player is already here, fire once on that stop’s existing activation instead of requiring re-entry, at `charge-bench`.
+- **Wants and personal stake:** She is responsible for equipment that can be damaged by contaminants at low temperatures and wants sample custody taken seriously.
+- **Blind spot:** An ideal separation model can overshadow maintenance history and shared calibration.
+- **Scientific domain:** separation, phase behavior and cold-end contamination.
+- **Decision function:** Supplies the separation, phase behavior and cold-end contamination constraint to the existing decisions at Stops 53 and 55; the player still submits the answer and the existing authority still controls authorization.
+- **Verbal habit:** “What can reach the cold end?”
+- **Relationship pressure:** The player relies on Cho for separation, phase behavior and cold-end contamination; their shared working assumption is challenged in `mars-cho-turn`.
+- **Arc, with source evidence:** After Stop 53 (Trace every green light), `mars-cho-turn` makes the accepted evidence personally consequential. After Stop 55 (What is actually wrong?), `mars-cho-payoff` shows the resulting change in practice: Keeps the independent contamination diagnosis with the treatment record.
+- **Cost of changing:** The character must revise or qualify the commitment described under personal stake in front of the player; the old interpretation remains reviewable rather than silently overwritten.
+- **Gameplay necessity:** Removing this character removes the accountable owner of separation, phase behavior and cold-end contamination, the commitment above, and the witnessed correction in `mars-cho-turn`. Reassigning their questions alone would not preserve those scenes or constraints.
+
+**Bio passage - exact player copy:** She is responsible for equipment that can be damaged by contaminants at low temperatures and wants sample custody taken seriously. An ideal separation model can overshadow maintenance history and shared calibration.
+
+**Bio reflection question - exact player copy:** Why does Cho reject a sample with broken custody?
+
+**Bio reveal answer - exact player copy:** The sample must reliably represent the material under investigation before it can support a contamination decision.
+
+**Bio feedback - exact player copy:** Sample provenance affects whether a chemical conclusion applies to the equipment.
+
+**Bio check behavior:** On explicit opening of this character’s optional roster page after their first encounter, show only the bio passage and reflection question. Reveal answer and feedback only when the player selects Show answer; allow reconsideration and reopening. This is an unscored reading reflection, with no automatic correctness judgment, stop number, RP, timer cost, mission prerequisite, mastery credit, story flag or unlock. No answer or future arc is required to continue. Designer profile fields and future dialogue are not player-visible biography text.
+
+**Conditional greeting binding:** On explicit Talk to Cho after the character has been introduced, use the highest satisfied row only. Later states override earlier ones. A state changes only from the existing accepted-stop record, never from reading the bio. Lines may be reopened on explicit request; do not autoplay a greeting already spoken as a scene line at that encounter. No new travel or required conversation is created. Presence is local only at the character’s existing location; otherwise use the established radio connection. Log spoken text; pause the timer while it is open.
+
+| Priority | Condition | Exact greeting |
+|---:|---|---|
+| 30 | Stop 55 accepted | “Choose the treatment for the sample we tested, not the composition we expected.” |
+| 20 | Stop 53 accepted; Stop 55 not accepted | “I checked the separation model; I should also have checked what both estimates inherited.” |
+| 10 | Introduced; Stop 53 not accepted; fallback | “What can reach the cold end?” |
+
+### Rosalind Achebe
+
+- **Character ID:** `person-rosalind-achebe`
+- **Display name:** Rosalind Achebe
+- **Role:** analytical and electrochemistry lead
+- **Pronouns:** she/her
+- **Allowed short name:** Achebe
+- **Area ownership:** Water Plant; Assay Lab; Pad Office. Existing division assignments in the reference summary also remain in force; presence elsewhere is explicitly by radio.
+- **First entrance:** Carries a sealed standard to the water meter before accepting its reading. The established entrance is retained; the scene below stages the first evidence encounter in this arc. Binding: `mars-achebe-entrance`, On arrival at Water Plant during Mission 5, when Stop 17 is the next active stop; if the player is already here, fire once on that stop’s existing activation instead of requiring re-entry, at `water-report`.
+- **Wants and personal stake:** Every extra assay uses scarce time, but a false-ready batch could waste the entire recovery effort.
+- **Blind spot:** The wish for perfect evidence can make it difficult to name a sufficient stopping rule.
+- **Scientific domain:** standards, assays and sufficient evidence.
+- **Decision function:** Supplies the standards, assays and sufficient evidence constraint to the existing decisions at Stops 54 and 56; the player still submits the answer and the existing authority still controls authorization.
+- **Verbal habit:** “Which standard stands behind the number?”
+- **Relationship pressure:** The player relies on Achebe for standards, assays and sufficient evidence; their shared working assumption is challenged in `mars-achebe-turn`.
+- **Arc, with source evidence:** After Stop 54 (Test certification on the newest sample), `mars-achebe-turn` makes the accepted evidence personally consequential. After Stop 56 (Write the rule before the final samples), `mars-achebe-payoff` shows the resulting change in practice: Retains the precommitted acceptance rule before the final samples are opened.
+- **Cost of changing:** The character must revise or qualify the commitment described under personal stake in front of the player; the old interpretation remains reviewable rather than silently overwritten.
+- **Gameplay necessity:** Removing this character removes the accountable owner of standards, assays and sufficient evidence, the commitment above, and the witnessed correction in `mars-achebe-turn`. Reassigning their questions alone would not preserve those scenes or constraints.
+
+**Bio passage - exact player copy:** Every extra assay uses scarce time, but a false-ready batch could waste the entire recovery effort. The wish for perfect evidence can make it difficult to name a sufficient stopping rule.
+
+**Bio reflection question - exact player copy:** What must Achebe balance when deciding whether to request another assay?
+
+**Bio reveal answer - exact player copy:** She needs evidence capable of changing the decision while respecting the limited time available to obtain it.
+
+**Bio feedback - exact player copy:** Ask whether the proposed assay could alter the action, not simply add another number.
+
+**Bio check behavior:** On explicit opening of this character’s optional roster page after their first encounter, show only the bio passage and reflection question. Reveal answer and feedback only when the player selects Show answer; allow reconsideration and reopening. This is an unscored reading reflection, with no automatic correctness judgment, stop number, RP, timer cost, mission prerequisite, mastery credit, story flag or unlock. No answer or future arc is required to continue. Designer profile fields and future dialogue are not player-visible biography text.
+
+**Conditional greeting binding:** On explicit Talk to Achebe after the character has been introduced, use the highest satisfied row only. Later states override earlier ones. A state changes only from the existing accepted-stop record, never from reading the bio. Lines may be reopened on explicit request; do not autoplay a greeting already spoken as a scene line at that encounter. No new travel or required conversation is created. Presence is local only at the character’s existing location; otherwise use the established radio connection. Log spoken text; pause the timer while it is open.
+
+| Priority | Condition | Exact greeting |
+|---:|---|---|
+| 30 | Stop 56 accepted | “These are the checks we agreed were enough; apply them without moving the line.” |
+| 20 | Stop 54 accepted; Stop 56 not accepted | “This sample changes the decision; another copy of the old number would not have helped.” |
+| 10 | Introduced; Stop 54 not accepted; fallback | “Which standard stands behind the number?” |
+
+### Yusuf Demir
+
+- **Character ID:** `person-yusuf-demir`
+- **Display name:** Yusuf Demir
+- **Role:** power and life-support officer
+- **Pronouns:** he/him
+- **Allowed short name:** Yusuf
+- **Area ownership:** Reactor Hall; Electrolysis Hall. Existing division assignments in the reference summary also remain in force; presence elsewhere is explicitly by radio.
+- **First entrance:** Opens the habitat reserve-breaker log while the others discuss reactor output. The established entrance is retained; the scene below stages the first evidence encounter in this arc. Binding: `mars-yusuf-entrance`, On arrival at Reactor Hall during Mission 7, when Stop 25 is the next active stop; if the player is already here, fire once on that stop’s existing activation instead of requiring re-entry, at `skid`.
+- **Wants and personal stake:** He must explain any plant power diversion to the crew relying on heat, air and water.
+- **Blind spot:** He can see every additional production demand as a fixed loss before accounting for recovery and recycling.
+- **Scientific domain:** energy allocation and coupled resource budgets.
+- **Decision function:** Supplies the energy allocation and coupled resource budgets constraint to the existing decisions at Stops 48 and 52; the player still submits the answer and the existing authority still controls authorization.
+- **Verbal habit:** “What loses power when this gains it?”
+- **Relationship pressure:** Mei-Ling Cho: He must explain any plant power diversion to the crew relying on heat, air and water.
+- **Arc, with source evidence:** After Stop 48 (Close hydrogen over the whole plant), `mars-yusuf-turn` makes the accepted evidence personally consequential. After Stop 52 (Allocate the recovery power), `mars-yusuf-payoff` shows the resulting change in practice: Records the accepted timed power allocation with the habitat reserve protected.
+- **Cost of changing:** The character must revise or qualify the commitment described under personal stake in front of the player and Mei-Ling Cho; the old interpretation remains reviewable rather than silently overwritten.
+- **Gameplay necessity:** Removing this character removes the accountable owner of energy allocation and coupled resource budgets, the commitment above, and the witnessed correction in `mars-yusuf-turn`. Reassigning their questions alone would not preserve those scenes or constraints.
+
+**Bio passage - exact player copy:** He must explain any plant power diversion to the crew relying on heat, air and water. He can see every additional production demand as a fixed loss before accounting for recovery and recycling.
+
+**Bio reflection question - exact player copy:** Why does Yusuf ask what loses power when the plant gains it?
+
+**Bio reveal answer - exact player copy:** He is responsible for life-support services drawing on the same finite supply.
+
+**Bio feedback - exact player copy:** The habitat is part of the same allocation problem as the fuel plant.
+
+**Bio check behavior:** On explicit opening of this character’s optional roster page after their first encounter, show only the bio passage and reflection question. Reveal answer and feedback only when the player selects Show answer; allow reconsideration and reopening. This is an unscored reading reflection, with no automatic correctness judgment, stop number, RP, timer cost, mission prerequisite, mastery credit, story flag or unlock. No answer or future arc is required to continue. Designer profile fields and future dialogue are not player-visible biography text.
+
+**Conditional greeting binding:** On explicit Talk to Yusuf after the character has been introduced, use the highest satisfied row only. Later states override earlier ones. A state changes only from the existing accepted-stop record, never from reading the bio. Lines may be reopened on explicit request; do not autoplay a greeting already spoken as a scene line at that encounter. No new travel or required conversation is created. Presence is local only at the character’s existing location; otherwise use the established radio connection. Log spoken text; pause the timer while it is open.
+
+| Priority | Condition | Exact greeting |
+|---:|---|---|
+| 30 | Stop 52 accepted | “I can support this diversion with its timing and reserve limits attached.” |
+| 20 | Stop 48 accepted; Stop 52 not accepted | “Recovery changes what we must supply; I was treating every extra kilogram as a new draw.” |
+| 10 | Introduced; Stop 48 not accepted; fallback | “What loses power when this gains it?” |
+
 
 ## 5. Character direction and dialogue rules
 
@@ -933,6 +1176,18 @@ charge. Chemists convert a measured mass to moles using molar mass, then
 convert moles to particles with Avogadro's number, 6.022 x 10^23 mol^-1.
 A balanced equation is an atom ledger: coefficients may change the
 number of molecules, but atoms are not created or destroyed.
+
+### Character scene: mars-abiola-entrance
+
+**Trigger:** On arrival at Plant Control during Mission 1, when Stop 1 is the next active stop; if the player is already here, fire once on that stop’s existing activation instead of requiring re-entry.
+**Location and presence:** `sample-tray` in Plant Control. Commander Laila Abiola, mission commander, speaks by radio unless already placed locally by the existing beat; do not teleport or duplicate the character. Any second speaker is explicitly remote.
+**Presentation:** Normal playable view; existing fixture evidence plus radio/nearby bubbles. Continue the existing arrival beat before the question opens. This is authored scene content, not another graded interaction.
+**Exact action / accessible description:** Keeps the material from the opening handover available beside the current evidence.
+**Exact dialogue:**
+- Commander Laila Abiola, mission commander: “Tell me which measurement could stop a launch even if the tank looks full.”
+
+**World-state effect:** No result is added or revealed; the encounter introduces the record or equipment already available for this stop.
+**Controls, persistence and retry:** Pause the timer during bubbles; one Continue per bubble restores control. At most two bubbles in this scene. Fire once per relevant accepted-state transition, not on wrong submissions; mission retry restores its snapshot and replay status. Retain accepted record and completed lines in the log. Use `mars-abiola-entrance` only as a story-presentation key, never as a stop or fixture ID. No RP, metric, mastery or travel-unlock effect. At Stop 60 this is part of the existing pre-ending reaction; do not delay the ending with optional roster material.
 
 ## Stop 1 - Labels on the sample tray
 
@@ -1532,6 +1787,18 @@ the feed that can make the smaller amount of product; excess reactant
 remains. Theoretical yield comes from the limiting reactant, while
 percent yield compares actual product with that theoretical maximum.
 
+### Character scene: mars-ingrid-entrance
+
+**Trigger:** On arrival at Atmosphere Intake during Mission 2, when Stop 5 is the next active stop; if the player is already here, fire once on that stop’s existing activation instead of requiring re-entry.
+**Location and presence:** `intake-calculation-board` in Atmosphere Intake. Ingrid Sundqvist, production and catalyst lead, speaks by radio unless already placed locally by the existing beat; do not teleport or duplicate the character. Any second speaker is explicitly remote.
+**Presentation:** Normal playable view; existing fixture evidence plus radio/nearby bubbles. Continue the existing arrival beat before the question opens. This is authored scene content, not another graded interaction.
+**Exact action / accessible description:** Scrapes frost from the compressor sight glass before discussing production targets.
+**Exact dialogue:**
+- Ingrid Sundqvist, production and catalyst lead: “I need an explanation for lost output that the production crew can test.”
+
+**World-state effect:** No result is added or revealed; the encounter introduces the record or equipment already available for this stop.
+**Controls, persistence and retry:** Pause the timer during bubbles; one Continue per bubble restores control. At most two bubbles in this scene. Fire once per relevant accepted-state transition, not on wrong submissions; mission retry restores its snapshot and replay status. Retain accepted record and completed lines in the log. Use `mars-ingrid-entrance` only as a story-presentation key, never as a stop or fixture ID. No RP, metric, mastery or travel-unlock effect. At Stop 60 this is part of the existing pre-ending reaction; do not delay the ending with optional roster material.
+
 ## Stop 5 - The production workflow
 
 **Format/placement:** SEQUENCE, at `intake-calculation-board`.
@@ -2130,6 +2397,18 @@ Dalton's law says total pressure is the sum of partial pressures, and a
 component's partial pressure equals its mole fraction times total
 pressure. A tank can therefore hold normal pressure with too little of
 the desired gas if another gas replaces it.
+
+### Character scene: mars-herrera-entrance
+
+**Trigger:** On arrival at Hydrogen Store during Mission 3, when Stop 9 is the next active stop; if the player is already here, fire once on that stop’s existing activation instead of requiring re-entry.
+**Location and presence:** `store-scales` in Hydrogen Store. Dr. Tomás Herrera, reactor and safety engineer, speaks by radio unless already placed locally by the existing beat; do not teleport or duplicate the character. Any second speaker is explicitly remote.
+**Presentation:** Normal playable view; existing fixture evidence plus radio/nearby bubbles. Continue the existing arrival beat before the question opens. This is authored scene content, not another graded interaction.
+**Exact action / accessible description:** Requests the raw sensor timestamps at Hydrogen Store while the leak argument continues.
+**Exact dialogue:**
+- Dr. Tomás Herrera, reactor and safety engineer: “I am responsible for that reactor’s thermal limit; give me the raw record before we decide what happened.”
+
+**World-state effect:** No result is added or revealed; the encounter introduces the record or equipment already available for this stop.
+**Controls, persistence and retry:** Pause the timer during bubbles; one Continue per bubble restores control. At most two bubbles in this scene. Fire once per relevant accepted-state transition, not on wrong submissions; mission retry restores its snapshot and replay status. Retain accepted record and completed lines in the log. Use `mars-herrera-entrance` only as a story-presentation key, never as a stop or fixture ID. No RP, metric, mastery or travel-unlock effect. At Stop 60 this is part of the existing pre-ending reaction; do not delay the ending with optional roster material.
 
 ## Stop 9 - Same temperature, different speed
 
@@ -2779,6 +3058,18 @@ whether bond dipoles cancel. Intermolecular forces connect microscopic
 structure to boiling point, solubility, and separation. "Like dissolves
 like" is useful only after the molecule's polarity is established.
 
+### Character scene: mars-cho-entrance
+
+**Trigger:** On arrival at Catalyst Bay during Mission 4, when Stop 13 is the next active stop; if the player is already here, fire once on that stop’s existing activation instead of requiring re-entry.
+**Location and presence:** `charge-bench` in Catalyst Bay. Mei-Ling Cho, water and cryogenics engineer, speaks by radio unless already placed locally by the existing beat; do not teleport or duplicate the character. Any second speaker is explicitly remote.
+**Presentation:** Normal playable view; existing fixture evidence plus radio/nearby bubbles. Continue the existing arrival beat before the question opens. This is authored scene content, not another graded interaction.
+**Exact action / accessible description:** Refuses a residue sample whose chain of custody is broken.
+**Exact dialogue:**
+- Mei-Ling Cho, water and cryogenics engineer: “I have to protect the cold equipment from what reaches it; a sample without a trustworthy history cannot settle that.”
+
+**World-state effect:** No result is added or revealed; the encounter introduces the record or equipment already available for this stop.
+**Controls, persistence and retry:** Pause the timer during bubbles; one Continue per bubble restores control. At most two bubbles in this scene. Fire once per relevant accepted-state transition, not on wrong submissions; mission retry restores its snapshot and replay status. Retain accepted record and completed lines in the log. Use `mars-cho-entrance` only as a story-presentation key, never as a stop or fixture ID. No RP, metric, mastery or travel-unlock effect. At Stop 60 this is part of the existing pre-ending reaction; do not delay the ending with optional roster material.
+
 ## Stop 13 - Choose the methane structure
 
 **Format/placement:** CHOICE, asked at Mei-Ling Cho beside `charge-bench`.
@@ -3423,6 +3714,18 @@ mol/L. Beer-Lambert law, A = epsilon b c, makes absorbance proportional
 to concentration at a chosen wavelength and path length; the peak
 wavelength provides the greatest sensitivity. Multiple readouts are not
 independent evidence if they inherit the same standard or sensor.
+
+### Character scene: mars-achebe-entrance
+
+**Trigger:** On arrival at Water Plant during Mission 5, when Stop 17 is the next active stop; if the player is already here, fire once on that stop’s existing activation instead of requiring re-entry.
+**Location and presence:** `water-report` in Water Plant. Rosalind Achebe, analytical and electrochemistry lead, speaks by radio unless already placed locally by the existing beat; do not teleport or duplicate the character. Any second speaker is explicitly remote.
+**Presentation:** Normal playable view; existing fixture evidence plus radio/nearby bubbles. Continue the existing arrival beat before the question opens. This is authored scene content, not another graded interaction.
+**Exact action / accessible description:** Carries a sealed standard to the water meter before accepting its reading.
+**Exact dialogue:**
+- Rosalind Achebe, analytical and electrochemistry lead: “We have time for useful assays, not endless ones; tell me which decision this sample must support.”
+
+**World-state effect:** No result is added or revealed; the encounter introduces the record or equipment already available for this stop.
+**Controls, persistence and retry:** Pause the timer during bubbles; one Continue per bubble restores control. At most two bubbles in this scene. Fire once per relevant accepted-state transition, not on wrong submissions; mission retry restores its snapshot and replay status. Retain accepted record and completed lines in the log. Use `mars-achebe-entrance` only as a story-presentation key, never as a stop or fixture ID. No RP, metric, mastery or travel-unlock effect. At Stop 60 this is part of the existing pre-ending reaction; do not delay the ending with optional roster material.
 
 ## Stop 17 - Concentrated is not necessarily more
 
@@ -4749,6 +5052,18 @@ process absorbs it. q = mc Delta T connects mass, specific heat, and
 temperature change. On a heating curve, sloped segments change
 temperature and flat segments use energy for a phase change. An energy
 ledger counts heat generated, removed, stored, and unaccounted.
+
+### Character scene: mars-yusuf-entrance
+
+**Trigger:** On arrival at Reactor Hall during Mission 7, when Stop 25 is the next active stop; if the player is already here, fire once on that stop’s existing activation instead of requiring re-entry.
+**Location and presence:** `skid` in Reactor Hall. Yusuf Demir, power and life-support officer, speaks by radio unless already placed locally by the existing beat; do not teleport or duplicate the character. Any second speaker is explicitly remote.
+**Presentation:** Normal playable view; existing fixture evidence plus radio/nearby bubbles. Continue the existing arrival beat before the question opens. This is authored scene content, not another graded interaction.
+**Exact action / accessible description:** Opens the habitat reserve-breaker log while the others discuss reactor output.
+**Exact dialogue:**
+- Yusuf Demir, power and life-support officer: “Show me what the recycle loop can return before I promise more habitat power.”
+
+**World-state effect:** No result is added or revealed; the encounter introduces the record or equipment already available for this stop.
+**Controls, persistence and retry:** Pause the timer during bubbles; one Continue per bubble restores control. At most two bubbles in this scene. Fire once per relevant accepted-state transition, not on wrong submissions; mission retry restores its snapshot and replay status. Retain accepted record and completed lines in the log. Use `mars-yusuf-entrance` only as a story-presentation key, never as a stop or fixture ID. No RP, metric, mastery or travel-unlock effect. At Stop 60 this is part of the existing pre-ending reaction; do not delay the ending with optional roster material.
 
 ## Stop 25 - Which way does the heat flow?
 
@@ -6866,6 +7181,32 @@ evidence that the response worked.
 **State/output:** twist_2_complete = true; restore Herrera's access;
 herrera_trust + 3, crew_trust + 1.
 
+### Character scene: mars-ingrid-turn
+
+**Trigger:** After Stop 40 is accepted.
+**Location and presence:** `chronology-wall` in Plant Control. Ingrid Sundqvist, production and catalyst lead, speaks by radio unless already placed locally by the existing beat; do not teleport or duplicate the character. Any second speaker is explicitly remote.
+**Presentation:** Normal playable view; existing fixture evidence plus radio/nearby bubbles. Run after accepted-result feedback and before the existing departure or mission-outcome beat. This is authored scene content, not another graded interaction.
+**Exact action / accessible description:** Places the revealed thermal chronology beside her accusation about the override.
+**Exact dialogue:**
+- Ingrid Sundqvist, production and catalyst lead: “I saw the lost output and blamed you before I had the whole temperature record.”
+- Dr. Tomás Herrera, reactor and safety engineer (radio): “I should have shared the whole record when I asked you to accept the lost output.”
+
+**World-state effect:** Preserve the existing accepted result and attach this reaction to its mission-log entry. The physical record remains at this fixture with the accepted scope; no new measurement, repair, signature authority or clearance is created by dialogue.
+**Controls, persistence and retry:** Pause the timer during bubbles; one Continue per bubble restores control. At most two bubbles in this scene. Fire once per relevant accepted-state transition, not on wrong submissions; mission retry restores its snapshot and replay status. Retain accepted record and completed lines in the log. Use `mars-ingrid-turn` only as a story-presentation key, never as a stop or fixture ID. No RP, metric, mastery or travel-unlock effect. At Stop 60 this is part of the existing pre-ending reaction; do not delay the ending with optional roster material.
+
+### Character scene: mars-herrera-turn
+
+**Trigger:** After Stop 40 is accepted.
+**Location and presence:** `chronology-wall` in Plant Control. Dr. Tomás Herrera, reactor and safety engineer, speaks by radio unless already placed locally by the existing beat; do not teleport or duplicate the character. Any second speaker is explicitly remote.
+**Presentation:** Normal playable view; existing fixture evidence plus radio/nearby bubbles. Run after accepted-result feedback and before the existing departure or mission-outcome beat. This is authored scene content, not another graded interaction.
+**Exact action / accessible description:** Leaves the full chronology available beside the override record.
+**Exact dialogue:**
+- Dr. Tomás Herrera, reactor and safety engineer: “The override had a reason; keeping the record from you made that reason harder to test.”
+
+**World-state effect:** Preserve the existing accepted result and attach this reaction to its mission-log entry. The physical record remains at this fixture with the accepted scope; no new measurement, repair, signature authority or clearance is created by dialogue.
+**Controls, persistence and retry:** Pause the timer during bubbles; one Continue per bubble restores control. At most two bubbles in this scene. Fire once per relevant accepted-state transition, not on wrong submissions; mission retry restores its snapshot and replay status. Retain accepted record and completed lines in the log. Use `mars-herrera-turn` only as a story-presentation key, never as a stop or fixture ID. No RP, metric, mastery or travel-unlock effect. At Stop 60 this is part of the existing pre-ending reaction; do not delay the ending with optional roster material.
+
+
 ## Mission outcome
 
 Mission decision: The override stopped a heat runaway. The hidden run breaks the blame model. Its errors miss the same danger each time, and sensor error can push the old point past the limit. The old setting will not return. The plant needs a slower, safer way to make fuel.
@@ -7608,6 +7949,32 @@ safety. The extra physics collapses the degeneracy.
 visible plan board turns amber, not green, pending loop and power
 checks.
 
+### Character scene: mars-ingrid-payoff
+
+**Trigger:** After Stop 44 is accepted.
+**Location and presence:** `operating-point-board` in Plant Control. Ingrid Sundqvist, production and catalyst lead, speaks by radio unless already placed locally by the existing beat; do not teleport or duplicate the character. Any second speaker is explicitly remote.
+**Presentation:** Normal playable view; existing fixture evidence plus radio/nearby bubbles. Run after accepted-result feedback and before the existing departure or mission-outcome beat. This is authored scene content, not another graded interaction.
+**Exact action / accessible description:** Signs the tested operating-point record supporting the safer recovery plan.
+**Exact dialogue:**
+- Ingrid Sundqvist, production and catalyst lead: “Use this operating point; we can recover output without bringing back the condition you stopped.”
+- Dr. Tomás Herrera, reactor and safety engineer (radio): “We will keep the operating envelope available to the whole crew.”
+
+**World-state effect:** Preserve the existing accepted result and attach this reaction to its mission-log entry. The physical record remains at this fixture with the accepted scope; no new measurement, repair, signature authority or clearance is created by dialogue.
+**Controls, persistence and retry:** Pause the timer during bubbles; one Continue per bubble restores control. At most two bubbles in this scene. Fire once per relevant accepted-state transition, not on wrong submissions; mission retry restores its snapshot and replay status. Retain accepted record and completed lines in the log. Use `mars-ingrid-payoff` only as a story-presentation key, never as a stop or fixture ID. No RP, metric, mastery or travel-unlock effect. At Stop 60 this is part of the existing pre-ending reaction; do not delay the ending with optional roster material.
+
+### Character scene: mars-herrera-payoff
+
+**Trigger:** After Stop 44 is accepted.
+**Location and presence:** `operating-point-board` in Plant Control. Dr. Tomás Herrera, reactor and safety engineer, speaks by radio unless already placed locally by the existing beat; do not teleport or duplicate the character. Any second speaker is explicitly remote.
+**Presentation:** Normal playable view; existing fixture evidence plus radio/nearby bubbles. Run after accepted-result feedback and before the existing departure or mission-outcome beat. This is authored scene content, not another graded interaction.
+**Exact action / accessible description:** Shares the tested operating envelope with production rather than retaining a private safety account.
+**Exact dialogue:**
+- Dr. Tomás Herrera, reactor and safety engineer: “You have the same record I do; we change the plan together when the evidence changes.”
+
+**World-state effect:** Preserve the existing accepted result and attach this reaction to its mission-log entry. The physical record remains at this fixture with the accepted scope; no new measurement, repair, signature authority or clearance is created by dialogue.
+**Controls, persistence and retry:** Pause the timer during bubbles; one Continue per bubble restores control. At most two bubbles in this scene. Fire once per relevant accepted-state transition, not on wrong submissions; mission retry restores its snapshot and replay status. Retain accepted record and completed lines in the log. Use `mars-herrera-payoff` only as a story-presentation key, never as a stop or fixture ID. No RP, metric, mastery or travel-unlock effect. At Stop 60 this is part of the existing pre-ending reaction; do not delay the ending with optional roster material.
+
+
 ## Mission outcome
 
 Mission decision: Use lower heat, higher pressure, and water removal. This plan keeps a safe heat margin and raises the final methane share. Two plans with the same early speed did not make the same final amount. The next test asks if the water and hydrogen loop can feed this plan.
@@ -8241,6 +8608,20 @@ the system boundary and include storage/recycle.
 
 **State/output:** Set twist_1_deepened = true; water_recycle_restored =
 true; raise projected H2 output.
+
+### Character scene: mars-yusuf-turn
+
+**Trigger:** After Stop 48 is accepted.
+**Location and presence:** `stack-accounting-panel` in Electrolysis Hall. Yusuf Demir, power and life-support officer, speaks by radio unless already placed locally by the existing beat; do not teleport or duplicate the character. Any second speaker is explicitly remote.
+**Presentation:** Normal playable view; existing fixture evidence plus radio/nearby bubbles. Run after accepted-result feedback and before the existing departure or mission-outcome beat. This is authored scene content, not another graded interaction.
+**Exact action / accessible description:** Places the closed plant hydrogen balance beside the habitat reserve record.
+**Exact dialogue:**
+- Yusuf Demir, power and life-support officer: “Recovery changes what we must supply; I was treating every extra kilogram as a new draw.”
+- Mei-Ling Cho, water and cryogenics engineer (radio): “Then count the recovered stream once, with its measured composition.”
+
+**World-state effect:** Preserve the existing accepted result and attach this reaction to its mission-log entry. The physical record remains at this fixture with the accepted scope; no new measurement, repair, signature authority or clearance is created by dialogue.
+**Controls, persistence and retry:** Pause the timer during bubbles; one Continue per bubble restores control. At most two bubbles in this scene. Fire once per relevant accepted-state transition, not on wrong submissions; mission retry restores its snapshot and replay status. Retain accepted record and completed lines in the log. Use `mars-yusuf-turn` only as a story-presentation key, never as a stop or fixture ID. No RP, metric, mastery or travel-unlock effect. At Stop 60 this is part of the existing pre-ending reaction; do not delay the ending with optional roster material.
+
 
 ## Mission outcome
 
@@ -8882,6 +9263,20 @@ the Mission 10 boundary. If habitat is cut, block commitment.
 **State/output:** power_plan_recovery = true; methane and oxygen
 projections reach target at start of Mission 14.
 
+### Character scene: mars-yusuf-payoff
+
+**Trigger:** After Stop 52 is accepted.
+**Location and presence:** `stack-power-controller` in Electrolysis Hall. Yusuf Demir, power and life-support officer, speaks by radio unless already placed locally by the existing beat; do not teleport or duplicate the character. Any second speaker is explicitly remote.
+**Presentation:** Normal playable view; existing fixture evidence plus radio/nearby bubbles. Run after accepted-result feedback and before the existing departure or mission-outcome beat. This is authored scene content, not another graded interaction.
+**Exact action / accessible description:** Records the accepted timed power allocation with the habitat reserve protected.
+**Exact dialogue:**
+- Yusuf Demir, power and life-support officer: “I can support this diversion with its timing and reserve limits attached.”
+- Mei-Ling Cho, water and cryogenics engineer (radio): “I will keep the recovery schedule aligned with that power window.”
+
+**World-state effect:** Preserve the existing accepted result and attach this reaction to its mission-log entry. The physical record remains at this fixture with the accepted scope; no new measurement, repair, signature authority or clearance is created by dialogue.
+**Controls, persistence and retry:** Pause the timer during bubbles; one Continue per bubble restores control. At most two bubbles in this scene. Fire once per relevant accepted-state transition, not on wrong submissions; mission retry restores its snapshot and replay status. Retain accepted record and completed lines in the log. Use `mars-yusuf-payoff` only as a story-presentation key, never as a stop or fixture ID. No RP, metric, mastery or travel-unlock effect. At Stop 60 this is part of the existing pre-ending reaction; do not delay the ending with optional roster material.
+
+
 ## Mission outcome
 
 Mission decision: Run the power cell only while the habitat, cooling, cleanup, and cold tanks stay safe. The plan turns the available charge into hydrogen and finishes the oxygen goal. Both amount bars now read full. The launch clock starts. A new vial now tests what full really means.
@@ -9378,6 +9773,32 @@ numbers are useful, not independent.
 **State/output:** Turn load-ready light amber; set
 evidence_flags.quality_not_independent = true.
 
+### Character scene: mars-abiola-turn
+
+**Trigger:** After Stop 53 is accepted.
+**Location and presence:** `farm-gauges` in Tank Farm. Commander Laila Abiola, mission commander, speaks by radio unless already placed locally by the existing beat; do not teleport or duplicate the character. Any second speaker is explicitly remote.
+**Presentation:** Normal playable view; existing fixture evidence plus radio/nearby bubbles. Run after accepted-result feedback and before the existing departure or mission-outcome beat. This is authored scene content, not another graded interaction.
+**Exact action / accessible description:** Keeps the shared dependencies visible beside the green readiness channels.
+**Exact dialogue:**
+- Commander Laila Abiola, mission commander: “I asked for a full tank; I also owe this crew proof of what is in it.”
+- Rosalind Achebe, analytical and electrochemistry lead (radio): “An independent sample has to earn the claim that those channels only repeat.”
+
+**World-state effect:** Preserve the existing accepted result and attach this reaction to its mission-log entry. The physical record remains at this fixture with the accepted scope; no new measurement, repair, signature authority or clearance is created by dialogue.
+**Controls, persistence and retry:** Pause the timer during bubbles; one Continue per bubble restores control. At most two bubbles in this scene. Fire once per relevant accepted-state transition, not on wrong submissions; mission retry restores its snapshot and replay status. Retain accepted record and completed lines in the log. Use `mars-abiola-turn` only as a story-presentation key, never as a stop or fixture ID. No RP, metric, mastery or travel-unlock effect. At Stop 60 this is part of the existing pre-ending reaction; do not delay the ending with optional roster material.
+
+### Character scene: mars-cho-turn
+
+**Trigger:** After Stop 53 is accepted.
+**Location and presence:** `farm-gauges` in Tank Farm. Mei-Ling Cho, water and cryogenics engineer, speaks by radio unless already placed locally by the existing beat; do not teleport or duplicate the character. Any second speaker is explicitly remote.
+**Presentation:** Normal playable view; existing fixture evidence plus radio/nearby bubbles. Run after accepted-result feedback and before the existing departure or mission-outcome beat. This is authored scene content, not another graded interaction.
+**Exact action / accessible description:** Marks the common calibration behind the cold-end and control-room estimates.
+**Exact dialogue:**
+- Mei-Ling Cho, water and cryogenics engineer: “I checked the separation model; I should also have checked what both estimates inherited.”
+
+**World-state effect:** Preserve the existing accepted result and attach this reaction to its mission-log entry. The physical record remains at this fixture with the accepted scope; no new measurement, repair, signature authority or clearance is created by dialogue.
+**Controls, persistence and retry:** Pause the timer during bubbles; one Continue per bubble restores control. At most two bubbles in this scene. Fire once per relevant accepted-state transition, not on wrong submissions; mission retry restores its snapshot and replay status. Retain accepted record and completed lines in the log. Use `mars-cho-turn` only as a story-presentation key, never as a stop or fixture ID. No RP, metric, mastery or travel-unlock effect. At Stop 60 this is part of the existing pre-ending reaction; do not delay the ending with optional roster material.
+
+
 ## Stop 54 - Test certification on the newest sample
 
 **Format/placement:** HOLDOUT, operated at `spec-bench`.
@@ -9456,6 +9877,19 @@ destroys the independence of the test.
 
 **State/output:** batch_c_quality = off_spec; launch countdown pauses.
 
+### Character scene: mars-achebe-turn
+
+**Trigger:** After Stop 54 is accepted.
+**Location and presence:** `spec-bench` in Assay Lab. Rosalind Achebe, analytical and electrochemistry lead, speaks by radio unless already placed locally by the existing beat; do not teleport or duplicate the character. Any second speaker is explicitly remote.
+**Presentation:** Normal playable view; existing fixture evidence plus radio/nearby bubbles. Run after accepted-result feedback and before the existing departure or mission-outcome beat. This is authored scene content, not another graded interaction.
+**Exact action / accessible description:** Keeps the newest independent sample result beside the prior certification claim.
+**Exact dialogue:**
+- Rosalind Achebe, analytical and electrochemistry lead: “This sample changes the decision; another copy of the old number would not have helped.”
+
+**World-state effect:** Preserve the existing accepted result and attach this reaction to its mission-log entry. The physical record remains at this fixture with the accepted scope; no new measurement, repair, signature authority or clearance is created by dialogue.
+**Controls, persistence and retry:** Pause the timer during bubbles; one Continue per bubble restores control. At most two bubbles in this scene. Fire once per relevant accepted-state transition, not on wrong submissions; mission retry restores its snapshot and replay status. Retain accepted record and completed lines in the log. Use `mars-achebe-turn` only as a story-presentation key, never as a stop or fixture ID. No RP, metric, mastery or travel-unlock effect. At Stop 60 this is part of the existing pre-ending reaction; do not delay the ending with optional roster material.
+
+
 ## Stop 55 - What is actually wrong?
 
 **Format/placement:** DIAGNOSIS, at `assay-review-board`.
@@ -9518,6 +9952,19 @@ biased Standard C hides it.
 
 **State/output:** twist_3_complete = true; quarantine line appears
 around one tank.
+
+### Character scene: mars-cho-payoff
+
+**Trigger:** After Stop 55 is accepted.
+**Location and presence:** `assay-review-board` in Assay Lab. Mei-Ling Cho, water and cryogenics engineer, speaks by radio unless already placed locally by the existing beat; do not teleport or duplicate the character. Any second speaker is explicitly remote.
+**Presentation:** Normal playable view; existing fixture evidence plus radio/nearby bubbles. Run after accepted-result feedback and before the existing departure or mission-outcome beat. This is authored scene content, not another graded interaction.
+**Exact action / accessible description:** Keeps the independent contamination diagnosis with the treatment record.
+**Exact dialogue:**
+- Mei-Ling Cho, water and cryogenics engineer: “Choose the treatment for the sample we tested, not the composition we expected.”
+
+**World-state effect:** Preserve the existing accepted result and attach this reaction to its mission-log entry. The physical record remains at this fixture with the accepted scope; no new measurement, repair, signature authority or clearance is created by dialogue.
+**Controls, persistence and retry:** Pause the timer during bubbles; one Continue per bubble restores control. At most two bubbles in this scene. Fire once per relevant accepted-state transition, not on wrong submissions; mission retry restores its snapshot and replay status. Retain accepted record and completed lines in the log. Use `mars-cho-payoff` only as a story-presentation key, never as a stop or fixture ID. No RP, metric, mastery or travel-unlock effect. At Stop 60 this is part of the existing pre-ending reaction; do not delay the ending with optional roster material.
+
 
 ## Stop 56 - Write the rule before the final samples
 
@@ -9612,6 +10059,19 @@ lead time; pressure alone cannot certify composition.
 
 **State/output:** launch_status = NO_GO_PENDING_RECOVERY; unlock final
 plan board.
+
+### Character scene: mars-achebe-payoff
+
+**Trigger:** After Stop 56 is accepted.
+**Location and presence:** `certification-console` in Pad Office. Rosalind Achebe, analytical and electrochemistry lead, speaks by radio unless already placed locally by the existing beat; do not teleport or duplicate the character. Any second speaker is explicitly remote.
+**Presentation:** Normal playable view; existing fixture evidence plus radio/nearby bubbles. Run after accepted-result feedback and before the existing departure or mission-outcome beat. This is authored scene content, not another graded interaction.
+**Exact action / accessible description:** Retains the precommitted acceptance rule before the final samples are opened.
+**Exact dialogue:**
+- Rosalind Achebe, analytical and electrochemistry lead: “These are the checks we agreed were enough; apply them without moving the line.”
+
+**World-state effect:** Preserve the existing accepted result and attach this reaction to its mission-log entry. The physical record remains at this fixture with the accepted scope; no new measurement, repair, signature authority or clearance is created by dialogue.
+**Controls, persistence and retry:** Pause the timer during bubbles; one Continue per bubble restores control. At most two bubbles in this scene. Fire once per relevant accepted-state transition, not on wrong submissions; mission retry restores its snapshot and replay status. Retain accepted record and completed lines in the log. Use `mars-achebe-payoff` only as a story-presentation key, never as a stop or fixture ID. No RP, metric, mastery or travel-unlock effect. At Stop 60 this is part of the existing pre-ending reaction; do not delay the ending with optional roster material.
+
 
 ## Mission outcome
 
@@ -10375,6 +10835,20 @@ awarded. Spend: Methane +6; Power +4. Result: METHANE 100% \| OXYGEN
 
 **Launch gate:** When all four bars read 100%, lock all four and reveal
 AUTHORIZE LAUNCH. Otherwise show NO-GO - RECOVERY INCOMPLETE.
+
+### Character scene: mars-abiola-payoff
+
+**Trigger:** After Stop 60 is accepted.
+**Location and presence:** `certification-console` in Pad Office. Commander Laila Abiola, mission commander, speaks by radio unless already placed locally by the existing beat; do not teleport or duplicate the character. Any second speaker is explicitly remote.
+**Presentation:** Normal playable view; existing fixture evidence plus radio/nearby bubbles. Run after accepted-result feedback and before the existing departure or mission-outcome beat. This is authored scene content, not another graded interaction.
+**Exact action / accessible description:** Applies the accepted final recommendation to the existing boarding state, retaining either the launch authorization or the failed checks.
+**Exact dialogue:**
+- Commander Laila Abiola, mission commander: “This is the decision supported by the samples; the color of the dashboard does not overrule it.”
+- Rosalind Achebe, analytical and electrochemistry lead (radio): “The samples and acceptance rule stay together for the launch record.”
+
+**World-state effect:** Preserve the existing accepted result and attach this reaction to its mission-log entry. The physical record remains at this fixture with the accepted scope; no new measurement, repair, signature authority or clearance is created by dialogue.
+**Controls, persistence and retry:** Pause the timer during bubbles; one Continue per bubble restores control. At most two bubbles in this scene. Fire once per relevant accepted-state transition, not on wrong submissions; mission retry restores its snapshot and replay status. Retain accepted record and completed lines in the log. Use `mars-abiola-payoff` only as a story-presentation key, never as a stop or fixture ID. No RP, metric, mastery or travel-unlock effect. At Stop 60 this is part of the existing pre-ending reaction; do not delay the ending with optional roster material.
+
 
 ## Mission outcome and epilogue - no further quiz
 

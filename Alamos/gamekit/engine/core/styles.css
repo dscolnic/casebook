@@ -1232,10 +1232,8 @@ h1,h2,h3,h4{font-family:var(--serif);line-height:1.15}
 /* --- DERIVE: the rail is what the player has built, one line at a time. The
    candidates are monospaced and the same width, because a longer expression that
    happens to be the right one is an answer identifiable by its shape. */
-.deriveGoal{display:flex;gap:8px;align-items:baseline;margin:8px 0 2px}
-.deriveGoal span{font:800 .56rem/1.2 Inter,system-ui;letter-spacing:.06em;
-  text-transform:uppercase;color:#8a97a0}
-.deriveGoal b{font:700 .8rem/1.3 ui-monospace,SFMono-Regular,Menlo,monospace;color:#2f4652}
+/* .deriveGoal is gone: the panel no longer prints the derivation's goal — see
+   the note in instruments.js's DERIVE. */
 .deriveRail{display:grid;gap:4px;margin:6px 0 10px}
 .deriveLine{display:flex;align-items:baseline;gap:9px;padding:6px 9px;border:1px solid var(--line);
   border-radius:8px;background:#fff}

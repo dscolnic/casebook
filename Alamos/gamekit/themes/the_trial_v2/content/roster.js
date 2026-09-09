@@ -9,7 +9,7 @@ export const ROSTER = [
     "role": "Trial director and mission authority",
     "division": "SAFE",
     "color": "#b3462f",
-    "bio": "<p>Mara Voss is Trial director and mission authority. Wants a defensible board decision on day 15. Schedule pressure can make a settled-looking number feel final. Says, \"What can that number honestly claim?\" She moves from deadline-first to evidence-first.</p>"
+    "bio": "<p>She has promised the board a defensible decision on day fifteen and must explain if the strongest-looking headline weakens. A settled-looking number can feel final when a deadline is close.</p>"
   },
   {
     "id": "navarro",
@@ -17,7 +17,7 @@ export const ROSTER = [
     "role": "division operations lead",
     "division": "SITE",
     "color": "#b0762a",
-    "bio": "<p>Eli Navarro is division operations lead. Wants keep hospitals enrolling and queries moving. Fast sites look efficient before representativeness is checked. Says, \"Who is missing?\" He ultimately pauses the fastest site himself.</p>"
+    "bio": "<p>He has held up fast-enrolling hospitals as examples while trying to keep recruitment and queries moving. Recruitment speed can look like quality before the missing patients and regions are examined.</p>"
   },
   {
     "id": "shah",
@@ -25,7 +25,7 @@ export const ROSTER = [
     "role": "Randomisation and blinding lead",
     "division": "RAND",
     "color": "#3f6f8f",
-    "bio": "<p>Priya Shah is Randomisation and blinding lead. Wants preserve treatment concealment and causal validity. A correct allocation file can hide failures in physical kit handling. Says, \"Could anyone predict the next box?\" She accepts an audit beyond her records.</p>"
+    "bio": "<p>She has built a correct allocation record and must now show that the handling of actual kits preserves what the file promises. A valid digital sequence can hide predictable physical handling.</p>"
   },
   {
     "id": "reed",
@@ -33,7 +33,7 @@ export const ROSTER = [
     "role": "division trial statistician",
     "division": "STAT",
     "color": "#1f7a6b",
-    "bio": "<p>Tomas Reed is division trial statistician. Wants protect the analysis plan and statistical power. Formal significance can distract him from bias and practical size. Says, \"State the parameter first.\" He presents uncertainty before the headline.</p>"
+    "bio": "<p>He has defended the analysis plan and wants its work to yield a useful result when the board meets. Formal significance can overshadow bias, multiplicity and practical size.</p>"
   },
   {
     "id": "okafor",
@@ -41,7 +41,7 @@ export const ROSTER = [
     "role": "Endpoint adjudication lead",
     "division": "ENDP",
     "color": "#7a4fa3",
-    "bio": "<p>Amina Okafor is Endpoint adjudication lead. Wants count the same clinical event the same way everywhere. Precise rules can still measure the wrong construct. Says, \"What exactly was counted?\" She revises the endpoint rule.</p>"
+    "bio": "<p>Sites rely on her event definitions, so changing a rule can require revisiting records already treated as settled. Precise counting rules can still measure the wrong construct.</p>"
   },
   {
     "id": "wu",
@@ -49,7 +49,7 @@ export const ROSTER = [
     "role": "division regulatory and registry lead",
     "division": "REG",
     "color": "#5b6a72",
-    "bio": "<p>Lena Wu is division regulatory and registry lead. Wants keep every change transparent and reproducible. Documentation can verify a record without verifying a patient's condition. Says, \"Was that promised before the data?\" She distinguishes audit trail from truth.</p>"
+    "bio": "<p>Lena must preserve a traceable record even when it includes inconvenient changes. A complete audit trail can seem to verify the patient evidence itself.</p>"
   },
   {
     "id": "berg",
@@ -57,7 +57,7 @@ export const ROSTER = [
     "role": "Safety monitoring chair",
     "division": "SAFE",
     "color": "#b3462f",
-    "bio": "<p>Jonas Berg is Safety monitoring chair. Wants prevent avoidable patient harm. Early clusters can tempt him to stop before accounting for chance and exposure. Says, \"What would change the decision?\" He accepts continuation only with enforceable triggers.</p>"
+    "bio": "<p>He is accountable for patients exposed while the board waits and for patients who might lose a useful treatment if it stops too soon. An early cluster can demand attention before chance and exposure have been properly considered.</p>"
   }
 ];
 

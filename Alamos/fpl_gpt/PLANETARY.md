@@ -1,6 +1,8 @@
 **FIRST PERSON LEARNING**
 
-**Player-copy editing rule:** Within each displayed passage, state each fact, equation, variable definition, and instruction once. Integrate new givens into the existing wording; do not append a paraphrase of the setup. A source panel may repeat essential inputs so it stands alone, but render it as its own surface rather than concatenating it with the question setup. Go Deeper questions must still supply their own context and data without referring to earlier cases.
+**Editorial revision:** Character profiles, evidence-driven scenes and biography checks; 2026-09-09. All prior copy and opening-quote fixes retained.
+
+**Player-copy editing rule:** Raise a blocking `REPETITION_FLAG` for unresolved duplicated meaning within a displayed passage, including paraphrases, repeated formulas/definitions and concatenated setup/source copy. Review candidate matches semantically and document any separate-surface exception. Apply REP-001–REP-005 in Giant Gate v2.8.  Within each displayed passage, state each fact, equation, variable definition, and instruction once. Integrate new givens into the existing wording; do not append a paraphrase of the setup. A source panel may repeat essential inputs so it stands alone, but render it as its own surface rather than concatenating it with the question setup. Go Deeper questions must still supply their own context and data without referring to earlier cases.
 
 **ELEVEN DAYS**
 
@@ -226,6 +228,16 @@ Extend delivery-desk with the warning-network wall display as one existing-fixtu
 
 ## 4. Canonical character roster
 
+### Profile and scene delivery contract
+
+The compact material below is a designer reference. The individual Character ID entries are the authoritative full profiles; reference rows and headings are not additional people. Render only the explicitly labeled bio fields in the optional roster. Wants, blind spots and future arc descriptions are designer-only. Keep the existing names, role aliases and division assignments; the explicit profiles add ownership and scene bindings without changing any person-stop owner.
+
+Each character has an entrance/evidence encounter, a required evidence-triggered turn and a later demonstrated change, embedded at the relevant mission stops below. These scenes are part of the story route, not prerequisites added by the roster. Opening handovers and established entrances play once. When an existing beat already supplies the same action or sentence at that trigger, render that action or sentence once and use this exact reaction as its character component; retain all distinct travel, science and outcome content. Sequence multiple scenes by their order in the chapter. Do not concatenate setup/source panels or duplicate the accepted answer in dialogue.
+
+All physical actions use the existing fixture and its records. A radio speaker can direct the player’s visible record handling; no new carried item, prop, fixture, resource or measurement is implied. Preserve original lock and release conditions, including partial clearance and no-go endings. The roster can be skipped in full with no effect on progress. The three greeting variants are state-selected optional conversations, not an automatic speech queue.
+
+### Compact designer reference
+
 | Name | Pronouns | Working role | Wants | Blind spot | Verbal habit | Arc |
 |---|---|---|---|---|---|---|
 | Mira Chen | she/her | International NEO Response Director | One defensible action before politics outruns evidence. | Can sound cold when she protects uncertainty. | “What would change the decision?” | Learns to state uncertainty without hiding urgency. |
@@ -240,6 +252,311 @@ Extend delivery-desk with the warning-network wall display as one existing-fixtu
 No character exists only to ask questions. Each owns evidence, authority, equipment, or a constraint used in the final response.
 
 ---
+
+### Relationship evidence map
+
+| People | Planted commitment | Evidence-driven turn | Later changed practice |
+|---|---|---|---|
+| Mira Chen / Jordan Hale | `planetary-mira-entrance`: “Tell me what your crews need in order to act on a changing forecast.” | Stop 48, `planetary-mira-turn` | Stop 59, `planetary-mira-payoff` |
+| Lena Ortiz / Malik Rowan | `planetary-lena-entrance`: “If an external check changes my measurements, keep the correction visible in your orbit.” | Stop 25, `planetary-lena-turn` | Stop 57, `planetary-lena-payoff` |
+| Arjun Sen / Evelyn Park | `planetary-arjun-entrance`: “Make me show that the intercept buys protection before you give up response time for it.” | Stop 43, `planetary-arjun-turn` | Stop 44, `planetary-arjun-payoff` |
+
+### Mira Chen
+
+- **Character ID:** `person-mira-chen`
+- **Display name:** Mira Chen
+- **Role:** response director
+- **Pronouns:** she/her
+- **Allowed short name:** Mira
+- **Area ownership:** Coordination Office; Emergency Management Office. Existing division assignments in the reference summary also remain in force; presence elsewhere is explicitly by radio.
+- **First entrance:** Closes the launch binder and gives the player responsibility for the warning at arrival. The existing opening card supplies this entrance; the mission encounter below continues it without replaying the handover. Binding: `planetary-mira-entrance`, On arrival at Coordination Office during Mission 1, when Stop 4 is the next active stop; if the player is already here, fire once on that stop’s existing activation instead of requiring re-entry, at `delivery-desk`.
+- **Wants and personal stake:** Local officials will act on her statements, while public pressure rewards a definite answer before the evidence warrants one.
+- **Blind spot:** Protecting uncertainty can make her sound detached from the people who must act.
+- **Scientific domain:** public claims and response authorization.
+- **Decision function:** Supplies the public claims and response authorization constraint to the existing decisions at Stops 48 and 59; the player still submits the answer and the existing authority still controls authorization.
+- **Verbal habit:** “What would change the decision?”
+- **Relationship pressure:** Jordan Hale: Local officials will act on her statements, while public pressure rewards a definite answer before the evidence warrants one.
+- **Arc, with source evidence:** After Stop 48 (Sign the public claims), `planetary-mira-turn` makes the accepted evidence personally consequential. After Stop 59 (Trigger the promised action), `planetary-mira-payoff` shows the resulting change in practice: Retains the fragment warning and main-body stand-down as distinct parts of the executed response.
+- **Cost of changing:** The character must revise or qualify the commitment described under personal stake in front of the player and Jordan Hale; the old interpretation remains reviewable rather than silently overwritten.
+- **Gameplay necessity:** Removing this character removes the accountable owner of public claims and response authorization, the commitment above, and the witnessed correction in `planetary-mira-turn`. Reassigning their questions alone would not preserve those scenes or constraints.
+
+**Bio passage - exact player copy:** Local officials will act on her statements, while public pressure rewards a definite answer before the evidence warrants one. Protecting uncertainty can make her sound detached from the people who must act.
+
+**Bio reflection question - exact player copy:** Why is cautious scientific wording alone insufficient for Mira?
+
+**Bio reveal answer - exact player copy:** Officials also need to know what action each stated condition requires.
+
+**Bio feedback - exact player copy:** A warning needs an executable instruction as well as an honest probability statement.
+
+**Bio check behavior:** On explicit opening of this character’s optional roster page after their first encounter, show only the bio passage and reflection question. Reveal answer and feedback only when the player selects Show answer; allow reconsideration and reopening. This is an unscored reading reflection, with no automatic correctness judgment, stop number, RP, timer cost, mission prerequisite, mastery credit, story flag or unlock. No answer or future arc is required to continue. Designer profile fields and future dialogue are not player-visible biography text.
+
+**Conditional greeting binding:** On explicit Talk to Mira after the character has been introduced, use the highest satisfied row only. Later states override earlier ones. A state changes only from the existing accepted-stop record, never from reading the bio. Lines may be reopened on explicit request; do not autoplay a greeting already spoken as a scene line at that encounter. No new travel or required conversation is created. Presence is local only at the character’s existing location; otherwise use the established radio connection. Log spoken text; pause the timer while it is open.
+
+| Priority | Condition | Exact greeting |
+|---:|---|---|
+| 30 | Stop 59 accepted | “Keep both messages clear so a justified stand-down does not cancel a warning people still need.” |
+| 20 | Stop 48 accepted; Stop 59 not accepted | “People need to know what we will do at each line, not just that the orbit is uncertain.” |
+| 10 | Introduced; Stop 48 not accepted; fallback | “What would change the decision?” |
+
+### Lena Ortiz
+
+- **Character ID:** `person-lena-ortiz`
+- **Display name:** Lena Ortiz
+- **Role:** survey and discovery lead
+- **Pronouns:** she/her
+- **Allowed short name:** Lena
+- **Area ownership:** Coordination Office; Survey Telescope. Existing division assignments in the reference summary also remain in force; presence elsewhere is explicitly by radio.
+- **First entrance:** Opens the original pixels beside the candidate-motion record. The established entrance is retained; the scene below stages the first evidence encounter in this arc. Binding: `planetary-lena-entrance`, On arrival at Coordination Office during Mission 1, when Stop 1 is the next active stop; if the player is already here, fire once on that stop’s existing activation instead of requiring re-entry, at `scopeboard`.
+- **Wants and personal stake:** Years of work went into her pipeline, and a timing fault could undermine confidence in a discovery that still needs urgent follow-up.
+- **Blind spot:** A well-tuned pipeline can feel more trustworthy than an inconvenient external timing check.
+- **Scientific domain:** optical recovery and pipeline validation.
+- **Decision function:** Supplies the optical recovery and pipeline validation constraint to the existing decisions at Stops 25 and 57; the player still submits the answer and the existing authority still controls authorization.
+- **Verbal habit:** “Show me the pixels.”
+- **Relationship pressure:** Malik Rowan: Years of work went into her pipeline, and a timing fault could undermine confidence in a discovery that still needs urgent follow-up.
+- **Arc, with source evidence:** After Stop 25 (Trace the time chain), `planetary-lena-turn` makes the accepted evidence personally consequential. After Stop 57 (Attest the recovery), `planetary-lena-payoff` shows the resulting change in practice: Retains the independently checked recovery evidence with the corrected pipeline record.
+- **Cost of changing:** The character must revise or qualify the commitment described under personal stake in front of the player and Malik Rowan; the old interpretation remains reviewable rather than silently overwritten.
+- **Gameplay necessity:** Removing this character removes the accountable owner of optical recovery and pipeline validation, the commitment above, and the witnessed correction in `planetary-lena-turn`. Reassigning their questions alone would not preserve those scenes or constraints.
+
+**Bio passage - exact player copy:** Years of work went into her pipeline, and a timing fault could undermine confidence in a discovery that still needs urgent follow-up. A well-tuned pipeline can feel more trustworthy than an inconvenient external timing check.
+
+**Bio reflection question - exact player copy:** Why is a pipeline fault personally difficult for Lena?
+
+**Bio reveal answer - exact player copy:** She has invested years in the system, while the response still depends on distinguishing its valid detections from its measurement errors.
+
+**Bio feedback - exact player copy:** A detection can remain useful even when one part of its measurement chain needs correction.
+
+**Bio check behavior:** On explicit opening of this character’s optional roster page after their first encounter, show only the bio passage and reflection question. Reveal answer and feedback only when the player selects Show answer; allow reconsideration and reopening. This is an unscored reading reflection, with no automatic correctness judgment, stop number, RP, timer cost, mission prerequisite, mastery credit, story flag or unlock. No answer or future arc is required to continue. Designer profile fields and future dialogue are not player-visible biography text.
+
+**Conditional greeting binding:** On explicit Talk to Lena after the character has been introduced, use the highest satisfied row only. Later states override earlier ones. A state changes only from the existing accepted-stop record, never from reading the bio. Lines may be reopened on explicit request; do not autoplay a greeting already spoken as a scene line at that encounter. No new travel or required conversation is created. Presence is local only at the character’s existing location; otherwise use the established radio connection. Log spoken text; pause the timer while it is open.
+
+| Priority | Condition | Exact greeting |
+|---:|---|---|
+| 30 | Stop 57 accepted | “Keep the correction with the recovery so the next team knows what changed.” |
+| 20 | Stop 25 accepted; Stop 57 not accepted | “The source is real; that does not make every timestamp from my pipeline right.” |
+| 10 | Introduced; Stop 25 not accepted; fallback | “Show me the pixels.” |
+
+### Malik Rowan
+
+- **Character ID:** `person-malik-rowan`
+- **Display name:** Malik Rowan
+- **Role:** orbit-determination lead
+- **Pronouns:** he/him
+- **Allowed short name:** Malik
+- **Area ownership:** Orbit Determination Center; Bistatic Radar Range. Existing division assignments in the reference summary also remain in force; presence elsewhere is explicitly by radio.
+- **First entrance:** Keeps the allowed orbit cloud visible beside the preferred fit. The established entrance is retained; the scene below stages the first evidence encounter in this arc. Binding: `planetary-malik-entrance`, On arrival at Orbit Determination Center during Mission 2, when Stop 5 is the next active stop; if the player is already here, fire once on that stop’s existing activation instead of requiring re-entry, at `astro-bench`.
+- **Wants and personal stake:** His orbit solution determines whom the response team warns; revising it after public planning has begun carries real consequences.
+- **Blind spot:** A precise modeled covariance can look complete before unmodeled systematics are tested.
+- **Scientific domain:** orbit uncertainty and independent checks.
+- **Decision function:** Supplies the orbit uncertainty and independent checks constraint to the existing decisions at Stops 32 and 52; the player still submits the answer and the existing authority still controls authorization.
+- **Verbal habit:** “Where is the uncertainty?”
+- **Relationship pressure:** The player relies on Malik for orbit uncertainty and independent checks; their shared working assumption is challenged in `planetary-malik-turn`.
+- **Arc, with source evidence:** After Stop 32 (Stress the planning sentence), `planetary-malik-turn` makes the accepted evidence personally consequential. After Stop 52 (Reveal the independent holdout), `planetary-malik-payoff` shows the resulting change in practice: Adds the independent holdout to the corrected orbit record.
+- **Cost of changing:** The character must revise or qualify the commitment described under personal stake in front of the player; the old interpretation remains reviewable rather than silently overwritten.
+- **Gameplay necessity:** Removing this character removes the accountable owner of orbit uncertainty and independent checks, the commitment above, and the witnessed correction in `planetary-malik-turn`. Reassigning their questions alone would not preserve those scenes or constraints.
+
+**Bio passage - exact player copy:** His orbit solution determines whom the response team warns; revising it after public planning has begun carries real consequences. A precise modeled covariance can look complete before unmodeled systematics are tested.
+
+**Bio reflection question - exact player copy:** Why does Malik hesitate to issue a stable-looking orbit as a final answer?
+
+**Bio reveal answer - exact player copy:** The resulting warning affects real planning, and apparent precision may not include all sources of error.
+
+**Bio feedback - exact player copy:** Precision under a model does not establish that the model includes every systematic error.
+
+**Bio check behavior:** On explicit opening of this character’s optional roster page after their first encounter, show only the bio passage and reflection question. Reveal answer and feedback only when the player selects Show answer; allow reconsideration and reopening. This is an unscored reading reflection, with no automatic correctness judgment, stop number, RP, timer cost, mission prerequisite, mastery credit, story flag or unlock. No answer or future arc is required to continue. Designer profile fields and future dialogue are not player-visible biography text.
+
+**Conditional greeting binding:** On explicit Talk to Malik after the character has been introduced, use the highest satisfied row only. Later states override earlier ones. A state changes only from the existing accepted-stop record, never from reading the bio. Lines may be reopened on explicit request; do not autoplay a greeting already spoken as a scene line at that encounter. No new travel or required conversation is created. Presence is local only at the character’s existing location; otherwise use the established radio connection. Log spoken text; pause the timer while it is open.
+
+| Priority | Condition | Exact greeting |
+|---:|---|---|
+| 30 | Stop 52 accepted | “This check was not used to tune the fit; keep that distinction in the warning evidence.” |
+| 20 | Stop 32 accepted; Stop 52 not accepted | “The fit can be precise within its assumptions; that is not a reason to hide the assumptions.” |
+| 10 | Introduced; Stop 32 not accepted; fallback | “Where is the uncertainty?” |
+
+### Sanaa Vale
+
+- **Character ID:** `person-sanaa-vale`
+- **Display name:** Sanaa Vale
+- **Role:** physical-characterization lead
+- **Pronouns:** she/her
+- **Allowed short name:** Sanaa
+- **Area ownership:** Survey Telescope; Spectroscopy Dome. Existing division assignments in the reference summary also remain in force; presence elsewhere is explicitly by radio.
+- **First entrance:** Sets the thermal evidence beside the reflected-light estimate. The established entrance is retained; the scene below stages the first evidence encounter in this arc. Binding: `planetary-sanaa-entrance`, On arrival at Survey Telescope during Mission 6, when Stop 21 is the next active stop; if the player is already here, fire once on that stop’s existing activation instead of requiring re-entry, at `dome-console`.
+- **Wants and personal stake:** She wants to prevent an action based on the wrong physical body, but every extra observation uses time the response team needs.
+- **Blind spot:** Waiting for complete characterization can delay a useful bounded answer.
+- **Scientific domain:** size, spin, albedo and bounded estimates.
+- **Decision function:** Supplies the size, spin, albedo and bounded estimates constraint to the existing decisions at Stops 24 and 41; the player still submits the answer and the existing authority still controls authorization.
+- **Verbal habit:** “What else could make that signal?”
+- **Relationship pressure:** The player relies on Sanaa for size, spin, albedo and bounded estimates; their shared working assumption is challenged in `planetary-sanaa-turn`.
+- **Arc, with source evidence:** After Stop 24 (Adopt the consequence body), `planetary-sanaa-turn` makes the accepted evidence personally consequential. After Stop 41 (Carry the mass honestly), `planetary-sanaa-payoff` shows the resulting change in practice: Carries the accepted mass range into the intervention calculation record.
+- **Cost of changing:** The character must revise or qualify the commitment described under personal stake in front of the player; the old interpretation remains reviewable rather than silently overwritten.
+- **Gameplay necessity:** Removing this character removes the accountable owner of size, spin, albedo and bounded estimates, the commitment above, and the witnessed correction in `planetary-sanaa-turn`. Reassigning their questions alone would not preserve those scenes or constraints.
+
+**Bio passage - exact player copy:** She wants to prevent an action based on the wrong physical body, but every extra observation uses time the response team needs. Waiting for complete characterization can delay a useful bounded answer.
+
+**Bio reflection question - exact player copy:** Why must Sanaa sometimes give a bounded estimate before the object is fully characterized?
+
+**Bio reveal answer - exact player copy:** The response has a deadline, and a justified range can support decisions while further observations refine it.
+
+**Bio feedback - exact player copy:** A justified range can be useful before every property has one final estimate.
+
+**Bio check behavior:** On explicit opening of this character’s optional roster page after their first encounter, show only the bio passage and reflection question. Reveal answer and feedback only when the player selects Show answer; allow reconsideration and reopening. This is an unscored reading reflection, with no automatic correctness judgment, stop number, RP, timer cost, mission prerequisite, mastery credit, story flag or unlock. No answer or future arc is required to continue. Designer profile fields and future dialogue are not player-visible biography text.
+
+**Conditional greeting binding:** On explicit Talk to Sanaa after the character has been introduced, use the highest satisfied row only. Later states override earlier ones. A state changes only from the existing accepted-stop record, never from reading the bio. Lines may be reopened on explicit request; do not autoplay a greeting already spoken as a scene line at that encounter. No new travel or required conversation is created. Presence is local only at the character’s existing location; otherwise use the established radio connection. Log spoken text; pause the timer while it is open.
+
+| Priority | Condition | Exact greeting |
+|---:|---|---|
+| 30 | Stop 41 accepted | “Take the range into the decision now; do not wait for me to turn it into one comforting number.” |
+| 20 | Stop 24 accepted; Stop 41 not accepted | “We have enough to change the consequence estimate; we do not have to pretend every property is known.” |
+| 10 | Introduced; Stop 24 not accepted; fallback | “What else could make that signal?” |
+
+### Tomás Ibarra
+
+- **Character ID:** `person-tomas-ibarra`
+- **Display name:** Tomás Ibarra
+- **Role:** radar director
+- **Pronouns:** he/him
+- **Allowed short name:** Ibarra
+- **Area ownership:** Bistatic Radar Range. Existing division assignments in the reference summary also remain in force; presence elsewhere is explicitly by radio.
+- **First entrance:** Keeps the original echo frames beside the processed radar view. The established entrance is retained; the scene below stages the first evidence encounter in this arc. Binding: `planetary-ibarra-entrance`, On arrival at Bistatic Radar Range during Mission 7, when Stop 27 is the next active stop; if the player is already here, fire once on that stop’s existing activation instead of requiring re-entry, at `radar-console`.
+- **Wants and personal stake:** He must use limited radar time well and initially gives the clean main return priority over ambiguous structure.
+- **Blind spot:** A strong main echo can draw attention away from a weak but repeatable feature.
+- **Scientific domain:** delay, Doppler and weak-echo preservation.
+- **Decision function:** Supplies the delay, Doppler and weak-echo preservation constraint to the existing decisions at Stops 40 and 54; the player still submits the answer and the existing authority still controls authorization.
+- **Verbal habit:** “Range first; story second.”
+- **Relationship pressure:** The player relies on Ibarra for delay, Doppler and weak-echo preservation; their shared working assumption is challenged in `planetary-ibarra-turn`.
+- **Arc, with source evidence:** After Stop 40 (Diagnose the minimum model), `planetary-ibarra-turn` makes the accepted evidence personally consequential. After Stop 54 (Probe the separated return), `planetary-ibarra-payoff` shows the resulting change in practice: Marks the separately probed return without merging it into the primary-track result.
+- **Cost of changing:** The character must revise or qualify the commitment described under personal stake in front of the player; the old interpretation remains reviewable rather than silently overwritten.
+- **Gameplay necessity:** Removing this character removes the accountable owner of delay, Doppler and weak-echo preservation, the commitment above, and the witnessed correction in `planetary-ibarra-turn`. Reassigning their questions alone would not preserve those scenes or constraints.
+
+**Bio passage - exact player copy:** He must use limited radar time well and initially gives the clean main return priority over ambiguous structure. A strong main echo can draw attention away from a weak but repeatable feature.
+
+**Bio reflection question - exact player copy:** Why is it important that Ibarra retains weak structure in the raw frames?
+
+**Bio reveal answer - exact player copy:** A feature that is initially ambiguous may become interpretable when later independent evidence arrives.
+
+**Bio feedback - exact player copy:** Preserving raw evidence allows a later explanation to be tested rather than invented.
+
+**Bio check behavior:** On explicit opening of this character’s optional roster page after their first encounter, show only the bio passage and reflection question. Reveal answer and feedback only when the player selects Show answer; allow reconsideration and reopening. This is an unscored reading reflection, with no automatic correctness judgment, stop number, RP, timer cost, mission prerequisite, mastery credit, story flag or unlock. No answer or future arc is required to continue. Designer profile fields and future dialogue are not player-visible biography text.
+
+**Conditional greeting binding:** On explicit Talk to Ibarra after the character has been introduced, use the highest satisfied row only. Later states override earlier ones. A state changes only from the existing accepted-stop record, never from reading the bio. Lines may be reopened on explicit request; do not autoplay a greeting already spoken as a scene line at that encounter. No new travel or required conversation is created. Presence is local only at the character’s existing location; otherwise use the established radio connection. Log spoken text; pause the timer while it is open.
+
+| Priority | Condition | Exact greeting |
+|---:|---|---|
+| 30 | Stop 54 accepted | “Keep following this return even while the main body clears.” |
+| 20 | Stop 40 accepted; Stop 54 not accepted | “That weak return stayed in the archive; we would have lost this question if I had discarded it.” |
+| 10 | Introduced; Stop 40 not accepted; fallback | “Range first; story second.” |
+
+### Evelyn Park
+
+- **Character ID:** `person-evelyn-park`
+- **Display name:** Evelyn Park
+- **Role:** entry-and-consequences lead
+- **Pronouns:** she/her
+- **Allowed short name:** Evelyn
+- **Area ownership:** Orbit Determination Center; Entry & Consequences Lab; Emergency Management Office. Existing division assignments in the reference summary also remain in force; presence elsewhere is explicitly by radio.
+- **First entrance:** Places the exposed settlements beside the corridor comparison. The established entrance is retained; the scene below stages the first evidence encounter in this arc. Binding: `planetary-evelyn-entrance`, On arrival at Orbit Determination Center during Mission 9, when Stop 33 is the next active stop; if the player is already here, fire once on that stop’s existing activation instead of requiring re-entry, at `astro-bench`.
+- **Wants and personal stake:** She must tell emergency managers what harm they may have to prevent before an impact becomes certain.
+- **Blind spot:** The worst credible outcome can dominate even when actions should scale with changing evidence.
+- **Scientific domain:** impact consequences and staged protection.
+- **Decision function:** Supplies the impact consequences and staged protection constraint to the existing decisions at Stops 45 and 59; the player still submits the answer and the existing authority still controls authorization.
+- **Verbal habit:** “Who is under the corridor?”
+- **Relationship pressure:** The player relies on Evelyn for impact consequences and staged protection; their shared working assumption is challenged in `planetary-evelyn-turn`.
+- **Arc, with source evidence:** After Stop 45 (Draw the action thresholds), `planetary-evelyn-turn` makes the accepted evidence personally consequential. After Stop 59 (Trigger the promised action), `planetary-evelyn-payoff` shows the resulting change in practice: Keeps the accepted fragment consequences attached to the triggered action.
+- **Cost of changing:** The character must revise or qualify the commitment described under personal stake in front of the player; the old interpretation remains reviewable rather than silently overwritten.
+- **Gameplay necessity:** Removing this character removes the accountable owner of impact consequences and staged protection, the commitment above, and the witnessed correction in `planetary-evelyn-turn`. Reassigning their questions alone would not preserve those scenes or constraints.
+
+**Bio passage - exact player copy:** She must tell emergency managers what harm they may have to prevent before an impact becomes certain. The worst credible outcome can dominate even when actions should scale with changing evidence.
+
+**Bio reflection question - exact player copy:** Why does Evelyn need stand-down conditions as well as escalation conditions?
+
+**Bio reveal answer - exact player copy:** Protection measures should respond to improved evidence and avoid retaining restrictions whose justification has ended.
+
+**Bio feedback - exact player copy:** Standing down an unsupported restriction is part of evidence-based protection.
+
+**Bio check behavior:** On explicit opening of this character’s optional roster page after their first encounter, show only the bio passage and reflection question. Reveal answer and feedback only when the player selects Show answer; allow reconsideration and reopening. This is an unscored reading reflection, with no automatic correctness judgment, stop number, RP, timer cost, mission prerequisite, mastery credit, story flag or unlock. No answer or future arc is required to continue. Designer profile fields and future dialogue are not player-visible biography text.
+
+**Conditional greeting binding:** On explicit Talk to Evelyn after the character has been introduced, use the highest satisfied row only. Later states override earlier ones. A state changes only from the existing accepted-stop record, never from reading the bio. Lines may be reopened on explicit request; do not autoplay a greeting already spoken as a scene line at that encounter. No new travel or required conversation is created. Presence is local only at the character’s existing location; otherwise use the established radio connection. Log spoken text; pause the timer while it is open.
+
+| Priority | Condition | Exact greeting |
+|---:|---|---|
+| 30 | Stop 59 accepted | “Use the warning supported by this corridor; do not carry the whole old alarm forward.” |
+| 20 | Stop 45 accepted; Stop 59 not accepted | “Preparing for harm also means telling people when a restriction can end.” |
+| 10 | Introduced; Stop 45 not accepted; fallback | “Who is under the corridor?” |
+
+### Jordan Hale
+
+- **Character ID:** `person-jordan-hale`
+- **Display name:** Jordan Hale
+- **Role:** emergency manager for Valle Seco
+- **Pronouns:** they/them
+- **Allowed short name:** Jordan
+- **Area ownership:** Entry & Consequences Lab; Emergency Management Office. Existing division assignments in the reference summary also remain in force; presence elsewhere is explicitly by radio.
+- **First entrance:** Checks transport capacity against the town threshold board. The established entrance is retained; the scene below stages the first evidence encounter in this arc. Binding: `planetary-jordan-entrance`, On arrival at Entry & Consequences Lab during Mission 12, when Stop 45 is the next active stop; if the player is already here, fire once on that stop’s existing activation instead of requiring re-entry, at `risk-display`.
+- **Wants and personal stake:** County teams will have to explain changing instructions at roadblocks and transport desks.
+- **Blind spot:** Changing guidance can feel like breaking trust, even when the evidence changes.
+- **Scientific domain:** local capacity and executable warnings.
+- **Decision function:** Supplies the local capacity and executable warnings constraint to the existing decisions at Stops 47 and 60; the player still submits the answer and the existing authority still controls authorization.
+- **Verbal habit:** “Tell me what happens at each line.”
+- **Relationship pressure:** The player relies on Jordan for local capacity and executable warnings; their shared working assumption is challenged in `planetary-jordan-turn`.
+- **Arc, with source evidence:** After Stop 47 (Rehearse the decision protocol), `planetary-jordan-turn` makes the accepted evidence personally consequential. After Stop 60 (Allocate the final response), `planetary-jordan-payoff` shows the resulting change in practice: Posts the accepted final allocation for local teams and preserves the warning’s limited scope.
+- **Cost of changing:** The character must revise or qualify the commitment described under personal stake in front of the player; the old interpretation remains reviewable rather than silently overwritten.
+- **Gameplay necessity:** Removing this character removes the accountable owner of local capacity and executable warnings, the commitment above, and the witnessed correction in `planetary-jordan-turn`. Reassigning their questions alone would not preserve those scenes or constraints.
+
+**Bio passage - exact player copy:** County teams will have to explain changing instructions at roadblocks and transport desks. Changing guidance can feel like breaking trust, even when the evidence changes.
+
+**Bio reflection question - exact player copy:** Why does Jordan want explicit conditions in a warning?
+
+**Bio reveal answer - exact player copy:** They allow local teams to execute and explain changes consistently rather than improvise when the evidence shifts.
+
+**Bio feedback - exact player copy:** Explicit thresholds help field crews explain a revised instruction consistently.
+
+**Bio check behavior:** On explicit opening of this character’s optional roster page after their first encounter, show only the bio passage and reflection question. Reveal answer and feedback only when the player selects Show answer; allow reconsideration and reopening. This is an unscored reading reflection, with no automatic correctness judgment, stop number, RP, timer cost, mission prerequisite, mastery credit, story flag or unlock. No answer or future arc is required to continue. Designer profile fields and future dialogue are not player-visible biography text.
+
+**Conditional greeting binding:** On explicit Talk to Jordan after the character has been introduced, use the highest satisfied row only. Later states override earlier ones. A state changes only from the existing accepted-stop record, never from reading the bio. Lines may be reopened on explicit request; do not autoplay a greeting already spoken as a scene line at that encounter. No new travel or required conversation is created. Presence is local only at the character’s existing location; otherwise use the established radio connection. Log spoken text; pause the timer while it is open.
+
+| Priority | Condition | Exact greeting |
+|---:|---|---|
+| 30 | Stop 60 accepted | “Give each team its assignment and the reason for it; they can explain that at the roadblock.” |
+| 20 | Stop 47 accepted; Stop 60 not accepted | “If the guidance changes, my crews need to explain which condition changed with it.” |
+| 10 | Introduced; Stop 47 not accepted; fallback | “Tell me what happens at each line.” |
+
+### Arjun Sen
+
+- **Character ID:** `person-arjun-sen`
+- **Display name:** Arjun Sen
+- **Role:** space-intervention operations lead
+- **Pronouns:** he/him
+- **Allowed short name:** Arjun
+- **Area ownership:** Spectroscopy Dome; Entry & Consequences Lab; Coordination Office. Existing division assignments in the reference summary also remain in force; presence elsewhere is explicitly by radio.
+- **First entrance:** Places the Aegis operating plan beside the required-impulse calculation. The established entrance is retained; the scene below stages the first evidence encounter in this arc. Binding: `planetary-arjun-entrance`, On arrival at Spectroscopy Dome during Mission 11, when Stop 41 is the next active stop; if the player is already here, fire once on that stop’s existing activation instead of requiring re-entry, at `sizing-board`.
+- **Wants and personal stake:** He has kept the dormant Aegis demonstrator ready for a chance like this and wants that preparation to matter.
+- **Blind spot:** Available hardware makes intervention feel more valuable than observation before feasibility is tested.
+- **Scientific domain:** impulse feasibility and observing alternatives.
+- **Decision function:** Supplies the impulse feasibility and observing alternatives constraint to the existing decisions at Stops 43 and 44; the player still submits the answer and the existing authority still controls authorization.
+- **Verbal habit:** “How much miss distance do we buy?”
+- **Relationship pressure:** Evelyn Park: He has kept the dormant Aegis demonstrator ready for a chance like this and wants that preparation to matter.
+- **Arc, with source evidence:** After Stop 43 (Stress the kinetic impactor), `planetary-arjun-turn` makes the accepted evidence personally consequential. After Stop 44 (Choose the useful action), `planetary-arjun-payoff` shows the resulting change in practice: Redirects his recommendation to the accepted useful response rather than retaining the launch request.
+- **Cost of changing:** The character must revise or qualify the commitment described under personal stake in front of the player and Evelyn Park; the old interpretation remains reviewable rather than silently overwritten.
+- **Gameplay necessity:** Removing this character removes the accountable owner of impulse feasibility and observing alternatives, the commitment above, and the witnessed correction in `planetary-arjun-turn`. Reassigning their questions alone would not preserve those scenes or constraints.
+
+**Bio passage - exact player copy:** He has kept the dormant Aegis demonstrator ready for a chance like this and wants that preparation to matter. Available hardware makes intervention feel more valuable than observation before feasibility is tested.
+
+**Bio reflection question - exact player copy:** Why is Arjun especially drawn to the intervention option?
+
+**Bio reveal answer - exact player copy:** He has prepared the available hardware for a real response, which can make acting with it feel valuable before its feasibility is established.
+
+**Bio feedback - exact player copy:** Readiness of hardware and ability to achieve the necessary effect are separate tests.
+
+**Bio check behavior:** On explicit opening of this character’s optional roster page after their first encounter, show only the bio passage and reflection question. Reveal answer and feedback only when the player selects Show answer; allow reconsideration and reopening. This is an unscored reading reflection, with no automatic correctness judgment, stop number, RP, timer cost, mission prerequisite, mastery credit, story flag or unlock. No answer or future arc is required to continue. Designer profile fields and future dialogue are not player-visible biography text.
+
+**Conditional greeting binding:** On explicit Talk to Arjun after the character has been introduced, use the highest satisfied row only. Later states override earlier ones. A state changes only from the existing accepted-stop record, never from reading the bio. Lines may be reopened on explicit request; do not autoplay a greeting already spoken as a scene line at that encounter. No new travel or required conversation is created. Presence is local only at the character’s existing location; otherwise use the established radio connection. Log spoken text; pause the timer while it is open.
+
+| Priority | Condition | Exact greeting |
+|---:|---|---|
+| 30 | Stop 44 accepted | “Put the effort where it can still change the warning.” |
+| 20 | Stop 43 accepted; Stop 44 not accepted | “I wanted this to be the mission we built it for; the impulse does not make it that mission.” |
+| 10 | Introduced; Stop 43 not accepted; fallback | “How much miss distance do we buy?” |
+
 
 ## 5. Locations and causal progression
 
@@ -589,6 +906,18 @@ Lena wants the candidate protected from casual dismissal, but her trust in the p
 
 Angular position is a direction on the sky, not a distance. A nearby object's position can change against distant stars, but image defects and satellites can create false motion. Repeated detections, calibrated coordinates, smooth timing, and independent detector maps strengthen the claim. Absolute magnitude H is recorded now, but no size is claimed because albedo is unknown.
 
+### Character scene: planetary-lena-entrance
+
+**Trigger:** On arrival at Coordination Office during Mission 1, when Stop 1 is the next active stop; if the player is already here, fire once on that stop’s existing activation instead of requiring re-entry.
+**Location and presence:** `scopeboard` in Coordination Office. Lena Ortiz, survey and discovery lead, speaks by radio unless already placed locally by the existing beat; do not teleport or duplicate the character. Any second speaker is explicitly remote.
+**Presentation:** Normal playable view; existing fixture evidence plus radio/nearby bubbles. Continue the existing arrival beat before the question opens. This is authored scene content, not another graded interaction.
+**Exact action / accessible description:** Opens the original pixels beside the candidate-motion record.
+**Exact dialogue:**
+- Lena Ortiz, survey and discovery lead: “If an external check changes my measurements, keep the correction visible in your orbit.”
+
+**World-state effect:** No result is added or revealed; the encounter introduces the record or equipment already available for this stop.
+**Controls, persistence and retry:** Pause the timer during bubbles; one Continue per bubble restores control. At most two bubbles in this scene. Fire once per relevant accepted-state transition, not on wrong submissions; mission retry restores its snapshot and replay status. Retain accepted record and completed lines in the log. Use `planetary-lena-entrance` only as a story-presentation key, never as a stop or fixture ID. No RP, metric, mastery or travel-unlock effect. At Stop 60 this is part of the existing pre-ending reaction; do not delay the ending with optional roster material.
+
 ## Stop 1 - What moved?
 
 **Format/placement:** CHOICE, asked by Lena Ortiz beside `scopeboard`.
@@ -730,6 +1059,18 @@ casebook:
 **Wrong-path feedback:** Ask whether the feature stays on one detector location, crosses one exposure, or moves between sky coordinates.
 
 **State/output:** Three false features receive labels; the candidate remains unmasked; Stop 4 unlocks.
+
+### Character scene: planetary-mira-entrance
+
+**Trigger:** On arrival at Coordination Office during Mission 1, when Stop 4 is the next active stop; if the player is already here, fire once on that stop’s existing activation instead of requiring re-entry.
+**Location and presence:** `delivery-desk` in Coordination Office. Mira Chen, response director, speaks by radio unless already placed locally by the existing beat; do not teleport or duplicate the character. Any second speaker is explicitly remote.
+**Presentation:** Normal playable view; existing fixture evidence plus radio/nearby bubbles. Continue the existing arrival beat before the question opens. This is authored scene content, not another graded interaction.
+**Exact action / accessible description:** Keeps the material from the opening handover available beside the current evidence.
+**Exact dialogue:**
+- Mira Chen, response director: “Tell me what your crews need in order to act on a changing forecast.”
+
+**World-state effect:** No result is added or revealed; the encounter introduces the record or equipment already available for this stop.
+**Controls, persistence and retry:** Pause the timer during bubbles; one Continue per bubble restores control. At most two bubbles in this scene. Fire once per relevant accepted-state transition, not on wrong submissions; mission retry restores its snapshot and replay status. Retain accepted record and completed lines in the log. Use `planetary-mira-entrance` only as a story-presentation key, never as a stop or fixture ID. No RP, metric, mastery or travel-unlock effect. At Stop 60 this is part of the existing pre-ending reaction; do not delay the ending with optional roster material.
 
 ## Stop 4 - Certify only what is known
 
@@ -1177,6 +1518,18 @@ Malik wants mathematical restraint and initially prefers the lowest RMS. The pla
 ## Key concepts, explained here
 
 An orbit needs position and velocity in three dimensions. Optical astrometry supplies precise directions at known times but weak immediate distance information. Dynamics and viewing geometry reduce the possibilities. Residuals test model adequacy; covariance describes remaining uncertainty. Propagation asks how much of that allowed family reaches Earth.
+
+### Character scene: planetary-malik-entrance
+
+**Trigger:** On arrival at Orbit Determination Center during Mission 2, when Stop 5 is the next active stop; if the player is already here, fire once on that stop’s existing activation instead of requiring re-entry.
+**Location and presence:** `astro-bench` in Orbit Determination Center. Malik Rowan, orbit-determination lead, speaks by radio unless already placed locally by the existing beat; do not teleport or duplicate the character. Any second speaker is explicitly remote.
+**Presentation:** Normal playable view; existing fixture evidence plus radio/nearby bubbles. Continue the existing arrival beat before the question opens. This is authored scene content, not another graded interaction.
+**Exact action / accessible description:** Keeps the allowed orbit cloud visible beside the preferred fit.
+**Exact dialogue:**
+- Malik Rowan, orbit-determination lead: “Local plans will follow the orbit I sign off on; I need the uncertainty that could still move the warning.”
+
+**World-state effect:** No result is added or revealed; the encounter introduces the record or equipment already available for this stop.
+**Controls, persistence and retry:** Pause the timer during bubbles; one Continue per bubble restores control. At most two bubbles in this scene. Fire once per relevant accepted-state transition, not on wrong submissions; mission retry restores its snapshot and replay status. Retain accepted record and completed lines in the log. Use `planetary-malik-entrance` only as a story-presentation key, never as a stop or fixture ID. No RP, metric, mastery or travel-unlock effect. At Stop 60 this is part of the existing pre-ending reaction; do not delay the ending with optional roster material.
 
 ## Stop 5 - Measure the sky rate
 
@@ -3693,6 +4046,18 @@ Sanaa refuses the convenient bright-surface assumption. Evelyn joins by radio an
 
 Absolute magnitude H standardizes reflected brightness. Albedo changes how much sunlight a surface returns. Diameter and albedo therefore trade off along one reflected-light locus. Thermal flux measures emitting area after temperature is constrained. Because mass scales with diameter cubed, a factor of 2.5 in diameter changes energy by roughly a factor of 16 at fixed density and speed.
 
+### Character scene: planetary-sanaa-entrance
+
+**Trigger:** On arrival at Survey Telescope during Mission 6, when Stop 21 is the next active stop; if the player is already here, fire once on that stop’s existing activation instead of requiring re-entry.
+**Location and presence:** `dome-console` in Survey Telescope. Sanaa Vale, physical-characterization lead, speaks by radio unless already placed locally by the existing beat; do not teleport or duplicate the character. Any second speaker is explicitly remote.
+**Presentation:** Normal playable view; existing fixture evidence plus radio/nearby bubbles. Continue the existing arrival beat before the question opens. This is authored scene content, not another graded interaction.
+**Exact action / accessible description:** Sets the thermal evidence beside the reflected-light estimate.
+**Exact dialogue:**
+- Sanaa Vale, physical-characterization lead: “I want to finish the characterization, but the response team needs a useful bound before we run out of time.”
+
+**World-state effect:** No result is added or revealed; the encounter introduces the record or equipment already available for this stop.
+**Controls, persistence and retry:** Pause the timer during bubbles; one Continue per bubble restores control. At most two bubbles in this scene. Fire once per relevant accepted-state transition, not on wrong submissions; mission retry restores its snapshot and replay status. Retain accepted record and completed lines in the log. Use `planetary-sanaa-entrance` only as a story-presentation key, never as a stop or fixture ID. No RP, metric, mastery or travel-unlock effect. At Stop 60 this is part of the existing pre-ending reaction; do not delay the ending with optional roster material.
+
 ## Stop 21 - Reproduce the assumption
 
 **Format/placement:** BALLPARK, at `dome-console`.
@@ -3879,6 +4244,19 @@ diagnosis:
 **Wrong-path feedback:** A model that fits diameter but ignores the unequal rotation signature is incomplete.
 
 **State/output:** Consequence class changes to REGIONAL; radar structure request unlocks.
+
+### Character scene: planetary-sanaa-turn
+
+**Trigger:** After Stop 24 is accepted.
+**Location and presence:** `sizing-board` in Spectroscopy Dome. Sanaa Vale, physical-characterization lead, speaks by radio unless already placed locally by the existing beat; do not teleport or duplicate the character. Any second speaker is explicitly remote.
+**Presentation:** Normal playable view; existing fixture evidence plus radio/nearby bubbles. Run after accepted-result feedback and before the existing departure or mission-outcome beat. This is authored scene content, not another graded interaction.
+**Exact action / accessible description:** Leaves the adopted dark-body estimate and its assumptions visible.
+**Exact dialogue:**
+- Sanaa Vale, physical-characterization lead: “We have enough to change the consequence estimate; we do not have to pretend every property is known.”
+
+**World-state effect:** Preserve the existing accepted result and attach this reaction to its mission-log entry. The physical record remains at this fixture with the accepted scope; no new measurement, repair, signature authority or clearance is created by dialogue.
+**Controls, persistence and retry:** Pause the timer during bubbles; one Continue per bubble restores control. At most two bubbles in this scene. Fire once per relevant accepted-state transition, not on wrong submissions; mission retry restores its snapshot and replay status. Retain accepted record and completed lines in the log. Use `planetary-sanaa-turn` only as a story-presentation key, never as a stop or fixture ID. No RP, metric, mastery or travel-unlock effect. At Stop 60 this is part of the existing pre-ending reaction; do not delay the ending with optional roster material.
+
 
 ## Mission outcome
 
@@ -4364,6 +4742,20 @@ trace:
 
 **State/output:** CORRECTED TIME CHAIN prints; RADAR travel unlocks.
 
+### Character scene: planetary-lena-turn
+
+**Trigger:** After Stop 25 is accepted.
+**Location and presence:** `scopeboard` in Coordination Office. Lena Ortiz, survey and discovery lead, speaks by radio unless already placed locally by the existing beat; do not teleport or duplicate the character. Any second speaker is explicitly remote.
+**Presentation:** Normal playable view; existing fixture evidence plus radio/nearby bubbles. Run after accepted-result feedback and before the existing departure or mission-outcome beat. This is authored scene content, not another graded interaction.
+**Exact action / accessible description:** Leaves the timing dependency beside the optical measurement record.
+**Exact dialogue:**
+- Lena Ortiz, survey and discovery lead: “The source is real; that does not make every timestamp from my pipeline right.”
+- Malik Rowan, orbit-determination lead (radio): “I will carry the timing uncertainty instead of treating your pipeline as an independent clock.”
+
+**World-state effect:** Preserve the existing accepted result and attach this reaction to its mission-log entry. The physical record remains at this fixture with the accepted scope; no new measurement, repair, signature authority or clearance is created by dialogue.
+**Controls, persistence and retry:** Pause the timer during bubbles; one Continue per bubble restores control. At most two bubbles in this scene. Fire once per relevant accepted-state transition, not on wrong submissions; mission retry restores its snapshot and replay status. Retain accepted record and completed lines in the log. Use `planetary-lena-turn` only as a story-presentation key, never as a stop or fixture ID. No RP, metric, mastery or travel-unlock effect. At Stop 60 this is part of the existing pre-ending reaction; do not delay the ending with optional roster material.
+
+
 ## Stop 26 - Protect the observing protocol
 
 **Format/placement:** PROTOCOL, at `tracking-clock`.
@@ -4417,6 +4809,18 @@ mapping:
 **Wrong-path feedback:** Applying a silent correction first makes later verification impossible.
 
 **State/output:** Audit-safe radar run begins; Stop 27 unlocks.
+
+### Character scene: planetary-ibarra-entrance
+
+**Trigger:** On arrival at Bistatic Radar Range during Mission 7, when Stop 27 is the next active stop; if the player is already here, fire once on that stop’s existing activation instead of requiring re-entry.
+**Location and presence:** `radar-console` in Bistatic Radar Range. Tomás Ibarra, radar director, speaks by radio unless already placed locally by the existing beat; do not teleport or duplicate the character. Any second speaker is explicitly remote.
+**Presentation:** Normal playable view; existing fixture evidence plus radio/nearby bubbles. Continue the existing arrival beat before the question opens. This is authored scene content, not another graded interaction.
+**Exact action / accessible description:** Keeps the original echo frames beside the processed radar view.
+**Exact dialogue:**
+- Tomás Ibarra, radar director: “Radar time is limited; I will keep the weak frames even while we work on the strongest return.”
+
+**World-state effect:** No result is added or revealed; the encounter introduces the record or equipment already available for this stop.
+**Controls, persistence and retry:** Pause the timer during bubbles; one Continue per bubble restores control. At most two bubbles in this scene. Fire once per relevant accepted-state transition, not on wrong submissions; mission retry restores its snapshot and replay status. Retain accepted record and completed lines in the log. Use `planetary-ibarra-entrance` only as a story-presentation key, never as a stop or fixture ID. No RP, metric, mastery or travel-unlock effect. At Stop 60 this is part of the existing pre-ending reaction; do not delay the ending with optional roster material.
 
 ## Stop 27 - Read delay and Doppler
 
@@ -5380,6 +5784,19 @@ stress:
 
 **State/output:** 63% CONDITIONAL UPDATE released.
 
+### Character scene: planetary-malik-turn
+
+**Trigger:** After Stop 32 is accepted.
+**Location and presence:** `fit-board` in Orbit Determination Center. Malik Rowan, orbit-determination lead, speaks by radio unless already placed locally by the existing beat; do not teleport or duplicate the character. Any second speaker is explicitly remote.
+**Presentation:** Normal playable view; existing fixture evidence plus radio/nearby bubbles. Run after accepted-result feedback and before the existing departure or mission-outcome beat. This is authored scene content, not another graded interaction.
+**Exact action / accessible description:** Preserves the limits of the planning sentence beside the fitted solution.
+**Exact dialogue:**
+- Malik Rowan, orbit-determination lead: “The fit can be precise within its assumptions; that is not a reason to hide the assumptions.”
+
+**World-state effect:** Preserve the existing accepted result and attach this reaction to its mission-log entry. The physical record remains at this fixture with the accepted scope; no new measurement, repair, signature authority or clearance is created by dialogue.
+**Controls, persistence and retry:** Pause the timer during bubbles; one Continue per bubble restores control. At most two bubbles in this scene. Fire once per relevant accepted-state transition, not on wrong submissions; mission retry restores its snapshot and replay status. Retain accepted record and completed lines in the log. Use `planetary-malik-turn` only as a story-presentation key, never as a stop or fixture ID. No RP, metric, mastery or travel-unlock effect. At Stop 60 this is part of the existing pre-ending reaction; do not delay the ending with optional roster material.
+
+
 ## Mission outcome
 
 Mission decision: Report a 63% chance of impact. Treat impact as the lead case for plans. Keep the miss paths and the wide land band in view. Pre-card character beat: Malik circles the 37% miss set before handing Mira the update. “Those paths are still evidence,” he says.
@@ -5784,6 +6201,18 @@ Trinitrotoluene equivalent (TNT equivalent): a comparison unit for released ener
 Diameter, density, and speed set the approximate energy scale. The same energy produces different consequences over ocean, desert, and a populated coast. Hazard describes physical effects; risk also includes exposure and vulnerability. The player must use these ideas in the four graded stops rather than merely repeat their definitions.
 
 sistent world changes, or waypoint notices; no pre-rendered sequence or forced viewpoint change
+
+### Character scene: planetary-evelyn-entrance
+
+**Trigger:** On arrival at Orbit Determination Center during Mission 9, when Stop 33 is the next active stop; if the player is already here, fire once on that stop’s existing activation instead of requiring re-entry.
+**Location and presence:** `astro-bench` in Orbit Determination Center. Evelyn Park, entry-and-consequences lead, speaks by radio unless already placed locally by the existing beat; do not teleport or duplicate the character. Any second speaker is explicitly remote.
+**Presentation:** Normal playable view; existing fixture evidence plus radio/nearby bubbles. Continue the existing arrival beat before the question opens. This is authored scene content, not another graded interaction.
+**Exact action / accessible description:** Places the exposed settlements beside the corridor comparison.
+**Exact dialogue:**
+- Evelyn Park, entry-and-consequences lead: “The emergency teams need time to protect people; I must tell them which harm they are preparing for.”
+
+**World-state effect:** No result is added or revealed; the encounter introduces the record or equipment already available for this stop.
+**Controls, persistence and retry:** Pause the timer during bubbles; one Continue per bubble restores control. At most two bubbles in this scene. Fire once per relevant accepted-state transition, not on wrong submissions; mission retry restores its snapshot and replay status. Retain accepted record and completed lines in the log. Use `planetary-evelyn-entrance` only as a story-presentation key, never as a stop or fixture ID. No RP, metric, mastery or travel-unlock effect. At Stop 60 this is part of the existing pre-ending reaction; do not delay the ending with optional roster material.
 
 ## Stop 33 - Estimate the energy scale
 
@@ -6680,6 +7109,19 @@ answer: contact_binary
 
 **State/output:** CONTACT BINARY advisory issued.
 
+### Character scene: planetary-ibarra-turn
+
+**Trigger:** After Stop 40 is accepted.
+**Location and presence:** `echo-archive` in Bistatic Radar Range. Tomás Ibarra, radar director, speaks by radio unless already placed locally by the existing beat; do not teleport or duplicate the character. Any second speaker is explicitly remote.
+**Presentation:** Normal playable view; existing fixture evidence plus radio/nearby bubbles. Run after accepted-result feedback and before the existing departure or mission-outcome beat. This is authored scene content, not another graded interaction.
+**Exact action / accessible description:** Preserves the second return with the accepted multi-component interpretation.
+**Exact dialogue:**
+- Tomás Ibarra, radar director: “That weak return stayed in the archive; we would have lost this question if I had discarded it.”
+
+**World-state effect:** Preserve the existing accepted result and attach this reaction to its mission-log entry. The physical record remains at this fixture with the accepted scope; no new measurement, repair, signature authority or clearance is created by dialogue.
+**Controls, persistence and retry:** Pause the timer during bubbles; one Continue per bubble restores control. At most two bubbles in this scene. Fire once per relevant accepted-state transition, not on wrong submissions; mission retry restores its snapshot and replay status. Retain accepted record and completed lines in the log. Use `planetary-ibarra-turn` only as a story-presentation key, never as a stop or fixture ID. No RP, metric, mastery or travel-unlock effect. At Stop 60 this is part of the existing pre-ending reaction; do not delay the ending with optional roster material.
+
+
 ## Mission outcome
 
 Mission decision: Treat 2026 PDC as a weak two-lobed body. Add checks for loose parts. Do not claim that a part has split off yet. Pre-card character beat: Sanaa points to the old weak shoulder. “It was never noise,” she says. Tomás answers, “It still is not a fragment.”
@@ -7220,6 +7662,18 @@ A small velocity change becomes useful only if time remains for separation to gr
 
 anges, or waypoint notices; no pre-rendered sequence or forced viewpoint change
 
+### Character scene: planetary-arjun-entrance
+
+**Trigger:** On arrival at Spectroscopy Dome during Mission 11, when Stop 41 is the next active stop; if the player is already here, fire once on that stop’s existing activation instead of requiring re-entry.
+**Location and presence:** `sizing-board` in Spectroscopy Dome. Arjun Sen, space-intervention operations lead, speaks by radio unless already placed locally by the existing beat; do not teleport or duplicate the character. Any second speaker is explicitly remote.
+**Presentation:** Normal playable view; existing fixture evidence plus radio/nearby bubbles. Continue the existing arrival beat before the question opens. This is authored scene content, not another graded interaction.
+**Exact action / accessible description:** Places the Aegis operating plan beside the required-impulse calculation.
+**Exact dialogue:**
+- Arjun Sen, space-intervention operations lead: “Make me show that the intercept buys protection before you give up response time for it.”
+
+**World-state effect:** No result is added or revealed; the encounter introduces the record or equipment already available for this stop.
+**Controls, persistence and retry:** Pause the timer during bubbles; one Continue per bubble restores control. At most two bubbles in this scene. Fire once per relevant accepted-state transition, not on wrong submissions; mission retry restores its snapshot and replay status. Retain accepted record and completed lines in the log. Use `planetary-arjun-entrance` only as a story-presentation key, never as a stop or fixture ID. No RP, metric, mastery or travel-unlock effect. At Stop 60 this is part of the existing pre-ending reaction; do not delay the ending with optional roster material.
+
 ## Stop 41 - Carry the mass honestly
 
 **Format/placement:** BALLPARK, at `sizing-board`.
@@ -7293,6 +7747,19 @@ estimate:
 **Wrong-path feedback:** Density multiplies volume; it cannot be omitted from momentum demand.
 
 **State/output:** MASS ENVELOPE transferred to IMPACT.
+
+### Character scene: planetary-sanaa-payoff
+
+**Trigger:** After Stop 41 is accepted.
+**Location and presence:** `sizing-board` in Spectroscopy Dome. Sanaa Vale, physical-characterization lead, speaks by radio unless already placed locally by the existing beat; do not teleport or duplicate the character. Any second speaker is explicitly remote.
+**Presentation:** Normal playable view; existing fixture evidence plus radio/nearby bubbles. Run after accepted-result feedback and before the existing departure or mission-outcome beat. This is authored scene content, not another graded interaction.
+**Exact action / accessible description:** Carries the accepted mass range into the intervention calculation record.
+**Exact dialogue:**
+- Sanaa Vale, physical-characterization lead: “Take the range into the decision now; do not wait for me to turn it into one comforting number.”
+
+**World-state effect:** Preserve the existing accepted result and attach this reaction to its mission-log entry. The physical record remains at this fixture with the accepted scope; no new measurement, repair, signature authority or clearance is created by dialogue.
+**Controls, persistence and retry:** Pause the timer during bubbles; one Continue per bubble restores control. At most two bubbles in this scene. Fire once per relevant accepted-state transition, not on wrong submissions; mission retry restores its snapshot and replay status. Retain accepted record and completed lines in the log. Use `planetary-sanaa-payoff` only as a story-presentation key, never as a stop or fixture ID. No RP, metric, mastery or travel-unlock effect. At Stop 60 this is part of the existing pre-ending reaction; do not delay the ending with optional roster material.
+
 
 ## Stop 42 - Derive the required impulse
 
@@ -7472,6 +7939,20 @@ stress:
 
 **State/output:** KINETIC DEFLECTION NO-GO.
 
+### Character scene: planetary-arjun-turn
+
+**Trigger:** After Stop 43 is accepted.
+**Location and presence:** `deflection-desk` in Entry & Consequences Lab. Arjun Sen, space-intervention operations lead, speaks by radio unless already placed locally by the existing beat; do not teleport or duplicate the character. Any second speaker is explicitly remote.
+**Presentation:** Normal playable view; existing fixture evidence plus radio/nearby bubbles. Run after accepted-result feedback and before the existing departure or mission-outcome beat. This is authored scene content, not another graded interaction.
+**Exact action / accessible description:** Keeps the failed intervention margin visible on his own proposal.
+**Exact dialogue:**
+- Arjun Sen, space-intervention operations lead: “I wanted this to be the mission we built it for; the impulse does not make it that mission.”
+- Evelyn Park, entry-and-consequences lead (radio): “Then the people under the corridor cannot wait on that launch.”
+
+**World-state effect:** Preserve the existing accepted result and attach this reaction to its mission-log entry. The physical record remains at this fixture with the accepted scope; no new measurement, repair, signature authority or clearance is created by dialogue.
+**Controls, persistence and retry:** Pause the timer during bubbles; one Continue per bubble restores control. At most two bubbles in this scene. Fire once per relevant accepted-state transition, not on wrong submissions; mission retry restores its snapshot and replay status. Retain accepted record and completed lines in the log. Use `planetary-arjun-turn` only as a story-presentation key, never as a stop or fixture ID. No RP, metric, mastery or travel-unlock effect. At Stop 60 this is part of the existing pre-ending reaction; do not delay the ending with optional roster material.
+
+
 ## Stop 44 - Choose the useful action
 
 **Format/placement:** VALUE, asked by Arjun Sen beside `scopeboard`.
@@ -7514,6 +7995,20 @@ value:
 **Wrong-path feedback:** Hope is not added momentum, and a launch can consume the warning time it cannot overcome.
 
 **State/output:** DEFLECTION BRANCH CLOSED; RESPONSE BRANCH EXPANDED.
+
+### Character scene: planetary-arjun-payoff
+
+**Trigger:** After Stop 44 is accepted.
+**Location and presence:** `scopeboard` in Coordination Office. Arjun Sen, space-intervention operations lead, speaks by radio unless already placed locally by the existing beat; do not teleport or duplicate the character. Any second speaker is explicitly remote.
+**Presentation:** Normal playable view; existing fixture evidence plus radio/nearby bubbles. Run after accepted-result feedback and before the existing departure or mission-outcome beat. This is authored scene content, not another graded interaction.
+**Exact action / accessible description:** Redirects his recommendation to the accepted useful response rather than retaining the launch request.
+**Exact dialogue:**
+- Arjun Sen, space-intervention operations lead: “Put the effort where it can still change the warning.”
+- Evelyn Park, entry-and-consequences lead (radio): “We can use the time you released to strengthen the response that remains possible.”
+
+**World-state effect:** Preserve the existing accepted result and attach this reaction to its mission-log entry. The physical record remains at this fixture with the accepted scope; no new measurement, repair, signature authority or clearance is created by dialogue.
+**Controls, persistence and retry:** Pause the timer during bubbles; one Continue per bubble restores control. At most two bubbles in this scene. Fire once per relevant accepted-state transition, not on wrong submissions; mission retry restores its snapshot and replay status. Retain accepted record and completed lines in the log. Use `planetary-arjun-payoff` only as a story-presentation key, never as a stop or fixture ID. No RP, metric, mastery or travel-unlock effect. At Stop 60 this is part of the existing pre-ending reaction; do not delay the ending with optional roster material.
+
 
 ## Mission outcome
 
@@ -7906,6 +8401,18 @@ Reversible preparation can begin under broader uncertainty than disruptive evacu
 
 t notices; no pre-rendered sequence or forced viewpoint change
 
+### Character scene: planetary-jordan-entrance
+
+**Trigger:** On arrival at Entry & Consequences Lab during Mission 12, when Stop 45 is the next active stop; if the player is already here, fire once on that stop’s existing activation instead of requiring re-entry.
+**Location and presence:** `risk-display` in Entry & Consequences Lab. Jordan Hale, emergency manager for Valle Seco, speaks by radio unless already placed locally by the existing beat; do not teleport or duplicate the character. Any second speaker is explicitly remote.
+**Presentation:** Normal playable view; existing fixture evidence plus radio/nearby bubbles. Continue the existing arrival beat before the question opens. This is authored scene content, not another graded interaction.
+**Exact action / accessible description:** Checks transport capacity against the town threshold board.
+**Exact dialogue:**
+- Jordan Hale, emergency manager for Valle Seco: “My crews will have to explain the next change at roadblocks; give them a rule they can carry through it.”
+
+**World-state effect:** No result is added or revealed; the encounter introduces the record or equipment already available for this stop.
+**Controls, persistence and retry:** Pause the timer during bubbles; one Continue per bubble restores control. At most two bubbles in this scene. Fire once per relevant accepted-state transition, not on wrong submissions; mission retry restores its snapshot and replay status. Retain accepted record and completed lines in the log. Use `planetary-jordan-entrance` only as a story-presentation key, never as a stop or fixture ID. No RP, metric, mastery or travel-unlock effect. At Stop 60 this is part of the existing pre-ending reaction; do not delay the ending with optional roster material.
+
 ## Stop 45 - Draw the action thresholds
 
 **Format/placement:** TRIGGER, at `risk-display`.
@@ -7987,6 +8494,19 @@ trigger:
 **Wrong-path feedback:** One probability threshold cannot govern actions with radically different costs.
 
 **State/output:** RESPONSE LADDER drafted.
+
+### Character scene: planetary-evelyn-turn
+
+**Trigger:** After Stop 45 is accepted.
+**Location and presence:** `risk-display` in Entry & Consequences Lab. Evelyn Park, entry-and-consequences lead, speaks by radio unless already placed locally by the existing beat; do not teleport or duplicate the character. Any second speaker is explicitly remote.
+**Presentation:** Normal playable view; existing fixture evidence plus radio/nearby bubbles. Run after accepted-result feedback and before the existing departure or mission-outcome beat. This is authored scene content, not another graded interaction.
+**Exact action / accessible description:** Leaves both escalation and stand-down thresholds visible.
+**Exact dialogue:**
+- Evelyn Park, entry-and-consequences lead: “Preparing for harm also means telling people when a restriction can end.”
+
+**World-state effect:** Preserve the existing accepted result and attach this reaction to its mission-log entry. The physical record remains at this fixture with the accepted scope; no new measurement, repair, signature authority or clearance is created by dialogue.
+**Controls, persistence and retry:** Pause the timer during bubbles; one Continue per bubble restores control. At most two bubbles in this scene. Fire once per relevant accepted-state transition, not on wrong submissions; mission retry restores its snapshot and replay status. Retain accepted record and completed lines in the log. Use `planetary-evelyn-turn` only as a story-presentation key, never as a stop or fixture ID. No RP, metric, mastery or travel-unlock effect. At Stop 60 this is part of the existing pre-ending reaction; do not delay the ending with optional roster material.
+
 
 ## Stop 46 - Allocate limited capacity
 
@@ -8135,6 +8655,19 @@ mapping:
 
 **State/output:** RESPONSE PROTOCOL rehearsed.
 
+### Character scene: planetary-jordan-turn
+
+**Trigger:** After Stop 47 is accepted.
+**Location and presence:** `threshold-board` in Emergency Management Office. Jordan Hale, emergency manager for Valle Seco, speaks by radio unless already placed locally by the existing beat; do not teleport or duplicate the character. Any second speaker is explicitly remote.
+**Presentation:** Normal playable view; existing fixture evidence plus radio/nearby bubbles. Run after accepted-result feedback and before the existing departure or mission-outcome beat. This is authored scene content, not another graded interaction.
+**Exact action / accessible description:** Keeps the rehearsed conditional instructions together instead of reducing them to one unconditional order.
+**Exact dialogue:**
+- Jordan Hale, emergency manager for Valle Seco: “If the guidance changes, my crews need to explain which condition changed with it.”
+
+**World-state effect:** Preserve the existing accepted result and attach this reaction to its mission-log entry. The physical record remains at this fixture with the accepted scope; no new measurement, repair, signature authority or clearance is created by dialogue.
+**Controls, persistence and retry:** Pause the timer during bubbles; one Continue per bubble restores control. At most two bubbles in this scene. Fire once per relevant accepted-state transition, not on wrong submissions; mission retry restores its snapshot and replay status. Retain accepted record and completed lines in the log. Use `planetary-jordan-turn` only as a story-presentation key, never as a stop or fixture ID. No RP, metric, mastery or travel-unlock effect. At Stop 60 this is part of the existing pre-ending reaction; do not delay the ending with optional roster material.
+
+
 ## Stop 48 - Sign the public claims
 
 **Format/placement:** ATTEST, asked by Mira Chen beside `scopeboard`.
@@ -8189,6 +8722,20 @@ attest:
 **Wrong-path feedback:** Confidence in a process is not permission to overstate its inputs.
 
 **State/output:** PRECOMMITTED RESPONSE PLAN published.
+
+### Character scene: planetary-mira-turn
+
+**Trigger:** After Stop 48 is accepted.
+**Location and presence:** `scopeboard` in Coordination Office. Mira Chen, response director, speaks by radio unless already placed locally by the existing beat; do not teleport or duplicate the character. Any second speaker is explicitly remote.
+**Presentation:** Normal playable view; existing fixture evidence plus radio/nearby bubbles. Run after accepted-result feedback and before the existing departure or mission-outcome beat. This is authored scene content, not another graded interaction.
+**Exact action / accessible description:** Signs the staged public claims with their action thresholds visible.
+**Exact dialogue:**
+- Mira Chen, response director: “People need to know what we will do at each line, not just that the orbit is uncertain.”
+- Jordan Hale, emergency manager for Valle Seco (radio): “Give us the thresholds with the statement so the next change has an explanation.”
+
+**World-state effect:** Preserve the existing accepted result and attach this reaction to its mission-log entry. The physical record remains at this fixture with the accepted scope; no new measurement, repair, signature authority or clearance is created by dialogue.
+**Controls, persistence and retry:** Pause the timer during bubbles; one Continue per bubble restores control. At most two bubbles in this scene. Fire once per relevant accepted-state transition, not on wrong submissions; mission retry restores its snapshot and replay status. Retain accepted record and completed lines in the log. Use `planetary-mira-turn` only as a story-presentation key, never as a stop or fixture ID. No RP, metric, mastery or travel-unlock effect. At Stop 60 this is part of the existing pre-ending reaction; do not delay the ending with optional roster material.
+
 
 ## Mission outcome
 
@@ -8907,6 +9454,19 @@ holdout:
 
 **State/output:** PRIMARY SOLUTION VERIFIED; OPS issues stand-down.
 
+### Character scene: planetary-malik-payoff
+
+**Trigger:** After Stop 52 is accepted.
+**Location and presence:** `radar-console` in Bistatic Radar Range. Malik Rowan, orbit-determination lead, speaks by radio unless already placed locally by the existing beat; do not teleport or duplicate the character. Any second speaker is explicitly remote.
+**Presentation:** Normal playable view; existing fixture evidence plus radio/nearby bubbles. Run after accepted-result feedback and before the existing departure or mission-outcome beat. This is authored scene content, not another graded interaction.
+**Exact action / accessible description:** Adds the independent holdout to the corrected orbit record.
+**Exact dialogue:**
+- Malik Rowan, orbit-determination lead: “This check was not used to tune the fit; keep that distinction in the warning evidence.”
+
+**World-state effect:** Preserve the existing accepted result and attach this reaction to its mission-log entry. The physical record remains at this fixture with the accepted scope; no new measurement, repair, signature authority or clearance is created by dialogue.
+**Controls, persistence and retry:** Pause the timer during bubbles; one Continue per bubble restores control. At most two bubbles in this scene. Fire once per relevant accepted-state transition, not on wrong submissions; mission retry restores its snapshot and replay status. Retain accepted record and completed lines in the log. Use `planetary-malik-payoff` only as a story-presentation key, never as a stop or fixture ID. No RP, metric, mastery or travel-unlock effect. At Stop 60 this is part of the existing pre-ending reaction; do not delay the ending with optional roster material.
+
+
 ## Mission outcome
 
 Mission decision: End the land alert for the main body. Fixed sky data and a separate radar test put its full path over deep ocean. Keep a fair watch on the coast. Pre-card character beat: Jordan cancels mass-movement staging for nine million people while keeping coastal monitoring active. For one quiet minute, the operations floor believes the hardest decision is over.
@@ -9469,6 +10029,19 @@ probe:
 
 **State/output:** SECONDARY TRACK CANDIDATE.
 
+### Character scene: planetary-ibarra-payoff
+
+**Trigger:** After Stop 54 is accepted.
+**Location and presence:** `radar-console` in Bistatic Radar Range. Tomás Ibarra, radar director, speaks by radio unless already placed locally by the existing beat; do not teleport or duplicate the character. Any second speaker is explicitly remote.
+**Presentation:** Normal playable view; existing fixture evidence plus radio/nearby bubbles. Run after accepted-result feedback and before the existing departure or mission-outcome beat. This is authored scene content, not another graded interaction.
+**Exact action / accessible description:** Marks the separately probed return without merging it into the primary-track result.
+**Exact dialogue:**
+- Tomás Ibarra, radar director: “Keep following this return even while the main body clears.”
+
+**World-state effect:** Preserve the existing accepted result and attach this reaction to its mission-log entry. The physical record remains at this fixture with the accepted scope; no new measurement, repair, signature authority or clearance is created by dialogue.
+**Controls, persistence and retry:** Pause the timer during bubbles; one Continue per bubble restores control. At most two bubbles in this scene. Fire once per relevant accepted-state transition, not on wrong submissions; mission retry restores its snapshot and replay status. Retain accepted record and completed lines in the log. Use `planetary-ibarra-payoff` only as a story-presentation key, never as a stop or fixture ID. No RP, metric, mastery or travel-unlock effect. At Stop 60 this is part of the existing pre-ending reaction; do not delay the ending with optional roster material.
+
+
 ## Stop 55 - Trace independent confirmation
 
 **Format/placement:** TRACE, at `echo-archive`.
@@ -10017,6 +10590,20 @@ attest:
 
 **State/output:** FRAGMENT RECOVERED.
 
+### Character scene: planetary-lena-payoff
+
+**Trigger:** After Stop 57 is accepted.
+**Location and presence:** `pipeline-bench` in Survey Telescope. Lena Ortiz, survey and discovery lead, speaks by radio unless already placed locally by the existing beat; do not teleport or duplicate the character. Any second speaker is explicitly remote.
+**Presentation:** Normal playable view; existing fixture evidence plus radio/nearby bubbles. Run after accepted-result feedback and before the existing departure or mission-outcome beat. This is authored scene content, not another graded interaction.
+**Exact action / accessible description:** Retains the independently checked recovery evidence with the corrected pipeline record.
+**Exact dialogue:**
+- Lena Ortiz, survey and discovery lead: “Keep the correction with the recovery so the next team knows what changed.”
+- Malik Rowan, orbit-determination lead (radio): “The orbit record will retain the corrected measurement provenance.”
+
+**World-state effect:** Preserve the existing accepted result and attach this reaction to its mission-log entry. The physical record remains at this fixture with the accepted scope; no new measurement, repair, signature authority or clearance is created by dialogue.
+**Controls, persistence and retry:** Pause the timer during bubbles; one Continue per bubble restores control. At most two bubbles in this scene. Fire once per relevant accepted-state transition, not on wrong submissions; mission retry restores its snapshot and replay status. Retain accepted record and completed lines in the log. Use `planetary-lena-payoff` only as a story-presentation key, never as a stop or fixture ID. No RP, metric, mastery or travel-unlock effect. At Stop 60 this is part of the existing pre-ending reaction; do not delay the ending with optional roster material.
+
+
 ## Stop 58 - Balance orbit and consequence
 
 **Format/placement:** BALLPARK, at `astro-bench`.
@@ -10177,6 +10764,32 @@ trigger:
 
 **State/output:** PROTECTIVE ORDER transmitted.
 
+### Character scene: planetary-mira-payoff
+
+**Trigger:** After Stop 59 is accepted.
+**Location and presence:** `threshold-board` in Emergency Management Office. Mira Chen, response director, speaks by radio unless already placed locally by the existing beat; do not teleport or duplicate the character. Any second speaker is explicitly remote.
+**Presentation:** Normal playable view; existing fixture evidence plus radio/nearby bubbles. Run after accepted-result feedback and before the existing departure or mission-outcome beat. This is authored scene content, not another graded interaction.
+**Exact action / accessible description:** Retains the fragment warning and main-body stand-down as distinct parts of the executed response.
+**Exact dialogue:**
+- Mira Chen, response director: “Keep both messages clear so a justified stand-down does not cancel a warning people still need.”
+- Jordan Hale, emergency manager for Valle Seco (radio): “We will relay the fragment warning without reviving the canceled main-body order.”
+
+**World-state effect:** Preserve the existing accepted result and attach this reaction to its mission-log entry. The physical record remains at this fixture with the accepted scope; no new measurement, repair, signature authority or clearance is created by dialogue.
+**Controls, persistence and retry:** Pause the timer during bubbles; one Continue per bubble restores control. At most two bubbles in this scene. Fire once per relevant accepted-state transition, not on wrong submissions; mission retry restores its snapshot and replay status. Retain accepted record and completed lines in the log. Use `planetary-mira-payoff` only as a story-presentation key, never as a stop or fixture ID. No RP, metric, mastery or travel-unlock effect. At Stop 60 this is part of the existing pre-ending reaction; do not delay the ending with optional roster material.
+
+### Character scene: planetary-evelyn-payoff
+
+**Trigger:** After Stop 59 is accepted.
+**Location and presence:** `threshold-board` in Emergency Management Office. Evelyn Park, entry-and-consequences lead, speaks by radio unless already placed locally by the existing beat; do not teleport or duplicate the character. Any second speaker is explicitly remote.
+**Presentation:** Normal playable view; existing fixture evidence plus radio/nearby bubbles. Run after accepted-result feedback and before the existing departure or mission-outcome beat. This is authored scene content, not another graded interaction.
+**Exact action / accessible description:** Keeps the accepted fragment consequences attached to the triggered action.
+**Exact dialogue:**
+- Evelyn Park, entry-and-consequences lead: “Use the warning supported by this corridor; do not carry the whole old alarm forward.”
+
+**World-state effect:** Preserve the existing accepted result and attach this reaction to its mission-log entry. The physical record remains at this fixture with the accepted scope; no new measurement, repair, signature authority or clearance is created by dialogue.
+**Controls, persistence and retry:** Pause the timer during bubbles; one Continue per bubble restores control. At most two bubbles in this scene. Fire once per relevant accepted-state transition, not on wrong submissions; mission retry restores its snapshot and replay status. Retain accepted record and completed lines in the log. Use `planetary-evelyn-payoff` only as a story-presentation key, never as a stop or fixture ID. No RP, metric, mastery or travel-unlock effect. At Stop 60 this is part of the existing pre-ending reaction; do not delay the ending with optional roster material.
+
+
 ## Stop 60 - Allocate the final response
 
 **Format/placement:** ALLOCATE, at `evac-desk`.
@@ -10224,6 +10837,19 @@ allocate:
 **Wrong-path feedback:** Spending the reserve makes the system brittle.
 
 **State/output:** All campaign bars reach 100%; closing sequence begins.
+
+### Character scene: planetary-jordan-payoff
+
+**Trigger:** After Stop 60 is accepted.
+**Location and presence:** `evac-desk` in Emergency Management Office. Jordan Hale, emergency manager for Valle Seco, speaks by radio unless already placed locally by the existing beat; do not teleport or duplicate the character. Any second speaker is explicitly remote.
+**Presentation:** Normal playable view; existing fixture evidence plus radio/nearby bubbles. Run after accepted-result feedback and before the existing departure or mission-outcome beat. This is authored scene content, not another graded interaction.
+**Exact action / accessible description:** Posts the accepted final allocation for local teams and preserves the warning’s limited scope.
+**Exact dialogue:**
+- Jordan Hale, emergency manager for Valle Seco: “Give each team its assignment and the reason for it; they can explain that at the roadblock.”
+
+**World-state effect:** Preserve the existing accepted result and attach this reaction to its mission-log entry. The physical record remains at this fixture with the accepted scope; no new measurement, repair, signature authority or clearance is created by dialogue.
+**Controls, persistence and retry:** Pause the timer during bubbles; one Continue per bubble restores control. At most two bubbles in this scene. Fire once per relevant accepted-state transition, not on wrong submissions; mission retry restores its snapshot and replay status. Retain accepted record and completed lines in the log. Use `planetary-jordan-payoff` only as a story-presentation key, never as a stop or fixture ID. No RP, metric, mastery or travel-unlock effect. At Stop 60 this is part of the existing pre-ending reaction; do not delay the ending with optional roster material.
+
 
 ## Mission outcome and epilogue - no further quiz
 

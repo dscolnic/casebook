@@ -1,6 +1,8 @@
 **FIRST PERSON LEARNING**
 
-**Player-copy editing rule:** Within each displayed passage, state each fact, equation, variable definition, and instruction once. Integrate new givens into the existing wording; do not append a paraphrase of the setup. A source panel may repeat essential inputs so it stands alone, but render it as its own surface rather than concatenating it with the question setup. Go Deeper questions must still supply their own context and data without referring to earlier cases.
+**Editorial revision:** Character profiles, evidence-driven scenes and biography checks; 2026-09-09. All prior copy and opening-quote fixes retained.
+
+**Player-copy editing rule:** Raise a blocking `REPETITION_FLAG` for unresolved duplicated meaning within a displayed passage, including paraphrases, repeated formulas/definitions and concatenated setup/source copy. Review candidate matches semantically and document any separate-surface exception. Apply REP-001–REP-005 in Giant Gate v2.8.  Within each displayed passage, state each fact, equation, variable definition, and instruction once. Integrate new givens into the existing wording; do not append a paraphrase of the setup. A source panel may repeat essential inputs so it stands alone, but render it as its own surface rather than concatenating it with the question setup. Go Deeper questions must still supply their own context and data without referring to earlier cases.
 
 **CARRYING CAPACITY**
 
@@ -166,6 +168,16 @@ A second berth frame is installed after accepted_stop_48, with no boarding acces
 
 ## 4. Character bible
 
+### Profile and scene delivery contract
+
+The compact material below is a designer reference. The individual Character ID entries are the authoritative full profiles; reference rows and headings are not additional people. Render only the explicitly labeled bio fields in the optional roster. Wants, blind spots and future arc descriptions are designer-only. Keep the existing names, role aliases and division assignments; the explicit profiles add ownership and scene bindings without changing any person-stop owner.
+
+Each character has an entrance/evidence encounter, a required evidence-triggered turn and a later demonstrated change, embedded at the relevant mission stops below. These scenes are part of the story route, not prerequisites added by the roster. Opening handovers and established entrances play once. When an existing beat already supplies the same action or sentence at that trigger, render that action or sentence once and use this exact reaction as its character component; retain all distinct travel, science and outcome content. Sequence multiple scenes by their order in the chapter. Do not concatenate setup/source panels or duplicate the accepted answer in dialogue.
+
+All physical actions use the existing fixture and its records. A radio speaker can direct the player’s visible record handling; no new carried item, prop, fixture, resource or measurement is implied. Preserve original lock and release conditions, including partial clearance and no-go endings. The roster can be skipped in full with no effect on progress. The three greeting variants are state-selected optional conversations, not an automatic speech queue.
+
+### Compact designer reference
+
 | Name | Pronouns | Working role | Wants | Blind spot and arc | Verbal habit |
 |---|---|---|---|---|---|
 | Mara Voss | she/her | Island Resources Officer; mission authority | A defensible vote in fifteen days | Initially treats complete ledgers as sufficient; learns that shared measurements need independent checks | “What can the island replace?” |
@@ -177,6 +189,348 @@ A second berth frame is installed after accepted_stop_48, with no boarding acces
 | Rafi Noor | he/him | Reef ecologist | Protect nursery habitat and long records | Initially assumes warming explains every reef decline; accepts nutrient and fishing interactions | “Which pattern survives?” |
 | Lena Costa | she/her | School nurse and population recorder | Keep children safe and the school open | Treats head count as demand; learns age structure and visitor-days matter | “Who receives the dose?” |
 | Ada Pell | she/her | Council chair | Conditions residents can understand and enforce | Wants a simple yes/no; accepts a conditional rule with triggers | “Can we write that as a rule?” |
+
+### Relationship evidence map
+
+| People | Planted commitment | Evidence-driven turn | Later changed practice |
+|---|---|---|---|
+| Tomas Reed / Rafi Noor | `carrying-tomas-entrance`: “Show me whether the catch record supports the next season I am promising the crews.” | Stop 17, `carrying-tomas-turn` | Stop 40, `carrying-tomas-payoff` |
+| Iona Vale / Nkemdi Okafor | `carrying-iona-entrance`: “If the water record points back to our practices, bring it to me before another application.” | Stop 31, `carrying-iona-turn` | Stop 36, `carrying-iona-payoff` |
+| Ada Pell / Lena Costa | `carrying-ada-entrance`: “Tell the council what a ferry decision has to protect at the school.” | Stop 24, `carrying-ada-turn` | Stop 60, `carrying-ada-payoff` |
+
+### Mara Voss
+
+- **Character ID:** `person-mara-voss`
+- **Display name:** Mara Voss
+- **Role:** Island Resources Officer
+- **Pronouns:** she/her
+- **Allowed short name:** Mara
+- **Area ownership:** Harbour Office; Chapel Council Room; Waterworks. Existing division assignments in the reference summary also remain in force; presence elsewhere is explicitly by radio.
+- **First entrance:** Hands the player the evidence ledger at arrival and leaves the source records available beside it. The existing opening card supplies this entrance; the mission encounter below continues it without replaying the handover. Binding: `carrying-mara-entrance`, On arrival at Harbour Office during Mission 1, when Stop 4 is the next active stop; if the player is already here, fire once on that stop’s existing activation instead of requiring re-entry, at `landings-book`.
+- **Wants and personal stake:** She has promised the council a usable plan by voting day and relies on records supplied by people she knows.
+- **Blind spot:** A complete ledger can feel conclusive even when several entries share the same omission.
+- **Scientific domain:** independent resource evidence and council advice.
+- **Decision function:** Supplies the independent resource evidence and council advice constraint to the existing decisions at Stops 21 and 59; the player still submits the answer and the existing authority still controls authorization.
+- **Verbal habit:** “What can the island replace?”
+- **Relationship pressure:** The player relies on Mara for independent resource evidence and council advice; their shared working assumption is challenged in `carrying-mara-turn`.
+- **Arc, with source evidence:** After Stop 21 (Audit the landing claim), `carrying-mara-turn` makes the accepted evidence personally consequential. After Stop 59 (Verify the independent water sample), `carrying-mara-payoff` shows the resulting change in practice: Retains the independent water sample with the final recommendation.
+- **Cost of changing:** The character must revise or qualify the commitment described under personal stake in front of the player; the old interpretation remains reviewable rather than silently overwritten.
+- **Gameplay necessity:** Removing this character removes the accountable owner of independent resource evidence and council advice, the commitment above, and the witnessed correction in `carrying-mara-turn`. Reassigning their questions alone would not preserve those scenes or constraints.
+
+**Bio passage - exact player copy:** She has promised the council a usable plan by voting day and relies on records supplied by people she knows. A complete ledger can feel conclusive even when several entries share the same omission.
+
+**Bio reflection question - exact player copy:** Why can a complete-looking ledger mislead Mara?
+
+**Bio reveal answer - exact player copy:** Its entries may share missing observations, so filling every row does not guarantee independent or complete evidence.
+
+**Bio feedback - exact player copy:** Look for shared omissions rather than assuming filled rows imply complete coverage.
+
+**Bio check behavior:** On explicit opening of this character’s optional roster page after their first encounter, show only the bio passage and reflection question. Reveal answer and feedback only when the player selects Show answer; allow reconsideration and reopening. This is an unscored reading reflection, with no automatic correctness judgment, stop number, RP, timer cost, mission prerequisite, mastery credit, story flag or unlock. No answer or future arc is required to continue. Designer profile fields and future dialogue are not player-visible biography text.
+
+**Conditional greeting binding:** On explicit Talk to Mara after the character has been introduced, use the highest satisfied row only. Later states override earlier ones. A state changes only from the existing accepted-stop record, never from reading the bio. Lines may be reopened on explicit request; do not autoplay a greeting already spoken as a scene line at that encounter. No new travel or required conversation is created. Presence is local only at the character’s existing location; otherwise use the established radio connection. Log spoken text; pause the timer while it is open.
+
+| Priority | Condition | Exact greeting |
+|---:|---|---|
+| 30 | Stop 59 accepted | “This sample did not inherit our ledger’s assumptions; keep it with the council’s evidence.” |
+| 20 | Stop 21 accepted; Stop 59 not accepted | “I asked for a complete book; I also needed to ask who never appeared in it.” |
+| 10 | Introduced; Stop 21 not accepted; fallback | “What can the island replace?” |
+
+### Tomas Reed
+
+- **Character ID:** `person-tomas-reed`
+- **Display name:** Tomas Reed
+- **Role:** harbour and fishery lead
+- **Pronouns:** he/him
+- **Allowed short name:** Tomas
+- **Area ownership:** Harbour Office; Chapel Council Room. Existing division assignments in the reference summary also remain in force; presence elsewhere is explicitly by radio.
+- **First entrance:** Opens the landings book while keeping the rejected-catch record nearby. The established entrance is retained; the scene below stages the first evidence encounter in this arc. Binding: `carrying-tomas-entrance`, On arrival at Harbour Office during Mission 1, when Stop 1 is the next active stop; if the player is already here, fire once on that stop’s existing activation instead of requiring re-entry, at `landings-book`.
+- **Wants and personal stake:** He wants the second ferry to support a viable harbour and sees the fishers’ work arriving across the rail each day.
+- **Blind spot:** Stable landings can hide increased effort and a declining stock.
+- **Scientific domain:** fishing effort and harbour livelihoods.
+- **Decision function:** Supplies the fishing effort and harbour livelihoods constraint to the existing decisions at Stops 17 and 40; the player still submits the answer and the existing authority still controls authorization.
+- **Verbal habit:** “What came over the rail?”
+- **Relationship pressure:** Rafi Noor: He wants the second ferry to support a viable harbour and sees the fishers’ work arriving across the rail each day.
+- **Arc, with source evidence:** After Stop 17 (Measure catch per unit effort), `carrying-tomas-turn` makes the accepted evidence personally consequential. After Stop 40 (Stress the catch ceiling), `carrying-tomas-payoff` shows the resulting change in practice: Keeps the stressed catch ceiling with the harbour plan.
+- **Cost of changing:** The character must revise or qualify the commitment described under personal stake in front of the player and Rafi Noor; the old interpretation remains reviewable rather than silently overwritten.
+- **Gameplay necessity:** Removing this character removes the accountable owner of fishing effort and harbour livelihoods, the commitment above, and the witnessed correction in `carrying-tomas-turn`. Reassigning their questions alone would not preserve those scenes or constraints.
+
+**Bio passage - exact player copy:** He wants the second ferry to support a viable harbour and sees the fishers’ work arriving across the rail each day. Stable landings can hide increased effort and a declining stock.
+
+**Bio reflection question - exact player copy:** Why might steady landings reassure Tomas too much?
+
+**Bio reveal answer - exact player copy:** He sees the landed catch directly, while the extra effort needed to maintain it can conceal declining abundance.
+
+**Bio feedback - exact player copy:** Compare catch with the work needed to obtain it.
+
+**Bio check behavior:** On explicit opening of this character’s optional roster page after their first encounter, show only the bio passage and reflection question. Reveal answer and feedback only when the player selects Show answer; allow reconsideration and reopening. This is an unscored reading reflection, with no automatic correctness judgment, stop number, RP, timer cost, mission prerequisite, mastery credit, story flag or unlock. No answer or future arc is required to continue. Designer profile fields and future dialogue are not player-visible biography text.
+
+**Conditional greeting binding:** On explicit Talk to Tomas after the character has been introduced, use the highest satisfied row only. Later states override earlier ones. A state changes only from the existing accepted-stop record, never from reading the bio. Lines may be reopened on explicit request; do not autoplay a greeting already spoken as a scene line at that encounter. No new travel or required conversation is created. Presence is local only at the character’s existing location; otherwise use the established radio connection. Log spoken text; pause the timer while it is open.
+
+| Priority | Condition | Exact greeting |
+|---:|---|---|
+| 30 | Stop 40 accepted | “I will take this limit to the crews; another season of the old effort would not protect their income.” |
+| 20 | Stop 17 accepted; Stop 40 not accepted | “They worked longer to land that much; I should have counted the work as well as the fish.” |
+| 10 | Introduced; Stop 17 not accepted; fallback | “What came over the rail?” |
+
+### Nkemdi Okafor
+
+- **Character ID:** `person-nkemdi-okafor`
+- **Display name:** Nkemdi Okafor
+- **Role:** waterworks technician
+- **Pronouns:** she/her
+- **Allowed short name:** Nkemdi
+- **Area ownership:** Waterworks. Existing division assignments in the reference summary also remain in force; presence elsewhere is explicitly by radio.
+- **First entrance:** Checks storage gauges against the rain record before discussing new demand. The established entrance is retained; the scene below stages the first evidence encounter in this arc. Binding: `carrying-nkemdi-entrance`, On arrival at Waterworks during Mission 2, when Stop 5 is the next active stop; if the player is already here, fire once on that stop’s existing activation instead of requiring re-entry, at `rain-bench`.
+- **Wants and personal stake:** She is responsible for the school’s water and faces pressure whenever a growth proposal adds demand.
+- **Blind spot:** Rejecting growth can seem safer than separating unavoidable use from repairable losses.
+- **Scientific domain:** aquifer supply and preventable losses.
+- **Decision function:** Supplies the aquifer supply and preventable losses constraint to the existing decisions at Stops 15 and 27; the player still submits the answer and the existing authority still controls authorization.
+- **Verbal habit:** “What changed upstream?”
+- **Relationship pressure:** The player relies on Nkemdi for aquifer supply and preventable losses; their shared working assumption is challenged in `carrying-nkemdi-turn`.
+- **Arc, with source evidence:** After Stop 15 (Diagnose the early warning), `carrying-nkemdi-turn` makes the accepted evidence personally consequential. After Stop 27 (Close the water balance), `carrying-nkemdi-payoff` shows the resulting change in practice: Adds the accepted pipe-loss correction to the water balance.
+- **Cost of changing:** The character must revise or qualify the commitment described under personal stake in front of the player; the old interpretation remains reviewable rather than silently overwritten.
+- **Gameplay necessity:** Removing this character removes the accountable owner of aquifer supply and preventable losses, the commitment above, and the witnessed correction in `carrying-nkemdi-turn`. Reassigning their questions alone would not preserve those scenes or constraints.
+
+**Bio passage - exact player copy:** She is responsible for the school’s water and faces pressure whenever a growth proposal adds demand. Rejecting growth can seem safer than separating unavoidable use from repairable losses.
+
+**Bio reflection question - exact player copy:** Why is Nkemdi skeptical of extra demand?
+
+**Bio reveal answer - exact player copy:** She must protect an essential water supply, but still needs evidence separating new demand from preventable losses.
+
+**Bio feedback - exact player copy:** Water protection can require both demand limits and repairs; do not assume only one is available.
+
+**Bio check behavior:** On explicit opening of this character’s optional roster page after their first encounter, show only the bio passage and reflection question. Reveal answer and feedback only when the player selects Show answer; allow reconsideration and reopening. This is an unscored reading reflection, with no automatic correctness judgment, stop number, RP, timer cost, mission prerequisite, mastery credit, story flag or unlock. No answer or future arc is required to continue. Designer profile fields and future dialogue are not player-visible biography text.
+
+**Conditional greeting binding:** On explicit Talk to Nkemdi after the character has been introduced, use the highest satisfied row only. Later states override earlier ones. A state changes only from the existing accepted-stop record, never from reading the bio. Lines may be reopened on explicit request; do not autoplay a greeting already spoken as a scene line at that encounter. No new travel or required conversation is created. Presence is local only at the character’s existing location; otherwise use the established radio connection. Log spoken text; pause the timer while it is open.
+
+| Priority | Condition | Exact greeting |
+|---:|---|---|
+| 30 | Stop 27 accepted | “Repairing this loss gives us a choice that arguing about visitors did not.” |
+| 20 | Stop 15 accepted; Stop 27 not accepted | “The timing does not let us blame this on the ferry alone.” |
+| 10 | Introduced; Stop 15 not accepted; fallback | “What changed upstream?” |
+
+### Iona Vale
+
+- **Character ID:** `person-iona-vale`
+- **Display name:** Iona Vale
+- **Role:** agronomy lead
+- **Pronouns:** she/her
+- **Allowed short name:** Iona
+- **Area ownership:** Common Office; Island School; Chapel Council Room. Existing division assignments in the reference summary also remain in force; presence elsewhere is explicitly by radio.
+- **First entrance:** Checks the crop-removal record beside the fertilizer entries. The established entrance is retained; the scene below stages the first evidence encounter in this arc. Binding: `carrying-iona-entrance`, On arrival at Common Office during Mission 3, when Stop 9 is the next active stop; if the player is already here, fire once on that stop’s existing activation instead of requiring re-entry, at `common-map`.
+- **Wants and personal stake:** She has recommended familiar fertilizer practices to growers who cannot afford an unproductive season.
+- **Blind spot:** A practice that supports yield can seem acceptable before its exported nutrients are counted.
+- **Scientific domain:** nutrient budgets and source controls.
+- **Decision function:** Supplies the nutrient budgets and source controls constraint to the existing decisions at Stops 31 and 36; the player still submits the answer and the existing authority still controls authorization.
+- **Verbal habit:** “What stays fixed?”
+- **Relationship pressure:** Nkemdi Okafor: She has recommended familiar fertilizer practices to growers who cannot afford an unproductive season.
+- **Arc, with source evidence:** After Stop 31 (Verify the garden source), `carrying-iona-turn` makes the accepted evidence personally consequential. After Stop 36 (Fund source controls), `carrying-iona-payoff` shows the resulting change in practice: Records the accepted source-control allocation with the growers’ operating plan.
+- **Cost of changing:** The character must revise or qualify the commitment described under personal stake in front of the player and Nkemdi Okafor; the old interpretation remains reviewable rather than silently overwritten.
+- **Gameplay necessity:** Removing this character removes the accountable owner of nutrient budgets and source controls, the commitment above, and the witnessed correction in `carrying-iona-turn`. Reassigning their questions alone would not preserve those scenes or constraints.
+
+**Bio passage - exact player copy:** She has recommended familiar fertilizer practices to growers who cannot afford an unproductive season. A practice that supports yield can seem acceptable before its exported nutrients are counted.
+
+**Bio reflection question - exact player copy:** Why is changing fertilizer practice difficult for Iona?
+
+**Bio reveal answer - exact player copy:** Growers rely on her advice for affordable production, so she must justify both the environmental benefit and the practical change.
+
+**Bio feedback - exact player copy:** A practicable change has to address growers’ costs as well as downstream harm.
+
+**Bio check behavior:** On explicit opening of this character’s optional roster page after their first encounter, show only the bio passage and reflection question. Reveal answer and feedback only when the player selects Show answer; allow reconsideration and reopening. This is an unscored reading reflection, with no automatic correctness judgment, stop number, RP, timer cost, mission prerequisite, mastery credit, story flag or unlock. No answer or future arc is required to continue. Designer profile fields and future dialogue are not player-visible biography text.
+
+**Conditional greeting binding:** On explicit Talk to Iona after the character has been introduced, use the highest satisfied row only. Later states override earlier ones. A state changes only from the existing accepted-stop record, never from reading the bio. Lines may be reopened on explicit request; do not autoplay a greeting already spoken as a scene line at that encounter. No new travel or required conversation is created. Presence is local only at the character’s existing location; otherwise use the established radio connection. Log spoken text; pause the timer while it is open.
+
+| Priority | Condition | Exact greeting |
+|---:|---|---|
+| 30 | Stop 36 accepted | “Give the growers the revised practice and its cost together.” |
+| 20 | Stop 31 accepted; Stop 36 not accepted | “I recommended that timing; the water result means I have to change the recommendation.” |
+| 10 | Introduced; Stop 31 not accepted; fallback | “What stays fixed?” |
+
+### Elias Shaw
+
+- **Character ID:** `person-elias-shaw`
+- **Display name:** Elias Shaw
+- **Role:** power mechanic
+- **Pronouns:** he/him
+- **Allowed short name:** Elias
+- **Area ownership:** Turbine Yard; Waterworks. Existing division assignments in the reference summary also remain in force; presence elsewhere is explicitly by radio.
+- **First entrance:** Checks the peak-load record against the turbine plate. The established entrance is retained; the scene below stages the first evidence encounter in this arc. Binding: `carrying-elias-entrance`, On arrival at Turbine Yard during Mission 11, when Stop 41 is the next active stop; if the player is already here, fire once on that stop’s existing activation instead of requiring re-entry, at `meter-board`.
+- **Wants and personal stake:** He must keep essential services running at dusk and through winter, not merely show enough installed capacity on paper.
+- **Blind spot:** Nameplate output is easier to compare than actual production and storage limits.
+- **Scientific domain:** firm capacity and energy trade-offs.
+- **Decision function:** Supplies the firm capacity and energy trade-offs constraint to the existing decisions at Stops 42 and 48; the player still submits the answer and the existing authority still controls authorization.
+- **Verbal habit:** “What runs at dusk?”
+- **Relationship pressure:** The player relies on Elias for firm capacity and energy trade-offs; their shared working assumption is challenged in `carrying-elias-turn`.
+- **Arc, with source evidence:** After Stop 42 (Calculate capacity factor), `carrying-elias-turn` makes the accepted evidence personally consequential. After Stop 48 (Allocate firm power), `carrying-elias-payoff` shows the resulting change in practice: Posts the accepted firm-power allocation with the protected service loads.
+- **Cost of changing:** The character must revise or qualify the commitment described under personal stake in front of the player; the old interpretation remains reviewable rather than silently overwritten.
+- **Gameplay necessity:** Removing this character removes the accountable owner of firm capacity and energy trade-offs, the commitment above, and the witnessed correction in `carrying-elias-turn`. Reassigning their questions alone would not preserve those scenes or constraints.
+
+**Bio passage - exact player copy:** He must keep essential services running at dusk and through winter, not merely show enough installed capacity on paper. Nameplate output is easier to compare than actual production and storage limits.
+
+**Bio reflection question - exact player copy:** Why does Elias ask about dusk rather than only installed capacity?
+
+**Bio reveal answer - exact player copy:** Essential services need power when they operate, including times when rated renewable output is unavailable.
+
+**Bio feedback - exact player copy:** Use the service timetable to decide which power measure is relevant.
+
+**Bio check behavior:** On explicit opening of this character’s optional roster page after their first encounter, show only the bio passage and reflection question. Reveal answer and feedback only when the player selects Show answer; allow reconsideration and reopening. This is an unscored reading reflection, with no automatic correctness judgment, stop number, RP, timer cost, mission prerequisite, mastery credit, story flag or unlock. No answer or future arc is required to continue. Designer profile fields and future dialogue are not player-visible biography text.
+
+**Conditional greeting binding:** On explicit Talk to Elias after the character has been introduced, use the highest satisfied row only. Later states override earlier ones. A state changes only from the existing accepted-stop record, never from reading the bio. Lines may be reopened on explicit request; do not autoplay a greeting already spoken as a scene line at that encounter. No new travel or required conversation is created. Presence is local only at the character’s existing location; otherwise use the established radio connection. Log spoken text; pause the timer while it is open.
+
+| Priority | Condition | Exact greeting |
+|---:|---|---|
+| 30 | Stop 48 accepted | “These are the loads we can support at the same time.” |
+| 20 | Stop 42 accepted; Stop 48 not accepted | “The plate tells us what it can do under its rated conditions, not what we have every hour.” |
+| 10 | Introduced; Stop 42 not accepted; fallback | “What runs at dusk?” |
+
+### Mei Chen
+
+- **Character ID:** `person-mei-chen`
+- **Display name:** Mei Chen
+- **Role:** environmental-health lead
+- **Pronouns:** she/her
+- **Allowed short name:** Mei
+- **Area ownership:** Tip and Sorting Yard. Existing division assignments in the reference summary also remain in force; presence elsewhere is explicitly by radio.
+- **First entrance:** Checks the leachate route before discussing the appearance of the tip. The established entrance is retained; the scene below stages the first evidence encounter in this arc. Binding: `carrying-mei-entrance`, On arrival at Tip and Sorting Yard during Mission 7, when Stop 25 is the next active stop; if the player is already here, fire once on that stop’s existing activation instead of requiring re-entry, at `leachate-bench`.
+- **Wants and personal stake:** She must make a limited service budget stop harmful leakage that residents may never see directly.
+- **Blind spot:** Visible waste can attract priority over less visible nitrogen, toxic material and methane pathways.
+- **Scientific domain:** waste pathways and pollutant fate.
+- **Decision function:** Supplies the waste pathways and pollutant fate constraint to the existing decisions at Stops 34 and 46; the player still submits the answer and the existing authority still controls authorization.
+- **Verbal habit:** “Where does it go next?”
+- **Relationship pressure:** The player relies on Mei for waste pathways and pollutant fate; their shared working assumption is challenged in `carrying-mei-turn`.
+- **Arc, with source evidence:** After Stop 34 (Map source and fate), `carrying-mei-turn` makes the accepted evidence personally consequential. After Stop 46 (Verify methane capture), `carrying-mei-payoff` shows the resulting change in practice: Retains the verified methane-capture result with the waste controls.
+- **Cost of changing:** The character must revise or qualify the commitment described under personal stake in front of the player; the old interpretation remains reviewable rather than silently overwritten.
+- **Gameplay necessity:** Removing this character removes the accountable owner of waste pathways and pollutant fate, the commitment above, and the witnessed correction in `carrying-mei-turn`. Reassigning their questions alone would not preserve those scenes or constraints.
+
+**Bio passage - exact player copy:** She must make a limited service budget stop harmful leakage that residents may never see directly. Visible waste can attract priority over less visible nitrogen, toxic material and methane pathways.
+
+**Bio reflection question - exact player copy:** Why does Mei trace material beyond the visible tip?
+
+**Bio reveal answer - exact player copy:** Harm can occur after pollutants leave the place where the waste is easiest to see.
+
+**Bio feedback - exact player copy:** Follow the pollutant to its receiving environment, beyond the visible pile.
+
+**Bio check behavior:** On explicit opening of this character’s optional roster page after their first encounter, show only the bio passage and reflection question. Reveal answer and feedback only when the player selects Show answer; allow reconsideration and reopening. This is an unscored reading reflection, with no automatic correctness judgment, stop number, RP, timer cost, mission prerequisite, mastery credit, story flag or unlock. No answer or future arc is required to continue. Designer profile fields and future dialogue are not player-visible biography text.
+
+**Conditional greeting binding:** On explicit Talk to Mei after the character has been introduced, use the highest satisfied row only. Later states override earlier ones. A state changes only from the existing accepted-stop record, never from reading the bio. Lines may be reopened on explicit request; do not autoplay a greeting already spoken as a scene line at that encounter. No new travel or required conversation is created. Presence is local only at the character’s existing location; otherwise use the established radio connection. Log spoken text; pause the timer while it is open.
+
+| Priority | Condition | Exact greeting |
+|---:|---|---|
+| 30 | Stop 46 accepted | “Now the record shows what we stopped from escaping.” |
+| 20 | Stop 34 accepted; Stop 46 not accepted | “A tidier pile would not by itself stop what leaves it.” |
+| 10 | Introduced; Stop 34 not accepted; fallback | “Where does it go next?” |
+
+### Rafi Noor
+
+- **Character ID:** `person-rafi-noor`
+- **Display name:** Rafi Noor
+- **Role:** reef ecologist
+- **Pronouns:** he/him
+- **Allowed short name:** Rafi
+- **Area ownership:** Reef Station. Existing division assignments in the reference summary also remain in force; presence elsewhere is explicitly by radio.
+- **First entrance:** Sets the long habitat record beside the current reef sample. The established entrance is retained; the scene below stages the first evidence encounter in this arc. Binding: `carrying-rafi-entrance`, On arrival at Reef Station during Mission 5, when Stop 18 is the next active stop; if the player is already here, fire once on that stop’s existing activation instead of requiring re-entry, at `transect-bench`.
+- **Wants and personal stake:** His long reef records show decline, and he wants the council to act before nursery habitat is lost.
+- **Blind spot:** Warming can become an all-purpose explanation that hides local nutrient and fishing effects.
+- **Scientific domain:** habitat recovery and interacting stresses.
+- **Decision function:** Supplies the habitat recovery and interacting stresses constraint to the existing decisions at Stops 38 and 51; the player still submits the answer and the existing authority still controls authorization.
+- **Verbal habit:** “Which pattern survives?”
+- **Relationship pressure:** The player relies on Rafi for habitat recovery and interacting stresses; their shared working assumption is challenged in `carrying-rafi-turn`.
+- **Arc, with source evidence:** After Stop 38 (Control heat and nutrients), `carrying-rafi-turn` makes the accepted evidence personally consequential. After Stop 51 (Control the rinse treatment), `carrying-rafi-payoff` shows the resulting change in practice: Adds the controlled rinse-treatment evidence to the reef protection plan.
+- **Cost of changing:** The character must revise or qualify the commitment described under personal stake in front of the player; the old interpretation remains reviewable rather than silently overwritten.
+- **Gameplay necessity:** Removing this character removes the accountable owner of habitat recovery and interacting stresses, the commitment above, and the witnessed correction in `carrying-rafi-turn`. Reassigning their questions alone would not preserve those scenes or constraints.
+
+**Bio passage - exact player copy:** His long reef records show decline, and he wants the council to act before nursery habitat is lost. Warming can become an all-purpose explanation that hides local nutrient and fishing effects.
+
+**Bio reflection question - exact player copy:** Why should Rafi test local stresses even when the reef is warming?
+
+**Bio reveal answer - exact player copy:** Multiple causes may interact, and some local contributors can be changed even while warming continues.
+
+**Bio feedback - exact player copy:** A global stress does not rule out an additional local cause.
+
+**Bio check behavior:** On explicit opening of this character’s optional roster page after their first encounter, show only the bio passage and reflection question. Reveal answer and feedback only when the player selects Show answer; allow reconsideration and reopening. This is an unscored reading reflection, with no automatic correctness judgment, stop number, RP, timer cost, mission prerequisite, mastery credit, story flag or unlock. No answer or future arc is required to continue. Designer profile fields and future dialogue are not player-visible biography text.
+
+**Conditional greeting binding:** On explicit Talk to Rafi after the character has been introduced, use the highest satisfied row only. Later states override earlier ones. A state changes only from the existing accepted-stop record, never from reading the bio. Lines may be reopened on explicit request; do not autoplay a greeting already spoken as a scene line at that encounter. No new travel or required conversation is created. Presence is local only at the character’s existing location; otherwise use the established radio connection. Log spoken text; pause the timer while it is open.
+
+| Priority | Condition | Exact greeting |
+|---:|---|---|
+| 30 | Stop 51 accepted | “Keep the treatment conditions with the result; another reef fragment deserves the same care.” |
+| 20 | Stop 38 accepted; Stop 51 not accepted | “Warming matters, but this test gives us a local cause we can also change.” |
+| 10 | Introduced; Stop 38 not accepted; fallback | “Which pattern survives?” |
+
+### Lena Costa
+
+- **Character ID:** `person-lena-costa`
+- **Display name:** Lena Costa
+- **Role:** school nurse and population recorder
+- **Pronouns:** she/her
+- **Allowed short name:** Lena
+- **Area ownership:** Waterworks; Island School; Chapel Council Room. Existing division assignments in the reference summary also remain in force; presence elsewhere is explicitly by radio.
+- **First entrance:** Keeps the school register beside the water-exposure record. The established entrance is retained; the scene below stages the first evidence encounter in this arc. Binding: `carrying-lena-entrance`, On arrival at Waterworks during Mission 8, when Stop 29 is the next active stop; if the player is already here, fire once on that stop’s existing activation instead of requiring re-entry, at `store-gauges`.
+- **Wants and personal stake:** She wants enough families to keep the school open while remaining responsible for the children’s exposure to unsafe water.
+- **Blind spot:** A total head count can hide differences in exposure and service demand.
+- **Scientific domain:** exposure, age structure and visitor-days.
+- **Decision function:** Supplies the exposure, age structure and visitor-days constraint to the existing decisions at Stops 30 and 55; the player still submits the answer and the existing authority still controls authorization.
+- **Verbal habit:** “Who receives the dose?”
+- **Relationship pressure:** The player relies on Lena for exposure, age structure and visitor-days; their shared working assumption is challenged in `carrying-lena-turn`.
+- **Arc, with source evidence:** After Stop 30 (Compare child and adult dose), `carrying-lena-turn` makes the accepted evidence personally consequential. After Stop 55 (Close the person-day balance), `carrying-lena-payoff` shows the resulting change in practice: Retains the person-day balance with the school’s contribution to the island plan.
+- **Cost of changing:** The character must revise or qualify the commitment described under personal stake in front of the player; the old interpretation remains reviewable rather than silently overwritten.
+- **Gameplay necessity:** Removing this character removes the accountable owner of exposure, age structure and visitor-days, the commitment above, and the witnessed correction in `carrying-lena-turn`. Reassigning their questions alone would not preserve those scenes or constraints.
+
+**Bio passage - exact player copy:** She wants enough families to keep the school open while remaining responsible for the children’s exposure to unsafe water. A total head count can hide differences in exposure and service demand.
+
+**Bio reflection question - exact player copy:** Why does Lena need more than a total population count?
+
+**Bio reveal answer - exact player copy:** Age, exposure and time spent on the island affect both health risks and the services people require.
+
+**Bio feedback - exact player copy:** Health and demand depend on who is exposed and for how long.
+
+**Bio check behavior:** On explicit opening of this character’s optional roster page after their first encounter, show only the bio passage and reflection question. Reveal answer and feedback only when the player selects Show answer; allow reconsideration and reopening. This is an unscored reading reflection, with no automatic correctness judgment, stop number, RP, timer cost, mission prerequisite, mastery credit, story flag or unlock. No answer or future arc is required to continue. Designer profile fields and future dialogue are not player-visible biography text.
+
+**Conditional greeting binding:** On explicit Talk to Lena after the character has been introduced, use the highest satisfied row only. Later states override earlier ones. A state changes only from the existing accepted-stop record, never from reading the bio. Lines may be reopened on explicit request; do not autoplay a greeting already spoken as a scene line at that encounter. No new travel or required conversation is created. Presence is local only at the character’s existing location; otherwise use the established radio connection. Log spoken text; pause the timer while it is open.
+
+| Priority | Condition | Exact greeting |
+|---:|---|---|
+| 30 | Stop 55 accepted | “Count how long people are here as well as how many names we have.” |
+| 20 | Stop 30 accepted; Stop 55 not accepted | “The same water does not mean the same dose for every person in this register.” |
+| 10 | Introduced; Stop 30 not accepted; fallback | “Who receives the dose?” |
+
+### Ada Pell
+
+- **Character ID:** `person-ada-pell`
+- **Display name:** Ada Pell
+- **Role:** council chair
+- **Pronouns:** she/her
+- **Allowed short name:** Ada
+- **Area ownership:** Chapel Council Room; Common Office. Existing division assignments in the reference summary also remain in force; presence elsewhere is explicitly by radio.
+- **First entrance:** Keeps the proposed permit beside the evidence being presented to the council. The established entrance is retained; the scene below stages the first evidence encounter in this arc. Binding: `carrying-ada-entrance`, On arrival at Chapel Council Room during Mission 6, when Stop 21 is the next active stop; if the player is already here, fire once on that stop’s existing activation instead of requiring re-entry, at `council-table`.
+- **Wants and personal stake:** She must put a decision to a public vote that residents can understand and hold the council to afterward.
+- **Blind spot:** A simple yes or no can feel more honest than conditions that require ongoing enforcement.
+- **Scientific domain:** enforceable permit conditions.
+- **Decision function:** Supplies the enforceable permit conditions constraint to the existing decisions at Stops 24 and 60; the player still submits the answer and the existing authority still controls authorization.
+- **Verbal habit:** “Can we write that as a rule?”
+- **Relationship pressure:** Lena Costa: She must put a decision to a public vote that residents can understand and hold the council to afterward.
+- **Arc, with source evidence:** After Stop 24 (Fund the commons package), `carrying-ada-turn` makes the accepted evidence personally consequential. After Stop 60 (Enact the ferry triggers), `carrying-ada-payoff` shows the resulting change in practice: Enacts the accepted ferry triggers with their monitoring and closure conditions visible.
+- **Cost of changing:** The character must revise or qualify the commitment described under personal stake in front of the player and Lena Costa; the old interpretation remains reviewable rather than silently overwritten.
+- **Gameplay necessity:** Removing this character removes the accountable owner of enforceable permit conditions, the commitment above, and the witnessed correction in `carrying-ada-turn`. Reassigning their questions alone would not preserve those scenes or constraints.
+
+**Bio passage - exact player copy:** She must put a decision to a public vote that residents can understand and hold the council to afterward. A simple yes or no can feel more honest than conditions that require ongoing enforcement.
+
+**Bio reflection question - exact player copy:** Why does Ada need enforcement details before accepting a conditional plan?
+
+**Bio reveal answer - exact player copy:** Residents need a rule that can be monitored and acted on after the vote, rather than an unenforceable promise.
+
+**Bio feedback - exact player copy:** A condition needs a monitor and a consequence that remain after the vote.
+
+**Bio check behavior:** On explicit opening of this character’s optional roster page after their first encounter, show only the bio passage and reflection question. Reveal answer and feedback only when the player selects Show answer; allow reconsideration and reopening. This is an unscored reading reflection, with no automatic correctness judgment, stop number, RP, timer cost, mission prerequisite, mastery credit, story flag or unlock. No answer or future arc is required to continue. Designer profile fields and future dialogue are not player-visible biography text.
+
+**Conditional greeting binding:** On explicit Talk to Ada after the character has been introduced, use the highest satisfied row only. Later states override earlier ones. A state changes only from the existing accepted-stop record, never from reading the bio. Lines may be reopened on explicit request; do not autoplay a greeting already spoken as a scene line at that encounter. No new travel or required conversation is created. Presence is local only at the character’s existing location; otherwise use the established radio connection. Log spoken text; pause the timer while it is open.
+
+| Priority | Condition | Exact greeting |
+|---:|---|---|
+| 30 | Stop 60 accepted | “The vote authorizes this rule; it does not waive its conditions next month.” |
+| 20 | Stop 24 accepted; Stop 60 not accepted | “A condition without someone to check it is only a promise on this page.” |
+| 10 | Introduced; Stop 24 not accepted; fallback | “Can we write that as a rule?” |
+
 
 ## 5. Character direction and dialogue rules
 
@@ -464,6 +818,18 @@ Tomas is reconciling paper and electronic landings while Mara blocks an early fe
 
 Carbon cycles through photosynthesis, respiration, decomposition, and combustion; nitrogen needs bacterial fixation and later nitrification and denitrification; phosphorus has no major gas phase and is limited by weathering; water moves by evaporation, precipitation, runoff, infiltration, and groundwater flow. Energy moves one way through food webs, with large heat losses.
 
+### Character scene: carrying-tomas-entrance
+
+**Trigger:** On arrival at Harbour Office during Mission 1, when Stop 1 is the next active stop; if the player is already here, fire once on that stop’s existing activation instead of requiring re-entry.
+**Location and presence:** `landings-book` in Harbour Office. Tomas Reed, harbour and fishery lead, speaks by radio unless already placed locally by the existing beat; do not teleport or duplicate the character. Any second speaker is explicitly remote.
+**Presentation:** Normal playable view; existing fixture evidence plus radio/nearby bubbles. Continue the existing arrival beat before the question opens. This is authored scene content, not another graded interaction.
+**Exact action / accessible description:** Opens the landings book while keeping the rejected-catch record nearby.
+**Exact dialogue:**
+- Tomas Reed, harbour and fishery lead: “Show me whether the catch record supports the next season I am promising the crews.”
+
+**World-state effect:** No result is added or revealed; the encounter introduces the record or equipment already available for this stop.
+**Controls, persistence and retry:** Pause the timer during bubbles; one Continue per bubble restores control. At most two bubbles in this scene. Fire once per relevant accepted-state transition, not on wrong submissions; mission retry restores its snapshot and replay status. Retain accepted record and completed lines in the log. Use `carrying-tomas-entrance` only as a story-presentation key, never as a stop or fixture ID. No RP, metric, mastery or travel-unlock effect. At Stop 60 this is part of the existing pre-ending reaction; do not delay the ending with optional roster material.
+
 ## Stop 1 - Draw the boundary
 
 **Format/placement:** CHOICE, asked by Tomas Reed beside `landings-book`.
@@ -655,6 +1021,18 @@ belt:
 **Wrong-path feedback:** Placing sunlight or heat in `cycles` ignores energy degradation; placing carbon dioxide, nitrate, phosphate, or water in `flows` ignores conservation of matter.
 
 **State/output:** Energy arrow exits map; matter loops persist; rejected-catch column unlocks.
+
+### Character scene: carrying-mara-entrance
+
+**Trigger:** On arrival at Harbour Office during Mission 1, when Stop 4 is the next active stop; if the player is already here, fire once on that stop’s existing activation instead of requiring re-entry.
+**Location and presence:** `landings-book` in Harbour Office. Mara Voss, Island Resources Officer, speaks by radio unless already placed locally by the existing beat; do not teleport or duplicate the character. Any second speaker is explicitly remote.
+**Presentation:** Normal playable view; existing fixture evidence plus radio/nearby bubbles. Continue the existing arrival beat before the question opens. This is authored scene content, not another graded interaction.
+**Exact action / accessible description:** Keeps the material from the opening handover available beside the current evidence.
+**Exact dialogue:**
+- Mara Voss, Island Resources Officer: “I promised the council a usable ledger by voting day; show me where our familiar records still need checking.”
+
+**World-state effect:** No result is added or revealed; the encounter introduces the record or equipment already available for this stop.
+**Controls, persistence and retry:** Pause the timer during bubbles; one Continue per bubble restores control. At most two bubbles in this scene. Fire once per relevant accepted-state transition, not on wrong submissions; mission retry restores its snapshot and replay status. Retain accepted record and completed lines in the log. Use `carrying-mara-entrance` only as a story-presentation key, never as a stop or fixture ID. No RP, metric, mastery or travel-unlock effect. At Stop 60 this is part of the existing pre-ending reaction; do not delay the ending with optional roster material.
 
 ## Stop 4 - Find the shared omission
 
@@ -1060,6 +1438,18 @@ Nkemdi compares fourteen rain years while the automatic gauge under-reads in win
 ## Key concepts, explained here
 
 Precipitation is divided among evapotranspiration, runoff, soil storage, and groundwater recharge. Soil texture and land cover influence infiltration. A safe planning value should survive plausible measurement uncertainty and dry years rather than equal the wet-year mean.
+
+### Character scene: carrying-nkemdi-entrance
+
+**Trigger:** On arrival at Waterworks during Mission 2, when Stop 5 is the next active stop; if the player is already here, fire once on that stop’s existing activation instead of requiring re-entry.
+**Location and presence:** `rain-bench` in Waterworks. Nkemdi Okafor, waterworks technician, speaks by radio unless already placed locally by the existing beat; do not teleport or duplicate the character. Any second speaker is explicitly remote.
+**Presentation:** Normal playable view; existing fixture evidence plus radio/nearby bubbles. Continue the existing arrival beat before the question opens. This is authored scene content, not another graded interaction.
+**Exact action / accessible description:** Checks storage gauges against the rain record before discussing new demand.
+**Exact dialogue:**
+- Nkemdi Okafor, waterworks technician: “The school depends on this supply; I need to know which losses we can fix before promising water to anyone else.”
+
+**World-state effect:** No result is added or revealed; the encounter introduces the record or equipment already available for this stop.
+**Controls, persistence and retry:** Pause the timer during bubbles; one Continue per bubble restores control. At most two bubbles in this scene. Fire once per relevant accepted-state transition, not on wrong submissions; mission retry restores its snapshot and replay status. Retain accepted record and completed lines in the log. Use `carrying-nkemdi-entrance` only as a story-presentation key, never as a stop or fixture ID. No RP, metric, mastery or travel-unlock effect. At Stop 60 this is part of the existing pre-ending reaction; do not delay the ending with optional roster material.
 
 ## Stop 5 - Route one year of rain
 
@@ -1612,6 +2002,18 @@ Iona is defending fertilizer imports while bare patches spread near sheds. **Sci
 ## Key concepts, explained here
 
 GPP is all captured plant energy; NPP is what remains after respiration. About 10% passes upward per trophic step. Climate defines broad biomes and aquatic light/bottom zones; disturbance starts primary or secondary succession. Generalists tolerate many conditions, specialists fewer; small remote islands lose species readily.
+
+### Character scene: carrying-iona-entrance
+
+**Trigger:** On arrival at Common Office during Mission 3, when Stop 9 is the next active stop; if the player is already here, fire once on that stop’s existing activation instead of requiring re-entry.
+**Location and presence:** `common-map` in Common Office. Iona Vale, agronomy lead, speaks by radio unless already placed locally by the existing beat; do not teleport or duplicate the character. Any second speaker is explicitly remote.
+**Presentation:** Normal playable view; existing fixture evidence plus radio/nearby bubbles. Continue the existing arrival beat before the question opens. This is authored scene content, not another graded interaction.
+**Exact action / accessible description:** Checks the crop-removal record beside the fertilizer entries.
+**Exact dialogue:**
+- Iona Vale, agronomy lead: “If the water record points back to our practices, bring it to me before another application.”
+
+**World-state effect:** No result is added or revealed; the encounter introduces the record or equipment already available for this stop.
+**Controls, persistence and retry:** Pause the timer during bubbles; one Continue per bubble restores control. At most two bubbles in this scene. Fire once per relevant accepted-state transition, not on wrong submissions; mission retry restores its snapshot and replay status. Retain accepted record and completed lines in the log. Use `carrying-iona-entrance` only as a story-presentation key, never as a stop or fixture ID. No RP, metric, mastery or travel-unlock effect. At Stop 60 this is part of the existing pre-ending reaction; do not delay the ending with optional roster material.
 
 ## Stop 9 - Count usable plant energy
 
@@ -2301,6 +2703,19 @@ probe:
 
 **State/output:** Pump warning flashes with text; unlocks trigger.
 
+### Character scene: carrying-nkemdi-turn
+
+**Trigger:** After Stop 15 is accepted.
+**Location and presence:** `store-gauges` in Waterworks. Nkemdi Okafor, waterworks technician, speaks by radio unless already placed locally by the existing beat; do not teleport or duplicate the character. Any second speaker is explicitly remote.
+**Presentation:** Normal playable view; existing fixture evidence plus radio/nearby bubbles. Run after accepted-result feedback and before the existing departure or mission-outcome beat. This is authored scene content, not another graded interaction.
+**Exact action / accessible description:** Keeps the early salt-front evidence beside the visitor calendar.
+**Exact dialogue:**
+- Nkemdi Okafor, waterworks technician: “The timing does not let us blame this on the ferry alone.”
+
+**World-state effect:** Preserve the existing accepted result and attach this reaction to its mission-log entry. The physical record remains at this fixture with the accepted scope; no new measurement, repair, signature authority or clearance is created by dialogue.
+**Controls, persistence and retry:** Pause the timer during bubbles; one Continue per bubble restores control. At most two bubbles in this scene. Fire once per relevant accepted-state transition, not on wrong submissions; mission retry restores its snapshot and replay status. Retain accepted record and completed lines in the log. Use `carrying-nkemdi-turn` only as a story-presentation key, never as a stop or fixture ID. No RP, metric, mastery or travel-unlock effect. At Stop 60 this is part of the existing pre-ending reaction; do not delay the ending with optional roster material.
+
+
 ## Stop 16 - Write the aquifer trigger
 
 **Format/placement:** TRIGGER, at `store-gauges`.
@@ -2838,6 +3253,32 @@ Exponential growth assumes no limit; logistic growth slows near K. Type I surviv
 **Wrong-path feedback:** dividing tonnes alone misses effort
 
 **State/output:** unlock travel, waypoint “Take the effort decline to Reef Station.”
+
+### Character scene: carrying-tomas-turn
+
+**Trigger:** After Stop 17 is accepted.
+**Location and presence:** `landings-book` in Harbour Office. Tomas Reed, harbour and fishery lead, speaks by radio unless already placed locally by the existing beat; do not teleport or duplicate the character. Any second speaker is explicitly remote.
+**Presentation:** Normal playable view; existing fixture evidence plus radio/nearby bubbles. Run after accepted-result feedback and before the existing departure or mission-outcome beat. This is authored scene content, not another graded interaction.
+**Exact action / accessible description:** Sets the boat-hours beside the familiar catch total.
+**Exact dialogue:**
+- Tomas Reed, harbour and fishery lead: “They worked longer to land that much; I should have counted the work as well as the fish.”
+- Rafi Noor, reef ecologist (radio): “The effort belongs beside the catch if we want to know what the stock can sustain.”
+
+**World-state effect:** Preserve the existing accepted result and attach this reaction to its mission-log entry. The physical record remains at this fixture with the accepted scope; no new measurement, repair, signature authority or clearance is created by dialogue.
+**Controls, persistence and retry:** Pause the timer during bubbles; one Continue per bubble restores control. At most two bubbles in this scene. Fire once per relevant accepted-state transition, not on wrong submissions; mission retry restores its snapshot and replay status. Retain accepted record and completed lines in the log. Use `carrying-tomas-turn` only as a story-presentation key, never as a stop or fixture ID. No RP, metric, mastery or travel-unlock effect. At Stop 60 this is part of the existing pre-ending reaction; do not delay the ending with optional roster material.
+
+
+### Character scene: carrying-rafi-entrance
+
+**Trigger:** On arrival at Reef Station during Mission 5, when Stop 18 is the next active stop; if the player is already here, fire once on that stop’s existing activation instead of requiring re-entry.
+**Location and presence:** `transect-bench` in Reef Station. Rafi Noor, reef ecologist, speaks by radio unless already placed locally by the existing beat; do not teleport or duplicate the character. Any second speaker is explicitly remote.
+**Presentation:** Normal playable view; existing fixture evidence plus radio/nearby bubbles. Continue the existing arrival beat before the question opens. This is authored scene content, not another graded interaction.
+**Exact action / accessible description:** Sets the long habitat record beside the current reef sample.
+**Exact dialogue:**
+- Rafi Noor, reef ecologist: “These nursery records span years; I need a cause we can test while there is still habitat to protect.”
+
+**World-state effect:** No result is added or revealed; the encounter introduces the record or equipment already available for this stop.
+**Controls, persistence and retry:** Pause the timer during bubbles; one Continue per bubble restores control. At most two bubbles in this scene. Fire once per relevant accepted-state transition, not on wrong submissions; mission retry restores its snapshot and replay status. Retain accepted record and completed lines in the log. Use `carrying-rafi-entrance` only as a story-presentation key, never as a stop or fixture ID. No RP, metric, mastery or travel-unlock effect. At Stop 60 this is part of the existing pre-ending reaction; do not delay the ending with optional roster material.
 
 ## Stop 18 - Read the survivorship curves
 
@@ -3427,6 +3868,18 @@ Harbour evidence tests landing controls, unlocking Common where land practices c
 
 regulation and property rights can limit access; developed lifestyles often use 4-5 ha/person versus about 1.8 available globally; practices need mechanism-based justification.
 
+### Character scene: carrying-ada-entrance
+
+**Trigger:** On arrival at Chapel Council Room during Mission 6, when Stop 21 is the next active stop; if the player is already here, fire once on that stop’s existing activation instead of requiring re-entry.
+**Location and presence:** `council-table` in Chapel Council Room. Ada Pell, council chair, speaks by radio unless already placed locally by the existing beat; do not teleport or duplicate the character. Any second speaker is explicitly remote.
+**Presentation:** Normal playable view; existing fixture evidence plus radio/nearby bubbles. Continue the existing arrival beat before the question opens. This is authored scene content, not another graded interaction.
+**Exact action / accessible description:** Keeps the proposed permit beside the evidence being presented to the council.
+**Exact dialogue:**
+- Ada Pell, council chair: “Tell the council what a ferry decision has to protect at the school.”
+
+**World-state effect:** No result is added or revealed; the encounter introduces the record or equipment already available for this stop.
+**Controls, persistence and retry:** Pause the timer during bubbles; one Continue per bubble restores control. At most two bubbles in this scene. Fire once per relevant accepted-state transition, not on wrong submissions; mission retry restores its snapshot and replay status. Retain accepted record and completed lines in the log. Use `carrying-ada-entrance` only as a story-presentation key, never as a stop or fixture ID. No RP, metric, mastery or travel-unlock effect. At Stop 60 this is part of the existing pre-ending reaction; do not delay the ending with optional roster material.
+
 ## Stop 21 - Audit the landing claim
 
 **Format/placement:** ATTEST, asked by Mara Voss beside `council-table`.
@@ -3471,6 +3924,19 @@ attest:
 **Wrong-path feedback:** Feedback identifies the first violated mechanism, unit, limit, or unsupported inference and allows a retry.
 
 **State/output:** inspection station enabled
+
+### Character scene: carrying-mara-turn
+
+**Trigger:** After Stop 21 is accepted.
+**Location and presence:** `council-table` in Chapel Council Room. Mara Voss, Island Resources Officer, speaks by radio unless already placed locally by the existing beat; do not teleport or duplicate the character. Any second speaker is explicitly remote.
+**Presentation:** Normal playable view; existing fixture evidence plus radio/nearby bubbles. Run after accepted-result feedback and before the existing departure or mission-outcome beat. This is authored scene content, not another graded interaction.
+**Exact action / accessible description:** Keeps the landing audit beside the previously complete-looking ledger.
+**Exact dialogue:**
+- Mara Voss, Island Resources Officer: “I asked for a complete book; I also needed to ask who never appeared in it.”
+
+**World-state effect:** Preserve the existing accepted result and attach this reaction to its mission-log entry. The physical record remains at this fixture with the accepted scope; no new measurement, repair, signature authority or clearance is created by dialogue.
+**Controls, persistence and retry:** Pause the timer during bubbles; one Continue per bubble restores control. At most two bubbles in this scene. Fire once per relevant accepted-state transition, not on wrong submissions; mission retry restores its snapshot and replay status. Retain accepted record and completed lines in the log. Use `carrying-mara-turn` only as a story-presentation key, never as a stop or fixture ID. No RP, metric, mastery or travel-unlock effect. At Stop 60 this is part of the existing pre-ending reaction; do not delay the ending with optional roster material.
+
 
 ## Stop 22 - Buy compliance evidence
 
@@ -3567,6 +4033,20 @@ attest:
 **Wrong-path feedback:** Feedback identifies the first violated mechanism, unit, limit, or unsupported inference and allows a retry.
 
 **State/output:** Post delivery piece 6 and the enforceable land-practice package; unlock the mission outcome.
+
+### Character scene: carrying-ada-turn
+
+**Trigger:** After Stop 24 is accepted.
+**Location and presence:** `common-map` in Common Office. Ada Pell, council chair, speaks by radio unless already placed locally by the existing beat; do not teleport or duplicate the character. Any second speaker is explicitly remote.
+**Presentation:** Normal playable view; existing fixture evidence plus radio/nearby bubbles. Run after accepted-result feedback and before the existing departure or mission-outcome beat. This is authored scene content, not another graded interaction.
+**Exact action / accessible description:** Adds the funded enforcement commitments to the proposed commons package.
+**Exact dialogue:**
+- Ada Pell, council chair: “A condition without someone to check it is only a promise on this page.”
+- Lena Costa, school nurse and population recorder (radio): “A funded check gives families more protection than another assurance.”
+
+**World-state effect:** Preserve the existing accepted result and attach this reaction to its mission-log entry. The physical record remains at this fixture with the accepted scope; no new measurement, repair, signature authority or clearance is created by dialogue.
+**Controls, persistence and retry:** Pause the timer during bubbles; one Continue per bubble restores control. At most two bubbles in this scene. Fire once per relevant accepted-state transition, not on wrong submissions; mission retry restores its snapshot and replay status. Retain accepted record and completed lines in the log. Use `carrying-ada-turn` only as a story-presentation key, never as a stop or fixture ID. No RP, metric, mastery or travel-unlock effect. At Stop 60 this is part of the existing pre-ending reaction; do not delay the ending with optional roster material.
+
 
 ## Mission outcome
 
@@ -3925,6 +4405,18 @@ Tip trace unlocks Waterworks test. Mei initially watches visible waste; Nkemdi s
 
 landfills generate methane and carbon dioxide; leachate can reach groundwater; prevention often costs less than treating exposure.
 
+### Character scene: carrying-mei-entrance
+
+**Trigger:** On arrival at Tip and Sorting Yard during Mission 7, when Stop 25 is the next active stop; if the player is already here, fire once on that stop’s existing activation instead of requiring re-entry.
+**Location and presence:** `leachate-bench` in Tip and Sorting Yard. Mei Chen, environmental-health lead, speaks by radio unless already placed locally by the existing beat; do not teleport or duplicate the character. Any second speaker is explicitly remote.
+**Presentation:** Normal playable view; existing fixture evidence plus radio/nearby bubbles. Continue the existing arrival beat before the question opens. This is authored scene content, not another graded interaction.
+**Exact action / accessible description:** Checks the leachate route before discussing the appearance of the tip.
+**Exact dialogue:**
+- Mei Chen, environmental-health lead: “I have a limited budget to stop what escapes this yard; the most visible pile may not be the first thing to fund.”
+
+**World-state effect:** No result is added or revealed; the encounter introduces the record or equipment already available for this stop.
+**Controls, persistence and retry:** Pause the timer during bubbles; one Continue per bubble restores control. At most two bubbles in this scene. Fire once per relevant accepted-state transition, not on wrong submissions; mission retry restores its snapshot and replay status. Retain accepted record and completed lines in the log. Use `carrying-mei-entrance` only as a story-presentation key, never as a stop or fixture ID. No RP, metric, mastery or travel-unlock effect. At Stop 60 this is part of the existing pre-ending reaction; do not delay the ending with optional roster material.
+
 ## Stop 25 - Trace the hidden exports
 
 **Format/placement:** TRACE, at `leachate-bench`.
@@ -4080,6 +4572,19 @@ chain:
 **Wrong-path feedback:** The retry identifies the first incorrect mechanism, unit, unsupported claim, omitted requirement, or violated constraint.
 
 **State/output:** Keep the result visible, record it in the mission log, and unlock the next authored stop.
+
+### Character scene: carrying-nkemdi-payoff
+
+**Trigger:** After Stop 27 is accepted.
+**Location and presence:** `pipe-balance` in Waterworks. Nkemdi Okafor, waterworks technician, speaks by radio unless already placed locally by the existing beat; do not teleport or duplicate the character. Any second speaker is explicitly remote.
+**Presentation:** Normal playable view; existing fixture evidence plus radio/nearby bubbles. Run after accepted-result feedback and before the existing departure or mission-outcome beat. This is authored scene content, not another graded interaction.
+**Exact action / accessible description:** Adds the accepted pipe-loss correction to the water balance.
+**Exact dialogue:**
+- Nkemdi Okafor, waterworks technician: “Repairing this loss gives us a choice that arguing about visitors did not.”
+
+**World-state effect:** Preserve the existing accepted result and attach this reaction to its mission-log entry. The physical record remains at this fixture with the accepted scope; no new measurement, repair, signature authority or clearance is created by dialogue.
+**Controls, persistence and retry:** Pause the timer during bubbles; one Continue per bubble restores control. At most two bubbles in this scene. Fire once per relevant accepted-state transition, not on wrong submissions; mission retry restores its snapshot and replay status. Retain accepted record and completed lines in the log. Use `carrying-nkemdi-payoff` only as a story-presentation key, never as a stop or fixture ID. No RP, metric, mastery or travel-unlock effect. At Stop 60 this is part of the existing pre-ending reaction; do not delay the ending with optional roster material.
+
 
 ## Stop 28 - Choose the repair priority
 
@@ -4497,6 +5002,18 @@ Evidence at the first location unlocks the next causally necessary location; the
 
 dose-response often forms an S-curve; children can receive larger mass-normalized dose; source location follows spatial patterns.
 
+### Character scene: carrying-lena-entrance
+
+**Trigger:** On arrival at Waterworks during Mission 8, when Stop 29 is the next active stop; if the player is already here, fire once on that stop’s existing activation instead of requiring re-entry.
+**Location and presence:** `store-gauges` in Waterworks. Lena Costa, school nurse and population recorder, speaks by radio unless already placed locally by the existing beat; do not teleport or duplicate the character. Any second speaker is explicitly remote.
+**Presentation:** Normal playable view; existing fixture evidence plus radio/nearby bubbles. Continue the existing arrival beat before the question opens. This is authored scene content, not another graded interaction.
+**Exact action / accessible description:** Keeps the school register beside the water-exposure record.
+**Exact dialogue:**
+- Lena Costa, school nurse and population recorder: “I want enough families here to keep the school open, and I need their children to have safe water.”
+
+**World-state effect:** No result is added or revealed; the encounter introduces the record or equipment already available for this stop.
+**Controls, persistence and retry:** Pause the timer during bubbles; one Continue per bubble restores control. At most two bubbles in this scene. Fire once per relevant accepted-state transition, not on wrong submissions; mission retry restores its snapshot and replay status. Retain accepted record and completed lines in the log. Use `carrying-lena-entrance` only as a story-presentation key, never as a stop or fixture ID. No RP, metric, mastery or travel-unlock effect. At Stop 60 this is part of the existing pre-ending reaction; do not delay the ending with optional roster material.
+
 ## Stop 29 - Probe the nitrate network
 
 **Format/placement:** PROBE, at `store-gauges`.
@@ -4561,6 +5078,19 @@ dose-response often forms an S-curve; children can receive larger mass-normalize
 
 **State/output:** s who is at risk. Calculate daily nitrate dose for a child and an adult.” Prompt: Apply dose=concentration*intake/body mass using 11.2 mg/L, child 1.0 L/day and 20 kg, adult 2.0 L/day and 70 kg; submit the pair in mg/kg/day. Payload: `estimate:{equation:"dose=C*intake/mass",cases:{child:{C:11.2,intake:1.0,mass:20},adult:{C:11.2,intake:2.0,mass:70}},unit:"mg/kg/day",truth:[0.56,0.32],tolerance:0.01}`
 
+### Character scene: carrying-lena-turn
+
+**Trigger:** After Stop 30 is accepted.
+**Location and presence:** `register-desk` in Island School. Lena Costa, school nurse and population recorder, speaks by radio unless already placed locally by the existing beat; do not teleport or duplicate the character. Any second speaker is explicitly remote.
+**Presentation:** Normal playable view; existing fixture evidence plus radio/nearby bubbles. Run after accepted-result feedback and before the existing departure or mission-outcome beat. This is authored scene content, not another graded interaction.
+**Exact action / accessible description:** Places the child-dose comparison beside the adult estimate.
+**Exact dialogue:**
+- Lena Costa, school nurse and population recorder: “The same water does not mean the same dose for every person in this register.”
+
+**World-state effect:** Preserve the existing accepted result and attach this reaction to its mission-log entry. The physical record remains at this fixture with the accepted scope; no new measurement, repair, signature authority or clearance is created by dialogue.
+**Controls, persistence and retry:** Pause the timer during bubbles; one Continue per bubble restores control. At most two bubbles in this scene. Fire once per relevant accepted-state transition, not on wrong submissions; mission retry restores its snapshot and replay status. Retain accepted record and completed lines in the log. Use `carrying-lena-turn` only as a story-presentation key, never as a stop or fixture ID. No RP, metric, mastery or travel-unlock effect. At Stop 60 this is part of the existing pre-ending reaction; do not delay the ending with optional roster material.
+
+
 ## Stop 31 - Verify the garden source
 
 **Format/placement:** VERIFY, at `school-tap`.
@@ -4603,6 +5133,20 @@ verify:
 **Wrong-path feedback:** The retry identifies the first incorrect mechanism, unit, unsupported claim, omitted requirement, or violated constraint.
 
 **State/output:** Keep the result visible, record it in the mission log, and unlock the next authored stop.
+
+### Character scene: carrying-iona-turn
+
+**Trigger:** After Stop 31 is accepted.
+**Location and presence:** `school-tap` in Island School. Iona Vale, agronomy lead, speaks by radio unless already placed locally by the existing beat; do not teleport or duplicate the character. Any second speaker is explicitly remote.
+**Presentation:** Normal playable view; existing fixture evidence plus radio/nearby bubbles. Run after accepted-result feedback and before the existing departure or mission-outcome beat. This is authored scene content, not another graded interaction.
+**Exact action / accessible description:** Keeps the verified garden-source result beside the earlier nutrient plan.
+**Exact dialogue:**
+- Iona Vale, agronomy lead: “I recommended that timing; the water result means I have to change the recommendation.”
+- Nkemdi Okafor, waterworks technician (radio): “Then let us keep the timing and pipe evidence with the change, so we do not blame every source at once.”
+
+**World-state effect:** Preserve the existing accepted result and attach this reaction to its mission-log entry. The physical record remains at this fixture with the accepted scope; no new measurement, repair, signature authority or clearance is created by dialogue.
+**Controls, persistence and retry:** Pause the timer during bubbles; one Continue per bubble restores control. At most two bubbles in this scene. Fire once per relevant accepted-state transition, not on wrong submissions; mission retry restores its snapshot and replay status. Retain accepted record and completed lines in the log. Use `carrying-iona-turn` only as a story-presentation key, never as a stop or fixture ID. No RP, metric, mastery or travel-unlock effect. At Stop 60 this is part of the existing pre-ending reaction; do not delay the ending with optional roster material.
+
 
 ## Stop 32 - Set the school action level
 
@@ -5176,6 +5720,19 @@ belt:
 
 **State/output:** Keep the result visible, record it in the mission log, and unlock the next authored stop.
 
+### Character scene: carrying-mei-turn
+
+**Trigger:** After Stop 34 is accepted.
+**Location and presence:** `tip-lab-bench` in Tip and Sorting Yard. Mei Chen, environmental-health lead, speaks by radio unless already placed locally by the existing beat; do not teleport or duplicate the character. Any second speaker is explicitly remote.
+**Presentation:** Normal playable view; existing fixture evidence plus radio/nearby bubbles. Run after accepted-result feedback and before the existing departure or mission-outcome beat. This is authored scene content, not another graded interaction.
+**Exact action / accessible description:** Keeps the source-to-fate evidence beside the visible waste record.
+**Exact dialogue:**
+- Mei Chen, environmental-health lead: “A tidier pile would not by itself stop what leaves it.”
+
+**World-state effect:** Preserve the existing accepted result and attach this reaction to its mission-log entry. The physical record remains at this fixture with the accepted scope; no new measurement, repair, signature authority or clearance is created by dialogue.
+**Controls, persistence and retry:** Pause the timer during bubbles; one Continue per bubble restores control. At most two bubbles in this scene. Fire once per relevant accepted-state transition, not on wrong submissions; mission retry restores its snapshot and replay status. Retain accepted record and completed lines in the log. Use `carrying-mei-turn` only as a story-presentation key, never as a stop or fixture ID. No RP, metric, mastery or travel-unlock effect. At Stop 60 this is part of the existing pre-ending reaction; do not delay the ending with optional roster material.
+
+
 ## Stop 35 - Control the compost process
 
 **Format/placement:** CONTROL, at `council-table`.
@@ -5267,6 +5824,20 @@ allocate_patch:
 **Wrong-path feedback:** The retry identifies the first incorrect mechanism, unit, unsupported claim, omitted requirement, or violated constraint.
 
 **State/output:** Keep the result visible, record it in the mission log, and unlock the next authored stop.
+
+### Character scene: carrying-iona-payoff
+
+**Trigger:** After Stop 36 is accepted.
+**Location and presence:** `council-table` in Chapel Council Room. Iona Vale, agronomy lead, speaks by radio unless already placed locally by the existing beat; do not teleport or duplicate the character. Any second speaker is explicitly remote.
+**Presentation:** Normal playable view; existing fixture evidence plus radio/nearby bubbles. Run after accepted-result feedback and before the existing departure or mission-outcome beat. This is authored scene content, not another graded interaction.
+**Exact action / accessible description:** Records the accepted source-control allocation with the growers’ operating plan.
+**Exact dialogue:**
+- Iona Vale, agronomy lead: “Give the growers the revised practice and its cost together.”
+- Nkemdi Okafor, waterworks technician (radio): “The source controls will stay tied to the water checks.”
+
+**World-state effect:** Preserve the existing accepted result and attach this reaction to its mission-log entry. The physical record remains at this fixture with the accepted scope; no new measurement, repair, signature authority or clearance is created by dialogue.
+**Controls, persistence and retry:** Pause the timer during bubbles; one Continue per bubble restores control. At most two bubbles in this scene. Fire once per relevant accepted-state transition, not on wrong submissions; mission retry restores its snapshot and replay status. Retain accepted record and completed lines in the log. Use `carrying-iona-payoff` only as a story-presentation key, never as a stop or fixture ID. No RP, metric, mastery or travel-unlock effect. At Stop 60 this is part of the existing pre-ending reaction; do not delay the ending with optional roster material.
+
 
 ## Mission outcome
 
@@ -5758,6 +6329,19 @@ control:
 
 **State/output:** Keep the result visible, record it in the mission log, and unlock the next authored stop.
 
+### Character scene: carrying-rafi-turn
+
+**Trigger:** After Stop 38 is accepted.
+**Location and presence:** `flow-tank` in Reef Station. Rafi Noor, reef ecologist, speaks by radio unless already placed locally by the existing beat; do not teleport or duplicate the character. Any second speaker is explicitly remote.
+**Presentation:** Normal playable view; existing fixture evidence plus radio/nearby bubbles. Run after accepted-result feedback and before the existing departure or mission-outcome beat. This is authored scene content, not another graded interaction.
+**Exact action / accessible description:** Keeps the restored-baseline control result with the heat-and-nutrient comparison.
+**Exact dialogue:**
+- Rafi Noor, reef ecologist: “Warming matters, but this test gives us a local cause we can also change.”
+
+**World-state effect:** Preserve the existing accepted result and attach this reaction to its mission-log entry. The physical record remains at this fixture with the accepted scope; no new measurement, repair, signature authority or clearance is created by dialogue.
+**Controls, persistence and retry:** Pause the timer during bubbles; one Continue per bubble restores control. At most two bubbles in this scene. Fire once per relevant accepted-state transition, not on wrong submissions; mission retry restores its snapshot and replay status. Retain accepted record and completed lines in the log. Use `carrying-rafi-turn` only as a story-presentation key, never as a stop or fixture ID. No RP, metric, mastery or travel-unlock effect. At Stop 60 this is part of the existing pre-ending reaction; do not delay the ending with optional roster material.
+
+
 ## Stop 39 - Map acidification damage
 
 **Format/placement:** CHOICE, at `transect-bench`.
@@ -5906,6 +6490,20 @@ stress:
 **Wrong-path feedback:** The retry identifies the first incorrect mechanism, unit, unsupported claim, omitted requirement, or violated constraint.
 
 **State/output:** Keep the result visible, record it in the mission log, and unlock the next authored stop.
+
+### Character scene: carrying-tomas-payoff
+
+**Trigger:** After Stop 40 is accepted.
+**Location and presence:** `council-table` in Chapel Council Room. Tomas Reed, harbour and fishery lead, speaks by radio unless already placed locally by the existing beat; do not teleport or duplicate the character. Any second speaker is explicitly remote.
+**Presentation:** Normal playable view; existing fixture evidence plus radio/nearby bubbles. Run after accepted-result feedback and before the existing departure or mission-outcome beat. This is authored scene content, not another graded interaction.
+**Exact action / accessible description:** Keeps the stressed catch ceiling with the harbour plan.
+**Exact dialogue:**
+- Tomas Reed, harbour and fishery lead: “I will take this limit to the crews; another season of the old effort would not protect their income.”
+- Rafi Noor, reef ecologist (radio): “I will bring the recovery evidence when you explain the limit to the crews.”
+
+**World-state effect:** Preserve the existing accepted result and attach this reaction to its mission-log entry. The physical record remains at this fixture with the accepted scope; no new measurement, repair, signature authority or clearance is created by dialogue.
+**Controls, persistence and retry:** Pause the timer during bubbles; one Continue per bubble restores control. At most two bubbles in this scene. Fire once per relevant accepted-state transition, not on wrong submissions; mission retry restores its snapshot and replay status. Retain accepted record and completed lines in the log. Use `carrying-tomas-payoff` only as a story-presentation key, never as a stop or fixture ID. No RP, metric, mastery or travel-unlock effect. At Stop 60 this is part of the existing pre-ending reaction; do not delay the ending with optional roster material.
+
 
 ## Mission outcome
 
@@ -6281,6 +6879,18 @@ Turbine output and demand unlock Tip fuel/waste records; pollutant totals unlock
 
 coal has highest CO2/SO2/Hg; oil/gas are portable but spill and emit; nuclear is low-carbon with costly long-lived waste; renewables are low-carbon but need land, storage, or backup. Weather is short-term; climate is a 30+ year average.
 
+### Character scene: carrying-elias-entrance
+
+**Trigger:** On arrival at Turbine Yard during Mission 11, when Stop 41 is the next active stop; if the player is already here, fire once on that stop’s existing activation instead of requiring re-entry.
+**Location and presence:** `meter-board` in Turbine Yard. Elias Shaw, power mechanic, speaks by radio unless already placed locally by the existing beat; do not teleport or duplicate the character. Any second speaker is explicitly remote.
+**Presentation:** Normal playable view; existing fixture evidence plus radio/nearby bubbles. Continue the existing arrival beat before the question opens. This is authored scene content, not another graded interaction.
+**Exact action / accessible description:** Checks the peak-load record against the turbine plate.
+**Exact dialogue:**
+- Elias Shaw, power mechanic: “I am the one they call when power fails at dusk; installed capacity has to become a usable service plan.”
+
+**World-state effect:** No result is added or revealed; the encounter introduces the record or equipment already available for this stop.
+**Controls, persistence and retry:** Pause the timer during bubbles; one Continue per bubble restores control. At most two bubbles in this scene. Fire once per relevant accepted-state transition, not on wrong submissions; mission retry restores its snapshot and replay status. Retain accepted record and completed lines in the log. Use `carrying-elias-entrance` only as a story-presentation key, never as a stop or fixture ID. No RP, metric, mastery or travel-unlock effect. At Stop 60 this is part of the existing pre-ending reaction; do not delay the ending with optional roster material.
+
 ## Stop 41 - Close the peak-power ledger
 
 **Format/placement:** BALANCE, at `meter-board`.
@@ -6344,6 +6954,19 @@ coal has highest CO2/SO2/Hg; oil/gas are portable but spill and emit; nuclear is
 **Wrong-path feedback:** The retry identifies the first incorrect mechanism, unit, unsupported claim, omitted requirement, or violated constraint.
 
 **State/output:** Keep the result visible, record it in the mission log, and unlock the next authored stop.
+
+### Character scene: carrying-elias-turn
+
+**Trigger:** After Stop 42 is accepted.
+**Location and presence:** `turbine-plate` in Turbine Yard. Elias Shaw, power mechanic, speaks by radio unless already placed locally by the existing beat; do not teleport or duplicate the character. Any second speaker is explicitly remote.
+**Presentation:** Normal playable view; existing fixture evidence plus radio/nearby bubbles. Run after accepted-result feedback and before the existing departure or mission-outcome beat. This is authored scene content, not another graded interaction.
+**Exact action / accessible description:** Leaves the capacity-factor result beside the installed rating.
+**Exact dialogue:**
+- Elias Shaw, power mechanic: “The plate tells us what it can do under its rated conditions, not what we have every hour.”
+
+**World-state effect:** Preserve the existing accepted result and attach this reaction to its mission-log entry. The physical record remains at this fixture with the accepted scope; no new measurement, repair, signature authority or clearance is created by dialogue.
+**Controls, persistence and retry:** Pause the timer during bubbles; one Continue per bubble restores control. At most two bubbles in this scene. Fire once per relevant accepted-state transition, not on wrong submissions; mission retry restores its snapshot and replay status. Retain accepted record and completed lines in the log. Use `carrying-elias-turn` only as a story-presentation key, never as a stop or fixture ID. No RP, metric, mastery or travel-unlock effect. At Stop 60 this is part of the existing pre-ending reaction; do not delay the ending with optional roster material.
+
 
 ## Stop 43 - Match pollutants and controls
 
@@ -6869,6 +7492,19 @@ attest:
 
 **State/output:** Keep the result visible, record it in the mission log, and unlock the next authored stop.
 
+### Character scene: carrying-mei-payoff
+
+**Trigger:** After Stop 46 is accepted.
+**Location and presence:** `gas-rack` in Tip and Sorting Yard. Mei Chen, environmental-health lead, speaks by radio unless already placed locally by the existing beat; do not teleport or duplicate the character. Any second speaker is explicitly remote.
+**Presentation:** Normal playable view; existing fixture evidence plus radio/nearby bubbles. Run after accepted-result feedback and before the existing departure or mission-outcome beat. This is authored scene content, not another graded interaction.
+**Exact action / accessible description:** Retains the verified methane-capture result with the waste controls.
+**Exact dialogue:**
+- Mei Chen, environmental-health lead: “Now the record shows what we stopped from escaping.”
+
+**World-state effect:** Preserve the existing accepted result and attach this reaction to its mission-log entry. The physical record remains at this fixture with the accepted scope; no new measurement, repair, signature authority or clearance is created by dialogue.
+**Controls, persistence and retry:** Pause the timer during bubbles; one Continue per bubble restores control. At most two bubbles in this scene. Fire once per relevant accepted-state transition, not on wrong submissions; mission retry restores its snapshot and replay status. Retain accepted record and completed lines in the log. Use `carrying-mei-payoff` only as a story-presentation key, never as a stop or fixture ID. No RP, metric, mastery or travel-unlock effect. At Stop 60 this is part of the existing pre-ending reaction; do not delay the ending with optional roster material.
+
+
 ## Stop 47 - Diagnose the engine-room alarm
 
 **Format/placement:** DIAGNOSIS, at `tip-lab-bench`.
@@ -6960,6 +7596,19 @@ allocate_patch:
 **Wrong-path feedback:** The retry identifies the first incorrect mechanism, unit, unsupported claim, omitted requirement, or violated constraint.
 
 **State/output:** Keep the result visible, record it in the mission log, and unlock the next authored stop.
+
+### Character scene: carrying-elias-payoff
+
+**Trigger:** After Stop 48 is accepted.
+**Location and presence:** `load-board` in Waterworks. Elias Shaw, power mechanic, speaks by radio unless already placed locally by the existing beat; do not teleport or duplicate the character. Any second speaker is explicitly remote.
+**Presentation:** Normal playable view; existing fixture evidence plus radio/nearby bubbles. Run after accepted-result feedback and before the existing departure or mission-outcome beat. This is authored scene content, not another graded interaction.
+**Exact action / accessible description:** Posts the accepted firm-power allocation with the protected service loads.
+**Exact dialogue:**
+- Elias Shaw, power mechanic: “These are the loads we can support at the same time.”
+
+**World-state effect:** Preserve the existing accepted result and attach this reaction to its mission-log entry. The physical record remains at this fixture with the accepted scope; no new measurement, repair, signature authority or clearance is created by dialogue.
+**Controls, persistence and retry:** Pause the timer during bubbles; one Continue per bubble restores control. At most two bubbles in this scene. Fire once per relevant accepted-state transition, not on wrong submissions; mission retry restores its snapshot and replay status. Retain accepted record and completed lines in the log. Use `carrying-elias-payoff` only as a story-presentation key, never as a stop or fixture ID. No RP, metric, mastery or travel-unlock effect. At Stop 60 this is part of the existing pre-ending reaction; do not delay the ending with optional roster material.
+
 
 ## Mission outcome
 
@@ -7493,6 +8142,19 @@ inject:
 **Wrong-path feedback:** The retry identifies the first incorrect mechanism, unit, unsupported claim, omitted requirement, or violated constraint.
 
 **State/output:** Keep the result visible, record it in the mission log, and unlock the next authored stop.
+
+### Character scene: carrying-rafi-payoff
+
+**Trigger:** After Stop 51 is accepted.
+**Location and presence:** `flow-tank` in Reef Station. Rafi Noor, reef ecologist, speaks by radio unless already placed locally by the existing beat; do not teleport or duplicate the character. Any second speaker is explicitly remote.
+**Presentation:** Normal playable view; existing fixture evidence plus radio/nearby bubbles. Run after accepted-result feedback and before the existing departure or mission-outcome beat. This is authored scene content, not another graded interaction.
+**Exact action / accessible description:** Adds the controlled rinse-treatment evidence to the reef protection plan.
+**Exact dialogue:**
+- Rafi Noor, reef ecologist: “Keep the treatment conditions with the result; another reef fragment deserves the same care.”
+
+**World-state effect:** Preserve the existing accepted result and attach this reaction to its mission-log entry. The physical record remains at this fixture with the accepted scope; no new measurement, repair, signature authority or clearance is created by dialogue.
+**Controls, persistence and retry:** Pause the timer during bubbles; one Continue per bubble restores control. At most two bubbles in this scene. Fire once per relevant accepted-state transition, not on wrong submissions; mission retry restores its snapshot and replay status. Retain accepted record and completed lines in the log. Use `carrying-rafi-payoff` only as a story-presentation key, never as a stop or fixture ID. No RP, metric, mastery or travel-unlock effect. At Stop 60 this is part of the existing pre-ending reaction; do not delay the ending with optional roster material.
+
 
 ## Stop 52 - Write the biosecurity protocol
 
@@ -8059,6 +8721,19 @@ choice:
 **Wrong-path feedback:** The retry identifies the first incorrect mechanism, unit, unsupported claim, omitted requirement, or violated constraint.
 
 **State/output:** Keep the result visible, record it in the mission log, and unlock the next authored stop.
+
+### Character scene: carrying-lena-payoff
+
+**Trigger:** After Stop 55 is accepted.
+**Location and presence:** `council-table` in Chapel Council Room. Lena Costa, school nurse and population recorder, speaks by radio unless already placed locally by the existing beat; do not teleport or duplicate the character. Any second speaker is explicitly remote.
+**Presentation:** Normal playable view; existing fixture evidence plus radio/nearby bubbles. Run after accepted-result feedback and before the existing departure or mission-outcome beat. This is authored scene content, not another graded interaction.
+**Exact action / accessible description:** Retains the person-day balance with the school’s contribution to the island plan.
+**Exact dialogue:**
+- Lena Costa, school nurse and population recorder: “Count how long people are here as well as how many names we have.”
+
+**World-state effect:** Preserve the existing accepted result and attach this reaction to its mission-log entry. The physical record remains at this fixture with the accepted scope; no new measurement, repair, signature authority or clearance is created by dialogue.
+**Controls, persistence and retry:** Pause the timer during bubbles; one Continue per bubble restores control. At most two bubbles in this scene. Fire once per relevant accepted-state transition, not on wrong submissions; mission retry restores its snapshot and replay status. Retain accepted record and completed lines in the log. Use `carrying-lena-payoff` only as a story-presentation key, never as a stop or fixture ID. No RP, metric, mastery or travel-unlock effect. At Stop 60 this is part of the existing pre-ending reaction; do not delay the ending with optional roster material.
+
 
 ## Stop 56 - Stress the human-demand forecast
 
@@ -8642,6 +9317,19 @@ greenhouse effect makes Earth habitable; added CO2, CH4, and N2O enhance warming
 
 **State/output:** Keep the result visible, record it in the mission log, and unlock the next authored stop.
 
+### Character scene: carrying-mara-payoff
+
+**Trigger:** After Stop 59 is accepted.
+**Location and presence:** `sampler` in Waterworks. Mara Voss, Island Resources Officer, speaks by radio unless already placed locally by the existing beat; do not teleport or duplicate the character. Any second speaker is explicitly remote.
+**Presentation:** Normal playable view; existing fixture evidence plus radio/nearby bubbles. Run after accepted-result feedback and before the existing departure or mission-outcome beat. This is authored scene content, not another graded interaction.
+**Exact action / accessible description:** Retains the independent water sample with the final recommendation.
+**Exact dialogue:**
+- Mara Voss, Island Resources Officer: “This sample did not inherit our ledger’s assumptions; keep it with the council’s evidence.”
+
+**World-state effect:** Preserve the existing accepted result and attach this reaction to its mission-log entry. The physical record remains at this fixture with the accepted scope; no new measurement, repair, signature authority or clearance is created by dialogue.
+**Controls, persistence and retry:** Pause the timer during bubbles; one Continue per bubble restores control. At most two bubbles in this scene. Fire once per relevant accepted-state transition, not on wrong submissions; mission retry restores its snapshot and replay status. Retain accepted record and completed lines in the log. Use `carrying-mara-payoff` only as a story-presentation key, never as a stop or fixture ID. No RP, metric, mastery or travel-unlock effect. At Stop 60 this is part of the existing pre-ending reaction; do not delay the ending with optional roster material.
+
+
 ## Stop 60 - Enact the ferry triggers
 
 **Format/placement:** TRIGGER, at `council-table`.
@@ -8709,6 +9397,20 @@ trigger:
 **Wrong-path feedback:** The retry identifies the first incorrect mechanism, unit, unsupported claim, omitted requirement, or violated constraint.
 
 **State/output:** Keep the result visible, record it in the mission log, and unlock the next authored stop.
+
+### Character scene: carrying-ada-payoff
+
+**Trigger:** After Stop 60 is accepted.
+**Location and presence:** `council-table` in Chapel Council Room. Ada Pell, council chair, speaks by radio unless already placed locally by the existing beat; do not teleport or duplicate the character. Any second speaker is explicitly remote.
+**Presentation:** Normal playable view; existing fixture evidence plus radio/nearby bubbles. Run after accepted-result feedback and before the existing departure or mission-outcome beat. This is authored scene content, not another graded interaction.
+**Exact action / accessible description:** Enacts the accepted ferry triggers with their monitoring and closure conditions visible.
+**Exact dialogue:**
+- Ada Pell, council chair: “The vote authorizes this rule; it does not waive its conditions next month.”
+- Lena Costa, school nurse and population recorder (radio): “I will keep the school checks active after the vote, under the same rule.”
+
+**World-state effect:** Preserve the existing accepted result and attach this reaction to its mission-log entry. The physical record remains at this fixture with the accepted scope; no new measurement, repair, signature authority or clearance is created by dialogue.
+**Controls, persistence and retry:** Pause the timer during bubbles; one Continue per bubble restores control. At most two bubbles in this scene. Fire once per relevant accepted-state transition, not on wrong submissions; mission retry restores its snapshot and replay status. Retain accepted record and completed lines in the log. Use `carrying-ada-payoff` only as a story-presentation key, never as a stop or fixture ID. No RP, metric, mastery or travel-unlock effect. At Stop 60 this is part of the existing pre-ending reaction; do not delay the ending with optional roster material.
+
 
 ## Mission outcome
 

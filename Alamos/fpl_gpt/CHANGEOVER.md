@@ -1,6 +1,8 @@
 **FIRST PERSON LEARNING**
 
-**Player-copy editing rule:** Within each displayed passage, state each fact, equation, variable definition, and instruction once. Integrate new givens into the existing wording; do not append a paraphrase of the setup. A source panel may repeat essential inputs so it stands alone, but render it as its own surface rather than concatenating it with the question setup. Go Deeper questions must still supply their own context and data without referring to earlier cases.
+**Editorial revision:** Character profiles, evidence-driven scenes and biography checks; 2026-09-09. All prior copy and opening-quote fixes retained.
+
+**Player-copy editing rule:** Raise a blocking `REPETITION_FLAG` for unresolved duplicated meaning within a displayed passage, including paraphrases, repeated formulas/definitions and concatenated setup/source copy. Review candidate matches semantically and document any separate-surface exception. Apply REP-001–REP-005 in Giant Gate v2.8.  Within each displayed passage, state each fact, equation, variable definition, and instruction once. Integrate new givens into the existing wording; do not append a paraphrase of the setup. A source panel may repeat essential inputs so it stands alone, but render it as its own surface rather than concatenating it with the question setup. Go Deeper questions must still supply their own context and data without referring to earlier cases.
 
 **CHANGEOVER**
 
@@ -166,47 +168,362 @@ Keep the conversion orientation and units exactly as taught in Stop 48; never im
 
 ## 4. Character bible
 
-### Mara Venn - Board Chair and mission authority
+### Profile and scene delivery contract
+
+The compact material below is a designer reference. The individual Character ID entries are the authoritative full profiles; reference rows and headings are not additional people. Render only the explicitly labeled bio fields in the optional roster. Wants, blind spots and future arc descriptions are designer-only. Keep the existing names, role aliases and division assignments; the explicit profiles add ownership and scene bindings without changing any person-stop owner.
+
+Each character has an entrance/evidence encounter, a required evidence-triggered turn and a later demonstrated change, embedded at the relevant mission stops below. These scenes are part of the story route, not prerequisites added by the roster. Opening handovers and established entrances play once. When an existing beat already supplies the same action or sentence at that trigger, render that action or sentence once and use this exact reaction as its character component; retain all distinct travel, science and outcome content. Sequence multiple scenes by their order in the chapter. Do not concatenate setup/source panels or duplicate the accepted answer in dialogue.
+
+All physical actions use the existing fixture and its records. A radio speaker can direct the player’s visible record handling; no new carried item, prop, fixture, resource or measurement is implied. Preserve original lock and release conditions, including partial clearance and no-go endings. The roster can be skipped in full with no effect on progress. The three greeting variants are state-selected optional conversations, not an automatic speech queue.
+
+### Compact designer reference
+
+**Mara Venn - Board Chair and mission authority**
 
 **Wants:** A credible on-time conversion. **Blind spot:** Equates decisiveness with a high rate. **Gameplay use:** Forces policy commitments and asks, “What would make us reverse?” **Arc:** Learns that a defensible rule includes conditions for changing course.
 
-### Eli Voss - NOTES counter operations lead
+**Eli Voss - NOTES counter operations lead**
 
 **Division:** `NOTES`.
 
 **Wants:** Keep families moving. **Blind spot:** Treats every queue as a cash shortage. **Gameplay use:** Scarcity, labor definitions, conversion operations. **Arc:** Learns to separate visible congestion from national monetary evidence.
 
-### Idris Pell - PRICES national accounts chief
+**Idris Pell - PRICES national accounts chief**
 
 **Division:** `PRICES`.
 
 **Wants:** Publish defensible output data. **Blind spot:** Trusts aggregates before composition. **Gameplay use:** GDP, output gaps, growth, and ledger closure. **Arc:** Moves from exact totals to transparent scope and dependency.
 
-### Lina Saye - price statistics lead
+**Lina Saye - price statistics lead**
 
 **Wants:** Protect the basket's integrity. **Blind spot:** Defends fixed weights too long. **Gameplay use:** CPI, inflation, basket bias, and holdout evidence. **Arc:** Preserves history while publishing a representative companion measure.
 
-### Tomas Arendt - BANKS bank supervision lead
+**Tomas Arendt - BANKS bank supervision lead**
 
 **Division:** `BANKS`.
 
 **Wants:** Prevent a bank run. **Blind spot:** Focuses on maximum lending rather than willing lending. **Gameplay use:** Money aggregates, bank creation, reserves, bonds, and rates. **Arc:** Learns that capacity, timing, and behavior are separate constraints.
 
-### Nia Corren - TRADE open-economy analyst
+**Nia Corren - TRADE open-economy analyst**
 
 **Division:** `TRADE`.
 
 **Wants:** Keep payments and trade clearing. **Blind spot:** Initially treats appreciation as strength alone. **Gameplay use:** Balance of payments, forex, and net exports. **Arc:** Makes the financing benefit and export cost visible together.
 
-### Rhea Dane - finance minister
+**Rhea Dane - finance minister**
 
 **Wants:** Show control before launch. **Blind spot:** Underweights lags and crowding out. **Gameplay use:** Fiscal multipliers, stabilizers, policy allocation. **Arc:** Replaces an announcement-first plan with a smaller conditional bridge.
 
-### Soren Vale - OPENEC export council liaison
+**Soren Vale - OPENEC export council liaison**
 
 **Division:** `OPENEC`.
 
 **Wants:** Protect orders and jobs. **Blind spot:** Treats depreciation as costless. **Gameplay use:** Supplies exporter consequences and tests one-sided currency claims. **Arc:** Accepts a stable conversion with targeted first-week cover.
+
+### Relationship evidence map
+
+| People | Planted commitment | Evidence-driven turn | Later changed practice |
+|---|---|---|---|
+| Lina Saye / Idris Pell | `changeover-lina-entrance`: “I need a way to repair representation without making our old comparisons disappear.” | Stop 12, `changeover-lina-turn` | Stop 54, `changeover-lina-payoff` |
+| Rhea Dane / Eli Voss | `changeover-rhea-entrance`: “Tell me when the promised support can actually reach the people at your counters.” | Stop 44, `changeover-rhea-turn` | Stop 52, `changeover-rhea-payoff` |
+| Nia Corren / Soren Vale | `changeover-nia-entrance`: “Bring me the orders behind the exchange-rate argument so I can show the board both consequences.” | Stop 36, `changeover-nia-turn` | Stop 55, `changeover-nia-payoff` |
+
+### Mara Venn
+
+- **Character ID:** `person-mara-venn`
+- **Display name:** Mara Venn
+- **Role:** Board Chair
+- **Pronouns:** she/her
+- **Allowed short name:** Mara
+- **Area ownership:** Exchange Counter; Rate Room. Existing division assignments in the reference summary also remain in force; presence elsewhere is explicitly by radio.
+- **First entrance:** Hands the player the empty Rate Book at arrival. The existing opening card supplies this entrance; the mission encounter below continues it without replaying the handover. Binding: `changeover-mara-entrance`, On arrival at Exchange Counter during Mission 1, when Stop 4 is the next active stop; if the player is already here, fire once on that stop’s existing activation instead of requiring re-entry, at `wage-notice-rail`.
+- **Wants and personal stake:** Her public promise is an orderly conversion on the announced date; revising a policy can look like losing control.
+- **Blind spot:** A forceful interest-rate move can feel more credible than a conditional rule.
+- **Scientific domain:** policy commitments and reversal thresholds.
+- **Decision function:** Supplies the policy commitments and reversal thresholds constraint to the existing decisions at Stops 40 and 60; the player still submits the answer and the existing authority still controls authorization.
+- **Verbal habit:** “What would make us reverse?”
+- **Relationship pressure:** The player relies on Mara for policy commitments and reversal thresholds; their shared working assumption is challenged in `changeover-mara-turn`.
+- **Arc, with source evidence:** After Stop 40 (Tighten forever), `changeover-mara-turn` makes the accepted evidence personally consequential. After Stop 60 (Sign), `changeover-mara-payoff` shows the resulting change in practice: Signs the accepted conversion rule with its reversal conditions intact.
+- **Cost of changing:** The character must revise or qualify the commitment described under personal stake in front of the player; the old interpretation remains reviewable rather than silently overwritten.
+- **Gameplay necessity:** Removing this character removes the accountable owner of policy commitments and reversal thresholds, the commitment above, and the witnessed correction in `changeover-mara-turn`. Reassigning their questions alone would not preserve those scenes or constraints.
+
+**Bio passage - exact player copy:** Her public promise is an orderly conversion on the announced date; revising a policy can look like losing control. A forceful interest-rate move can feel more credible than a conditional rule.
+
+**Bio reflection question - exact player copy:** Why might Mara favor a forceful policy announcement?
+
+**Bio reveal answer - exact player copy:** She is accountable for an orderly launch and may mistake visible decisiveness for a policy that fits the evidence.
+
+**Bio feedback - exact player copy:** Public confidence matters, but the chosen action still needs a defensible causal basis.
+
+**Bio check behavior:** On explicit opening of this character’s optional roster page after their first encounter, show only the bio passage and reflection question. Reveal answer and feedback only when the player selects Show answer; allow reconsideration and reopening. This is an unscored reading reflection, with no automatic correctness judgment, stop number, RP, timer cost, mission prerequisite, mastery credit, story flag or unlock. No answer or future arc is required to continue. Designer profile fields and future dialogue are not player-visible biography text.
+
+**Conditional greeting binding:** On explicit Talk to Mara after the character has been introduced, use the highest satisfied row only. Later states override earlier ones. A state changes only from the existing accepted-stop record, never from reading the bio. Lines may be reopened on explicit request; do not autoplay a greeting already spoken as a scene line at that encounter. No new travel or required conversation is created. Presence is local only at the character’s existing location; otherwise use the established radio connection. Log spoken text; pause the timer while it is open.
+
+| Priority | Condition | Exact greeting |
+|---:|---|---|
+| 30 | Stop 60 accepted | “Publish the conditions too; changing course under that rule is part of keeping our promise.” |
+| 20 | Stop 40 accepted; Stop 60 not accepted | “I wanted one firm answer; that does not make one rate right for every condition.” |
+| 10 | Introduced; Stop 40 not accepted; fallback | “What would make us reverse?” |
+
+### Eli Voss
+
+- **Character ID:** `person-eli-voss`
+- **Display name:** Eli Voss
+- **Role:** counter operations lead
+- **Pronouns:** he/him
+- **Allowed short name:** Eli
+- **Area ownership:** Exchange Counter; Bank Supervision; Note Hall. Existing division assignments in the reference summary also remain in force; presence elsewhere is explicitly by radio.
+- **First entrance:** Moves between the queue board and the counter allocation slate, checking where work is stalled. The established entrance is retained; the scene below stages the first evidence encounter in this arc. Binding: `changeover-eli-entrance`, On arrival at Exchange Counter during Mission 1, when Stop 1 is the next active stop; if the player is already here, fire once on that stop’s existing activation instead of requiring re-entry, at `queue-board`.
+- **Wants and personal stake:** He faces the families waiting at the counters and has to explain delays in person.
+- **Blind spot:** A visible queue looks like evidence that the country needs more cash.
+- **Scientific domain:** queues, staffing and conversion custody.
+- **Decision function:** Supplies the queues, staffing and conversion custody constraint to the existing decisions at Stops 28 and 48; the player still submits the answer and the existing authority still controls authorization.
+- **Verbal habit:** “Which part of the queue is waiting on us?”
+- **Relationship pressure:** The player relies on Eli for queues, staffing and conversion custody; their shared working assumption is challenged in `changeover-eli-turn`.
+- **Arc, with source evidence:** After Stop 28 (Migration or contraction), `changeover-eli-turn` makes the accepted evidence personally consequential. After Stop 48 (Operationally safe), `changeover-eli-payoff` shows the resulting change in practice: Keeps the accepted custody and timing checks with the operating roster.
+- **Cost of changing:** The character must revise or qualify the commitment described under personal stake in front of the player; the old interpretation remains reviewable rather than silently overwritten.
+- **Gameplay necessity:** Removing this character removes the accountable owner of queues, staffing and conversion custody, the commitment above, and the witnessed correction in `changeover-eli-turn`. Reassigning their questions alone would not preserve those scenes or constraints.
+
+**Bio passage - exact player copy:** He faces the families waiting at the counters and has to explain delays in person. A visible queue looks like evidence that the country needs more cash.
+
+**Bio reflection question - exact player copy:** Why does Eli’s view of the queue differ from a national money-supply measure?
+
+**Bio reveal answer - exact player copy:** He sees a local service delay directly; its cause need not be a nationwide shortage of money.
+
+**Bio feedback - exact player copy:** A local bottleneck needs its own diagnosis before it becomes a national claim.
+
+**Bio check behavior:** On explicit opening of this character’s optional roster page after their first encounter, show only the bio passage and reflection question. Reveal answer and feedback only when the player selects Show answer; allow reconsideration and reopening. This is an unscored reading reflection, with no automatic correctness judgment, stop number, RP, timer cost, mission prerequisite, mastery credit, story flag or unlock. No answer or future arc is required to continue. Designer profile fields and future dialogue are not player-visible biography text.
+
+**Conditional greeting binding:** On explicit Talk to Eli after the character has been introduced, use the highest satisfied row only. Later states override earlier ones. A state changes only from the existing accepted-stop record, never from reading the bio. Lines may be reopened on explicit request; do not autoplay a greeting already spoken as a scene line at that encounter. No new travel or required conversation is created. Presence is local only at the character’s existing location; otherwise use the established radio connection. Log spoken text; pause the timer while it is open.
+
+| Priority | Condition | Exact greeting |
+|---:|---|---|
+| 30 | Stop 48 accepted | “I can open a counter on this evidence, with the cash and staff due at the right time.” |
+| 20 | Stop 28 accepted; Stop 48 not accepted | “The line outside is real; it does not tell us what happened to the whole money supply.” |
+| 10 | Introduced; Stop 28 not accepted; fallback | “Which part of the queue is waiting on us?” |
+
+### Idris Pell
+
+- **Character ID:** `person-idris-pell`
+- **Display name:** Idris Pell
+- **Role:** national accounts chief
+- **Pronouns:** he/him
+- **Allowed short name:** Idris
+- **Area ownership:** Statistics Floor; Exchange Counter. Existing division assignments in the reference summary also remain in force; presence elsewhere is explicitly by radio.
+- **First entrance:** Separates the eligible output entries from transfers before totaling the ledger. The established entrance is retained; the scene below stages the first evidence encounter in this arc. Binding: `changeover-idris-entrance`, On arrival at Statistics Floor during Mission 2, when Stop 5 is the next active stop; if the player is already here, fire once on that stop’s existing activation instead of requiring re-entry, at `output-ledger`.
+- **Wants and personal stake:** His office must publish a total that other policy teams will treat as the state of the economy.
+- **Blind spot:** An exactly balanced aggregate can conceal a misleading interpretation of its parts.
+- **Scientific domain:** output composition and real growth.
+- **Decision function:** Supplies the output composition and real growth constraint to the existing decisions at Stops 8 and 57; the player still submits the answer and the existing authority still controls authorization.
+- **Verbal habit:** “What is inside that total?”
+- **Relationship pressure:** The player relies on Idris for output composition and real growth; their shared working assumption is challenged in `changeover-idris-turn`.
+- **Arc, with source evidence:** After Stop 8 (Publish the output line), `changeover-idris-turn` makes the accepted evidence personally consequential. After Stop 57 (Live economy panel), `changeover-idris-payoff` shows the resulting change in practice: Checks that the live-economy panel uses the accepted definitions and real measures.
+- **Cost of changing:** The character must revise or qualify the commitment described under personal stake in front of the player; the old interpretation remains reviewable rather than silently overwritten.
+- **Gameplay necessity:** Removing this character removes the accountable owner of output composition and real growth, the commitment above, and the witnessed correction in `changeover-idris-turn`. Reassigning their questions alone would not preserve those scenes or constraints.
+
+**Bio passage - exact player copy:** His office must publish a total that other policy teams will treat as the state of the economy. An exactly balanced aggregate can conceal a misleading interpretation of its parts.
+
+**Bio reflection question - exact player copy:** Why is a correct total not enough for Idris’s job?
+
+**Bio reveal answer - exact player copy:** Policy teams need to know what the total includes and whether its change represents output or prices.
+
+**Bio feedback - exact player copy:** The interpretation must distinguish composition and prices from real production.
+
+**Bio check behavior:** On explicit opening of this character’s optional roster page after their first encounter, show only the bio passage and reflection question. Reveal answer and feedback only when the player selects Show answer; allow reconsideration and reopening. This is an unscored reading reflection, with no automatic correctness judgment, stop number, RP, timer cost, mission prerequisite, mastery credit, story flag or unlock. No answer or future arc is required to continue. Designer profile fields and future dialogue are not player-visible biography text.
+
+**Conditional greeting binding:** On explicit Talk to Idris after the character has been introduced, use the highest satisfied row only. Later states override earlier ones. A state changes only from the existing accepted-stop record, never from reading the bio. Lines may be reopened on explicit request; do not autoplay a greeting already spoken as a scene line at that encounter. No new travel or required conversation is created. Presence is local only at the character’s existing location; otherwise use the established radio connection. Log spoken text; pause the timer while it is open.
+
+| Priority | Condition | Exact greeting |
+|---:|---|---|
+| 30 | Stop 57 accepted | “Use the same scope here as in the ledger; a new headline does not change what we counted.” |
+| 20 | Stop 8 accepted; Stop 57 not accepted | “The arithmetic closes; the growth claim still has to survive the price correction.” |
+| 10 | Introduced; Stop 8 not accepted; fallback | “What is inside that total?” |
+
+### Lina Saye
+
+- **Character ID:** `person-lina-saye`
+- **Display name:** Lina Saye
+- **Role:** price statistics lead
+- **Pronouns:** she/her
+- **Allowed short name:** Lina
+- **Area ownership:** Statistics Floor. Existing division assignments in the reference summary also remain in force; presence elsewhere is explicitly by radio.
+- **First entrance:** Places the fixed basket beside the household purchase evidence. The established entrance is retained; the scene below stages the first evidence encounter in this arc. Binding: `changeover-lina-entrance`, On arrival at Statistics Floor during Mission 3, when Stop 9 is the next active stop; if the player is already here, fire once on that stop’s existing activation instead of requiring re-entry, at `basket-table`.
+- **Wants and personal stake:** She has protected a continuous price history that wage negotiators rely on; revising the basket risks breaking that comparison.
+- **Blind spot:** Preserving fixed weights can overshadow households whose purchases no longer resemble the basket.
+- **Scientific domain:** price baskets, inflation and representative evidence.
+- **Decision function:** Supplies the price baskets, inflation and representative evidence constraint to the existing decisions at Stops 12 and 54; the player still submits the answer and the existing authority still controls authorization.
+- **Verbal habit:** “Whose basket is this?”
+- **Relationship pressure:** Idris Pell: She has protected a continuous price history that wage negotiators rely on; revising the basket risks breaking that comparison.
+- **Arc, with source evidence:** After Stop 12 (Keep history and repair representation), `changeover-lina-turn` makes the accepted evidence personally consequential. After Stop 54 (Pass-through test), `changeover-lina-payoff` shows the resulting change in practice: Attaches the independently tested pass-through result to the price record.
+- **Cost of changing:** The character must revise or qualify the commitment described under personal stake in front of the player and Idris Pell; the old interpretation remains reviewable rather than silently overwritten.
+- **Gameplay necessity:** Removing this character removes the accountable owner of price baskets, inflation and representative evidence, the commitment above, and the witnessed correction in `changeover-lina-turn`. Reassigning their questions alone would not preserve those scenes or constraints.
+
+**Bio passage - exact player copy:** She has protected a continuous price history that wage negotiators rely on; revising the basket risks breaking that comparison. Preserving fixed weights can overshadow households whose purchases no longer resemble the basket.
+
+**Bio reflection question - exact player copy:** Why does Lina resist simply replacing the old price series?
+
+**Bio reveal answer - exact player copy:** People rely on its consistent history; she needs to improve representation without silently changing past comparisons.
+
+**Bio feedback - exact player copy:** Preserving comparison and improving representation are both legitimate goals.
+
+**Bio check behavior:** On explicit opening of this character’s optional roster page after their first encounter, show only the bio passage and reflection question. Reveal answer and feedback only when the player selects Show answer; allow reconsideration and reopening. This is an unscored reading reflection, with no automatic correctness judgment, stop number, RP, timer cost, mission prerequisite, mastery credit, story flag or unlock. No answer or future arc is required to continue. Designer profile fields and future dialogue are not player-visible biography text.
+
+**Conditional greeting binding:** On explicit Talk to Lina after the character has been introduced, use the highest satisfied row only. Later states override earlier ones. A state changes only from the existing accepted-stop record, never from reading the bio. Lines may be reopened on explicit request; do not autoplay a greeting already spoken as a scene line at that encounter. No new travel or required conversation is created. Presence is local only at the character’s existing location; otherwise use the established radio connection. Log spoken text; pause the timer while it is open.
+
+| Priority | Condition | Exact greeting |
+|---:|---|---|
+| 30 | Stop 54 accepted | “This estimate has faced new prices; the old series alone could not answer that question.” |
+| 20 | Stop 12 accepted; Stop 54 not accepted | “I will not rewrite the past, but I will not ask these families to disappear from the present.” |
+| 10 | Introduced; Stop 12 not accepted; fallback | “Whose basket is this?” |
+
+### Tomas Arendt
+
+- **Character ID:** `person-tomas-arendt`
+- **Display name:** Tomas Arendt
+- **Role:** bank supervision lead
+- **Pronouns:** he/him
+- **Allowed short name:** Tomas
+- **Area ownership:** Note Hall; Bank Supervision. Existing division assignments in the reference summary also remain in force; presence elsewhere is explicitly by radio.
+- **First entrance:** Checks the bank balance sheets against the money-market console. The established entrance is retained; the scene below stages the first evidence encounter in this arc. Binding: `changeover-tomas-entrance`, On arrival at Note Hall during Mission 7, when Stop 25 is the next active stop; if the player is already here, fire once on that stop’s existing activation instead of requiring re-entry, at `note-scale`.
+- **Wants and personal stake:** Banks expect him to prevent a run, while the counters need usable funds at a particular hour.
+- **Blind spot:** Maximum lending capacity can look like a promise that banks will lend immediately.
+- **Scientific domain:** reserves, lending capacity and payment timing.
+- **Decision function:** Supplies the reserves, lending capacity and payment timing constraint to the existing decisions at Stops 32 and 46; the player still submits the answer and the existing authority still controls authorization.
+- **Verbal habit:** “When can the funds be used?”
+- **Relationship pressure:** The player relies on Tomas for reserves, lending capacity and payment timing; their shared working assumption is challenged in `changeover-tomas-turn`.
+- **Arc, with source evidence:** After Stop 32 (Raise now), `changeover-tomas-turn` makes the accepted evidence personally consequential. After Stop 46 (Reserve clock), `changeover-tomas-payoff` shows the resulting change in practice: Keeps the measured reserve-arrival time beside the opening schedule.
+- **Cost of changing:** The character must revise or qualify the commitment described under personal stake in front of the player; the old interpretation remains reviewable rather than silently overwritten.
+- **Gameplay necessity:** Removing this character removes the accountable owner of reserves, lending capacity and payment timing, the commitment above, and the witnessed correction in `changeover-tomas-turn`. Reassigning their questions alone would not preserve those scenes or constraints.
+
+**Bio passage - exact player copy:** Banks expect him to prevent a run, while the counters need usable funds at a particular hour. Maximum lending capacity can look like a promise that banks will lend immediately.
+
+**Bio reflection question - exact player copy:** What distinction can Tomas miss when he focuses on maximum lending?
+
+**Bio reveal answer - exact player copy:** The amount a bank could lend does not establish its willingness to lend or when funds will become usable.
+
+**Bio feedback - exact player copy:** A ceiling is a possibility, not a timed transfer or a lending commitment.
+
+**Bio check behavior:** On explicit opening of this character’s optional roster page after their first encounter, show only the bio passage and reflection question. Reveal answer and feedback only when the player selects Show answer; allow reconsideration and reopening. This is an unscored reading reflection, with no automatic correctness judgment, stop number, RP, timer cost, mission prerequisite, mastery credit, story flag or unlock. No answer or future arc is required to continue. Designer profile fields and future dialogue are not player-visible biography text.
+
+**Conditional greeting binding:** On explicit Talk to Tomas after the character has been introduced, use the highest satisfied row only. Later states override earlier ones. A state changes only from the existing accepted-stop record, never from reading the bio. Lines may be reopened on explicit request; do not autoplay a greeting already spoken as a scene line at that encounter. No new travel or required conversation is created. Presence is local only at the character’s existing location; otherwise use the established radio connection. Log spoken text; pause the timer while it is open.
+
+| Priority | Condition | Exact greeting |
+|---:|---|---|
+| 30 | Stop 46 accepted | “These funds arrive in time for this operation; that is a claim we have actually tested.” |
+| 20 | Stop 32 accepted; Stop 46 not accepted | “Room to lend is not a commitment to lend; we cannot book it as money already moving.” |
+| 10 | Introduced; Stop 32 not accepted; fallback | “When can the funds be used?” |
+
+### Nia Corren
+
+- **Character ID:** `person-nia-corren`
+- **Display name:** Nia Corren
+- **Role:** open-economy analyst
+- **Pronouns:** she/her
+- **Allowed short name:** Nia
+- **Area ownership:** Open-Economy Floor; Rate Room. Existing division assignments in the reference summary also remain in force; presence elsewhere is explicitly by radio.
+- **First entrance:** Checks foreign-payment entries against the shipment board. The established entrance is retained; the scene below stages the first evidence encounter in this arc. Binding: `changeover-nia-entrance`, On arrival at Open-Economy Floor during Mission 9, when Stop 33 is the next active stop; if the player is already here, fire once on that stop’s existing activation instead of requiring re-entry, at `trade-ledger`.
+- **Wants and personal stake:** She has presented incoming capital as a sign of confidence and must now explain what the same exchange-rate move costs exporters.
+- **Blind spot:** Appreciation initially looks like strength without its trade consequences.
+- **Scientific domain:** foreign exchange, capital flows and exports.
+- **Decision function:** Supplies the foreign exchange, capital flows and exports constraint to the existing decisions at Stops 36 and 55; the player still submits the answer and the existing authority still controls authorization.
+- **Verbal habit:** “Who gains at this exchange rate?”
+- **Relationship pressure:** Soren Vale: She has presented incoming capital as a sign of confidence and must now explain what the same exchange-rate move costs exporters.
+- **Arc, with source evidence:** After Stop 36 (Good news), `changeover-nia-turn` makes the accepted evidence personally consequential. After Stop 55 (Full model stress), `changeover-nia-payoff` shows the resulting change in practice: Retains the stressed exchange-rate consequences in the final forecast.
+- **Cost of changing:** The character must revise or qualify the commitment described under personal stake in front of the player and Soren Vale; the old interpretation remains reviewable rather than silently overwritten.
+- **Gameplay necessity:** Removing this character removes the accountable owner of foreign exchange, capital flows and exports, the commitment above, and the witnessed correction in `changeover-nia-turn`. Reassigning their questions alone would not preserve those scenes or constraints.
+
+**Bio passage - exact player copy:** She has presented incoming capital as a sign of confidence and must now explain what the same exchange-rate move costs exporters. Appreciation initially looks like strength without its trade consequences.
+
+**Bio reflection question - exact player copy:** Why should Nia compare capital inflows with exporter effects?
+
+**Bio reveal answer - exact player copy:** The same currency movement can make financing easier while making domestic exports more expensive abroad.
+
+**Bio feedback - exact player copy:** Include the financing benefit and the trade cost in the same explanation.
+
+**Bio check behavior:** On explicit opening of this character’s optional roster page after their first encounter, show only the bio passage and reflection question. Reveal answer and feedback only when the player selects Show answer; allow reconsideration and reopening. This is an unscored reading reflection, with no automatic correctness judgment, stop number, RP, timer cost, mission prerequisite, mastery credit, story flag or unlock. No answer or future arc is required to continue. Designer profile fields and future dialogue are not player-visible biography text.
+
+**Conditional greeting binding:** On explicit Talk to Nia after the character has been introduced, use the highest satisfied row only. Later states override earlier ones. A state changes only from the existing accepted-stop record, never from reading the bio. Lines may be reopened on explicit request; do not autoplay a greeting already spoken as a scene line at that encounter. No new travel or required conversation is created. Presence is local only at the character’s existing location; otherwise use the established radio connection. Log spoken text; pause the timer while it is open.
+
+| Priority | Condition | Exact greeting |
+|---:|---|---|
+| 30 | Stop 55 accepted | “The board gets both sides of the currency move before it chooses.” |
+| 20 | Stop 36 accepted; Stop 55 not accepted | “The financing gain and the lost orders belong in the same report.” |
+| 10 | Introduced; Stop 36 not accepted; fallback | “Who gains at this exchange rate?” |
+
+### Rhea Dane
+
+- **Character ID:** `person-rhea-dane`
+- **Display name:** Rhea Dane
+- **Role:** finance minister
+- **Pronouns:** she/her
+- **Allowed short name:** Rhea
+- **Area ownership:** Statistics Floor; Exchange Counter; Rate Room. Existing division assignments in the reference summary also remain in force; presence elsewhere is explicitly by radio.
+- **First entrance:** Places the proposed support package beside the multiplier calculation. The established entrance is retained; the scene below stages the first evidence encounter in this arc. Binding: `changeover-rhea-entrance`, On arrival at Statistics Floor during Mission 5, when Stop 17 is the next active stop; if the player is already here, fire once on that stop’s existing activation instead of requiring re-entry, at `calculating-desk`.
+- **Wants and personal stake:** She has backed a support package that people expect to see quickly; shrinking it carries a visible political cost.
+- **Blind spot:** The announcement is immediate while implementation lags and displaced investment are less visible.
+- **Scientific domain:** fiscal support, policy lags and crowding out.
+- **Decision function:** Supplies the fiscal support, policy lags and crowding out constraint to the existing decisions at Stops 44 and 52; the player still submits the answer and the existing authority still controls authorization.
+- **Verbal habit:** “When does the help arrive?”
+- **Relationship pressure:** Eli Voss: She has backed a support package that people expect to see quickly; shrinking it carries a visible political cost.
+- **Arc, with source evidence:** After Stop 44 (Wait or bridge), `changeover-rhea-turn` makes the accepted evidence personally consequential. After Stop 52 (Keep full bridge), `changeover-rhea-payoff` shows the resulting change in practice: Amends the proposed bridge to the accepted smaller conditional package.
+- **Cost of changing:** The character must revise or qualify the commitment described under personal stake in front of the player and Eli Voss; the old interpretation remains reviewable rather than silently overwritten.
+- **Gameplay necessity:** Removing this character removes the accountable owner of fiscal support, policy lags and crowding out, the commitment above, and the witnessed correction in `changeover-rhea-turn`. Reassigning their questions alone would not preserve those scenes or constraints.
+
+**Bio passage - exact player copy:** She has backed a support package that people expect to see quickly; shrinking it carries a visible political cost. The announcement is immediate while implementation lags and displaced investment are less visible.
+
+**Bio reflection question - exact player copy:** Why might Rhea underweight policy lags?
+
+**Bio reveal answer - exact player copy:** A public announcement shows action immediately, but the economic help and its costs arrive on different schedules.
+
+**Bio feedback - exact player copy:** Follow the funds to their recipient rather than stopping at the announcement.
+
+**Bio check behavior:** On explicit opening of this character’s optional roster page after their first encounter, show only the bio passage and reflection question. Reveal answer and feedback only when the player selects Show answer; allow reconsideration and reopening. This is an unscored reading reflection, with no automatic correctness judgment, stop number, RP, timer cost, mission prerequisite, mastery credit, story flag or unlock. No answer or future arc is required to continue. Designer profile fields and future dialogue are not player-visible biography text.
+
+**Conditional greeting binding:** On explicit Talk to Rhea after the character has been introduced, use the highest satisfied row only. Later states override earlier ones. A state changes only from the existing accepted-stop record, never from reading the bio. Lines may be reopened on explicit request; do not autoplay a greeting already spoken as a scene line at that encounter. No new travel or required conversation is created. Presence is local only at the character’s existing location; otherwise use the established radio connection. Log spoken text; pause the timer while it is open.
+
+| Priority | Condition | Exact greeting |
+|---:|---|---|
+| 30 | Stop 52 accepted | “I will explain the smaller package myself, including why keeping the larger promise would cost more.” |
+| 20 | Stop 44 accepted; Stop 52 not accepted | “An announcement does not pay a wage before the funds reach it.” |
+| 10 | Introduced; Stop 44 not accepted; fallback | “When does the help arrive?” |
+
+### Soren Vale
+
+- **Character ID:** `person-soren-vale`
+- **Display name:** Soren Vale
+- **Role:** export council liaison
+- **Pronouns:** he/him
+- **Allowed short name:** Soren
+- **Area ownership:** Open-Economy Floor; Rate Room. Existing division assignments in the reference summary also remain in force; presence elsewhere is explicitly by radio.
+- **First entrance:** Places the current shipment orders beside the foreign-payment record. The established entrance is retained; the scene below stages the first evidence encounter in this arc. Binding: `changeover-soren-entrance`, On arrival at Open-Economy Floor during Mission 9, when Stop 33 is the next active stop; if the player is already here, fire once on that stop’s existing activation instead of requiring re-entry, at `trade-ledger`.
+- **Wants and personal stake:** He represents firms trying to keep orders and jobs through the conversion and wants the board to hear their losses.
+- **Blind spot:** A cheaper currency can look costless when only export sales are considered.
+- **Scientific domain:** export orders and imported-input costs.
+- **Decision function:** Supplies the export orders and imported-input costs constraint to the existing decisions at Stops 35 and 59; the player still submits the answer and the existing authority still controls authorization.
+- **Verbal habit:** “What happens to the next order?”
+- **Relationship pressure:** The player relies on Soren for export orders and imported-input costs; their shared working assumption is challenged in `changeover-soren-turn`.
+- **Arc, with source evidence:** After Stop 35 (Exporter effect), `changeover-soren-turn` makes the accepted evidence personally consequential. After Stop 59 (Consequence audit), `changeover-soren-payoff` shows the resulting change in practice: Retains the exporter consequences beside the final threshold audit.
+- **Cost of changing:** The character must revise or qualify the commitment described under personal stake in front of the player; the old interpretation remains reviewable rather than silently overwritten.
+- **Gameplay necessity:** Removing this character removes the accountable owner of export orders and imported-input costs, the commitment above, and the witnessed correction in `changeover-soren-turn`. Reassigning their questions alone would not preserve those scenes or constraints.
+
+**Bio passage - exact player copy:** He represents firms trying to keep orders and jobs through the conversion and wants the board to hear their losses. A cheaper currency can look costless when only export sales are considered.
+
+**Bio reflection question - exact player copy:** Why can Soren not treat depreciation as an unqualified benefit?
+
+**Bio reveal answer - exact player copy:** Exporters may gain sales while paying more for imported inputs; both affect the jobs he is trying to protect.
+
+**Bio feedback - exact player copy:** The export selling price and the imported-input bill can move against each other.
+
+**Bio check behavior:** On explicit opening of this character’s optional roster page after their first encounter, show only the bio passage and reflection question. Reveal answer and feedback only when the player selects Show answer; allow reconsideration and reopening. This is an unscored reading reflection, with no automatic correctness judgment, stop number, RP, timer cost, mission prerequisite, mastery credit, story flag or unlock. No answer or future arc is required to continue. Designer profile fields and future dialogue are not player-visible biography text.
+
+**Conditional greeting binding:** On explicit Talk to Soren after the character has been introduced, use the highest satisfied row only. Later states override earlier ones. A state changes only from the existing accepted-stop record, never from reading the bio. Lines may be reopened on explicit request; do not autoplay a greeting already spoken as a scene line at that encounter. No new travel or required conversation is created. Presence is local only at the character’s existing location; otherwise use the established radio connection. Log spoken text; pause the timer while it is open.
+
+| Priority | Condition | Exact greeting |
+|---:|---|---|
+| 30 | Stop 59 accepted | “Keep the first-week cover tied to the costs we can show.” |
+| 20 | Stop 35 accepted; Stop 59 not accepted | “A cheaper selling price abroad does not make our imported supplies cheaper.” |
+| 10 | Introduced; Stop 35 not accepted; fallback | “What happens to the next order?” |
+
 
 ## 5. Character direction and dialogue rules
 
@@ -503,6 +820,18 @@ Eli is rationing counter windows while Lina's first price marks appear outside. 
 **Objective:** Separate useful economic measures from alarming but incomplete signals. The glossary, primer, equations, and stop connections above define the exact AP Macroeconomics concepts used here.
 
 
+### Character scene: changeover-eli-entrance
+
+**Trigger:** On arrival at Exchange Counter during Mission 1, when Stop 1 is the next active stop; if the player is already here, fire once on that stop’s existing activation instead of requiring re-entry.
+**Location and presence:** `queue-board` in Exchange Counter. Eli Voss, counter operations lead, speaks by radio unless already placed locally by the existing beat; do not teleport or duplicate the character. Any second speaker is explicitly remote.
+**Presentation:** Normal playable view; existing fixture evidence plus radio/nearby bubbles. Continue the existing arrival beat before the question opens. This is authored scene content, not another graded interaction.
+**Exact action / accessible description:** Moves between the queue board and the counter allocation slate, checking where work is stalled.
+**Exact dialogue:**
+- Eli Voss, counter operations lead: “I have to explain this delay to the next family at the counter; tell me which part of it we can fix.”
+
+**World-state effect:** No result is added or revealed; the encounter introduces the record or equipment already available for this stop.
+**Controls, persistence and retry:** Pause the timer during bubbles; one Continue per bubble restores control. At most two bubbles in this scene. Fire once per relevant accepted-state transition, not on wrong submissions; mission retry restores its snapshot and replay status. Retain accepted record and completed lines in the log. Use `changeover-eli-entrance` only as a story-presentation key, never as a stop or fixture ID. No RP, metric, mastery or travel-unlock effect. At Stop 60 this is part of the existing pre-ending reaction; do not delay the ending with optional roster material.
+
 ## Stop 1 - Signal or statistic
 
 **Format/placement:** CHOICE, asked by Eli Voss beside `queue-board`.
@@ -715,6 +1044,18 @@ derive:
 **Wrong-path feedback:** A demand increase cannot explain falling quantity.
 
 **State/output:** port delivery clue logged; unlock S4.
+
+### Character scene: changeover-mara-entrance
+
+**Trigger:** On arrival at Exchange Counter during Mission 1, when Stop 4 is the next active stop; if the player is already here, fire once on that stop’s existing activation instead of requiring re-entry.
+**Location and presence:** `wage-notice-rail` in Exchange Counter. Mara Venn, Board Chair, speaks by radio unless already placed locally by the existing beat; do not teleport or duplicate the character. Any second speaker is explicitly remote.
+**Presentation:** Normal playable view; existing fixture evidence plus radio/nearby bubbles. Continue the existing arrival beat before the question opens. This is authored scene content, not another graded interaction.
+**Exact action / accessible description:** Keeps the material from the opening handover available beside the current evidence.
+**Exact dialogue:**
+- Mara Venn, Board Chair: “I gave the public a date; help me keep it without promising a policy we cannot defend.”
+
+**World-state effect:** No result is added or revealed; the encounter introduces the record or equipment already available for this stop.
+**Controls, persistence and retry:** Pause the timer during bubbles; one Continue per bubble restores control. At most two bubbles in this scene. Fire once per relevant accepted-state transition, not on wrong submissions; mission retry restores its snapshot and replay status. Retain accepted record and completed lines in the log. Use `changeover-mara-entrance` only as a story-presentation key, never as a stop or fixture ID. No RP, metric, mastery or travel-unlock effect. At Stop 60 this is part of the existing pre-ending reaction; do not delay the ending with optional roster material.
 
 ## Stop 4 - Page one standard
 
@@ -1372,6 +1713,18 @@ Idris has a nominal ledger that includes transfers and securities. The one-locat
 **Objective:** Build GDP correctly and separate nominal growth from real growth. The glossary, primer, equations, and stop connections above define the exact AP Macroeconomics concepts used here.
 
 
+### Character scene: changeover-idris-entrance
+
+**Trigger:** On arrival at Statistics Floor during Mission 2, when Stop 5 is the next active stop; if the player is already here, fire once on that stop’s existing activation instead of requiring re-entry.
+**Location and presence:** `output-ledger` in Statistics Floor. Idris Pell, national accounts chief, speaks by radio unless already placed locally by the existing beat; do not teleport or duplicate the character. Any second speaker is explicitly remote.
+**Presentation:** Normal playable view; existing fixture evidence plus radio/nearby bubbles. Continue the existing arrival beat before the question opens. This is authored scene content, not another graded interaction.
+**Exact action / accessible description:** Separates the eligible output entries from transfers before totaling the ledger.
+**Exact dialogue:**
+- Idris Pell, national accounts chief: “Other teams will use our total to choose policy; I need them to understand what went into it.”
+
+**World-state effect:** No result is added or revealed; the encounter introduces the record or equipment already available for this stop.
+**Controls, persistence and retry:** Pause the timer during bubbles; one Continue per bubble restores control. At most two bubbles in this scene. Fire once per relevant accepted-state transition, not on wrong submissions; mission retry restores its snapshot and replay status. Retain accepted record and completed lines in the log. Use `changeover-idris-entrance` only as a story-presentation key, never as a stop or fixture ID. No RP, metric, mastery or travel-unlock effect. At Stop 60 this is part of the existing pre-ending reaction; do not delay the ending with optional roster material.
+
 ## Stop 5 - Classify the ledger
 
 **Format/placement:** PROTOCOL, at `output-ledger`.
@@ -1557,6 +1910,19 @@ derive:
 **Wrong-path feedback:** A different response does not fit the displayed evidence. A defensible aggregate states both what it counts and how prices were handled.
 
 **State/output:** Page 2 signed.
+
+### Character scene: changeover-idris-turn
+
+**Trigger:** After Stop 8 is accepted.
+**Location and presence:** `output-ledger` in Statistics Floor. Idris Pell, national accounts chief, speaks by radio unless already placed locally by the existing beat; do not teleport or duplicate the character. Any second speaker is explicitly remote.
+**Presentation:** Normal playable view; existing fixture evidence plus radio/nearby bubbles. Run after accepted-result feedback and before the existing departure or mission-outcome beat. This is authored scene content, not another graded interaction.
+**Exact action / accessible description:** Keeps the real-output line beside the nominal sales figure.
+**Exact dialogue:**
+- Idris Pell, national accounts chief: “The arithmetic closes; the growth claim still has to survive the price correction.”
+
+**World-state effect:** Preserve the existing accepted result and attach this reaction to its mission-log entry. The physical record remains at this fixture with the accepted scope; no new measurement, repair, signature authority or clearance is created by dialogue.
+**Controls, persistence and retry:** Pause the timer during bubbles; one Continue per bubble restores control. At most two bubbles in this scene. Fire once per relevant accepted-state transition, not on wrong submissions; mission retry restores its snapshot and replay status. Retain accepted record and completed lines in the log. Use `changeover-idris-turn` only as a story-presentation key, never as a stop or fixture ID. No RP, metric, mastery or travel-unlock effect. At Stop 60 this is part of the existing pre-ending reaction; do not delay the ending with optional roster material.
+
 
 ## Mission outcome
 
@@ -1954,6 +2320,18 @@ One-location PRICES. Lina defends the old basket. S1 prices it, S2 derives infla
 **Objective:** Test whether the fixed basket represents current household costs. The glossary, primer, equations, and stop connections above define the exact AP Macroeconomics concepts used here.
 
 
+### Character scene: changeover-lina-entrance
+
+**Trigger:** On arrival at Statistics Floor during Mission 3, when Stop 9 is the next active stop; if the player is already here, fire once on that stop’s existing activation instead of requiring re-entry.
+**Location and presence:** `basket-table` in Statistics Floor. Lina Saye, price statistics lead, speaks by radio unless already placed locally by the existing beat; do not teleport or duplicate the character. Any second speaker is explicitly remote.
+**Presentation:** Normal playable view; existing fixture evidence plus radio/nearby bubbles. Continue the existing arrival beat before the question opens. This is authored scene content, not another graded interaction.
+**Exact action / accessible description:** Places the fixed basket beside the household purchase evidence.
+**Exact dialogue:**
+- Lina Saye, price statistics lead: “I need a way to repair representation without making our old comparisons disappear.”
+
+**World-state effect:** No result is added or revealed; the encounter introduces the record or equipment already available for this stop.
+**Controls, persistence and retry:** Pause the timer during bubbles; one Continue per bubble restores control. At most two bubbles in this scene. Fire once per relevant accepted-state transition, not on wrong submissions; mission retry restores its snapshot and replay status. Retain accepted record and completed lines in the log. Use `changeover-lina-entrance` only as a story-presentation key, never as a stop or fixture ID. No RP, metric, mastery or travel-unlock effect. At Stop 60 this is part of the existing pre-ending reaction; do not delay the ending with optional roster material.
+
 ## Stop 9 - Price the fixed basket
 
 **Format/placement:** DERIVE, at `basket-table`.
@@ -2181,6 +2559,20 @@ stress:
 **Wrong-path feedback:** A different response does not fit the displayed evidence. Publishing both measures prevents a convenient revision from erasing history or a stale basket from hiding bias.
 
 **State/output:** Page 3 signed; port-energy clue logged.
+
+### Character scene: changeover-lina-turn
+
+**Trigger:** After Stop 12 is accepted.
+**Location and presence:** `basket-table` in Statistics Floor. Lina Saye, price statistics lead, speaks by radio unless already placed locally by the existing beat; do not teleport or duplicate the character. Any second speaker is explicitly remote.
+**Presentation:** Normal playable view; existing fixture evidence plus radio/nearby bubbles. Run after accepted-result feedback and before the existing departure or mission-outcome beat. This is authored scene content, not another graded interaction.
+**Exact action / accessible description:** Keeps the historical index and the representative companion measure visibly distinct.
+**Exact dialogue:**
+- Lina Saye, price statistics lead: “I will not rewrite the past, but I will not ask these families to disappear from the present.”
+- Idris Pell, national accounts chief (radio): “Keep both series named; I can carry that distinction into the output report.”
+
+**World-state effect:** Preserve the existing accepted result and attach this reaction to its mission-log entry. The physical record remains at this fixture with the accepted scope; no new measurement, repair, signature authority or clearance is created by dialogue.
+**Controls, persistence and retry:** Pause the timer during bubbles; one Continue per bubble restores control. At most two bubbles in this scene. Fire once per relevant accepted-state transition, not on wrong submissions; mission retry restores its snapshot and replay status. Retain accepted record and completed lines in the log. Use `changeover-lina-turn` only as a story-presentation key, never as a stop or fixture ID. No RP, metric, mastery or travel-unlock effect. At Stop 60 this is part of the existing pre-ending reaction; do not delay the ending with optional roster material.
+
 
 ## Mission outcome
 
@@ -3108,6 +3500,18 @@ PRICES→RATE. Rhea wants an announcement now. S1 derives MPS, S2 both multiplie
 
 **Objective:** Calculate the spending and tax changes that target the measured gap. The glossary, primer, equations, and stop connections above define the exact AP Macroeconomics concepts used here.
 
+
+### Character scene: changeover-rhea-entrance
+
+**Trigger:** On arrival at Statistics Floor during Mission 5, when Stop 17 is the next active stop; if the player is already here, fire once on that stop’s existing activation instead of requiring re-entry.
+**Location and presence:** `calculating-desk` in Statistics Floor. Rhea Dane, finance minister, speaks by radio unless already placed locally by the existing beat; do not teleport or duplicate the character. Any second speaker is explicitly remote.
+**Presentation:** Normal playable view; existing fixture evidence plus radio/nearby bubbles. Continue the existing arrival beat before the question opens. This is authored scene content, not another graded interaction.
+**Exact action / accessible description:** Places the proposed support package beside the multiplier calculation.
+**Exact dialogue:**
+- Rhea Dane, finance minister: “Tell me when the promised support can actually reach the people at your counters.”
+
+**World-state effect:** No result is added or revealed; the encounter introduces the record or equipment already available for this stop.
+**Controls, persistence and retry:** Pause the timer during bubbles; one Continue per bubble restores control. At most two bubbles in this scene. Fire once per relevant accepted-state transition, not on wrong submissions; mission retry restores its snapshot and replay status. Retain accepted record and completed lines in the log. Use `changeover-rhea-entrance` only as a story-presentation key, never as a stop or fixture ID. No RP, metric, mastery or travel-unlock effect. At Stop 60 this is part of the existing pre-ending reaction; do not delay the ending with optional roster material.
 
 ## Stop 17 - Split the next crown
 
@@ -4587,6 +4991,18 @@ NOTES→BANKS, unlocked when S2 traces sacks to deposits. Tomas stops a truck fr
 **Objective:** Trace old cash into deposits and lending capacity. The glossary, primer, equations, and stop connections above define the exact AP Macroeconomics concepts used here.
 
 
+### Character scene: changeover-tomas-entrance
+
+**Trigger:** On arrival at Note Hall during Mission 7, when Stop 25 is the next active stop; if the player is already here, fire once on that stop’s existing activation instead of requiring re-entry.
+**Location and presence:** `note-scale` in Note Hall. Tomas Arendt, bank supervision lead, speaks by radio unless already placed locally by the existing beat; do not teleport or duplicate the character. Any second speaker is explicitly remote.
+**Presentation:** Normal playable view; existing fixture evidence plus radio/nearby bubbles. Continue the existing arrival beat before the question opens. This is authored scene content, not another graded interaction.
+**Exact action / accessible description:** Checks the bank balance sheets against the money-market console.
+**Exact dialogue:**
+- Tomas Arendt, bank supervision lead: “The counters need usable funds at opening time; a lending ceiling on my sheet cannot stand in for that.”
+
+**World-state effect:** No result is added or revealed; the encounter introduces the record or equipment already available for this stop.
+**Controls, persistence and retry:** Pause the timer during bubbles; one Continue per bubble restores control. At most two bubbles in this scene. Fire once per relevant accepted-state transition, not on wrong submissions; mission retry restores its snapshot and replay status. Retain accepted record and completed lines in the log. Use `changeover-tomas-entrance` only as a story-presentation key, never as a stop or fixture ID. No RP, metric, mastery or travel-unlock effect. At Stop 60 this is part of the existing pre-ending reaction; do not delay the ending with optional roster material.
+
 ## Stop 25 - Count M1 and M2
 
 **Format/placement:** DERIVE, at `note-scale`.
@@ -4800,6 +5216,19 @@ derive:
 **Wrong-path feedback:** A different response does not fit the displayed evidence. A visible fall in currency can be portfolio migration rather than a fall in spendable money.
 
 **State/output:** Page 7 signed.
+
+### Character scene: changeover-eli-turn
+
+**Trigger:** After Stop 28 is accepted.
+**Location and presence:** `money-market-console` in Bank Supervision. Eli Voss, counter operations lead, speaks by radio unless already placed locally by the existing beat; do not teleport or duplicate the character. Any second speaker is explicitly remote.
+**Presentation:** Normal playable view; existing fixture evidence plus radio/nearby bubbles. Run after accepted-result feedback and before the existing departure or mission-outcome beat. This is authored scene content, not another graded interaction.
+**Exact action / accessible description:** Sets the note-return trail beside the queue record.
+**Exact dialogue:**
+- Eli Voss, counter operations lead: “The line outside is real; it does not tell us what happened to the whole money supply.”
+
+**World-state effect:** Preserve the existing accepted result and attach this reaction to its mission-log entry. The physical record remains at this fixture with the accepted scope; no new measurement, repair, signature authority or clearance is created by dialogue.
+**Controls, persistence and retry:** Pause the timer during bubbles; one Continue per bubble restores control. At most two bubbles in this scene. Fire once per relevant accepted-state transition, not on wrong submissions; mission retry restores its snapshot and replay status. Retain accepted record and completed lines in the log. Use `changeover-eli-turn` only as a story-presentation key, never as a stop or fixture ID. No RP, metric, mastery or travel-unlock effect. At Stop 60 this is part of the existing pre-ending reaction; do not delay the ending with optional roster material.
+
 
 ## Mission outcome
 
@@ -5353,6 +5782,19 @@ stress:
 
 **State/output:** Page 8 signed.
 
+### Character scene: changeover-tomas-turn
+
+**Trigger:** After Stop 32 is accepted.
+**Location and presence:** `bond-panel` in Bank Supervision. Tomas Arendt, bank supervision lead, speaks by radio unless already placed locally by the existing beat; do not teleport or duplicate the character. Any second speaker is explicitly remote.
+**Presentation:** Normal playable view; existing fixture evidence plus radio/nearby bubbles. Run after accepted-result feedback and before the existing departure or mission-outcome beat. This is authored scene content, not another graded interaction.
+**Exact action / accessible description:** Leaves the stressed rate proposal beside the reserve calculation.
+**Exact dialogue:**
+- Tomas Arendt, bank supervision lead: “Room to lend is not a commitment to lend; we cannot book it as money already moving.”
+
+**World-state effect:** Preserve the existing accepted result and attach this reaction to its mission-log entry. The physical record remains at this fixture with the accepted scope; no new measurement, repair, signature authority or clearance is created by dialogue.
+**Controls, persistence and retry:** Pause the timer during bubbles; one Continue per bubble restores control. At most two bubbles in this scene. Fire once per relevant accepted-state transition, not on wrong submissions; mission retry restores its snapshot and replay status. Retain accepted record and completed lines in the log. Use `changeover-tomas-turn` only as a story-presentation key, never as a stop or fixture ID. No RP, metric, mastery or travel-unlock effect. At Stop 60 this is part of the existing pre-ending reaction; do not delay the ending with optional roster material.
+
+
 ## Mission outcome
 
 Mission decision: Do not raise rates now. The real rate is already 1.5%, and a hike would reduce investment and AD while output is below capacity. The board holds the tool. Foreign buyers then flood the bond desk.
@@ -5808,6 +6250,30 @@ TRADE→RATE when S2 proves appreciation. Nia initially calls it confidence; Sor
 **Objective:** Connect balance of payments, exchange rates, and net exports. The glossary, primer, equations, and stop connections above define the exact AP Macroeconomics concepts used here.
 
 
+### Character scene: changeover-nia-entrance
+
+**Trigger:** On arrival at Open-Economy Floor during Mission 9, when Stop 33 is the next active stop; if the player is already here, fire once on that stop’s existing activation instead of requiring re-entry.
+**Location and presence:** `trade-ledger` in Open-Economy Floor. Nia Corren, open-economy analyst, speaks by radio unless already placed locally by the existing beat; do not teleport or duplicate the character. Any second speaker is explicitly remote.
+**Presentation:** Normal playable view; existing fixture evidence plus radio/nearby bubbles. Continue the existing arrival beat before the question opens. This is authored scene content, not another graded interaction.
+**Exact action / accessible description:** Checks foreign-payment entries against the shipment board.
+**Exact dialogue:**
+- Nia Corren, open-economy analyst: “Bring me the orders behind the exchange-rate argument so I can show the board both consequences.”
+
+**World-state effect:** No result is added or revealed; the encounter introduces the record or equipment already available for this stop.
+**Controls, persistence and retry:** Pause the timer during bubbles; one Continue per bubble restores control. At most two bubbles in this scene. Fire once per relevant accepted-state transition, not on wrong submissions; mission retry restores its snapshot and replay status. Retain accepted record and completed lines in the log. Use `changeover-nia-entrance` only as a story-presentation key, never as a stop or fixture ID. No RP, metric, mastery or travel-unlock effect. At Stop 60 this is part of the existing pre-ending reaction; do not delay the ending with optional roster material.
+
+### Character scene: changeover-soren-entrance
+
+**Trigger:** On arrival at Open-Economy Floor during Mission 9, when Stop 33 is the next active stop; if the player is already here, fire once on that stop’s existing activation instead of requiring re-entry.
+**Location and presence:** `trade-ledger` in Open-Economy Floor. Soren Vale, export council liaison, speaks by radio unless already placed locally by the existing beat; do not teleport or duplicate the character. Any second speaker is explicitly remote.
+**Presentation:** Normal playable view; existing fixture evidence plus radio/nearby bubbles. Continue the existing arrival beat before the question opens. This is authored scene content, not another graded interaction.
+**Exact action / accessible description:** Places the current shipment orders beside the foreign-payment record.
+**Exact dialogue:**
+- Soren Vale, export council liaison: “These orders mean work for the firms I represent; I need the board to see the costs behind the currency headline.”
+
+**World-state effect:** No result is added or revealed; the encounter introduces the record or equipment already available for this stop.
+**Controls, persistence and retry:** Pause the timer during bubbles; one Continue per bubble restores control. At most two bubbles in this scene. Fire once per relevant accepted-state transition, not on wrong submissions; mission retry restores its snapshot and replay status. Retain accepted record and completed lines in the log. Use `changeover-soren-entrance` only as a story-presentation key, never as a stop or fixture ID. No RP, metric, mastery or travel-unlock effect. At Stop 60 this is part of the existing pre-ending reaction; do not delay the ending with optional roster material.
+
 ## Stop 33 - Close payments
 
 **Format/placement:** BALANCE, at `trade-ledger`.
@@ -5953,6 +6419,19 @@ derive:
 
 **State/output:** Record the result and unlock the next named stop.
 
+### Character scene: changeover-soren-turn
+
+**Trigger:** After Stop 35 is accepted.
+**Location and presence:** `forex-console` in Open-Economy Floor. Soren Vale, export council liaison, speaks by radio unless already placed locally by the existing beat; do not teleport or duplicate the character. Any second speaker is explicitly remote.
+**Presentation:** Normal playable view; existing fixture evidence plus radio/nearby bubbles. Run after accepted-result feedback and before the existing departure or mission-outcome beat. This is authored scene content, not another graded interaction.
+**Exact action / accessible description:** Adds imported-input costs beside the export response from the controlled comparison.
+**Exact dialogue:**
+- Soren Vale, export council liaison: “A cheaper selling price abroad does not make our imported supplies cheaper.”
+
+**World-state effect:** Preserve the existing accepted result and attach this reaction to its mission-log entry. The physical record remains at this fixture with the accepted scope; no new measurement, repair, signature authority or clearance is created by dialogue.
+**Controls, persistence and retry:** Pause the timer during bubbles; one Continue per bubble restores control. At most two bubbles in this scene. Fire once per relevant accepted-state transition, not on wrong submissions; mission retry restores its snapshot and replay status. Retain accepted record and completed lines in the log. Use `changeover-soren-turn` only as a story-presentation key, never as a stop or fixture ID. No RP, metric, mastery or travel-unlock effect. At Stop 60 this is part of the existing pre-ending reaction; do not delay the ending with optional roster material.
+
+
 ## Stop 36 - Good news
 
 **Format/placement:** CHOICE, asked by Nia Corren beside `shipment-board`.
@@ -5995,6 +6474,20 @@ derive:
 **Wrong-path feedback:** (1) **Entirely beneficial:** Financing helps, but currency appreciation can reduce exports and aggregate demand. (2) **Entirely harmful:** The inflow finances the current-account deficit, so it has a real benefit as well as a cost. (4) **Accounts need not balance:** With consistent signs and measurement, the current and financial accounts offset.
 
 **State/output:** Page 9 signed.
+
+### Character scene: changeover-nia-turn
+
+**Trigger:** After Stop 36 is accepted.
+**Location and presence:** `shipment-board` in Open-Economy Floor. Nia Corren, open-economy analyst, speaks by radio unless already placed locally by the existing beat; do not teleport or duplicate the character. Any second speaker is explicitly remote.
+**Presentation:** Normal playable view; existing fixture evidence plus radio/nearby bubbles. Run after accepted-result feedback and before the existing departure or mission-outcome beat. This is authored scene content, not another graded interaction.
+**Exact action / accessible description:** Keeps the exporter response beside the capital-inflow result.
+**Exact dialogue:**
+- Nia Corren, open-economy analyst: “The financing gain and the lost orders belong in the same report.”
+- Soren Vale, export council liaison (radio): “Then keep our imported-input costs on that page too.”
+
+**World-state effect:** Preserve the existing accepted result and attach this reaction to its mission-log entry. The physical record remains at this fixture with the accepted scope; no new measurement, repair, signature authority or clearance is created by dialogue.
+**Controls, persistence and retry:** Pause the timer during bubbles; one Continue per bubble restores control. At most two bubbles in this scene. Fire once per relevant accepted-state transition, not on wrong submissions; mission retry restores its snapshot and replay status. Retain accepted record and completed lines in the log. Use `changeover-nia-turn` only as a story-presentation key, never as a stop or fixture ID. No RP, metric, mastery or travel-unlock effect. At Stop 60 this is part of the existing pre-ending reaction; do not delay the ending with optional roster material.
+
 
 ## Mission outcome
 
@@ -6711,6 +7204,19 @@ stress:
 
 **State/output:** Page 10 signed.
 
+### Character scene: changeover-mara-turn
+
+**Trigger:** After Stop 40 is accepted.
+**Location and presence:** `forecast-table` in Rate Room. Mara Venn, Board Chair, speaks by radio unless already placed locally by the existing beat; do not teleport or duplicate the character. Any second speaker is explicitly remote.
+**Presentation:** Normal playable view; existing fixture evidence plus radio/nearby bubbles. Run after accepted-result feedback and before the existing departure or mission-outcome beat. This is authored scene content, not another graded interaction.
+**Exact action / accessible description:** Leaves the failed permanent-tightening claim visible beside the forecast.
+**Exact dialogue:**
+- Mara Venn, Board Chair: “I wanted one firm answer; that does not make one rate right for every condition.”
+
+**World-state effect:** Preserve the existing accepted result and attach this reaction to its mission-log entry. The physical record remains at this fixture with the accepted scope; no new measurement, repair, signature authority or clearance is created by dialogue.
+**Controls, persistence and retry:** Pause the timer during bubbles; one Continue per bubble restores control. At most two bubbles in this scene. Fire once per relevant accepted-state transition, not on wrong submissions; mission retry restores its snapshot and replay status. Retain accepted record and completed lines in the log. Use `changeover-mara-turn` only as a story-presentation key, never as a stop or fixture ID. No RP, metric, mastery or travel-unlock effect. At Stop 60 this is part of the existing pre-ending reaction; do not delay the ending with optional roster material.
+
+
 ## Mission outcome
 
 Mission decision: Do not tighten policy for a short price shock. New data support the supply-shock model. Slow money growth points to about 2% long-run inflation. Use set rules, not fear. Wage contracts will adjust later.
@@ -7345,6 +7851,20 @@ allocate_patch:
 
 **State/output:** Page 11.
 
+### Character scene: changeover-rhea-turn
+
+**Trigger:** After Stop 44 is accepted.
+**Location and presence:** `allocation-slate` in Exchange Counter. Rhea Dane, finance minister, speaks by radio unless already placed locally by the existing beat; do not teleport or duplicate the character. Any second speaker is explicitly remote.
+**Presentation:** Normal playable view; existing fixture evidence plus radio/nearby bubbles. Run after accepted-result feedback and before the existing departure or mission-outcome beat. This is authored scene content, not another graded interaction.
+**Exact action / accessible description:** Marks the bridge plan’s timing limits rather than repeating the announcement date.
+**Exact dialogue:**
+- Rhea Dane, finance minister: “An announcement does not pay a wage before the funds reach it.”
+- Eli Voss, counter operations lead (radio): “The queue will still be here while an announcement works through the system.”
+
+**World-state effect:** Preserve the existing accepted result and attach this reaction to its mission-log entry. The physical record remains at this fixture with the accepted scope; no new measurement, repair, signature authority or clearance is created by dialogue.
+**Controls, persistence and retry:** Pause the timer during bubbles; one Continue per bubble restores control. At most two bubbles in this scene. Fire once per relevant accepted-state transition, not on wrong submissions; mission retry restores its snapshot and replay status. Retain accepted record and completed lines in the log. Use `changeover-rhea-turn` only as a story-presentation key, never as a stop or fixture ID. No RP, metric, mastery or travel-unlock effect. At Stop 60 this is part of the existing pre-ending reaction; do not delay the ending with optional roster material.
+
+
 ## Mission outcome
 
 Mission decision: Self-correction is too slow. Use automatic stabilizers and a short bridge for capital and training. End the plan when its trigger is met. Bank ledgers now show that 4.15 works only when reserves arrive on time.
@@ -7791,6 +8311,19 @@ derive:
 
 **State/output:** Record the result and unlock the next named stop.
 
+### Character scene: changeover-tomas-payoff
+
+**Trigger:** After Stop 46 is accepted.
+**Location and presence:** `reserve-clock` in Bank Supervision. Tomas Arendt, bank supervision lead, speaks by radio unless already placed locally by the existing beat; do not teleport or duplicate the character. Any second speaker is explicitly remote.
+**Presentation:** Normal playable view; existing fixture evidence plus radio/nearby bubbles. Run after accepted-result feedback and before the existing departure or mission-outcome beat. This is authored scene content, not another graded interaction.
+**Exact action / accessible description:** Keeps the measured reserve-arrival time beside the opening schedule.
+**Exact dialogue:**
+- Tomas Arendt, bank supervision lead: “These funds arrive in time for this operation; that is a claim we have actually tested.”
+
+**World-state effect:** Preserve the existing accepted result and attach this reaction to its mission-log entry. The physical record remains at this fixture with the accepted scope; no new measurement, repair, signature authority or clearance is created by dialogue.
+**Controls, persistence and retry:** Pause the timer during bubbles; one Continue per bubble restores control. At most two bubbles in this scene. Fire once per relevant accepted-state transition, not on wrong submissions; mission retry restores its snapshot and replay status. Retain accepted record and completed lines in the log. Use `changeover-tomas-payoff` only as a story-presentation key, never as a stop or fixture ID. No RP, metric, mastery or travel-unlock effect. At Stop 60 this is part of the existing pre-ending reaction; do not delay the ending with optional roster material.
+
+
 ## Stop 47 - Foreign echo
 
 **Format/placement:** TRACE, at `payment-wires`.
@@ -7887,6 +8420,19 @@ attest:
 **Wrong-path feedback:** A different response does not fit the displayed evidence. Operational safety requires arithmetic, timing, and independent market evidence.
 
 **State/output:** Page 12.
+
+### Character scene: changeover-eli-payoff
+
+**Trigger:** After Stop 48 is accepted.
+**Location and presence:** `custody-desk` in Note Hall. Eli Voss, counter operations lead, speaks by radio unless already placed locally by the existing beat; do not teleport or duplicate the character. Any second speaker is explicitly remote.
+**Presentation:** Normal playable view; existing fixture evidence plus radio/nearby bubbles. Run after accepted-result feedback and before the existing departure or mission-outcome beat. This is authored scene content, not another graded interaction.
+**Exact action / accessible description:** Keeps the accepted custody and timing checks with the operating roster.
+**Exact dialogue:**
+- Eli Voss, counter operations lead: “I can open a counter on this evidence, with the cash and staff due at the right time.”
+
+**World-state effect:** Preserve the existing accepted result and attach this reaction to its mission-log entry. The physical record remains at this fixture with the accepted scope; no new measurement, repair, signature authority or clearance is created by dialogue.
+**Controls, persistence and retry:** Pause the timer during bubbles; one Continue per bubble restores control. At most two bubbles in this scene. Fire once per relevant accepted-state transition, not on wrong submissions; mission retry restores its snapshot and replay status. Retain accepted record and completed lines in the log. Use `changeover-eli-payoff` only as a story-presentation key, never as a stop or fixture ID. No RP, metric, mastery or travel-unlock effect. At Stop 60 this is part of the existing pre-ending reaction; do not delay the ending with optional roster material.
+
 
 ## Mission outcome
 
@@ -8475,6 +9021,20 @@ derive:
 
 **State/output:** Page 13.
 
+### Character scene: changeover-rhea-payoff
+
+**Trigger:** After Stop 52 is accepted.
+**Location and presence:** `signing-desk` in Rate Room. Rhea Dane, finance minister, speaks by radio unless already placed locally by the existing beat; do not teleport or duplicate the character. Any second speaker is explicitly remote.
+**Presentation:** Normal playable view; existing fixture evidence plus radio/nearby bubbles. Run after accepted-result feedback and before the existing departure or mission-outcome beat. This is authored scene content, not another graded interaction.
+**Exact action / accessible description:** Amends the proposed bridge to the accepted smaller conditional package.
+**Exact dialogue:**
+- Rhea Dane, finance minister: “I will explain the smaller package myself, including why keeping the larger promise would cost more.”
+- Eli Voss, counter operations lead (radio): “I can explain the bridge you can deliver more honestly than the larger one you cannot.”
+
+**World-state effect:** Preserve the existing accepted result and attach this reaction to its mission-log entry. The physical record remains at this fixture with the accepted scope; no new measurement, repair, signature authority or clearance is created by dialogue.
+**Controls, persistence and retry:** Pause the timer during bubbles; one Continue per bubble restores control. At most two bubbles in this scene. Fire once per relevant accepted-state transition, not on wrong submissions; mission retry restores its snapshot and replay status. Retain accepted record and completed lines in the log. Use `changeover-rhea-payoff` only as a story-presentation key, never as a stop or fixture ID. No RP, metric, mastery or travel-unlock effect. At Stop 60 this is part of the existing pre-ending reaction; do not delay the ending with optional roster material.
+
+
 ## Mission outcome
 
 Mission decision: Replace the full bridge with a smaller short-term plan. The full deficit raises real rates. It cuts private investment and net exports. The new plan protects both people and future growth.
@@ -8934,6 +9494,20 @@ TRADE→PRICES→RATE. Port evidence identifies shock; index wall quantifies pas
 
 **State/output:** Record the result and unlock the next named stop.
 
+### Character scene: changeover-lina-payoff
+
+**Trigger:** After Stop 54 is accepted.
+**Location and presence:** `price-history-board` in Statistics Floor. Lina Saye, price statistics lead, speaks by radio unless already placed locally by the existing beat; do not teleport or duplicate the character. Any second speaker is explicitly remote.
+**Presentation:** Normal playable view; existing fixture evidence plus radio/nearby bubbles. Run after accepted-result feedback and before the existing departure or mission-outcome beat. This is authored scene content, not another graded interaction.
+**Exact action / accessible description:** Attaches the independently tested pass-through result to the price record.
+**Exact dialogue:**
+- Lina Saye, price statistics lead: “This estimate has faced new prices; the old series alone could not answer that question.”
+- Idris Pell, national accounts chief (radio): “I will keep the tested price effect separate from real output.”
+
+**World-state effect:** Preserve the existing accepted result and attach this reaction to its mission-log entry. The physical record remains at this fixture with the accepted scope; no new measurement, repair, signature authority or clearance is created by dialogue.
+**Controls, persistence and retry:** Pause the timer during bubbles; one Continue per bubble restores control. At most two bubbles in this scene. Fire once per relevant accepted-state transition, not on wrong submissions; mission retry restores its snapshot and replay status. Retain accepted record and completed lines in the log. Use `changeover-lina-payoff` only as a story-presentation key, never as a stop or fixture ID. No RP, metric, mastery or travel-unlock effect. At Stop 60 this is part of the existing pre-ending reaction; do not delay the ending with optional roster material.
+
+
 ## Stop 55 - Full model stress
 
 **Format/placement:** STRESS, asked by Nia Corren beside `forecast-table`.
@@ -9003,6 +9577,20 @@ stress:
 **Wrong-path feedback:** A different response does not fit the displayed evidence. Robust policy preserves the sound ratio while treating the separate real shock.
 
 **State/output:** Record the result and unlock the next named stop.
+
+### Character scene: changeover-nia-payoff
+
+**Trigger:** After Stop 55 is accepted.
+**Location and presence:** `forecast-table` in Rate Room. Nia Corren, open-economy analyst, speaks by radio unless already placed locally by the existing beat; do not teleport or duplicate the character. Any second speaker is explicitly remote.
+**Presentation:** Normal playable view; existing fixture evidence plus radio/nearby bubbles. Run after accepted-result feedback and before the existing departure or mission-outcome beat. This is authored scene content, not another graded interaction.
+**Exact action / accessible description:** Retains the stressed exchange-rate consequences in the final forecast.
+**Exact dialogue:**
+- Nia Corren, open-economy analyst: “The board gets both sides of the currency move before it chooses.”
+- Soren Vale, export council liaison (radio): “That gives us a case for specific cover instead of a promise that one currency move helps everyone.”
+
+**World-state effect:** Preserve the existing accepted result and attach this reaction to its mission-log entry. The physical record remains at this fixture with the accepted scope; no new measurement, repair, signature authority or clearance is created by dialogue.
+**Controls, persistence and retry:** Pause the timer during bubbles; one Continue per bubble restores control. At most two bubbles in this scene. Fire once per relevant accepted-state transition, not on wrong submissions; mission retry restores its snapshot and replay status. Retain accepted record and completed lines in the log. Use `changeover-nia-payoff` only as a story-presentation key, never as a stop or fixture ID. No RP, metric, mastery or travel-unlock effect. At Stop 60 this is part of the existing pre-ending reaction; do not delay the ending with optional roster material.
+
 
 ## Stop 56 - Write thresholds first
 
@@ -9636,6 +10224,19 @@ estimate:
 
 **State/output:** Record the result and unlock the next named stop.
 
+### Character scene: changeover-idris-payoff
+
+**Trigger:** After Stop 57 is accepted.
+**Location and presence:** `live-economy-panel` in Exchange Counter. Idris Pell, national accounts chief, speaks by radio unless already placed locally by the existing beat; do not teleport or duplicate the character. Any second speaker is explicitly remote.
+**Presentation:** Normal playable view; existing fixture evidence plus radio/nearby bubbles. Run after accepted-result feedback and before the existing departure or mission-outcome beat. This is authored scene content, not another graded interaction.
+**Exact action / accessible description:** Checks that the live-economy panel uses the accepted definitions and real measures.
+**Exact dialogue:**
+- Idris Pell, national accounts chief: “Use the same scope here as in the ledger; a new headline does not change what we counted.”
+
+**World-state effect:** Preserve the existing accepted result and attach this reaction to its mission-log entry. The physical record remains at this fixture with the accepted scope; no new measurement, repair, signature authority or clearance is created by dialogue.
+**Controls, persistence and retry:** Pause the timer during bubbles; one Continue per bubble restores control. At most two bubbles in this scene. Fire once per relevant accepted-state transition, not on wrong submissions; mission retry restores its snapshot and replay status. Retain accepted record and completed lines in the log. Use `changeover-idris-payoff` only as a story-presentation key, never as a stop or fixture ID. No RP, metric, mastery or travel-unlock effect. At Stop 60 this is part of the existing pre-ending reaction; do not delay the ending with optional roster material.
+
+
 ## Stop 58 - Rate pair
 
 **Format/placement:** DERIVE, at `reserve-clock`.
@@ -9761,6 +10362,19 @@ trace:
 
 **State/output:** Record the result and unlock the next named stop.
 
+### Character scene: changeover-soren-payoff
+
+**Trigger:** After Stop 59 is accepted.
+**Location and presence:** `threshold-rail` in Rate Room. Soren Vale, export council liaison, speaks by radio unless already placed locally by the existing beat; do not teleport or duplicate the character. Any second speaker is explicitly remote.
+**Presentation:** Normal playable view; existing fixture evidence plus radio/nearby bubbles. Run after accepted-result feedback and before the existing departure or mission-outcome beat. This is authored scene content, not another graded interaction.
+**Exact action / accessible description:** Retains the exporter consequences beside the final threshold audit.
+**Exact dialogue:**
+- Soren Vale, export council liaison: “Keep the first-week cover tied to the costs we can show.”
+
+**World-state effect:** Preserve the existing accepted result and attach this reaction to its mission-log entry. The physical record remains at this fixture with the accepted scope; no new measurement, repair, signature authority or clearance is created by dialogue.
+**Controls, persistence and retry:** Pause the timer during bubbles; one Continue per bubble restores control. At most two bubbles in this scene. Fire once per relevant accepted-state transition, not on wrong submissions; mission retry restores its snapshot and replay status. Retain accepted record and completed lines in the log. Use `changeover-soren-payoff` only as a story-presentation key, never as a stop or fixture ID. No RP, metric, mastery or travel-unlock effect. At Stop 60 this is part of the existing pre-ending reaction; do not delay the ending with optional roster material.
+
+
 ## Stop 60 - Sign
 
 **Format/placement:** TRIGGER, at `conversion-desk`.
@@ -9824,6 +10438,19 @@ trigger:
 **Wrong-path feedback:** A different response does not fit the displayed evidence. Conditions turn one rate choice into a testable policy rather than a guess.
 
 **State/output:** Page 15; all locks; no more quizzes.
+
+### Character scene: changeover-mara-payoff
+
+**Trigger:** After Stop 60 is accepted.
+**Location and presence:** `conversion-desk` in Exchange Counter. Mara Venn, Board Chair, speaks by radio unless already placed locally by the existing beat; do not teleport or duplicate the character. Any second speaker is explicitly remote.
+**Presentation:** Normal playable view; existing fixture evidence plus radio/nearby bubbles. Run after accepted-result feedback and before the existing departure or mission-outcome beat. This is authored scene content, not another graded interaction.
+**Exact action / accessible description:** Signs the accepted conversion rule with its reversal conditions intact.
+**Exact dialogue:**
+- Mara Venn, Board Chair: “Publish the conditions too; changing course under that rule is part of keeping our promise.”
+
+**World-state effect:** Preserve the existing accepted result and attach this reaction to its mission-log entry. The physical record remains at this fixture with the accepted scope; no new measurement, repair, signature authority or clearance is created by dialogue.
+**Controls, persistence and retry:** Pause the timer during bubbles; one Continue per bubble restores control. At most two bubbles in this scene. Fire once per relevant accepted-state transition, not on wrong submissions; mission retry restores its snapshot and replay status. Retain accepted record and completed lines in the log. Use `changeover-mara-payoff` only as a story-presentation key, never as a stop or fixture ID. No RP, metric, mastery or travel-unlock effect. At Stop 60 this is part of the existing pre-ending reaction; do not delay the ending with optional roster material.
+
 
 ## Mission outcome
 

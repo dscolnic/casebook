@@ -148,49 +148,62 @@ roster:
   division: ARCHIVE
   pronouns: "operations chief; she/her"
   bio: |
-    Mara Vale is operations chief; she/her. Wants a signed rule each shift / trusts familiar charts. a signed rule each shift / trusts familiar charts. Says, "What changes?"
+    She has asked downstream crews to organize their shifts around the familiar release charts;
+    changing them means admitting those preparations may be wrong. Familiar charts feel
+    dependable because people have successfully worked from them.
 - id: okoro
   name: "Imani Okoro"
   role: "STORE division catchment hydrologist; she/her"
   division: STORE
   pronouns: "STORE division catchment hydrologist; she/her"
   bio: |
-    Imani Okoro is division catchment hydrologist; she/her. Wants protect forecast credibility / underweights unseen high ground. protect forecast credibility / underweights unseen high ground. Says, "What did the rain become?"
+    She has defended the forecast that gave the crew its preparation window; a late crest would
+    cost time that cannot be returned. She gives too little weight to high ground that the main
+    gauges do not see.
 - id: hassan
   name: "Leila Hassan"
   role: "INFLOW gauge operations hydrologist; she/her"
   division: INFLOW
   pronouns: "INFLOW gauge operations hydrologist; she/her"
   bio: |
-    Leila Hassan is gauge operations hydrologist; she/her. Wants preserve an auditable basin record / initially trusts dense sampling more than independent placement. preserve an auditable basin record / initially trusts dense sampling more than independent placement. Says, "Which gauge saw it?"
+    She has kept a dense basin record through difficult shifts and wants that work to remain
+    useful when the forecast is challenged. Many closely spaced readings can look more
+    reassuring than one independently placed gauge.
 - id: wilkes
   name: "Tomas Wilkes"
   role: "gate mechanic; he/him"
   division: GATES
   pronouns: "gate mechanic; he/him"
   bio: |
-    Tomas Wilkes is gate mechanic; he/him. Wants keep gates operable / trusts sound and experience. keep gates operable / trusts sound and experience. Says, "Can the steel do it twice?"
+    He has kept the gates working through repeated shifts and does not want a replacement plan
+    to demand motions the crew cannot repeat. The sound of a familiar mechanism can feel like
+    proof of its operating range.
 - id: baptiste
   name: "Elise Baptiste"
   role: "downstream safety lead; she/her"
   division: SAFE
   pronouns: "downstream safety lead; she/her"
   bio: |
-    Elise Baptiste is downstream safety lead; she/her. Wants never surprise a settlement / favors lower releases. never surprise a settlement / favors lower releases. Says, "Who hears it first?"
+    She has promised settlements that a warning will reach them before a release; a quiet
+    circuit puts that promise at risk. A smaller release feels safer even when delay leaves too
+    little storage for the storm.
 - id: mehta
   name: "Arun Mehta"
   role: "structural engineer; he/him"
   division: STRUCT
   pronouns: "structural engineer; he/him"
   bio: |
-    Arun Mehta is structural engineer; he/him. Wants protect the wall / treats silent instruments as danger. protect the wall / treats silent instruments as danger. Says, "Which reading is quiet?"
+    He is responsible for explaining quiet instruments to the crew standing on the dam; he would
+    rather delay than mistake silence for safety. Silence initially feels like evidence of
+    danger even before the measurement path is tested.
 - id: chen
   name: "Nia Chen"
   role: "power dispatcher; she/her"
   division: POWER
   pronouns: "power dispatcher; she/her"
   bio: |
-    Nia Chen is power dispatcher; she/her. Wants retain grid output / values turbine revenue too highly. retain grid output / values turbine revenue too highly. Says, "What do we lose per hour?"
+    She has promised generation to the grid and must explain every hour diverted from power
+    production. Revenue is easier to count than the reserve a demanding schedule consumes.
 
 glossary:
 - name: Calibration

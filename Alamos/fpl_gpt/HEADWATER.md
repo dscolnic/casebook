@@ -1,6 +1,8 @@
 # HEADWATER
 
-**Player-copy editing rule:** Within each displayed passage, state each fact, equation, variable definition, and instruction once. Integrate new givens into the existing wording; do not append a paraphrase of the setup. A source panel may repeat essential inputs so it stands alone, but render it as its own surface rather than concatenating it with the question setup. Go Deeper questions must still supply their own context and data without referring to earlier cases.
+**Editorial revision:** Character profiles, evidence-driven scenes and biography checks; 2026-09-09. All prior copy and opening-quote fixes retained.
+
+**Player-copy editing rule:** Raise a blocking `REPETITION_FLAG` for unresolved duplicated meaning within a displayed passage, including paraphrases, repeated formulas/definitions and concatenated setup/source copy. Review candidate matches semantically and document any separate-surface exception. Apply REP-001–REP-005 in Giant Gate v2.8.  Within each displayed passage, state each fact, equation, variable definition, and instruction once. Integrate new givens into the existing wording; do not append a paraphrase of the setup. A source panel may repeat essential inputs so it stands alone, but render it as its own surface rather than concatenating it with the question setup. Go Deeper questions must still supply their own context and data without referring to earlier cases.
 
 ## AP Calculus AB Campaign Implementation Bible
 
@@ -191,6 +193,16 @@ Water movement begins during the graded Stop 59 staged operation, never before p
 
 ## 4. Character bible
 
+### Profile and scene delivery contract
+
+The compact material below is a designer reference. The individual Character ID entries are the authoritative full profiles; reference rows and headings are not additional people. Render only the explicitly labeled bio fields in the optional roster. Wants, blind spots and future arc descriptions are designer-only. Keep the existing names, role aliases and division assignments; the explicit profiles add ownership and scene bindings without changing any person-stop owner.
+
+Each character has an entrance/evidence encounter, a required evidence-triggered turn and a later demonstrated change, embedded at the relevant mission stops below. These scenes are part of the story route, not prerequisites added by the roster. Opening handovers and established entrances play once. When an existing beat already supplies the same action or sentence at that trigger, render that action or sentence once and use this exact reaction as its character component; retain all distinct travel, science and outcome content. Sequence multiple scenes by their order in the chapter. Do not concatenate setup/source panels or duplicate the accepted answer in dialogue.
+
+All physical actions use the existing fixture and its records. A radio speaker can direct the player’s visible record handling; no new carried item, prop, fixture, resource or measurement is implied. Preserve original lock and release conditions, including partial clearance and no-go endings. The roster can be skipped in full with no effect on progress. The three greeting variants are state-selected optional conversations, not an automatic speech queue.
+
+### Compact designer reference
+
 | Character | Role and pronouns | Wants / blind spot | Gameplay and arc | Verbal habit |
 |---|---|---|---|---|
 | Mara Vale | operations chief; she/her | a signed rule each shift / trusts familiar charts | authority and final decisions; learns to demand independent curves | “What changes?” |
@@ -200,6 +212,274 @@ Water movement begins during the graded Stop 59 staged operation, never before p
 | Elise Baptiste | downstream safety lead; she/her | never surprise a settlement / favors lower releases | travel, thresholds, warnings; authorizes final release | “Who hears it first?” |
 | Arun Mehta | structural engineer; he/him | protect the wall / treats silent instruments as danger | uplift, error, stress tests; accepts independent clearance | “Which reading is quiet?” |
 | Nia Chen | power dispatcher; she/her | retain grid output / values turbine revenue too highly | marginal value, optimization, reserve allocation | “What do we lose per hour?” |
+
+### Relationship evidence map
+
+| People | Planted commitment | Evidence-driven turn | Later changed practice |
+|---|---|---|---|
+| Imani Okoro / Leila Hassan | `headwater-imani-entrance`: “I need to know whether our gauge coverage earns the confidence I put in this forecast.” | Stop 24, `headwater-imani-turn` | Stop 58, `headwater-imani-payoff` |
+| Mara Vale / Elise Baptiste | `headwater-mara-entrance`: “If I have to change the release plan, you will hear it before the crews do.” | Stop 43, `headwater-mara-turn` | Stop 60, `headwater-mara-payoff` |
+| Nia Chen / Tomas Wilkes | `headwater-nia-entrance`: “I need output, but I need you to tell me which schedule the hoist can repeat.” | Stop 32, `headwater-nia-turn` | Stop 48, `headwater-nia-payoff` |
+
+### Mara Vale
+
+- **Character ID:** `person-mara-vale`
+- **Display name:** Mara Vale
+- **Role:** operations chief
+- **Pronouns:** she/her
+- **Allowed short name:** Mara
+- **Area ownership:** Storage & Level Board; Catchment & Inflow Desk. Existing division assignments in the reference summary also remain in force; presence elsewhere is explicitly by radio.
+- **First entrance:** Hands the player the release board at arrival, leaving the familiar chart visible for comparison. The existing opening card supplies this entrance; the mission encounter below continues it without replaying the handover. Binding: `headwater-mara-entrance`, On arrival at Storage & Level Board during Mission 1, when Stop 1 is the next active stop; if the player is already here, fire once on that stop’s existing activation instead of requiring re-entry, at `storage-board`.
+- **Wants and personal stake:** She has asked downstream crews to organize their shifts around the familiar release charts; changing them means admitting those preparations may be wrong.
+- **Blind spot:** Familiar charts feel dependable because people have successfully worked from them.
+- **Scientific domain:** release authority and independent storage evidence.
+- **Decision function:** Supplies the release authority and independent storage evidence constraint to the existing decisions at Stops 43 and 60; the player still submits the answer and the existing authority still controls authorization.
+- **Verbal habit:** “What changes?”
+- **Relationship pressure:** Elise Baptiste: She has asked downstream crews to organize their shifts around the familiar release charts; changing them means admitting those preparations may be wrong.
+- **Arc, with source evidence:** After Stop 43 (Verify independent transects), `headwater-mara-turn` makes the accepted evidence personally consequential. After Stop 60 (Diagnose the final run), `headwater-mara-payoff` shows the resulting change in practice: Keeps the corrected rules beside the final accepted run and retires the superseded chart from operational use.
+- **Cost of changing:** The character must revise or qualify the commitment described under personal stake in front of the player and Elise Baptiste; the old interpretation remains reviewable rather than silently overwritten.
+- **Gameplay necessity:** Removing this character removes the accountable owner of release authority and independent storage evidence, the commitment above, and the witnessed correction in `headwater-mara-turn`. Reassigning their questions alone would not preserve those scenes or constraints.
+
+**Bio passage - exact player copy:** She has asked downstream crews to organize their shifts around the familiar release charts; changing them means admitting those preparations may be wrong. Familiar charts feel dependable because people have successfully worked from them.
+
+**Bio reflection question - exact player copy:** Why is replacing the familiar chart difficult for Mara?
+
+**Bio reveal answer - exact player copy:** People have planned their work around her instructions, so a correction changes their preparations as well as her own judgment.
+
+**Bio feedback - exact player copy:** Look for the effect on other crews, not just an embarrassing correction on paper.
+
+**Bio check behavior:** On explicit opening of this character’s optional roster page after their first encounter, show only the bio passage and reflection question. Reveal answer and feedback only when the player selects Show answer; allow reconsideration and reopening. This is an unscored reading reflection, with no automatic correctness judgment, stop number, RP, timer cost, mission prerequisite, mastery credit, story flag or unlock. No answer or future arc is required to continue. Designer profile fields and future dialogue are not player-visible biography text.
+
+**Conditional greeting binding:** On explicit Talk to Mara after the character has been introduced, use the highest satisfied row only. Later states override earlier ones. A state changes only from the existing accepted-stop record, never from reading the bio. Lines may be reopened on explicit request; do not autoplay a greeting already spoken as a scene line at that encounter. No new travel or required conversation is created. Presence is local only at the character’s existing location; otherwise use the established radio connection. Log spoken text; pause the timer while it is open.
+
+| Priority | Condition | Exact greeting |
+|---:|---|---|
+| 30 | Stop 60 accepted | “Use the corrected rules on the next shift too; my old instructions no longer stand.” |
+| 20 | Stop 43 accepted; Stop 60 not accepted | “I sent people out with that chart; they need the correction before another release.” |
+| 10 | Introduced; Stop 43 not accepted; fallback | “What changes?” |
+
+### Imani Okoro
+
+- **Character ID:** `person-imani-okoro`
+- **Display name:** Imani Okoro
+- **Role:** catchment hydrologist
+- **Pronouns:** she/her
+- **Allowed short name:** Imani
+- **Area ownership:** Catchment & Inflow Desk. Existing division assignments in the reference summary also remain in force; presence elsewhere is explicitly by radio.
+- **First entrance:** Sets her current inflow forecast beside the gauge trace before the crew uses it. The established entrance is retained; the scene below stages the first evidence encounter in this arc. Binding: `headwater-imani-entrance`, On arrival at Catchment & Inflow Desk during Mission 2, when Stop 6 is the next active stop; if the player is already here, fire once on that stop’s existing activation instead of requiring re-entry, at `gauge-wall`.
+- **Wants and personal stake:** She has defended the forecast that gave the crew its preparation window; a late crest would cost time that cannot be returned.
+- **Blind spot:** She gives too little weight to high ground that the main gauges do not see.
+- **Scientific domain:** inflow forecasts and accumulation.
+- **Decision function:** Supplies the inflow forecasts and accumulation constraint to the existing decisions at Stops 24 and 58; the player still submits the answer and the existing authority still controls authorization.
+- **Verbal habit:** “What did the rain become?”
+- **Relationship pressure:** Leila Hassan: She has defended the forecast that gave the crew its preparation window; a late crest would cost time that cannot be returned.
+- **Arc, with source evidence:** After Stop 24 (Diagnose the full curve), `headwater-imani-turn` makes the accepted evidence personally consequential. After Stop 58 (Close the final water ledger), `headwater-imani-payoff` shows the resulting change in practice: Adds the accepted final inflow total to the water ledger with its revised forecast provenance.
+- **Cost of changing:** The character must revise or qualify the commitment described under personal stake in front of the player and Leila Hassan; the old interpretation remains reviewable rather than silently overwritten.
+- **Gameplay necessity:** Removing this character removes the accountable owner of inflow forecasts and accumulation, the commitment above, and the witnessed correction in `headwater-imani-turn`. Reassigning their questions alone would not preserve those scenes or constraints.
+
+**Bio passage - exact player copy:** She has defended the forecast that gave the crew its preparation window; a late crest would cost time that cannot be returned. She gives too little weight to high ground that the main gauges do not see.
+
+**Bio reflection question - exact player copy:** Why does Imani feel pressure to defend her forecast?
+
+**Bio reveal answer - exact player copy:** The crew has used it to plan its remaining preparation time; changing it means acknowledging that the old schedule may be inadequate.
+
+**Bio feedback - exact player copy:** The lost preparation time explains the pressure; pride in a model is only part of it.
+
+**Bio check behavior:** On explicit opening of this character’s optional roster page after their first encounter, show only the bio passage and reflection question. Reveal answer and feedback only when the player selects Show answer; allow reconsideration and reopening. This is an unscored reading reflection, with no automatic correctness judgment, stop number, RP, timer cost, mission prerequisite, mastery credit, story flag or unlock. No answer or future arc is required to continue. Designer profile fields and future dialogue are not player-visible biography text.
+
+**Conditional greeting binding:** On explicit Talk to Imani after the character has been introduced, use the highest satisfied row only. Later states override earlier ones. A state changes only from the existing accepted-stop record, never from reading the bio. Lines may be reopened on explicit request; do not autoplay a greeting already spoken as a scene line at that encounter. No new travel or required conversation is created. Presence is local only at the character’s existing location; otherwise use the established radio connection. Log spoken text; pause the timer while it is open.
+
+| Priority | Condition | Exact greeting |
+|---:|---|---|
+| 30 | Stop 58 accepted | “This total includes the water my first forecast missed.” |
+| 20 | Stop 24 accepted; Stop 58 not accepted | “That part of the basin was missing from my picture; the crew needs the later crest.” |
+| 10 | Introduced; Stop 24 not accepted; fallback | “What did the rain become?” |
+
+### Leila Hassan
+
+- **Character ID:** `person-leila-hassan`
+- **Display name:** Leila Hassan
+- **Role:** gauge operations hydrologist
+- **Pronouns:** she/her
+- **Allowed short name:** Leila
+- **Area ownership:** Catchment & Inflow Desk. Existing division assignments in the reference summary also remain in force; presence elsewhere is explicitly by radio.
+- **First entrance:** Lays out the gauge locations beside the time-stamped readings. The established entrance is retained; the scene below stages the first evidence encounter in this arc. Binding: `headwater-leila-entrance`, On arrival at Catchment & Inflow Desk during Mission 2, when Stop 5 is the next active stop; if the player is already here, fire once on that stop’s existing activation instead of requiring re-entry, at `trace-bench`.
+- **Wants and personal stake:** She has kept a dense basin record through difficult shifts and wants that work to remain useful when the forecast is challenged.
+- **Blind spot:** Many closely spaced readings can look more reassuring than one independently placed gauge.
+- **Scientific domain:** gauge placement and measurement provenance.
+- **Decision function:** Supplies the gauge placement and measurement provenance constraint to the existing decisions at Stops 23 and 57; the player still submits the answer and the existing authority still controls authorization.
+- **Verbal habit:** “Which gauge saw it?”
+- **Relationship pressure:** The player relies on Leila for gauge placement and measurement provenance; their shared working assumption is challenged in `headwater-leila-turn`.
+- **Arc, with source evidence:** After Stop 23 (Freeze before revealing the crest), `headwater-leila-turn` makes the accepted evidence personally consequential. After Stop 57 (Rebuild the release bound), `headwater-leila-payoff` shows the resulting change in practice: Checks the gauge provenance beside the accepted final release bound.
+- **Cost of changing:** The character must revise or qualify the commitment described under personal stake in front of the player; the old interpretation remains reviewable rather than silently overwritten.
+- **Gameplay necessity:** Removing this character removes the accountable owner of gauge placement and measurement provenance, the commitment above, and the witnessed correction in `headwater-leila-turn`. Reassigning their questions alone would not preserve those scenes or constraints.
+
+**Bio passage - exact player copy:** She has kept a dense basin record through difficult shifts and wants that work to remain useful when the forecast is challenged. Many closely spaced readings can look more reassuring than one independently placed gauge.
+
+**Bio reflection question - exact player copy:** Why might a dense set of readings still leave Leila with a blind spot?
+
+**Bio reveal answer - exact player copy:** Many readings can cover the same limited part of a basin; their number does not establish independent coverage.
+
+**Bio feedback - exact player copy:** Coverage depends on placement as well as the number of observations.
+
+**Bio check behavior:** On explicit opening of this character’s optional roster page after their first encounter, show only the bio passage and reflection question. Reveal answer and feedback only when the player selects Show answer; allow reconsideration and reopening. This is an unscored reading reflection, with no automatic correctness judgment, stop number, RP, timer cost, mission prerequisite, mastery credit, story flag or unlock. No answer or future arc is required to continue. Designer profile fields and future dialogue are not player-visible biography text.
+
+**Conditional greeting binding:** On explicit Talk to Leila after the character has been introduced, use the highest satisfied row only. Later states override earlier ones. A state changes only from the existing accepted-stop record, never from reading the bio. Lines may be reopened on explicit request; do not autoplay a greeting already spoken as a scene line at that encounter. No new travel or required conversation is created. Presence is local only at the character’s existing location; otherwise use the established radio connection. Log spoken text; pause the timer while it is open.
+
+| Priority | Condition | Exact greeting |
+|---:|---|---|
+| 30 | Stop 57 accepted | “Keep that independent record with the bound so the next crew can check it.” |
+| 20 | Stop 23 accepted; Stop 57 not accepted | “We took plenty of readings; we still have to ask where we took them.” |
+| 10 | Introduced; Stop 23 not accepted; fallback | “Which gauge saw it?” |
+
+### Tomas Wilkes
+
+- **Character ID:** `person-tomas-wilkes`
+- **Display name:** Tomas Wilkes
+- **Role:** gate mechanic
+- **Pronouns:** he/him
+- **Allowed short name:** Tomas
+- **Area ownership:** Gate House; Powerhouse. Existing division assignments in the reference summary also remain in force; presence elsewhere is explicitly by radio.
+- **First entrance:** Checks the linkage at the hoist stand before agreeing to a gate movement. The established entrance is retained; the scene below stages the first evidence encounter in this arc. Binding: `headwater-tomas-entrance`, On arrival at Gate House during Mission 3, when Stop 9 is the next active stop; if the player is already here, fire once on that stop’s existing activation instead of requiring re-entry, at `discharge-board`.
+- **Wants and personal stake:** He has kept the gates working through repeated shifts and does not want a replacement plan to demand motions the crew cannot repeat.
+- **Blind spot:** The sound of a familiar mechanism can feel like proof of its operating range.
+- **Scientific domain:** gate linkage, hoist work and repeatable operation.
+- **Decision function:** Supplies the gate linkage, hoist work and repeatable operation constraint to the existing decisions at Stops 12 and 47; the player still submits the answer and the existing authority still controls authorization.
+- **Verbal habit:** “Can the steel do it twice?”
+- **Relationship pressure:** The player relies on Tomas for gate linkage, hoist work and repeatable operation; their shared working assumption is challenged in `headwater-tomas-turn`.
+- **Arc, with source evidence:** After Stop 12 (Reverse the flow calibration), `headwater-tomas-turn` makes the accepted evidence personally consequential. After Stop 47 (Measure hoist work), `headwater-tomas-payoff` shows the resulting change in practice: Adds the measured hoist-work result to the planned movement schedule.
+- **Cost of changing:** The character must revise or qualify the commitment described under personal stake in front of the player; the old interpretation remains reviewable rather than silently overwritten.
+- **Gameplay necessity:** Removing this character removes the accountable owner of gate linkage, hoist work and repeatable operation, the commitment above, and the witnessed correction in `headwater-tomas-turn`. Reassigning their questions alone would not preserve those scenes or constraints.
+
+**Bio passage - exact player copy:** He has kept the gates working through repeated shifts and does not want a replacement plan to demand motions the crew cannot repeat. The sound of a familiar mechanism can feel like proof of its operating range.
+
+**Bio reflection question - exact player copy:** What makes Tomas cautious about a new gate schedule?
+
+**Bio reveal answer - exact player copy:** He must keep its repeated movements mechanically achievable, rather than judge it only by the water it releases.
+
+**Bio feedback - exact player copy:** Water delivery and repeatable mechanical work are separate requirements.
+
+**Bio check behavior:** On explicit opening of this character’s optional roster page after their first encounter, show only the bio passage and reflection question. Reveal answer and feedback only when the player selects Show answer; allow reconsideration and reopening. This is an unscored reading reflection, with no automatic correctness judgment, stop number, RP, timer cost, mission prerequisite, mastery credit, story flag or unlock. No answer or future arc is required to continue. Designer profile fields and future dialogue are not player-visible biography text.
+
+**Conditional greeting binding:** On explicit Talk to Tomas after the character has been introduced, use the highest satisfied row only. Later states override earlier ones. A state changes only from the existing accepted-stop record, never from reading the bio. Lines may be reopened on explicit request; do not autoplay a greeting already spoken as a scene line at that encounter. No new travel or required conversation is created. Presence is local only at the character’s existing location; otherwise use the established radio connection. Log spoken text; pause the timer while it is open.
+
+| Priority | Condition | Exact greeting |
+|---:|---|---|
+| 30 | Stop 47 accepted | “I can service a schedule with a work limit; I cannot service a promise to try harder.” |
+| 20 | Stop 12 accepted; Stop 47 not accepted | “It sounded right to me; now we have a range we can actually check.” |
+| 10 | Introduced; Stop 12 not accepted; fallback | “Can the steel do it twice?” |
+
+### Elise Baptiste
+
+- **Character ID:** `person-elise-baptiste`
+- **Display name:** Elise Baptiste
+- **Role:** downstream safety lead
+- **Pronouns:** she/her
+- **Allowed short name:** Elise
+- **Area ownership:** Downstream Warning Desk. Existing division assignments in the reference summary also remain in force; presence elsewhere is explicitly by radio.
+- **First entrance:** Checks the settlement names on the arrival map against the radio desk. The established entrance is retained; the scene below stages the first evidence encounter in this arc. Binding: `headwater-elise-entrance`, On arrival at Downstream Warning Desk during Mission 4, when Stop 13 is the next active stop; if the player is already here, fire once on that stop’s existing activation instead of requiring re-entry, at `arrival-map`.
+- **Wants and personal stake:** She has promised settlements that a warning will reach them before a release; a quiet circuit puts that promise at risk.
+- **Blind spot:** A smaller release feels safer even when delay leaves too little storage for the storm.
+- **Scientific domain:** arrival times, warning circuits and settlement protection.
+- **Decision function:** Supplies the arrival times, warning circuits and settlement protection constraint to the existing decisions at Stops 54 and 56; the player still submits the answer and the existing authority still controls authorization.
+- **Verbal habit:** “Who hears it first?”
+- **Relationship pressure:** The player relies on Elise for arrival times, warning circuits and settlement protection; their shared working assumption is challenged in `headwater-elise-turn`.
+- **Arc, with source evidence:** After Stop 54 (Order settlements by consequence), `headwater-elise-turn` makes the accepted evidence personally consequential. After Stop 56 (Commit repaired warning trigger), `headwater-elise-payoff` shows the resulting change in practice: Retains the repaired-circuit evidence beside the newly committed warning trigger.
+- **Cost of changing:** The character must revise or qualify the commitment described under personal stake in front of the player; the old interpretation remains reviewable rather than silently overwritten.
+- **Gameplay necessity:** Removing this character removes the accountable owner of arrival times, warning circuits and settlement protection, the commitment above, and the witnessed correction in `headwater-elise-turn`. Reassigning their questions alone would not preserve those scenes or constraints.
+
+**Bio passage - exact player copy:** She has promised settlements that a warning will reach them before a release; a quiet circuit puts that promise at risk. A smaller release feels safer even when delay leaves too little storage for the storm.
+
+**Bio reflection question - exact player copy:** Why can Elise not judge a release by its size alone?
+
+**Bio reveal answer - exact player copy:** She must also check when water arrives and whether the people exposed will receive a usable warning.
+
+**Bio feedback - exact player copy:** A useful warning depends on reception and arrival time as well as flow.
+
+**Bio check behavior:** On explicit opening of this character’s optional roster page after their first encounter, show only the bio passage and reflection question. Reveal answer and feedback only when the player selects Show answer; allow reconsideration and reopening. This is an unscored reading reflection, with no automatic correctness judgment, stop number, RP, timer cost, mission prerequisite, mastery credit, story flag or unlock. No answer or future arc is required to continue. Designer profile fields and future dialogue are not player-visible biography text.
+
+**Conditional greeting binding:** On explicit Talk to Elise after the character has been introduced, use the highest satisfied row only. Later states override earlier ones. A state changes only from the existing accepted-stop record, never from reading the bio. Lines may be reopened on explicit request; do not autoplay a greeting already spoken as a scene line at that encounter. No new travel or required conversation is created. Presence is local only at the character’s existing location; otherwise use the established radio connection. Log spoken text; pause the timer while it is open.
+
+| Priority | Condition | Exact greeting |
+|---:|---|---|
+| 30 | Stop 56 accepted | “Now the release plan has a warning people can receive.” |
+| 20 | Stop 54 accepted; Stop 56 not accepted | “They were counting on my warning; a lower flow does not repair a dead line.” |
+| 10 | Introduced; Stop 54 not accepted; fallback | “Who hears it first?” |
+
+### Arun Mehta
+
+- **Character ID:** `person-arun-mehta`
+- **Display name:** Arun Mehta
+- **Role:** structural engineer
+- **Pronouns:** he/him
+- **Allowed short name:** Arun
+- **Area ownership:** Seepage & Uplift Bay. Existing division assignments in the reference summary also remain in force; presence elsewhere is explicitly by radio.
+- **First entrance:** Checks the quiet channel against the other uplift readings. The established entrance is retained; the scene below stages the first evidence encounter in this arc. Binding: `headwater-arun-entrance`, On arrival at Seepage & Uplift Bay during Mission 9, when Stop 33 is the next active stop; if the player is already here, fire once on that stop’s existing activation instead of requiring re-entry, at `uplift-wall`.
+- **Wants and personal stake:** He is responsible for explaining quiet instruments to the crew standing on the dam; he would rather delay than mistake silence for safety.
+- **Blind spot:** Silence initially feels like evidence of danger even before the measurement path is tested.
+- **Scientific domain:** uplift, seepage and independent structural checks.
+- **Decision function:** Supplies the uplift, seepage and independent structural checks constraint to the existing decisions at Stops 36 and 40; the player still submits the answer and the existing authority still controls authorization.
+- **Verbal habit:** “Which reading is quiet?”
+- **Relationship pressure:** The player relies on Arun for uplift, seepage and independent structural checks; their shared working assumption is challenged in `headwater-arun-turn`.
+- **Arc, with source evidence:** After Stop 36 (Diagnose silence), `headwater-arun-turn` makes the accepted evidence personally consequential. After Stop 40 (Approve the carrying limit), `headwater-arun-payoff` shows the resulting change in practice: Signs only the carrying limit supported by the completed stress check.
+- **Cost of changing:** The character must revise or qualify the commitment described under personal stake in front of the player; the old interpretation remains reviewable rather than silently overwritten.
+- **Gameplay necessity:** Removing this character removes the accountable owner of uplift, seepage and independent structural checks, the commitment above, and the witnessed correction in `headwater-arun-turn`. Reassigning their questions alone would not preserve those scenes or constraints.
+
+**Bio passage - exact player copy:** He is responsible for explaining quiet instruments to the crew standing on the dam; he would rather delay than mistake silence for safety. Silence initially feels like evidence of danger even before the measurement path is tested.
+
+**Bio reflection question - exact player copy:** Why does Arun hesitate when an instrument is quiet?
+
+**Bio reveal answer - exact player copy:** His responsibility for the wall makes him unwilling to confuse missing information with a safe condition.
+
+**Bio feedback - exact player copy:** Distinguish a silent measurement channel from a measured safe condition.
+
+**Bio check behavior:** On explicit opening of this character’s optional roster page after their first encounter, show only the bio passage and reflection question. Reveal answer and feedback only when the player selects Show answer; allow reconsideration and reopening. This is an unscored reading reflection, with no automatic correctness judgment, stop number, RP, timer cost, mission prerequisite, mastery credit, story flag or unlock. No answer or future arc is required to continue. Designer profile fields and future dialogue are not player-visible biography text.
+
+**Conditional greeting binding:** On explicit Talk to Arun after the character has been introduced, use the highest satisfied row only. Later states override earlier ones. A state changes only from the existing accepted-stop record, never from reading the bio. Lines may be reopened on explicit request; do not autoplay a greeting already spoken as a scene line at that encounter. No new travel or required conversation is created. Presence is local only at the character’s existing location; otherwise use the established radio connection. Log spoken text; pause the timer while it is open.
+
+| Priority | Condition | Exact greeting |
+|---:|---|---|
+| 30 | Stop 40 accepted | “This limit has evidence behind it; we can use it without pretending every silence means failure.” |
+| 20 | Stop 36 accepted; Stop 40 not accepted | “I treated the silence as a warning from the wall; first we had to find out whether the instrument was speaking.” |
+| 10 | Introduced; Stop 36 not accepted; fallback | “Which reading is quiet?” |
+
+### Nia Chen
+
+- **Character ID:** `person-nia-chen`
+- **Display name:** Nia Chen
+- **Role:** power dispatcher
+- **Pronouns:** she/her
+- **Allowed short name:** Nia
+- **Area ownership:** Powerhouse. Existing division assignments in the reference summary also remain in force; presence elsewhere is explicitly by radio.
+- **First entrance:** Places the grid demand beside the available turbine schedule. The established entrance is retained; the scene below stages the first evidence encounter in this arc. Binding: `headwater-nia-entrance`, On arrival at Powerhouse during Mission 5, when Stop 17 is the next active stop; if the player is already here, fire once on that stop’s existing activation instead of requiring re-entry, at `machine-board`.
+- **Wants and personal stake:** She has promised generation to the grid and must explain every hour diverted from power production.
+- **Blind spot:** Revenue is easier to count than the reserve a demanding schedule consumes.
+- **Scientific domain:** turbine value, operating reserve and feasible scheduling.
+- **Decision function:** Supplies the turbine value, operating reserve and feasible scheduling constraint to the existing decisions at Stops 32 and 48; the player still submits the answer and the existing authority still controls authorization.
+- **Verbal habit:** “What do we lose per hour?”
+- **Relationship pressure:** Tomas Wilkes: She has promised generation to the grid and must explain every hour diverted from power production.
+- **Arc, with source evidence:** After Stop 32 (Allocate the just-clears plan), `headwater-nia-turn` makes the accepted evidence personally consequential. After Stop 48 (Choose feasible schedule), `headwater-nia-payoff` shows the resulting change in practice: Files the feasible schedule with its work and reserve constraints.
+- **Cost of changing:** The character must revise or qualify the commitment described under personal stake in front of the player and Tomas Wilkes; the old interpretation remains reviewable rather than silently overwritten.
+- **Gameplay necessity:** Removing this character removes the accountable owner of turbine value, operating reserve and feasible scheduling, the commitment above, and the witnessed correction in `headwater-nia-turn`. Reassigning their questions alone would not preserve those scenes or constraints.
+
+**Bio passage - exact player copy:** She has promised generation to the grid and must explain every hour diverted from power production. Revenue is easier to count than the reserve a demanding schedule consumes.
+
+**Bio reflection question - exact player copy:** Why is Nia drawn toward high turbine output?
+
+**Bio reveal answer - exact player copy:** She is accountable for promised generation, which makes immediate output visible while reserve costs can be easier to overlook.
+
+**Bio feedback - exact player copy:** Include both the grid commitment and the less visible cost to operating reserve.
+
+**Bio check behavior:** On explicit opening of this character’s optional roster page after their first encounter, show only the bio passage and reflection question. Reveal answer and feedback only when the player selects Show answer; allow reconsideration and reopening. This is an unscored reading reflection, with no automatic correctness judgment, stop number, RP, timer cost, mission prerequisite, mastery credit, story flag or unlock. No answer or future arc is required to continue. Designer profile fields and future dialogue are not player-visible biography text.
+
+**Conditional greeting binding:** On explicit Talk to Nia after the character has been introduced, use the highest satisfied row only. Later states override earlier ones. A state changes only from the existing accepted-stop record, never from reading the bio. Lines may be reopened on explicit request; do not autoplay a greeting already spoken as a scene line at that encounter. No new travel or required conversation is created. Presence is local only at the character’s existing location; otherwise use the established radio connection. Log spoken text; pause the timer while it is open.
+
+| Priority | Condition | Exact greeting |
+|---:|---|---|
+| 30 | Stop 48 accepted | “Send this schedule to the grid, including the hours we cannot promise.” |
+| 20 | Stop 32 accepted; Stop 48 not accepted | “I can explain lost output; I cannot dispatch reserve that is not there.” |
+| 10 | Introduced; Stop 32 not accepted; fallback | “What do we lose per hour?” |
+
 
 ## 5. Character direction and dialogue rules
 
@@ -564,6 +844,18 @@ Mara wants a usable trace but blocks unsupported edits; proof earns conditional 
 ## Key concepts, explained here
 
 rational and radical limits, rational-function asymptotes, two-sided limits, continuity, removable versus jump and infinite breaks, IVT.
+
+### Character scene: headwater-mara-entrance
+
+**Trigger:** On arrival at Storage & Level Board during Mission 1, when Stop 1 is the next active stop; if the player is already here, fire once on that stop’s existing activation instead of requiring re-entry.
+**Location and presence:** `storage-board` in Storage & Level Board. Mara Vale, operations chief, speaks by radio unless already placed locally by the existing beat; do not teleport or duplicate the character. Any second speaker is explicitly remote.
+**Presentation:** Normal playable view; existing fixture evidence plus radio/nearby bubbles. Continue the existing arrival beat before the question opens. This is authored scene content, not another graded interaction.
+**Exact action / accessible description:** Keeps the material from the opening handover available beside the current evidence.
+**Exact dialogue:**
+- Mara Vale, operations chief: “If I have to change the release plan, you will hear it before the crews do.”
+
+**World-state effect:** No result is added or revealed; the encounter introduces the record or equipment already available for this stop.
+**Controls, persistence and retry:** Pause the timer during bubbles; one Continue per bubble restores control. At most two bubbles in this scene. Fire once per relevant accepted-state transition, not on wrong submissions; mission retry restores its snapshot and replay status. Retain accepted record and completed lines in the log. Use `headwater-mara-entrance` only as a story-presentation key, never as a stop or fixture ID. No RP, metric, mastery or travel-unlock effect. At Stop 60 this is part of the existing pre-ending reaction; do not delay the ending with optional roster material.
 
 ## Stop 1 - Cancel the false zero
 
@@ -1135,6 +1427,18 @@ Imani shifts from defending height thresholds to accepting rate-based warning.
 
 derivative limit, power/product/quotient/trig/exp rules, tangent line, linear approximation.
 
+### Character scene: headwater-leila-entrance
+
+**Trigger:** On arrival at Catchment & Inflow Desk during Mission 2, when Stop 5 is the next active stop; if the player is already here, fire once on that stop’s existing activation instead of requiring re-entry.
+**Location and presence:** `trace-bench` in Catchment & Inflow Desk. Leila Hassan, gauge operations hydrologist, speaks by radio unless already placed locally by the existing beat; do not teleport or duplicate the character. Any second speaker is explicitly remote.
+**Presentation:** Normal playable view; existing fixture evidence plus radio/nearby bubbles. Continue the existing arrival beat before the question opens. This is authored scene content, not another graded interaction.
+**Exact action / accessible description:** Lays out the gauge locations beside the time-stamped readings.
+**Exact dialogue:**
+- Leila Hassan, gauge operations hydrologist: “My crew kept these gauges running through the last shifts; I want you to check the coverage as carefully as the readings.”
+
+**World-state effect:** No result is added or revealed; the encounter introduces the record or equipment already available for this stop.
+**Controls, persistence and retry:** Pause the timer during bubbles; one Continue per bubble restores control. At most two bubbles in this scene. Fire once per relevant accepted-state transition, not on wrong submissions; mission retry restores its snapshot and replay status. Retain accepted record and completed lines in the log. Use `headwater-leila-entrance` only as a story-presentation key, never as a stop or fixture ID. No RP, metric, mastery or travel-unlock effect. At Stop 60 this is part of the existing pre-ending reaction; do not delay the ending with optional roster material.
+
 ## Stop 5 - Build the instantaneous rise
 
 **Format/placement:** DERIVE, at `trace-bench`.
@@ -1198,6 +1502,18 @@ derive:
 **Wrong-path feedback:** Average height is not instantaneous change.
 
 **State/output:** live rate field; unlock 2.2.
+
+### Character scene: headwater-imani-entrance
+
+**Trigger:** On arrival at Catchment & Inflow Desk during Mission 2, when Stop 6 is the next active stop; if the player is already here, fire once on that stop’s existing activation instead of requiring re-entry.
+**Location and presence:** `gauge-wall` in Catchment & Inflow Desk. Imani Okoro, catchment hydrologist, speaks by radio unless already placed locally by the existing beat; do not teleport or duplicate the character. Any second speaker is explicitly remote.
+**Presentation:** Normal playable view; existing fixture evidence plus radio/nearby bubbles. Continue the existing arrival beat before the question opens. This is authored scene content, not another graded interaction.
+**Exact action / accessible description:** Sets her current inflow forecast beside the gauge trace before the crew uses it.
+**Exact dialogue:**
+- Imani Okoro, catchment hydrologist: “I need to know whether our gauge coverage earns the confidence I put in this forecast.”
+
+**World-state effect:** No result is added or revealed; the encounter introduces the record or equipment already available for this stop.
+**Controls, persistence and retry:** Pause the timer during bubbles; one Continue per bubble restores control. At most two bubbles in this scene. Fire once per relevant accepted-state transition, not on wrong submissions; mission retry restores its snapshot and replay status. Retain accepted record and completed lines in the log. Use `headwater-imani-entrance` only as a story-presentation key, never as a stop or fixture ID. No RP, metric, mastery or travel-unlock effect. At Stop 60 this is part of the existing pre-ending reaction; do not delay the ending with optional roster material.
 
 ## Stop 6 - Differentiate the forecast signal
 
@@ -1734,6 +2050,18 @@ Wilkes values repeatability over theory alone; predicted reversal earns his supp
 
 chain rule, implicit first/second derivatives, inverse derivative, arctan/exponential derivatives.
 
+### Character scene: headwater-tomas-entrance
+
+**Trigger:** On arrival at Gate House during Mission 3, when Stop 9 is the next active stop; if the player is already here, fire once on that stop’s existing activation instead of requiring re-entry.
+**Location and presence:** `discharge-board` in Gate House. Tomas Wilkes, gate mechanic, speaks by radio unless already placed locally by the existing beat; do not teleport or duplicate the character. Any second speaker is explicitly remote.
+**Presentation:** Normal playable view; existing fixture evidence plus radio/nearby bubbles. Continue the existing arrival beat before the question opens. This is authored scene content, not another graded interaction.
+**Exact action / accessible description:** Checks the linkage at the hoist stand before agreeing to a gate movement.
+**Exact dialogue:**
+- Tomas Wilkes, gate mechanic: “I have to hand these gates to the next shift still working; give me a schedule they can repeat.”
+
+**World-state effect:** No result is added or revealed; the encounter introduces the record or equipment already available for this stop.
+**Controls, persistence and retry:** Pause the timer during bubbles; one Continue per bubble restores control. At most two bubbles in this scene. Fire once per relevant accepted-state transition, not on wrong submissions; mission retry restores its snapshot and replay status. Retain accepted record and completed lines in the log. Use `headwater-tomas-entrance` only as a story-presentation key, never as a stop or fixture ID. No RP, metric, mastery or travel-unlock effect. At Stop 60 this is part of the existing pre-ending reaction; do not delay the ending with optional roster material.
+
 ## Stop 9 - Differentiate nested discharge
 
 **Format/placement:** DERIVE, at `discharge-board`.
@@ -1944,6 +2272,19 @@ verify:
 **Wrong-path feedback:** The inverse derivative is reciprocal at the matching point, not at the same displayed output by guess.
 
 **State/output:** safe calibration signed.
+
+### Character scene: headwater-tomas-turn
+
+**Trigger:** After Stop 12 is accepted.
+**Location and presence:** `hoist-stand` in Gate House. Tomas Wilkes, gate mechanic, speaks by radio unless already placed locally by the existing beat; do not teleport or duplicate the character. Any second speaker is explicitly remote.
+**Presentation:** Normal playable view; existing fixture evidence plus radio/nearby bubbles. Run after accepted-result feedback and before the existing departure or mission-outcome beat. This is authored scene content, not another graded interaction.
+**Exact action / accessible description:** Sets the accepted flow-calibration record beside the mechanical adjustment record.
+**Exact dialogue:**
+- Tomas Wilkes, gate mechanic: “It sounded right to me; now we have a range we can actually check.”
+
+**World-state effect:** Preserve the existing accepted result and attach this reaction to its mission-log entry. The physical record remains at this fixture with the accepted scope; no new measurement, repair, signature authority or clearance is created by dialogue.
+**Controls, persistence and retry:** Pause the timer during bubbles; one Continue per bubble restores control. At most two bubbles in this scene. Fire once per relevant accepted-state transition, not on wrong submissions; mission retry restores its snapshot and replay status. Retain accepted record and completed lines in the log. Use `headwater-tomas-turn` only as a story-presentation key, never as a stop or fixture ID. No RP, metric, mastery or travel-unlock effect. At Stop 60 this is part of the existing pre-ending reaction; do not delay the ending with optional roster material.
+
 
 ## Mission outcome
 
@@ -2306,6 +2647,18 @@ Baptiste forces the crew to count closure time after arrival.
 ## Key concepts, explained here
 
 position/velocity/acceleration, speeding signs, stops, distance/displacement, related rates.
+
+### Character scene: headwater-elise-entrance
+
+**Trigger:** On arrival at Downstream Warning Desk during Mission 4, when Stop 13 is the next active stop; if the player is already here, fire once on that stop’s existing activation instead of requiring re-entry.
+**Location and presence:** `arrival-map` in Downstream Warning Desk. Elise Baptiste, downstream safety lead, speaks by radio unless already placed locally by the existing beat; do not teleport or duplicate the character. Any second speaker is explicitly remote.
+**Presentation:** Normal playable view; existing fixture evidence plus radio/nearby bubbles. Continue the existing arrival beat before the question opens. This is authored scene content, not another graded interaction.
+**Exact action / accessible description:** Checks the settlement names on the arrival map against the radio desk.
+**Exact dialogue:**
+- Elise Baptiste, downstream safety lead: “I promised those settlements a warning before the water; I need the arrival times to make that promise real.”
+
+**World-state effect:** No result is added or revealed; the encounter introduces the record or equipment already available for this stop.
+**Controls, persistence and retry:** Pause the timer during bubbles; one Continue per bubble restores control. At most two bubbles in this scene. Fire once per relevant accepted-state transition, not on wrong submissions; mission retry restores its snapshot and replay status. Retain accepted record and completed lines in the log. Use `headwater-elise-entrance` only as a story-presentation key, never as a stop or fixture ID. No RP, metric, mastery or travel-unlock effect. At Stop 60 this is part of the existing pre-ending reaction; do not delay the ending with optional roster material.
 
 ## Stop 13 - Differentiate the flood front
 
@@ -2952,6 +3305,18 @@ Nia legitimately pushes generation, then withdraws the schedule when the endpoin
 ## Key concepts, explained here
 
 critical points, first/second tests, absolute extrema, EVT, IVT/MVT, marginal change.
+
+### Character scene: headwater-nia-entrance
+
+**Trigger:** On arrival at Powerhouse during Mission 5, when Stop 17 is the next active stop; if the player is already here, fire once on that stop’s existing activation instead of requiring re-entry.
+**Location and presence:** `machine-board` in Powerhouse. Nia Chen, power dispatcher, speaks by radio unless already placed locally by the existing beat; do not teleport or duplicate the character. Any second speaker is explicitly remote.
+**Presentation:** Normal playable view; existing fixture evidence plus radio/nearby bubbles. Continue the existing arrival beat before the question opens. This is authored scene content, not another graded interaction.
+**Exact action / accessible description:** Places the grid demand beside the available turbine schedule.
+**Exact dialogue:**
+- Nia Chen, power dispatcher: “I need output, but I need you to tell me which schedule the hoist can repeat.”
+
+**World-state effect:** No result is added or revealed; the encounter introduces the record or equipment already available for this stop.
+**Controls, persistence and retry:** Pause the timer during bubbles; one Continue per bubble restores control. At most two bubbles in this scene. Fire once per relevant accepted-state transition, not on wrong submissions; mission retry restores its snapshot and replay status. Retain accepted record and completed lines in the log. Use `headwater-nia-entrance` only as a story-presentation key, never as a stop or fixture ID. No RP, metric, mastery or travel-unlock effect. At Stop 60 this is part of the existing pre-ending reaction; do not delay the ending with optional roster material.
 
 ## Stop 17 - Find critical turbine demand
 
@@ -3699,6 +4064,19 @@ holdout:
 
 **State/output:** late crest on wall; unlock 6.4.
 
+### Character scene: headwater-leila-turn
+
+**Trigger:** After Stop 23 is accepted.
+**Location and presence:** `forecast-drawer` in Catchment & Inflow Desk. Leila Hassan, gauge operations hydrologist, speaks by radio unless already placed locally by the existing beat; do not teleport or duplicate the character. Any second speaker is explicitly remote.
+**Presentation:** Normal playable view; existing fixture evidence plus radio/nearby bubbles. Run after accepted-result feedback and before the existing departure or mission-outcome beat. This is authored scene content, not another graded interaction.
+**Exact action / accessible description:** Keeps the high-ground record separate from the forecast-fitting file.
+**Exact dialogue:**
+- Leila Hassan, gauge operations hydrologist: “We took plenty of readings; we still have to ask where we took them.”
+
+**World-state effect:** Preserve the existing accepted result and attach this reaction to its mission-log entry. The physical record remains at this fixture with the accepted scope; no new measurement, repair, signature authority or clearance is created by dialogue.
+**Controls, persistence and retry:** Pause the timer during bubbles; one Continue per bubble restores control. At most two bubbles in this scene. Fire once per relevant accepted-state transition, not on wrong submissions; mission retry restores its snapshot and replay status. Retain accepted record and completed lines in the log. Use `headwater-leila-turn` only as a story-presentation key, never as a stop or fixture ID. No RP, metric, mastery or travel-unlock effect. At Stop 60 this is part of the existing pre-ending reaction; do not delay the ending with optional roster material.
+
+
 ## Stop 24 - Diagnose the full curve
 
 **Format/placement:** RESIDUAL, at `gauge-wall`.
@@ -3761,6 +4139,20 @@ residual:
 **Wrong-path feedback:** Lowest RMS alone is not the question when residual shape diagnoses mechanism.
 
 **State/output:** Forecast B controls.
+
+### Character scene: headwater-imani-turn
+
+**Trigger:** After Stop 24 is accepted.
+**Location and presence:** `gauge-wall` in Catchment & Inflow Desk. Imani Okoro, catchment hydrologist, speaks by radio unless already placed locally by the existing beat; do not teleport or duplicate the character. Any second speaker is explicitly remote.
+**Presentation:** Normal playable view; existing fixture evidence plus radio/nearby bubbles. Run after accepted-result feedback and before the existing departure or mission-outcome beat. This is authored scene content, not another graded interaction.
+**Exact action / accessible description:** Leaves the high-ground discrepancy visible on the forecast rather than smoothing it into the fitted curve.
+**Exact dialogue:**
+- Imani Okoro, catchment hydrologist: “That part of the basin was missing from my picture; the crew needs the later crest.”
+- Leila Hassan, gauge operations hydrologist (radio): “I will keep the high-ground record separate so we can see what it adds.”
+
+**World-state effect:** Preserve the existing accepted result and attach this reaction to its mission-log entry. The physical record remains at this fixture with the accepted scope; no new measurement, repair, signature authority or clearance is created by dialogue.
+**Controls, persistence and retry:** Pause the timer during bubbles; one Continue per bubble restores control. At most two bubbles in this scene. Fire once per relevant accepted-state transition, not on wrong submissions; mission retry restores its snapshot and replay status. Retain accepted record and completed lines in the log. Use `headwater-imani-turn` only as a story-presentation key, never as a stop or fixture ID. No RP, metric, mastery or travel-unlock effect. At Stop 60 this is part of the existing pre-ending reaction; do not delay the ending with optional roster material.
+
 
 ## Mission outcome
 
@@ -5119,6 +5511,20 @@ allocate_patch:
 
 **State/output:** mixed plan authorized.
 
+### Character scene: headwater-nia-turn
+
+**Trigger:** After Stop 32 is accepted.
+**Location and presence:** `dispatch-console` in Powerhouse. Nia Chen, power dispatcher, speaks by radio unless already placed locally by the existing beat; do not teleport or duplicate the character. Any second speaker is explicitly remote.
+**Presentation:** Normal playable view; existing fixture evidence plus radio/nearby bubbles. Run after accepted-result feedback and before the existing departure or mission-outcome beat. This is authored scene content, not another graded interaction.
+**Exact action / accessible description:** Keeps the narrow margin of the accepted release allocation visible on the dispatch console.
+**Exact dialogue:**
+- Nia Chen, power dispatcher: “I can explain lost output; I cannot dispatch reserve that is not there.”
+- Tomas Wilkes, gate mechanic (radio): “I will keep the work limit beside the allocation so that margin stays visible.”
+
+**World-state effect:** Preserve the existing accepted result and attach this reaction to its mission-log entry. The physical record remains at this fixture with the accepted scope; no new measurement, repair, signature authority or clearance is created by dialogue.
+**Controls, persistence and retry:** Pause the timer during bubbles; one Continue per bubble restores control. At most two bubbles in this scene. Fire once per relevant accepted-state transition, not on wrong submissions; mission retry restores its snapshot and replay status. Retain accepted record and completed lines in the log. Use `headwater-nia-turn` only as a story-presentation key, never as a stop or fixture ID. No RP, metric, mastery or travel-unlock effect. At Stop 60 this is part of the existing pre-ending reaction; do not delay the ending with optional roster material.
+
+
 ## Mission outcome
 
 Mission decision: Use the mixed turbine-and-gate plan. Turbines clear 3.60 million m^3, and the gate clears the remaining 1.68 million m^3 with warning and restart capacity protected. The plan fits downstream limits. The wall must now show it can carry the changing head.
@@ -5505,6 +5911,18 @@ Arun treats silence as danger until independent evidence narrows its cause.
 
 slope fields, equilibrium, Euler recursion and step size, shared versus independent channels.
 
+### Character scene: headwater-arun-entrance
+
+**Trigger:** On arrival at Seepage & Uplift Bay during Mission 9, when Stop 33 is the next active stop; if the player is already here, fire once on that stop’s existing activation instead of requiring re-entry.
+**Location and presence:** `uplift-wall` in Seepage & Uplift Bay. Arun Mehta, structural engineer, speaks by radio unless already placed locally by the existing beat; do not teleport or duplicate the character. Any second speaker is explicitly remote.
+**Presentation:** Normal playable view; existing fixture evidence plus radio/nearby bubbles. Continue the existing arrival beat before the question opens. This is authored scene content, not another graded interaction.
+**Exact action / accessible description:** Checks the quiet channel against the other uplift readings.
+**Exact dialogue:**
+- Arun Mehta, structural engineer: “People are working on this wall while we decide what the quiet instruments mean; I need a reason to trust the silence.”
+
+**World-state effect:** No result is added or revealed; the encounter introduces the record or equipment already available for this stop.
+**Controls, persistence and retry:** Pause the timer during bubbles; one Continue per bubble restores control. At most two bubbles in this scene. Fire once per relevant accepted-state transition, not on wrong submissions; mission retry restores its snapshot and replay status. Retain accepted record and completed lines in the log. Use `headwater-arun-entrance` only as a story-presentation key, never as a stop or fixture ID. No RP, metric, mastery or travel-unlock effect. At Stop 60 this is part of the existing pre-ending reaction; do not delay the ending with optional roster material.
+
 ## Stop 33 - Read the pressure field
 
 **Format/placement:** PROBE, at `uplift-wall`.
@@ -5700,6 +6118,19 @@ trace:
 **Wrong-path feedback:** A wall-failure claim conflicts with the two independent live readings; the two blanks share J4 and therefore are not independent evidence.
 
 **State/output:** crate replaced by live heads on Day 9.
+
+### Character scene: headwater-arun-turn
+
+**Trigger:** After Stop 36 is accepted.
+**Location and presence:** `uplift-wall` in Seepage & Uplift Bay. Arun Mehta, structural engineer, speaks by radio unless already placed locally by the existing beat; do not teleport or duplicate the character. Any second speaker is explicitly remote.
+**Presentation:** Normal playable view; existing fixture evidence plus radio/nearby bubbles. Run after accepted-result feedback and before the existing departure or mission-outcome beat. This is authored scene content, not another graded interaction.
+**Exact action / accessible description:** Keeps the traced channel fault separate from the structural-condition record.
+**Exact dialogue:**
+- Arun Mehta, structural engineer: “I treated the silence as a warning from the wall; first we had to find out whether the instrument was speaking.”
+
+**World-state effect:** Preserve the existing accepted result and attach this reaction to its mission-log entry. The physical record remains at this fixture with the accepted scope; no new measurement, repair, signature authority or clearance is created by dialogue.
+**Controls, persistence and retry:** Pause the timer during bubbles; one Continue per bubble restores control. At most two bubbles in this scene. Fire once per relevant accepted-state transition, not on wrong submissions; mission retry restores its snapshot and replay status. Retain accepted record and completed lines in the log. Use `headwater-arun-turn` only as a story-presentation key, never as a stop or fixture ID. No RP, metric, mastery or travel-unlock effect. At Stop 60 this is part of the existing pre-ending reaction; do not delay the ending with optional roster material.
+
 
 ## Mission outcome
 
@@ -6251,6 +6682,19 @@ stress:
 
 **State/output:** carrying limit signed.
 
+### Character scene: headwater-arun-payoff
+
+**Trigger:** After Stop 40 is accepted.
+**Location and presence:** `uplift-wall` in Seepage & Uplift Bay. Arun Mehta, structural engineer, speaks by radio unless already placed locally by the existing beat; do not teleport or duplicate the character. Any second speaker is explicitly remote.
+**Presentation:** Normal playable view; existing fixture evidence plus radio/nearby bubbles. Run after accepted-result feedback and before the existing departure or mission-outcome beat. This is authored scene content, not another graded interaction.
+**Exact action / accessible description:** Signs only the carrying limit supported by the completed stress check.
+**Exact dialogue:**
+- Arun Mehta, structural engineer: “This limit has evidence behind it; we can use it without pretending every silence means failure.”
+
+**World-state effect:** Preserve the existing accepted result and attach this reaction to its mission-log entry. The physical record remains at this fixture with the accepted scope; no new measurement, repair, signature authority or clearance is created by dialogue.
+**Controls, persistence and retry:** Pause the timer during bubbles; one Continue per bubble restores control. At most two bubbles in this scene. Fire once per relevant accepted-state transition, not on wrong submissions; mission retry restores its snapshot and replay status. Retain accepted record and completed lines in the log. Use `headwater-arun-payoff` only as a story-presentation key, never as a stop or fixture ID. No RP, metric, mastery or travel-unlock effect. At Stop 60 this is part of the existing pre-ending reaction; do not delay the ending with optional roster material.
+
+
 ## Mission outcome
 
 Mission decision: Approve the wall seepage limit. The extra flow falls with time. It stays below 5.0 litres per minute in every sound case. The wall check passes. A new lake survey now tests the storage chart.
@@ -6762,6 +7206,20 @@ attest:
 **Wrong-path feedback:** A repeated export is not independent measurement.
 
 **State/output:** resurvey certified; waypoint GATES.
+
+### Character scene: headwater-mara-turn
+
+**Trigger:** After Stop 43 is accepted.
+**Location and presence:** `survey-rack` in Storage & Level Board. Mara Vale, operations chief, speaks by radio unless already placed locally by the existing beat; do not teleport or duplicate the character. Any second speaker is explicitly remote.
+**Presentation:** Normal playable view; existing fixture evidence plus radio/nearby bubbles. Run after accepted-result feedback and before the existing departure or mission-outcome beat. This is authored scene content, not another graded interaction.
+**Exact action / accessible description:** Places the independent survey beside the old chart instead of filing it behind the signed rules.
+**Exact dialogue:**
+- Mara Vale, operations chief: “I sent people out with that chart; they need the correction before another release.”
+- Elise Baptiste, downstream safety lead (radio): “Then give me the corrected plan while there is still time to change their preparations.”
+
+**World-state effect:** Preserve the existing accepted result and attach this reaction to its mission-log entry. The physical record remains at this fixture with the accepted scope; no new measurement, repair, signature authority or clearance is created by dialogue.
+**Controls, persistence and retry:** Pause the timer during bubbles; one Continue per bubble restores control. At most two bubbles in this scene. Fire once per relevant accepted-state transition, not on wrong submissions; mission retry restores its snapshot and replay status. Retain accepted record and completed lines in the log. Use `headwater-mara-turn` only as a story-presentation key, never as a stop or fixture ID. No RP, metric, mastery or travel-unlock effect. At Stop 60 this is part of the existing pre-ending reaction; do not delay the ending with optional roster material.
+
 
 ## Stop 44 - Convert volume loss to level rate
 
@@ -7410,6 +7868,19 @@ verify:
 
 **State/output:** hoist certified; waypoint STORE.
 
+### Character scene: headwater-tomas-payoff
+
+**Trigger:** After Stop 47 is accepted.
+**Location and presence:** `work-meter` in Powerhouse. Tomas Wilkes, gate mechanic, speaks by radio unless already placed locally by the existing beat; do not teleport or duplicate the character. Any second speaker is explicitly remote.
+**Presentation:** Normal playable view; existing fixture evidence plus radio/nearby bubbles. Run after accepted-result feedback and before the existing departure or mission-outcome beat. This is authored scene content, not another graded interaction.
+**Exact action / accessible description:** Adds the measured hoist-work result to the planned movement schedule.
+**Exact dialogue:**
+- Tomas Wilkes, gate mechanic: “I can service a schedule with a work limit; I cannot service a promise to try harder.”
+
+**World-state effect:** Preserve the existing accepted result and attach this reaction to its mission-log entry. The physical record remains at this fixture with the accepted scope; no new measurement, repair, signature authority or clearance is created by dialogue.
+**Controls, persistence and retry:** Pause the timer during bubbles; one Continue per bubble restores control. At most two bubbles in this scene. Fire once per relevant accepted-state transition, not on wrong submissions; mission retry restores its snapshot and replay status. Retain accepted record and completed lines in the log. Use `headwater-tomas-payoff` only as a story-presentation key, never as a stop or fixture ID. No RP, metric, mastery or travel-unlock effect. At Stop 60 this is part of the existing pre-ending reaction; do not delay the ending with optional roster material.
+
+
 ## Stop 48 - Choose feasible schedule
 
 **Format/placement:** VALUE, asked by Nia Chen beside `dispatch-console`.
@@ -7466,6 +7937,20 @@ value:
 **Wrong-path feedback:** Paint condition and power price do not test a binding release constraint; omitting repeatability, storage, or arrival leaves the schedule uncertified.
 
 **State/output:** feasible schedule selected.
+
+### Character scene: headwater-nia-payoff
+
+**Trigger:** After Stop 48 is accepted.
+**Location and presence:** `dispatch-console` in Powerhouse. Nia Chen, power dispatcher, speaks by radio unless already placed locally by the existing beat; do not teleport or duplicate the character. Any second speaker is explicitly remote.
+**Presentation:** Normal playable view; existing fixture evidence plus radio/nearby bubbles. Run after accepted-result feedback and before the existing departure or mission-outcome beat. This is authored scene content, not another graded interaction.
+**Exact action / accessible description:** Files the feasible schedule with its work and reserve constraints.
+**Exact dialogue:**
+- Nia Chen, power dispatcher: “Send this schedule to the grid, including the hours we cannot promise.”
+- Tomas Wilkes, gate mechanic (radio): “That schedule gives my crew a limit they can maintain.”
+
+**World-state effect:** Preserve the existing accepted result and attach this reaction to its mission-log entry. The physical record remains at this fixture with the accepted scope; no new measurement, repair, signature authority or clearance is created by dialogue.
+**Controls, persistence and retry:** Pause the timer during bubbles; one Continue per bubble restores control. At most two bubbles in this scene. Fire once per relevant accepted-state transition, not on wrong submissions; mission retry restores its snapshot and replay status. Retain accepted record and completed lines in the log. Use `headwater-nia-payoff` only as a story-presentation key, never as a stop or fixture ID. No RP, metric, mastery or travel-unlock effect. At Stop 60 this is part of the existing pre-ending reaction; do not delay the ending with optional roster material.
+
 
 ## Mission outcome
 
@@ -8437,6 +8922,19 @@ estimate:
 
 **State/output:** repair route; waypoint INFLOW.
 
+### Character scene: headwater-elise-turn
+
+**Trigger:** After Stop 54 is accepted.
+**Location and presence:** `settlement-circuits` in Downstream Warning Desk. Elise Baptiste, downstream safety lead, speaks by radio unless already placed locally by the existing beat; do not teleport or duplicate the character. Any second speaker is explicitly remote.
+**Presentation:** Normal playable view; existing fixture evidence plus radio/nearby bubbles. Run after accepted-result feedback and before the existing departure or mission-outcome beat. This is authored scene content, not another graded interaction.
+**Exact action / accessible description:** Marks the failed warning circuits in the repair order supported by the accepted consequence ranking.
+**Exact dialogue:**
+- Elise Baptiste, downstream safety lead: “They were counting on my warning; a lower flow does not repair a dead line.”
+
+**World-state effect:** Preserve the existing accepted result and attach this reaction to its mission-log entry. The physical record remains at this fixture with the accepted scope; no new measurement, repair, signature authority or clearance is created by dialogue.
+**Controls, persistence and retry:** Pause the timer during bubbles; one Continue per bubble restores control. At most two bubbles in this scene. Fire once per relevant accepted-state transition, not on wrong submissions; mission retry restores its snapshot and replay status. Retain accepted record and completed lines in the log. Use `headwater-elise-turn` only as a story-presentation key, never as a stop or fixture ID. No RP, metric, mastery or travel-unlock effect. At Stop 60 this is part of the existing pre-ending reaction; do not delay the ending with optional roster material.
+
+
 ## Stop 55 - Update the delayed forecast
 
 **Format/placement:** CONTROL, at `arrival-map`.
@@ -8562,6 +9060,19 @@ trigger:
 **Wrong-path feedback:** A negative slack or any dark circuit fails the committed rule; do not move the threshold after the four circuit results appear.
 
 **State/output:** siren text `4/4 READY`; Downstream locks.
+
+### Character scene: headwater-elise-payoff
+
+**Trigger:** After Stop 56 is accepted.
+**Location and presence:** `radio-desk` in Downstream Warning Desk. Elise Baptiste, downstream safety lead, speaks by radio unless already placed locally by the existing beat; do not teleport or duplicate the character. Any second speaker is explicitly remote.
+**Presentation:** Normal playable view; existing fixture evidence plus radio/nearby bubbles. Run after accepted-result feedback and before the existing departure or mission-outcome beat. This is authored scene content, not another graded interaction.
+**Exact action / accessible description:** Retains the repaired-circuit evidence beside the newly committed warning trigger.
+**Exact dialogue:**
+- Elise Baptiste, downstream safety lead: “Now the release plan has a warning people can receive.”
+
+**World-state effect:** Preserve the existing accepted result and attach this reaction to its mission-log entry. The physical record remains at this fixture with the accepted scope; no new measurement, repair, signature authority or clearance is created by dialogue.
+**Controls, persistence and retry:** Pause the timer during bubbles; one Continue per bubble restores control. At most two bubbles in this scene. Fire once per relevant accepted-state transition, not on wrong submissions; mission retry restores its snapshot and replay status. Retain accepted record and completed lines in the log. Use `headwater-elise-payoff` only as a story-presentation key, never as a stop or fixture ID. No RP, metric, mastery or travel-unlock effect. At Stop 60 this is part of the existing pre-ending reaction; do not delay the ending with optional roster material.
+
 
 ## Mission outcome
 
@@ -8967,6 +9478,19 @@ derive:
 
 **State/output:** forecast lock; waypoint STORE.
 
+### Character scene: headwater-leila-payoff
+
+**Trigger:** After Stop 57 is accepted.
+**Location and presence:** `gauge-wall` in Catchment & Inflow Desk. Leila Hassan, gauge operations hydrologist, speaks by radio unless already placed locally by the existing beat; do not teleport or duplicate the character. Any second speaker is explicitly remote.
+**Presentation:** Normal playable view; existing fixture evidence plus radio/nearby bubbles. Run after accepted-result feedback and before the existing departure or mission-outcome beat. This is authored scene content, not another graded interaction.
+**Exact action / accessible description:** Checks the gauge provenance beside the accepted final release bound.
+**Exact dialogue:**
+- Leila Hassan, gauge operations hydrologist: “Keep that independent record with the bound so the next crew can check it.”
+
+**World-state effect:** Preserve the existing accepted result and attach this reaction to its mission-log entry. The physical record remains at this fixture with the accepted scope; no new measurement, repair, signature authority or clearance is created by dialogue.
+**Controls, persistence and retry:** Pause the timer during bubbles; one Continue per bubble restores control. At most two bubbles in this scene. Fire once per relevant accepted-state transition, not on wrong submissions; mission retry restores its snapshot and replay status. Retain accepted record and completed lines in the log. Use `headwater-leila-payoff` only as a story-presentation key, never as a stop or fixture ID. No RP, metric, mastery or travel-unlock effect. At Stop 60 this is part of the existing pre-ending reaction; do not delay the ending with optional roster material.
+
+
 ## Stop 58 - Close the final water ledger
 
 **Format/placement:** BALLPARK, at `water-ledger`.
@@ -9030,6 +9554,20 @@ estimate:
 **Wrong-path feedback:** Count physical streams once and keep their signs.
 
 **State/output:** gate authorization token; waypoint GATES.
+
+### Character scene: headwater-imani-payoff
+
+**Trigger:** After Stop 58 is accepted.
+**Location and presence:** `water-ledger` in Catchment & Inflow Desk. Imani Okoro, catchment hydrologist, speaks by radio unless already placed locally by the existing beat; do not teleport or duplicate the character. Any second speaker is explicitly remote.
+**Presentation:** Normal playable view; existing fixture evidence plus radio/nearby bubbles. Run after accepted-result feedback and before the existing departure or mission-outcome beat. This is authored scene content, not another graded interaction.
+**Exact action / accessible description:** Adds the accepted final inflow total to the water ledger with its revised forecast provenance.
+**Exact dialogue:**
+- Imani Okoro, catchment hydrologist: “This total includes the water my first forecast missed.”
+- Leila Hassan, gauge operations hydrologist (radio): “The gauge provenance stays attached; the total will not lose its source.”
+
+**World-state effect:** Preserve the existing accepted result and attach this reaction to its mission-log entry. The physical record remains at this fixture with the accepted scope; no new measurement, repair, signature authority or clearance is created by dialogue.
+**Controls, persistence and retry:** Pause the timer during bubbles; one Continue per bubble restores control. At most two bubbles in this scene. Fire once per relevant accepted-state transition, not on wrong submissions; mission retry restores its snapshot and replay status. Retain accepted record and completed lines in the log. Use `headwater-imani-payoff` only as a story-presentation key, never as a stop or fixture ID. No RP, metric, mastery or travel-unlock effect. At Stop 60 this is part of the existing pre-ending reaction; do not delay the ending with optional roster material.
+
 
 ## Stop 59 - Predict and operate the staged release
 
@@ -9097,6 +9635,20 @@ verify:
 **Wrong-path feedback:** Wall danger conflicts with uplift, the old curve conflicts with resurvey, and full opening exceeds what work and arrival tests actually verified.
 
 **State/output:** release completes; spillway visible through glass; no more graded questions.
+
+### Character scene: headwater-mara-payoff
+
+**Trigger:** After Stop 60 is accepted.
+**Location and presence:** `staging-console` in Catchment & Inflow Desk. Mara Vale, operations chief, speaks by radio unless already placed locally by the existing beat; do not teleport or duplicate the character. Any second speaker is explicitly remote.
+**Presentation:** Normal playable view; existing fixture evidence plus radio/nearby bubbles. Run after accepted-result feedback and before the existing departure or mission-outcome beat. This is authored scene content, not another graded interaction.
+**Exact action / accessible description:** Keeps the corrected rules beside the final accepted run and retires the superseded chart from operational use.
+**Exact dialogue:**
+- Mara Vale, operations chief: “Use the corrected rules on the next shift too; my old instructions no longer stand.”
+- Elise Baptiste, downstream safety lead (radio): “The warning commitments stay with these rules for the next shift.”
+
+**World-state effect:** Preserve the existing accepted result and attach this reaction to its mission-log entry. The physical record remains at this fixture with the accepted scope; no new measurement, repair, signature authority or clearance is created by dialogue.
+**Controls, persistence and retry:** Pause the timer during bubbles; one Continue per bubble restores control. At most two bubbles in this scene. Fire once per relevant accepted-state transition, not on wrong submissions; mission retry restores its snapshot and replay status. Retain accepted record and completed lines in the log. Use `headwater-mara-payoff` only as a story-presentation key, never as a stop or fixture ID. No RP, metric, mastery or travel-unlock effect. At Stop 60 this is part of the existing pre-ending reaction; do not delay the ending with optional roster material.
+
 
 ## Mission outcome and epilogue - no further quiz
 

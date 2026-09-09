@@ -9,7 +9,7 @@ export const ROSTER = [
     "role": "Island Resources Officer; mission authority",
     "division": "CHAPEL",
     "color": "#6b7f8a",
-    "bio": "<p>Mara Voss is Island Resources Officer; mission authority. Wants a defensible vote in fifteen days. Initially treats complete ledgers as sufficient; learns that shared measurements need independent checks. Says, \"What can the island replace?\"</p>"
+    "bio": "<p>She has promised the council a usable plan by voting day and relies on records supplied by people she knows. A complete ledger can feel conclusive even when several entries share the same omission.</p>"
   },
   {
     "id": "reed",
@@ -17,7 +17,7 @@ export const ROSTER = [
     "role": "Harbour and fishery lead",
     "division": "HARB",
     "color": "#2f7fa8",
-    "bio": "<p>Tomas Reed is Harbour and fishery lead. Wants a second ferry and stable fishing income. Treats landings as stock abundance; accepts effort limits after catch-per-effort falls. Says, \"What came over the rail?\"</p>"
+    "bio": "<p>He wants the second ferry to support a viable harbour and sees the fishers’ work arriving across the rail each day. Stable landings can hide increased effort and a declining stock.</p>"
   },
   {
     "id": "okafor",
@@ -25,7 +25,7 @@ export const ROSTER = [
     "role": "Waterworks technician",
     "division": "WATER",
     "color": "#2e9b8f",
-    "bio": "<p>Nkemdi Okafor is Waterworks technician. Wants protect the aquifer and school supply. Distrusts growth before distinguishing preventable loss from unavoidable demand. Says, \"What changed upstream?\"</p>"
+    "bio": "<p>She is responsible for the school’s water and faces pressure whenever a growth proposal adds demand. Rejecting growth can seem safer than separating unavoidable use from repairable losses.</p>"
   },
   {
     "id": "vale",
@@ -33,7 +33,7 @@ export const ROSTER = [
     "role": "Common agronomy lead",
     "division": "COMMON",
     "color": "#8a9a3c",
-    "bio": "<p>Iona Vale is Common agronomy lead. Wants keep farms productive and affordable. Favors familiar fertilizer; adopts IPM and nutrient budgets when runoff evidence connects fields to reef. Says, \"What stays fixed?\"</p>"
+    "bio": "<p>She has recommended familiar fertilizer practices to growers who cannot afford an unproductive season. A practice that supports yield can seem acceptable before its exported nutrients are counted.</p>"
   },
   {
     "id": "shaw",
@@ -41,7 +41,7 @@ export const ROSTER = [
     "role": "Turbine and diesel mechanic",
     "division": "POWER",
     "color": "#c0803a",
-    "bio": "<p>Elias Shaw is Turbine and diesel mechanic. Wants firm power through winter. Judges sources by nameplate output; accepts capacity factor, storage, and pollution costs. Says, \"What runs at dusk?\"</p>"
+    "bio": "<p>He must keep essential services running at dusk and through winter, not merely show enough installed capacity on paper. Nameplate output is easier to compare than actual production and storage limits.</p>"
   },
   {
     "id": "chen",
@@ -49,7 +49,7 @@ export const ROSTER = [
     "role": "Tip and environmental-health lead",
     "division": "TIP",
     "color": "#a06a3c",
-    "bio": "<p>Mei Chen is Tip and environmental-health lead. Wants stop leakage without bankrupting services. Focuses on visible waste; follows nitrogen, toxics, and methane through unseen pathways. Says, \"Where does it go next?\"</p>"
+    "bio": "<p>She must make a limited service budget stop harmful leakage that residents may never see directly. Visible waste can attract priority over less visible nitrogen, toxic material and methane pathways.</p>"
   },
   {
     "id": "noor",
@@ -57,7 +57,7 @@ export const ROSTER = [
     "role": "Reef ecologist",
     "division": "REEF",
     "color": "#3f8fa0",
-    "bio": "<p>Rafi Noor is Reef ecologist. Wants protect nursery habitat and long records. Initially assumes warming explains every reef decline; accepts nutrient and fishing interactions. Says, \"Which pattern survives?\"</p>"
+    "bio": "<p>His long reef records show decline, and he wants the council to act before nursery habitat is lost. Warming can become an all-purpose explanation that hides local nutrient and fishing effects.</p>"
   },
   {
     "id": "costa",
@@ -65,7 +65,7 @@ export const ROSTER = [
     "role": "School nurse and population recorder",
     "division": "HARB",
     "color": "#2f7fa8",
-    "bio": "<p>Lena Costa is School nurse and population recorder. Wants keep children safe and the school open. Treats head count as demand; learns age structure and visitor-days matter. Says, \"Who receives the dose?\"</p>"
+    "bio": "<p>She wants enough families to keep the school open while remaining responsible for the children’s exposure to unsafe water. A total head count can hide differences in exposure and service demand.</p>"
   },
   {
     "id": "pell",
@@ -73,7 +73,7 @@ export const ROSTER = [
     "role": "Council chair",
     "division": "CHAPEL",
     "color": "#6b7f8a",
-    "bio": "<p>Ada Pell is Council chair. Wants conditions residents can understand and enforce. Wants a simple yes/no; accepts a conditional rule with triggers. Says, \"Can we write that as a rule?\"</p>"
+    "bio": "<p>She must put a decision to a public vote that residents can understand and hold the council to afterward. A simple yes or no can feel more honest than conditions that require ongoing enforcement.</p>"
   }
 ];
 

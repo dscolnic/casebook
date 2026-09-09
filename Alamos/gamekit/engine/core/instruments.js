@@ -3714,7 +3714,20 @@ const DERIVE = {
       // above it." was appearing on all twenty of Headwater's derivations, none of
       // which authors a hint, and it describes the panel rather than the question.
       + (d.hint ? hint(d.hint) : '')
-      + `<div class="deriveGoal"><span>Goal</span><b>${esc(d.goal ?? '')}</b></div>`
+      // NOT RENDERED. The `Goal` line is off, on instruction, for every campaign.
+      //
+      // It printed the bible's `derive.goal` — "percent as a double, from int
+      // inputs", "the tension at the drum with the rope's own weight in it" —
+      // above the rail on all eighty-eight derivations. The objection is that it
+      // is not useful: the stop's own question already says what is being
+      // derived, so the line either repeats it or, worse, describes the shape of
+      // the answer before the player has taken a step toward it. `method` above
+      // went for the same reason.
+      //
+      // The FIELD STAYS in the book and in the data. `engine/dev/deriveGivens.mjs`
+      // reads `derive.goal` when it works out whether every number a derivation
+      // substitutes was one the player was given, and that check is worth more
+      // than the line was.
       + `<div class="deriveRail" id="deriveRail"></div>`
       + `<div class="deriveStep" id="deriveStep"></div>`
       + foot(btn('deriveBack', 'Take that line back')

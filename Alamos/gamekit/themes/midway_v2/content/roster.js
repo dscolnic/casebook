@@ -9,7 +9,7 @@ export const ROSTER = [
     "role": "park operations lead and mission authority",
     "division": "WHEEL",
     "color": "#7a4fa3",
-    "bio": "<p>Maya Hart is park operations lead and mission authority. Wants a defensible reopening before the season is lost. Trusts experienced operators and remembered settings more than formal models. Her missing operator card makes her look responsible for the October event. The player later proves that her interruption prevented resonance, and she ends by accepting a scientifically justified coaster closure. Says, \"What can we sign our names to?\"</p>"
+    "bio": "<p>Maya is responsible for deciding which rides may reopen. Her own intervention during the October test is part of the record the inquiry must explain.</p>"
   },
   {
     "id": "chen",
@@ -17,7 +17,7 @@ export const ROSTER = [
     "role": "instrumentation and test lead",
     "division": "BUMPER",
     "color": "#3f9e6b",
-    "bio": "<p>Linh Chen is instrumentation and test lead. Wants measurements that survive county review. Initially treats separate displays as independent even when they share one upstream clock or calibration. Chen discovers the shared chain, then insists that the coaster model face unseen physical geometry. Says, \"What measured that?\"</p>"
+    "bio": "<p>She has installed separate instruments to make the county case stronger and must disclose when that separation is only apparent. Different displays can share a clock or calibration and therefore the same error.</p>"
   },
   {
     "id": "kova",
@@ -25,7 +25,7 @@ export const ROSTER = [
     "role": "mechanical lead, working the coaster and the flume",
     "division": "TOWER",
     "color": "#c0392b",
-    "bio": "<p>Luka Kovač is mechanical lead, working the coaster and the flume. Wants find worn hardware, replace it, and return safe machines to service. Mechanical wear is familiar, so it becomes the first explanation for unrelated anomalies. Kovač moves from replacing the likely part to measuring the system before naming a failure. Says, \"What changed on the machine?\"</p>"
+    "bio": "<p>He must choose repairs that crews can finish before inspection and prefers faults he knows how to replace. Familiar wear can become the first explanation for unrelated symptoms.</p>"
   },
   {
     "id": "idowu",
@@ -33,7 +33,7 @@ export const ROSTER = [
     "role": "controls engineer",
     "division": "CAROUSEL",
     "color": "#c99a2e",
-    "bio": "<p>Tunde Idowu is controls engineer. Wants separate command errors from mechanical response. Treats controls and mechanics as separate systems even when a drive can excite mechanical resonance. Idowu first defends the controls, then helps write the forbidden timing band that makes the pirate ship operable. Says, \"Change one thing, then change it back.\"</p>"
+    "bio": "<p>An unopened replacement controller could absorb time and money; he must defend the current controls without ignoring how they drive the mechanics. Command correctness can seem separable from mechanical resonance.</p>"
   },
   {
     "id": "brennan",
@@ -41,7 +41,7 @@ export const ROSTER = [
     "role": "former chief engineer and keeper of the notebooks",
     "division": "SHIP",
     "color": "#4a6d8c",
-    "bio": "<p>Ruth Brennan is former chief engineer and keeper of the notebooks. Wants preserve the park knowledge accumulated over forty-one years. Treats a long history of uneventful operation as evidence that copied dimensions and settings remain correct. Brennan accepts that the notebooks record what people did, not what the rides physically are now. Says, \"That is how we always ran it.\"</p>"
+    "bio": "<p>The notebooks preserve forty-one years of work by people she trained; admitting their limits can sound like dismissing that work. A long uneventful history can make copied dimensions and remembered settings seem current.</p>"
   },
   {
     "id": "silva",
@@ -49,7 +49,7 @@ export const ROSTER = [
     "role": "reliability engineer",
     "division": "WORKSHOP",
     "color": "#6b7f8a",
-    "bio": "<p>Ana Silva is reliability engineer. Wants a repair plan that can be reproduced. Initially assumes documentation gaps imply mechanical failure. Says, \"Which record can we repeat?\"</p>"
+    "bio": "<p>She must turn incomplete inherited records into a repair plan that another crew can reproduce. A documentation gap can initially look like evidence of a mechanical failure.</p>"
   },
   {
     "id": "nair",
@@ -57,7 +57,7 @@ export const ROSTER = [
     "role": "geometry engineer",
     "division": "COASTER",
     "color": "#2f7fa8",
-    "bio": "<p>Priya Nair is geometry engineer. Wants a physically correct coaster model. Initially trusts survey marks more than operating data. Says, \"Measure the curve we have.\"</p>"
+    "bio": "<p>Her survey determines whether the coaster model describes the rail people will actually ride. Survey marks alone can feel sufficient before operating data test their consequences.</p>"
   },
   {
     "id": "ruiz",
@@ -65,7 +65,7 @@ export const ROSTER = [
     "role": "hydraulics engineer",
     "division": "FLUME",
     "color": "#2e8b8b",
-    "bio": "<p>Mateo Ruiz is hydraulics engineer. Wants stable flow without consuming shared reserve. Initially treats a good pump curve as sufficient system proof. Says, \"Where does the head go?\"</p>"
+    "bio": "<p>He must restore stable flume flow without consuming power needed elsewhere in the park. A sound pump curve can seem like proof that the whole installed system will perform.</p>"
   }
 ];
 

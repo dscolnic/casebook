@@ -9,7 +9,7 @@ export const ROSTER = [
     "role": "International NEO Response Director",
     "division": "OPS",
     "color": "#3d6f52",
-    "bio": "<p>Mira Chen is International NEO Response Director. Wants one defensible action before politics outruns evidence. Can sound cold when she protects uncertainty. Says, \"What would change the decision?\"</p>"
+    "bio": "<p>Local officials will act on her statements, while public pressure rewards a definite answer before the evidence warrants one. Protecting uncertainty can make her sound detached from the people who must act.</p>"
   },
   {
     "id": "ortiz",
@@ -17,7 +17,7 @@ export const ROSTER = [
     "role": "Survey and discovery lead",
     "division": "DISC",
     "color": "#315c78",
-    "bio": "<p>Lena Ortiz is Survey and discovery lead. Wants keep optical recovery continuous. Trusts her pipeline after years of tuning it. Says, \"Show me the pixels.\"</p>"
+    "bio": "<p>Years of work went into her pipeline, and a timing fault could undermine confidence in a discovery that still needs urgent follow-up. A well-tuned pipeline can feel more trustworthy than an inconvenient external timing check.</p>"
   },
   {
     "id": "rowan",
@@ -25,7 +25,7 @@ export const ROSTER = [
     "role": "Orbit-determination lead",
     "division": "ORBIT",
     "color": "#704f88",
-    "bio": "<p>Malik Rowan is Orbit-determination lead. Wants wait for a mathematically stable solution. Treats modeled covariance as complete until systematics are proved. Says, \"Where is the uncertainty?\"</p>"
+    "bio": "<p>His orbit solution determines whom the response team warns; revising it after public planning has begun carries real consequences. A precise modeled covariance can look complete before unmodeled systematics are tested.</p>"
   },
   {
     "id": "vale",
@@ -33,7 +33,7 @@ export const ROSTER = [
     "role": "Physical-characterization lead",
     "division": "CHAR",
     "color": "#4b775f",
-    "bio": "<p>Sanaa Vale is Physical-characterization lead. Wants measure size, spin, and material before anyone acts. Prefers completeness when time forces decisions. Says, \"What else could make that signal?\"</p>"
+    "bio": "<p>She wants to prevent an action based on the wrong physical body, but every extra observation uses time the response team needs. Waiting for complete characterization can delay a useful bounded answer.</p>"
   },
   {
     "id": "ibarra",
@@ -41,7 +41,7 @@ export const ROSTER = [
     "role": "Planetary-radar director",
     "division": "RADAR",
     "color": "#9a741d",
-    "bio": "<p>Tomás Ibarra is Planetary-radar director. Wants use radar geometry to collapse the orbit. Assumes a clean main echo deserves priority over weak structure. Says, \"Range first; story second.\"</p>"
+    "bio": "<p>He must use limited radar time well and initially gives the clean main return priority over ambiguous structure. A strong main echo can draw attention away from a weak but repeatable feature.</p>"
   },
   {
     "id": "park",
@@ -49,7 +49,7 @@ export const ROSTER = [
     "role": "Entry-and-consequences lead",
     "division": "IMPACT",
     "color": "#9a3f36",
-    "bio": "<p>Evelyn Park is Entry-and-consequences lead. Wants protect people before certainty arrives. Frames decisions around worst credible harm. Says, \"Who is under the corridor?\"</p>"
+    "bio": "<p>She must tell emergency managers what harm they may have to prevent before an impact becomes certain. The worst credible outcome can dominate even when actions should scale with changing evidence.</p>"
   },
   {
     "id": "hale",
@@ -57,7 +57,7 @@ export const ROSTER = [
     "role": "division emergency manager for Valle Seco",
     "division": "TOWN",
     "color": "#6b7f8a",
-    "bio": "<p>Jordan Hale is division emergency manager for Valle Seco. Wants give counties one clear plan they can execute. Fears that changing guidance will destroy trust. Says, \"Tell me what happens at each line.\"</p>"
+    "bio": "<p>County teams will have to explain changing instructions at roadblocks and transport desks. Changing guidance can feel like breaking trust, even when the evidence changes.</p>"
   },
   {
     "id": "sen",
@@ -65,7 +65,7 @@ export const ROSTER = [
     "role": "Space-intervention and operations lead",
     "division": "IMPACT",
     "color": "#9a3f36",
-    "bio": "<p>Arjun Sen is Space-intervention and operations lead. Wants use the dormant Aegis demonstrator if any credible intercept exists. Momentum hardware makes action feel more valuable than observation. Says, \"How much miss distance do we buy?\"</p>"
+    "bio": "<p>He has kept the dormant Aegis demonstrator ready for a chance like this and wants that preparation to matter. Available hardware makes intervention feel more valuable than observation before feasibility is tested.</p>"
   }
 ];
 

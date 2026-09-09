@@ -1,6 +1,8 @@
 **FIRST PERSON LEARNING**
 
-**Player-copy editing rule:** Within each displayed passage, state each fact, equation, variable definition, and instruction once. Integrate new givens into the existing wording; do not append a paraphrase of the setup. A source panel may repeat essential inputs so it stands alone, but render it as its own surface rather than concatenating it with the question setup. Go Deeper questions must still supply their own context and data without referring to earlier cases.
+**Editorial revision:** Character profiles, evidence-driven scenes and biography checks; 2026-09-09. All prior copy and opening-quote fixes retained.
+
+**Player-copy editing rule:** Raise a blocking `REPETITION_FLAG` for unresolved duplicated meaning within a displayed passage, including paraphrases, repeated formulas/definitions and concatenated setup/source copy. Review candidate matches semantically and document any separate-surface exception. Apply REP-001–REP-005 in Giant Gate v2.8.  Within each displayed passage, state each fact, equation, variable definition, and instruction once. Integrate new givens into the existing wording; do not append a paraphrase of the setup. A source panel may repeat essential inputs so it stands alone, but render it as its own surface rather than concatenating it with the question setup. Go Deeper questions must still supply their own context and data without referring to earlier cases.
 
 **GROUND TRUTH**
 
@@ -166,6 +168,16 @@ Ortiz also owns the season deadline: she has promised the field crew a completed
 
 ## 4. Character bible
 
+### Profile and scene delivery contract
+
+The compact material below is a designer reference. The individual Character ID entries are the authoritative full profiles; reference rows and headings are not additional people. Render only the explicitly labeled bio fields in the optional roster. Wants, blind spots and future arc descriptions are designer-only. Keep the existing names, role aliases and division assignments; the explicit profiles add ownership and scene bindings without changing any person-stop owner.
+
+Each character has an entrance/evidence encounter, a required evidence-triggered turn and a later demonstrated change, embedded at the relevant mission stops below. These scenes are part of the story route, not prerequisites added by the roster. Opening handovers and established entrances play once. When an existing beat already supplies the same action or sentence at that trigger, render that action or sentence once and use this exact reaction as its character component; retain all distinct travel, science and outcome content. Sequence multiple scenes by their order in the chapter. Do not concatenate setup/source panels or duplicate the accepted answer in dialogue.
+
+All physical actions use the existing fixture and its records. A radio speaker can direct the player’s visible record handling; no new carried item, prop, fixture, resource or measurement is implied. Preserve original lock and release conditions, including partial clearance and no-go endings. The roster can be skipped in full with no effect on progress. The three greeting variants are state-selected optional conversations, not an automatic speech queue.
+
+### Compact designer reference
+
 | Character | Role and first entrance | Wants | Blind spot | Domain and decision use | Arc and verbal habit |
 |---|---|---|---|---|---|
 | Dr. Lena Ortiz (she/her; Ortiz) | `SHOT` division director; stops a launch while crew-clear lights disagree | A defensible final shot and signed report | Treats established procedure as independent evidence | Thresholds, uncertainty, authorization; TRIGGER, VALUE, ATTEST | Accepts that a procedure must be tested at the right timescale. “What would make us stop?” |
@@ -179,6 +191,274 @@ Ortiz also owns the season deadline: she has promised the field crew a completed
 All first mentions in each mission repeat the working role. Named reactions occur in world beats, never on system-owned outcome cards.
 
 ---
+
+### Relationship evidence map
+
+| People | Planted commitment | Evidence-driven turn | Later changed practice |
+|---|---|---|---|
+| Ravi Sen / Noor Haddad | `groundtruth-ravi-entrance`: “Tell me if my four agreeing mills are less independent than they look.” | Stop 25, `groundtruth-ravi-turn` | Stop 28, `groundtruth-ravi-payoff` |
+| Marcus Tate / Saira Malik | `groundtruth-tate-entrance`: “If the bond test leaves something out, I need it on the drawing before another crew trusts it.” | Stop 43, `groundtruth-tate-turn` | Stop 59, `groundtruth-tate-payoff` |
+| Elise Strand / Owen Park | `groundtruth-strand-entrance`: “Before I spend another bank shot, show me what would make the outstation test useful.” | Stop 32, `groundtruth-strand-turn` | Stop 47, `groundtruth-strand-payoff` |
+
+### Dr. Lena Ortiz
+
+- **Character ID:** `person-dr-lena-ortiz`
+- **Display name:** Dr. Lena Ortiz
+- **Role:** station director
+- **Pronouns:** she/her
+- **Allowed short name:** Ortiz
+- **Area ownership:** Launch Control; Remote Outstation. Existing division assignments in the reference summary also remain in force; presence elsewhere is explicitly by radio.
+- **First entrance:** Stops launch preparation while crew-clear indicators disagree. The established entrance is retained; the scene below stages the first evidence encounter in this arc. Binding: `groundtruth-ortiz-entrance`, On arrival at Launch Control during Mission 1, when Stop 3 is the next active stop; if the player is already here, fire once on that stop’s existing activation instead of requiring re-entry, at `launch-board`.
+- **Wants and personal stake:** Her station has already authorized a shot that damaged an outstation; she must defend the next authorization to the crew who will carry it out.
+- **Blind spot:** An established procedure can feel like independent proof that the station is safe.
+- **Scientific domain:** shot thresholds and certification.
+- **Decision function:** Supplies the shot thresholds and certification constraint to the existing decisions at Stops 44 and 60; the player still submits the answer and the existing authority still controls authorization.
+- **Verbal habit:** “What would make us stop?”
+- **Relationship pressure:** The player relies on Ortiz for shot thresholds and certification; their shared working assumption is challenged in `groundtruth-ortiz-turn`.
+- **Arc, with source evidence:** After Stop 44 (Verify the Historical Path), `groundtruth-ortiz-turn` makes the accepted evidence personally consequential. After Stop 60 (Certify Station 12), `groundtruth-ortiz-payoff` shows the resulting change in practice: Signs the station report only after the existing final repair and witnessed-shot evidence are accepted.
+- **Cost of changing:** The character must revise or qualify the commitment described under personal stake in front of the player; the old interpretation remains reviewable rather than silently overwritten.
+- **Gameplay necessity:** Removing this character removes the accountable owner of shot thresholds and certification, the commitment above, and the witnessed correction in `groundtruth-ortiz-turn`. Reassigning their questions alone would not preserve those scenes or constraints.
+
+**Bio passage - exact player copy:** Her station has already authorized a shot that damaged an outstation; she must defend the next authorization to the crew who will carry it out. An established procedure can feel like independent proof that the station is safe.
+
+**Bio reflection question - exact player copy:** Why is Ortiz reluctant to rely on a reassuring summary alone?
+
+**Bio reveal answer - exact player copy:** She must authorize the next shot after a previous authorized operation caused damage.
+
+**Bio feedback - exact player copy:** The earlier damage gives the next authorization a concrete consequence for the crew.
+
+**Bio check behavior:** On explicit opening of this character’s optional roster page after their first encounter, show only the bio passage and reflection question. Reveal answer and feedback only when the player selects Show answer; allow reconsideration and reopening. This is an unscored reading reflection, with no automatic correctness judgment, stop number, RP, timer cost, mission prerequisite, mastery credit, story flag or unlock. No answer or future arc is required to continue. Designer profile fields and future dialogue are not player-visible biography text.
+
+**Conditional greeting binding:** On explicit Talk to Ortiz after the character has been introduced, use the highest satisfied row only. Later states override earlier ones. A state changes only from the existing accepted-stop record, never from reading the bio. Lines may be reopened on explicit request; do not autoplay a greeting already spoken as a scene line at that encounter. No new travel or required conversation is created. Presence is local only at the character’s existing location; otherwise use the established radio connection. Log spoken text; pause the timer while it is open.
+
+| Priority | Condition | Exact greeting |
+|---:|---|---|
+| 30 | Stop 60 accepted | “The next crew gets the tested limits with my signature.” |
+| 20 | Stop 44 accepted; Stop 60 not accepted | “We followed our procedure and still missed this path; the procedure has to change.” |
+| 10 | Introduced; Stop 44 not accepted; fallback | “What would make us stop?” |
+
+### Ravi Sen
+
+- **Character ID:** `person-ravi-sen`
+- **Display name:** Ravi Sen
+- **Role:** field scientist
+- **Pronouns:** he/him
+- **Allowed short name:** Ravi
+- **Area ownership:** Field Station; Launch Control. Existing division assignments in the reference summary also remain in force; presence elsewhere is explicitly by radio.
+- **First entrance:** Opens the reference mill while checking the weather at the field station. The established entrance is retained; the scene below stages the first evidence encounter in this arc. Binding: `groundtruth-ravi-entrance`, On arrival at Field Station during Mission 2, when Stop 5 is the next active stop; if the player is already here, fire once on that stop’s existing activation instead of requiring re-entry, at `mill-array`.
+- **Wants and personal stake:** He has maintained the mill array and argued that its agreement makes the storm record usable.
+- **Blind spot:** Agreement among several instruments can hide a shared reference error.
+- **Scientific domain:** electrostatics, potential and reference independence.
+- **Decision function:** Supplies the electrostatics, potential and reference independence constraint to the existing decisions at Stops 25 and 28; the player still submits the answer and the existing authority still controls authorization.
+- **Verbal habit:** “What does the field permit us to claim?”
+- **Relationship pressure:** Noor Haddad: He has maintained the mill array and argued that its agreement makes the storm record usable.
+- **Arc, with source evidence:** After Stop 25 (Trace the Shared Reference), `groundtruth-ravi-turn` makes the accepted evidence personally consequential. After Stop 28 (Quantify Common-Mode Error), `groundtruth-ravi-payoff` shows the resulting change in practice: Attaches the accepted common-mode error estimate to the field record.
+- **Cost of changing:** The character must revise or qualify the commitment described under personal stake in front of the player and Noor Haddad; the old interpretation remains reviewable rather than silently overwritten.
+- **Gameplay necessity:** Removing this character removes the accountable owner of electrostatics, potential and reference independence, the commitment above, and the witnessed correction in `groundtruth-ravi-turn`. Reassigning their questions alone would not preserve those scenes or constraints.
+
+**Bio passage - exact player copy:** He has maintained the mill array and argued that its agreement makes the storm record usable. Agreement among several instruments can hide a shared reference error.
+
+**Bio reflection question - exact player copy:** Why might Ravi initially trust agreement among the mills?
+
+**Bio reveal answer - exact player copy:** He has maintained a coherent array, but agreement alone does not show that its measurement paths are independent.
+
+**Bio feedback - exact player copy:** Count measurement dependencies, not merely instrument housings.
+
+**Bio check behavior:** On explicit opening of this character’s optional roster page after their first encounter, show only the bio passage and reflection question. Reveal answer and feedback only when the player selects Show answer; allow reconsideration and reopening. This is an unscored reading reflection, with no automatic correctness judgment, stop number, RP, timer cost, mission prerequisite, mastery credit, story flag or unlock. No answer or future arc is required to continue. Designer profile fields and future dialogue are not player-visible biography text.
+
+**Conditional greeting binding:** On explicit Talk to Ravi after the character has been introduced, use the highest satisfied row only. Later states override earlier ones. A state changes only from the existing accepted-stop record, never from reading the bio. Lines may be reopened on explicit request; do not autoplay a greeting already spoken as a scene line at that encounter. No new travel or required conversation is created. Presence is local only at the character’s existing location; otherwise use the established radio connection. Log spoken text; pause the timer while it is open.
+
+| Priority | Condition | Exact greeting |
+|---:|---|---|
+| 30 | Stop 28 accepted | “Keep the uncertainty beside the field value, even when the mills agree.” |
+| 20 | Stop 25 accepted; Stop 28 not accepted | “I counted four witnesses; we have to account for the reference they share.” |
+| 10 | Introduced; Stop 25 not accepted; fallback | “What does the field permit us to claim?” |
+
+### Elise Strand
+
+- **Character ID:** `person-elise-strand`
+- **Display name:** Elise Strand
+- **Role:** impulse engineer
+- **Pronouns:** she/her
+- **Allowed short name:** Strand
+- **Area ownership:** Impulse Hall; Remote Outstation; Mast Base. Existing division assignments in the reference summary also remain in force; presence elsewhere is explicitly by radio.
+- **First entrance:** Keeps the earthing stick on the bank while its configuration is checked. The established entrance is retained; the scene below stages the first evidence encounter in this arc. Binding: `groundtruth-strand-entrance`, On arrival at Impulse Hall during Mission 5, when Stop 19 is the next active stop; if the player is already here, fire once on that stop’s existing activation instead of requiring re-entry, at `hall-board`.
+- **Wants and personal stake:** She is responsible for scarce bank hardware and wants each test to earn enough evidence to justify its cost.
+- **Blind spot:** Stored energy can dominate her attention while the route that energy takes receives too little weight.
+- **Scientific domain:** bank capacitance, energy and coupling.
+- **Decision function:** Supplies the bank capacitance, energy and coupling constraint to the existing decisions at Stops 32 and 47; the player still submits the answer and the existing authority still controls authorization.
+- **Verbal habit:** “Count where the energy can go.”
+- **Relationship pressure:** Owen Park: She is responsible for scarce bank hardware and wants each test to earn enough evidence to justify its cost.
+- **Arc, with source evidence:** After Stop 32 (Diagnose Noncontact Damage), `groundtruth-strand-turn` makes the accepted evidence personally consequential. After Stop 47 (Fire the Reduced Test), `groundtruth-strand-payoff` shows the resulting change in practice: Retains the reduced-shot trace beside the reroute prediction.
+- **Cost of changing:** The character must revise or qualify the commitment described under personal stake in front of the player and Owen Park; the old interpretation remains reviewable rather than silently overwritten.
+- **Gameplay necessity:** Removing this character removes the accountable owner of bank capacitance, energy and coupling, the commitment above, and the witnessed correction in `groundtruth-strand-turn`. Reassigning their questions alone would not preserve those scenes or constraints.
+
+**Bio passage - exact player copy:** She is responsible for scarce bank hardware and wants each test to earn enough evidence to justify its cost. Stored energy can dominate her attention while the route that energy takes receives too little weight.
+
+**Bio reflection question - exact player copy:** What does Strand need a test to justify?
+
+**Bio reveal answer - exact player copy:** It must produce useful evidence while using limited bank hardware; a larger shot is not automatically a better test.
+
+**Bio feedback - exact player copy:** Ask what decision the test informs before equating a larger shot with a better one.
+
+**Bio check behavior:** On explicit opening of this character’s optional roster page after their first encounter, show only the bio passage and reflection question. Reveal answer and feedback only when the player selects Show answer; allow reconsideration and reopening. This is an unscored reading reflection, with no automatic correctness judgment, stop number, RP, timer cost, mission prerequisite, mastery credit, story flag or unlock. No answer or future arc is required to continue. Designer profile fields and future dialogue are not player-visible biography text.
+
+**Conditional greeting binding:** On explicit Talk to Strand after the character has been introduced, use the highest satisfied row only. Later states override earlier ones. A state changes only from the existing accepted-stop record, never from reading the bio. Lines may be reopened on explicit request; do not autoplay a greeting already spoken as a scene line at that encounter. No new travel or required conversation is created. Presence is local only at the character’s existing location; otherwise use the established radio connection. Log spoken text; pause the timer while it is open.
+
+| Priority | Condition | Exact greeting |
+|---:|---|---|
+| 30 | Stop 47 accepted | “That test earned its hardware cost by testing the path as well as the bank.” |
+| 20 | Stop 32 accepted; Stop 47 not accepted | “Knowing what we stored did not tell us every place it could go.” |
+| 10 | Introduced; Stop 32 not accepted; fallback | “Count where the energy can go.” |
+
+### Marcus Tate
+
+- **Character ID:** `person-marcus-tate`
+- **Display name:** Marcus Tate
+- **Role:** mast engineer
+- **Pronouns:** he/him
+- **Allowed short name:** Tate
+- **Area ownership:** Mast Base; Earthing Trench; Remote Outstation. Existing division assignments in the reference summary also remain in force; presence elsewhere is explicitly by radio.
+- **First entrance:** Checks the hot bond before offering a defense of the drawing. The established entrance is retained; the scene below stages the first evidence encounter in this arc. Binding: `groundtruth-tate-entrance`, On arrival at Mast Base during Mission 4, when Stop 13 is the next active stop; if the player is already here, fire once on that stop’s existing activation instead of requiring re-entry, at `mast-desk`.
+- **Wants and personal stake:** His drawings guide maintenance of the mast and bonds; an overlooked path would require him to revise work other people trusted.
+- **Blind spot:** A low-resistance bond can appear harmless when only steady behavior is considered.
+- **Scientific domain:** current paths, magnetic forces and conduit routing.
+- **Decision function:** Supplies the current paths, magnetic forces and conduit routing constraint to the existing decisions at Stops 43 and 59; the player still submits the answer and the existing authority still controls authorization.
+- **Verbal habit:** “Which path carried it?”
+- **Relationship pressure:** Saira Malik: His drawings guide maintenance of the mast and bonds; an overlooked path would require him to revise work other people trusted.
+- **Arc, with source evidence:** After Stop 43 (Isolate Conduit Current), `groundtruth-tate-turn` makes the accepted evidence personally consequential. After Stop 59 (Reverse the Loop Geometry), `groundtruth-tate-payoff` shows the resulting change in practice: Keeps the geometry-reversal evidence with the revised cable-route record.
+- **Cost of changing:** The character must revise or qualify the commitment described under personal stake in front of the player and Saira Malik; the old interpretation remains reviewable rather than silently overwritten.
+- **Gameplay necessity:** Removing this character removes the accountable owner of current paths, magnetic forces and conduit routing, the commitment above, and the witnessed correction in `groundtruth-tate-turn`. Reassigning their questions alone would not preserve those scenes or constraints.
+
+**Bio passage - exact player copy:** His drawings guide maintenance of the mast and bonds; an overlooked path would require him to revise work other people trusted. A low-resistance bond can appear harmless when only steady behavior is considered.
+
+**Bio reflection question - exact player copy:** Why does Tate inspect the hot bond before defending his drawing?
+
+**Bio reveal answer - exact player copy:** The physical condition matters to maintenance even if the documented design once seemed adequate.
+
+**Bio feedback - exact player copy:** The physical inspection tests whether the drawing remains a useful guide.
+
+**Bio check behavior:** On explicit opening of this character’s optional roster page after their first encounter, show only the bio passage and reflection question. Reveal answer and feedback only when the player selects Show answer; allow reconsideration and reopening. This is an unscored reading reflection, with no automatic correctness judgment, stop number, RP, timer cost, mission prerequisite, mastery credit, story flag or unlock. No answer or future arc is required to continue. Designer profile fields and future dialogue are not player-visible biography text.
+
+**Conditional greeting binding:** On explicit Talk to Tate after the character has been introduced, use the highest satisfied row only. Later states override earlier ones. A state changes only from the existing accepted-stop record, never from reading the bio. Lines may be reopened on explicit request; do not autoplay a greeting already spoken as a scene line at that encounter. No new travel or required conversation is created. Presence is local only at the character’s existing location; otherwise use the established radio connection. Log spoken text; pause the timer while it is open.
+
+| Priority | Condition | Exact greeting |
+|---:|---|---|
+| 30 | Stop 59 accepted | “Leave the tested geometry in the maintenance record so nobody restores the old loop.” |
+| 20 | Stop 43 accepted; Stop 59 not accepted | “The path is on my drawing; its consequences were missing from my explanation.” |
+| 10 | Introduced; Stop 43 not accepted; fallback | “Which path carried it?” |
+
+### Noor Haddad
+
+- **Character ID:** `person-noor-haddad`
+- **Display name:** Noor Haddad
+- **Role:** data and safety analyst
+- **Pronouns:** they/them
+- **Allowed short name:** Noor
+- **Area ownership:** Field Station; Launch Control. Existing division assignments in the reference summary also remain in force; presence elsewhere is explicitly by radio.
+- **First entrance:** Compares raw timestamps before allowing summaries to stand as separate evidence. The established entrance is retained; the scene below stages the first evidence encounter in this arc. Binding: `groundtruth-noor-entrance`, On arrival at Field Station during Mission 7, when Stop 25 is the next active stop; if the player is already here, fire once on that stop’s existing activation instead of requiring re-entry, at `mill-array`.
+- **Wants and personal stake:** They must decide which evidence is sufficient while the storm window and recorder budget are running out.
+- **Blind spot:** Seeking perfect certainty can delay a useful test after its decision standard could have been fixed.
+- **Scientific domain:** independent evidence, bandwidth and uncertainty.
+- **Decision function:** Supplies the independent evidence, bandwidth and uncertainty constraint to the existing decisions at Stops 51 and 53; the player still submits the answer and the existing authority still controls authorization.
+- **Verbal habit:** “Independent of what?”
+- **Relationship pressure:** The player relies on Noor for independent evidence, bandwidth and uncertainty; their shared working assumption is challenged in `groundtruth-noor-turn`.
+- **Arc, with source evidence:** After Stop 51 (Buy the Recorder Upgrade), `groundtruth-noor-turn` makes the accepted evidence personally consequential. After Stop 53 (Freeze Final Thresholds), `groundtruth-noor-payoff` shows the resulting change in practice: Leaves the precommitted final thresholds visible before any final-shot trace arrives.
+- **Cost of changing:** The character must revise or qualify the commitment described under personal stake in front of the player; the old interpretation remains reviewable rather than silently overwritten.
+- **Gameplay necessity:** Removing this character removes the accountable owner of independent evidence, bandwidth and uncertainty, the commitment above, and the witnessed correction in `groundtruth-noor-turn`. Reassigning their questions alone would not preserve those scenes or constraints.
+
+**Bio passage - exact player copy:** They must decide which evidence is sufficient while the storm window and recorder budget are running out. Seeking perfect certainty can delay a useful test after its decision standard could have been fixed.
+
+**Bio reflection question - exact player copy:** What tension does Noor face when requesting another measurement?
+
+**Bio reveal answer - exact player copy:** Better evidence is valuable, but the remaining time and budget require a defined standard for when evidence is sufficient.
+
+**Bio feedback - exact player copy:** Distinguish an evidence standard that can be met from an open-ended search for certainty.
+
+**Bio check behavior:** On explicit opening of this character’s optional roster page after their first encounter, show only the bio passage and reflection question. Reveal answer and feedback only when the player selects Show answer; allow reconsideration and reopening. This is an unscored reading reflection, with no automatic correctness judgment, stop number, RP, timer cost, mission prerequisite, mastery credit, story flag or unlock. No answer or future arc is required to continue. Designer profile fields and future dialogue are not player-visible biography text.
+
+**Conditional greeting binding:** On explicit Talk to Noor after the character has been introduced, use the highest satisfied row only. Later states override earlier ones. A state changes only from the existing accepted-stop record, never from reading the bio. Lines may be reopened on explicit request; do not autoplay a greeting already spoken as a scene line at that encounter. No new travel or required conversation is created. Presence is local only at the character’s existing location; otherwise use the established radio connection. Log spoken text; pause the timer while it is open.
+
+| Priority | Condition | Exact greeting |
+|---:|---|---|
+| 30 | Stop 53 accepted | “The rule is written before the result; now we can act on enough evidence.” |
+| 20 | Stop 51 accepted; Stop 53 not accepted | “We cannot measure everything; we can make this next measurement answer the decision.” |
+| 10 | Introduced; Stop 51 not accepted; fallback | “Independent of what?” |
+
+### Saira Malik
+
+- **Character ID:** `person-saira-malik`
+- **Display name:** Saira Malik
+- **Role:** earthing specialist
+- **Pronouns:** she/her
+- **Allowed short name:** Saira
+- **Area ownership:** Impulse Hall; Earthing Trench. Existing division assignments in the reference summary also remain in force; presence elsewhere is explicitly by radio.
+- **First entrance:** Checks the bond record against the physical connection at the trench. The established entrance is retained; the scene below stages the first evidence encounter in this arc. Binding: `groundtruth-saira-entrance`, On arrival at Impulse Hall during Mission 10, when Stop 37 is the next active stop; if the player is already here, fire once on that stop’s existing activation instead of requiring re-entry, at `hall-board`.
+- **Wants and personal stake:** Crews use the earthing certificate to decide whether they can work; she wants its limits to be as clear as its passing result.
+- **Blind spot:** A good direct-current resistance result can be mistaken for a complete surge certificate.
+- **Scientific domain:** bond inductance and transient impedance.
+- **Decision function:** Supplies the bond inductance and transient impedance constraint to the existing decisions at Stops 40 and 52; the player still submits the answer and the existing authority still controls authorization.
+- **Verbal habit:** “At what timescale?”
+- **Relationship pressure:** The player relies on Saira for bond inductance and transient impedance; their shared working assumption is challenged in `groundtruth-saira-turn`.
+- **Arc, with source evidence:** After Stop 40 (Scope the April Certificate), `groundtruth-saira-turn` makes the accepted evidence personally consequential. After Stop 52 (Diagnose Frequency Response), `groundtruth-saira-payoff` shows the resulting change in practice: Leaves the fast-response evidence beside the correctly scoped certificate.
+- **Cost of changing:** The character must revise or qualify the commitment described under personal stake in front of the player; the old interpretation remains reviewable rather than silently overwritten.
+- **Gameplay necessity:** Removing this character removes the accountable owner of bond inductance and transient impedance, the commitment above, and the witnessed correction in `groundtruth-saira-turn`. Reassigning their questions alone would not preserve those scenes or constraints.
+
+**Bio passage - exact player copy:** Crews use the earthing certificate to decide whether they can work; she wants its limits to be as clear as its passing result. A good direct-current resistance result can be mistaken for a complete surge certificate.
+
+**Bio reflection question - exact player copy:** Why does Saira care about the scope of a passing certificate?
+
+**Bio reveal answer - exact player copy:** Other crews use it to make operating decisions, so it must not imply protection against conditions it never tested.
+
+**Bio feedback - exact player copy:** A certificate should identify its tested conditions as well as its passing value.
+
+**Bio check behavior:** On explicit opening of this character’s optional roster page after their first encounter, show only the bio passage and reflection question. Reveal answer and feedback only when the player selects Show answer; allow reconsideration and reopening. This is an unscored reading reflection, with no automatic correctness judgment, stop number, RP, timer cost, mission prerequisite, mastery credit, story flag or unlock. No answer or future arc is required to continue. Designer profile fields and future dialogue are not player-visible biography text.
+
+**Conditional greeting binding:** On explicit Talk to Saira after the character has been introduced, use the highest satisfied row only. Later states override earlier ones. A state changes only from the existing accepted-stop record, never from reading the bio. Lines may be reopened on explicit request; do not autoplay a greeting already spoken as a scene line at that encounter. No new travel or required conversation is created. Presence is local only at the character’s existing location; otherwise use the established radio connection. Log spoken text; pause the timer while it is open.
+
+| Priority | Condition | Exact greeting |
+|---:|---|---|
+| 30 | Stop 52 accepted | “Read both records: they answer different questions about the same bond.” |
+| 20 | Stop 40 accepted; Stop 52 not accepted | “The resistance test was real; the promise we attached to it was too broad.” |
+| 10 | Introduced; Stop 40 not accepted; fallback | “At what timescale?” |
+
+### Owen Park
+
+- **Character ID:** `person-owen-park`
+- **Display name:** Owen Park
+- **Role:** remote-systems engineer
+- **Pronouns:** he/him
+- **Allowed short name:** Owen
+- **Area ownership:** Mast Base; Remote Outstation. Existing division assignments in the reference summary also remain in force; presence elsewhere is explicitly by radio.
+- **First entrance:** Opens the outstation cable bay and keeps the damaged receiver evidence accessible. The established entrance is retained; the scene below stages the first evidence encounter in this arc. Binding: `groundtruth-owen-entrance`, On arrival at Mast Base during Mission 4, when Stop 15 is the next active stop; if the player is already here, fire once on that stop’s existing activation instead of requiring re-entry, at `cabinet`.
+- **Wants and personal stake:** He must return the damaged outstation to service and is under pressure to replace its visibly failed cards.
+- **Blind spot:** A damaged card looks like the source of the failure before the incoming path is traced.
+- **Scientific domain:** loop geometry and receiver damage.
+- **Decision function:** Supplies the loop geometry and receiver damage constraint to the existing decisions at Stops 36 and 56; the player still submits the answer and the existing authority still controls authorization.
+- **Verbal habit:** “Where did the loop close?”
+- **Relationship pressure:** The player relies on Owen for loop geometry and receiver damage; their shared working assumption is challenged in `groundtruth-owen-turn`.
+- **Arc, with source evidence:** After Stop 36 (Verify the Loop Model), `groundtruth-owen-turn` makes the accepted evidence personally consequential. After Stop 56 (Probe the Rack), `groundtruth-owen-payoff` shows the resulting change in practice: Marks the failing rack location from the completed probe for the existing final repair decision.
+- **Cost of changing:** The character must revise or qualify the commitment described under personal stake in front of the player; the old interpretation remains reviewable rather than silently overwritten.
+- **Gameplay necessity:** Removing this character removes the accountable owner of loop geometry and receiver damage, the commitment above, and the witnessed correction in `groundtruth-owen-turn`. Reassigning their questions alone would not preserve those scenes or constraints.
+
+**Bio passage - exact player copy:** He must return the damaged outstation to service and is under pressure to replace its visibly failed cards. A damaged card looks like the source of the failure before the incoming path is traced.
+
+**Bio reflection question - exact player copy:** Why might replacing a damaged card fail to solve Owen’s problem?
+
+**Bio reveal answer - exact player copy:** The card may be the receiver of a damaging signal whose source and path remain in place.
+
+**Bio feedback - exact player copy:** Identify the damaging path before assuming the failed receiver originated the fault.
+
+**Bio check behavior:** On explicit opening of this character’s optional roster page after their first encounter, show only the bio passage and reflection question. Reveal answer and feedback only when the player selects Show answer; allow reconsideration and reopening. This is an unscored reading reflection, with no automatic correctness judgment, stop number, RP, timer cost, mission prerequisite, mastery credit, story flag or unlock. No answer or future arc is required to continue. Designer profile fields and future dialogue are not player-visible biography text.
+
+**Conditional greeting binding:** On explicit Talk to Owen after the character has been introduced, use the highest satisfied row only. Later states override earlier ones. A state changes only from the existing accepted-stop record, never from reading the bio. Lines may be reopened on explicit request; do not autoplay a greeting already spoken as a scene line at that encounter. No new travel or required conversation is created. Presence is local only at the character’s existing location; otherwise use the established radio connection. Log spoken text; pause the timer while it is open.
+
+| Priority | Condition | Exact greeting |
+|---:|---|---|
+| 30 | Stop 56 accepted | “This is where the next repair belongs; do not replace the whole rack on suspicion.” |
+| 20 | Stop 36 accepted; Stop 56 not accepted | “A new card would still have been waiting at the end of that loop.” |
+| 10 | Introduced; Stop 36 not accepted; fallback | “Where did the loop close?” |
+
 
 ## 5. Character direction and dialogue rules
 
@@ -623,6 +903,18 @@ derive:
 **Wrong-path feedback:** Superposition adds vectors component by component; keep each sign through substitution.
 
 **State/output:** `MODEL FIELD -4.5 kV/m` appears; unlock S3.
+
+### Character scene: groundtruth-ortiz-entrance
+
+**Trigger:** On arrival at Launch Control during Mission 1, when Stop 3 is the next active stop; if the player is already here, fire once on that stop’s existing activation instead of requiring re-entry.
+**Location and presence:** `launch-board` in Launch Control. Dr. Lena Ortiz, station director, speaks by radio unless already placed locally by the existing beat; do not teleport or duplicate the character. Any second speaker is explicitly remote.
+**Presentation:** Normal playable view; existing fixture evidence plus radio/nearby bubbles. Continue the existing arrival beat before the question opens. This is authored scene content, not another graded interaction.
+**Exact action / accessible description:** Stops launch preparation while crew-clear indicators disagree.
+**Exact dialogue:**
+- Dr. Lena Ortiz, station director: “We authorized the earlier shot; I have to explain to the next crew why this one will be different.”
+
+**World-state effect:** No result is added or revealed; the encounter introduces the record or equipment already available for this stop.
+**Controls, persistence and retry:** Pause the timer during bubbles; one Continue per bubble restores control. At most two bubbles in this scene. Fire once per relevant accepted-state transition, not on wrong submissions; mission retry restores its snapshot and replay status. Retain accepted record and completed lines in the log. Use `groundtruth-ortiz-entrance` only as a story-presentation key, never as a stop or fixture ID. No RP, metric, mastery or travel-unlock effect. At Stop 60 this is part of the existing pre-ending reaction; do not delay the ending with optional roster material.
 
 ## Stop 3 - Bound the disagreement
 
@@ -1153,6 +1445,18 @@ Ravi wants the field pattern to support a usable layer model, but he explicitly 
 Gauss's law is useful only when symmetry makes the flux integral tractable. A conductor's interior field is zero in equilibrium, and net closed-surface flux depends only on enclosed charge.
 
 ## Four graded stops
+
+### Character scene: groundtruth-ravi-entrance
+
+**Trigger:** On arrival at Field Station during Mission 2, when Stop 5 is the next active stop; if the player is already here, fire once on that stop’s existing activation instead of requiring re-entry.
+**Location and presence:** `mill-array` in Field Station. Ravi Sen, field scientist, speaks by radio unless already placed locally by the existing beat; do not teleport or duplicate the character. Any second speaker is explicitly remote.
+**Presentation:** Normal playable view; existing fixture evidence plus radio/nearby bubbles. Continue the existing arrival beat before the question opens. This is authored scene content, not another graded interaction.
+**Exact action / accessible description:** Opens the reference mill while checking the weather at the field station.
+**Exact dialogue:**
+- Ravi Sen, field scientist: “Tell me if my four agreeing mills are less independent than they look.”
+
+**World-state effect:** No result is added or revealed; the encounter introduces the record or equipment already available for this stop.
+**Controls, persistence and retry:** Pause the timer during bubbles; one Continue per bubble restores control. At most two bubbles in this scene. Fire once per relevant accepted-state transition, not on wrong submissions; mission retry restores its snapshot and replay status. Retain accepted record and completed lines in the log. Use `groundtruth-ravi-entrance` only as a story-presentation key, never as a stop or fixture ID. No RP, metric, mastery or travel-unlock effect. At Stop 60 this is part of the existing pre-ending reaction; do not delay the ending with optional roster material.
 
 ## Stop 5 - Derive the sheet field
 
@@ -2359,6 +2663,18 @@ Tate wants to preserve the launch function; evidence moves him from defending th
  electrostatic equilibrium, equipotential conductors, `E_out=σ/ε₀`, curvature enhancement, shielding.  
 
 ## Four graded stops
+### Character scene: groundtruth-tate-entrance
+
+**Trigger:** On arrival at Mast Base during Mission 4, when Stop 13 is the next active stop; if the player is already here, fire once on that stop’s existing activation instead of requiring re-entry.
+**Location and presence:** `mast-desk` in Mast Base. Marcus Tate, mast engineer, speaks by radio unless already placed locally by the existing beat; do not teleport or duplicate the character. Any second speaker is explicitly remote.
+**Presentation:** Normal playable view; existing fixture evidence plus radio/nearby bubbles. Continue the existing arrival beat before the question opens. This is authored scene content, not another graded interaction.
+**Exact action / accessible description:** Checks the hot bond before offering a defense of the drawing.
+**Exact dialogue:**
+- Marcus Tate, mast engineer: “If the bond test leaves something out, I need it on the drawing before another crew trusts it.”
+
+**World-state effect:** No result is added or revealed; the encounter introduces the record or equipment already available for this stop.
+**Controls, persistence and retry:** Pause the timer during bubbles; one Continue per bubble restores control. At most two bubbles in this scene. Fire once per relevant accepted-state transition, not on wrong submissions; mission retry restores its snapshot and replay status. Retain accepted record and completed lines in the log. Use `groundtruth-tate-entrance` only as a story-presentation key, never as a stop or fixture ID. No RP, metric, mastery or travel-unlock effect. At Stop 60 this is part of the existing pre-ending reaction; do not delay the ending with optional roster material.
+
 ## Stop 13 - Conductor Boundary
 
 **Format/placement:** CHOICE, asked by Marcus Tate beside `mast-desk`.
@@ -2467,6 +2783,18 @@ derive:
 **Wrong-path feedback:** equal voltage does not mean equal surface charge.
 
 **State/output:** unlock S3.
+
+### Character scene: groundtruth-owen-entrance
+
+**Trigger:** On arrival at Mast Base during Mission 4, when Stop 15 is the next active stop; if the player is already here, fire once on that stop’s existing activation instead of requiring re-entry.
+**Location and presence:** `cabinet` in Mast Base. Owen Park, remote-systems engineer, speaks by radio unless already placed locally by the existing beat; do not teleport or duplicate the character. Any second speaker is explicitly remote.
+**Presentation:** Normal playable view; existing fixture evidence plus radio/nearby bubbles. Continue the existing arrival beat before the question opens. This is authored scene content, not another graded interaction.
+**Exact action / accessible description:** Opens the outstation cable bay and keeps the damaged receiver evidence accessible.
+**Exact dialogue:**
+- Owen Park, remote-systems engineer: “I can replace those damaged cards, but I do not want to hand the next crew a fresh set to lose.”
+
+**World-state effect:** No result is added or revealed; the encounter introduces the record or equipment already available for this stop.
+**Controls, persistence and retry:** Pause the timer during bubbles; one Continue per bubble restores control. At most two bubbles in this scene. Fire once per relevant accepted-state transition, not on wrong submissions; mission retry restores its snapshot and replay status. Retain accepted record and completed lines in the log. Use `groundtruth-owen-entrance` only as a story-presentation key, never as a stop or fixture ID. No RP, metric, mastery or travel-unlock effect. At Stop 60 this is part of the existing pre-ending reaction; do not delay the ending with optional roster material.
 
 ## Stop 15 - Verify Static Shielding
 
@@ -3029,6 +3357,18 @@ derive:
 **Wrong-path feedback:** `Submit both numerical controls before the plan; capacitance alone leaves a locus.`
 
 **State/output:** Record the result and unlock the next named stop.
+
+### Character scene: groundtruth-strand-entrance
+
+**Trigger:** On arrival at Impulse Hall during Mission 5, when Stop 19 is the next active stop; if the player is already here, fire once on that stop’s existing activation instead of requiring re-entry.
+**Location and presence:** `hall-board` in Impulse Hall. Elise Strand, impulse engineer, speaks by radio unless already placed locally by the existing beat; do not teleport or duplicate the character. Any second speaker is explicitly remote.
+**Presentation:** Normal playable view; existing fixture evidence plus radio/nearby bubbles. Continue the existing arrival beat before the question opens. This is authored scene content, not another graded interaction.
+**Exact action / accessible description:** Keeps the earthing stick on the bank while its configuration is checked.
+**Exact dialogue:**
+- Elise Strand, impulse engineer: “Before I spend another bank shot, show me what would make the outstation test useful.”
+
+**World-state effect:** No result is added or revealed; the encounter introduces the record or equipment already available for this stop.
+**Controls, persistence and retry:** Pause the timer during bubbles; one Continue per bubble restores control. At most two bubbles in this scene. Fire once per relevant accepted-state transition, not on wrong submissions; mission retry restores its snapshot and replay status. Retain accepted record and completed lines in the log. Use `groundtruth-strand-entrance` only as a story-presentation key, never as a stop or fixture ID. No RP, metric, mastery or travel-unlock effect. At Stop 60 this is part of the existing pre-ending reaction; do not delay the ending with optional roster material.
 
 ## Stop 19 - Derive Marx Topology
 
@@ -4068,6 +4408,18 @@ Noor accepts sufficient evidence after reversal; Ravi's earlier confidence is re
  current, Kirchhoff, Ohm, power, common-mode error.  
 
 ## Four graded stops
+### Character scene: groundtruth-noor-entrance
+
+**Trigger:** On arrival at Field Station during Mission 7, when Stop 25 is the next active stop; if the player is already here, fire once on that stop’s existing activation instead of requiring re-entry.
+**Location and presence:** `mill-array` in Field Station. Noor Haddad, data and safety analyst, speaks by radio unless already placed locally by the existing beat; do not teleport or duplicate the character. Any second speaker is explicitly remote.
+**Presentation:** Normal playable view; existing fixture evidence plus radio/nearby bubbles. Continue the existing arrival beat before the question opens. This is authored scene content, not another graded interaction.
+**Exact action / accessible description:** Compares raw timestamps before allowing summaries to stand as separate evidence.
+**Exact dialogue:**
+- Noor Haddad, data and safety analyst: “The storm window will close whether our uncertainty is finished or not; we need to decide what evidence will be enough.”
+
+**World-state effect:** No result is added or revealed; the encounter introduces the record or equipment already available for this stop.
+**Controls, persistence and retry:** Pause the timer during bubbles; one Continue per bubble restores control. At most two bubbles in this scene. Fire once per relevant accepted-state transition, not on wrong submissions; mission retry restores its snapshot and replay status. Retain accepted record and completed lines in the log. Use `groundtruth-noor-entrance` only as a story-presentation key, never as a stop or fixture ID. No RP, metric, mastery or travel-unlock effect. At Stop 60 this is part of the existing pre-ending reaction; do not delay the ending with optional roster material.
+
 ## Stop 25 - Trace the Shared Reference
 
 **Format/placement:** TRACE, at `mill-array`.
@@ -4124,6 +4476,20 @@ trace:
 **Wrong-path feedback:** `Count upstream dependencies, not screen names; the battery logger is the independent channel.`
 
 **State/output:** Record the result and unlock the next named stop.
+
+### Character scene: groundtruth-ravi-turn
+
+**Trigger:** After Stop 25 is accepted.
+**Location and presence:** `mill-array` in Field Station. Ravi Sen, field scientist, speaks by radio unless already placed locally by the existing beat; do not teleport or duplicate the character. Any second speaker is explicitly remote.
+**Presentation:** Normal playable view; existing fixture evidence plus radio/nearby bubbles. Run after accepted-result feedback and before the existing departure or mission-outcome beat. This is authored scene content, not another graded interaction.
+**Exact action / accessible description:** Draws attention to the shared reference connecting the apparently separate mill records.
+**Exact dialogue:**
+- Ravi Sen, field scientist: “I counted four witnesses; we have to account for the reference they share.”
+- Noor Haddad, data and safety analyst (radio): “They share that reference; we need to carry its error through all four records.”
+
+**World-state effect:** Preserve the existing accepted result and attach this reaction to its mission-log entry. The physical record remains at this fixture with the accepted scope; no new measurement, repair, signature authority or clearance is created by dialogue.
+**Controls, persistence and retry:** Pause the timer during bubbles; one Continue per bubble restores control. At most two bubbles in this scene. Fire once per relevant accepted-state transition, not on wrong submissions; mission retry restores its snapshot and replay status. Retain accepted record and completed lines in the log. Use `groundtruth-ravi-turn` only as a story-presentation key, never as a stop or fixture ID. No RP, metric, mastery or travel-unlock effect. At Stop 60 this is part of the existing pre-ending reaction; do not delay the ending with optional roster material.
+
 
 ## Stop 26 - Derive the Missing Branch Current
 
@@ -4274,6 +4640,20 @@ estimate:
 **Wrong-path feedback:** `Keep the true voltage sign and use I²R - not VI with the sensor voltage - for lead power.`
 
 **State/output:** report piece7.
+
+### Character scene: groundtruth-ravi-payoff
+
+**Trigger:** After Stop 28 is accepted.
+**Location and presence:** `record-desk` in Launch Control. Ravi Sen, field scientist, speaks by radio unless already placed locally by the existing beat; do not teleport or duplicate the character. Any second speaker is explicitly remote.
+**Presentation:** Normal playable view; existing fixture evidence plus radio/nearby bubbles. Run after accepted-result feedback and before the existing departure or mission-outcome beat. This is authored scene content, not another graded interaction.
+**Exact action / accessible description:** Attaches the accepted common-mode error estimate to the field record.
+**Exact dialogue:**
+- Ravi Sen, field scientist: “Keep the uncertainty beside the field value, even when the mills agree.”
+- Noor Haddad, data and safety analyst (radio): “The common source is explicit now; the report can use the array without counting it four times.”
+
+**World-state effect:** Preserve the existing accepted result and attach this reaction to its mission-log entry. The physical record remains at this fixture with the accepted scope; no new measurement, repair, signature authority or clearance is created by dialogue.
+**Controls, persistence and retry:** Pause the timer during bubbles; one Continue per bubble restores control. At most two bubbles in this scene. Fire once per relevant accepted-state transition, not on wrong submissions; mission retry restores its snapshot and replay status. Retain accepted record and completed lines in the log. Use `groundtruth-ravi-payoff` only as a story-presentation key, never as a stop or fixture ID. No RP, metric, mastery or travel-unlock effect. At Stop 60 this is part of the existing pre-ending reaction; do not delay the ending with optional roster material.
+
 
 ## Mission outcome
 
@@ -4908,6 +5288,20 @@ diagnosis:
 
 **State/output:** report piece8.
 
+### Character scene: groundtruth-strand-turn
+
+**Trigger:** After Stop 32 is accepted.
+**Location and presence:** `trailer-cards` in Remote Outstation. Elise Strand, impulse engineer, speaks by radio unless already placed locally by the existing beat; do not teleport or duplicate the character. Any second speaker is explicitly remote.
+**Presentation:** Normal playable view; existing fixture evidence plus radio/nearby bubbles. Run after accepted-result feedback and before the existing departure or mission-outcome beat. This is authored scene content, not another graded interaction.
+**Exact action / accessible description:** Sets the noncontact-damage result beside the bank-energy record.
+**Exact dialogue:**
+- Elise Strand, impulse engineer: “Knowing what we stored did not tell us every place it could go.”
+- Owen Park, remote-systems engineer (radio): “Keep the receiver and its incoming loop in the test; the card alone cannot explain the damage.”
+
+**World-state effect:** Preserve the existing accepted result and attach this reaction to its mission-log entry. The physical record remains at this fixture with the accepted scope; no new measurement, repair, signature authority or clearance is created by dialogue.
+**Controls, persistence and retry:** Pause the timer during bubbles; one Continue per bubble restores control. At most two bubbles in this scene. Fire once per relevant accepted-state transition, not on wrong submissions; mission retry restores its snapshot and replay status. Retain accepted record and completed lines in the log. Use `groundtruth-strand-turn` only as a story-presentation key, never as a stop or fixture ID. No RP, metric, mastery or travel-unlock effect. At Stop 60 this is part of the existing pre-ending reaction; do not delay the ending with optional roster material.
+
+
 ## Mission outcome
 
 Mission decision: No-contact coupling is physically plausible. A 30 kA mast current makes about 3.0 mT at the nearby route, and the damage pattern points to changing flux rather than direct contact. The trailer loop geometry must now predict the voltage sign, and size.
@@ -5473,6 +5867,19 @@ verify:
 
 **State/output:** report piece9.
 
+### Character scene: groundtruth-owen-turn
+
+**Trigger:** After Stop 36 is accepted.
+**Location and presence:** `cable-bay` in Remote Outstation. Owen Park, remote-systems engineer, speaks by radio unless already placed locally by the existing beat; do not teleport or duplicate the character. Any second speaker is explicitly remote.
+**Presentation:** Normal playable view; existing fixture evidence plus radio/nearby bubbles. Run after accepted-result feedback and before the existing departure or mission-outcome beat. This is authored scene content, not another graded interaction.
+**Exact action / accessible description:** Places the verified loop prediction beside the card-damage record.
+**Exact dialogue:**
+- Owen Park, remote-systems engineer: “A new card would still have been waiting at the end of that loop.”
+
+**World-state effect:** Preserve the existing accepted result and attach this reaction to its mission-log entry. The physical record remains at this fixture with the accepted scope; no new measurement, repair, signature authority or clearance is created by dialogue.
+**Controls, persistence and retry:** Pause the timer during bubbles; one Continue per bubble restores control. At most two bubbles in this scene. Fire once per relevant accepted-state transition, not on wrong submissions; mission retry restores its snapshot and replay status. Retain accepted record and completed lines in the log. Use `groundtruth-owen-turn` only as a story-presentation key, never as a stop or fixture ID. No RP, metric, mastery or travel-unlock effect. At Stop 60 this is part of the existing pre-ending reaction; do not delay the ending with optional roster material.
+
+
 ## Mission outcome
 
 Mission decision: The buried loop predicts the failed card. Its pulse is near -1.10 kV, close to the archived -1.06 kV peak. The trench reveals another bonded lead. The current path is still incomplete.
@@ -5841,6 +6248,18 @@ Strand admits stage timing; Tate accepts certificate limits.
  solenoid L, self-emf, magnetic energy, transient impedance.  
 
 ## Four graded stops
+### Character scene: groundtruth-saira-entrance
+
+**Trigger:** On arrival at Impulse Hall during Mission 10, when Stop 37 is the next active stop; if the player is already here, fire once on that stop’s existing activation instead of requiring re-entry.
+**Location and presence:** `hall-board` in Impulse Hall. Saira Malik, earthing specialist, speaks by radio unless already placed locally by the existing beat; do not teleport or duplicate the character. Any second speaker is explicitly remote.
+**Presentation:** Normal playable view; existing fixture evidence plus radio/nearby bubbles. Continue the existing arrival beat before the question opens. This is authored scene content, not another graded interaction.
+**Exact action / accessible description:** Checks the bond record against the physical connection at the trench.
+**Exact dialogue:**
+- Saira Malik, earthing specialist: “Crews read this certificate before they work; I need them to know exactly what it covers.”
+
+**World-state effect:** No result is added or revealed; the encounter introduces the record or equipment already available for this stop.
+**Controls, persistence and retry:** Pause the timer during bubbles; one Continue per bubble restores control. At most two bubbles in this scene. Fire once per relevant accepted-state transition, not on wrong submissions; mission retry restores its snapshot and replay status. Retain accepted record and completed lines in the log. Use `groundtruth-saira-entrance` only as a story-presentation key, never as a stop or fixture ID. No RP, metric, mastery or travel-unlock effect. At Stop 60 this is part of the existing pre-ending reaction; do not delay the ending with optional roster material.
+
 ## Stop 37 - Derive Inductance
 
 **Format/placement:** DERIVE, at `hall-board`.
@@ -6068,6 +6487,19 @@ diagnosis:
 **Wrong-path feedback:** `An intact bond and true DC value do not certify a microsecond waveform.`
 
 **State/output:** report piece10.
+
+### Character scene: groundtruth-saira-turn
+
+**Trigger:** After Stop 40 is accepted.
+**Location and presence:** `earth-cert` in Earthing Trench. Saira Malik, earthing specialist, speaks by radio unless already placed locally by the existing beat; do not teleport or duplicate the character. Any second speaker is explicitly remote.
+**Presentation:** Normal playable view; existing fixture evidence plus radio/nearby bubbles. Run after accepted-result feedback and before the existing departure or mission-outcome beat. This is authored scene content, not another graded interaction.
+**Exact action / accessible description:** Adds the tested timescale to the April certificate instead of discarding its valid resistance result.
+**Exact dialogue:**
+- Saira Malik, earthing specialist: “The resistance test was real; the promise we attached to it was too broad.”
+
+**World-state effect:** Preserve the existing accepted result and attach this reaction to its mission-log entry. The physical record remains at this fixture with the accepted scope; no new measurement, repair, signature authority or clearance is created by dialogue.
+**Controls, persistence and retry:** Pause the timer during bubbles; one Continue per bubble restores control. At most two bubbles in this scene. Fire once per relevant accepted-state transition, not on wrong submissions; mission retry restores its snapshot and replay status. Retain accepted record and completed lines in the log. Use `groundtruth-saira-turn` only as a story-presentation key, never as a stop or fixture ID. No RP, metric, mastery or travel-unlock effect. At Stop 60 this is part of the existing pre-ending reaction; do not delay the ending with optional roster material.
+
 
 ## Mission outcome
 
@@ -6558,6 +6990,20 @@ derive:
 
 **State/output:** Record the result and unlock the next named stop.
 
+### Character scene: groundtruth-tate-turn
+
+**Trigger:** After Stop 43 is accepted.
+**Location and presence:** `conduit-bond` in Earthing Trench. Marcus Tate, mast engineer, speaks by radio unless already placed locally by the existing beat; do not teleport or duplicate the character. Any second speaker is explicitly remote.
+**Presentation:** Normal playable view; existing fixture evidence plus radio/nearby bubbles. Run after accepted-result feedback and before the existing departure or mission-outcome beat. This is authored scene content, not another graded interaction.
+**Exact action / accessible description:** Marks the conduit branch on the drawing after its current is isolated.
+**Exact dialogue:**
+- Marcus Tate, mast engineer: “The path is on my drawing; its consequences were missing from my explanation.”
+- Saira Malik, earthing specialist (radio): “The steady-resistance certificate did not bound that fast current path.”
+
+**World-state effect:** Preserve the existing accepted result and attach this reaction to its mission-log entry. The physical record remains at this fixture with the accepted scope; no new measurement, repair, signature authority or clearance is created by dialogue.
+**Controls, persistence and retry:** Pause the timer during bubbles; one Continue per bubble restores control. At most two bubbles in this scene. Fire once per relevant accepted-state transition, not on wrong submissions; mission retry restores its snapshot and replay status. Retain accepted record and completed lines in the log. Use `groundtruth-tate-turn` only as a story-presentation key, never as a stop or fixture ID. No RP, metric, mastery or travel-unlock effect. At Stop 60 this is part of the existing pre-ending reaction; do not delay the ending with optional roster material.
+
+
 ## Stop 44 - Verify the Historical Path
 
 **Format/placement:** ATTEST, asked by Dr. Lena Ortiz beside `record-desk`.
@@ -6598,6 +7044,19 @@ attest:
 **Wrong-path feedback:** `Today’s result alone cannot establish the historical shot; verify all four critical records.`
 
 **State/output:** report piece11.
+
+### Character scene: groundtruth-ortiz-turn
+
+**Trigger:** After Stop 44 is accepted.
+**Location and presence:** `record-desk` in Launch Control. Dr. Lena Ortiz, station director, speaks by radio unless already placed locally by the existing beat; do not teleport or duplicate the character. Any second speaker is explicitly remote.
+**Presentation:** Normal playable view; existing fixture evidence plus radio/nearby bubbles. Run after accepted-result feedback and before the existing departure or mission-outcome beat. This is authored scene content, not another graded interaction.
+**Exact action / accessible description:** Places the reconstructed current path beside the earlier authorization record.
+**Exact dialogue:**
+- Dr. Lena Ortiz, station director: “We followed our procedure and still missed this path; the procedure has to change.”
+
+**World-state effect:** Preserve the existing accepted result and attach this reaction to its mission-log entry. The physical record remains at this fixture with the accepted scope; no new measurement, repair, signature authority or clearance is created by dialogue.
+**Controls, persistence and retry:** Pause the timer during bubbles; one Continue per bubble restores control. At most two bubbles in this scene. Fire once per relevant accepted-state transition, not on wrong submissions; mission retry restores its snapshot and replay status. Retain accepted record and completed lines in the log. Use `groundtruth-ortiz-turn` only as a story-presentation key, never as a stop or fixture ID. No RP, metric, mastery or travel-unlock effect. At Stop 60 this is part of the existing pre-ending reaction; do not delay the ending with optional roster material.
+
 
 ## Mission outcome
 
@@ -7096,6 +7555,20 @@ verify:
 **Wrong-path feedback:** `Commit before firing, keep named controls fixed, collect every reading, and earth the bank.`
 
 **State/output:** Record the result and unlock the next named stop.
+
+### Character scene: groundtruth-strand-payoff
+
+**Trigger:** After Stop 47 is accepted.
+**Location and presence:** `shunt-rack` in Mast Base. Elise Strand, impulse engineer, speaks by radio unless already placed locally by the existing beat; do not teleport or duplicate the character. Any second speaker is explicitly remote.
+**Presentation:** Normal playable view; existing fixture evidence plus radio/nearby bubbles. Run after accepted-result feedback and before the existing departure or mission-outcome beat. This is authored scene content, not another graded interaction.
+**Exact action / accessible description:** Retains the reduced-shot trace beside the reroute prediction.
+**Exact dialogue:**
+- Elise Strand, impulse engineer: “That test earned its hardware cost by testing the path as well as the bank.”
+- Owen Park, remote-systems engineer (radio): “Now the receiver trace and the path prediction belong to the same tested case.”
+
+**World-state effect:** Preserve the existing accepted result and attach this reaction to its mission-log entry. The physical record remains at this fixture with the accepted scope; no new measurement, repair, signature authority or clearance is created by dialogue.
+**Controls, persistence and retry:** Pause the timer during bubbles; one Continue per bubble restores control. At most two bubbles in this scene. Fire once per relevant accepted-state transition, not on wrong submissions; mission retry restores its snapshot and replay status. Retain accepted record and completed lines in the log. Use `groundtruth-strand-payoff` only as a story-presentation key, never as a stop or fixture ID. No RP, metric, mastery or travel-unlock effect. At Stop 60 this is part of the existing pre-ending reaction; do not delay the ending with optional roster material.
+
 
 ## Stop 48 - Stress Worst-Case Coupling
 
@@ -7724,6 +8197,19 @@ propagate:
 
 **State/output:** Record the result and unlock the next named stop.
 
+### Character scene: groundtruth-noor-turn
+
+**Trigger:** After Stop 51 is accepted.
+**Location and presence:** `record-desk` in Launch Control. Noor Haddad, data and safety analyst, speaks by radio unless already placed locally by the existing beat; do not teleport or duplicate the character. Any second speaker is explicitly remote.
+**Presentation:** Normal playable view; existing fixture evidence plus radio/nearby bubbles. Run after accepted-result feedback and before the existing departure or mission-outcome beat. This is authored scene content, not another graded interaction.
+**Exact action / accessible description:** Records why the funded recorder upgrade addresses the dominant measurement weakness.
+**Exact dialogue:**
+- Noor Haddad, data and safety analyst: “We cannot measure everything; we can make this next measurement answer the decision.”
+
+**World-state effect:** Preserve the existing accepted result and attach this reaction to its mission-log entry. The physical record remains at this fixture with the accepted scope; no new measurement, repair, signature authority or clearance is created by dialogue.
+**Controls, persistence and retry:** Pause the timer during bubbles; one Continue per bubble restores control. At most two bubbles in this scene. Fire once per relevant accepted-state transition, not on wrong submissions; mission retry restores its snapshot and replay status. Retain accepted record and completed lines in the log. Use `groundtruth-noor-turn` only as a story-presentation key, never as a stop or fixture ID. No RP, metric, mastery or travel-unlock effect. At Stop 60 this is part of the existing pre-ending reaction; do not delay the ending with optional roster material.
+
+
 ## Stop 52 - Diagnose Frequency Response
 
 **Format/placement:** DIAGNOSIS, at `earth-cert`.
@@ -7787,6 +8273,19 @@ diagnosis:
 **Wrong-path feedback:** `Fraud and charge loss do not predict RL rise, damped LC ringing, and correct transformer ratio together.`
 
 **State/output:** report piece13.
+
+### Character scene: groundtruth-saira-payoff
+
+**Trigger:** After Stop 52 is accepted.
+**Location and presence:** `earth-cert` in Earthing Trench. Saira Malik, earthing specialist, speaks by radio unless already placed locally by the existing beat; do not teleport or duplicate the character. Any second speaker is explicitly remote.
+**Presentation:** Normal playable view; existing fixture evidence plus radio/nearby bubbles. Run after accepted-result feedback and before the existing departure or mission-outcome beat. This is authored scene content, not another graded interaction.
+**Exact action / accessible description:** Leaves the fast-response evidence beside the correctly scoped certificate.
+**Exact dialogue:**
+- Saira Malik, earthing specialist: “Read both records: they answer different questions about the same bond.”
+
+**World-state effect:** Preserve the existing accepted result and attach this reaction to its mission-log entry. The physical record remains at this fixture with the accepted scope; no new measurement, repair, signature authority or clearance is created by dialogue.
+**Controls, persistence and retry:** Pause the timer during bubbles; one Continue per bubble restores control. At most two bubbles in this scene. Fire once per relevant accepted-state transition, not on wrong submissions; mission retry restores its snapshot and replay status. Retain accepted record and completed lines in the log. Use `groundtruth-saira-payoff` only as a story-presentation key, never as a stop or fixture ID. No RP, metric, mastery or travel-unlock effect. At Stop 60 this is part of the existing pre-ending reaction; do not delay the ending with optional roster material.
+
 
 ## Mission outcome
 
@@ -8250,6 +8749,19 @@ trigger:
 
 **State/output:** unlock S2.
 
+### Character scene: groundtruth-noor-payoff
+
+**Trigger:** After Stop 53 is accepted.
+**Location and presence:** `launch-board` in Launch Control. Noor Haddad, data and safety analyst, speaks by radio unless already placed locally by the existing beat; do not teleport or duplicate the character. Any second speaker is explicitly remote.
+**Presentation:** Normal playable view; existing fixture evidence plus radio/nearby bubbles. Run after accepted-result feedback and before the existing departure or mission-outcome beat. This is authored scene content, not another graded interaction.
+**Exact action / accessible description:** Leaves the precommitted final thresholds visible before any final-shot trace arrives.
+**Exact dialogue:**
+- Noor Haddad, data and safety analyst: “The rule is written before the result; now we can act on enough evidence.”
+
+**World-state effect:** Preserve the existing accepted result and attach this reaction to its mission-log entry. The physical record remains at this fixture with the accepted scope; no new measurement, repair, signature authority or clearance is created by dialogue.
+**Controls, persistence and retry:** Pause the timer during bubbles; one Continue per bubble restores control. At most two bubbles in this scene. Fire once per relevant accepted-state transition, not on wrong submissions; mission retry restores its snapshot and replay status. Retain accepted record and completed lines in the log. Use `groundtruth-noor-payoff` only as a story-presentation key, never as a stop or fixture ID. No RP, metric, mastery or travel-unlock effect. At Stop 60 this is part of the existing pre-ending reaction; do not delay the ending with optional roster material.
+
+
 ## Stop 54 - Derive Energy Flow
 
 **Format/placement:** DERIVE, at `radar-desk`.
@@ -8387,6 +8899,19 @@ verify:
 **Wrong-path feedback:** `Probe every station; the main probe cannot certify an unsampled rack.`
 
 **State/output:** report piece14 then visible card E red text/icon.
+
+### Character scene: groundtruth-owen-payoff
+
+**Trigger:** After Stop 56 is accepted.
+**Location and presence:** `probe-rack` in Remote Outstation. Owen Park, remote-systems engineer, speaks by radio unless already placed locally by the existing beat; do not teleport or duplicate the character. Any second speaker is explicitly remote.
+**Presentation:** Normal playable view; existing fixture evidence plus radio/nearby bubbles. Run after accepted-result feedback and before the existing departure or mission-outcome beat. This is authored scene content, not another graded interaction.
+**Exact action / accessible description:** Marks the failing rack location from the completed probe for the existing final repair decision.
+**Exact dialogue:**
+- Owen Park, remote-systems engineer: “This is where the next repair belongs; do not replace the whole rack on suspicion.”
+
+**World-state effect:** Preserve the existing accepted result and attach this reaction to its mission-log entry. The physical record remains at this fixture with the accepted scope; no new measurement, repair, signature authority or clearance is created by dialogue.
+**Controls, persistence and retry:** Pause the timer during bubbles; one Continue per bubble restores control. At most two bubbles in this scene. Fire once per relevant accepted-state transition, not on wrong submissions; mission retry restores its snapshot and replay status. Retain accepted record and completed lines in the log. Use `groundtruth-owen-payoff` only as a story-presentation key, never as a stop or fixture ID. No RP, metric, mastery or travel-unlock effect. At Stop 60 this is part of the existing pre-ending reaction; do not delay the ending with optional roster material.
+
 
 ## Mission outcome
 
@@ -8825,6 +9350,20 @@ Ortiz supplies stop rule, Strand timing, Tate path, Ravi field, Noor independenc
 
 **State/output:** Record the result and unlock the next named stop.
 
+### Character scene: groundtruth-tate-payoff
+
+**Trigger:** After Stop 59 is accepted.
+**Location and presence:** `cable-bay` in Remote Outstation. Marcus Tate, mast engineer, speaks by radio unless already placed locally by the existing beat; do not teleport or duplicate the character. Any second speaker is explicitly remote.
+**Presentation:** Normal playable view; existing fixture evidence plus radio/nearby bubbles. Run after accepted-result feedback and before the existing departure or mission-outcome beat. This is authored scene content, not another graded interaction.
+**Exact action / accessible description:** Keeps the geometry-reversal evidence with the revised cable-route record.
+**Exact dialogue:**
+- Marcus Tate, mast engineer: “Leave the tested geometry in the maintenance record so nobody restores the old loop.”
+- Saira Malik, earthing specialist (radio): “I will keep the transient evidence with the bond record.”
+
+**World-state effect:** Preserve the existing accepted result and attach this reaction to its mission-log entry. The physical record remains at this fixture with the accepted scope; no new measurement, repair, signature authority or clearance is created by dialogue.
+**Controls, persistence and retry:** Pause the timer during bubbles; one Continue per bubble restores control. At most two bubbles in this scene. Fire once per relevant accepted-state transition, not on wrong submissions; mission retry restores its snapshot and replay status. Retain accepted record and completed lines in the log. Use `groundtruth-tate-payoff` only as a story-presentation key, never as a stop or fixture ID. No RP, metric, mastery or travel-unlock effect. At Stop 60 this is part of the existing pre-ending reaction; do not delay the ending with optional roster material.
+
+
 ## Stop 60 - Certify Station 12
 
 **Format/placement:** ATTEST, asked by Dr. Lena Ortiz beside `repair-board`.
@@ -8865,6 +9404,19 @@ attest:
 **Wrong-path feedback:** `One missing critical record blocks certification even if every visible number is green.`
 
 **State/output:** Record the result and unlock the next named stop.
+
+### Character scene: groundtruth-ortiz-payoff
+
+**Trigger:** After Stop 60 is accepted.
+**Location and presence:** `repair-board` in Remote Outstation. Dr. Lena Ortiz, station director, speaks by radio unless already placed locally by the existing beat; do not teleport or duplicate the character. Any second speaker is explicitly remote.
+**Presentation:** Normal playable view; existing fixture evidence plus radio/nearby bubbles. Run after accepted-result feedback and before the existing departure or mission-outcome beat. This is authored scene content, not another graded interaction.
+**Exact action / accessible description:** Signs the station report only after the existing final repair and witnessed-shot evidence are accepted.
+**Exact dialogue:**
+- Dr. Lena Ortiz, station director: “The next crew gets the tested limits with my signature.”
+
+**World-state effect:** Preserve the existing accepted result and attach this reaction to its mission-log entry. The physical record remains at this fixture with the accepted scope; no new measurement, repair, signature authority or clearance is created by dialogue.
+**Controls, persistence and retry:** Pause the timer during bubbles; one Continue per bubble restores control. At most two bubbles in this scene. Fire once per relevant accepted-state transition, not on wrong submissions; mission retry restores its snapshot and replay status. Retain accepted record and completed lines in the log. Use `groundtruth-ortiz-payoff` only as a story-presentation key, never as a stop or fixture ID. No RP, metric, mastery or travel-unlock effect. At Stop 60 this is part of the existing pre-ending reaction; do not delay the ending with optional roster material.
+
 
 ## Mission outcome
 

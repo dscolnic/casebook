@@ -9,7 +9,7 @@ export const ROSTER = [
     "role": "division director; stops a launch while crew-clear lights disagree",
     "division": "SHOT",
     "color": "#3f8f7a",
-    "bio": "<p>Lena Ortiz is division director; stops a launch while crew-clear lights disagree. Wants a defensible final shot and signed report. Treats established procedure as independent evidence. Says, Accepts that a procedure must be tested at the right timescale. \"What would make us stop?\"</p>"
+    "bio": "<p>Her station has already authorized a shot that damaged an outstation; she must defend the next authorization to the crew who will carry it out. An established procedure can feel like independent proof that the station is safe.</p>"
   },
   {
     "id": "ravi",
@@ -17,7 +17,7 @@ export const ROSTER = [
     "role": "division scientist; opens the reference mill while rain reaches the flat",
     "division": "FIELD",
     "color": "#5f7fb8",
-    "bio": "<p>Ravi Sen is division scientist; opens the reference mill while rain reaches the flat. Wants preserve usable storm data. Trusts agreement among four mills. Says, Learns shared agreement can share one error. \"What does the field permit us to claim?\"</p>"
+    "bio": "<p>He has maintained the mill array and argued that its agreement makes the storm record usable. Agreement among several instruments can hide a shared reference error.</p>"
   },
   {
     "id": "strand",
@@ -25,7 +25,7 @@ export const ROSTER = [
     "role": "division impulse engineer; keeps the earthing stick on the Marx bank",
     "division": "BANK",
     "color": "#c2703f",
-    "bio": "<p>Elise Strand is division impulse engineer; keeps the earthing stick on the Marx bank. Wants reproduce the strike without wasting hardware. Treats bank energy as the main hazard. Says, Expands safety from stored energy to coupling. \"Count where the energy can go.\"</p>"
+    "bio": "<p>She is responsible for scarce bank hardware and wants each test to earn enough evidence to justify its cost. Stored energy can dominate her attention while the route that energy takes receives too little weight.</p>"
   },
   {
     "id": "tate",
@@ -33,7 +33,7 @@ export const ROSTER = [
     "role": "division engineer; checks a hot bond rather than defending his drawings",
     "division": "MAST",
     "color": "#8a8f4a",
-    "bio": "<p>Marcus Tate is division engineer; checks a hot bond rather than defending his drawings. Wants keep the mast and bonds serviceable. Assumes a low-resistance bond is harmless. Says, Reports the conduit path openly and redesigns it. \"Which path carried it?\"</p>"
+    "bio": "<p>His drawings guide maintenance of the mast and bonds; an overlooked path would require him to revise work other people trusted. A low-resistance bond can appear harmless when only steady behavior is considered.</p>"
   },
   {
     "id": "noor",
@@ -41,7 +41,7 @@ export const ROSTER = [
     "role": "division data and safety analyst; compares raw timestamps before summaries",
     "division": "SCREEN",
     "color": "#6b7f8a",
-    "bio": "<p>Noor Haddad is division data and safety analyst; compares raw timestamps before summaries. Wants preserve traceable, independent evidence. Can delay action while seeking perfect certainty. Says, Learns to define sufficient evidence before a shot. \"Independent of what?\"</p>"
+    "bio": "<p>They must decide which evidence is sufficient while the storm window and recorder budget are running out. Seeking perfect certainty can delay a useful test after its decision standard could have been fixed.</p>"
   },
   {
     "id": "saira",
@@ -49,7 +49,7 @@ export const ROSTER = [
     "role": "division earthing specialist; verifies each bond at the trench",
     "division": "EARTH",
     "color": "#7a6a52",
-    "bio": "<p>Saira Malik is division earthing specialist; verifies each bond at the trench. Wants keep surge current on the intended low-impedance path. Initially trusts DC resistance as a complete certificate. Says, Separates steady resistance from transient impedance. \"At what timescale?\"</p>"
+    "bio": "<p>Crews use the earthing certificate to decide whether they can work; she wants its limits to be as clear as its passing result. A good direct-current resistance result can be mistaken for a complete surge certificate.</p>"
   },
   {
     "id": "owen",
@@ -57,7 +57,7 @@ export const ROSTER = [
     "role": "division remote-systems engineer; opens the outstation cable bay",
     "division": "COUPLE",
     "color": "#6f5b9a",
-    "bio": "<p>Owen Park is division remote-systems engineer; opens the outstation cable bay. Wants protect remote electronics without hiding inconvenient damage. Initially blames local cards before tracing the incoming loop. Says, Learns to test the full source-path-receiver chain. \"Where did the loop close?\"</p>"
+    "bio": "<p>He must return the damaged outstation to service and is under pressure to replace its visibly failed cards. A damaged card looks like the source of the failure before the incoming path is traced.</p>"
   }
 ];
 

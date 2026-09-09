@@ -9,7 +9,7 @@ export const ROSTER = [
     "role": "operations chief; she/her",
     "division": "ARCHIVE",
     "color": "#6b7f8a",
-    "bio": "<p>Mara Vale is operations chief; she/her. Wants a signed rule each shift / trusts familiar charts. a signed rule each shift / trusts familiar charts. Says, \"What changes?\"</p>"
+    "bio": "<p>She has asked downstream crews to organize their shifts around the familiar release charts; changing them means admitting those preparations may be wrong. Familiar charts feel dependable because people have successfully worked from them.</p>"
   },
   {
     "id": "okoro",
@@ -17,7 +17,7 @@ export const ROSTER = [
     "role": "division catchment hydrologist; she/her",
     "division": "STORE",
     "color": "#1f7a6b",
-    "bio": "<p>Imani Okoro is division catchment hydrologist; she/her. Wants protect forecast credibility / underweights unseen high ground. protect forecast credibility / underweights unseen high ground. Says, \"What did the rain become?\"</p>"
+    "bio": "<p>She has defended the forecast that gave the crew its preparation window; a late crest would cost time that cannot be returned. She gives too little weight to high ground that the main gauges do not see.</p>"
   },
   {
     "id": "hassan",
@@ -25,7 +25,7 @@ export const ROSTER = [
     "role": "gauge operations hydrologist; she/her",
     "division": "INFLOW",
     "color": "#2f7fa8",
-    "bio": "<p>Leila Hassan is gauge operations hydrologist; she/her. Wants preserve an auditable basin record / initially trusts dense sampling more than independent placement. preserve an auditable basin record / initially trusts dense sampling more than independent placement. Says, \"Which gauge saw it?\"</p>"
+    "bio": "<p>She has kept a dense basin record through difficult shifts and wants that work to remain useful when the forecast is challenged. Many closely spaced readings can look more reassuring than one independently placed gauge.</p>"
   },
   {
     "id": "wilkes",
@@ -33,7 +33,7 @@ export const ROSTER = [
     "role": "gate mechanic; he/him",
     "division": "GATES",
     "color": "#b0762a",
-    "bio": "<p>Tomas Wilkes is gate mechanic; he/him. Wants keep gates operable / trusts sound and experience. keep gates operable / trusts sound and experience. Says, \"Can the steel do it twice?\"</p>"
+    "bio": "<p>He has kept the gates working through repeated shifts and does not want a replacement plan to demand motions the crew cannot repeat. The sound of a familiar mechanism can feel like proof of its operating range.</p>"
   },
   {
     "id": "baptiste",
@@ -41,7 +41,7 @@ export const ROSTER = [
     "role": "downstream safety lead; she/her",
     "division": "SAFE",
     "color": "#5b6a72",
-    "bio": "<p>Elise Baptiste is downstream safety lead; she/her. Wants never surprise a settlement / favors lower releases. never surprise a settlement / favors lower releases. Says, \"Who hears it first?\"</p>"
+    "bio": "<p>She has promised settlements that a warning will reach them before a release; a quiet circuit puts that promise at risk. A smaller release feels safer even when delay leaves too little storage for the storm.</p>"
   },
   {
     "id": "mehta",
@@ -49,7 +49,7 @@ export const ROSTER = [
     "role": "structural engineer; he/him",
     "division": "STRUCT",
     "color": "#7a4fa3",
-    "bio": "<p>Arun Mehta is structural engineer; he/him. Wants protect the wall / treats silent instruments as danger. protect the wall / treats silent instruments as danger. Says, \"Which reading is quiet?\"</p>"
+    "bio": "<p>He is responsible for explaining quiet instruments to the crew standing on the dam; he would rather delay than mistake silence for safety. Silence initially feels like evidence of danger even before the measurement path is tested.</p>"
   },
   {
     "id": "chen",
@@ -57,7 +57,7 @@ export const ROSTER = [
     "role": "power dispatcher; she/her",
     "division": "POWER",
     "color": "#b3462f",
-    "bio": "<p>Nia Chen is power dispatcher; she/her. Wants retain grid output / values turbine revenue too highly. retain grid output / values turbine revenue too highly. Says, \"What do we lose per hour?\"</p>"
+    "bio": "<p>She has promised generation to the grid and must explain every hour diverted from power production. Revenue is easier to count than the reserve a demanding schedule consumes.</p>"
   }
 ];
 

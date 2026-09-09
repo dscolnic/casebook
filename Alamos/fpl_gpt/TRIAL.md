@@ -1,6 +1,8 @@
 **FIRST PERSON LEARNING**
 
-**Player-copy editing rule:** Within each displayed passage, state each fact, equation, variable definition, and instruction once. Integrate new givens into the existing wording; do not append a paraphrase of the setup. A source panel may repeat essential inputs so it stands alone, but render it as its own surface rather than concatenating it with the question setup. Go Deeper questions must still supply their own context and data without referring to earlier cases.
+**Editorial revision:** Character profiles, evidence-driven scenes and biography checks; 2026-09-09. All prior copy and opening-quote fixes retained.
+
+**Player-copy editing rule:** Raise a blocking `REPETITION_FLAG` for unresolved duplicated meaning within a displayed passage, including paraphrases, repeated formulas/definitions and concatenated setup/source copy. Review candidate matches semantically and document any separate-surface exception. Apply REP-001–REP-005 in Giant Gate v2.8.  Within each displayed passage, state each fact, equation, variable definition, and instruction once. Integrate new givens into the existing wording; do not append a paraphrase of the setup. A source panel may repeat essential inputs so it stands alone, but render it as its own surface rather than concatenating it with the question setup. Go Deeper questions must still supply their own context and data without referring to earlier cases.
 
 **THE TRIAL - HS EDITION**
 
@@ -211,6 +213,16 @@ Extend enrollment-wall as the site wall, preserving its fixture ID. Hospital 12 
 
 ## 4. Character bible
 
+### Profile and scene delivery contract
+
+The compact material below is a designer reference. The individual Character ID entries are the authoritative full profiles; reference rows and headings are not additional people. Render only the explicitly labeled bio fields in the optional roster. Wants, blind spots and future arc descriptions are designer-only. Keep the existing names, role aliases and division assignments; the explicit profiles add ownership and scene bindings without changing any person-stop owner.
+
+Each character has an entrance/evidence encounter, a required evidence-triggered turn and a later demonstrated change, embedded at the relevant mission stops below. These scenes are part of the story route, not prerequisites added by the roster. Opening handovers and established entrances play once. When an existing beat already supplies the same action or sentence at that trigger, render that action or sentence once and use this exact reaction as its character component; retain all distinct travel, science and outcome content. Sequence multiple scenes by their order in the chapter. Do not concatenate setup/source panels or duplicate the accepted answer in dialogue.
+
+All physical actions use the existing fixture and its records. A radio speaker can direct the player’s visible record handling; no new carried item, prop, fixture, resource or measurement is implied. Preserve original lock and release conditions, including partial clearance and no-go endings. The roster can be skipped in full with no effect on progress. The three greeting variants are state-selected optional conversations, not an automatic speech queue.
+
+### Compact designer reference
+
 | Name | Pronouns | World role | Wants | Reasonable blind spot | Gameplay/domain | Verbal habit and arc |
 |---|---|---|---|---|---|---|
 | Mara Voss | she/her | Trial director and mission authority | A defensible board decision on day 15 | Schedule pressure can make a settled-looking number feel final | integrates evidence; authorizes travel and final action | "What can that number honestly claim?" She moves from deadline-first to evidence-first. |
@@ -224,6 +236,311 @@ Extend enrollment-wall as the site wall, preserving its fixture ID. Hospital 12 
 Dr. Samira Holt (she/her) is the fast-site principal investigator visiting Fenwick after Mission 4. She wants to keep the site working and initially mistakes recruitment speed for fair reach. She accepts the rural audit in Mission 5; her visitor scene adds no graded stop.
 
 Names, roles, pronouns, and short forms above are canonical everywhere.
+
+### Relationship evidence map
+
+| People | Planted commitment | Evidence-driven turn | Later changed practice |
+|---|---|---|---|
+| Eli Navarro / Dr. Samira Holt | `trial-eli-entrance`: “Your site is fast; now I need to know whether our sampling frame reaches the same people.” | Stop 20, `trial-eli-turn` | Stop 28, `trial-eli-payoff` |
+| Tomas Reed / Lena Wu | `trial-tomas-entrance`: “Keep the registered claims beside my analysis so a good result cannot quietly expand the plan.” | Stop 51, `trial-tomas-turn` | Stop 54, `trial-tomas-payoff` |
+| Mara Voss / Jonas Berg | `trial-mara-entrance`: “Bring me the conditions for continuing as well as the reasons to stop.” | Stop 44, `trial-mara-turn` | Stop 60, `trial-mara-payoff` |
+
+### Mara Voss
+
+- **Character ID:** `person-mara-voss`
+- **Display name:** Mara Voss
+- **Role:** trial director
+- **Pronouns:** she/her
+- **Allowed short name:** Mara
+- **Area ownership:** Regulatory & Registry; Trial Master File; Monitoring Board Room. Existing division assignments in the reference summary also remain in force; presence elsewhere is explicitly by radio.
+- **First entrance:** Hands the player the empty board binder at arrival. The existing opening card supplies this entrance; the mission encounter below continues it without replaying the handover. Binding: `trial-mara-entrance`, On arrival at Regulatory & Registry during Mission 1, when Stop 4 is the next active stop; if the player is already here, fire once on that stop’s existing activation instead of requiring re-entry, at `claim-ledger`.
+- **Wants and personal stake:** She has promised the board a defensible decision on day fifteen and must explain if the strongest-looking headline weakens.
+- **Blind spot:** A settled-looking number can feel final when a deadline is close.
+- **Scientific domain:** evidence integration and board authority.
+- **Decision function:** Supplies the evidence integration and board authority constraint to the existing decisions at Stops 44 and 60; the player still submits the answer and the existing authority still controls authorization.
+- **Verbal habit:** “What can that number honestly claim?”
+- **Relationship pressure:** Jonas Berg: She has promised the board a defensible decision on day fifteen and must explain if the strongest-looking headline weakens.
+- **Arc, with source evidence:** After Stop 44 (Make the Lock Real), `trial-mara-turn` makes the accepted evidence personally consequential. After Stop 60 (Sign the Statistical Argument), `trial-mara-payoff` shows the resulting change in practice: Carries the accepted statistical argument into the existing board meeting with its conditions intact.
+- **Cost of changing:** The character must revise or qualify the commitment described under personal stake in front of the player and Jonas Berg; the old interpretation remains reviewable rather than silently overwritten.
+- **Gameplay necessity:** Removing this character removes the accountable owner of evidence integration and board authority, the commitment above, and the witnessed correction in `trial-mara-turn`. Reassigning their questions alone would not preserve those scenes or constraints.
+
+**Bio passage - exact player copy:** She has promised the board a defensible decision on day fifteen and must explain if the strongest-looking headline weakens. A settled-looking number can feel final when a deadline is close.
+
+**Bio reflection question - exact player copy:** Why is Mara vulnerable to accepting a settled-looking number?
+
+**Bio reveal answer - exact player copy:** She owes the board a timely decision, which can make apparent closure attractive before the evidence is fully checked.
+
+**Bio feedback - exact player copy:** The schedule creates pressure; it does not strengthen the underlying evidence.
+
+**Bio check behavior:** On explicit opening of this character’s optional roster page after their first encounter, show only the bio passage and reflection question. Reveal answer and feedback only when the player selects Show answer; allow reconsideration and reopening. This is an unscored reading reflection, with no automatic correctness judgment, stop number, RP, timer cost, mission prerequisite, mastery credit, story flag or unlock. No answer or future arc is required to continue. Designer profile fields and future dialogue are not player-visible biography text.
+
+**Conditional greeting binding:** On explicit Talk to Mara after the character has been introduced, use the highest satisfied row only. Later states override earlier ones. A state changes only from the existing accepted-stop record, never from reading the bio. Lines may be reopened on explicit request; do not autoplay a greeting already spoken as a scene line at that encounter. No new travel or required conversation is created. Presence is local only at the character’s existing location; otherwise use the established radio connection. Log spoken text; pause the timer while it is open.
+
+| Priority | Condition | Exact greeting |
+|---:|---|---|
+| 30 | Stop 60 accepted | “The board gets the limits of the claim on the same page as the result.” |
+| 20 | Stop 44 accepted; Stop 60 not accepted | “The deadline can fix when we meet; it cannot make copied reports independent.” |
+| 10 | Introduced; Stop 44 not accepted; fallback | “What can that number honestly claim?” |
+
+### Eli Navarro
+
+- **Character ID:** `person-eli-navarro`
+- **Display name:** Eli Navarro
+- **Role:** site operations lead
+- **Pronouns:** he/him
+- **Allowed short name:** Eli
+- **Area ownership:** Monitors' Room; Data Management. Existing division assignments in the reference summary also remain in force; presence elsewhere is explicitly by radio.
+- **First entrance:** Checks the hospital roster against the sampling frame before sending another query. The established entrance is retained; the scene below stages the first evidence encounter in this arc. Binding: `trial-eli-entrance`, On arrival at Monitors' Room during Mission 5, when Stop 17 is the next active stop; if the player is already here, fire once on that stop’s existing activation instead of requiring re-entry, at `monitor-desk`.
+- **Wants and personal stake:** He has held up fast-enrolling hospitals as examples while trying to keep recruitment and queries moving.
+- **Blind spot:** Recruitment speed can look like quality before the missing patients and regions are examined.
+- **Scientific domain:** sampling reach and source verification.
+- **Decision function:** Supplies the sampling reach and source verification constraint to the existing decisions at Stops 20 and 28; the player still submits the answer and the existing authority still controls authorization.
+- **Verbal habit:** “Who is missing?”
+- **Relationship pressure:** Dr. Samira Holt: He has held up fast-enrolling hospitals as examples while trying to keep recruitment and queries moving.
+- **Arc, with source evidence:** After Stop 20 (Set the Scope), `trial-eli-turn` makes the accepted evidence personally consequential. After Stop 28 (Test the Fast-Site Point), `trial-eli-payoff` shows the resulting change in practice: Keeps the fast-site influence test beside the operational comparison.
+- **Cost of changing:** The character must revise or qualify the commitment described under personal stake in front of the player and Dr. Samira Holt; the old interpretation remains reviewable rather than silently overwritten.
+- **Gameplay necessity:** Removing this character removes the accountable owner of sampling reach and source verification, the commitment above, and the witnessed correction in `trial-eli-turn`. Reassigning their questions alone would not preserve those scenes or constraints.
+
+**Bio passage - exact player copy:** He has held up fast-enrolling hospitals as examples while trying to keep recruitment and queries moving. Recruitment speed can look like quality before the missing patients and regions are examined.
+
+**Bio reflection question - exact player copy:** Why might Eli overvalue a fast-enrolling site?
+
+**Bio reveal answer - exact player copy:** He is responsible for keeping recruitment moving, so speed is visible before representativeness is checked.
+
+**Bio feedback - exact player copy:** Recruitment efficiency describes enrolled patients, not necessarily those absent from the frame.
+
+**Bio check behavior:** On explicit opening of this character’s optional roster page after their first encounter, show only the bio passage and reflection question. Reveal answer and feedback only when the player selects Show answer; allow reconsideration and reopening. This is an unscored reading reflection, with no automatic correctness judgment, stop number, RP, timer cost, mission prerequisite, mastery credit, story flag or unlock. No answer or future arc is required to continue. Designer profile fields and future dialogue are not player-visible biography text.
+
+**Conditional greeting binding:** On explicit Talk to Eli after the character has been introduced, use the highest satisfied row only. Later states override earlier ones. A state changes only from the existing accepted-stop record, never from reading the bio. Lines may be reopened on explicit request; do not autoplay a greeting already spoken as a scene line at that encounter. No new travel or required conversation is created. Presence is local only at the character’s existing location; otherwise use the established radio connection. Log spoken text; pause the timer while it is open.
+
+| Priority | Condition | Exact greeting |
+|---:|---|---|
+| 30 | Stop 28 accepted | “Do not use a site’s speed as its quality label in the next briefing.” |
+| 20 | Stop 20 accepted; Stop 28 not accepted | “I praised the speed; I had not asked who never got through that door.” |
+| 10 | Introduced; Stop 20 not accepted; fallback | “Who is missing?” |
+
+### Priya Shah
+
+- **Character ID:** `person-priya-shah`
+- **Display name:** Priya Shah
+- **Role:** randomisation and blinding lead
+- **Pronouns:** she/her
+- **Allowed short name:** Priya
+- **Area ownership:** Randomisation & Blinding; Kit Warehouse. Existing division assignments in the reference summary also remain in force; presence elsewhere is explicitly by radio.
+- **First entrance:** Checks the allocation reader against the sequence of physical kits. The established entrance is retained; the scene below stages the first evidence encounter in this arc. Binding: `trial-priya-entrance`, On arrival at Randomisation & Blinding during Mission 6, when Stop 21 is the next active stop; if the player is already here, fire once on that stop’s existing activation instead of requiring re-entry, at `allocation-reader`.
+- **Wants and personal stake:** She has built a correct allocation record and must now show that the handling of actual kits preserves what the file promises.
+- **Blind spot:** A valid digital sequence can hide predictable physical handling.
+- **Scientific domain:** allocation concealment and physical kit handling.
+- **Decision function:** Supplies the allocation concealment and physical kit handling constraint to the existing decisions at Stops 33 and 36; the player still submits the answer and the existing authority still controls authorization.
+- **Verbal habit:** “Could anyone predict the next box?”
+- **Relationship pressure:** The player relies on Priya for allocation concealment and physical kit handling; their shared working assumption is challenged in `trial-priya-turn`.
+- **Arc, with source evidence:** After Stop 33 (Rebuild the Blind), `trial-priya-turn` makes the accepted evidence personally consequential. After Stop 36 (Say What It Means), `trial-priya-payoff` shows the resulting change in practice: Retains the supported blinding conclusion with its stated scope.
+- **Cost of changing:** The character must revise or qualify the commitment described under personal stake in front of the player; the old interpretation remains reviewable rather than silently overwritten.
+- **Gameplay necessity:** Removing this character removes the accountable owner of allocation concealment and physical kit handling, the commitment above, and the witnessed correction in `trial-priya-turn`. Reassigning their questions alone would not preserve those scenes or constraints.
+
+**Bio passage - exact player copy:** She has built a correct allocation record and must now show that the handling of actual kits preserves what the file promises. A valid digital sequence can hide predictable physical handling.
+
+**Bio reflection question - exact player copy:** Why must Priya inspect kit handling as well as the allocation file?
+
+**Bio reveal answer - exact player copy:** Concealment can fail through physical delivery even if the random allocation sequence itself is correct.
+
+**Bio feedback - exact player copy:** A correct sequence does not guarantee that handlers cannot anticipate a physical kit.
+
+**Bio check behavior:** On explicit opening of this character’s optional roster page after their first encounter, show only the bio passage and reflection question. Reveal answer and feedback only when the player selects Show answer; allow reconsideration and reopening. This is an unscored reading reflection, with no automatic correctness judgment, stop number, RP, timer cost, mission prerequisite, mastery credit, story flag or unlock. No answer or future arc is required to continue. Designer profile fields and future dialogue are not player-visible biography text.
+
+**Conditional greeting binding:** On explicit Talk to Priya after the character has been introduced, use the highest satisfied row only. Later states override earlier ones. A state changes only from the existing accepted-stop record, never from reading the bio. Lines may be reopened on explicit request; do not autoplay a greeting already spoken as a scene line at that encounter. No new travel or required conversation is created. Presence is local only at the character’s existing location; otherwise use the established radio connection. Log spoken text; pause the timer while it is open.
+
+| Priority | Condition | Exact greeting |
+|---:|---|---|
+| 30 | Stop 36 accepted | “Use the result of this audit; neither a correct file nor a worried guess settles it alone.” |
+| 20 | Stop 33 accepted; Stop 36 not accepted | “The file can be correct while the next box becomes predictable; both paths need the audit.” |
+| 10 | Introduced; Stop 33 not accepted; fallback | “Could anyone predict the next box?” |
+
+### Tomas Reed
+
+- **Character ID:** `person-tomas-reed`
+- **Display name:** Tomas Reed
+- **Role:** trial statistician
+- **Pronouns:** he/him
+- **Allowed short name:** Tomas
+- **Area ownership:** Statistics & Analysis; Regulatory & Registry; Statistics. Existing division assignments in the reference summary also remain in force; presence elsewhere is explicitly by radio.
+- **First entrance:** Sets the defined parameter beside the first probability calculation. The established entrance is retained; the scene below stages the first evidence encounter in this arc. Binding: `trial-tomas-entrance`, On arrival at Statistics & Analysis during Mission 4, when Stop 13 is the next active stop; if the player is already here, fire once on that stop’s existing activation instead of requiring re-entry, at `analysis-board`.
+- **Wants and personal stake:** He has defended the analysis plan and wants its work to yield a useful result when the board meets.
+- **Blind spot:** Formal significance can overshadow bias, multiplicity and practical size.
+- **Scientific domain:** inference, uncertainty and claim scope.
+- **Decision function:** Supplies the inference, uncertainty and claim scope constraint to the existing decisions at Stops 51 and 54; the player still submits the answer and the existing authority still controls authorization.
+- **Verbal habit:** “State the parameter first.”
+- **Relationship pressure:** Lena Wu: He has defended the analysis plan and wants its work to yield a useful result when the board meets.
+- **Arc, with source evidence:** After Stop 51 (Count the Claims), `trial-tomas-turn` makes the accepted evidence personally consequential. After Stop 54 (Buy Decision-Changing Evidence), `trial-tomas-payoff` shows the resulting change in practice: Records the accepted evidence purchase with the decision it can change.
+- **Cost of changing:** The character must revise or qualify the commitment described under personal stake in front of the player and Lena Wu; the old interpretation remains reviewable rather than silently overwritten.
+- **Gameplay necessity:** Removing this character removes the accountable owner of inference, uncertainty and claim scope, the commitment above, and the witnessed correction in `trial-tomas-turn`. Reassigning their questions alone would not preserve those scenes or constraints.
+
+**Bio passage - exact player copy:** He has defended the analysis plan and wants its work to yield a useful result when the board meets. Formal significance can overshadow bias, multiplicity and practical size.
+
+**Bio reflection question - exact player copy:** Why can a significant result still be insufficient for Tomas’s recommendation?
+
+**Bio reveal answer - exact player copy:** The recommendation must also account for bias, the number of claims tested, uncertainty and the practical effect.
+
+**Bio feedback - exact player copy:** Distinguish a statistical threshold from the full justification for a patient-facing decision.
+
+**Bio check behavior:** On explicit opening of this character’s optional roster page after their first encounter, show only the bio passage and reflection question. Reveal answer and feedback only when the player selects Show answer; allow reconsideration and reopening. This is an unscored reading reflection, with no automatic correctness judgment, stop number, RP, timer cost, mission prerequisite, mastery credit, story flag or unlock. No answer or future arc is required to continue. Designer profile fields and future dialogue are not player-visible biography text.
+
+**Conditional greeting binding:** On explicit Talk to Tomas after the character has been introduced, use the highest satisfied row only. Later states override earlier ones. A state changes only from the existing accepted-stop record, never from reading the bio. Lines may be reopened on explicit request; do not autoplay a greeting already spoken as a scene line at that encounter. No new travel or required conversation is created. Presence is local only at the character’s existing location; otherwise use the established radio connection. Log spoken text; pause the timer while it is open.
+
+| Priority | Condition | Exact greeting |
+|---:|---|---|
+| 30 | Stop 54 accepted | “Buy evidence for the board’s decision, not another chance at the old headline.” |
+| 20 | Stop 51 accepted; Stop 54 not accepted | “That was the headline I wanted; the number of claims changes what it can support.” |
+| 10 | Introduced; Stop 51 not accepted; fallback | “State the parameter first.” |
+
+### Amina Okafor
+
+- **Character ID:** `person-amina-okafor`
+- **Display name:** Amina Okafor
+- **Role:** endpoint adjudication lead
+- **Pronouns:** she/her
+- **Allowed short name:** Amina
+- **Area ownership:** Adjudication Room; Statistics & Analysis; Monitoring Board Room. Existing division assignments in the reference summary also remain in force; presence elsewhere is explicitly by radio.
+- **First entrance:** Places the event definition beside the patient-record summary. The established entrance is retained; the scene below stages the first evidence encounter in this arc. Binding: `trial-amina-entrance`, On arrival at Adjudication Room during Mission 2, when Stop 5 is the next active stop; if the player is already here, fire once on that stop’s existing activation instead of requiring re-entry, at `outcome-viewer`.
+- **Wants and personal stake:** Sites rely on her event definitions, so changing a rule can require revisiting records already treated as settled.
+- **Blind spot:** Precise counting rules can still measure the wrong construct.
+- **Scientific domain:** measurement definitions and missing outcomes.
+- **Decision function:** Supplies the measurement definitions and missing outcomes constraint to the existing decisions at Stops 40 and 48; the player still submits the answer and the existing authority still controls authorization.
+- **Verbal habit:** “What exactly was counted?”
+- **Relationship pressure:** The player relies on Amina for measurement definitions and missing outcomes; their shared working assumption is challenged in `trial-amina-turn`.
+- **Arc, with source evidence:** After Stop 40 (Stress the Adjustment), `trial-amina-turn` makes the accepted evidence personally consequential. After Stop 48 (Compare the Sites), `trial-amina-payoff` shows the resulting change in practice: Retains the site comparison with the revised interpretation of what was counted.
+- **Cost of changing:** The character must revise or qualify the commitment described under personal stake in front of the player; the old interpretation remains reviewable rather than silently overwritten.
+- **Gameplay necessity:** Removing this character removes the accountable owner of measurement definitions and missing outcomes, the commitment above, and the witnessed correction in `trial-amina-turn`. Reassigning their questions alone would not preserve those scenes or constraints.
+
+**Bio passage - exact player copy:** Sites rely on her event definitions, so changing a rule can require revisiting records already treated as settled. Precise counting rules can still measure the wrong construct.
+
+**Bio reflection question - exact player copy:** Why can a precise endpoint definition still need review?
+
+**Bio reveal answer - exact player copy:** It may consistently count something that does not adequately represent the clinical question.
+
+**Bio feedback - exact player copy:** Consistency in coding and validity of the construct are separate requirements.
+
+**Bio check behavior:** On explicit opening of this character’s optional roster page after their first encounter, show only the bio passage and reflection question. Reveal answer and feedback only when the player selects Show answer; allow reconsideration and reopening. This is an unscored reading reflection, with no automatic correctness judgment, stop number, RP, timer cost, mission prerequisite, mastery credit, story flag or unlock. No answer or future arc is required to continue. Designer profile fields and future dialogue are not player-visible biography text.
+
+**Conditional greeting binding:** On explicit Talk to Amina after the character has been introduced, use the highest satisfied row only. Later states override earlier ones. A state changes only from the existing accepted-stop record, never from reading the bio. Lines may be reopened on explicit request; do not autoplay a greeting already spoken as a scene line at that encounter. No new travel or required conversation is created. Presence is local only at the character’s existing location; otherwise use the established radio connection. Log spoken text; pause the timer while it is open.
+
+| Priority | Condition | Exact greeting |
+|---:|---|---|
+| 30 | Stop 48 accepted | “The board must see which events and sites the comparison actually represents.” |
+| 20 | Stop 40 accepted; Stop 48 not accepted | “The old comparison needed that adjustment; keep the corrected estimate with its remaining uncertainty.” |
+| 10 | Introduced; Stop 40 not accepted; fallback | “What exactly was counted?” |
+
+### Lena Wu
+
+- **Character ID:** `person-lena-wu`
+- **Display name:** Lena Wu
+- **Role:** regulatory and registry lead
+- **Pronouns:** she/her
+- **Allowed short name:** Lena
+- **Area ownership:** Regulatory & Registry; Statistics & Analysis; Monitoring Board Room. Existing division assignments in the reference summary also remain in force; presence elsewhere is explicitly by radio.
+- **First entrance:** Checks the commitment terminal against the claims entered in the registry. The established entrance is retained; the scene below stages the first evidence encounter in this arc. Binding: `trial-lena-entrance`, On arrival at Regulatory & Registry during Mission 1, when Stop 1 is the next active stop; if the player is already here, fire once on that stop’s existing activation instead of requiring re-entry, at `commitment-terminal`.
+- **Wants and personal stake:** She must preserve a traceable record even when it includes an opened analysis envelope and inconvenient changes.
+- **Blind spot:** A complete audit trail can seem to verify the patient evidence itself.
+- **Scientific domain:** preregistration and reproducible reporting.
+- **Decision function:** Supplies the preregistration and reproducible reporting constraint to the existing decisions at Stops 43 and 52; the player still submits the answer and the existing authority still controls authorization.
+- **Verbal habit:** “Was that promised before the data?”
+- **Relationship pressure:** The player relies on Lena for preregistration and reproducible reporting; their shared working assumption is challenged in `trial-lena-turn`.
+- **Arc, with source evidence:** After Stop 43 (Trace the Agreement), `trial-lena-turn` makes the accepted evidence personally consequential. After Stop 52 (Correct Before Seeing), `trial-lena-payoff` shows the resulting change in practice: Retains the precommitted multiplicity rule with the disclosed analysis history.
+- **Cost of changing:** The character must revise or qualify the commitment described under personal stake in front of the player; the old interpretation remains reviewable rather than silently overwritten.
+- **Gameplay necessity:** Removing this character removes the accountable owner of preregistration and reproducible reporting, the commitment above, and the witnessed correction in `trial-lena-turn`. Reassigning their questions alone would not preserve those scenes or constraints.
+
+**Bio passage - exact player copy:** Lena must preserve a traceable record even when it includes inconvenient changes. A complete audit trail can seem to verify the patient evidence itself.
+
+**Bio reflection question - exact player copy:** Why does a complete audit trail not establish that a clinical claim is true?
+
+**Bio reveal answer - exact player copy:** It records how evidence was handled, but does not independently verify the observations or their interpretation.
+
+**Bio feedback - exact player copy:** Traceability establishes a chain of handling, not independent clinical confirmation.
+
+**Bio check behavior:** On explicit opening of this character’s optional roster page after their first encounter, show only the bio passage and reflection question. Reveal answer and feedback only when the player selects Show answer; allow reconsideration and reopening. This is an unscored reading reflection, with no automatic correctness judgment, stop number, RP, timer cost, mission prerequisite, mastery credit, story flag or unlock. No answer or future arc is required to continue. Designer profile fields and future dialogue are not player-visible biography text.
+
+**Conditional greeting binding:** On explicit Talk to Lena after the character has been introduced, use the highest satisfied row only. Later states override earlier ones. A state changes only from the existing accepted-stop record, never from reading the bio. Lines may be reopened on explicit request; do not autoplay a greeting already spoken as a scene line at that encounter. No new travel or required conversation is created. Presence is local only at the character’s existing location; otherwise use the established radio connection. Log spoken text; pause the timer while it is open.
+
+| Priority | Condition | Exact greeting |
+|---:|---|---|
+| 30 | Stop 52 accepted | “Keep the early look in the record and the new rule fixed before the next result.” |
+| 20 | Stop 43 accepted; Stop 52 not accepted | “I can trace every copy; that does not turn one extraction into three confirmations.” |
+| 10 | Introduced; Stop 43 not accepted; fallback | “Was that promised before the data?” |
+
+### Jonas Berg
+
+- **Character ID:** `person-jonas-berg`
+- **Display name:** Jonas Berg
+- **Role:** safety monitoring chair
+- **Pronouns:** he/him
+- **Allowed short name:** Jonas
+- **Area ownership:** Monitoring Board Room; Statistics & Analysis. Existing division assignments in the reference summary also remain in force; presence elsewhere is explicitly by radio.
+- **First entrance:** Checks the adverse-event cluster against the exposed-patient record. The established entrance is retained; the scene below stages the first evidence encounter in this arc. Binding: `trial-jonas-entrance`, On arrival at Monitoring Board Room during Mission 3, when Stop 9 is the next active stop; if the player is already here, fire once on that stop’s existing activation instead of requiring re-entry, at `event-console`.
+- **Wants and personal stake:** He is accountable for patients exposed while the board waits and for patients who might lose a useful treatment if it stops too soon.
+- **Blind spot:** An early cluster can demand attention before chance and exposure have been properly considered.
+- **Scientific domain:** error costs and enforceable safety triggers.
+- **Decision function:** Supplies the error costs and enforceable safety triggers constraint to the existing decisions at Stops 16 and 56; the player still submits the answer and the existing authority still controls authorization.
+- **Verbal habit:** “What would change the decision?”
+- **Relationship pressure:** The player relies on Jonas for error costs and enforceable safety triggers; their shared working assumption is challenged in `trial-jonas-turn`.
+- **Arc, with source evidence:** After Stop 16 (Price the Errors), `trial-jonas-turn` makes the accepted evidence personally consequential. After Stop 56 (Write the Rule), `trial-jonas-payoff` shows the resulting change in practice: Retains the accepted continuation and stopping triggers in the board plan.
+- **Cost of changing:** The character must revise or qualify the commitment described under personal stake in front of the player; the old interpretation remains reviewable rather than silently overwritten.
+- **Gameplay necessity:** Removing this character removes the accountable owner of error costs and enforceable safety triggers, the commitment above, and the witnessed correction in `trial-jonas-turn`. Reassigning their questions alone would not preserve those scenes or constraints.
+
+**Bio passage - exact player copy:** He is accountable for patients exposed while the board waits and for patients who might lose a useful treatment if it stops too soon. An early cluster can demand attention before chance and exposure have been properly considered.
+
+**Bio reflection question - exact player copy:** Why does Jonas need to consider both kinds of decision error?
+
+**Bio reveal answer - exact player copy:** Both unnecessary exposure and prematurely losing a useful treatment can harm patients.
+
+**Bio feedback - exact player copy:** Explain the consequence of each error rather than treating delay or stopping as automatically harmless.
+
+**Bio check behavior:** On explicit opening of this character’s optional roster page after their first encounter, show only the bio passage and reflection question. Reveal answer and feedback only when the player selects Show answer; allow reconsideration and reopening. This is an unscored reading reflection, with no automatic correctness judgment, stop number, RP, timer cost, mission prerequisite, mastery credit, story flag or unlock. No answer or future arc is required to continue. Designer profile fields and future dialogue are not player-visible biography text.
+
+**Conditional greeting binding:** On explicit Talk to Jonas after the character has been introduced, use the highest satisfied row only. Later states override earlier ones. A state changes only from the existing accepted-stop record, never from reading the bio. Lines may be reopened on explicit request; do not autoplay a greeting already spoken as a scene line at that encounter. No new travel or required conversation is created. Presence is local only at the character’s existing location; otherwise use the established radio connection. Log spoken text; pause the timer while it is open.
+
+| Priority | Condition | Exact greeting |
+|---:|---|---|
+| 30 | Stop 56 accepted | “If we continue, these checks remain in force; continuation is not an all-clear.” |
+| 20 | Stop 16 accepted; Stop 56 not accepted | “Stopping has a cost too; that is why we need a rule before the next cluster arrives.” |
+| 10 | Introduced; Stop 16 not accepted; fallback | “What would change the decision?” |
+
+### Dr. Samira Holt
+
+- **Character ID:** `person-dr-samira-holt`
+- **Display name:** Dr. Samira Holt
+- **Role:** visiting fast-site principal investigator
+- **Pronouns:** she/her
+- **Allowed short name:** Samira
+- **Area ownership:** Monitors' Room; Data Management; Monitoring Board Room. Existing division assignments in the reference summary also remain in force; presence elsewhere is explicitly by radio.
+- **First entrance:** Arrives after Stop 16 with the site recruitment record, remaining for the Mission 5 rural audit. The established entrance is retained; the scene below stages the first evidence encounter in this arc. Binding: `trial-samira-entrance`, On arrival at Monitors' Room during Mission 5, when Stop 17 is the next active stop; if the player is already here, fire once on that stop’s existing activation instead of requiring re-entry, at `monitor-desk`.
+- **Wants and personal stake:** Her hospital’s fast recruitment has been praised, and a pause threatens the work of her team and patients already enrolled.
+- **Blind spot:** Speed can feel like fair access before the people who never reached the site are considered.
+- **Scientific domain:** recruitment access and limited follow-up.
+- **Decision function:** Supplies the recruitment access and limited follow-up constraint to the existing decisions at Stops 20 and 56; the player still submits the answer and the existing authority still controls authorization.
+- **Verbal habit:** “Who never reached our door?”
+- **Relationship pressure:** The player relies on Samira for recruitment access and limited follow-up; their shared working assumption is challenged in `trial-samira-turn`.
+- **Arc, with source evidence:** After Stop 20 (Set the Scope), `trial-samira-turn` makes the accepted evidence personally consequential. After Stop 56 (Write the Rule), `trial-samira-payoff` shows the resulting change in practice: Acknowledges the existing limited-follow-up permission remotely without claiming unrestricted reopening.
+- **Cost of changing:** The character must revise or qualify the commitment described under personal stake in front of the player; the old interpretation remains reviewable rather than silently overwritten.
+- **Gameplay necessity:** Removing this character removes the accountable owner of recruitment access and limited follow-up, the commitment above, and the witnessed correction in `trial-samira-turn`. Reassigning their questions alone would not preserve those scenes or constraints.
+
+**Bio passage - exact player copy:** Her hospital’s fast recruitment has been praised, and a pause threatens the work of her team and patients already enrolled. Speed can feel like fair access before the people who never reached the site are considered.
+
+**Bio reflection question - exact player copy:** Why can Samira’s fast recruitment still leave an access problem?
+
+**Bio reveal answer - exact player copy:** People who cannot reach the site may never enter its recruitment record, however efficiently enrolled patients are handled.
+
+**Bio feedback - exact player copy:** The access problem occurs before enrollment, so the enrollment total alone cannot reveal it.
+
+**Bio check behavior:** On explicit opening of this character’s optional roster page after their first encounter, show only the bio passage and reflection question. Reveal answer and feedback only when the player selects Show answer; allow reconsideration and reopening. This is an unscored reading reflection, with no automatic correctness judgment, stop number, RP, timer cost, mission prerequisite, mastery credit, story flag or unlock. No answer or future arc is required to continue. Designer profile fields and future dialogue are not player-visible biography text.
+
+**Conditional greeting binding:** On explicit Talk to Samira after the character has been introduced, use the highest satisfied row only. Later states override earlier ones. A state changes only from the existing accepted-stop record, never from reading the bio. Lines may be reopened on explicit request; do not autoplay a greeting already spoken as a scene line at that encounter. No new travel or required conversation is created. Presence is local only at the character’s existing location; otherwise use the established radio connection. Log spoken text; pause the timer while it is open.
+
+| Priority | Condition | Exact greeting |
+|---:|---|---|
+| 30 | Stop 56 accepted | “My team can follow these patients under the safeguards; I will not call that full clearance.” |
+| 20 | Stop 20 accepted; Stop 56 not accepted | “We made the door move quickly for the people who reached it; that is not the same as reaching everyone.” |
+| 10 | Introduced; Stop 20 not accepted; fallback | “Who never reached our door?” |
+
 
 ## 5. Character direction and dialogue rules
 
@@ -602,6 +919,18 @@ Lena wants an auditable pack and blocks premature interpretation. Her blind spot
 Categorical values name groups, while quantitative values have meaningful numerical distance. SOCS requires shape, unusual values, center, and spread in context. Resistant summaries remain stable under extremes. A parameter describes the population; a sample statistic estimates it.
 
 
+### Character scene: trial-lena-entrance
+
+**Trigger:** On arrival at Regulatory & Registry during Mission 1, when Stop 1 is the next active stop; if the player is already here, fire once on that stop’s existing activation instead of requiring re-entry.
+**Location and presence:** `commitment-terminal` in Regulatory & Registry. Lena Wu, regulatory and registry lead, speaks by radio unless already placed locally by the existing beat; do not teleport or duplicate the character. Any second speaker is explicitly remote.
+**Presentation:** Normal playable view; existing fixture evidence plus radio/nearby bubbles. Continue the existing arrival beat before the question opens. This is authored scene content, not another graded interaction.
+**Exact action / accessible description:** Checks the commitment terminal against the claims entered in the registry.
+**Exact dialogue:**
+- Lena Wu, regulatory and registry lead: “The board needs a record that keeps the uncomfortable changes as clearly as the planned steps.”
+
+**World-state effect:** No result is added or revealed; the encounter introduces the record or equipment already available for this stop.
+**Controls, persistence and retry:** Pause the timer during bubbles; one Continue per bubble restores control. At most two bubbles in this scene. Fire once per relevant accepted-state transition, not on wrong submissions; mission retry restores its snapshot and replay status. Retain accepted record and completed lines in the log. Use `trial-lena-entrance` only as a story-presentation key, never as a stop or fixture ID. No RP, metric, mastery or travel-unlock effect. At Stop 60 this is part of the existing pre-ending reaction; do not delay the ending with optional roster material.
+
 ## Stop 1 - Name the Data
 
 **Format/placement:** CHOICE, asked by Lena Wu beside `commitment-terminal`.
@@ -713,6 +1042,18 @@ Categorical values name groups, while quantitative values have meaningful numeri
 **Wrong-path feedback:** First calculate the interquartile range, then add 1.5 times that range to Q3. Compare 34 days with that upper fence; do not compare it with Q3 alone.
 
 **State/output:** The 34-day record gains amber REVIEW, DO NOT DELETE; unlock S4; pays off M2/M7.
+
+### Character scene: trial-mara-entrance
+
+**Trigger:** On arrival at Regulatory & Registry during Mission 1, when Stop 4 is the next active stop; if the player is already here, fire once on that stop’s existing activation instead of requiring re-entry.
+**Location and presence:** `claim-ledger` in Regulatory & Registry. Mara Voss, trial director, speaks by radio unless already placed locally by the existing beat; do not teleport or duplicate the character. Any second speaker is explicitly remote.
+**Presentation:** Normal playable view; existing fixture evidence plus radio/nearby bubbles. Continue the existing arrival beat before the question opens. This is authored scene content, not another graded interaction.
+**Exact action / accessible description:** Keeps the material from the opening handover available beside the current evidence.
+**Exact dialogue:**
+- Mara Voss, trial director: “Bring me the conditions for continuing as well as the reasons to stop.”
+
+**World-state effect:** No result is added or revealed; the encounter introduces the record or equipment already available for this stop.
+**Controls, persistence and retry:** Pause the timer during bubbles; one Continue per bubble restores control. At most two bubbles in this scene. Fire once per relevant accepted-state transition, not on wrong submissions; mission retry restores its snapshot and replay status. Retain accepted record and completed lines in the log. Use `trial-mara-entrance` only as a story-presentation key, never as a stop or fixture ID. No RP, metric, mastery or travel-unlock effect. At Stop 60 this is part of the existing pre-ending reaction; do not delay the ending with optional roster material.
 
 ## Stop 4 - Seal the Claims
 
@@ -1169,6 +1510,18 @@ Amina wants a consistent endpoint but will not erase real patients. The failed N
 
 Mean, SD, and range are sensitive to extremes; median and IQR resist them. z expresses distance from a mean in SD units. The 68-95-99.7 rule applies only when a Normal model fits.
 
+
+### Character scene: trial-amina-entrance
+
+**Trigger:** On arrival at Adjudication Room during Mission 2, when Stop 5 is the next active stop; if the player is already here, fire once on that stop’s existing activation instead of requiring re-entry.
+**Location and presence:** `outcome-viewer` in Adjudication Room. Amina Okafor, endpoint adjudication lead, speaks by radio unless already placed locally by the existing beat; do not teleport or duplicate the character. Any second speaker is explicitly remote.
+**Presentation:** Normal playable view; existing fixture evidence plus radio/nearby bubbles. Continue the existing arrival beat before the question opens. This is authored scene content, not another graded interaction.
+**Exact action / accessible description:** Places the event definition beside the patient-record summary.
+**Exact dialogue:**
+- Amina Okafor, endpoint adjudication lead: “Sites have used my definitions to close these records; if the definition misses the question, we have to revisit the work.”
+
+**World-state effect:** No result is added or revealed; the encounter introduces the record or equipment already available for this stop.
+**Controls, persistence and retry:** Pause the timer during bubbles; one Continue per bubble restores control. At most two bubbles in this scene. Fire once per relevant accepted-state transition, not on wrong submissions; mission retry restores its snapshot and replay status. Retain accepted record and completed lines in the log. Use `trial-amina-entrance` only as a story-presentation key, never as a stop or fixture ID. No RP, metric, mastery or travel-unlock effect. At Stop 60 this is part of the existing pre-ending reaction; do not delay the ending with optional roster material.
 
 ## Stop 5 - Which Center Survives
 
@@ -1715,6 +2068,18 @@ Jonas wants immediate protection and initially favors a global stop. The stable 
 The addition rule removes double-counted overlap; conditioning changes the denominator. Independence means one event does not change the probability of another. Mutually exclusive events cannot occur together and, unless one has probability zero, are not independent.
 
 
+### Character scene: trial-jonas-entrance
+
+**Trigger:** On arrival at Monitoring Board Room during Mission 3, when Stop 9 is the next active stop; if the player is already here, fire once on that stop’s existing activation instead of requiring re-entry.
+**Location and presence:** `event-console` in Monitoring Board Room. Jonas Berg, safety monitoring chair, speaks by radio unless already placed locally by the existing beat; do not teleport or duplicate the character. Any second speaker is explicitly remote.
+**Presentation:** Normal playable view; existing fixture evidence plus radio/nearby bubbles. Continue the existing arrival beat before the question opens. This is authored scene content, not another graded interaction.
+**Exact action / accessible description:** Checks the adverse-event cluster against the exposed-patient record.
+**Exact dialogue:**
+- Jonas Berg, safety monitoring chair: “Patients bear the cost while we wait, but they can also lose if we stop too soon; I need both risks on the page.”
+
+**World-state effect:** No result is added or revealed; the encounter introduces the record or equipment already available for this stop.
+**Controls, persistence and retry:** Pause the timer during bubbles; one Continue per bubble restores control. At most two bubbles in this scene. Fire once per relevant accepted-state transition, not on wrong submissions; mission retry restores its snapshot and replay status. Retain accepted record and completed lines in the log. Use `trial-jonas-entrance` only as a story-presentation key, never as a stop or fixture ID. No RP, metric, mastery or travel-unlock effect. At Stop 60 this is part of the existing pre-ending reaction; do not delay the ending with optional roster material.
+
 ## Stop 9 - Count the Overlap Once
 
 **Format/placement:** DERIVE, at `event-console`.
@@ -2219,6 +2584,18 @@ Tomas values formal plans but owns the urgent breach. He changes from defending 
 Expected value is a probability-weighted long-run mean. Independent variances add, then SD is their square root. Binomial models use fixed n and p; Type I and II errors price opposite bad decisions.
 
 
+### Character scene: trial-tomas-entrance
+
+**Trigger:** On arrival at Statistics & Analysis during Mission 4, when Stop 13 is the next active stop; if the player is already here, fire once on that stop’s existing activation instead of requiring re-entry.
+**Location and presence:** `analysis-board` in Statistics & Analysis. Tomas Reed, trial statistician, speaks by radio unless already placed locally by the existing beat; do not teleport or duplicate the character. Any second speaker is explicitly remote.
+**Presentation:** Normal playable view; existing fixture evidence plus radio/nearby bubbles. Continue the existing arrival beat before the question opens. This is authored scene content, not another graded interaction.
+**Exact action / accessible description:** Sets the defined parameter beside the first probability calculation.
+**Exact dialogue:**
+- Tomas Reed, trial statistician: “Keep the registered claims beside my analysis so a good result cannot quietly expand the plan.”
+
+**World-state effect:** No result is added or revealed; the encounter introduces the record or equipment already available for this stop.
+**Controls, persistence and retry:** Pause the timer during bubbles; one Continue per bubble restores control. At most two bubbles in this scene. Fire once per relevant accepted-state transition, not on wrong submissions; mission retry restores its snapshot and replay status. Retain accepted record and completed lines in the log. Use `trial-tomas-entrance` only as a story-presentation key, never as a stop or fixture ID. No RP, metric, mastery or travel-unlock effect. At Stop 60 this is part of the existing pre-ending reaction; do not delay the ending with optional roster material.
+
 ## Stop 13 - Expected Reports
 
 **Format/placement:** DERIVE, at `analysis-board`.
@@ -2498,6 +2875,19 @@ trigger:
 **Wrong-path feedback:** threshold number, error mapping, decision
 
 **State/output:** The analysis receives a `DISCLOSED` stamp, binder piece 4 fills, and Mission 5 unlocks.
+
+### Character scene: trial-jonas-turn
+
+**Trigger:** After Stop 16 is accepted.
+**Location and presence:** `uncertainty-console` in Statistics & Analysis. Jonas Berg, safety monitoring chair, speaks by radio unless already placed locally by the existing beat; do not teleport or duplicate the character. Any second speaker is explicitly remote.
+**Presentation:** Normal playable view; existing fixture evidence plus radio/nearby bubbles. Run after accepted-result feedback and before the existing departure or mission-outcome beat. This is authored scene content, not another graded interaction.
+**Exact action / accessible description:** Keeps both error costs beside the committed interim threshold.
+**Exact dialogue:**
+- Jonas Berg, safety monitoring chair: “Stopping has a cost too; that is why we need a rule before the next cluster arrives.”
+
+**World-state effect:** Preserve the existing accepted result and attach this reaction to its mission-log entry. The physical record remains at this fixture with the accepted scope; no new measurement, repair, signature authority or clearance is created by dialogue.
+**Controls, persistence and retry:** Pause the timer during bubbles; one Continue per bubble restores control. At most two bubbles in this scene. Fire once per relevant accepted-state transition, not on wrong submissions; mission retry restores its snapshot and replay status. Retain accepted record and completed lines in the log. Use `trial-jonas-turn` only as a story-presentation key, never as a stop or fixture ID. No RP, metric, mastery or travel-unlock effect. At Stop 60 this is part of the existing pre-ending reaction; do not delay the ending with optional roster material.
+
 
 ## Mission outcome
 
@@ -2845,6 +3235,30 @@ Eli equates speed with quality until the frame gap shows whom speed excluded. He
 SRS makes every set of size n equally likely; strata guarantee representation; clusters select whole groups; systematic samples use a random start and every kth case. Undercoverage differs from nonresponse and response bias.
 
 
+### Character scene: trial-eli-entrance
+
+**Trigger:** On arrival at Monitors' Room during Mission 5, when Stop 17 is the next active stop; if the player is already here, fire once on that stop’s existing activation instead of requiring re-entry.
+**Location and presence:** `monitor-desk` in Monitors' Room. Eli Navarro, site operations lead, speaks by radio unless already placed locally by the existing beat; do not teleport or duplicate the character. Any second speaker is explicitly remote.
+**Presentation:** Normal playable view; existing fixture evidence plus radio/nearby bubbles. Continue the existing arrival beat before the question opens. This is authored scene content, not another graded interaction.
+**Exact action / accessible description:** Checks the hospital roster against the sampling frame before sending another query.
+**Exact dialogue:**
+- Eli Navarro, site operations lead: “Your site is fast; now I need to know whether our sampling frame reaches the same people.”
+
+**World-state effect:** No result is added or revealed; the encounter introduces the record or equipment already available for this stop.
+**Controls, persistence and retry:** Pause the timer during bubbles; one Continue per bubble restores control. At most two bubbles in this scene. Fire once per relevant accepted-state transition, not on wrong submissions; mission retry restores its snapshot and replay status. Retain accepted record and completed lines in the log. Use `trial-eli-entrance` only as a story-presentation key, never as a stop or fixture ID. No RP, metric, mastery or travel-unlock effect. At Stop 60 this is part of the existing pre-ending reaction; do not delay the ending with optional roster material.
+
+### Character scene: trial-samira-entrance
+
+**Trigger:** On arrival at Monitors' Room during Mission 5, when Stop 17 is the next active stop; if the player is already here, fire once on that stop’s existing activation instead of requiring re-entry.
+**Location and presence:** `monitor-desk` in Monitors' Room. Dr. Samira Holt, visiting fast-site principal investigator, speaks by radio unless already placed locally by the existing beat; do not teleport or duplicate the character. Any second speaker is explicitly remote.
+**Presentation:** Normal playable view; existing fixture evidence plus radio/nearby bubbles. Continue the existing arrival beat before the question opens. This is authored scene content, not another graded interaction.
+**Exact action / accessible description:** Arrives after Stop 16 with the site recruitment record, remaining for the Mission 5 rural audit.
+**Exact dialogue:**
+- Dr. Samira Holt, visiting fast-site principal investigator: “My team was praised for recruiting quickly; I have brought the record so you can check who that speed served.”
+
+**World-state effect:** No result is added or revealed; the encounter introduces the record or equipment already available for this stop.
+**Controls, persistence and retry:** Pause the timer during bubbles; one Continue per bubble restores control. At most two bubbles in this scene. Fire once per relevant accepted-state transition, not on wrong submissions; mission retry restores its snapshot and replay status. Retain accepted record and completed lines in the log. Use `trial-samira-entrance` only as a story-presentation key, never as a stop or fixture ID. No RP, metric, mastery or travel-unlock effect. At Stop 60 this is part of the existing pre-ending reaction; do not delay the ending with optional roster material.
+
 ## Stop 17 - Draw an SRS
 
 **Format/placement:** PROTOCOL, at `monitor-desk`.
@@ -2964,6 +3378,32 @@ SRS makes every set of size n equally likely; strata guarantee representation; c
 **Wrong-path feedback:** Randomized trial automatically generalizes
 
 **State/output:** FAST becomes NARROW SAMPLE; binder 5; M6.
+
+### Character scene: trial-eli-turn
+
+**Trigger:** After Stop 20 is accepted.
+**Location and presence:** `extraction-console` in Data Management. Eli Navarro, site operations lead, speaks by radio unless already placed locally by the existing beat; do not teleport or duplicate the character. Any second speaker is explicitly remote.
+**Presentation:** Normal playable view; existing fixture evidence plus radio/nearby bubbles. Run after accepted-result feedback and before the existing departure or mission-outcome beat. This is authored scene content, not another graded interaction.
+**Exact action / accessible description:** Leaves the excluded rural groups visible beside the fastest-site record.
+**Exact dialogue:**
+- Eli Navarro, site operations lead: “I praised the speed; I had not asked who never got through that door.”
+- Dr. Samira Holt, visiting fast-site principal investigator (radio): “My enrollment total never showed the people who could not reach us.”
+
+**World-state effect:** Preserve the existing accepted result and attach this reaction to its mission-log entry. The physical record remains at this fixture with the accepted scope; no new measurement, repair, signature authority or clearance is created by dialogue.
+**Controls, persistence and retry:** Pause the timer during bubbles; one Continue per bubble restores control. At most two bubbles in this scene. Fire once per relevant accepted-state transition, not on wrong submissions; mission retry restores its snapshot and replay status. Retain accepted record and completed lines in the log. Use `trial-eli-turn` only as a story-presentation key, never as a stop or fixture ID. No RP, metric, mastery or travel-unlock effect. At Stop 60 this is part of the existing pre-ending reaction; do not delay the ending with optional roster material.
+
+### Character scene: trial-samira-turn
+
+**Trigger:** After Stop 20 is accepted.
+**Location and presence:** `extraction-console` in Data Management. Dr. Samira Holt, visiting fast-site principal investigator, speaks by radio unless already placed locally by the existing beat; do not teleport or duplicate the character. Any second speaker is explicitly remote.
+**Presentation:** Normal playable view; existing fixture evidence plus radio/nearby bubbles. Run after accepted-result feedback and before the existing departure or mission-outcome beat. This is authored scene content, not another graded interaction.
+**Exact action / accessible description:** Leaves the missing-group evidence beside her site’s enrollment total.
+**Exact dialogue:**
+- Dr. Samira Holt, visiting fast-site principal investigator: “We made the door move quickly for the people who reached it; that is not the same as reaching everyone.”
+
+**World-state effect:** Preserve the existing accepted result and attach this reaction to its mission-log entry. The physical record remains at this fixture with the accepted scope; no new measurement, repair, signature authority or clearance is created by dialogue.
+**Controls, persistence and retry:** Pause the timer during bubbles; one Continue per bubble restores control. At most two bubbles in this scene. Fire once per relevant accepted-state transition, not on wrong submissions; mission retry restores its snapshot and replay status. Retain accepted record and completed lines in the log. Use `trial-samira-turn` only as a story-presentation key, never as a stop or fixture ID. No RP, metric, mastery or travel-unlock effect. At Stop 60 this is part of the existing pre-ending reaction; do not delay the ending with optional roster material.
+
 
 ## Mission outcome
 
@@ -3303,6 +3743,18 @@ Priya defends causal validity but accepts a representativeness repair. Evidence 
 
 Control, random assignment, replication, blocking, and blinding protect experiments in distinct ways. Sampling-distribution center reflects bias; spread falls as n grows. Geometric waiting differs from fixed-n binomial counting.
 
+
+### Character scene: trial-priya-entrance
+
+**Trigger:** On arrival at Randomisation & Blinding during Mission 6, when Stop 21 is the next active stop; if the player is already here, fire once on that stop’s existing activation instead of requiring re-entry.
+**Location and presence:** `allocation-reader` in Randomisation & Blinding. Priya Shah, randomisation and blinding lead, speaks by radio unless already placed locally by the existing beat; do not teleport or duplicate the character. Any second speaker is explicitly remote.
+**Presentation:** Normal playable view; existing fixture evidence plus radio/nearby bubbles. Continue the existing arrival beat before the question opens. This is authored scene content, not another graded interaction.
+**Exact action / accessible description:** Checks the allocation reader against the sequence of physical kits.
+**Exact dialogue:**
+- Priya Shah, randomisation and blinding lead: “I built the allocation record; now I need to show that the way we handle the boxes keeps its promise.”
+
+**World-state effect:** No result is added or revealed; the encounter introduces the record or equipment already available for this stop.
+**Controls, persistence and retry:** Pause the timer during bubbles; one Continue per bubble restores control. At most two bubbles in this scene. Fire once per relevant accepted-state transition, not on wrong submissions; mission retry restores its snapshot and replay status. Retain accepted record and completed lines in the log. Use `trial-priya-entrance` only as a story-presentation key, never as a stop or fixture ID. No RP, metric, mastery or travel-unlock effect. At Stop 60 this is part of the existing pre-ending reaction; do not delay the ending with optional roster material.
 
 ## Stop 21 - Build the Experiment
 
@@ -4067,6 +4519,20 @@ residual:
 **Wrong-path feedback:** three readings in day/km and conclusion pair
 
 **State/output:** MISSINGNESS: DISTANCE-LINKED; binder 7; M8.
+
+### Character scene: trial-eli-payoff
+
+**Trigger:** After Stop 28 is accepted.
+**Location and presence:** `site-comparison-board` in Monitors' Room. Eli Navarro, site operations lead, speaks by radio unless already placed locally by the existing beat; do not teleport or duplicate the character. Any second speaker is explicitly remote.
+**Presentation:** Normal playable view; existing fixture evidence plus radio/nearby bubbles. Run after accepted-result feedback and before the existing departure or mission-outcome beat. This is authored scene content, not another graded interaction.
+**Exact action / accessible description:** Keeps the fast-site influence test beside the operational comparison.
+**Exact dialogue:**
+- Eli Navarro, site operations lead: “Do not use a site’s speed as its quality label in the next briefing.”
+- Dr. Samira Holt, visiting fast-site principal investigator (radio): “We will keep the access question separate from the recruitment-speed report.”
+
+**World-state effect:** Preserve the existing accepted result and attach this reaction to its mission-log entry. The physical record remains at this fixture with the accepted scope; no new measurement, repair, signature authority or clearance is created by dialogue.
+**Controls, persistence and retry:** Pause the timer during bubbles; one Continue per bubble restores control. At most two bubbles in this scene. Fire once per relevant accepted-state transition, not on wrong submissions; mission retry restores its snapshot and replay status. Retain accepted record and completed lines in the log. Use `trial-eli-payoff` only as a story-presentation key, never as a stop or fixture ID. No RP, metric, mastery or travel-unlock effect. At Stop 60 this is part of the existing pre-ending reaction; do not delay the ending with optional roster material.
+
 
 ## Mission outcome
 
@@ -5163,6 +5629,19 @@ trace:
 
 **State/output:** BLIND PATH INTACT; survey travels.
 
+### Character scene: trial-priya-turn
+
+**Trigger:** After Stop 33 is accepted.
+**Location and presence:** `kit-sequence-rack` in Kit Warehouse. Priya Shah, randomisation and blinding lead, speaks by radio unless already placed locally by the existing beat; do not teleport or duplicate the character. Any second speaker is explicitly remote.
+**Presentation:** Normal playable view; existing fixture evidence plus radio/nearby bubbles. Run after accepted-result feedback and before the existing departure or mission-outcome beat. This is authored scene content, not another graded interaction.
+**Exact action / accessible description:** Keeps the physical-kit trace beside the allocation file.
+**Exact dialogue:**
+- Priya Shah, randomisation and blinding lead: “The file can be correct while the next box becomes predictable; both paths need the audit.”
+
+**World-state effect:** Preserve the existing accepted result and attach this reaction to its mission-log entry. The physical record remains at this fixture with the accepted scope; no new measurement, repair, signature authority or clearance is created by dialogue.
+**Controls, persistence and retry:** Pause the timer during bubbles; one Continue per bubble restores control. At most two bubbles in this scene. Fire once per relevant accepted-state transition, not on wrong submissions; mission retry restores its snapshot and replay status. Retain accepted record and completed lines in the log. Use `trial-priya-turn` only as a story-presentation key, never as a stop or fixture ID. No RP, metric, mastery or travel-unlock effect. At Stop 60 this is part of the existing pre-ending reaction; do not delay the ending with optional roster material.
+
+
 ## Stop 34 - Estimate the Guessing Difference
 
 **Format/placement:** DERIVE, at `analysis-board`.
@@ -5374,6 +5853,19 @@ stress:
 **Wrong-path feedback:** Difference proves broken concealment
 
 **State/output:** binder 9; M10.
+
+### Character scene: trial-priya-payoff
+
+**Trigger:** After Stop 36 is accepted.
+**Location and presence:** `blind-audit-table` in Kit Warehouse. Priya Shah, randomisation and blinding lead, speaks by radio unless already placed locally by the existing beat; do not teleport or duplicate the character. Any second speaker is explicitly remote.
+**Presentation:** Normal playable view; existing fixture evidence plus radio/nearby bubbles. Run after accepted-result feedback and before the existing departure or mission-outcome beat. This is authored scene content, not another graded interaction.
+**Exact action / accessible description:** Retains the supported blinding conclusion with its stated scope.
+**Exact dialogue:**
+- Priya Shah, randomisation and blinding lead: “Use the result of this audit; neither a correct file nor a worried guess settles it alone.”
+
+**World-state effect:** Preserve the existing accepted result and attach this reaction to its mission-log entry. The physical record remains at this fixture with the accepted scope; no new measurement, repair, signature authority or clearance is created by dialogue.
+**Controls, persistence and retry:** Pause the timer during bubbles; one Continue per bubble restores control. At most two bubbles in this scene. Fire once per relevant accepted-state transition, not on wrong submissions; mission retry restores its snapshot and replay status. Retain accepted record and completed lines in the log. Use `trial-priya-payoff` only as a story-presentation key, never as a stop or fixture ID. No RP, metric, mastery or travel-unlock effect. At Stop 60 this is part of the existing pre-ending reaction; do not delay the ending with optional roster material.
+
 
 ## Mission outcome
 
@@ -6000,6 +6492,19 @@ residual:
 
 **State/output:** binder 10; M11.
 
+### Character scene: trial-amina-turn
+
+**Trigger:** After Stop 40 is accepted.
+**Location and presence:** `residual-wall` in Statistics & Analysis. Amina Okafor, endpoint adjudication lead, speaks by radio unless already placed locally by the existing beat; do not teleport or duplicate the character. Any second speaker is explicitly remote.
+**Presentation:** Normal playable view; existing fixture evidence plus radio/nearby bubbles. Run after accepted-result feedback and before the existing departure or mission-outcome beat. This is authored scene content, not another graded interaction.
+**Exact action / accessible description:** Keeps the adjustment residuals beside the endpoint coding rule.
+**Exact dialogue:**
+- Amina Okafor, endpoint adjudication lead: “The old comparison needed that adjustment; keep the corrected estimate with its remaining uncertainty.”
+
+**World-state effect:** Preserve the existing accepted result and attach this reaction to its mission-log entry. The physical record remains at this fixture with the accepted scope; no new measurement, repair, signature authority or clearance is created by dialogue.
+**Controls, persistence and retry:** Pause the timer during bubbles; one Continue per bubble restores control. At most two bubbles in this scene. Fire once per relevant accepted-state transition, not on wrong submissions; mission retry restores its snapshot and replay status. Retain accepted record and completed lines in the log. Use `trial-amina-turn` only as a story-presentation key, never as a stop or fixture ID. No RP, metric, mastery or travel-unlock effect. At Stop 60 this is part of the existing pre-ending reaction; do not delay the ending with optional roster material.
+
+
 ## Mission outcome
 
 Mission decision: Put the adjusted four-unit treatment effect in the pack. It uses the two groups in the right way. The error check also passes. Paired records support a shorter recovery. The one-group test does not settle the claim.
@@ -6553,6 +7058,19 @@ trace:
 
 **State/output:** shared lines turn amber with text; travel ARCHIVE.
 
+### Character scene: trial-lena-turn
+
+**Trigger:** After Stop 43 is accepted.
+**Location and presence:** `extraction-map` in Statistics & Analysis. Lena Wu, regulatory and registry lead, speaks by radio unless already placed locally by the existing beat; do not teleport or duplicate the character. Any second speaker is explicitly remote.
+**Presentation:** Normal playable view; existing fixture evidence plus radio/nearby bubbles. Run after accepted-result feedback and before the existing departure or mission-outcome beat. This is authored scene content, not another graded interaction.
+**Exact action / accessible description:** Marks the common extraction feeding the matching reports.
+**Exact dialogue:**
+- Lena Wu, regulatory and registry lead: “I can trace every copy; that does not turn one extraction into three confirmations.”
+
+**World-state effect:** Preserve the existing accepted result and attach this reaction to its mission-log entry. The physical record remains at this fixture with the accepted scope; no new measurement, repair, signature authority or clearance is created by dialogue.
+**Controls, persistence and retry:** Pause the timer during bubbles; one Continue per bubble restores control. At most two bubbles in this scene. Fire once per relevant accepted-state transition, not on wrong submissions; mission retry restores its snapshot and replay status. Retain accepted record and completed lines in the log. Use `trial-lena-turn` only as a story-presentation key, never as a stop or fixture ID. No RP, metric, mastery or travel-unlock effect. At Stop 60 this is part of the existing pre-ending reaction; do not delay the ending with optional roster material.
+
+
 ## Stop 44 - Make the Lock Real
 
 **Format/placement:** ATTEST, asked by Mara Voss beside `archive-seal`.
@@ -6580,6 +7098,20 @@ trace:
 **Wrong-path feedback:** Copied reports provide three proofs
 
 **State/output:** binder 11; Integrity lock; M12.
+
+### Character scene: trial-mara-turn
+
+**Trigger:** After Stop 44 is accepted.
+**Location and presence:** `archive-seal` in Trial Master File. Mara Voss, trial director, speaks by radio unless already placed locally by the existing beat; do not teleport or duplicate the character. Any second speaker is explicitly remote.
+**Presentation:** Normal playable view; existing fixture evidence plus radio/nearby bubbles. Run after accepted-result feedback and before the existing departure or mission-outcome beat. This is authored scene content, not another graded interaction.
+**Exact action / accessible description:** Keeps the independent rerun and archive permissions beside the locked table.
+**Exact dialogue:**
+- Mara Voss, trial director: “The deadline can fix when we meet; it cannot make copied reports independent.”
+- Jonas Berg, safety monitoring chair (radio): “Then the lock must preserve the evidence we will use to apply those conditions.”
+
+**World-state effect:** Preserve the existing accepted result and attach this reaction to its mission-log entry. The physical record remains at this fixture with the accepted scope; no new measurement, repair, signature authority or clearance is created by dialogue.
+**Controls, persistence and retry:** Pause the timer during bubbles; one Continue per bubble restores control. At most two bubbles in this scene. Fire once per relevant accepted-state transition, not on wrong submissions; mission retry restores its snapshot and replay status. Retain accepted record and completed lines in the log. Use `trial-mara-turn` only as a story-presentation key, never as a stop or fixture ID. No RP, metric, mastery or travel-unlock effect. At Stop 60 this is part of the existing pre-ending reaction; do not delay the ending with optional roster material.
+
 
 ## Mission outcome
 
@@ -7158,6 +7690,19 @@ derive:
 
 **State/output:** binder12; M13.
 
+### Character scene: trial-amina-payoff
+
+**Trigger:** After Stop 48 is accepted.
+**Location and presence:** `board-console` in Monitoring Board Room. Amina Okafor, endpoint adjudication lead, speaks by radio unless already placed locally by the existing beat; do not teleport or duplicate the character. Any second speaker is explicitly remote.
+**Presentation:** Normal playable view; existing fixture evidence plus radio/nearby bubbles. Run after accepted-result feedback and before the existing departure or mission-outcome beat. This is authored scene content, not another graded interaction.
+**Exact action / accessible description:** Retains the site comparison with the revised interpretation of what was counted.
+**Exact dialogue:**
+- Amina Okafor, endpoint adjudication lead: “The board must see which events and sites the comparison actually represents.”
+
+**World-state effect:** Preserve the existing accepted result and attach this reaction to its mission-log entry. The physical record remains at this fixture with the accepted scope; no new measurement, repair, signature authority or clearance is created by dialogue.
+**Controls, persistence and retry:** Pause the timer during bubbles; one Continue per bubble restores control. At most two bubbles in this scene. Fire once per relevant accepted-state transition, not on wrong submissions; mission retry restores its snapshot and replay status. Retain accepted record and completed lines in the log. Use `trial-amina-payoff` only as a story-presentation key, never as a stop or fixture ID. No RP, metric, mastery or travel-unlock effect. At Stop 60 this is part of the existing pre-ending reaction; do not delay the ending with optional roster material.
+
+
 ## Mission outcome
 
 Mission decision: Do not force one cause onto all three tables. Event grades match the planned mix. Treatment arm and hospital do not. The study design calls for different tests. New side studies now compete for one error budget.
@@ -7692,6 +8237,20 @@ derive:
 
 **State/output:** travel BOARD.
 
+### Character scene: trial-tomas-turn
+
+**Trigger:** After Stop 51 is accepted.
+**Location and presence:** `claim-ledger` in Regulatory & Registry. Tomas Reed, trial statistician, speaks by radio unless already placed locally by the existing beat; do not teleport or duplicate the character. Any second speaker is explicitly remote.
+**Presentation:** Normal playable view; existing fixture evidence plus radio/nearby bubbles. Run after accepted-result feedback and before the existing departure or mission-outcome beat. This is authored scene content, not another graded interaction.
+**Exact action / accessible description:** Keeps the full family of claims beside the strongest individual result.
+**Exact dialogue:**
+- Tomas Reed, trial statistician: “That was the headline I wanted; the number of claims changes what it can support.”
+- Lena Wu, regulatory and registry lead (radio): “The extra biomarker can remain in the record as exploratory, without borrowing the original claim.”
+
+**World-state effect:** Preserve the existing accepted result and attach this reaction to its mission-log entry. The physical record remains at this fixture with the accepted scope; no new measurement, repair, signature authority or clearance is created by dialogue.
+**Controls, persistence and retry:** Pause the timer during bubbles; one Continue per bubble restores control. At most two bubbles in this scene. Fire once per relevant accepted-state transition, not on wrong submissions; mission retry restores its snapshot and replay status. Retain accepted record and completed lines in the log. Use `trial-tomas-turn` only as a story-presentation key, never as a stop or fixture ID. No RP, metric, mastery or travel-unlock effect. At Stop 60 this is part of the existing pre-ending reaction; do not delay the ending with optional roster material.
+
+
 ## Stop 52 - Correct Before Seeing
 
 **Format/placement:** TRIGGER, at `trigger-rail`.
@@ -7755,6 +8314,19 @@ trigger:
 **Wrong-path feedback:** family-risk percent, threshold, survivor selection
 
 **State/output:** binder13; Evidence locks; M14.
+
+### Character scene: trial-lena-payoff
+
+**Trigger:** After Stop 52 is accepted.
+**Location and presence:** `trigger-rail` in Monitoring Board Room. Lena Wu, regulatory and registry lead, speaks by radio unless already placed locally by the existing beat; do not teleport or duplicate the character. Any second speaker is explicitly remote.
+**Presentation:** Normal playable view; existing fixture evidence plus radio/nearby bubbles. Run after accepted-result feedback and before the existing departure or mission-outcome beat. This is authored scene content, not another graded interaction.
+**Exact action / accessible description:** Retains the precommitted multiplicity rule with the disclosed analysis history.
+**Exact dialogue:**
+- Lena Wu, regulatory and registry lead: “Keep the early look in the record and the new rule fixed before the next result.”
+
+**World-state effect:** Preserve the existing accepted result and attach this reaction to its mission-log entry. The physical record remains at this fixture with the accepted scope; no new measurement, repair, signature authority or clearance is created by dialogue.
+**Controls, persistence and retry:** Pause the timer during bubbles; one Continue per bubble restores control. At most two bubbles in this scene. Fire once per relevant accepted-state transition, not on wrong submissions; mission retry restores its snapshot and replay status. Retain accepted record and completed lines in the log. Use `trial-lena-payoff` only as a story-presentation key, never as a stop or fixture ID. No RP, metric, mastery or travel-unlock effect. At Stop 60 this is part of the existing pre-ending reaction; do not delay the ending with optional roster material.
+
 
 ## Mission outcome
 
@@ -8200,6 +8772,20 @@ stress:
 
 **State/output:** evidence orders; travel BOARD.
 
+### Character scene: trial-tomas-payoff
+
+**Trigger:** After Stop 54 is accepted.
+**Location and presence:** `evidence-budget-desk` in Statistics. Tomas Reed, trial statistician, speaks by radio unless already placed locally by the existing beat; do not teleport or duplicate the character. Any second speaker is explicitly remote.
+**Presentation:** Normal playable view; existing fixture evidence plus radio/nearby bubbles. Run after accepted-result feedback and before the existing departure or mission-outcome beat. This is authored scene content, not another graded interaction.
+**Exact action / accessible description:** Records the accepted evidence purchase with the decision it can change.
+**Exact dialogue:**
+- Tomas Reed, trial statistician: “Buy evidence for the board’s decision, not another chance at the old headline.”
+- Lena Wu, regulatory and registry lead (radio): “I will record the new evidence decision before its result arrives.”
+
+**World-state effect:** Preserve the existing accepted result and attach this reaction to its mission-log entry. The physical record remains at this fixture with the accepted scope; no new measurement, repair, signature authority or clearance is created by dialogue.
+**Controls, persistence and retry:** Pause the timer during bubbles; one Continue per bubble restores control. At most two bubbles in this scene. Fire once per relevant accepted-state transition, not on wrong submissions; mission retry restores its snapshot and replay status. Retain accepted record and completed lines in the log. Use `trial-tomas-payoff` only as a story-presentation key, never as a stop or fixture ID. No RP, metric, mastery or travel-unlock effect. At Stop 60 this is part of the existing pre-ending reaction; do not delay the ending with optional roster material.
+
+
 ## Stop 55 - Predict Power Direction
 
 **Format/placement:** CHOICE, at `board-simulator`.
@@ -8373,6 +8959,31 @@ trigger:
 **Wrong-path feedback:** numeric threshold pair, enrollment cap, action mapping
 
 **State/output:** binder14; M15.
+
+### Character scene: trial-jonas-payoff
+
+**Trigger:** After Stop 56 is accepted.
+**Location and presence:** `trigger-rail` in Monitoring Board Room. Jonas Berg, safety monitoring chair, speaks by radio unless already placed locally by the existing beat; do not teleport or duplicate the character. Any second speaker is explicitly remote.
+**Presentation:** Normal playable view; existing fixture evidence plus radio/nearby bubbles. Run after accepted-result feedback and before the existing departure or mission-outcome beat. This is authored scene content, not another graded interaction.
+**Exact action / accessible description:** Retains the accepted continuation and stopping triggers in the board plan.
+**Exact dialogue:**
+- Jonas Berg, safety monitoring chair: “If we continue, these checks remain in force; continuation is not an all-clear.”
+
+**World-state effect:** Preserve the existing accepted result and attach this reaction to its mission-log entry. The physical record remains at this fixture with the accepted scope; no new measurement, repair, signature authority or clearance is created by dialogue.
+**Controls, persistence and retry:** Pause the timer during bubbles; one Continue per bubble restores control. At most two bubbles in this scene. Fire once per relevant accepted-state transition, not on wrong submissions; mission retry restores its snapshot and replay status. Retain accepted record and completed lines in the log. Use `trial-jonas-payoff` only as a story-presentation key, never as a stop or fixture ID. No RP, metric, mastery or travel-unlock effect. At Stop 60 this is part of the existing pre-ending reaction; do not delay the ending with optional roster material.
+
+### Character scene: trial-samira-payoff
+
+**Trigger:** After Stop 56 is accepted.
+**Location and presence:** `trigger-rail` in Monitoring Board Room. Dr. Samira Holt, visiting fast-site principal investigator, speaks by radio unless already placed locally by the existing beat; do not teleport or duplicate the character. Any second speaker is explicitly remote.
+**Presentation:** Normal playable view; existing fixture evidence plus radio/nearby bubbles. Run after accepted-result feedback and before the existing departure or mission-outcome beat. This is authored scene content, not another graded interaction.
+**Exact action / accessible description:** Acknowledges the existing limited-follow-up permission remotely without claiming unrestricted reopening.
+**Exact dialogue:**
+- Dr. Samira Holt, visiting fast-site principal investigator: “My team can follow these patients under the safeguards; I will not call that full clearance.”
+
+**World-state effect:** Preserve the existing accepted result and attach this reaction to its mission-log entry. The physical record remains at this fixture with the accepted scope; no new measurement, repair, signature authority or clearance is created by dialogue.
+**Controls, persistence and retry:** Pause the timer during bubbles; one Continue per bubble restores control. At most two bubbles in this scene. Fire once per relevant accepted-state transition, not on wrong submissions; mission retry restores its snapshot and replay status. Retain accepted record and completed lines in the log. Use `trial-samira-payoff` only as a story-presentation key, never as a stop or fixture ID. No RP, metric, mastery or travel-unlock effect. At Stop 60 this is part of the existing pre-ending reaction; do not delay the ending with optional roster material.
+
 
 ## Mission outcome
 
@@ -8864,6 +9475,20 @@ Procedure choice follows variable type and design. Conditions justify reference 
 **Wrong-path feedback:** Not yet. Define the population and hypotheses before choosing a procedure, verify conditions before calculating, and interpret the statistical result in patient context without claiming that the null hypothesis was proved.
 
 **State/output:** signature applied; piece15; final payoff.
+
+### Character scene: trial-mara-payoff
+
+**Trigger:** After Stop 60 is accepted.
+**Location and presence:** `board-table` in Monitoring Board Room. Mara Voss, trial director, speaks by radio unless already placed locally by the existing beat; do not teleport or duplicate the character. Any second speaker is explicitly remote.
+**Presentation:** Normal playable view; existing fixture evidence plus radio/nearby bubbles. Run after accepted-result feedback and before the existing departure or mission-outcome beat. This is authored scene content, not another graded interaction.
+**Exact action / accessible description:** Carries the accepted statistical argument into the existing board meeting with its conditions intact.
+**Exact dialogue:**
+- Mara Voss, trial director: “The board gets the limits of the claim on the same page as the result.”
+- Jonas Berg, safety monitoring chair (radio): “The safeguards remain enforceable after the board signs.”
+
+**World-state effect:** Preserve the existing accepted result and attach this reaction to its mission-log entry. The physical record remains at this fixture with the accepted scope; no new measurement, repair, signature authority or clearance is created by dialogue.
+**Controls, persistence and retry:** Pause the timer during bubbles; one Continue per bubble restores control. At most two bubbles in this scene. Fire once per relevant accepted-state transition, not on wrong submissions; mission retry restores its snapshot and replay status. Retain accepted record and completed lines in the log. Use `trial-mara-payoff` only as a story-presentation key, never as a stop or fixture ID. No RP, metric, mastery or travel-unlock effect. At Stop 60 this is part of the existing pre-ending reaction; do not delay the ending with optional roster material.
+
 
 ## Mission outcome and final payoff
 
