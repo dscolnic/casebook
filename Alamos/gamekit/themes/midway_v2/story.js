@@ -678,11 +678,26 @@ export function storyExtras(scene, ctx){
   // Flags on the carousel roof and the tower head, and bunting between the
   // stalls either side of the avenue, all swaying.
   {
+    /**
+     * A flag on a staff, on a roof.
+     *
+     * THREE THINGS WRONG WITH THE FIRST CUT, all of them visible from the
+     * ground. The staff was 3 cm across at nine metres up, which is under a
+     * pixel at walking distance — so the cloth read as hanging in the air with
+     * nothing holding it. It swayed on TWO axes at 2.1 and 3.3 rad/s, which is
+     * three flaps a second: a flag in a lake breeze moves at about a fifth of
+     * that, and the z sway tipped the whole flag up and down rather than
+     * rippling it. And it swayed about the flag's own centre, so the corner at
+     * the staff swung away from the staff.
+     *
+     * So: a staff you can see, one slow sway about the staff, and the cloth's
+     * geometry translated so the pivot is its luff rather than its middle.
+     */
     const flag = (x, y, z, colour) => {
-      cyl(scene, 0.03, 1.6, x, y + 0.8, z, STEEL());
-      const f = box(scene, 0.9, 0.5, 0.02, x + 0.45, y + 1.3, z, PAINT(colour));
-      f.geometry = f.geometry.clone().translate(0.45, 0, 0); f.position.x = x;
-      animate?.(sway(f, 'y', 0.35, 2.1, x)); animate?.(sway(f, 'z', 0.06, 3.3, z));
+      cyl(scene, 0.06, 2.4, x, y + 1.2, z, STEEL());
+      const f = box(scene, 0.9, 0.5, 0.02, x, y + 1.9, z, PAINT(colour));
+      f.geometry = f.geometry.clone().translate(0.45, 0, 0);   // pivot at the luff
+      animate?.(sway(f, 'y', 0.14, 0.55, x));
     };
     flag(-44, at(-44, -16) + 9.5, -16, 0xc4342a);
     flag(44, at(44, -74) + 45.7, -74, 0xe6e0d0);

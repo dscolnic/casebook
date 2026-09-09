@@ -197,8 +197,20 @@ initCrowd({
   // The pad is the caller's: one metre keeps somebody from being *placed* hard
   // against a wall, and that same metre used while walking would wall a person
   // into a four-metre passage.
+  //
+  // BOTH KINDS OF COLLIDER, and the second one was missing for the life of this
+  // engine. `player.js` stops the player on `colliders` AND on `softColliders`
+  // — the cylinders a bin, a bench, a stall or a barricade is registered as —
+  // and this predicate read only the first, so the crowd walked through every
+  // soft-collided prop in every game while the player could not. It is what a
+  // player notices first: at Corbin Park people strolled through the stalls and
+  // the arm-nine barricade. Squared distance, the same test `player.js` uses.
   blocked: (x, z, pad = 1) => world.colliders.some(c =>
-    x > c.min.x - pad && x < c.max.x + pad && z > c.min.z - pad && z < c.max.z + pad),
+    x > c.min.x - pad && x < c.max.x + pad && z > c.min.z - pad && z < c.max.z + pad)
+    || (world.softColliders ?? []).some(c => {
+      const dx = x - c.x, dz = z - c.z, rr = c.r + pad;
+      return dx * dx + dz * dz < rr * rr;
+    }),
 });
 
 // The other players, drawn with the same rig the crowd uses. Inert solo: with

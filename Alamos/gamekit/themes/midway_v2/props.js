@@ -397,17 +397,32 @@ function ferrisWheel(scene, x, z, y, colliders){
   scene.add(g);
 
   // Two A-frames and the axle they carry.
+  //
+  // AN A, NOT A V, and the sign is the whole of it. `rotation.z` turns the box's
+  // local +y toward −x for a positive angle, so `-s * 0.30` leant the TOP of each
+  // leg outward and stood the feet three metres apart under a hub fifteen metres
+  // wide: from the ground the wheel appeared to balance on a point. A leg is
+  // rotated about its own centre, so the foot travels as far as the head — the
+  // numbers below are worked from that rather than guessed.
+  const LEAN = 0.30, HALF = (R + 4.6) / 2;
+  const foot = 5.2 + Math.sin(LEAN) * HALF;      // where a leg actually meets the ground
   for(const dz of [-5.5, 5.5]){
     const f = new THREE.Group();
     for(const s of [-1, 1]){
       const leg = box(f, 0.5, R + 4.6, 0.5, s * 5.2, (R + 3.4) / 2, 0, PAINT(0x6f6a74));
-      leg.rotation.z = -s * 0.30;
+      leg.rotation.z = s * LEAN;
     }
     box(f, 10.0, 0.3, 0.3, 0, (R + 3.4) * 0.55, 0, STEEL());
     f.position.set(x, y, z + dz);
     scene.add(f);
-    colliders?.push(new THREE.Box3(
-      new THREE.Vector3(x - 6.4, y, z + dz - 0.6), new THREE.Vector3(x + 6.4, y + 4, z + dz + 0.6)));
+    // ONE BOX PER LEG, at the foot. A single box across the pair was 12.8 m of
+    // collider under a frame whose feet are 1.2 m wide: the player was stopped
+    // by air, three metres from anything, on both sides of the wheel.
+    for(const s of [-1, 1]){
+      colliders?.push(new THREE.Box3(
+        new THREE.Vector3(x + s * foot - 0.6, y, z + dz - 0.6),
+        new THREE.Vector3(x + s * foot + 0.6, y + 4, z + dz + 0.6)));
+    }
   }
   cyl(scene, 0.34, 12, x, y + R + 3.4, z, STEEL()).rotation.x = Math.PI / 2;
   return { group: g, cars };
@@ -471,7 +486,7 @@ function pirateShip(scene, x, z, y, colliders){
   for(const dz of [-4.4, 4.4]){
     for(const s of [-1, 1]){
       const leg = box(g, 0.44, 12.4, 0.44, s * 4.0, 6.0, dz, PAINT(0x4a6a86));
-      leg.rotation.z = -s * 0.31;
+      leg.rotation.z = s * 0.31;      // an A: see the note on the wheel's frames
     }
     box(g, 8.4, 0.26, 0.26, 0, 11.4, dz, STEEL());
   }
@@ -569,8 +584,14 @@ function swingCarousel(scene, x, z, y, colliders){
       Math.cos(a) * (3.0 + out), 8.5 - down, Math.sin(a) * (3.0 + out));
     const mid = hub.clone().lerp(seat, 0.5);
     const chain = box(g, 0.05, 4.5, 0.05, mid.x, mid.y, mid.z, STEEL());
-    chain.rotation.z = -Math.cos(a) * TILT;
-    chain.rotation.x = Math.sin(a) * TILT;
+    // ALIGNED TO THE VECTOR, not to two Euler angles. `rotation.x` and
+    // `rotation.z` are applied in XYZ order, so setting both to lean a chain
+    // toward an azimuth is only right on the four axes and worst on the
+    // diagonals: eight of the fourteen chains hung off both their hub and their
+    // seat, which is what a seat floating beside a chain looks like. Same fix as
+    // Overwind's telegraph wires — `setFromUnitVectors(UP, dir)`.
+    chain.quaternion.setFromUnitVectors(
+      new THREE.Vector3(0, 1, 0), seat.clone().sub(hub).normalize());
     box(g, 0.6, 0.12, 0.55, seat.x, seat.y, seat.z, PAINT(0x96513f));
     box(g, 0.6, 0.6, 0.10, seat.x, seat.y + 0.35, seat.z, PAINT(0x96513f));
   }
