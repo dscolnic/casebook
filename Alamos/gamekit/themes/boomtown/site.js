@@ -31,20 +31,25 @@ const PI = Math.PI;
  * the original drew the sign and door in. Every one of these is board-and-batten
  * on a half-metre pier plinth with a low-pitch gable — the mesa vernacular.
  */
+// RENAMED FOR THE TOWN THIS IS NOW. The five compounds keep their ids, their
+// footprints, their gates and their colours — the bible is explicit that "the
+// supplied footprint is preserved" — and they are a town's offices rather than
+// a weapons laboratory's divisions. The ids stay because every stop, every
+// fixture and the delivery board are keyed on them.
 export const DIVISIONS = [
-  { id: 'T',  group: 'T',  name: 'Theory & Calculations',
+  { id: 'T',  group: 'T',  name: 'Civic Advice Office',
     x: 0,   z: 58,  w: 20, d: 11, h: 5.4, facing: PI,
     colour: 0x3d4a3a, accent: 0x315c78 },
-  { id: 'P',  group: 'P',  name: 'Experimental Physics',
+  { id: 'P',  group: 'P',  name: 'Housing and Work Office',
     x: -48, z: -10, w: 15, d: 13, h: 6.2, facing: PI / 2,
     colour: 0x8b8375, accent: 0x4b775f },
-  { id: 'X',  group: 'X',  name: 'Implosion & Integration',
+  { id: 'X',  group: 'X',  name: 'Water and Land Office',
     x: 48,  z: -10, w: 18, d: 12, h: 5.8, facing: -PI / 2,
     colour: 0x5c5347, accent: 0x704f88 },
-  { id: 'CM', group: 'CM', name: 'Chemistry & Metallurgy',
+  { id: 'CM', group: 'CM', name: 'Business Workshop',
     x: -30, z: 42,  w: 16, d: 14, h: 6.6, facing: PI,
     colour: 0x6f6a5c, accent: 0x8a6921 },
-  { id: 'E',  group: 'E',  name: 'Ordnance & Engineering',
+  { id: 'E',  group: 'E',  name: 'Freight Contract Office',
     x: 32,  z: 42,  w: 20, d: 10, h: 5.2, facing: PI,
     colour: 0x44503c, accent: 0x865044 },
 ];

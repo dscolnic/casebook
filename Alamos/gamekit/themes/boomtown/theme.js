@@ -17,7 +17,6 @@ import { CURRICULUM, BALLPARK_CALCS, JARGON } from './content/curriculum.js';
 import { MISSIONS as MISSION_DEFS, WARMUPS } from './content/missions.js';
 import { GROUPS as GROUP_DEFS } from './content/groups.js';
 import { ROSTER as HISTORIC_CHARACTERS, LEADERS, AVATARS } from './content/roster.js';
-import { DIAGNOSIS_PACKS } from './content/shared.js';
 import { INTERIORS } from './interiors.js';
 import metrics from './metrics.js';
 import { FIXTURES } from './fixtures.js';
@@ -100,7 +99,6 @@ export default {
     ROSTER: HISTORIC_CHARACTERS,
     LEADERS, AVATARS,
     // Expanded into the lessons that reference them by engine/content/normalize.js.
-    DIAGNOSIS_PACKS,
     COPY: {},
   },
 

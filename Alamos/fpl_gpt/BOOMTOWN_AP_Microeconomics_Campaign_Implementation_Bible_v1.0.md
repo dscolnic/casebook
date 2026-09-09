@@ -9557,7 +9557,7 @@ The new-line ribbon disappears from the public board; the retrofit receives the 
         "key": "service"
       }
     ],
-    "optimiseOn": "net",
+    "optimiseOn": "service",
     "candidates": [
       {
         "name": "New line",

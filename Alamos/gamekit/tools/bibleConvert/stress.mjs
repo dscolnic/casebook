@@ -324,6 +324,14 @@ export const convertPayload = (b, stop = {}) => {
 
   const aunit = text(pick(a, 'unit', 'units'));
   if(aunit) asm.unit = aunit;
+  // WHICH END OF THE RANGE IS THE HARD ONE, where the board says so. Boomtown
+  // writes `hardEnd: "max"` on its assumption — a construction overrun gets
+  // worse upwards — and the importer reads that field as `worst`. Unread, the
+  // polarity was inferred from the numbers instead, which works and is a guess
+  // about a thing the author had already stated.
+  const hard = text(pick(a, 'worst', 'hardEnd', 'hard_end', 'worstEnd', 'pessimisticEnd'))
+    .toLowerCase();
+  if(hard === 'min' || hard === 'max') asm.worst = hard;
 
   // The range, in four hands: inside the assumption, as a two-item `range`, as
   // prose (`"2..3 step.25"`, and the name may carry it too), or loose at the top
