@@ -580,7 +580,7 @@ missions:
     motivation: "A station-specific failure identifies the comparison that must govern the next handling decision."
     format: PROBE
     question: "Take and record all four station readings with the sample selector, holding the assay method fixed; compare each with its own expected value and submit the one station ID outside its stated range; no restoration is needed."
-    answerText: Only the stored-feed tray lies outside its own expected range. This result is now recorded for the next comparison.
+    answerText: "Only the stored-feed tray lies outside its own expected range. This result is now recorded for the next comparison."
     why: "Only the stored-feed tray lies outside its own expected range. Restoring nitrogen brings growth back into the complete-feed range, while the assay standard stays normal. The matched trays share seed line, light and water, so the comparison supports a nitrogen limitation under these conditions. It does not show that all pale plants everywhere need this treatment. The result gives the clinic a specific replacement decision and keeps the original feed label as a clue about outdated instructions."
     # wrong-path feedback, one rebuttal per wrong option:
     #   The complete-feed control is within its range. The restored tray matches normal growth rather than causing the failure. The nitrate standard is within its own assay range. Retry: keep the visible evidence, clear only the committed response and reopen this board; no later stop unlocks until a correct submission. For matching/order errors, highlight the first mismatched biological relationship with the specific feedback above; for numerical errors, display the stated formula and substituted units after grading.
@@ -829,7 +829,7 @@ missions:
     motivation: "The calculated quantity sets the comparison the crew must satisfy before it acts."
     format: BALLPARK
     question: "Build the ratio 6 divided by side length from the tiles; submit surface-area-to-volume ratio in inverse micrometres."
-    answerText: For a cube, surface area divided by volume is 6L²/L³ = 6/L. This result is now recorded for the next comparison.
+    answerText: "For a cube, surface area divided by volume is 6L²/L³ = 6/L. This result is now recorded for the next comparison."
     why: "For a cube, surface area divided by volume is 6L²/L³ = 6/L. At L = 3 micrometres, the ratio is 2 inverse micrometres. The ratio describes available exchange surface per unit of cell volume, not the direction in which water moves. Smaller cells have a larger ratio, but water still follows the water-potential difference. The clinic can now distinguish an exchange-rate argument from the separate question of whether the rinse drives water into or out of roots."
     # wrong-path feedback, one rebuttal per wrong option:
     #   54 is surface area alone, not area divided by volume. 27 is volume, so it cannot have inverse-length units. Retry: keep the visible evidence, clear only the committed response and reopen this board; no later stop unlocks until a correct submission. For matching/order errors, highlight the first mismatched biological relationship with the specific feedback above; for numerical errors, display the stated formula and substituted units after grading.
@@ -1207,7 +1207,7 @@ missions:
     motivation: "A station-specific failure identifies the comparison that must govern the next handling decision."
     format: PROBE
     question: "Take and record all four station readings with the sample selector, holding the assay method fixed; compare each with its own expected value and submit the one station ID outside its stated range; no restoration is needed."
-    answerText: The sealed planted pot is the only station outside its expected oxygen range. This result is now recorded for the next comparison.
+    answerText: "The sealed planted pot is the only station outside its expected oxygen range. This result is now recorded for the next comparison."
     why: "The sealed planted pot is the only station outside its expected oxygen range. The empty sealed pot and the standard remain normal, while ventilation keeps the planted comparison supplied with oxygen. The contrast supports organismal respiration as the relevant sink under these conditions. It does not show that darkness destroys oxygen or that all sealed containers behave identically. Together with the daylight balance, the result explains why an afternoon reading could miss the transport risk and justifies a supply route through the lids."
     # wrong-path feedback, one rebuttal per wrong option:
     #   The ventilated planted pot is inside its expected range. The empty sealed pot rules out sealing alone as the observed oxygen sink. The standard is normal, so it does not support a meter failure. Retry: keep the visible evidence, clear only the committed response and reopen this board; no later stop unlocks until a correct submission. For matching/order errors, highlight the first mismatched biological relationship with the specific feedback above; for numerical errors, display the stated formula and substituted units after grading.
@@ -1758,7 +1758,7 @@ missions:
     motivation: "The calculated quantity sets the comparison the crew must satisfy before it acts."
     format: BALLPARK
     question: "For the old program, use shared last day minus shared first day plus one; submit overlap in days."
-    answerText: The overlap consists only of day 4. This result is now recorded for the next comparison.
+    answerText: "The overlap consists only of day 4. This result is now recorded for the next comparison."
     why: "The overlap consists only of day 4. With inclusive endpoints, the count is 4 − 4 + 1 = 1 day. Counting the full flowering interval would include days when the recorded pollinators were absent; counting the entire insect interval would include days when those flowers were closed. This timing result provides a possible explanation for fewer visits, but the field comparison must still check whether visitors use flowers that remain open during their activity period."
     # wrong-path feedback, one rebuttal per wrong option:
     #   4 counts all flowering days rather than shared days. 6 counts all insect days rather than shared days. Retry: keep the visible evidence, clear only the committed response and reopen this board; no later stop unlocks until a correct submission. For matching/order errors, highlight the first mismatched biological relationship with the specific feedback above; for numerical errors, display the stated formula and substituted units after grading.
@@ -1827,7 +1827,7 @@ missions:
     motivation: "A station-specific failure identifies the comparison that must govern the next handling decision."
     format: PROBE
     question: "Take and record all four station readings with the sample selector, holding the assay method fixed; compare each with its own expected value and submit the one station ID outside its stated range; no restoration is needed."
-    answerText: Only the old-program flower tray falls below its station-specific expected range. This result is now recorded for the next comparison.
+    answerText: "Only the old-program flower tray falls below its station-specific expected range. This result is now recorded for the next comparison."
     why: "Only the old-program flower tray falls below its station-specific expected range. Staggered and unchanged flowers still receive visits, and the independent pollen observation is normal. The comparison therefore weakens a general insect disappearance explanation and supports a timing mismatch associated with the lamp program. These are teaching data from matched conditions, not a universal pollination threshold. The same intervention that improved leaf growth has reduced overlap with partners, so the field result changes how broadly the nursery should act."
     # wrong-path feedback, one rebuttal per wrong option:
     #   Staggered flowers receive the expected number of visits. Unchanged flowers show that visitors are still present. The independent pollen check lies inside its expected range. Retry: keep the visible evidence, clear only the committed response and reopen this board; no later stop unlocks until a correct submission. For matching/order errors, highlight the first mismatched biological relationship with the specific feedback above; for numerical errors, display the stated formula and substituted units after grading.
@@ -2060,7 +2060,7 @@ missions:
     motivation: "The calculated quantity sets the comparison the crew must satisfy before it acts."
     format: BALLPARK
     question: "Use dividing cells divided by total cells times 100; submit the unusual tray fraction as a percent."
-    answerText: The observed dividing fraction is 18/60 × 100 = 30 percent. This result is now recorded for the next comparison.
+    answerText: "The observed dividing fraction is 18/60 × 100 = 30 percent. This result is now recorded for the next comparison."
     why: "The observed dividing fraction is 18/60 × 100 = 30 percent. This is a snapshot of sampled cells, not a direct measurement of the time required for one complete cell cycle. The normal comparison has fewer dividing cells under the same counting method, making the unusual tray worth investigating. Sampling and cell-cycle regulation both matter: the larger fraction identifies a difference, but a controlled response to signal removal is needed before attributing it to a specific regulatory failure."
     # wrong-path feedback, one rebuttal per wrong option:
     #   10 uses the normal tray count instead of the unusual tray count. 300 misplaces the percentage scale by a factor of ten. Retry: keep the visible evidence, clear only the committed response and reopen this board; no later stop unlocks until a correct submission. For matching/order errors, highlight the first mismatched biological relationship with the specific feedback above; for numerical errors, display the stated formula and substituted units after grading.
@@ -2373,7 +2373,7 @@ missions:
     motivation: "The calculated quantity sets the comparison the crew must satisfy before it acts."
     format: BALLPARK
     question: "Multiply offspring count by recessive fraction; submit expected recessive offspring count."
-    answerText: The heterozygous parent supplies T or t with equal probability, while the recessive parent supplies only t. This result is now recorded for the next comparison.
+    answerText: "The heterozygous parent supplies T or t with equal probability, while the recessive parent supplies only t. This result is now recorded for the next comparison."
     why: "The heterozygous parent supplies T or t with equal probability, while the recessive parent supplies only t. Half the offspring are therefore expected to be tt: 24 × 1/2 = 12. This is an expectation, not a demand that every finite family contain exactly twelve recessive offspring. The calculation makes the proposed test cross informative because a TT parent would predict no recessive offspring under the same assumptions. The crew can now compare an observed family with these alternatives."
     # wrong-path feedback, one rebuttal per wrong option:
     #   6 uses a one-quarter probability from a different cross. 24 assumes the dominant-phenotype parent supplies only t. Retry: keep the visible evidence, clear only the committed response and reopen this board; no later stop unlocks until a correct submission. For matching/order errors, highlight the first mismatched biological relationship with the specific feedback above; for numerical errors, display the stated formula and substituted units after grading.
@@ -2995,7 +2995,7 @@ missions:
     motivation: "The calculated quantity sets the comparison the crew must satisfy before it acts."
     format: BALLPARK
     question: "Calculate and submit recombination frequency as a percent."
-    answerText: The recombinant fraction is 16/80, so the estimated recombination frequency is 20 percent. This result is now recorded for the next comparison.
+    answerText: "The recombinant fraction is 16/80, so the estimated recombination frequency is 20 percent. This result is now recorded for the next comparison."
     why: "The recombinant fraction is 16/80, so the estimated recombination frequency is 20 percent. It is useful evidence of linkage under the stated test-cross assumptions; it is not a direct physical distance in base pairs. Multiple crossovers can complicate map-distance estimates, especially over larger intervals. Keeping the genotype markers separate from leaf appearance lets the seed team follow family inheritance even when growth conditions change the visible form. The result therefore strengthens the record system without pretending that one marker determines every trait."
     # wrong-path feedback, one rebuttal per wrong option:
     #   64 counts nonrecombinant offspring rather than recombinants. 0.2 is the fraction before conversion to percent. Retry: keep the visible evidence, clear only the committed response and reopen this board; no later stop unlocks until a correct submission. For matching/order errors, highlight the first mismatched biological relationship with the specific feedback above; for numerical errors, display the stated formula and substituted units after grading.
@@ -3286,7 +3286,7 @@ missions:
     motivation: "The calculated quantity sets the comparison the crew must satisfy before it acts."
     format: BALLPARK
     question: "Calculate the early group contribution with adults times offspring per adult; submit surviving offspring."
-    answerText: The early group contributes 10 × 6 = 60 surviving offspring, compared with 10 × 3 = 30 for the late group. This result is now recorded for the next comparison.
+    answerText: "The early group contributes 10 × 6 = 60 surviving offspring, compared with 10 × 3 = 30 for the late group. This result is now recorded for the next comparison."
     why: "The early group contributes 10 × 6 = 60 surviving offspring, compared with 10 × 3 = 30 for the late group. The equal adult counts make the reproductive contrast easy to interpret. A single season alone would not prove a lasting genetic change, but the archive also tracks inherited emergence types across repeated generations. Together those records support selection in the stated environment. Fitness here means reproductive contribution under those conditions, not general superiority or an organism trying to meet the preserve plan."
     # wrong-path feedback, one rebuttal per wrong option:
     #   30 uses the late group reproductive rate. 6 reports offspring per adult rather than the whole group contribution. Retry: keep the visible evidence, clear only the committed response and reopen this board; no later stop unlocks until a correct submission. For matching/order errors, highlight the first mismatched biological relationship with the specific feedback above; for numerical errors, display the stated formula and substituted units after grading.
@@ -3517,7 +3517,7 @@ missions:
     motivation: "The calculated quantity sets the comparison the crew must satisfy before it acts."
     format: BALLPARK
     question: "Use the tiles to calculate A allele frequency; submit the fraction from zero to one."
-    answerText: There are 2 × 8 + 8 = 24 A copies among 2 × 20 = 40 total copies, giving p = 0.6. This result is now recorded for the next comparison.
+    answerText: "There are 2 × 8 + 8 = 24 A copies among 2 × 20 = 40 total copies, giving p = 0.6. This result is now recorded for the next comparison."
     why: "There are 2 × 8 + 8 = 24 A copies among 2 × 20 = 40 total copies, giving p = 0.6. Counting plants with A would confuse genotype presence with allele copies. This frequency is an observed count and does not require Hardy-Weinberg equilibrium. It establishes what the sampled family contains before the team compares it with a no-evolution reference model. The distinction keeps a healthy-looking shipment from hiding how much genetic variation its selected families actually preserve."
     # wrong-path feedback, one rebuttal per wrong option:
     #   0.8 counts plants carrying A rather than copies of A. 1.2 divides allele copies by plants instead of total gene copies. Retry: keep the visible evidence, clear only the committed response and reopen this board; no later stop unlocks until a correct submission. For matching/order errors, highlight the first mismatched biological relationship with the specific feedback above; for numerical errors, display the stated formula and substituted units after grading.
@@ -3659,7 +3659,7 @@ missions:
     motivation: "The calculated quantity sets the comparison the crew must satisfy before it acts."
     format: BALLPARK
     question: "Multiply the two allele frequencies and two; submit expected heterozygote percent."
-    answerText: The reference expectation is 2pq = 2 × 0.6 × 0.4 = 0.48, or 48 percent heterozygotes. This result is now recorded for the next comparison.
+    answerText: "The reference expectation is 2pq = 2 × 0.6 × 0.4 = 0.48, or 48 percent heterozygotes. This result is now recorded for the next comparison."
     why: "The reference expectation is 2pq = 2 × 0.6 × 0.4 = 0.48, or 48 percent heterozygotes. The observed family has 8/20 = 40 percent, but a small difference in one sample does not by itself establish selection or another particular cause. The model rests on explicit assumptions and sampling variation still matters. The geneticist uses the comparison to frame further tests, while the director bases the shipment decision on preserving tested family diversity rather than forcing the collection to match a formula exactly."
     # wrong-path feedback, one rebuttal per wrong option:
     #   24 omits the two possible parental allele orders. 40 is the observed percentage rather than the model expectation. Retry: keep the visible evidence, clear only the committed response and reopen this board; no later stop unlocks until a correct submission. For matching/order errors, highlight the first mismatched biological relationship with the specific feedback above; for numerical errors, display the stated formula and substituted units after grading.
@@ -3897,7 +3897,7 @@ missions:
     motivation: "The calculated quantity sets the comparison the crew must satisfy before it acts."
     format: BALLPARK
     question: "Use stored biomass energy times transfer fraction; submit primary-consumer energy in kJ."
-    answerText: Under the explicitly simplified ten-percent model, primary consumers receive 5,000 × 0.1 = 500 kJ. This result is now recorded for the next comparison.
+    answerText: "Under the explicitly simplified ten-percent model, primary consumers receive 5,000 × 0.1 = 500 kJ. This result is now recorded for the next comparison."
     why: "Under the explicitly simplified ten-percent model, primary consumers receive 5,000 × 0.1 = 500 kJ. The remainder is not transferred to that next trophic level as new biomass; energy supports metabolism, is dissipated as heat, or remains in material not eaten or assimilated. Actual efficiencies vary, so the result is a campaign estimate rather than a universal constant. It shows why adding consumers without supporting production cannot create a self-sustaining pilot from an energy shortage."
     # wrong-path feedback, one rebuttal per wrong option:
     #   50 applies the transfer twice and estimates the next level. 5,000 assumes all producer biomass energy becomes consumer biomass. Retry: keep the visible evidence, clear only the committed response and reopen this board; no later stop unlocks until a correct submission. For matching/order errors, highlight the first mismatched biological relationship with the specific feedback above; for numerical errors, display the stated formula and substituted units after grading.
@@ -4190,7 +4190,7 @@ missions:
     motivation: "The calculated quantity sets the comparison the crew must satisfy before it acts."
     format: BALLPARK
     question: "Use the tiles to calculate modeled net growth in plants per week."
-    answerText: The unused-capacity factor is (80 − 40)/80 = 0.5. This result is now recorded for the next comparison.
+    answerText: "The unused-capacity factor is (80 − 40)/80 = 0.5. This result is now recorded for the next comparison."
     why: "The unused-capacity factor is (80 − 40)/80 = 0.5. Multiplying rN by that factor gives 0.5 × 40 × 0.5 = 10 plants per week. The exponential value would be twenty, but the stated logistic model reduces growth as the population approaches the assumed carrying capacity. That capacity is a campaign estimate under prepared-site conditions, not an immutable property of the land. Water and nutrients must actually support those conditions before the number can justify stocking the pilot."
     # wrong-path feedback, one rebuttal per wrong option:
     #   20 omits the resource-limitation factor. 80 is the assumed capacity, not the rate of net growth. Retry: keep the visible evidence, clear only the committed response and reopen this board; no later stop unlocks until a correct submission. For matching/order errors, highlight the first mismatched biological relationship with the specific feedback above; for numerical errors, display the stated formula and substituted units after grading.
@@ -4420,7 +4420,7 @@ missions:
     motivation: "The calculated quantity sets the comparison the crew must satisfy before it acts."
     format: BALLPARK
     question: "Calculate initial oxygen minus rate times time; submit final oxygen in mg per litre."
-    answerText: The projected final concentration is 8 − 0.5 × 8 = 4 mg/L. This result is now recorded for the next comparison.
+    answerText: "The projected final concentration is 8 − 0.5 × 8 = 4 mg/L. This result is now recorded for the next comparison."
     why: "The projected final concentration is 8 − 0.5 × 8 = 4 mg/L. This uses a measured net loss for the stated dark interval, so a separate respiration subtraction would count consumption twice. The linear model is limited to the supplied interval and does not describe every possible oxygen level. The calculation retrieves the sealed-pot lesson in a community with additional consumers. It identifies a night-time risk that the healthy daylight appearance cannot rule out, and the full-cycle measurements can now test it."
     # wrong-path feedback, one rebuttal per wrong option:
     #   8 ignores the eight-hour loss. 0 subtracts a full concentration each hour instead of the stated rate. Retry: keep the visible evidence, clear only the committed response and reopen this board; no later stop unlocks until a correct submission. For matching/order errors, highlight the first mismatched biological relationship with the specific feedback above; for numerical errors, display the stated formula and substituted units after grading.
@@ -4489,7 +4489,7 @@ missions:
     motivation: "A station-specific failure identifies the comparison that must govern the next handling decision."
     format: PROBE
     question: "Take and record all four station readings with the sample selector, holding the assay method fixed; compare each with its own expected value and submit the one station ID outside its stated range; no restoration is needed."
-    answerText: Only the dawn reading from the standard pilot falls outside its expected range. This result is now recorded for the next comparison.
+    answerText: "Only the dawn reading from the standard pilot falls outside its expected range. This result is now recorded for the next comparison."
     why: "Only the dawn reading from the standard pilot falls outside its expected range. The air-supply comparison remains within range, as does the independent receiving-water sample. The contrast supports insufficient oxygen replacement relative to community demand during the night in this design. It does not blame every receiving-site water source or invalidate the measured daylight success. The old sealed-pot clue now pays off at a larger scale: a community can pass a daytime inspection and still fail over its actual operating cycle."
     # wrong-path feedback, one rebuttal per wrong option:
     #   The noon result lies in range but covers only daylight. The air-supply trial is inside the expected range. The independent water sample is normal and weakens a source-wide explanation. Retry: keep the visible evidence, clear only the committed response and reopen this board; no later stop unlocks until a correct submission. For matching/order errors, highlight the first mismatched biological relationship with the specific feedback above; for numerical errors, display the stated formula and substituted units after grading.
@@ -4875,7 +4875,7 @@ missions:
     motivation: "The calculated quantity sets the comparison the crew must satisfy before it acts."
     format: BALLPARK
     question: "Calculate final oxygen using start minus net rate times duration; submit mg per litre, then compare with the recorded minimum."
-    answerText: The corrected pilot projects 9 − 0.25 × 8 = 7 mg/L at the end of the dark interval, one mg/L above the inclusive six-mg/L requirement. This result is now recorded for the next comparison.
+    answerText: "The corrected pilot projects 9 − 0.25 × 8 = 7 mg/L at the end of the dark interval, one mg/L above the inclusive six-mg/L requirement. This result is now recorded for the next comparison."
     why: "The corrected pilot projects 9 − 0.25 × 8 = 7 mg/L at the end of the dark interval, one mg/L above the inclusive six-mg/L requirement. The net rate already includes the tested oxygen-supply correction and community demand. This arithmetic agrees with the measured corrected trial recorded in Mission 14, but only for the stated conditions and interval. It clears the full-cycle component of the final plan while leaving family identity, screened partners, receiving-site preparation and monitoring as separate requirements for the director to integrate."
     # wrong-path feedback, one rebuttal per wrong option:
     #   6 is the threshold rather than the calculated final reading. 8.75 subtracts one hour of loss instead of eight. Retry: keep the visible evidence, clear only the committed response and reopen this board; no later stop unlocks until a correct submission. For matching/order errors, highlight the first mismatched biological relationship with the specific feedback above; for numerical errors, display the stated formula and substituted units after grading.

@@ -131,7 +131,7 @@
     motivation: "The calculated quantity sets the comparison the crew must satisfy before it acts."
     format: BALLPARK
     question: "Calculate and submit recombination frequency as a percent."
-    answerText: The recombinant fraction is 16/80, so the estimated recombination frequency is 20 percent. This result is now recorded for the next comparison.
+    answerText: "The recombinant fraction is 16/80, so the estimated recombination frequency is 20 percent. This result is now recorded for the next comparison."
     why: "The recombinant fraction is 16/80, so the estimated recombination frequency is 20 percent. It is useful evidence of linkage under the stated test-cross assumptions; it is not a direct physical distance in base pairs. Multiple crossovers can complicate map-distance estimates, especially over larger intervals. Keeping the genotype markers separate from leaf appearance lets the seed team follow family inheritance even when growth conditions change the visible form. The result therefore strengthens the record system without pretending that one marker determines every trait."
     # wrong-path feedback, one rebuttal per wrong option:
     #   64 counts nonrecombinant offspring rather than recombinants. 0.2 is the fraction before conversion to percent. Retry: keep the visible evidence, clear only the committed response and reopen this board; no later stop unlocks until a correct submission. For matching/order errors, highlight the first mismatched biological relationship with the specific feedback above; for numerical errors, display the stated formula and substituted units after grading.

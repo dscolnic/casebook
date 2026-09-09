@@ -48,7 +48,7 @@
     motivation: "The apparent victory depended on counting a price transfer as a resource saving."
     format: BALLPARK
     question: "Submit the positive magnitude of the daily net resource loss, excluding the internal payment transfer."
-    answerText: Construction uses $70 in daily equivalent resources and operations save $60, leaving a $10 daily resource loss; the $40 internal payment change is a transfer, not another saving.
+    answerText: "Construction uses $70 in daily equivalent resources and operations save $60, leaving a $10 daily resource loss; the $40 internal payment change is a transfer, not another saving."
     why: "Construction uses $70 in daily equivalent resources and operations save $60, leaving a $10 daily resource loss; the $40 internal payment change is a transfer, not another saving. The apparent victory depended on counting a price transfer as a resource saving. 30 counts the internal transfer as a resource saving. −10 is signed net gain, not the requested positive loss magnitude. 40 is a transfer between local groups, not net resources consumed."
     # data: The new line claims $100 daily gain: $60 real operating-resource saving plus $40 lower payments to the locally owned incumbent terminal; local incidence is the stated accounting boundary. Construction uses $70 in daily equivalent real resources.
     # correct result: 10; absolute tolerance 0.05 in the requested unit.
@@ -218,7 +218,7 @@
     motivation: "The last complication changes the plan because of the criterion the town adopted, not a surprise new preference."
     format: STRESS
     question: "Move the construction-overrun control through 0–40%, inspect which plans remain feasible, then select the surviving plan with the greatest net resource benefit."
-    answerText: At 40% overrun the new line is infeasible, while the retrofit and status quo survive. The retrofit’s net resource benefit score of 15 exceeds the status quo’s 0, so it is the robust choice under the explicit rule.
+    answerText: "At 40% overrun the new line is infeasible, while the retrofit and status quo survive. The retrofit's net resource benefit score of 15 exceeds the status quo's 0, so it is the robust choice under the explicit rule."
     why: "At 40% overrun the new line is infeasible, while the retrofit and status quo survive. The retrofit's net resource benefit score of 15 exceeds the status quo's 0, so it is the robust choice under the explicit rule. The last complication changes the plan because of the criterion the town adopted, not a surprise new preference. New line fails above 10% even though its nominal service score is attractive. Status quo survives but its resource benefit is below the retrofit."
     # data: Assumption: construction cost overrun from 0% to 40%, nominal 10%. Require feasibility across the whole range; among feasible plans maximize net resource benefit. New line survives to 10%, access retrofit to 40%, status quo to 40%. Benefits are comparative model scores in dollars per day. The net resource score is −10 for the new line, 15 for the retrofit and 0 for status quo; the new line offers more capacity but fails the adopted cost-risk rule.
     # correct result: "Access retrofit"; exact selection or mapping required.

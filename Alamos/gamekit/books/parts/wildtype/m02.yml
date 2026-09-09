@@ -136,7 +136,7 @@
     motivation: "The calculated quantity sets the comparison the crew must satisfy before it acts."
     format: BALLPARK
     question: "Build the ratio 6 divided by side length from the tiles; submit surface-area-to-volume ratio in inverse micrometres."
-    answerText: For a cube, surface area divided by volume is 6L²/L³ = 6/L. This result is now recorded for the next comparison.
+    answerText: "For a cube, surface area divided by volume is 6L²/L³ = 6/L. This result is now recorded for the next comparison."
     why: "For a cube, surface area divided by volume is 6L²/L³ = 6/L. At L = 3 micrometres, the ratio is 2 inverse micrometres. The ratio describes available exchange surface per unit of cell volume, not the direction in which water moves. Smaller cells have a larger ratio, but water still follows the water-potential difference. The clinic can now distinguish an exchange-rate argument from the separate question of whether the rinse drives water into or out of roots."
     # wrong-path feedback, one rebuttal per wrong option:
     #   54 is surface area alone, not area divided by volume. 27 is volume, so it cannot have inverse-length units. Retry: keep the visible evidence, clear only the committed response and reopen this board; no later stop unlocks until a correct submission. For matching/order errors, highlight the first mismatched biological relationship with the specific feedback above; for numerical errors, display the stated formula and substituted units after grading.

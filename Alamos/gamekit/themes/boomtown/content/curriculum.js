@@ -512,7 +512,7 @@ export const CURRICULUM = {
         "play": "First, calculate and commit the daily advantage of operating over shutdown using revenue minus avoidable variable cost. Then run the Hearing Table, measure the loss avoided, and select whether it matches; no restoration or second reading is required.",
         "task": "First, calculate and commit the daily advantage of operating over shutdown using revenue minus avoidable variable cost. Then run the Hearing Table, measure the loss avoided, and select whether it matches; no restoration or second reading is required.",
         "question": "First, calculate and commit the daily advantage of operating over shutdown using revenue minus avoidable variable cost. Then run the Hearing Table, measure the loss avoided, and select whether it matches; no restoration or second reading is required.",
-        "answer": "Operating contributes 160−100 = $60 toward fixed costs: its $40 loss is $60 smaller than shutdown’s $100 loss.",
+        "answer": "Operating contributes 160−100 = $60 toward fixed costs: its $40 loss is $60 smaller than shutdown's $100 loss.",
         "why": "Operating contributes 160−100 = $60 toward fixed costs: its $40 loss is $60 smaller than shutdown's $100 loss. The comparison protects current supplies without promising permanent profitability. Cost structure separates the avoidable wage and materials bill from the unchanged current lease; marginal analysis asks which choice leaves the owner less badly off today. 40 is the operating loss, not the advantage. 100 is the shutdown loss. 160 ignores variable costs.",
         "verify": {
           "prediction": {
@@ -714,7 +714,7 @@ export const CURRICULUM = {
         "play": "First, calculate and commit Firm A's payoff at the stable action pair in thousands of dollars. Then run the Hearing Table with the same payoff table, measure A's payoff, and select whether it matches; no restoration or second reading is required.",
         "task": "First, calculate and commit Firm A's payoff at the stable action pair in thousands of dollars. Then run the Hearing Table with the same payoff table, measure A's payoff, and select whether it matches; no restoration or second reading is required.",
         "question": "First, calculate and commit Firm A's payoff at the stable action pair in thousands of dollars. Then run the Hearing Table with the same payoff table, measure A's payoff, and select whether it matches; no restoration or second reading is required.",
-        "answer": "Expansion is each firm’s dominant strategy, so both expand; neither gains by switching alone from that profile, and A receives 30 thousand dollars.",
+        "answer": "Expansion is each firm's dominant strategy, so both expand; neither gains by switching alone from that profile, and A receives 30 thousand dollars.",
         "why": "Expansion is each firm's dominant strategy, so both expand; neither gains by switching alone from that profile, and A receives 30 thousand dollars. A forecast that survives unilateral incentives is safer than the companies' joint promise. Competition between these firms is modeled as simultaneous and one-shot; repeat business, punishments or a binding agreement could change the incentive problem and need separate evidence. 40 assumes cooperation without incentive support. 60 assumes only A deviates while B Restricts.",
         "verify": {
           "prediction": {
@@ -1011,7 +1011,7 @@ export const CURRICULUM = {
         "play": "Move the construction-overrun control through 0–40%, inspect which plans remain feasible, then select the surviving plan with the greatest net resource benefit.",
         "task": "Move the construction-overrun control through 0–40%, inspect which plans remain feasible, then select the surviving plan with the greatest net resource benefit.",
         "question": "Move the construction-overrun control through 0–40%, inspect which plans remain feasible, then select the surviving plan with the greatest net resource benefit.",
-        "answer": "At 40% overrun the new line is infeasible, while the retrofit and status quo survive. The retrofit’s net resource benefit score of 15 exceeds the status quo’s 0, so it is the robust choice under the explicit rule.",
+        "answer": "At 40% overrun the new line is infeasible, while the retrofit and status quo survive. The retrofit's net resource benefit score of 15 exceeds the status quo's 0, so it is the robust choice under the explicit rule.",
         "why": "At 40% overrun the new line is infeasible, while the retrofit and status quo survive. The retrofit's net resource benefit score of 15 exceeds the status quo's 0, so it is the robust choice under the explicit rule. The last complication changes the plan because of the criterion the town adopted, not a surprise new preference. New line fails above 10% even though its nominal service score is attractive. Status quo survives but its resource benefit is below the retrofit.",
         "stress": {
           "candidates": [
@@ -1306,7 +1306,7 @@ export const CURRICULUM = {
         "play": "First, calculate and commit the meal boxes due using boxes = boxes per hour × hours. Then set the Order Terminal to the four-hour trial, measure the invoice total, and select whether it matches your prediction; no restoration or second reading is required.",
         "task": "First, calculate and commit the meal boxes due using boxes = boxes per hour × hours. Then set the Order Terminal to the four-hour trial, measure the invoice total, and select whether it matches your prediction; no restoration or second reading is required.",
         "question": "First, calculate and commit the meal boxes due using boxes = boxes per hour × hours. Then set the Order Terminal to the four-hour trial, measure the invoice total, and select whether it matches your prediction; no restoration or second reading is required.",
-        "answer": "The contract charges 2 meal boxes per repair hour for 4 hours, giving 2 × 4 = 8 boxes; that is below the diner’s 12-box internal cost and above the crew’s 4-box internal cost.",
+        "answer": "The contract charges 2 meal boxes per repair hour for 4 hours, giving 2 × 4 = 8 boxes; that is below the diner's 12-box internal cost and above the crew's 4-box internal cost.",
         "why": "The contract charges 2 meal boxes per repair hour for 4 hours, giving 2 × 4 = 8 boxes; that is below the diner's 12-box internal cost and above the crew's 4-box internal cost. A trial invoice makes the promised exchange concrete before either team changes its work. Comparative advantage makes the interval between the two internal costs the relevant test; an invoice inside that interval supports voluntary exchange. 4 counts repair hours as meal boxes.",
         "verify": {
           "prediction": {
@@ -1739,7 +1739,7 @@ export const CURRICULUM = {
         "play": "Submit economic profit after both cost types.",
         "task": "Submit economic profit after both cost types.",
         "question": "Submit economic profit after both cost types.",
-        "answer": "180−120−40 = $20 economic profit; the $60 accounting margin includes compensation for the owner’s forgone outside work.",
+        "answer": "180−120−40 = $20 economic profit; the $60 accounting margin includes compensation for the owner's forgone outside work.",
         "why": "180−120−40 = $20 economic profit; the $60 accounting margin includes compensation for the owner's forgone outside work. An incumbent cannot count every accounting dollar as an excess return threatened by entry. Opportunity cost counts the owner's foregone alternative even without a cash payment; positive economic profit is the remainder after paying for that resource too. 60 ignores implicit cost. 40 reports outside earnings only. 180 ignores all resource costs.",
         "givens": [],
         "relationship": "",

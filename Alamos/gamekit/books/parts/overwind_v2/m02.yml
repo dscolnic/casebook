@@ -50,7 +50,7 @@
     motivation: "The meaning of a motion record determines which part of the passenger proposal can be approved."
     format: BALLPARK
     question: "Choose the quantity tiles for the displayed formula a/b; submit the resulting rope-contact radius in m."
-    answerText: R=6/3=2 m; the rope-contact radius is not the drum diameter.
+    answerText: "R=6/3=2 m; the rope-contact radius is not the drum diameter."
     why: "A point at radius R travels arc length Rθ when the drum rotates through angle θ. Differentiating with respect to time gives the no-slip speed relation v=Rω. The paired readings therefore give R=6/3=2 m. A diameter would be twice this distance and cannot be substituted for the torque arm. Multiplying the two speeds would also have the wrong units for a radius. The measured contact radius is the geometric link needed before the drum's inertia and motor demand can be compared."
     # wrong-path feedback, one rebuttal per wrong option:
     #   **4 m:** Doubling v/ω substitutes diameter for radius. **18 m:** Multiplication violates v=Rω.

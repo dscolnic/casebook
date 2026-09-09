@@ -170,7 +170,7 @@
     motivation: "Stored rotational energy remains part of the brake's job even when the lift supply is sufficient."
     format: BALLPARK
     question: "Choose the quantity tiles for the displayed formula a*b*c*c; submit the resulting drum motion energy in J."
-    answerText: Krot=0.5×45000×2²=90000 J; the stored rotational motion also needs an energy destination during stopping.
+    answerText: "Krot=0.5×45000×2²=90000 J; the stored rotational motion also needs an energy destination during stopping."
     why: "Krot=0.5×45000×2²=90000 J; the stored rotational motion also needs an energy destination during stopping. The alternative '45000 J' fails for this reason: Forgetting to square angular speed loses a factor of two here. The alternative '180000 J' fails for this reason: Omitting the half doubles rotational energy. Use I=45000 kg m² and ω=2 rad/s at a reviewed 4 m/s speed; Krot=Iω²/2."
     # wrong-path feedback, one rebuttal per wrong option:
     #   **45000 J:** Forgetting to square angular speed loses a factor of two here. **180000 J:** Omitting the half doubles rotational energy.

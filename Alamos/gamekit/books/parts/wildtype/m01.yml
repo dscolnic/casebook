@@ -206,7 +206,7 @@
     motivation: "A station-specific failure identifies the comparison that must govern the next handling decision."
     format: PROBE
     question: "Take and record all four station readings with the sample selector, holding the assay method fixed; compare each with its own expected value and submit the one station ID outside its stated range; no restoration is needed."
-    answerText: Only the stored-feed tray lies outside its own expected range. This result is now recorded for the next comparison.
+    answerText: "Only the stored-feed tray lies outside its own expected range. This result is now recorded for the next comparison."
     why: "Only the stored-feed tray lies outside its own expected range. Restoring nitrogen brings growth back into the complete-feed range, while the assay standard stays normal. The matched trays share seed line, light and water, so the comparison supports a nitrogen limitation under these conditions. It does not show that all pale plants everywhere need this treatment. The result gives the clinic a specific replacement decision and keeps the original feed label as a clue about outdated instructions."
     # wrong-path feedback, one rebuttal per wrong option:
     #   The complete-feed control is within its range. The restored tray matches normal growth rather than causing the failure. The nitrate standard is within its own assay range. Retry: keep the visible evidence, clear only the committed response and reopen this board; no later stop unlocks until a correct submission. For matching/order errors, highlight the first mismatched biological relationship with the specific feedback above; for numerical errors, display the stated formula and substituted units after grading.

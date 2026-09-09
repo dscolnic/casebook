@@ -1,12 +1,12 @@
 # BOOMTOWN — AP Microeconomics Campaign Implementation Bible
 
-**Version 1.1 | 15 missions | 60 graded stops | contemporary Project Y adaptation**
+**Version 1.2 | 15 missions | 60 graded stops | contemporary Project Y adaptation**
 
 ## 0. Readiness boundary
 
-The supplied handback reports that version 1.0 was built, imported and playable. This version 1.1 applies that handback and has been checked as authored text; a new build has not been run here. The attached gate report distinguishes tested content from absent engine checks and records the authoring-process deviation.
+The supplied handback reports that version 1.0 was built, imported and playable. Version 1.1 applied that handback; version 1.2 adds ensemble scenes, physical prop states and optional review and has been checked as authored text; a new build has not been run here. The attached gate report distinguishes tested content from absent engine checks and records the authoring-process deviation.
 
-**Authority:** Master Brief v3.3, Giant Gate v2.3, Ledger v1.3, QUESTION_TYPES(1).md and Whiteout v2.11 structure. The supplied Albert Microeconomics sheet supplies Units 1–6. Course percentages and exam timings are source metadata, not verified current exam claims. Project Y supplies geography, not the old nuclear subject or historical cast. Schema/importer and executable world files are absent; engine checks remain NOT TESTED.
+**Authority:** Master Brief v3.5, Giant Gate v2.5, Ledger v1.5, QUESTION_TYPES(1).md and Whiteout v2.11 structure. The supplied Albert Microeconomics sheet supplies Units 1–6. Course percentages and exam timings are source metadata, not verified current exam claims. Project Y supplies geography, not the old nuclear subject or historical cast. Schema/importer and executable world files are absent; engine checks remain NOT TESTED.
 
 # 1. Campaign premise and opening
 
@@ -116,49 +116,30 @@ Fourteen landmark buildings keep positions/dimensions: Fuller Lodge (0,−30;22�
 
 These objects are newly authored room interiors within existing footprints; the source has no fixture registry, so build work is explicit. Three calculation/display objects and one operable terminal are sufficient in each office. Person stops use the named owner beside the same declared object. Each caption is one sentence.
 
-| Area | Place | Fixture | Caption |
+| Stable ID | Physical name | Kind | Area / place | Physical appearance | Player caption | Graded stop references |
+|---|---|---|---|---|---|---|
+| `bt-budget-desk` | Budget Desk | work surface | T / Civic Advice Office | Scuffed laminate desk with two open binders and a metal cash tray. | The desk holds public budgets and the competing offers. | 5, 7, 9, 17, 21, 39, 51, 55 |
+| `bt-town-map` | Town Map | map display | T / Civic Advice Office | Wall-mounted street plan with removable house and service tokens. | The map tracks town services and access constraints. | 6, 8, 10, 12, 18, 22, 28, 40, 44, 48, 52, 56, 60 |
+| `bt-hearing-table` | Hearing Table | work surface | T / Civic Advice Office | Long timber table with paper clips and a flush trial touch panel. | The table holds signed hearing records. | 11, 27, 43, 47, 59 |
+| `bt-public-notice-board` | Public Notice Board | notice board | T / Civic Advice Office | Cork board with fifteen labelled agreement slots behind a clear cover. | The board displays decisions and their named owners. | None; persistent display/storage |
+| `bt-cost-ledger-desk` | Cost Ledger Desk | work surface | CM / Business Workshop | Steel desk with invoice stacks held down by a small brass scale. | The desk holds invoices and production costs. | 1, 13, 25, 29, 49 |
+| `bt-kitchen-planning-table` | Kitchen Planning Table | work surface | CM / Business Workshop | Washable table with stove outlines and movable staffing counters. | The table carries staffing and equipment plans. | 2, 4, 14, 16, 24, 26, 30, 36, 42 |
+| `bt-order-terminal` | Order Terminal | operable terminal | CM / Business Workshop | Touchscreen fixed beside a receipt printer and a stained order rail. | The terminal tests order and staffing records. | 3, 15, 23, 35 |
+| `bt-supplier-shelves` | Supplier Shelves | storage fixture | CM / Business Workshop | Three shallow shelves with labelled sample bins and paper price cards. | The shelves hold supplier samples and current quotes. | None; persistent display/storage |
+| `bt-dispatch-desk` | Dispatch Desk | work surface | E / Freight Contract Office | High desk with bound dispatch books and a rack of freight tags. | The desk carries original dispatch and capacity records. | 37, 41, 53 |
+| `bt-booking-terminal` | Booking Terminal | operable terminal | E / Freight Contract Office | Fixed screen with a booking keypad and an archive-mode lamp. | The terminal runs archived booking trials. | 38, 46 |
+| `bt-contract-table` | Contract Table | work surface | E / Freight Contract Office | Wide table with contract binders and a capped stamp pad. | The table holds access contracts and cost commitments. | None; persistent display/storage |
+| `bt-freight-wall-map` | Freight Wall Map | map display | E / Freight Contract Office | Pinboard rail map with twine routes and removable capacity labels. | The map displays the off-map freight network. | None; persistent display/storage |
+| `bt-lease-desk` | Lease Desk | work surface | P / Housing and Work Office | Desk with separate trays for signed leases and unmatched applications. | The desk holds leases and unmatched applications. | 19, 31, 33, 57 |
+| `bt-job-board` | Job Board | notice board | P / Housing and Work Office | Slotted board with wage cards, vacancy hooks and a transparent cover. | The board lists wages and open jobs. | 20, 32, 34 |
+| `bt-survey-terminal` | Survey Terminal | operable terminal | P / Housing and Work Office | Accessible-height screen with a trackball and a survey reference binder. | The terminal compares housing and labor records. | None; persistent display/storage |
+| `bt-meeting-table` | Meeting Table | work surface | P / Housing and Work Office | Round table with folding chairs and a co-op stamp box. | The table holds cooperative commitments. | None; persistent display/storage |
+| `bt-water-record-desk` | Water Record Desk | work surface | X / Water and Land Office | Desk with sealed record folders and a rack for sample photographs. | The desk holds measured water damage records. | 45 |
+| `bt-catchment-map` | Catchment Map | map display | X / Water and Land Office | Raised wall map with blue stream lines and removable withdrawal markers. | The map links withdrawals and downstream effects. | 50, 54, 58 |
+| `bt-planning-terminal` | Planning Terminal | operable terminal | X / Water and Land Office | Fixed screen beside water-use charts in wipe-clean sleeves. | The terminal tests water and freight plans. | None; persistent display/storage |
+| `bt-permit-counter` | Permit Counter | work surface | X / Water and Land Office | Low counter with numbered permit trays and a date stamp. | The counter holds permits and reporting duties. | None; persistent display/storage |
 
-|---|---|---|---|
-
-| T | Civic Advice Office | Budget Desk | The desk holds public budgets and the competing offers. |
-
-| T | Civic Advice Office | Town Map | The map tracks town services and access constraints. |
-
-| T | Civic Advice Office | Hearing Table | The table holds signed hearing records. |
-
-| T | Civic Advice Office | Public Notice Board | The board displays decisions and their named owners. |
-
-| CM | Business Workshop | Cost Ledger Desk | The desk holds invoices and production costs. |
-
-| CM | Business Workshop | Kitchen Planning Table | The table carries staffing and equipment plans. |
-
-| CM | Business Workshop | Order Terminal | The terminal tests order and staffing records. |
-
-| CM | Business Workshop | Supplier Shelves | The shelves hold supplier samples and current quotes. |
-
-| E | Freight Contract Office | Dispatch Desk | The desk carries original dispatch and capacity records. |
-
-| E | Freight Contract Office | Booking Terminal | The terminal runs archived booking trials. |
-
-| E | Freight Contract Office | Contract Table | The table holds access contracts and cost commitments. |
-
-| E | Freight Contract Office | Freight Wall Map | The map displays the off-map freight network. |
-
-| P | Housing and Work Office | Lease Desk | The desk holds leases and unmatched applications. |
-
-| P | Housing and Work Office | Job Board | The board lists wages and open jobs. |
-
-| P | Housing and Work Office | Survey Terminal | The terminal compares housing and labor records. |
-
-| P | Housing and Work Office | Meeting Table | The table holds cooperative commitments. |
-
-| X | Water and Land Office | Water Record Desk | The desk holds measured water damage records. |
-
-| X | Water and Land Office | Catchment Map | The map links withdrawals and downstream effects. |
-
-| X | Water and Land Office | Planning Terminal | The terminal tests water and freight plans. |
-
-| X | Water and Land Office | Permit Counter | The counter holds permits and reporting duties. |
+These bible-level fixture IDs newly formalize the existing named objects; they do not replace any importer identity. Bind each ID to its existing object, keeping every coordinate and placement. Stop references above are exhaustive; an object with no graded stop remains a real room object.
 
 For operated VERIFY stops, T uses a portable Hearing Terminal at the Hearing Table: it is the same persistent table’s integrated touch panel, named Hearing Table in placement. E uses Booking Terminal, CM Order Terminal, P Survey Terminal and X Planning Terminal. No new off-map place is implied by any archive or trial. All trials simulate the stated model or replay archived records; they are not claims of causal field validation.
 
@@ -260,6 +241,42 @@ For operated VERIFY stops, T uses a portable Hearing Terminal at the Hearing Tab
 **Bio answer — reveal on request:** The people who fund the plan must cover its price, and people down the stream may bear harm if the filter is never bought. Owen must check both how it works and how its purchase is funded. The response stays ungraded and does not change campaign state.
 
 No real historical speaker is retained. Unnamed workers, applicants, council members and company labels are groups represented by these canonical owners, not extra quiz identities. Document headings, including Optional worked examples, are excluded from roster parsing.
+
+## 4.1 Ensemble state and optional conversation contract
+
+Evidence flags `bt_evidence_M01` through `bt_evidence_M15` become true once the corresponding mission outcome is committed; `bt_signed` becomes true only after Stop 60, the final allocation and all existing signing conditions. Existing intermediate success events fire the numbered beats once. Flags grant no RP, change no bars and unlock no required question. Save them with the existing mission snapshot; restore uncommitted flags on retry. Earlier committed flags survive. `bt_signed` never substitutes for the resource gate.
+
+All added speech is exact player copy in the existing beat log. Arrival lines remain; authored aftermath responses now accompany the existing physical outcomes. Added speech uses the existing Continue, pauses the timer and returns control to the same position; two bubbles maximum. When a second main character is outside the current office, their bubble is labelled **radio**; every second-speaker line below is radio to avoid creating a travel prerequisite. Main-speaker presence follows the beat's existing location, also using radio if their ownership area differs. No dialogue changes a correct answer or forces a new route.
+
+Optional Talk selects the highest true priority: signed=30, character milestone=20, fallback=10. Show one line per explicit request, never on proximity. A repeat request repeats the selected line without state effects; log it once per state and leave earlier lines available in dialogue history. Greetings reveal only completed findings. Each character's milestone and final variants supersede their old generic optional-dialogue directions.
+
+| Character | Priority 10: fallback, exact line | Priority 20: condition and exact line | Priority 30: `bt_signed`, exact line |
+|---|---|---|---|
+| Mara Velez | “The total looks neat. Let us find what it leaves out.” | `bt_evidence_M14`: “You found the same saving counted twice. I want both ledgers open.” | “The signed plan names the bill as well as the gain.” |
+| Nico Bell | “I need supplies at a fair price and enough customers to pay my cooks.” | `bt_evidence_M08`: “Those new stalls use the rule I wanted for suppliers. I cannot ask for a private exception.” | “My diner has rivals now. The open lunch queue is still worth keeping.” |
+| Ruth Sen | “I will open the dispatch book. Keep the fixed bill on the table too.” | `bt_evidence_M10`: “The unused slots are real. My price rule cannot stand in for a capacity count.” | “The access terms are signed, and the upkeep bill has an owner.” |
+| Leila Moss | “I brought the leases and the cards from people who have no lease.” | `bt_evidence_M05`: “The cap helps some tenants. The unmatched cards stay beside the signed ones.” | “The agreement funds work on access. It does not say every family has a home.” |
+| Owen Price | “Walk the stream on the map before you call another load a gain.” | `bt_evidence_M12`: “The water cost is in the comparison now. Keep the freight benefit there too.” | “I signed the reporting duty. The first bad water result still needs an answer.” |
+
+### Relationships changed by evidence
+
+| Relationship | Early disagreement / promise | Evidence turning point | Later acknowledgement and persistent change |
+|---|---|---|---|
+| Nico–Leila | M1 Nico promises meals while Leila asks who can afford to wait; M5 relief and access pull apart. | M8 entry evidence applies Nico's preferred supplier rule to competing diners. | M8 dialogue accepts the shared rule; M9 Nico accepts that a better wage offer need not be disloyalty. `bt_evidence_M08` changes his greeting and leaves vendor permit copies beside his menu. |
+| Ruth–Mara | M6 Mara wants cheaper deliveries; Ruth insists the fixed bill cannot disappear. | M10 unused capacity separates a price rule from a physical limit. | M14 Mara withdraws her double-counted case for a new line; Ruth commits to funded open access rather than claiming vindication for exclusion. M15 both sign separate responsibilities. |
+| Owen–Mara | M10 Mara wants an access gain counted promptly; Owen asks that harm stay visible. | M12 the social-cost comparison corrects the provisional freight target. | M13 Owen accepts cheaper imported filters when they meet the same standard; M14 Mara asks him to check the harm term before publishing. `bt_evidence_M12` updates Owen's greeting; the water-cost sleeve stays on the map. |
+
+### Supporting voices
+
+Supporting characters use existing locations or named radio links and never own a graded stop. At most one appears in a scene. Their exact observations below trigger after already-correct evidence, never as hidden evidence needed to answer.
+
+| Voice / role | Trigger / channel | Exact observation |
+|---|---|---|
+| Rosa Kim, diner cook | M4 aftermath, Business Workshop doorway; after Nico's existing aftermath bubble | “There is a fourth name on the shift sheet. We still share the same stove.” |
+| Dev Shah, tenant and delivery rider | M5 after Stop 19, radio from the trailer row | “My sister keeps her lower rent. My application is still in the other tray.” |
+| Sal Ortiz, freight dispatcher | M10 after Stop 39, radio from the off-map terminal | “I have marked the usable slots. A booking rule kept them empty; the track did not vanish.” |
+
+Supporting observations append one bubble only where the baseline has panel text, or replace an otherwise silent aftermath slot. Their triggers, log and retry rules match the owning beat; no extra scene, quest or interruption is added.
 
 # 5. Authoritative numbered concept spine
 
@@ -519,6 +536,28 @@ Every mission card supplies its actual compact definitions before Stop 1; the fu
 
 Plant implementation: M5 Meeting Table carries an ungraded water-use complaint card; M6 Budget Desk carries a photograph with empty freight slots labeled date and capacity unknown; M8 Supplier Shelves carries an ungraded grant application marked submitted, not awarded; M10 Freight Wall Map carries a water-review annotation and the proposed $40 lower-fee line; M13 Hearing Table displays the second-line banner and separates the $40 transfer column. These objects persist and do not expose future answer keys. The exact notes are “Water users request a cost review”, “Some slots look empty; usable capacity not checked”, “Grant request submitted; award not received”, “Lower fees claimed as a benefit”, and “Cost review pending”.
 
+## 6.1 Physical prop continuity
+
+All props below are small dressing at existing fixtures, not inventory items, new colliders or additional interaction gates. The named actor performs the action in the existing outcome beat. All triggers are the committed mission outcome after Stop 4 of that mission, except M15 which requires `bt_signed` after the final allocation. Present before/after in text as well as appearance. Save the final state once, keep it inspectable on return, and never duplicate the prop on replay. A failed current mission restores its before state; earlier committed mission props persist. Existing outdoor world events still occur. The fixture names identify registered homes in §3.1.
+
+| Mission / prop ID | Home | Before | Action / after |
+|---|---|---|---|
+| 1 / `bt-prop-meal-trade-copy` | Kitchen Planning Table | Unsigned carbon-copy meal-for-repair slip under a clip. | Nico signs the agreed copy and clips it beside the kitchen plan. |
+| 2 / `bt-prop-price-finding-pin` | Public Notice Board | Two loose cards labelled lunch orders and delivery costs. | Mara pins the separate findings into two labelled columns. |
+| 3 / `bt-prop-room-rate-card` | Budget Desk | Old room-rate card face-up beside the occupancy record. | Mara turns over the old card and clips the tested lower offer on top. |
+| 4 / `bt-prop-cook-shift-sheet` | Kitchen Planning Table | Shift sheet with three name slots occupied. | Nico clips the fourth cook’s accepted shift slip into the vacant slot. |
+| 5 / `bt-prop-lease-tray-divider` | Lease Desk | Signed leases and unmatched applications separated by a loose card. | Leila fixes a labelled divider between the trays and carries neither pile away. |
+| 6 / `bt-prop-fee-account-envelope` | Budget Desk | Open envelope labelled housing measure, with receipt copy beside it. | Mara encloses the confirmed receipt copy and seals it with the named purpose. |
+| 7 / `bt-prop-supplier-lease-tab` | Supplier Shelves | Supplier lease copy folded beside sample bins. | Nico attaches a review-date tab while leaving this month’s shift slip on display. |
+| 8 / `bt-prop-vendor-permit-copies` | Kitchen Planning Table | Blank permit sleeves beside the diner menu. | Nico clips the approved vendor permit copies beside his own menu. |
+| 9 / `bt-prop-fourth-job-slip` | Job Board | Three filled vacancy hooks and one empty hook. | Leila hangs the fourth signed job slip under the posted wage clause. |
+| 10 / `bt-prop-capacity-freight-tags` | Dispatch Desk | Usable-slot tags stacked beside the dispatch book. | Ruth lays unused-slot tags in a separate row labelled available, not booked. |
+| 11 / `bt-prop-pact-cover-sheet` | Contract Table | Forecast packet marked guaranteed pact service. | Ruth removes the guarantee sleeve and clips a conditional forecast cover onto the same packet. |
+| 12 / `bt-prop-water-cost-sleeve` | Catchment Map | Loose downstream-cost sheet beneath the map. | Owen clips the cost sheet to the stream segment and leaves the freight-benefit sheet beside it. |
+| 13 / `bt-prop-filter-quote-seal` | Supplier Shelves | Two filter quote samples with loose compliance slips. | Nico staples the same-standard compliance slip to each quote and marks the cheaper qualifying one for review. |
+| 14 / `bt-prop-line-ribbon` | Contract Table | New-line ribbon and two plan binders on the hearing tray. | Mara coils the withdrawn ribbon beside the rejected claim and sets the access retrofit binder on top. |
+| 15 / `bt-prop-signed-agreement` | Meeting Table | Bound agreement with signature tabs, marked ready. | The parties sign their own tabs after the final gate and Mara binds the signed agreement. |
+
 # 7. Mission answer, route and world-state ledger
 
 | Mission | Route / actual unique count | Mission question | Actual answer | Visible consequence / next problem |
@@ -664,7 +703,7 @@ The mission moves from scarcity, factors and production possibilities to a concr
 
 **Location:** Business Workshop.
 
-**Presentation:** equipment_panel_update + waypoint_notification
+**Presentation:** equipment_panel_update + waypoint_notification + dialogue_overlay
 
 **Player control:** One Continue pauses the timer and returns control immediately; mission-end inspection gives 60 seconds of free movement with time paused.
 
@@ -674,11 +713,15 @@ The mission moves from scarcity, factors and production possibilities to a concr
 
 **Unlocks:** Stop 2.
 
+**Dialogue bubble — Nico Bell:** “Three meal boxes for a repair hour is what my own shift gives up. I had been pricing only the flour.”
+
+**Dialogue bubble — Leila Moss, radio:** “Then count the lost meals before asking workers to repair your bench.”
+
 ### Beat BT-M1-2 — After Stop 2
 
 **Location:** Business Workshop.
 
-**Presentation:** equipment_panel_update + waypoint_notification
+**Presentation:** equipment_panel_update + waypoint_notification + dialogue_overlay
 
 **Player control:** One Continue pauses the timer and returns control immediately; mission-end inspection gives 60 seconds of free movement with time paused.
 
@@ -687,6 +730,8 @@ The mission moves from scarcity, factors and production possibilities to a concr
 **Panel/HUD text:** One box costs the diner 1/3 hour and the repair crew 1 hour, so meals belong with the diner. A repair hour costs the crew 1 box and the diner 3 boxes, so repair belongs with the crew. The diner makes 24 boxes against 8 in the same shift, establishing absolute advantage in meals. Both can make 8 repair hours per shift, so repair productivity is tied.
 
 **Unlocks:** Stop 3.
+
+**Dialogue bubble — Nico Bell:** “The repair crew gives up less to fix it. We can each keep doing the work we trade away least.”
 
 ### Beat BT-M1-3 — After Stop 3
 
@@ -720,7 +765,7 @@ The mission moves from scarcity, factors and production possibilities to a concr
 
 **Location:** Business Workshop.
 
-**Presentation:** persistent_world_change
+**Presentation:** persistent_world_change + dialogue_overlay
 
 **Player control:** One Continue pauses the timer and returns control immediately; mission-end inspection gives 60 seconds of free movement with time paused.
 
@@ -729,6 +774,9 @@ The mission moves from scarcity, factors and production possibilities to a concr
 **Panel/HUD text:** Nico marks two meal crates for the repair crew; the bench gains a completed-work tag. The lunch queue grows despite the new agreement.
 
 **Unlocks:** Metric screen after inspecting the changed notice.
+
+**Dialogue bubble — Nico Bell:** “The repair crew has its signed copy. I can open lunch, but the queue is already longer than the one I planned for.”
+
 
 ## E. Location plan
 
@@ -1235,6 +1283,164 @@ Nico marks two meal crates for the repair crew; the bench gains a completed-work
 
 - **Mission takeaway:** The adviser can recommend the agreement without ordering either business to accept it.
 
+
+## L. GO DEEPER — Trade and the next choice
+
+**Secondary briefing — exact player copy:** Try a workshop, two makers and a small spending choice. The point is to compare what each action gives up, then decide whether the next gain is worth its cost. You do not need to recall the diner’s numbers.
+
+**Optional review behavior:** Select GO DEEPER from the completed mission card. All six questions are ungraded, timer-paused and reopenable. Selection, mistakes, hints and reveals change no bars, RP, evidence flags or unlocks. Keep the five worked examples as a separate button. Return closes review to the same completed mission card. Each question permits retries; show feedback for the chosen option and reveal the worked explanation only on explicit request.
+
+**Supporting concepts — exact player copy:**
+
+- Opportunity cost is the best alternative forgone. On a straight production frontier, divide forgone output by gained output to find its constant tradeoff.
+- Comparative advantage belongs to the lower opportunity cost, while absolute advantage compares output from equal resources. Trade can help both sides at a price between their opportunity costs.
+- Marginal choice compares the benefit and cost of the next action. Utility is a model of satisfaction; marginal utility per dollar divides the next unit’s utility by its price.
+- A production frontier describes what is attainable with current resources and skills. Idle equipment alone does not prove inefficiency if it cannot yet be used with those skills.
+
+### BT-GD-M01-Q1
+
+**Question:** A workshop can make 12 stools or 6 desks per day on a straight production frontier. What is the opportunity cost of one desk?
+
+- **A.** 6 stools
+- **B.** 12 stools
+- **C.** 2 stools
+- **D.** 0.5 stool
+
+**Correct key:** C
+
+**Hint:** Compare what is given up, or compare the next benefit with the next cost; total output and marginal choice are different.
+
+**Worked explanation — reveal on request:** Six desks replace twelve stools, so each desk costs two stools.
+
+**Feedback A:** Reconsider. Six is the maximum number of desks, not a marginal tradeoff.
+
+**Feedback B:** Reconsider. Twelve is the whole day's stool output, not the cost of one desk.
+
+**Feedback C:** Correct. Six desks replace twelve stools, so each desk costs two stools.
+
+**Feedback D:** Reconsider. That is desks forgone per stool, the reverse ratio.
+
+
+### BT-GD-M01-Q2
+
+**Question:** Asha can make 8 lamps or 4 rugs daily; Ben can make 6 lamps or 6 rugs. Who has comparative advantage in rugs?
+
+- **A.** Neither because Asha makes more lamps
+- **B.** Ben
+- **C.** Asha
+- **D.** Both equally
+
+**Correct key:** B
+
+**Hint:** Compare what is given up, or compare the next benefit with the next cost; total output and marginal choice are different.
+
+**Worked explanation — reveal on request:** Ben gives up one lamp per rug; Asha gives up two.
+
+**Feedback A:** Reconsider. Absolute lamp output does not erase comparative advantage in rugs.
+
+**Feedback B:** Correct. Ben gives up one lamp per rug; Asha gives up two.
+
+**Feedback C:** Reconsider. Asha's rug opportunity cost is higher.
+
+**Feedback D:** Reconsider. Their rug opportunity costs are one and two lamps, not equal.
+
+
+### BT-GD-M01-Q3
+
+**Question:** Asha gives up two lamps per rug; Ben gives up one. Which price for one rug permits both to gain from trade?
+
+- **A.** 1.5 lamps
+- **B.** 0.5 lamp
+- **C.** 2.5 lamps
+- **D.** 3 lamps
+
+**Correct key:** A
+
+**Hint:** Compare what is given up, or compare the next benefit with the next cost; total output and marginal choice are different.
+
+**Worked explanation — reveal on request:** The price lies strictly between the two opportunity costs.
+
+**Feedback A:** Correct. The price lies strictly between the two opportunity costs.
+
+**Feedback B:** Reconsider. Ben would receive less than his one-lamp cost.
+
+**Feedback C:** Reconsider. Asha could make a rug herself for two lamps.
+
+**Feedback D:** Reconsider. This is above the buyer's two-lamp internal cost.
+
+
+### BT-GD-M01-Q4
+
+**Question:** A city uses all workers but leaves usable machines idle because workers have not learned to operate them. Relative to its currently attainable frontier with those workers' existing skills, what extra fact establishes productive inefficiency?
+
+- **A.** The city wants more output
+- **B.** Another city produces more
+- **C.** Machines were costly to buy
+- **D.** Existing workers can use them to raise one output without reducing any other output, with no extra resources or training
+
+**Correct key:** D
+
+**Hint:** Compare what is given up, or compare the next benefit with the next cost; total output and marginal choice are different.
+
+**Worked explanation — reveal on request:** That feasible increase leaves all other outputs intact, establishing a point inside the current frontier.
+
+**Feedback A:** Reconsider. Wants alone do not establish attainable extra output.
+
+**Feedback B:** Reconsider. The cities may have different resources and skills.
+
+**Feedback C:** Reconsider. Past cost does not establish what can be produced now.
+
+**Feedback D:** Correct. That feasible increase leaves all other outputs intact, establishing a point inside the current frontier.
+
+
+### BT-GD-M01-Q5
+
+**Question:** The next hour of study is expected to add 7 points to a practice score; the hour after that adds 3. Each hour costs leisure valued at 5 points. With these values, how many extra hours should be chosen?
+
+- **A.** Two
+- **B.** Any number because total score rises
+- **C.** One
+- **D.** Zero
+
+**Correct key:** C
+
+**Hint:** Compare what is given up, or compare the next benefit with the next cost; total output and marginal choice are different.
+
+**Worked explanation — reveal on request:** The first marginal benefit exceeds five; the second falls below five.
+
+**Feedback A:** Reconsider. The second hour costs more than its marginal benefit.
+
+**Feedback B:** Reconsider. A positive total gain does not make every extra hour worthwhile.
+
+**Feedback C:** Correct. The first marginal benefit exceeds five; the second falls below five.
+
+**Feedback D:** Reconsider. The first hour has a net benefit of two points.
+
+
+### BT-GD-M01-Q6
+
+**Question:** A snack gives 18 utility units for $3; a drink gives 16 for $4. Utility is a model of satisfaction. Which next purchase has greater marginal utility per dollar?
+
+- **A.** The cheaper good always wins
+- **B.** The snack
+- **C.** The drink
+- **D.** They are equal
+
+**Correct key:** B
+
+**Hint:** Compare what is given up, or compare the next benefit with the next cost; total output and marginal choice are different.
+
+**Worked explanation — reveal on request:** The snack gives six units per dollar; the drink gives four.
+
+**Feedback A:** Reconsider. Price alone is insufficient; this conclusion uses both utility and price.
+
+**Feedback B:** Correct. The snack gives six units per dollar; the drink gives four.
+
+**Feedback C:** Reconsider. Sixteen total units must be divided by four dollars.
+
+**Feedback D:** Reconsider. Their per-dollar returns differ by two units.
+
+
 # Mission 2 — THE QUEUE THAT GREW
 
 ## A. Mission briefing card — exact player copy
@@ -1326,7 +1532,7 @@ The mission moves from demand, supply and equilibrium to a concrete recommendati
 
 **Location:** Civic Advice Office.
 
-**Presentation:** equipment_panel_update + waypoint_notification
+**Presentation:** equipment_panel_update + waypoint_notification + dialogue_overlay
 
 **Player control:** One Continue pauses the timer and returns control immediately; mission-end inspection gives 60 seconds of free movement with time paused.
 
@@ -1336,11 +1542,15 @@ The mission moves from demand, supply and equilibrium to a concrete recommendati
 
 **Unlocks:** Stop 6.
 
+**Dialogue bubble — Mara Velez:** “The queue alone cannot tell us which curve moved. The order counts help.”
+
+**Dialogue bubble — Nico Bell, radio:** “My costs did not rise with this crowd. That is worth saying before you blame the kitchen.”
+
 ### Beat BT-M2-2 — After Stop 6
 
 **Location:** Civic Advice Office.
 
-**Presentation:** equipment_panel_update + waypoint_notification
+**Presentation:** equipment_panel_update + waypoint_notification + dialogue_overlay
 
 **Player control:** One Continue pauses the timer and returns control immediately; mission-end inspection gives 60 seconds of free movement with time paused.
 
@@ -1349,6 +1559,8 @@ The mission moves from demand, supply and equilibrium to a concrete recommendati
 **Panel/HUD text:** Additional buyers change demand at every price. The good’s own price changes quantity demanded along its curve. A dearer input raises production cost and shifts supply. A cheaper substitute draws buyers away from this lunch.
 
 **Unlocks:** Stop 7.
+
+**Dialogue bubble — Mara Velez:** “We can explain the lunch rise without pretending every price in town rose for the same reason.”
 
 ### Beat BT-M2-3 — After Stop 7
 
@@ -1382,7 +1594,7 @@ The mission moves from demand, supply and equilibrium to a concrete recommendati
 
 **Location:** Civic Advice Office.
 
-**Presentation:** persistent_world_change
+**Presentation:** persistent_world_change + dialogue_overlay
 
 **Player control:** One Continue pauses the timer and returns control immediately; mission-end inspection gives 60 seconds of free movement with time paused.
 
@@ -1391,6 +1603,9 @@ The mission moves from demand, supply and equilibrium to a concrete recommendati
 **Panel/HUD text:** The public board displays the old-price order count beside the new sales receipt. A high posted price now leaves some rooms empty.
 
 **Unlocks:** Metric screen after inspecting the changed notice.
+
+**Dialogue bubble — Mara Velez:** “The notice now explains this price rise. The vacant-room complaint needs its own test before we reuse that explanation.”
+
 
 ## E. Location plan
 
@@ -1909,6 +2124,164 @@ The public board displays the old-price order count beside the new sales receipt
 
 - **Mission takeaway:** A documented cause lets the town respond to capacity rather than blame without evidence.
 
+
+## L. GO DEEPER — Markets change for different reasons
+
+**Secondary briefing — exact player copy:** Use a new set of shops to separate a change in price from a change in the conditions behind demand or supply. Keep each market’s own price distinct from prices of related goods.
+
+**Optional review behavior:** Select GO DEEPER from the completed mission card. All six questions are ungraded, timer-paused and reopenable. Selection, mistakes, hints and reveals change no bars, RP, evidence flags or unlocks. Keep the five worked examples as a separate button. Return closes review to the same completed mission card. Each question permits retries; show feedback for the chosen option and reveal the worked explanation only on explicit request.
+
+**Supporting concepts — exact player copy:**
+
+- Equilibrium is where quantity demanded equals quantity supplied. A shortage at a stated price is demand minus supply when that difference is positive.
+- An own-price change moves along a curve. Income, preferences or related-good prices can shift demand; technology and input costs can shift supply.
+- Substitutes can replace one another in use. A rise in one substitute’s price can increase demand for the other.
+- When demand and supply both increase, both push equilibrium quantity upward. Their price effects oppose, so the price result depends on their relative sizes.
+
+### BT-GD-M02-Q1
+
+**Question:** At a price of $8, buyers want 90 units and sellers offer 65. What is the shortage at this price?
+
+- **A.** No shortage because 65 units are sold
+- **B.** 25 units
+- **C.** 155 units
+- **D.** 65 units
+
+**Correct key:** B
+
+**Hint:** Separate an own-price movement from a changed determinant; when numbers are given, compare demand and supply at the same price.
+
+**Worked explanation — reveal on request:** Quantity demanded exceeds quantity supplied by 90 minus 65.
+
+**Feedback A:** Reconsider. Trades can occur while some demand remains unmet.
+
+**Feedback B:** Correct. Quantity demanded exceeds quantity supplied by 90 minus 65.
+
+**Feedback C:** Reconsider. Adding the two quantities does not measure unmet demand.
+
+**Feedback D:** Reconsider. That is quantity supplied, not the gap.
+
+
+### BT-GD-M02-Q2
+
+**Question:** Demand is Qd=120−4P and supply is Qs=20+P. What is equilibrium price in dollars per unit?
+
+- **A.** 20
+- **B.** 25
+- **C.** 40
+- **D.** 100
+
+**Correct key:** A
+
+**Hint:** Separate an own-price movement from a changed determinant; when numbers are given, compare demand and supply at the same price.
+
+**Worked explanation — reveal on request:** Setting the quantities equal gives 100=5P, so P=20.
+
+**Feedback A:** Correct. Setting the quantities equal gives 100=5P, so P=20.
+
+**Feedback B:** Reconsider. This does not make quantity demanded equal supply.
+
+**Feedback C:** Reconsider. Forty is the equilibrium quantity, not the price.
+
+**Feedback D:** Reconsider. One hundred is the intercept gap before division by five.
+
+
+### BT-GD-M02-Q3
+
+**Question:** The price of coffee rises. Tea is a substitute, and nothing else changes. What happens in the tea market?
+
+- **A.** Tea supply shifts right
+- **B.** Movement upward along tea demand only
+- **C.** Tea demand shifts left
+- **D.** Tea demand shifts right
+
+**Correct key:** D
+
+**Hint:** Separate an own-price movement from a changed determinant; when numbers are given, compare demand and supply at the same price.
+
+**Worked explanation — reveal on request:** Some consumers switch from coffee to tea at each tea price.
+
+**Feedback A:** Reconsider. A change in consumers' substitute price does not itself change tea production costs.
+
+**Feedback B:** Reconsider. That movement requires a change in tea's own price with its demand curve fixed.
+
+**Feedback C:** Reconsider. A dearer substitute makes tea more attractive, not less.
+
+**Feedback D:** Correct. Some consumers switch from coffee to tea at each tea price.
+
+
+### BT-GD-M02-Q4
+
+**Question:** A new machine lowers the cost of making notebooks. With ordinary downward demand and upward supply, what is the predicted equilibrium change?
+
+- **A.** Lower price and lower quantity
+- **B.** No price change because the machine is not a buyer
+- **C.** Lower price and higher quantity
+- **D.** Higher price and higher quantity
+
+**Correct key:** C
+
+**Hint:** Separate an own-price movement from a changed determinant; when numbers are given, compare demand and supply at the same price.
+
+**Worked explanation — reveal on request:** A rightward supply shift crosses fixed demand at a lower price and larger quantity.
+
+**Feedback A:** Reconsider. That is the usual result of a leftward demand shift.
+
+**Feedback B:** Reconsider. Supply changes affect equilibrium even without changing buyers' preferences.
+
+**Feedback C:** Correct. A rightward supply shift crosses fixed demand at a lower price and larger quantity.
+
+**Feedback D:** Reconsider. That is the usual result of a rightward demand shift.
+
+
+### BT-GD-M02-Q5
+
+**Question:** Both demand and supply shift right. Which result follows without knowing their sizes?
+
+- **A.** Price and quantity both stay fixed
+- **B.** Equilibrium quantity rises; price is ambiguous
+- **C.** Both price and quantity must rise
+- **D.** Quantity is ambiguous and price rises
+
+**Correct key:** B
+
+**Hint:** Separate an own-price movement from a changed determinant; when numbers are given, compare demand and supply at the same price.
+
+**Worked explanation — reveal on request:** Both shifts raise quantity, but they push price in opposite directions.
+
+**Feedback A:** Reconsider. Two shifts need not cancel, and their quantity effects reinforce.
+
+**Feedback B:** Correct. Both shifts raise quantity, but they push price in opposite directions.
+
+**Feedback C:** Reconsider. The supply shift pushes price down.
+
+**Feedback D:** Reconsider. Both shifts push quantity up; the price effects conflict.
+
+
+### BT-GD-M02-Q6
+
+**Question:** A shop raises only its own price, with income, tastes and other prices fixed. What describes consumers buying less?
+
+- **A.** Movement along the shop's demand curve
+- **B.** A leftward shift of demand
+- **C.** A rightward shift of supply
+- **D.** An increase in demand
+
+**Correct key:** A
+
+**Hint:** Separate an own-price movement from a changed determinant; when numbers are given, compare demand and supply at the same price.
+
+**Worked explanation — reveal on request:** An own-price change changes quantity demanded on a fixed demand curve.
+
+**Feedback A:** Correct. An own-price change changes quantity demanded on a fixed demand curve.
+
+**Feedback B:** Reconsider. A shift requires a changed non-own-price determinant.
+
+**Feedback C:** Reconsider. This statement describes buyers' response, not a supply determinant.
+
+**Feedback D:** Reconsider. Buying less after a price rise is not an increase in demand.
+
+
 # Mission 3 — THE EMPTY ROOMS
 
 ## A. Mission briefing card — exact player copy
@@ -1998,7 +2371,7 @@ The mission moves from elasticity and total revenue to a concrete recommendation
 
 **Location:** Civic Advice Office.
 
-**Presentation:** equipment_panel_update + waypoint_notification
+**Presentation:** equipment_panel_update + waypoint_notification + dialogue_overlay
 
 **Player control:** One Continue pauses the timer and returns control immediately; mission-end inspection gives 60 seconds of free movement with time paused.
 
@@ -2008,11 +2381,15 @@ The mission moves from elasticity and total revenue to a concrete recommendation
 
 **Unlocks:** Stop 10.
 
+**Dialogue bubble — Mara Velez:** “The higher room price brought in less money across the rooms that actually filled.”
+
+**Dialogue bubble — Leila Moss, radio:** “And a vacant room beside a waiting family is a reason to ask how these offers reach people.”
+
 ### Beat BT-M3-2 — After Stop 10
 
 **Location:** Civic Advice Office.
 
-**Presentation:** equipment_panel_update + waypoint_notification
+**Presentation:** equipment_panel_update + waypoint_notification + dialogue_overlay
 
 **Player control:** One Continue pauses the timer and returns control immediately; mission-end inspection gives 60 seconds of free movement with time paused.
 
@@ -2021,6 +2398,8 @@ The mission moves from elasticity and total revenue to a concrete recommendation
 **Panel/HUD text:** The absolute own-price ratio is 2, greater than one. The absolute own-price ratio is 0.5, below one. A negative income response identifies an inferior good, without judging quality. A negative cross-price response identifies complements.
 
 **Unlocks:** Stop 11.
+
+**Dialogue bubble — Mara Velez:** “This test supports changing this offer. It does not tell us every landlord faces the same response.”
 
 ### Beat BT-M3-3 — After Stop 11
 
@@ -2054,7 +2433,7 @@ The mission moves from elasticity and total revenue to a concrete recommendation
 
 **Location:** Civic Advice Office.
 
-**Presentation:** persistent_world_change
+**Presentation:** persistent_world_change + dialogue_overlay
 
 **Player control:** One Continue pauses the timer and returns control immediately; mission-end inspection gives 60 seconds of free movement with time paused.
 
@@ -2063,6 +2442,9 @@ The mission moves from elasticity and total revenue to a concrete recommendation
 **Panel/HUD text:** The guesthouse listing drops to the earlier rate and its vacant-room cards flip to available. The diner still cannot turn all its new orders into meals.
 
 **Unlocks:** Metric screen after inspecting the changed notice.
+
+**Dialogue bubble — Mara Velez:** “The lower offer is back on the card. That helps fill these rooms; it does not put another cook at the diner’s stove.”
+
 
 ## E. Location plan
 
@@ -2573,6 +2955,165 @@ The guesthouse listing drops to the earlier rate and its vacant-room cards flip 
 
 - **Mission takeaway:** Vacant beds can reopen without pretending every landlord faces identical demand.
 
+
+## L. GO DEEPER — Response and revenue
+
+**Secondary briefing — exact player copy:** A price change can sell fewer units and still bring in more money. Use new purchases and prices to test that claim, then distinguish income response from response to related prices.
+
+**Optional review behavior:** Select GO DEEPER from the completed mission card. All six questions are ungraded, timer-paused and reopenable. Selection, mistakes, hints and reveals change no bars, RP, evidence flags or unlocks. Keep the five worked examples as a separate button. Return closes review to the same completed mission card. Each question permits retries; show feedback for the chosen option and reveal the worked explanation only on explicit request.
+
+**Supporting concepts — exact player copy:**
+
+- The midpoint percentage change divides the difference by the average of the old and new values. Absolute demand elasticity divides the absolute quantity percentage change by the price percentage change.
+- Total revenue equals price times quantity. Locally, a price rise raises revenue with inelastic demand, lowers it with elastic demand and leaves it unchanged with unit elasticity.
+- Income elasticity is quantity percentage change divided by income percentage change. A negative value identifies an inferior good over the observed range.
+- Cross-price elasticity compares one good’s purchases with another good’s price. A negative value suggests complements; a positive value suggests substitutes.
+- A longer adjustment period can let suppliers build or convert capacity. Supply elasticity can therefore differ between one week and several years.
+
+### BT-GD-M03-Q1
+
+**Question:** Price rises from $10 to $12 while quantity falls from 100 to 80. Using midpoint percentages, what is absolute demand elasticity to two decimals?
+
+- **A.** 1.22
+- **B.** 0.82
+- **C.** 2.00
+- **D.** 0.20
+
+**Correct key:** A
+
+**Hint:** Use percentage responses for elasticity and price times quantity for revenue; keep the direction of the change.
+
+**Worked explanation — reveal on request:** The quantity change is 20/90; the price change is 2/11; their ratio is 11/9.
+
+**Feedback A:** Correct. The quantity change is 20/90; the price change is 2/11; their ratio is 11/9.
+
+**Feedback B:** Reconsider. That is approximately the inverse ratio.
+
+**Feedback C:** Reconsider. Dividing the raw unit changes ignores percentage bases.
+
+**Feedback D:** Reconsider. Twenty percent is one percentage change, not the elasticity ratio.
+
+
+### BT-GD-M03-Q2
+
+**Question:** A seller raises price from $5 to $6 and sales fall from 100 to 90. What happens to total revenue?
+
+- **A.** It falls by $10
+- **B.** It rises by $90
+- **C.** It stays at $500
+- **D.** It rises by $40
+
+**Correct key:** D
+
+**Hint:** Use percentage responses for elasticity and price times quantity for revenue; keep the direction of the change.
+
+**Worked explanation — reveal on request:** Revenue changes from 500 to 540 dollars.
+
+**Feedback A:** Reconsider. Ten is the unit-sales decline, not the revenue change.
+
+**Feedback B:** Reconsider. The higher price applies to fewer units; compare both full products.
+
+**Feedback C:** Reconsider. Quantity fell less proportionally than price rose.
+
+**Feedback D:** Correct. Revenue changes from 500 to 540 dollars.
+
+
+### BT-GD-M03-Q3
+
+**Question:** A product has absolute demand elasticity 0.4 near the current point. A small price increase has what local revenue effect?
+
+- **A.** Revenue is unchanged
+- **B.** Revenue becomes profit
+- **C.** Revenue rises
+- **D.** Revenue falls
+
+**Correct key:** C
+
+**Hint:** Use percentage responses for elasticity and price times quantity for revenue; keep the direction of the change.
+
+**Worked explanation — reveal on request:** With inelastic demand, the percentage quantity loss is smaller than the percentage price gain.
+
+**Feedback A:** Reconsider. Unchanged revenue is the unit-elastic case.
+
+**Feedback B:** Reconsider. Revenue excludes the firm's costs and is not profit.
+
+**Feedback C:** Correct. With inelastic demand, the percentage quantity loss is smaller than the percentage price gain.
+
+**Feedback D:** Reconsider. That local result applies to elastic demand.
+
+
+### BT-GD-M03-Q4
+
+**Question:** Income rises 10% and purchases of a product fall 5%, all else fixed. How is the product classified over this range?
+
+- **A.** Perfectly inelastic good
+- **B.** Inferior good
+- **C.** Normal good
+- **D.** Substitute
+
+**Correct key:** B
+
+**Hint:** Use percentage responses for elasticity and price times quantity for revenue; keep the direction of the change.
+
+**Worked explanation — reveal on request:** Income elasticity is negative, −0.5, so demand falls as income rises.
+
+**Feedback A:** Reconsider. Quantity has changed, so this observation does not show zero response.
+
+**Feedback B:** Correct. Income elasticity is negative, −0.5, so demand falls as income rises.
+
+**Feedback C:** Reconsider. A normal good has positive income elasticity.
+
+**Feedback D:** Reconsider. Substitution is classified using another good's price, not income.
+
+
+### BT-GD-M03-Q5
+
+**Question:** The price of printers falls 8% and ink purchases rise 4%. What does the negative cross-price elasticity suggest?
+
+- **A.** Printers and ink are complements
+- **B.** They are substitutes
+- **C.** Ink is inferior
+- **D.** Ink supply is vertical
+
+**Correct key:** A
+
+**Hint:** Use percentage responses for elasticity and price times quantity for revenue; keep the direction of the change.
+
+**Worked explanation — reveal on request:** The opposite-direction response gives −0.5, consistent with joint use.
+
+**Feedback A:** Correct. The opposite-direction response gives −0.5, consistent with joint use.
+
+**Feedback B:** Reconsider. Substitutes usually have a positive cross-price elasticity.
+
+**Feedback C:** Reconsider. No income change is supplied.
+
+**Feedback D:** Reconsider. The observation is a demand relation, not a supply slope.
+
+
+### BT-GD-M03-Q6
+
+**Question:** Why may housing supply respond more strongly to a sustained rent rise over five years than over one week?
+
+- **A.** The supply curve must shift whenever rent rises
+- **B.** Long-run demand must be perfectly elastic
+- **C.** Demand must fall as construction takes longer
+- **D.** Builders have time to add and convert housing
+
+**Correct key:** D
+
+**Hint:** Use percentage responses for elasticity and price times quantity for revenue; keep the direction of the change.
+
+**Worked explanation — reveal on request:** Longer adjustment time can permit quantity responses unavailable immediately.
+
+**Feedback A:** Reconsider. An own-price response can move along the supply curve without shifting it.
+
+**Feedback B:** Reconsider. No such demand assumption follows.
+
+**Feedback C:** Reconsider. A longer supply adjustment period does not itself require lower demand.
+
+**Feedback D:** Correct. Longer adjustment time can permit quantity responses unavailable immediately.
+
+
 # Mission 4 — TOO MANY HANDS
 
 ## A. Mission briefing card — exact player copy
@@ -2664,7 +3205,7 @@ The mission moves from short-run production and marginal product to a concrete r
 
 **Location:** Business Workshop.
 
-**Presentation:** equipment_panel_update + waypoint_notification
+**Presentation:** equipment_panel_update + waypoint_notification + dialogue_overlay
 
 **Player control:** One Continue pauses the timer and returns control immediately; mission-end inspection gives 60 seconds of free movement with time paused.
 
@@ -2674,11 +3215,15 @@ The mission moves from short-run production and marginal product to a concrete r
 
 **Unlocks:** Stop 14.
 
+**Dialogue bubble — Nico Bell:** “Another pair of hands adds meals, but the gain gets smaller at this stove.”
+
+**Dialogue bubble — Mara Velez, radio:** “Then a wage offer needs the next worker’s contribution, not the average of your whole crew.”
+
 ### Beat BT-M4-2 — After Stop 14
 
 **Location:** Business Workshop.
 
-**Presentation:** equipment_panel_update + waypoint_notification
+**Presentation:** equipment_panel_update + waypoint_notification + dialogue_overlay
 
 **Player control:** One Continue pauses the timer and returns control immediately; mission-end inspection gives 60 seconds of free movement with time paused.
 
@@ -2687,6 +3232,8 @@ The mission moves from short-run production and marginal product to a concrete r
 **Panel/HUD text:** An unavoidable current lease is fixed and paid out explicitly. The extra wage changes with hiring and is an explicit payment. Forgone owner earnings are a real opportunity cost without a cash payment. Dividing the total by workers gives average rather than marginal product.
 
 **Unlocks:** Stop 15.
+
+**Dialogue bubble — Nico Bell:** “The fixed stove and the wage bill belong in different columns. Buying more hands does not buy more burners.”
 
 ### Beat BT-M4-3 — After Stop 15
 
@@ -2720,7 +3267,7 @@ The mission moves from short-run production and marginal product to a concrete r
 
 **Location:** Business Workshop.
 
-**Presentation:** persistent_world_change
+**Presentation:** persistent_world_change + dialogue_overlay
 
 **Player control:** One Continue pauses the timer and returns control immediately; mission-end inspection gives 60 seconds of free movement with time paused.
 
@@ -2729,6 +3276,10 @@ The mission moves from short-run production and marginal product to a concrete r
 **Panel/HUD text:** One job card appears; a second is stamped HOLD FOR EQUIPMENT REVIEW. The filled job draws a worker away from the bakery.
 
 **Unlocks:** Metric screen after inspecting the changed notice.
+
+**Dialogue bubble — Nico Bell:** “The fourth cook has a place on the sheet. I will keep the stove upgrade on the list instead of blaming the next applicant.”
+
+**Dialogue bubble — Rosa Kim, doorway:** “There is a fourth name on the shift sheet. We still share the same stove.”
 
 ## E. Location plan
 
@@ -3236,6 +3787,164 @@ One job card appears; a second is stamped HOLD FOR EQUIPMENT REVIEW. The filled 
 
 - **Mission takeaway:** The diner fills one post while admitting that its offer may shift workers between local firms.
 
+
+## L. GO DEEPER — The next worker and the next unit
+
+**Secondary briefing — exact player copy:** Work through small production records before making a hiring choice. Keep physical output separate from dollars and do not charge the next worker with costs that remain fixed either way.
+
+**Optional review behavior:** Select GO DEEPER from the completed mission card. All six questions are ungraded, timer-paused and reopenable. Selection, mistakes, hints and reveals change no bars, RP, evidence flags or unlocks. Keep the five worked examples as a separate button. Return closes review to the same completed mission card. Each question permits retries; show feedback for the chosen option and reveal the worked explanation only on explicit request.
+
+**Supporting concepts — exact player copy:**
+
+- Marginal product is additional output from one more input. Average product divides total output by the number of inputs.
+- For a price-taking product seller, marginal revenue product equals marginal product times output price. Compare that additional revenue with marginal hiring cost.
+- A fixed cost remains the same as current output changes; variable costs change with output. The relevant time period must be stated.
+- Marginal cost is the extra total cost per additional output unit. Positive but falling marginal product means total output rises more slowly, not that it falls.
+
+### BT-GD-M04-Q1
+
+**Question:** Output rises from 42 to 55 units when a fifth worker joins. What is that worker's marginal product?
+
+- **A.** 11 units
+- **B.** 55 units
+- **C.** 42 units
+- **D.** 13 units
+
+**Correct key:** D
+
+**Hint:** Use the change caused by one more input or output, and separate costs that vary from costs that remain due.
+
+**Worked explanation — reveal on request:** Marginal product is the output change caused by the additional worker.
+
+**Feedback A:** Reconsider. Eleven is average output per worker after hiring.
+
+**Feedback B:** Reconsider. That is total output after hiring.
+
+**Feedback C:** Reconsider. That is total output before hiring.
+
+**Feedback D:** Correct. Marginal product is the output change caused by the additional worker.
+
+
+### BT-GD-M04-Q2
+
+**Question:** A price-taking firm sells each unit for $6. The next worker adds 9 units. What is the worker's marginal revenue product?
+
+- **A.** $6
+- **B.** $9
+- **C.** $54
+- **D.** $15
+
+**Correct key:** C
+
+**Hint:** Use the change caused by one more input or output, and separate costs that vary from costs that remain due.
+
+**Worked explanation — reveal on request:** With a fixed product price, multiply marginal product nine by price six.
+
+**Feedback A:** Reconsider. That is revenue from one product unit, not all nine extra units.
+
+**Feedback B:** Reconsider. Nine measures physical output, not revenue.
+
+**Feedback C:** Correct. With a fixed product price, multiply marginal product nine by price six.
+
+**Feedback D:** Reconsider. Adding price and units mixes incompatible measures.
+
+
+### BT-GD-M04-Q3
+
+**Question:** A bakery pays $200 rent whether it opens or closes this week. Flour costs $2 per loaf baked. Which classification is correct for this week?
+
+- **A.** Rent is variable; flour is fixed
+- **B.** Rent is fixed; flour cost is variable
+- **C.** Both costs are fixed
+- **D.** Both costs are variable
+
+**Correct key:** B
+
+**Hint:** Use the change caused by one more input or output, and separate costs that vary from costs that remain due.
+
+**Worked explanation — reveal on request:** Rent does not change with this week's output, while flour use does.
+
+**Feedback A:** Reconsider. This reverses the supplied cost behavior.
+
+**Feedback B:** Correct. Rent does not change with this week's output, while flour use does.
+
+**Feedback C:** Reconsider. Flour expenditure rises with loaf output.
+
+**Feedback D:** Reconsider. The stated rent remains due at zero output.
+
+
+### BT-GD-M04-Q4
+
+**Question:** At output 10, total cost is $90. At output 11, total cost is $97. What is the marginal cost of the eleventh unit?
+
+- **A.** $7
+- **B.** $8.82
+- **C.** $90
+- **D.** $97
+
+**Correct key:** A
+
+**Hint:** Use the change caused by one more input or output, and separate costs that vary from costs that remain due.
+
+**Worked explanation — reveal on request:** Total cost rises seven dollars for one extra unit.
+
+**Feedback A:** Correct. Total cost rises seven dollars for one extra unit.
+
+**Feedback B:** Reconsider. That is approximately average total cost at eleven.
+
+**Feedback C:** Reconsider. That is the earlier total cost.
+
+**Feedback D:** Reconsider. That is total cost of all eleven units.
+
+
+### BT-GD-M04-Q5
+
+**Question:** More workers share a fixed oven. Extra workers add progressively fewer loaves but still add some. What happens to total output?
+
+- **A.** It falls immediately
+- **B.** It stays fixed
+- **C.** It rises at an increasing rate
+- **D.** It rises at a decreasing rate
+
+**Correct key:** D
+
+**Hint:** Use the change caused by one more input or output, and separate costs that vary from costs that remain due.
+
+**Worked explanation — reveal on request:** Positive but falling marginal product means total output keeps rising more slowly.
+
+**Feedback A:** Reconsider. Total output falls only when marginal product becomes negative.
+
+**Feedback B:** Reconsider. Each worker still adds positive output.
+
+**Feedback C:** Reconsider. That requires rising marginal product over this range.
+
+**Feedback D:** Correct. Positive but falling marginal product means total output keeps rising more slowly.
+
+
+### BT-GD-M04-Q6
+
+**Question:** Marginal revenue product of the next three workers is $70, $50 and $30 per shift. Each costs $40; workers can be hired separately in that order. How many should be added?
+
+- **A.** Three
+- **B.** Zero
+- **C.** Two
+- **D.** One
+
+**Correct key:** C
+
+**Hint:** Use the change caused by one more input or output, and separate costs that vary from costs that remain due.
+
+**Worked explanation — reveal on request:** The first two add revenue above cost; the third adds less than forty.
+
+**Feedback A:** Reconsider. The third reduces the firm's net return by ten.
+
+**Feedback B:** Reconsider. The first worker alone adds thirty dollars of net return.
+
+**Feedback C:** Correct. The first two add revenue above cost; the third adds less than forty.
+
+**Feedback D:** Reconsider. The second still adds ten dollars of net benefit.
+
+
 # Mission 5 — THE RENT PROMISE
 
 ## A. Mission briefing card — exact player copy
@@ -3323,7 +4032,7 @@ The mission moves from price controls and allocation to a concrete recommendatio
 
 **Location:** Civic Advice Office.
 
-**Presentation:** equipment_panel_update + waypoint_notification
+**Presentation:** equipment_panel_update + waypoint_notification + dialogue_overlay
 
 **Player control:** One Continue pauses the timer and returns control immediately; mission-end inspection gives 60 seconds of free movement with time paused.
 
@@ -3333,11 +4042,15 @@ The mission moves from price controls and allocation to a concrete recommendatio
 
 **Unlocks:** Stop 18.
 
+**Dialogue bubble — Mara Velez:** “There are still applicants after the capped-price rooms are assigned.”
+
+**Dialogue bubble — Leila Moss, radio:** “Keep the relief for those tenants in view. Just stop saying their leases settle everyone’s need.”
+
 ### Beat BT-M5-2 — After Stop 18
 
 **Location:** Civic Advice Office.
 
-**Presentation:** equipment_panel_update + waypoint_notification
+**Presentation:** equipment_panel_update + waypoint_notification + dialogue_overlay
 
 **Player control:** One Continue pauses the timer and returns control immediately; mission-end inspection gives 60 seconds of free movement with time paused.
 
@@ -3346,6 +4059,8 @@ The mission moves from price controls and allocation to a concrete recommendatio
 **Panel/HUD text:** A tenant who retains occupancy gains from the lower payment. A shortage leaves some willing applicants without housing. The lower rent transfers income away from this landlord. Construction responds over time and depends on costs, rules and expected returns. Take this result to Housing and Work Office; its original records are needed for why the advertised rooms are gone.
 
 **Unlocks:** Stop 19.
+
+**Dialogue bubble — Leila Moss:** “I want both trays at the hearing: people helped by the cap and people it has not housed.”
 
 ### Beat BT-M5-3 — After Stop 19
 
@@ -3360,6 +4075,8 @@ The mission moves from price controls and allocation to a concrete recommendatio
 **Panel/HUD text:** The ceiling is below the stated equilibrium, offers are below applications, and no destruction occurred. A shortage follows without any assumption that the policy immediately destroys homes; the separate long-run response remains conditional.
 
 **Unlocks:** Stop 20.
+
+**Dialogue bubble — Dev Shah, radio:** “My sister keeps her lower rent. My application is still in the other tray.”
 
 ### Beat BT-M5-4 — After Stop 20
 
@@ -3379,7 +4096,7 @@ The mission moves from price controls and allocation to a concrete recommendatio
 
 **Location:** Housing and Work Office.
 
-**Presentation:** persistent_world_change
+**Presentation:** persistent_world_change + dialogue_overlay
 
 **Player control:** One Continue pauses the timer and returns control immediately; mission-end inspection gives 60 seconds of free movement with time paused.
 
@@ -3388,6 +4105,9 @@ The mission moves from price controls and allocation to a concrete recommendatio
 **Panel/HUD text:** One row of lease cards turns to reduced rent; forty application tokens remain marked waiting. The council asks how to fund the separate housing measure.
 
 **Unlocks:** Metric screen after inspecting the changed notice.
+
+**Dialogue bubble — Leila Moss:** “I fixed the divider in place. We can defend tenant relief without hiding the people still waiting.”
+
 
 ## E. Location plan
 
@@ -3906,6 +4626,164 @@ One row of lease cards turns to reduced rent; forty application tokens remain ma
 
 - **Mission takeaway:** The advice distinguishes a factual shortage from a value judgment about tenant protection.
 
+
+## L. GO DEEPER — Relief, access and rationing
+
+**Secondary briefing — exact player copy:** A legal price rule can help a person who makes a trade while leaving someone else unmatched. Check when the rule binds, then count the people on both sides of the result.
+
+**Optional review behavior:** Select GO DEEPER from the completed mission card. All six questions are ungraded, timer-paused and reopenable. Selection, mistakes, hints and reveals change no bars, RP, evidence flags or unlocks. Keep the five worked examples as a separate button. Return closes review to the same completed mission card. Each question permits retries; show feedback for the chosen option and reveal the worked explanation only on explicit request.
+
+**Supporting concepts — exact player copy:**
+
+- A ceiling is a maximum price; it binds below equilibrium. A floor is a minimum price; it binds above equilibrium.
+- At a binding ceiling, shortage is quantity demanded minus quantity supplied. At a binding floor, excess supply can remain unsold if no other buyer intervenes.
+- Nonprice rationing allocates by a rule such as waiting order. That rule need not maximize total surplus or prioritize need.
+- A participant’s net benefit includes search and waiting costs as well as the posted price. Distribution asks which people gain and which remain excluded.
+
+### BT-GD-M05-Q1
+
+**Question:** Equilibrium rent is $900. A legal ceiling is set at $1,000. What is its immediate effect in the basic competitive model?
+
+- **A.** It raises the equilibrium to $1,000
+- **B.** It is a price floor
+- **C.** It is nonbinding
+- **D.** It creates a shortage automatically
+
+**Correct key:** C
+
+**Hint:** First ask whether the legal price binds; then distinguish the matched group from people left without a trade.
+
+**Worked explanation — reveal on request:** The market can still trade at the nine-hundred-dollar equilibrium below the ceiling.
+
+**Feedback A:** Reconsider. A maximum is not a required price.
+
+**Feedback B:** Reconsider. A ceiling limits the maximum, not the minimum.
+
+**Feedback C:** Correct. The market can still trade at the nine-hundred-dollar equilibrium below the ceiling.
+
+**Feedback D:** Reconsider. A ceiling must be below equilibrium to bind.
+
+
+### BT-GD-M05-Q2
+
+**Question:** At a binding rent cap, 140 homes are demanded and 100 offered. What is the shortage?
+
+- **A.** 240 homes
+- **B.** 40 homes
+- **C.** 100 homes
+- **D.** 140 homes
+
+**Correct key:** B
+
+**Hint:** First ask whether the legal price binds; then distinguish the matched group from people left without a trade.
+
+**Worked explanation — reveal on request:** Unmet demand at the capped price is 140 minus 100.
+
+**Feedback A:** Reconsider. Adding demand and supply does not measure the gap.
+
+**Feedback B:** Correct. Unmet demand at the capped price is 140 minus 100.
+
+**Feedback C:** Reconsider. That is supplied housing.
+
+**Feedback D:** Reconsider. That is all demanded housing, including matched tenants.
+
+
+### BT-GD-M05-Q3
+
+**Question:** Under a cap, 100 homes go to the first applicants in line. Why does the low posted rent not establish that the allocation is efficient?
+
+- **A.** Waiting order need not allocate homes to those with the highest willingness to pay
+- **B.** Every matched tenant must lose
+- **C.** A low price proves all applicants are housed
+- **D.** Efficiency means only the landlord's revenue
+
+**Correct key:** A
+
+**Hint:** First ask whether the legal price binds; then distinguish the matched group from people left without a trade.
+
+**Worked explanation — reveal on request:** That can reduce total surplus; prioritizing need is a separate equity criterion, not the same efficiency ranking.
+
+**Feedback A:** Correct. That can reduce total surplus; prioritizing need is a separate equity criterion, not the same efficiency ranking.
+
+**Feedback B:** Reconsider. Matched tenants may benefit from lower rent.
+
+**Feedback C:** Reconsider. The number of homes may be smaller than demand.
+
+**Feedback D:** Reconsider. Efficiency concerns total surplus, not one group's receipts.
+
+
+### BT-GD-M05-Q4
+
+**Question:** A minimum price is $7 when competitive equilibrium is $5. At $7, supply is 80 and demand is 50. What surplus occurs if government buys nothing?
+
+- **A.** 30 units of shortage
+- **B.** 80 units are necessarily sold
+- **C.** No surplus because the floor is legal
+- **D.** 30 units offered remain unsold
+
+**Correct key:** D
+
+**Hint:** First ask whether the legal price binds; then distinguish the matched group from people left without a trade.
+
+**Worked explanation — reveal on request:** At the floor, supply exceeds demand by thirty.
+
+**Feedback A:** Reconsider. The excess is on the selling side, not buying side.
+
+**Feedback B:** Reconsider. Only fifty are demanded at that price.
+
+**Feedback C:** Reconsider. Legality does not make quantities demanded and supplied equal.
+
+**Feedback D:** Correct. At the floor, supply exceeds demand by thirty.
+
+
+### BT-GD-M05-Q5
+
+**Question:** A capped-rent tenant saves $200 monthly but spends $60 worth of time securing the unit. Before other changes, what is the tenant's net gain in the first month?
+
+- **A.** $260
+- **B.** $60
+- **C.** $140 in the first month
+- **D.** $200
+
+**Correct key:** C
+
+**Hint:** First ask whether the legal price binds; then distinguish the matched group from people left without a trade.
+
+**Worked explanation — reveal on request:** Subtract the sixty-dollar search-time cost from the two-hundred-dollar rent saving.
+
+**Feedback A:** Reconsider. The time cost reduces the gain rather than adding to it.
+
+**Feedback B:** Reconsider. That is the cost, not the net gain.
+
+**Feedback C:** Correct. Subtract the sixty-dollar search-time cost from the two-hundred-dollar rent saving.
+
+**Feedback D:** Reconsider. That ignores the supplied time cost.
+
+
+### BT-GD-M05-Q6
+
+**Question:** A rent policy helps existing leaseholders but leaves new arrivals unhoused. Which reporting pair best captures its distributional limit?
+
+- **A.** Population growth alone
+- **B.** Savings for matched tenants and the number of unmatched applicants
+- **C.** Average rent alone
+- **D.** Landlord names alone
+
+**Correct key:** B
+
+**Hint:** First ask whether the legal price binds; then distinguish the matched group from people left without a trade.
+
+**Worked explanation — reveal on request:** It records both the benefit and the excluded group without claiming one cancels the other.
+
+**Feedback A:** Reconsider. Growth may explain pressure but does not record who benefited or remained unmatched.
+
+**Feedback B:** Correct. It records both the benefit and the excluded group without claiming one cancels the other.
+
+**Feedback C:** Reconsider. An average among leases omits applicants without a lease.
+
+**Feedback D:** Reconsider. Names do not measure either policy effect.
+
+
 # Mission 6 — WHO PAYS THE FEE
 
 ## A. Mission briefing card — exact player copy
@@ -3999,7 +4877,7 @@ The mission moves from tax incidence and subsidies to a concrete recommendation:
 
 **Location:** Civic Advice Office.
 
-**Presentation:** equipment_panel_update + waypoint_notification
+**Presentation:** equipment_panel_update + waypoint_notification + dialogue_overlay
 
 **Player control:** One Continue pauses the timer and returns control immediately; mission-end inspection gives 60 seconds of free movement with time paused.
 
@@ -4009,11 +4887,15 @@ The mission moves from tax incidence and subsidies to a concrete recommendation:
 
 **Unlocks:** Stop 22.
 
+**Dialogue bubble — Mara Velez:** “The fee funds part of a real housing measure. Its receipt is not a free gain.”
+
+**Dialogue bubble — Ruth Sen, radio:** “I can report the freight bill. A lower charge here can still land on someone else.”
+
 ### Beat BT-M6-2 — After Stop 22
 
 **Location:** Civic Advice Office.
 
-**Presentation:** equipment_panel_update + waypoint_notification
+**Presentation:** equipment_panel_update + waypoint_notification + dialogue_overlay
 
 **Player control:** One Continue pauses the timer and returns control immediately; mission-end inspection gives 60 seconds of free movement with time paused.
 
@@ -4022,6 +4904,8 @@ The mission moves from tax incidence and subsidies to a concrete recommendation:
 **Panel/HUD text:** Buyers pay three dollars more than before. Sellers receive one dollar less than before. Elastic responses determine price changes even when a seller sends the payment. The less responsive market side bears more of the wedge, so the larger buyer burden identifies relatively less elastic demand. Take this result to Business Workshop; its original records are needed for cost the vanished trades.
 
 **Unlocks:** Stop 23.
+
+**Dialogue bubble — Mara Velez:** “We will name the side that carries more burden, even if the legal collection point is elsewhere.”
 
 ### Beat BT-M6-3 — After Stop 23
 
@@ -4055,7 +4939,7 @@ The mission moves from tax incidence and subsidies to a concrete recommendation:
 
 **Location:** Business Workshop.
 
-**Presentation:** persistent_world_change
+**Presentation:** persistent_world_change + dialogue_overlay
 
 **Player control:** One Continue pauses the timer and returns control immediately; mission-end inspection gives 60 seconds of free movement with time paused.
 
@@ -4064,6 +4948,9 @@ The mission moves from tax incidence and subsidies to a concrete recommendation:
 **Panel/HUD text:** The housing fund receives a posted reservation while the delivery board loses twenty bookings. One supplier says the new costs will force it to close.
 
 **Unlocks:** Metric screen after inspecting the changed notice.
+
+**Dialogue bubble — Mara Velez:** “The receipt copy is sealed for the housing measure. Now we owe the supplier a fair look at the bill left on its side.”
+
 
 ## E. Location plan
 
@@ -4574,6 +5461,164 @@ The housing fund receives a posted reservation while the delivery board loses tw
 
 - **Mission takeaway:** The council owns the distribution choice while the player certifies the calculation.
 
+
+## L. GO DEEPER — Follow the policy money
+
+**Secondary briefing — exact player copy:** Use a tax and a subsidy to track both budget receipts and changes in the gains from trade. The person who hands over the tax is not necessarily the person bearing most of its burden.
+
+**Optional review behavior:** Select GO DEEPER from the completed mission card. All six questions are ungraded, timer-paused and reopenable. Selection, mistakes, hints and reveals change no bars, RP, evidence flags or unlocks. Keep the five worked examples as a separate button. Return closes review to the same completed mission card. Each question permits retries; show feedback for the chosen option and reveal the worked explanation only on explicit request.
+
+**Supporting concepts — exact player copy:**
+
+- Tax revenue equals the per-unit tax times the quantity actually traded after the tax. Subsidy budget cost likewise uses the paid subsidy and subsidized quantity.
+- Economic incidence measures price changes borne by buyers and sellers; legal remittance only names who sends the payment. The less elastic side generally bears more of a small tax.
+- For straight curves without externalities, tax deadweight loss is one-half times the tax wedge times the reduction in quantity. It is forgone surplus, not government revenue.
+- A transfer changes who holds purchasing power. Its distribution matters, but it is not itself the destruction of resources in a total-surplus account.
+
+### BT-GD-M06-Q1
+
+**Question:** A $3 per-unit tax is collected on 40 units sold. What is government revenue?
+
+- **A.** $3
+- **B.** $120
+- **C.** $43
+- **D.** $13.33
+
+**Correct key:** B
+
+**Hint:** Separate the tax wedge, the post-policy traded quantity, transfers and trades that disappear.
+
+**Worked explanation — reveal on request:** Tax revenue is the tax per traded unit times the post-tax quantity.
+
+**Feedback A:** Reconsider. That is the receipt per unit, not the total.
+
+**Feedback B:** Correct. Tax revenue is the tax per traded unit times the post-tax quantity.
+
+**Feedback C:** Reconsider. Adding a price and a quantity is not a revenue calculation.
+
+**Feedback D:** Reconsider. Dividing quantity by tax has the wrong units.
+
+
+### BT-GD-M06-Q2
+
+**Question:** Before a tax the price is $10. After it buyers pay $12 and sellers receive $9. What tax burden do buyers bear per unit?
+
+- **A.** $2
+- **B.** $3
+- **C.** $1
+- **D.** $12
+
+**Correct key:** A
+
+**Hint:** Separate the tax wedge, the post-policy traded quantity, transfers and trades that disappear.
+
+**Worked explanation — reveal on request:** Buyers pay two dollars more than before; sellers bear the remaining one.
+
+**Feedback A:** Correct. Buyers pay two dollars more than before; sellers bear the remaining one.
+
+**Feedback B:** Reconsider. Three is the full tax wedge, not the buyers' portion.
+
+**Feedback C:** Reconsider. One dollar is the seller's reduction from the old price.
+
+**Feedback D:** Reconsider. Twelve is the new gross price, not its tax-induced increase.
+
+
+### BT-GD-M06-Q3
+
+**Question:** Demand is much less elastic than supply. Which side generally bears more of a small tax in the competitive model?
+
+- **A.** Sellers because they remit the tax
+- **B.** Both must bear exactly half
+- **C.** Neither because government receives it
+- **D.** Buyers
+
+**Correct key:** D
+
+**Hint:** Separate the tax wedge, the post-policy traded quantity, transfers and trades that disappear.
+
+**Worked explanation — reveal on request:** The less responsive side has fewer alternatives and bears more of the wedge.
+
+**Feedback A:** Reconsider. Legal remittance does not determine economic incidence.
+
+**Feedback B:** Reconsider. Equal shares require additional conditions, not merely a tax.
+
+**Feedback C:** Reconsider. Revenue comes from a burden on participants even when government receives the funds.
+
+**Feedback D:** Correct. The less responsive side has fewer alternatives and bears more of the wedge.
+
+
+### BT-GD-M06-Q4
+
+**Question:** A tax wedge is $4 and quantity falls from 70 to 60. With straight curves and no externalities, what is deadweight loss?
+
+- **A.** $240
+- **B.** $280
+- **C.** $20
+- **D.** $40
+
+**Correct key:** C
+
+**Hint:** Separate the tax wedge, the post-policy traded quantity, transfers and trades that disappear.
+
+**Worked explanation — reveal on request:** The lost-surplus triangle is one-half times four times ten.
+
+**Feedback A:** Reconsider. That is tax revenue on sixty units.
+
+**Feedback B:** Reconsider. That uses the pre-tax quantity to calculate a receipt that is not collected.
+
+**Feedback C:** Correct. The lost-surplus triangle is one-half times four times ten.
+
+**Feedback D:** Reconsider. That is the full rectangle rather than the triangle.
+
+
+### BT-GD-M06-Q5
+
+**Question:** A subsidy pays producers $2 per unit on 75 units. Ignoring administration, what is the public budget cost?
+
+- **A.** Zero because producers receive it
+- **B.** $150
+- **C.** $77
+- **D.** $37.50
+
+**Correct key:** B
+
+**Hint:** Separate the tax wedge, the post-policy traded quantity, transfers and trades that disappear.
+
+**Worked explanation — reveal on request:** The treasury pays two dollars on each of seventy-five units.
+
+**Feedback A:** Reconsider. A transfer to producers is still a cost to the public budget.
+
+**Feedback B:** Correct. The treasury pays two dollars on each of seventy-five units.
+
+**Feedback C:** Reconsider. Price and quantity cannot simply be added.
+
+**Feedback D:** Reconsider. This divides where multiplication is required.
+
+
+### BT-GD-M06-Q6
+
+**Question:** A tax raises $100 and causes $15 deadweight loss in a market without externalities. Which statement is correct?
+
+- **A.** Revenue is a transfer; deadweight loss is lost total surplus
+- **B.** Total social loss is necessarily $115
+- **C.** There is no cost because revenue is useful
+- **D.** Deadweight loss is paid directly to sellers
+
+**Correct key:** A
+
+**Hint:** Separate the tax wedge, the post-policy traded quantity, transfers and trades that disappear.
+
+**Worked explanation — reveal on request:** The receipt changes hands, while the fifteen-dollar loss reflects trades no longer made.
+
+**Feedback A:** Correct. The receipt changes hands, while the fifteen-dollar loss reflects trades no longer made.
+
+**Feedback B:** Reconsider. This counts the entire transfer as destroyed resources.
+
+**Feedback C:** Reconsider. Useful revenue does not eliminate the stated forgone surplus.
+
+**Feedback D:** Reconsider. It is surplus that is not realized, not someone's receipt.
+
+
 # Mission 7 — THE SHUTTERED SUPPLIER
 
 ## A. Mission briefing card — exact player copy
@@ -4665,7 +5710,7 @@ The mission moves from competitive firm output and shutdown to a concrete recomm
 
 **Location:** Business Workshop.
 
-**Presentation:** equipment_panel_update + waypoint_notification
+**Presentation:** equipment_panel_update + waypoint_notification + dialogue_overlay
 
 **Player control:** One Continue pauses the timer and returns control immediately; mission-end inspection gives 60 seconds of free movement with time paused.
 
@@ -4675,11 +5720,15 @@ The mission moves from competitive firm output and shutdown to a concrete recomm
 
 **Unlocks:** Stop 26.
 
+**Dialogue bubble — Nico Bell:** “The month still shows a loss. I understand why the supplier wants to turn the key.”
+
+**Dialogue bubble — Mara Velez, radio:** “But closing also leaves a bill. Compare what can be avoided this month before advising it.”
+
 ### Beat BT-M7-2 — After Stop 26
 
 **Location:** Business Workshop.
 
-**Presentation:** equipment_panel_update + waypoint_notification
+**Presentation:** equipment_panel_update + waypoint_notification + dialogue_overlay
 
 **Player control:** One Continue pauses the timer and returns control immediately; mission-end inspection gives 60 seconds of free movement with time paused.
 
@@ -4688,6 +5737,8 @@ The mission moves from competitive firm output and shutdown to a concrete recomm
 **Panel/HUD text:** 100/20 gives variable cost per unit. The other 100/20 is fixed cost per unit. Total cost is 200, so cost per unit is 10. Shutdown eliminates variable costs here but not the lease. Take this result to Civic Advice Office; its original records are needed for compare closing with staying open.
 
 **Unlocks:** Stop 27.
+
+**Dialogue bubble — Nico Bell:** “Keeping this shift buys time. It is no promise that the lease makes sense next year.”
 
 ### Beat BT-M7-3 — After Stop 27
 
@@ -4721,7 +5772,7 @@ The mission moves from competitive firm output and shutdown to a concrete recomm
 
 **Location:** Civic Advice Office.
 
-**Presentation:** persistent_world_change
+**Presentation:** persistent_world_change + dialogue_overlay
 
 **Player control:** One Continue pauses the timer and returns control immediately; mission-end inspection gives 60 seconds of free movement with time paused.
 
@@ -4730,6 +5781,9 @@ The mission moves from competitive firm output and shutdown to a concrete recomm
 **Panel/HUD text:** The supplier shutter remains open and the next-month lease review appears beside it. New firms are seeking permission to open nearby.
 
 **Unlocks:** Metric screen after inspecting the changed notice.
+
+**Dialogue bubble — Nico Bell:** “The shift stays open and the lease gets a review date. I will not call a month of breathing room a permanent rescue.”
+
 
 ## E. Location plan
 
@@ -5241,6 +6295,164 @@ The supplier shutter remains open and the next-month lease review appears beside
 
 - **Mission takeaway:** Short-run continuity and long-run sustainability require different comparisons.
 
+
+## L. GO DEEPER — A loss does not settle the shutdown choice
+
+**Secondary briefing — exact player copy:** Decide whether a firm should keep operating for a specified period. Then look farther ahead, where contracts can end and new firms can enter. Keep accounting profit and economic profit separate.
+
+**Optional review behavior:** Select GO DEEPER from the completed mission card. All six questions are ungraded, timer-paused and reopenable. Selection, mistakes, hints and reveals change no bars, RP, evidence flags or unlocks. Keep the five worked examples as a separate button. Return closes review to the same completed mission card. Each question permits retries; show feedback for the chosen option and reveal the worked explanation only on explicit request.
+
+**Supporting concepts — exact player copy:**
+
+- Profit equals revenue minus total cost. Economic cost includes the owner’s forgone salary or other implicit opportunity costs.
+- Short-run shutdown compares the best operating revenue with avoidable variable cost. Unavoidable fixed cost is owed even if the firm closes.
+- At price equal to minimum average variable cost, operating and shutdown yield the same fixed-cost loss in the simple model. Below that threshold, shutdown limits the loss.
+- Free entry responds to positive economic profit by expanding market supply. Long-run entry or exit is distinct from closing a shift while a fixed bill remains due.
+
+### BT-GD-M07-Q1
+
+**Question:** A price-taking firm sells 20 units at $8. AVC is $6 and ATC is $10 at that output. What is economic profit?
+
+- **A.** A $40 loss
+- **B.** A $40 profit
+- **C.** A $120 loss
+- **D.** Zero
+
+**Correct key:** A
+
+**Hint:** Compare revenue with avoidable costs for a short-run choice; include opportunity costs when computing economic profit.
+
+**Worked explanation — reveal on request:** Revenue is 160 and total cost is 200, giving profit −40.
+
+**Feedback A:** Correct. Revenue is 160 and total cost is 200, giving profit −40.
+
+**Feedback B:** Reconsider. Forty is revenue above variable cost, before fixed costs.
+
+**Feedback C:** Reconsider. One hundred twenty is total variable cost, not loss.
+
+**Feedback D:** Reconsider. Price is below average total cost.
+
+
+### BT-GD-M07-Q2
+
+**Question:** At its best positive output a competitive firm has P=$8, AVC=$6 and ATC=$10. Fixed costs are unavoidable this week. Should it operate this week?
+
+- **A.** No, every loss means immediate shutdown
+- **B.** Yes, because price exceeds ATC
+- **C.** No, because marginal revenue is zero
+- **D.** Yes, because it covers variable cost and part of fixed cost
+
+**Correct key:** D
+
+**Hint:** Compare revenue with avoidable costs for a short-run choice; include opportunity costs when computing economic profit.
+
+**Worked explanation — reveal on request:** Operating contributes two dollars per unit toward a bill it owes even if closed.
+
+**Feedback A:** Reconsider. Closing does not avoid the stated fixed cost.
+
+**Feedback B:** Reconsider. Price is eight and ATC ten; this inequality is false.
+
+**Feedback C:** Reconsider. A price-taking seller earns the product price on each extra unit.
+
+**Feedback D:** Correct. Operating contributes two dollars per unit toward a bill it owes even if closed.
+
+
+### BT-GD-M07-Q3
+
+**Question:** A firm can earn at most $90 revenue while incurring $110 avoidable operating costs. An additional $50 fixed bill is unavoidable. What is the short-run choice?
+
+- **A.** Operate because total cost is $160
+- **B.** Close and pay nothing
+- **C.** Close and pay the $50 fixed bill
+- **D.** Operate because revenue is positive
+
+**Correct key:** C
+
+**Hint:** Compare revenue with avoidable costs for a short-run choice; include opportunity costs when computing economic profit.
+
+**Worked explanation — reveal on request:** Operating loses seventy dollars; closing loses fifty.
+
+**Feedback A:** Reconsider. That total implies a larger loss than closing.
+
+**Feedback B:** Reconsider. The stated fixed bill remains due.
+
+**Feedback C:** Correct. Operating loses seventy dollars; closing loses fifty.
+
+**Feedback D:** Reconsider. Positive revenue need not cover avoidable costs.
+
+
+### BT-GD-M07-Q4
+
+**Question:** A firm earns $30,000 accounting profit but the owner's forgone salary is $35,000, with no other implicit costs. What is economic profit?
+
+- **A.** Zero
+- **B.** A $5,000 loss
+- **C.** A $65,000 profit
+- **D.** A $30,000 profit
+
+**Correct key:** B
+
+**Hint:** Compare revenue with avoidable costs for a short-run choice; include opportunity costs when computing economic profit.
+
+**Worked explanation — reveal on request:** Economic profit subtracts the implicit forgone salary from accounting profit.
+
+**Feedback A:** Reconsider. Thirty thousand and thirty-five thousand are not equal.
+
+**Feedback B:** Correct. Economic profit subtracts the implicit forgone salary from accounting profit.
+
+**Feedback C:** Reconsider. Forgone earnings are a cost, not added revenue.
+
+**Feedback D:** Reconsider. That omits the implicit opportunity cost.
+
+
+### BT-GD-M07-Q5
+
+**Question:** In a competitive market with free entry, existing firms earn persistent positive economic profits. What adjustment is predicted?
+
+- **A.** Entry expands market supply and puts downward pressure on price
+- **B.** Existing firms can jointly fix price without consequence
+- **C.** Supply contracts because profits are high
+- **D.** Every firm's demand becomes upward sloping
+
+**Correct key:** A
+
+**Hint:** Compare revenue with avoidable costs for a short-run choice; include opportunity costs when computing economic profit.
+
+**Worked explanation — reveal on request:** New firms are attracted by profit until entry erodes it under the model's assumptions.
+
+**Feedback A:** Correct. New firms are attracted by profit until entry erodes it under the model's assumptions.
+
+**Feedback B:** Reconsider. That replaces competition with coordination, not the stated model.
+
+**Feedback C:** Reconsider. High profits encourage entry rather than market withdrawal.
+
+**Feedback D:** Reconsider. A price taker still faces the market price.
+
+
+### BT-GD-M07-Q6
+
+**Question:** Price equals minimum AVC but lies below ATC. At the relevant output, how does operating compare with shutting down for this period?
+
+- **A.** Operating earns zero economic profit
+- **B.** Shutting down avoids the fixed cost
+- **C.** Operating is strictly worse
+- **D.** Both lose the unavoidable fixed cost
+
+**Correct key:** D
+
+**Hint:** Compare revenue with avoidable costs for a short-run choice; include opportunity costs when computing economic profit.
+
+**Worked explanation — reveal on request:** Revenue exactly covers variable cost, leaving the same fixed loss either way.
+
+**Feedback A:** Reconsider. Fixed costs are not covered.
+
+**Feedback B:** Reconsider. It is explicitly unavoidable in this period.
+
+**Feedback C:** Reconsider. At equality, both choices produce the same loss in this model.
+
+**Feedback D:** Correct. Revenue exactly covers variable cost, leaving the same fixed loss either way.
+
+
 # Mission 8 — A STREET FULL OF SIGNS
 
 ## A. Mission briefing card — exact player copy
@@ -5330,7 +6542,7 @@ The mission moves from cost measures and opportunity cost of ownership to a conc
 
 **Location:** Business Workshop.
 
-**Presentation:** equipment_panel_update + waypoint_notification
+**Presentation:** equipment_panel_update + waypoint_notification + dialogue_overlay
 
 **Player control:** One Continue pauses the timer and returns control immediately; mission-end inspection gives 60 seconds of free movement with time paused.
 
@@ -5340,11 +6552,15 @@ The mission moves from cost measures and opportunity cost of ownership to a conc
 
 **Unlocks:** Stop 30.
 
+**Dialogue bubble — Nico Bell:** “New kitchens could take the profit I hoped would pay for my stove.”
+
+**Dialogue bubble — Leila Moss, radio:** “You asked for more suppliers when their prices hurt you. New diners deserve the same hearing.”
+
 ### Beat BT-M8-2 — After Stop 30
 
 **Location:** Business Workshop.
 
-**Presentation:** equipment_panel_update + waypoint_notification
+**Presentation:** equipment_panel_update + waypoint_notification + dialogue_overlay
 
 **Player control:** One Continue pauses the timer and returns control immediately; mission-end inspection gives 60 seconds of free movement with time paused.
 
@@ -5353,6 +6569,8 @@ The mission moves from cost measures and opportunity cost of ownership to a conc
 **Panel/HUD text:** Homogeneity and price-taking motivate the competitive benchmark. Product differences allow some price discretion despite entry. Falling long-run average cost defines economies of scale. Rising long-run average cost defines diseconomies, not short-run crowding. Take this result to Housing and Work Office; its original records are needed for what entry changes.
 
 **Unlocks:** Stop 31.
+
+**Dialogue bubble — Nico Bell:** “I cannot ask for open entry at the back door and close it at the front. Keep service checks fair for all of us.”
 
 ### Beat BT-M8-3 — After Stop 31
 
@@ -5386,7 +6604,7 @@ The mission moves from cost measures and opportunity cost of ownership to a conc
 
 **Location:** Housing and Work Office.
 
-**Presentation:** persistent_world_change
+**Presentation:** persistent_world_change + dialogue_overlay
 
 **Player control:** One Continue pauses the timer and returns control immediately; mission-end inspection gives 60 seconds of free movement with time paused.
 
@@ -5395,6 +6613,9 @@ The mission moves from cost measures and opportunity cost of ownership to a conc
 **Panel/HUD text:** New vendor permit placards appear at the existing supply shelves; the diner’s complaint is logged. Workers ask whether new employers will change the wage offers.
 
 **Unlocks:** Metric screen after inspecting the changed notice.
+
+**Dialogue bubble — Nico Bell:** “Their permits are beside my menu. I asked for this rule when I was the buyer; now I have to live with it as a seller.”
+
 
 ## E. Location plan
 
@@ -5906,6 +7127,164 @@ New vendor permit placards appear at the existing supply shelves; the diner’s 
 
 - **Mission takeaway:** The diner owner accepts new sellers after seeing that earlier calls for cheaper inputs used the same competition argument.
 
+
+## L. GO DEEPER — Competition with different products
+
+**Secondary briefing — exact player copy:** A cafe can have some pricing power without being the only place to eat. Explore entry, advertising and zero economic profit while keeping a firm’s own benefit distinct from a fair rule for the market.
+
+**Optional review behavior:** Select GO DEEPER from the completed mission card. All six questions are ungraded, timer-paused and reopenable. Selection, mistakes, hints and reveals change no bars, RP, evidence flags or unlocks. Keep the five worked examples as a separate button. Return closes review to the same completed mission card. Each question permits retries; show feedback for the chosen option and reveal the worked explanation only on explicit request.
+
+**Supporting concepts — exact player copy:**
+
+- Monopolistic competition combines differentiated products with many firms and relatively easy entry. Each seller can face downward-sloping demand for its particular product.
+- Entry of close substitutes can reduce an incumbent’s demand and economic profit. A markup over marginal cost does not by itself imply positive economic profit.
+- Zero economic profit means revenue covers explicit and implicit costs, including a normal return to the owner’s alternatives. It does not mean no income.
+- An incremental business decision compares added revenue with all added costs. Advertising cost and extra production cost both count when assessing an advertisement.
+
+### BT-GD-M08-Q1
+
+**Question:** A firm sells a differentiated product and many rivals can enter. Which model fits best?
+
+- **A.** Perfect competition
+- **B.** Pure monopoly
+- **C.** Monopsony
+- **D.** Monopolistic competition
+
+**Correct key:** D
+
+**Hint:** Separate differentiation, barriers to entry, marginal cost and average total cost.
+
+**Worked explanation — reveal on request:** Product differentiation and many potential entrants characterize this structure.
+
+**Feedback A:** Reconsider. That model assumes an identical product and price taking.
+
+**Feedback B:** Reconsider. Many potential rivals conflict with a sole protected seller.
+
+**Feedback C:** Reconsider. Monopsony describes market power by a buyer, not this seller structure.
+
+**Feedback D:** Correct. Product differentiation and many potential entrants characterize this structure.
+
+
+### BT-GD-M08-Q2
+
+**Question:** For a differentiated seller, entry of close substitutes shifts its demand inward. What is the likely effect on its economic profit, other things equal?
+
+- **A.** Its fixed cost must vanish
+- **B.** Market power must become infinite
+- **C.** Profit falls
+- **D.** Profit must rise because there are more firms
+
+**Correct key:** C
+
+**Hint:** Separate differentiation, barriers to entry, marginal cost and average total cost.
+
+**Worked explanation — reveal on request:** Some customers switch to new substitutes, reducing the incumbent's demand.
+
+**Feedback A:** Reconsider. Entry does not erase its lease or equipment bill.
+
+**Feedback B:** Reconsider. More close substitutes tend to constrain pricing power.
+
+**Feedback C:** Correct. Some customers switch to new substitutes, reducing the incumbent's demand.
+
+**Feedback D:** Reconsider. More rivals do not automatically bring the incumbent more customers.
+
+
+### BT-GD-M08-Q3
+
+**Question:** A monopolistically competitive firm in long-run equilibrium has P=ATC but P>MC. Which statement is consistent?
+
+- **A.** It is necessarily productively efficient
+- **B.** It earns zero economic profit while price exceeds marginal cost
+- **C.** It must have positive economic profit
+- **D.** It must shut down
+
+**Correct key:** B
+
+**Hint:** Separate differentiation, barriers to entry, marginal cost and average total cost.
+
+**Worked explanation — reveal on request:** The first equality gives zero economic profit; the second allows markup and allocative inefficiency.
+
+**Feedback A:** Reconsider. Its output need not be at minimum ATC.
+
+**Feedback B:** Correct. The first equality gives zero economic profit; the second allows markup and allocative inefficiency.
+
+**Feedback C:** Reconsider. A markup over marginal cost need not exceed average total cost.
+
+**Feedback D:** Reconsider. Price can cover ATC and therefore operating costs.
+
+
+### BT-GD-M08-Q4
+
+**Question:** An owner spends $80 on an advertisement, gaining $130 revenue and $70 additional production cost. Should this isolated change be adopted for profit?
+
+- **A.** No; incremental profit is −$20
+- **B.** Yes; revenue rises $130
+- **C.** Yes; profit rises $50
+- **D.** No; profit falls $150
+
+**Correct key:** A
+
+**Hint:** Separate differentiation, barriers to entry, marginal cost and average total cost.
+
+**Worked explanation — reveal on request:** Extra profit is 130 minus 70 minus 80.
+
+**Feedback A:** Correct. Extra profit is 130 minus 70 minus 80.
+
+**Feedback B:** Reconsider. Revenue alone omits the costs of obtaining it.
+
+**Feedback C:** Reconsider. Subtracting the advertisement alone omits added production cost.
+
+**Feedback D:** Reconsider. The cost total ignores the additional revenue.
+
+
+### BT-GD-M08-Q5
+
+**Question:** Two cafes charge different prices for different menus and locations. What additional evidence would most directly weaken an accusation that the higher price proves monopoly abuse?
+
+- **A.** The expensive cafe likes profit
+- **B.** Its profit margin exceeds zero
+- **C.** Its posted price exceeds marginal cost
+- **D.** Customers have several close alternatives and entry is easy
+
+**Correct key:** D
+
+**Hint:** Separate differentiation, barriers to entry, marginal cost and average total cost.
+
+**Worked explanation — reveal on request:** Differentiation and convenience can support price differences without a protected sole supplier.
+
+**Feedback A:** Reconsider. Most firms seek profit; that alone does not identify monopoly.
+
+**Feedback B:** Reconsider. Positive profit alone does not establish monopoly or entry barriers.
+
+**Feedback C:** Reconsider. Differentiated competitive sellers can also have a markup; this does not distinguish monopoly abuse.
+
+**Feedback D:** Correct. Differentiation and convenience can support price differences without a protected sole supplier.
+
+
+### BT-GD-M08-Q6
+
+**Question:** A firm earns zero economic profit after covering explicit and implicit costs. What does this mean for its owner?
+
+- **A.** Revenue is zero
+- **B.** The firm must be nonprofit by law
+- **C.** The owner receives the normal return included in opportunity costs
+- **D.** The owner receives no income
+
+**Correct key:** C
+
+**Hint:** Separate differentiation, barriers to entry, marginal cost and average total cost.
+
+**Worked explanation — reveal on request:** Zero economic profit includes compensation for the owner's next-best use of resources.
+
+**Feedback A:** Reconsider. Revenue can exactly match total economic cost.
+
+**Feedback B:** Reconsider. An economic result is not a legal organizational category.
+
+**Feedback C:** Correct. Zero economic profit includes compensation for the owner's next-best use of resources.
+
+**Feedback D:** Reconsider. Income can cover the opportunity cost without excess profit.
+
+
 # Mission 9 — THE ONLY BIG PAYROLL
 
 ## A. Mission briefing card — exact player copy
@@ -5993,7 +7372,7 @@ The mission moves from monopsony and minimum wages to a concrete recommendation:
 
 **Location:** Housing and Work Office.
 
-**Presentation:** equipment_panel_update + waypoint_notification
+**Presentation:** equipment_panel_update + waypoint_notification + dialogue_overlay
 
 **Player control:** One Continue pauses the timer and returns control immediately; mission-end inspection gives 60 seconds of free movement with time paused.
 
@@ -6003,11 +7382,15 @@ The mission moves from monopsony and minimum wages to a concrete recommendation:
 
 **Unlocks:** Stop 34.
 
+**Dialogue bubble — Leila Moss:** “The cost of the next hire includes what happens to the wage bill for existing staff.”
+
+**Dialogue bubble — Nico Bell, radio:** “That makes my first tally too small. I counted one new wage and stopped.”
+
 ### Beat BT-M9-2 — After Stop 34
 
 **Location:** Housing and Work Office.
 
-**Presentation:** equipment_panel_update + waypoint_notification
+**Presentation:** equipment_panel_update + waypoint_notification + dialogue_overlay
 
 **Player control:** One Continue pauses the timer and returns control immediately; mission-end inspection gives 60 seconds of free movement with time paused.
 
@@ -6016,6 +7399,8 @@ The mission moves from monopsony and minimum wages to a concrete recommendation:
 **Panel/HUD text:** A higher output price raises receipts from an extra worker’s output. Greater productivity raises the worker’s marginal revenue product. Additional workers expand available labor at each wage. An own-wage change is a movement along existing schedules, not a determinant shift. Take this result to Business Workshop; its original records are needed for test the wage floor.
 
 **Unlocks:** Stop 35.
+
+**Dialogue bubble — Leila Moss:** “A better offer can change who takes a job. That is a choice workers make, not a debt they owe an old employer.”
 
 ### Beat BT-M9-3 — After Stop 35
 
@@ -6049,7 +7434,7 @@ The mission moves from monopsony and minimum wages to a concrete recommendation:
 
 **Location:** Business Workshop.
 
-**Presentation:** persistent_world_change
+**Presentation:** persistent_world_change + dialogue_overlay
 
 **Player control:** One Continue pauses the timer and returns control immediately; mission-end inspection gives 60 seconds of free movement with time paused.
 
@@ -6058,6 +7443,9 @@ The mission moves from monopsony and minimum wages to a concrete recommendation:
 **Panel/HUD text:** The job board changes from three to four filled posts at the signed offer. The employer says freight charges now limit its output.
 
 **Unlocks:** Metric screen after inspecting the changed notice.
+
+**Dialogue bubble — Leila Moss:** “There is a fourth job slip under the offer. We will check that job as well as the headline wage.”
+
 
 ## E. Location plan
 
@@ -6568,6 +7956,164 @@ The job board changes from three to four filled posts at the signed offer. The e
 
 - **Mission takeaway:** The worker agreement gains support from evidence rather than a blanket claim about regulation.
 
+
+## L. GO DEEPER — A wage offer is part of a whole payroll
+
+**Secondary briefing — exact player copy:** Use a new payroll to see why the next worker can cost more than the posted wage. Then consider how an outside employer or a carefully chosen wage floor changes the choices available.
+
+**Optional review behavior:** Select GO DEEPER from the completed mission card. All six questions are ungraded, timer-paused and reopenable. Selection, mistakes, hints and reveals change no bars, RP, evidence flags or unlocks. Keep the five worked examples as a separate button. Return closes review to the same completed mission card. Each question permits retries; show feedback for the chosen option and reveal the worked explanation only on explicit request.
+
+**Supporting concepts — exact player copy:**
+
+- Marginal factor cost is the change in total input expenditure. If hiring requires a higher wage for all workers, it includes raises for existing workers.
+- Labor demand reflects marginal revenue product. For a product price taker it is marginal product multiplied by the product price.
+- A monopsonist has buyer power in a labor market; this does not require monopoly in the product it sells. Upward labor supply can make marginal factor cost exceed the wage.
+- A suitable wage floor can raise employment in some monopsony models, but an excessively high floor can reduce it. Outside job options can also make workers less dependent on one buyer.
+
+### BT-GD-M09-Q1
+
+**Question:** A single employer must raise everyone's wage from $20 to $22 to increase staff from 4 to 5. What is marginal factor cost of the fifth hire?
+
+- **A.** $2
+- **B.** $110
+- **C.** $30
+- **D.** $22
+
+**Correct key:** C
+
+**Hint:** Compare the change in the whole wage bill with the revenue generated by the next worker.
+
+**Worked explanation — reveal on request:** The wage bill rises from eighty to one hundred ten.
+
+**Feedback A:** Reconsider. That is the wage increase per worker, not the total bill change.
+
+**Feedback B:** Reconsider. That is the new total wage bill.
+
+**Feedback C:** Correct. The wage bill rises from eighty to one hundred ten.
+
+**Feedback D:** Reconsider. That omits the raise paid to the four existing staff.
+
+
+### BT-GD-M09-Q2
+
+**Question:** A competitive product seller's worker produces 5 extra units at a market price of $12. What is marginal revenue product?
+
+- **A.** $12
+- **B.** $60
+- **C.** $17
+- **D.** $2.40
+
+**Correct key:** B
+
+**Hint:** Compare the change in the whole wage bill with the revenue generated by the next worker.
+
+**Worked explanation — reveal on request:** Five additional units each yield twelve dollars.
+
+**Feedback A:** Reconsider. That counts only one of the five extra units.
+
+**Feedback B:** Correct. Five additional units each yield twelve dollars.
+
+**Feedback C:** Reconsider. Adding units and dollars is not revenue.
+
+**Feedback D:** Reconsider. Dividing price by output has the wrong interpretation.
+
+
+### BT-GD-M09-Q3
+
+**Question:** An employer is a wage taker at $40. The next worker's marginal revenue product is $46. What is the profit effect of hiring that worker?
+
+- **A.** Profit rises $6
+- **B.** Profit rises $46
+- **C.** Profit falls $40
+- **D.** Profit is unchanged
+
+**Correct key:** A
+
+**Hint:** Compare the change in the whole wage bill with the revenue generated by the next worker.
+
+**Worked explanation — reveal on request:** Additional revenue exceeds the added wage by six.
+
+**Feedback A:** Correct. Additional revenue exceeds the added wage by six.
+
+**Feedback B:** Reconsider. The wage cost must be subtracted.
+
+**Feedback C:** Reconsider. This ignores the worker's contribution to revenue.
+
+**Feedback D:** Reconsider. Marginal revenue product and wage are not equal.
+
+
+### BT-GD-M09-Q4
+
+**Question:** In an upward-sloping single-wage labor supply schedule, why is a monopsonist's marginal factor cost above the wage?
+
+- **A.** Workers always produce less than they cost
+- **B.** The wage equals total payroll
+- **C.** The employer must also face zero product-market competition
+- **D.** Hiring more requires raising pay for existing workers too
+
+**Correct key:** D
+
+**Hint:** Compare the change in the whole wage bill with the revenue generated by the next worker.
+
+**Worked explanation — reveal on request:** The extra wage bill includes both the new worker's pay and raises for existing staff.
+
+**Feedback A:** Reconsider. Productivity is a separate labor-demand question.
+
+**Feedback B:** Reconsider. Wage is per worker; payroll covers all workers.
+
+**Feedback C:** Reconsider. Buyer power in labor can coexist with competition in the product market.
+
+**Feedback D:** Correct. The extra wage bill includes both the new worker's pay and raises for existing staff.
+
+
+### BT-GD-M09-Q5
+
+**Question:** A wage floor increases both wage and employment in a particular monopsony model. What conclusion is justified?
+
+- **A.** The original market must have been perfectly competitive
+- **B.** Worker productivity must have doubled
+- **C.** This can occur for a suitable floor, but is not guaranteed for every floor
+- **D.** All wage floors increase employment
+
+**Correct key:** C
+
+**Hint:** Compare the change in the whole wage bill with the revenue generated by the next worker.
+
+**Worked explanation — reveal on request:** A floor can flatten relevant marginal hiring cost, while an excessively high floor can reduce employment.
+
+**Feedback A:** Reconsider. The question expressly specifies monopsony.
+
+**Feedback B:** Reconsider. The result can arise from a changed hiring-cost schedule without productivity growth.
+
+**Feedback C:** Correct. A floor can flatten relevant marginal hiring cost, while an excessively high floor can reduce employment.
+
+**Feedback D:** Reconsider. The level of the floor and the market structure matter.
+
+
+### BT-GD-M09-Q6
+
+**Question:** A new competing employer offers accessible jobs nearby. In a monopsony setting, why can this improve workers' bargaining position?
+
+- **A.** It guarantees every worker a wage equal to the value of all firm output
+- **B.** It provides an alternative to the original employer's offer
+- **C.** It makes every wage legally identical
+- **D.** It guarantees all workers switch jobs
+
+**Correct key:** B
+
+**Hint:** Compare the change in the whole wage bill with the revenue generated by the next worker.
+
+**Worked explanation — reveal on request:** Outside job options can make labor supply to one employer more responsive.
+
+**Feedback A:** Reconsider. An outside option does not give each worker the firm’s entire revenue.
+
+**Feedback B:** Correct. Outside job options can make labor supply to one employer more responsive.
+
+**Feedback C:** Reconsider. No such rule is supplied.
+
+**Feedback D:** Reconsider. An outside option can matter without universal switching.
+
+
 # Mission 10 — THE EMPTY FREIGHT SLOT
 
 ## A. Mission briefing card — exact player copy
@@ -6657,7 +8203,7 @@ The mission moves from monopoly price, output and surplus to a concrete recommen
 
 **Location:** Freight Contract Office.
 
-**Presentation:** equipment_panel_update + waypoint_notification
+**Presentation:** equipment_panel_update + waypoint_notification + dialogue_overlay
 
 **Player control:** One Continue pauses the timer and returns control immediately; mission-end inspection gives 60 seconds of free movement with time paused.
 
@@ -6667,11 +8213,15 @@ The mission moves from monopoly price, output and surplus to a concrete recommen
 
 **Unlocks:** Stop 38.
 
+**Dialogue bubble — Ruth Sen:** “Those are the bookings the price rule selects. They are not all the slots the yard can handle.”
+
+**Dialogue bubble — Mara Velez, radio:** “Then I owe the hearing a correction: price and physical capacity are separate claims.”
+
 ### Beat BT-M10-2 — After Stop 38
 
 **Location:** Freight Contract Office.
 
-**Presentation:** equipment_panel_update + waypoint_notification
+**Presentation:** equipment_panel_update + waypoint_notification + dialogue_overlay
 
 **Player control:** One Continue pauses the timer and returns control immediately; mission-end inspection gives 60 seconds of free movement with time paused.
 
@@ -6680,6 +8230,8 @@ The mission moves from monopoly price, output and surplus to a concrete recommen
 **Panel/HUD text:** MR=MC gives 4Q=80 and Q=20. Price is taken from demand, yielding 60. With no externalities, P=MC gives Q=40. Capacity minus scheduled use is 50−20=30. Take this result to Civic Advice Office; its original records are needed for why space remains empty.
 
 **Unlocks:** Stop 39.
+
+**Dialogue bubble — Ruth Sen:** “I will show the unused slots. Keep an explicit way to pay for upkeep beside the access proposal.”
 
 ### Beat BT-M10-3 — After Stop 39
 
@@ -6694,6 +8246,8 @@ The mission moves from monopoly price, output and surplus to a concrete recommen
 **Panel/HUD text:** The dispatch count agrees with demand at the charged price, and usable capacity exceeds it. With unchanged marginal cost, the supplied monopoly model explains the low output without a breakdown; this does not claim every unused slot in reality proves monopoly abuse.
 
 **Unlocks:** Stop 40.
+
+**Dialogue bubble — Sal Ortiz, radio:** “I have marked the usable slots. A booking rule kept them empty; the track did not vanish.”
 
 ### Beat BT-M10-4 — After Stop 40
 
@@ -6713,7 +8267,7 @@ The mission moves from monopoly price, output and surplus to a concrete recommen
 
 **Location:** Civic Advice Office.
 
-**Presentation:** persistent_world_change
+**Presentation:** persistent_world_change + dialogue_overlay
 
 **Player control:** One Continue pauses the timer and returns control immediately; mission-end inspection gives 60 seconds of free movement with time paused.
 
@@ -6722,6 +8276,9 @@ The mission moves from monopoly price, output and surplus to a concrete recommen
 **Panel/HUD text:** The freight wall map keeps thirty unused slots lit with text labels beside the entry barrier. Two freight firms now propose competing access contracts.
 
 **Unlocks:** Metric screen after inspecting the changed notice.
+
+**Dialogue bubble — Ruth Sen:** “The unused tags are out of the stack. You can challenge my access rule without pretending the upkeep bill is made up.”
+
 
 ## E. Location plan
 
@@ -7241,6 +8798,164 @@ The freight wall map keeps thirty unused slots lit with text labels beside the e
 
 - **Mission takeaway:** The town can ask whether competition requires duplicate infrastructure or better access.
 
+
+## L. GO DEEPER — Price, capacity and cost recovery
+
+**Secondary briefing — exact player copy:** Keep three questions apart: what a monopolist chooses, what buyers pay, and what output would maximize total surplus. Then ask whether an access policy pays the operator’s full cost.
+
+**Optional review behavior:** Select GO DEEPER from the completed mission card. All six questions are ungraded, timer-paused and reopenable. Selection, mistakes, hints and reveals change no bars, RP, evidence flags or unlocks. Keep the five worked examples as a separate button. Return closes review to the same completed mission card. Each question permits retries; show feedback for the chosen option and reveal the worked explanation only on explicit request.
+
+**Supporting concepts — exact player copy:**
+
+- A single-price monopolist uses marginal revenue equal to marginal cost for its interior profit-maximizing quantity, then reads price from demand.
+- Marginal revenue lies below price because a price cut needed for extra sales also reduces revenue on earlier units.
+- Without externalities, the efficient output equates marginal willingness to pay with marginal cost. It need not be the monopoly output.
+- A natural monopoly can have average total cost above marginal cost. Regulating price at marginal cost can require separate funding for a resulting total-cost gap.
+
+### BT-GD-M10-Q1
+
+**Question:** A monopolist faces P=50−Q and constant MC=10; MR=50−2Q. What profit-maximizing quantity solves MR=MC?
+
+- **A.** 50 units
+- **B.** 20 units
+- **C.** 40 units
+- **D.** 10 units
+
+**Correct key:** B
+
+**Hint:** Use MR=MC for the firm and marginal benefit equals marginal social cost for efficiency; obtain price from demand.
+
+**Worked explanation — reveal on request:** Fifty minus twice Q equals ten, so Q is twenty.
+
+**Feedback A:** Reconsider. Fifty is the demand intercept at zero price.
+
+**Feedback B:** Correct. Fifty minus twice Q equals ten, so Q is twenty.
+
+**Feedback C:** Reconsider. Forty solves P=MC, the no-externality efficient benchmark.
+
+**Feedback D:** Reconsider. Ten is marginal cost, not the optimizing quantity.
+
+
+### BT-GD-M10-Q2
+
+**Question:** With demand P=50−Q, a monopolist chooses Q=20. What price can it charge for that quantity?
+
+- **A.** $30
+- **B.** $10
+- **C.** $20
+- **D.** $50
+
+**Correct key:** A
+
+**Hint:** Use MR=MC for the firm and marginal benefit equals marginal social cost for efficiency; obtain price from demand.
+
+**Worked explanation — reveal on request:** Substituting twenty into the demand curve gives fifty minus twenty.
+
+**Feedback A:** Correct. Substituting twenty into the demand curve gives fifty minus twenty.
+
+**Feedback B:** Reconsider. That would be MR at twenty, not the buyer price.
+
+**Feedback C:** Reconsider. That is the chosen quantity, not its price.
+
+**Feedback D:** Reconsider. That price occurs at zero quantity on this curve.
+
+
+### BT-GD-M10-Q3
+
+**Question:** Why is marginal revenue below price for a single-price monopolist on a downward demand curve?
+
+- **A.** The firm sells every unit at marginal cost
+- **B.** Demand must be upward sloping
+- **C.** All fixed costs rise with output
+- **D.** Selling more requires a lower price on earlier units as well
+
+**Correct key:** D
+
+**Hint:** Use MR=MC for the firm and marginal benefit equals marginal social cost for efficiency; obtain price from demand.
+
+**Worked explanation — reveal on request:** The extra unit earns revenue, but the price cut reduces revenue on inframarginal sales.
+
+**Feedback A:** Reconsider. That is not implied by monopoly.
+
+**Feedback B:** Reconsider. The premise explicitly says downward sloping.
+
+**Feedback C:** Reconsider. Fixed cost does not explain the revenue relation.
+
+**Feedback D:** Correct. The extra unit earns revenue, but the price cut reduces revenue on inframarginal sales.
+
+
+### BT-GD-M10-Q4
+
+**Question:** Demand is P=50−Q and MC=10, with no externalities. Which output maximizes total surplus?
+
+- **A.** 50 units
+- **B.** 10 units
+- **C.** 40 units
+- **D.** 20 units
+
+**Correct key:** C
+
+**Hint:** Use MR=MC for the firm and marginal benefit equals marginal social cost for efficiency; obtain price from demand.
+
+**Worked explanation — reveal on request:** Set marginal willingness to pay equal to marginal cost: fifty minus Q equals ten.
+
+**Feedback A:** Reconsider. At fifty, marginal willingness to pay is zero while cost remains ten.
+
+**Feedback B:** Reconsider. The marginal cost number is not itself the output solution.
+
+**Feedback C:** Correct. Set marginal willingness to pay equal to marginal cost: fifty minus Q equals ten.
+
+**Feedback D:** Reconsider. That is the single-price monopoly output, not the efficient benchmark.
+
+
+### BT-GD-M10-Q5
+
+**Question:** An operator has spare usable capacity but restricts bookings to increase profit. What does the spare capacity show?
+
+- **A.** All regulation will be costless
+- **B.** A physical expansion may not be the first remedy for restricted access
+- **C.** The operator has no costs
+- **D.** The price must equal marginal cost
+
+**Correct key:** B
+
+**Hint:** Use MR=MC for the firm and marginal benefit equals marginal social cost for efficiency; obtain price from demand.
+
+**Worked explanation — reveal on request:** Unused usable slots separate the capacity constraint from the operator's chosen output.
+
+**Feedback A:** Reconsider. Changing access can require administration and a cost-recovery plan.
+
+**Feedback B:** Correct. Unused usable slots separate the capacity constraint from the operator's chosen output.
+
+**Feedback C:** Reconsider. Spare capacity does not erase maintenance or fixed costs.
+
+**Feedback D:** Reconsider. Spare usable capacity does not establish marginal-cost pricing.
+
+
+### BT-GD-M10-Q6
+
+**Question:** A natural monopoly has average cost $14 and marginal cost $8 at the proposed output of 100. If price is regulated at $8, what funding gap results?
+
+- **A.** $600
+- **B.** $6
+- **C.** $800
+- **D.** No gap because P=MC is efficient
+
+**Correct key:** A
+
+**Hint:** Use MR=MC for the firm and marginal benefit equals marginal social cost for efficiency; obtain price from demand.
+
+**Worked explanation — reveal on request:** Total cost is fourteen hundred and sales revenue eight hundred.
+
+**Feedback A:** Correct. Total cost is fourteen hundred and sales revenue eight hundred.
+
+**Feedback B:** Reconsider. That is the gap per unit, not total funding.
+
+**Feedback C:** Reconsider. That is revenue, not the deficit.
+
+**Feedback D:** Reconsider. Marginal-cost pricing can leave fixed costs uncovered.
+
+
 # Mission 11 — TWO OFFERS, ONE GATE
 
 ## A. Mission briefing card — exact player copy
@@ -7327,7 +9042,7 @@ The mission moves from oligopoly and strategic interaction to a concrete recomme
 
 **Location:** Freight Contract Office.
 
-**Presentation:** equipment_panel_update + waypoint_notification
+**Presentation:** equipment_panel_update + waypoint_notification + dialogue_overlay
 
 **Player control:** One Continue pauses the timer and returns control immediately; mission-end inspection gives 60 seconds of free movement with time paused.
 
@@ -7337,11 +9052,15 @@ The mission moves from oligopoly and strategic interaction to a concrete recomme
 
 **Unlocks:** Stop 42.
 
+**Dialogue bubble — Ruth Sen:** “The joint return makes the pact look comfortable on paper.”
+
+**Dialogue bubble — Nico Bell, radio:** “Only if the other firm stays put when breaking it pays. My supplies need a forecast that survives that choice.”
+
 ### Beat BT-M11-2 — After Stop 42
 
 **Location:** Business Workshop.
 
-**Presentation:** equipment_panel_update + waypoint_notification
+**Presentation:** equipment_panel_update + waypoint_notification + dialogue_overlay
 
 **Player control:** One Continue pauses the timer and returns control immediately; mission-end inspection gives 60 seconds of free movement with time paused.
 
@@ -7350,6 +9069,8 @@ The mission moves from oligopoly and strategic interaction to a concrete recomme
 **Panel/HUD text:** Against restriction, expansion raises A’s own payoff from 40 to 60. Against expansion, expansion raises A’s payoff from 20 to 30. The symmetric table gives B the same gain of 20 against restriction. B gains 10 against expansion; compare its own coordinate. Take this result to Civic Advice Office; its original records are needed for freeze the forecast.
 
 **Unlocks:** Stop 43.
+
+**Dialogue bubble — Ruth Sen:** “We can publish the incentive each firm faces. We cannot sign a promise on its behalf.”
 
 ### Beat BT-M11-3 — After Stop 43
 
@@ -7383,7 +9104,7 @@ The mission moves from oligopoly and strategic interaction to a concrete recomme
 
 **Location:** Civic Advice Office.
 
-**Presentation:** persistent_world_change
+**Presentation:** persistent_world_change + dialogue_overlay
 
 **Player control:** One Continue pauses the timer and returns control immediately; mission-end inspection gives 60 seconds of free movement with time paused.
 
@@ -7392,6 +9113,9 @@ The mission moves from oligopoly and strategic interaction to a concrete recomme
 **Panel/HUD text:** The pact’s guaranteed-service stamp is revoked and its forecast is relabeled conditional. Extra freight would also add traffic and pollution.
 
 **Unlocks:** Metric screen after inspecting the changed notice.
+
+**Dialogue bubble — Ruth Sen:** “I have taken the guarantee sleeve off. A forecast is stronger when it states what neither firm has promised to do.”
+
 
 ## E. Location plan
 
@@ -7900,6 +9624,164 @@ The pact’s guaranteed-service stamp is revoked and its forecast is relabeled c
 
 - **Mission takeaway:** The town must not budget service on an unstable private promise.
 
+
+## L. GO DEEPER — Promises and incentives
+
+**Secondary briefing — exact player copy:** Read each firm’s choices separately before judging their joint proposal. The table in these questions describes a one-shot game; later questions ask what evidence would be needed to change that model.
+
+**Optional review behavior:** Select GO DEEPER from the completed mission card. All six questions are ungraded, timer-paused and reopenable. Selection, mistakes, hints and reveals change no bars, RP, evidence flags or unlocks. Keep the five worked examples as a separate button. Return closes review to the same completed mission card. Each question permits retries; show feedback for the chosen option and reveal the worked explanation only on explicit request.
+
+**Supporting concepts — exact player copy:**
+
+- A best response maximizes one player’s payoff with the other player’s action held fixed. Read the correct player’s number in each payoff pair.
+- A dominant action is best against each available rival action. A Nash equilibrium is a set of mutual best responses; no player gains by switching alone.
+- The joint maximum can differ from equilibrium because each firm has an incentive to deviate. Joint preference does not itself enforce cooperation.
+- Repeated dealings or enforceable penalties change the incentives. They require specified future payoffs or credible consequences before a coordinated forecast can be justified.
+
+### BT-GD-M11-Q1
+
+**Question:** Two firms choose Hold or Expand. Payoffs (A,B) are HH=(6,6), EH=(8,3), HE=(3,8), EE=(4,4). What is A's best response if B holds?
+
+- **A.** Expand
+- **B.** Hold
+- **C.** Either equally
+- **D.** Wait because B receives three
+
+**Correct key:** A
+
+**Hint:** Hold the other firm’s action fixed and compare only the deciding firm’s payoffs before looking for mutual best responses.
+
+**Worked explanation — reveal on request:** A receives eight from expansion versus six from holding.
+
+**Feedback A:** Correct. A receives eight from expansion versus six from holding.
+
+**Feedback B:** Reconsider. Six is smaller than eight for A.
+
+**Feedback C:** Reconsider. The two payoffs differ.
+
+**Feedback D:** Reconsider. A's best response compares A's own payoffs.
+
+
+### BT-GD-M11-Q2
+
+**Question:** Using HH=(6,6), EH=(8,3), HE=(3,8), EE=(4,4), what is A's best response if B expands?
+
+- **A.** Hold
+- **B.** Either equally
+- **C.** The joint maximum regardless of B
+- **D.** Expand
+
+**Correct key:** D
+
+**Hint:** Hold the other firm’s action fixed and compare only the deciding firm’s payoffs before looking for mutual best responses.
+
+**Worked explanation — reveal on request:** A earns four from expanding versus three from holding.
+
+**Feedback A:** Reconsider. Holding gives A three when B expands.
+
+**Feedback B:** Reconsider. Four and three are not tied.
+
+**Feedback C:** Reconsider. A best response holds B's stated action fixed.
+
+**Feedback D:** Correct. A earns four from expanding versus three from holding.
+
+
+### BT-GD-M11-Q3
+
+**Question:** For HH=(6,6), EH=(8,3), HE=(3,8), EE=(4,4), which outcome is a Nash equilibrium?
+
+- **A.** Only A expands
+- **B.** Only B expands
+- **C.** Both expand
+- **D.** Both hold
+
+**Correct key:** C
+
+**Hint:** Hold the other firm’s action fixed and compare only the deciding firm’s payoffs before looking for mutual best responses.
+
+**Worked explanation — reveal on request:** Neither can improve alone from EE: switching to Hold reduces its payoff from four to three.
+
+**Feedback A:** Reconsider. B would then gain from expanding too.
+
+**Feedback B:** Reconsider. A would then gain from expanding too.
+
+**Feedback C:** Correct. Neither can improve alone from EE: switching to Hold reduces its payoff from four to three.
+
+**Feedback D:** Reconsider. Either can gain by expanding alone from HH.
+
+
+### BT-GD-M11-Q4
+
+**Question:** Why can both firms prefer HH=(6,6) to EE=(4,4) yet end at EE in the one-shot game described?
+
+- **A.** A Nash equilibrium always maximizes joint profit
+- **B.** Each has an individual incentive to expand regardless of the other's choice
+- **C.** Each firm maximizes the combined payoff
+- **D.** The joint total at EE is higher
+
+**Correct key:** B
+
+**Hint:** Hold the other firm’s action fixed and compare only the deciding firm’s payoffs before looking for mutual best responses.
+
+**Worked explanation — reveal on request:** Joint preference does not remove each firm's unilateral gain from deviation.
+
+**Feedback A:** Reconsider. This table is a counterexample.
+
+**Feedback B:** Correct. Joint preference does not remove each firm's unilateral gain from deviation.
+
+**Feedback C:** Reconsider. That would favor HH; the one-shot incentive compares each firm’s own payoff.
+
+**Feedback D:** Reconsider. Eight is lower than twelve.
+
+
+### BT-GD-M11-Q5
+
+**Question:** A long-term relationship adds credible future penalties for breaking a pact. What must an analyst do before reusing the one-shot prediction?
+
+- **A.** Specify the repeated game's incentives and compare gains from deviation with future losses
+- **B.** Assume cooperation is guaranteed forever
+- **C.** Ignore future losses by definition
+- **D.** Delete the possibility of deviation
+
+**Correct key:** A
+
+**Hint:** Hold the other firm’s action fixed and compare only the deciding firm’s payoffs before looking for mutual best responses.
+
+**Worked explanation — reveal on request:** The new enforcement and future payoffs alter the decision problem.
+
+**Feedback A:** Correct. The new enforcement and future payoffs alter the decision problem.
+
+**Feedback B:** Reconsider. Future interaction alone does not establish incentive compatibility.
+
+**Feedback C:** Reconsider. They are part of the changed model.
+
+**Feedback D:** Reconsider. A credible analysis must still examine that choice.
+
+
+### BT-GD-M11-Q6
+
+**Question:** A contract forecast assumes voluntary coordination but supplies no enforcement or repeated-game payoffs. What is the defensible reporting choice?
+
+- **A.** Call the joint maximum guaranteed service
+- **B.** Report only the worse number without its assumptions
+- **C.** Treat the contract title as proof of compliance
+- **D.** Label the coordinated result conditional and keep the supported one-shot forecast separate
+
+**Correct key:** D
+
+**Hint:** Hold the other firm’s action fixed and compare only the deciding firm’s payoffs before looking for mutual best responses.
+
+**Worked explanation — reveal on request:** This distinguishes a desired pact outcome from the evidence for actual incentives.
+
+**Feedback A:** Reconsider. A desirable joint payoff is not enforcement.
+
+**Feedback B:** Reconsider. A forecast still needs its model and conditions.
+
+**Feedback C:** Reconsider. A label does not specify incentives or enforceability.
+
+**Feedback D:** Correct. This distinguishes a desired pact outcome from the evidence for actual incentives.
+
+
 # Mission 12 — THE WATER BELOW
 
 ## A. Mission briefing card — exact player copy
@@ -7993,7 +9875,7 @@ The mission moves from external costs and benefits to a concrete recommendation:
 
 **Location:** Water and Land Office.
 
-**Presentation:** equipment_panel_update + waypoint_notification
+**Presentation:** equipment_panel_update + waypoint_notification + dialogue_overlay
 
 **Player control:** One Continue pauses the timer and returns control immediately; mission-end inspection gives 60 seconds of free movement with time paused.
 
@@ -8003,11 +9885,15 @@ The mission moves from external costs and benefits to a concrete recommendation:
 
 **Unlocks:** Stop 46.
 
+**Dialogue bubble — Owen Price:** “That downstream cost was missing from the freight comparison.”
+
+**Dialogue bubble — Mara Velez, radio:** “Then more access alone is not the full efficiency test. I will reopen the target.”
+
 ### Beat BT-M12-2 — After Stop 46
 
 **Location:** Freight Contract Office.
 
-**Presentation:** equipment_panel_update + waypoint_notification
+**Presentation:** equipment_panel_update + waypoint_notification + dialogue_overlay
 
 **Player control:** One Continue pauses the timer and returns control immediately; mission-end inspection gives 60 seconds of free movement with time paused.
 
@@ -8016,6 +9902,8 @@ The mission moves from external costs and benefits to a concrete recommendation:
 **Panel/HUD text:** The cartridge is excludable and rival. The feed is excludable but nonrival while uncrowded. The alert is nonexcludable and nonrival in the stated case. Water withdrawal is rival while exclusion is absent. Take this result to Civic Advice Office; its original records are needed for test the corrected target.
 
 **Unlocks:** Stop 47.
+
+**Dialogue bubble — Owen Price:** “I want the benefit counted too. A harm record is a reason to compare properly, not to pretend freight has no value.”
 
 ### Beat BT-M12-3 — After Stop 47
 
@@ -8049,7 +9937,7 @@ The mission moves from external costs and benefits to a concrete recommendation:
 
 **Location:** Civic Advice Office.
 
-**Presentation:** persistent_world_change
+**Presentation:** persistent_world_change + dialogue_overlay
 
 **Player control:** One Continue pauses the timer and returns control immediately; mission-end inspection gives 60 seconds of free movement with time paused.
 
@@ -8058,6 +9946,9 @@ The mission moves from external costs and benefits to a concrete recommendation:
 **Panel/HUD text:** The catchment map adds the measured damage cost and an accessible report beside the pond photograph. Imported filters could cut the harm, but a new border charge is proposed.
 
 **Unlocks:** Metric screen after inspecting the changed notice.
+
+**Dialogue bubble — Owen Price:** “The cost sheet stays on the stream map. Next, let us compare filters by what they do to the water, not whose label they carry.”
+
 
 ## E. Location plan
 
@@ -8570,6 +10461,164 @@ The catchment map adds the measured damage cost and an accessible report beside 
 
 - **Mission takeaway:** The freight agreement now needs both access and a water-cost rule.
 
+
+## L. GO DEEPER — Costs outside the sale
+
+**Secondary briefing — exact player copy:** Apply a social-cost test to a different production problem, then classify shared resources. Before claiming a corrective tax solves everything, check whether another market failure remains.
+
+**Optional review behavior:** Select GO DEEPER from the completed mission card. All six questions are ungraded, timer-paused and reopenable. Selection, mistakes, hints and reveals change no bars, RP, evidence flags or unlocks. Keep the five worked examples as a separate button. Return closes review to the same completed mission card. Each question permits retries; show feedback for the chosen option and reveal the worked explanation only on explicit request.
+
+**Supporting concepts — exact player copy:**
+
+- Social marginal cost adds marginal external damage to private marginal cost. Efficiency compares that social cost with marginal benefit.
+- A common resource is rival and hard to exclude people from using. A public good is nonrival and nonexcludable in the described setting.
+- In a competitive market with no other failure, a tax equal to marginal external damage can align private and social costs.
+- Monopoly restriction and pollution are separate distortions. Correcting the externality alone does not automatically produce the efficient quantity when market power remains.
+
+### BT-GD-M12-Q1
+
+**Question:** Private marginal cost is $12 and external marginal damage is $5 per unit. What is social marginal cost?
+
+- **A.** $7
+- **B.** $12
+- **C.** $5
+- **D.** $17
+
+**Correct key:** D
+
+**Hint:** Include costs outside the transaction and distinguish rivalry from exclusion.
+
+**Worked explanation — reveal on request:** Social cost adds the external damage to private marginal cost.
+
+**Feedback A:** Reconsider. Subtracting harm understates the cost of production.
+
+**Feedback B:** Reconsider. That omits harm borne outside the transaction.
+
+**Feedback C:** Reconsider. That counts only the external part.
+
+**Feedback D:** Correct. Social cost adds the external damage to private marginal cost.
+
+
+### BT-GD-M12-Q2
+
+**Question:** Demand is MB=70−Q and social marginal cost is constant at $20. What is efficient quantity?
+
+- **A.** 20 units
+- **B.** 35 units
+- **C.** 50 units
+- **D.** 70 units
+
+**Correct key:** C
+
+**Hint:** Include costs outside the transaction and distinguish rivalry from exclusion.
+
+**Worked explanation — reveal on request:** Set marginal benefit equal to social marginal cost: seventy minus Q equals twenty.
+
+**Feedback A:** Reconsider. Twenty is the cost value, not the quantity solution.
+
+**Feedback B:** Reconsider. That would require a different marginal cost or revenue relation.
+
+**Feedback C:** Correct. Set marginal benefit equal to social marginal cost: seventy minus Q equals twenty.
+
+**Feedback D:** Reconsider. At seventy, marginal benefit is zero below social cost.
+
+
+### BT-GD-M12-Q3
+
+**Question:** A fishery allows anyone to harvest, and each fish caught leaves fewer for others. Which category fits?
+
+- **A.** Club good with no congestion
+- **B.** Common resource
+- **C.** Pure public good
+- **D.** Private good with perfect exclusion
+
+**Correct key:** B
+
+**Hint:** Include costs outside the transaction and distinguish rivalry from exclusion.
+
+**Worked explanation — reveal on request:** It is difficult to exclude users, and harvest is rival.
+
+**Feedback A:** Reconsider. The resource is rival even without a membership rule.
+
+**Feedback B:** Correct. It is difficult to exclude users, and harvest is rival.
+
+**Feedback C:** Reconsider. A pure public good is nonrival; catching fish depletes stock available to others.
+
+**Feedback D:** Reconsider. The question specifies open access.
+
+
+### BT-GD-M12-Q4
+
+**Question:** A flood-warning siren reaches everyone nearby and one listener does not reduce another's warning. Which basic category fits?
+
+- **A.** Public good
+- **B.** Common resource
+- **C.** Private good
+- **D.** Inferior good
+
+**Correct key:** A
+
+**Hint:** Include costs outside the transaction and distinguish rivalry from exclusion.
+
+**Worked explanation — reveal on request:** The warning is nonexcludable in the described setting and nonrival.
+
+**Feedback A:** Correct. The warning is nonexcludable in the described setting and nonrival.
+
+**Feedback B:** Reconsider. Receiving the warning does not deplete it for others.
+
+**Feedback C:** Reconsider. Access is not individually excluded here.
+
+**Feedback D:** Reconsider. Income response is unrelated to the supplied rivalry and exclusion properties.
+
+
+### BT-GD-M12-Q5
+
+**Question:** A competitive pollution source causes constant external damage $4 per unit; no other market failure is present. What per-unit corrective tax matches the external cost?
+
+- **A.** $0
+- **B.** The firm's full sales price
+- **C.** Any tax that raises the most revenue
+- **D.** $4
+
+**Correct key:** D
+
+**Hint:** Include costs outside the transaction and distinguish rivalry from exclusion.
+
+**Worked explanation — reveal on request:** A tax equal to marginal external damage aligns private and social marginal cost in this model.
+
+**Feedback A:** Reconsider. That leaves the stated external cost unpriced.
+
+**Feedback B:** Reconsider. Sales price need not equal marginal external damage.
+
+**Feedback C:** Reconsider. Revenue maximization is not the corrective condition.
+
+**Feedback D:** Correct. A tax equal to marginal external damage aligns private and social marginal cost in this model.
+
+
+### BT-GD-M12-Q6
+
+**Question:** A monopoly already restricts output. Why is adding a pollution tax alone not enough to claim efficient output?
+
+- **A.** A tax always expands monopoly output
+- **B.** Efficient output ignores demand
+- **C.** Market power and the externality both affect the output choice
+- **D.** Pollution has no cost under monopoly
+
+**Correct key:** C
+
+**Hint:** Include costs outside the transaction and distinguish rivalry from exclusion.
+
+**Worked explanation — reveal on request:** Correcting one wedge does not automatically correct the other.
+
+**Feedback A:** Reconsider. A per-unit tax commonly raises marginal cost and reduces output.
+
+**Feedback B:** Reconsider. Marginal benefit remains part of the efficiency comparison.
+
+**Feedback C:** Correct. Correcting one wedge does not automatically correct the other.
+
+**Feedback D:** Reconsider. Market structure does not erase external damage.
+
+
 # Mission 13 — THE CHEAPER FILTER
 
 ## A. Mission briefing card — exact player copy
@@ -8659,7 +10708,7 @@ The mission moves from trade policy and distribution to a concrete recommendatio
 
 **Location:** Business Workshop.
 
-**Presentation:** equipment_panel_update + waypoint_notification
+**Presentation:** equipment_panel_update + waypoint_notification + dialogue_overlay
 
 **Player control:** One Continue pauses the timer and returns control immediately; mission-end inspection gives 60 seconds of free movement with time paused.
 
@@ -8669,11 +10718,15 @@ The mission moves from trade policy and distribution to a concrete recommendatio
 
 **Unlocks:** Stop 50.
 
+**Dialogue bubble — Nico Bell:** “The imported filter leaves more money for the same required cleanup.”
+
+**Dialogue bubble — Owen Price, radio:** “Keep the standard fixed while you compare. A local label does not measure cleaner water.”
+
 ### Beat BT-M13-2 — After Stop 50
 
 **Location:** Water and Land Office.
 
-**Presentation:** equipment_panel_update + waypoint_notification
+**Presentation:** equipment_panel_update + waypoint_notification + dialogue_overlay
 
 **Player control:** One Continue pauses the timer and returns control immediately; mission-end inspection gives 60 seconds of free movement with time paused.
 
@@ -8682,6 +10735,8 @@ The mission moves from trade policy and distribution to a concrete recommendatio
 **Panel/HUD text:** A higher price and reduced use lower consumer surplus in this benchmark. Higher domestic price and output raise producer surplus. Imports are 90−50=40 and revenue is 2×40=80. Equivalent quantity restriction does not automatically send revenue to the government. Take this result to Civic Advice Office; its original records are needed for read the distribution claim.
 
 **Unlocks:** Stop 51.
+
+**Dialogue bubble — Owen Price:** “If it meets that standard, I will support the cheaper filter. Publish the local producers’ loss as well.”
 
 ### Beat BT-M13-3 — After Stop 51
 
@@ -8715,7 +10770,7 @@ The mission moves from trade policy and distribution to a concrete recommendatio
 
 **Location:** Civic Advice Office.
 
-**Presentation:** persistent_world_change
+**Presentation:** persistent_world_change + dialogue_overlay
 
 **Player control:** One Continue pauses the timer and returns control immediately; mission-end inspection gives 60 seconds of free movement with time paused.
 
@@ -8724,6 +10779,9 @@ The mission moves from trade policy and distribution to a concrete recommendatio
 **Panel/HUD text:** The untaxed filter quote remains pinned to the compliance plan and the tariff transfers gain their own column. The second rail line now appears to meet every published condition.
 
 **Unlocks:** Metric screen after inspecting the changed notice.
+
+**Dialogue bubble — Nico Bell:** “Both quotes now carry the same standard. The cheaper qualifying one stays in the account, with the local loss beside it.”
+
 
 ## E. Location plan
 
@@ -9246,6 +11304,164 @@ The untaxed filter quote remains pinned to the compliance plan and the tariff tr
 
 - **Mission takeaway:** The town keeps both fiscal and resource accounts visible for the final agreement.
 
+
+## L. GO DEEPER — Imports, standards and distribution
+
+**Secondary briefing — exact player copy:** Compare imported and domestic goods using equal performance requirements. Keep import counts, tax receipts and resource costs separate, then ask whom a positive average leaves out.
+
+**Optional review behavior:** Select GO DEEPER from the completed mission card. All six questions are ungraded, timer-paused and reopenable. Selection, mistakes, hints and reveals change no bars, RP, evidence flags or unlocks. Keep the five worked examples as a separate button. Return closes review to the same completed mission card. Each question permits retries; show feedback for the chosen option and reveal the worked explanation only on explicit request.
+
+**Supporting concepts — exact player copy:**
+
+- Imports equal domestic quantity demanded minus domestic quantity supplied at the trading price. A small country takes the world price as given in this model.
+- Tariff revenue is the tariff per imported unit multiplied by post-tariff imports. Higher domestic prices generally help domestic producers and hurt domestic consumers.
+- Payments between domestic groups are transfers in a national surplus account. Tariffs can still create separate production and consumption deadweight losses.
+- Equal verified performance permits a meaningful cost comparison. An average income gain does not imply a gain for every group or household.
+
+### BT-GD-M13-Q1
+
+**Question:** At the world price domestic buyers demand 90 units and domestic firms supply 30. What are imports?
+
+- **A.** 30 units
+- **B.** 90 units
+- **C.** 60 units
+- **D.** 120 units
+
+**Correct key:** C
+
+**Hint:** Keep domestic production, domestic consumption, imports and transfers in separate columns.
+
+**Worked explanation — reveal on request:** Imports fill domestic demand minus domestic supply.
+
+**Feedback A:** Reconsider. That is domestic production.
+
+**Feedback B:** Reconsider. Some demand is met by domestic firms.
+
+**Feedback C:** Correct. Imports fill domestic demand minus domestic supply.
+
+**Feedback D:** Reconsider. Adding the quantities double-counts domestic supply.
+
+
+### BT-GD-M13-Q2
+
+**Question:** A tariff raises the domestic price from $10 to $12. Imports after the tariff are 40 units. What is tariff revenue if the tariff is $2 per import?
+
+- **A.** $40
+- **B.** $80
+- **C.** $480
+- **D.** $20
+
+**Correct key:** B
+
+**Hint:** Keep domestic production, domestic consumption, imports and transfers in separate columns.
+
+**Worked explanation — reveal on request:** The two-dollar charge applies to forty imported units.
+
+**Feedback A:** Reconsider. That is the import count, not revenue.
+
+**Feedback B:** Correct. The two-dollar charge applies to forty imported units.
+
+**Feedback C:** Reconsider. That is the full domestic value of those imports, not the tariff receipt.
+
+**Feedback D:** Reconsider. Ten is not the quantity of imports.
+
+
+### BT-GD-M13-Q3
+
+**Question:** In a small importing country, an import tariff raises domestic price. Which groups typically gain directly in the basic model?
+
+- **A.** Domestic producers and the government collecting revenue
+- **B.** Domestic consumers alone
+- **C.** All groups equally
+- **D.** Only foreign consumers
+
+**Correct key:** A
+
+**Hint:** Keep domestic production, domestic consumption, imports and transfers in separate columns.
+
+**Worked explanation — reveal on request:** Producers benefit from the higher price; government receives tariff payments.
+
+**Feedback A:** Correct. Producers benefit from the higher price; government receives tariff payments.
+
+**Feedback B:** Reconsider. Consumers pay more and reduce purchases.
+
+**Feedback C:** Reconsider. The tariff has distinct distributional effects.
+
+**Feedback D:** Reconsider. They are not the direct recipients of the domestic producer gain or tariff revenue.
+
+
+### BT-GD-M13-Q4
+
+**Question:** Two filters meet the same verified standard. Their measured real resource costs are $80 and $100 per filter; these figures exclude markups, taxes and transfers. What is the resource-cost advantage of the cheaper filter in this comparison?
+
+- **A.** $180
+- **B.** 25 filters
+- **C.** No difference because both work
+- **D.** $20 per filter
+
+**Correct key:** D
+
+**Hint:** Keep domestic production, domestic consumption, imports and transfers in separate columns.
+
+**Worked explanation — reveal on request:** For equal required performance, the cost difference is twenty dollars.
+
+**Feedback A:** Reconsider. That is the sum of both prices.
+
+**Feedback B:** Reconsider. The question asks dollars per filter, not a quantity.
+
+**Feedback C:** Reconsider. Equal performance does not imply equal cost.
+
+**Feedback D:** Correct. For equal required performance, the cost difference is twenty dollars.
+
+
+### BT-GD-M13-Q5
+
+**Question:** A tariff transfers $30 from domestic buyers to the domestic government. In a national surplus account, why is this not itself $30 of destroyed resources?
+
+- **A.** All tariffs have zero deadweight loss
+- **B.** The payment must be a net national benefit
+- **C.** One domestic group's payment is another's receipt
+- **D.** It never affects anyone
+
+**Correct key:** C
+
+**Hint:** Keep domestic production, domestic consumption, imports and transfers in separate columns.
+
+**Worked explanation — reveal on request:** Transfers cancel in aggregate accounting, though distribution and other efficiency losses still matter.
+
+**Feedback A:** Reconsider. Production and consumption distortions can still destroy surplus.
+
+**Feedback B:** Reconsider. Counting only the government receipt omits the domestic buyer’s equal payment.
+
+**Feedback C:** Correct. Transfers cancel in aggregate accounting, though distribution and other efficiency losses still matter.
+
+**Feedback D:** Reconsider. Buyers and taxpayers can be affected differently.
+
+
+### BT-GD-M13-Q6
+
+**Question:** A report says average income rose while the poorest group's income fell. Which conclusion is supported?
+
+- **A.** The mean must equal the median
+- **B.** The average gain does not establish a gain for every group
+- **C.** The report is arithmetically impossible
+- **D.** Every household is better off
+
+**Correct key:** B
+
+**Hint:** Keep domestic production, domestic consumption, imports and transfers in separate columns.
+
+**Worked explanation — reveal on request:** An aggregate mean can rise despite losses concentrated among some people.
+
+**Feedback A:** Reconsider. These are different summary measures and need not agree.
+
+**Feedback B:** Correct. An aggregate mean can rise despite losses concentrated among some people.
+
+**Feedback C:** Reconsider. Other groups' gains can outweigh the poorest group's loss.
+
+**Feedback D:** Reconsider. The statement explicitly identifies a losing group.
+
+
 # Mission 14 — THE LINE THAT PAYS FOR ITSELF
 
 ## A. Mission briefing card — exact player copy
@@ -9330,7 +11546,7 @@ The mission moves from robust comparison of competing plans to a concrete recomm
 
 **Location:** Freight Contract Office.
 
-**Presentation:** equipment_panel_update + waypoint_notification
+**Presentation:** equipment_panel_update + waypoint_notification + dialogue_overlay
 
 **Player control:** One Continue pauses the timer and returns control immediately; mission-end inspection gives 60 seconds of free movement with time paused.
 
@@ -9340,11 +11556,15 @@ The mission moves from robust comparison of competing plans to a concrete recomm
 
 **Unlocks:** Stop 54.
 
+**Dialogue bubble — Mara Velez:** “I counted the lower fee twice. The number I showed the hearing was too large.”
+
+**Dialogue bubble — Ruth Sen, radio:** “Correct it, but do not turn that error into a reason to keep my old access rule.”
+
 ### Beat BT-M14-2 — After Stop 54
 
 **Location:** Water and Land Office.
 
-**Presentation:** equipment_panel_update + waypoint_notification
+**Presentation:** equipment_panel_update + waypoint_notification + dialogue_overlay
 
 **Player control:** One Continue pauses the timer and returns control immediately; mission-end inspection gives 60 seconds of free movement with time paused.
 
@@ -9353,6 +11573,8 @@ The mission moves from robust comparison of competing plans to a concrete recomm
 **Panel/HUD text:** Avoiding inputs frees them for other uses. The payment reduction changes which local group holds money. The past bill cannot be recovered by choosing either plan. An application is not proof that funds are available. Take this result to Civic Advice Office; its original records are needed for which plan survives the cost range.
 
 **Unlocks:** Stop 55.
+
+**Dialogue bubble — Mara Velez:** “Ruth gets a funded upkeep commitment. Owen gets the harm cost left in. Neither is a blank cheque for a new line.”
 
 ### Beat BT-M14-3 — After Stop 55
 
@@ -9386,7 +11608,7 @@ The mission moves from robust comparison of competing plans to a concrete recomm
 
 **Location:** Civic Advice Office.
 
-**Presentation:** persistent_world_change
+**Presentation:** persistent_world_change + dialogue_overlay
 
 **Player control:** One Continue pauses the timer and returns control immediately; mission-end inspection gives 60 seconds of free movement with time paused.
 
@@ -9395,6 +11617,9 @@ The mission moves from robust comparison of competing plans to a concrete recomm
 **Panel/HUD text:** The new-line ribbon disappears from the public board; the retrofit receives the full-range test label. The council must now sign one fully funded and accountable plan.
 
 **Unlocks:** Metric screen after inspecting the changed notice.
+
+**Dialogue bubble — Mara Velez:** “The ribbon is down. I will explain my double count in public before asking anyone to sign the smaller, supported plan.”
+
 
 ## E. Location plan
 
@@ -9914,6 +12139,164 @@ The new-line ribbon disappears from the public board; the retrofit receives the 
 
 - **Mission takeaway:** The final hearing can now choose an agreement whose claims use one consistent accounting boundary.
 
+
+## L. GO DEEPER — Check the attractive total
+
+**Secondary briefing — exact player copy:** A strong-looking project can rely on a duplicated gain, an unconfirmed grant or a case where a required limit fails. Check the account first and compare only plans that satisfy the stated rules.
+
+**Optional review behavior:** Select GO DEEPER from the completed mission card. All six questions are ungraded, timer-paused and reopenable. Selection, mistakes, hints and reveals change no bars, RP, evidence flags or unlocks. Keep the five worked examples as a separate button. Return closes review to the same completed mission card. Each question permits retries; show feedback for the chosen option and reveal the worked explanation only on explicit request.
+
+**Supporting concepts — exact player copy:**
+
+- A real resource saving reduces resources used for a given outcome. A fee transfer between domestic parties is not an additional aggregate saving by itself.
+- Net social benefit subtracts both resource costs and external harm from benefit. Count each underlying effect once, even when it appears under different labels.
+- Robust feasibility requires satisfying the stated constraints in every specified case. The highest average or best-case score need not meet that rule.
+- Confirmed funding means an awarded or signed source. A submitted application remains conditional until awarded.
+
+### BT-GD-M14-Q1
+
+**Question:** A project saves $50 in real handling costs and lowers a domestic fee by $20 paid to another domestic firm. Ignoring all other effects, what is the aggregate resource saving?
+
+- **A.** $20
+- **B.** $50
+- **C.** $70
+- **D.** $30
+
+**Correct key:** B
+
+**Hint:** Count each real effect once; check constraints and confirmed funding before ranking benefits.
+
+**Worked explanation — reveal on request:** The handling saving is real; the fee reduction is a domestic transfer, not an extra resource saving.
+
+**Feedback A:** Reconsider. That counts only the transfer and misses the handling saving.
+
+**Feedback B:** Correct. The handling saving is real; the fee reduction is a domestic transfer, not an extra resource saving.
+
+**Feedback C:** Reconsider. That adds the transfer to the real saving.
+
+**Feedback D:** Reconsider. Subtracting the transfer also mistakes it for a real cost.
+
+
+### BT-GD-M14-Q2
+
+**Question:** A proposal yields $90 benefit and costs $65 in resources plus $10 external harm. What is net social benefit?
+
+- **A.** $15
+- **B.** $25
+- **C.** $35
+- **D.** $165
+
+**Correct key:** A
+
+**Hint:** Count each real effect once; check constraints and confirmed funding before ranking benefits.
+
+**Worked explanation — reveal on request:** Subtract both resource cost and external harm from ninety.
+
+**Feedback A:** Correct. Subtract both resource cost and external harm from ninety.
+
+**Feedback B:** Reconsider. That omits external harm.
+
+**Feedback C:** Reconsider. Harm is a cost, not an amount to add.
+
+**Feedback D:** Reconsider. Summing benefits and costs does not produce net benefit.
+
+
+### BT-GD-M14-Q3
+
+**Question:** Plan A has net benefits 20, 5 and −8 across three possible cases; Plan B has 12, 10 and 7. If the rule is nonnegative net benefit in every case, which passes?
+
+- **A.** Only A
+- **B.** Both
+- **C.** Neither
+- **D.** Only B
+
+**Correct key:** D
+
+**Hint:** Count each real effect once; check constraints and confirmed funding before ranking benefits.
+
+**Worked explanation — reveal on request:** A fails the third case; all three of B's outcomes are nonnegative.
+
+**Feedback A:** Reconsider. Its best case does not cancel a negative case under this rule.
+
+**Feedback B:** Reconsider. A violates the explicitly stated minimum.
+
+**Feedback C:** Reconsider. B's worst result is still positive.
+
+**Feedback D:** Correct. A fails the third case; all three of B's outcomes are nonnegative.
+
+
+### BT-GD-M14-Q4
+
+**Question:** A project budget lists a $40 grant application and $30 signed contribution. What is confirmed funding before the grant decision?
+
+- **A.** $40
+- **B.** $10
+- **C.** $30
+- **D.** $70
+
+**Correct key:** C
+
+**Hint:** Count each real effect once; check constraints and confirmed funding before ranking benefits.
+
+**Worked explanation — reveal on request:** Only the signed contribution is committed; an application is not an award.
+
+**Feedback A:** Reconsider. That counts only the unconfirmed source.
+
+**Feedback B:** Reconsider. There is no basis to subtract the two sources.
+
+**Feedback C:** Correct. Only the signed contribution is committed; an application is not an award.
+
+**Feedback D:** Reconsider. That treats the pending grant as received.
+
+
+### BT-GD-M14-Q5
+
+**Question:** A plan with the highest expected benefit fails a required water-quality limit in one specified case. What follows under a rule requiring compliance in every case?
+
+- **A.** The expected benefit must be negative
+- **B.** It is infeasible under that rule even if its expected benefit is largest
+- **C.** Its high average automatically waives the limit
+- **D.** All alternative plans must also fail
+
+**Correct key:** B
+
+**Hint:** Count each real effect once; check constraints and confirmed funding before ranking benefits.
+
+**Worked explanation — reveal on request:** Feasibility is a constraint that precedes ranking the compliant plans.
+
+**Feedback A:** Reconsider. A positive average can coexist with a constraint failure.
+
+**Feedback B:** Correct. Feasibility is a constraint that precedes ranking the compliant plans.
+
+**Feedback C:** Reconsider. An average cannot waive the stated constraint.
+
+**Feedback D:** Reconsider. Nothing about one failure establishes others' results.
+
+
+### BT-GD-M14-Q6
+
+**Question:** A claimed access gain of $35 already includes a $10 handling saving. An analyst adds the same $10 again. What correction is needed?
+
+- **A.** Remove the extra $10 and retain the $35 inclusive gain
+- **B.** Raise the gain to $55
+- **C.** Remove the whole $35
+- **D.** Keep $45 because separate labels are useful
+
+**Correct key:** A
+
+**Hint:** Count each real effect once; check constraints and confirmed funding before ranking benefits.
+
+**Worked explanation — reveal on request:** The handling saving should appear once, not twice.
+
+**Feedback A:** Correct. The handling saving should appear once, not twice.
+
+**Feedback B:** Reconsider. That repeats the duplicate again.
+
+**Feedback C:** Reconsider. The supported inclusive estimate need not be discarded.
+
+**Feedback D:** Reconsider. Different labels do not make the same underlying saving independent.
+
+
 # Mission 15 — THE TOWN THAT STAYS
 
 ## A. Mission briefing card — exact player copy
@@ -9994,7 +12377,7 @@ The mission moves from robust comparison of competing plans to a concrete recomm
 
 **Location:** Housing and Work Office.
 
-**Presentation:** equipment_panel_update + waypoint_notification
+**Presentation:** equipment_panel_update + waypoint_notification + dialogue_overlay
 
 **Player control:** One Continue pauses the timer and returns control immediately; mission-end inspection gives 60 seconds of free movement with time paused.
 
@@ -10004,11 +12387,15 @@ The mission moves from robust comparison of competing plans to a concrete recomm
 
 **Unlocks:** Stop 58.
 
+**Dialogue bubble — Leila Moss:** “The money counted here has been committed. Applications for more are in a different folder.”
+
+**Dialogue bubble — Mara Velez, radio:** “Then we can put names beside promises without pretending a pending grant is cash.”
+
 ### Beat BT-M15-2 — After Stop 58
 
 **Location:** Water and Land Office.
 
-**Presentation:** equipment_panel_update + waypoint_notification
+**Presentation:** equipment_panel_update + waypoint_notification + dialogue_overlay
 
 **Player control:** One Continue pauses the timer and returns control immediately; mission-end inspection gives 60 seconds of free movement with time paused.
 
@@ -10017,6 +12404,8 @@ The mission moves from robust comparison of competing plans to a concrete recomm
 **Panel/HUD text:** The wage trial required willing qualified workers; a funded housing measure helps those workers take jobs but does not prove the jobs will fill. An access rule needs a booking record that can reveal exclusion. The corrective rule depends on measured external harm. A conditional model must be revisited when its stated assumptions fail. Take this result to Civic Advice Office; its original records are needed for commit the final flow forecast.
 
 **Unlocks:** Stop 59.
+
+**Dialogue bubble — Leila Moss:** “I will sign for the co-op’s part. Keep the unmatched applications visible after the signing.”
 
 ### Beat BT-M15-3 — After Stop 59
 
@@ -10050,7 +12439,7 @@ The mission moves from robust comparison of competing plans to a concrete recomm
 
 **Location:** Civic Advice Office.
 
-**Presentation:** persistent_world_change
+**Presentation:** persistent_world_change + dialogue_overlay
 
 **Player control:** One Continue pauses the timer and returns control immediately; mission-end inspection gives 60 seconds of free movement with time paused.
 
@@ -10059,6 +12448,9 @@ The mission moves from robust comparison of competing plans to a concrete recomm
 **Panel/HUD text:** The public board holds the unsigned final agreement; lease support and water-review commitments are marked READY TO SIGN AFTER RESOURCE CHECK. After the final resource check and ending card, the town reopens for free exploration with every signed commitment in the log.
 
 **Unlocks:** Metric screen after inspecting the changed notice.
+
+**Dialogue bubble — Leila Moss:** “Our pieces are ready. I will keep the signature tabs open until the last funding and resource check is complete.”
+
 
 ## E. Location plan
 
@@ -10572,6 +12964,164 @@ The gains have names, and so do the costs. New sellers get a chance to trade; Ni
 Leila leaves the unmatched home requests on the board. This deal does not give each new arrival a home, end every water risk or prove that trade will keep growing. Owen will check the water record, and the named owners must report back on their terms. The new line’s ribbon is gone. In its place is a plan the town can read, challenge and change when the facts change.
 
 **Ending trigger and presentation — implementation:** Show only after Stop 60 succeeds, the final RP allocation completes, all four bars read 100 and the commitments are signed. One Continue returns to free exploration; all fifteen pieces and their qualifications remain inspectable. This card does not add a reward or bypass a gate. Mission 15’s segue appears before this card; it points to an unresolved cost, not an extra mission.
+
+
+## L. GO DEEPER — A signed plan still needs owners
+
+**Secondary briefing — exact player copy:** Close the review by checking funding, distribution and responsibility. A signature commits people to act; it cannot turn an uncertain assumption into a proven fact or erase an unresolved problem.
+
+**Optional review behavior:** Select GO DEEPER from the completed mission card. All six questions are ungraded, timer-paused and reopenable. Selection, mistakes, hints and reveals change no bars, RP, evidence flags or unlocks. Keep the five worked examples as a separate button. Return closes review to the same completed mission card. For Mission 15 this button is available only on explicit selection after the ending card has closed and normal play has returned; never auto-open review after signing. Each question permits retries; show feedback for the chosen option and reveal the worked explanation only on explicit request.
+
+**Supporting concepts — exact player copy:**
+
+- A funding gap is required spending minus confirmed contributions when that difference is positive. Pending money is a condition, not current funding.
+- Positive net social benefit can coexist with losses to a group. Potential compensation is distinct from an actual promised and funded transfer.
+- Accountability needs a named owner, a measure, a deadline and a duty to report. A promise with no responsible actor is incomplete.
+- New evidence can require reopening an affected commitment. Preserve the earlier record and describe which assumption changed rather than silently erasing it.
+
+### BT-GD-M15-Q1
+
+**Question:** Confirmed contributions are $45 from a co-op and $35 from a firm. Required spending is $90. What funding gap remains?
+
+- **A.** $10
+- **B.** $80
+- **C.** $170
+- **D.** No gap because two parties signed
+
+**Correct key:** A
+
+**Hint:** Separate a desirable total from a funded commitment, and name the group or owner behind each promise.
+
+**Worked explanation — reveal on request:** Confirmed funds total eighty, ten below the ninety-dollar requirement.
+
+**Feedback A:** Correct. Confirmed funds total eighty, ten below the ninety-dollar requirement.
+
+**Feedback B:** Reconsider. That is confirmed funding, not the gap.
+
+**Feedback C:** Reconsider. Adding funds and spending does not measure the shortfall.
+
+**Feedback D:** Reconsider. The number of signers does not establish adequate funding.
+
+
+### BT-GD-M15-Q2
+
+**Question:** A policy has positive net social benefit but imposes a $25 loss on one group. What does that establish about compensation?
+
+- **A.** The group has already been repaid
+- **B.** No one can be made better off
+- **C.** The policy must have negative total benefit
+- **D.** Compensation may be possible, but it is not automatic
+
+**Correct key:** D
+
+**Hint:** Separate a desirable total from a funded commitment, and name the group or owner behind each promise.
+
+**Worked explanation — reveal on request:** Aggregate gains do not document an actual transfer to the losing group.
+
+**Feedback A:** Reconsider. No compensation commitment is given.
+
+**Feedback B:** Reconsider. Other groups may gain more than twenty-five.
+
+**Feedback C:** Reconsider. A subgroup's loss can coexist with positive total benefit.
+
+**Feedback D:** Correct. Aggregate gains do not document an actual transfer to the losing group.
+
+
+### BT-GD-M15-Q3
+
+**Question:** A monitoring promise names a measure and deadline but nobody responsible. What is missing for accountability?
+
+- **A.** A larger expected surplus estimate
+- **B.** Removal of the deadline
+- **C.** A named owner with an explicit reporting duty
+- **D.** A binding price ceiling
+
+**Correct key:** C
+
+**Hint:** Separate a desirable total from a funded commitment, and name the group or owner behind each promise.
+
+**Worked explanation — reveal on request:** A measure cannot assign itself responsibility for collecting and reporting results.
+
+**Feedback A:** Reconsider. A benefit estimate does not assign responsibility for monitoring.
+
+**Feedback B:** Reconsider. That would weaken, not complete, the commitment.
+
+**Feedback C:** Correct. A measure cannot assign itself responsibility for collecting and reporting results.
+
+**Feedback D:** Reconsider. A price restriction does not name a monitoring owner.
+
+
+### BT-GD-M15-Q4
+
+**Question:** A contract is feasible only if a grant arrives, but the grant is still pending. How should it be described now?
+
+- **A.** Independent of funding
+- **B.** Conditional on the grant, not fully funded
+- **C.** Fully funded because the application was submitted
+- **D.** Impossible under every future outcome
+
+**Correct key:** B
+
+**Hint:** Separate a desirable total from a funded commitment, and name the group or owner behind each promise.
+
+**Worked explanation — reveal on request:** The unconfirmed resource is an explicit dependency.
+
+**Feedback A:** Reconsider. The question states a funding condition.
+
+**Feedback B:** Correct. The unconfirmed resource is an explicit dependency.
+
+**Feedback C:** Reconsider. Submission is not confirmation.
+
+**Feedback D:** Reconsider. The grant might arrive; current uncertainty is not proof of impossibility.
+
+
+### BT-GD-M15-Q5
+
+**Question:** A plan improves access but leaves downstream harm unchanged. Which closing report is most accurate?
+
+- **A.** Report the access gain and the unresolved harm separately
+- **B.** Say all market failures are fixed
+- **C.** Ignore access because harm remains
+- **D.** Call the unchanged harm a new benefit
+
+**Correct key:** A
+
+**Hint:** Separate a desirable total from a funded commitment, and name the group or owner behind each promise.
+
+**Worked explanation — reveal on request:** A gain in one dimension does not settle another unchanged problem.
+
+**Feedback A:** Correct. A gain in one dimension does not settle another unchanged problem.
+
+**Feedback B:** Reconsider. The unresolved harm contradicts that claim.
+
+**Feedback C:** Reconsider. That conceals a supported benefit.
+
+**Feedback D:** Reconsider. No improvement in harm is supplied.
+
+
+### BT-GD-M15-Q6
+
+**Question:** A follow-up audit finds that a signed plan's cost assumption was too low. What is the evidence-based response?
+
+- **A.** Keep the original conclusion because it was signed
+- **B.** Erase the original record
+- **C.** Assume every other finding is false
+- **D.** Reopen the affected commitment, disclose the gap and reassess feasible options
+
+**Correct key:** D
+
+**Hint:** Separate a desirable total from a funded commitment, and name the group or owner behind each promise.
+
+**Worked explanation — reveal on request:** A signature does not make a faulty assumption true; the revision should track its consequences.
+
+**Feedback A:** Reconsider. Commitment is not immunity from new evidence.
+
+**Feedback B:** Reconsider. Preserving the record shows what changed and who must respond.
+
+**Feedback C:** Reconsider. A specific failed assumption does not invalidate unrelated evidence automatically.
+
+**Feedback D:** Correct. A signature does not make a faulty assumption true; the revision should track its consequences.
+
 
 # 8. Implementation boundary and build decisions
 

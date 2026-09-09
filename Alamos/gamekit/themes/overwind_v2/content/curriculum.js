@@ -881,7 +881,7 @@ export const CURRICULUM = {
         "play": "Choose the quantity tiles for the displayed formula a*b; submit the resulting recall the full-length pull in N.",
         "task": "Choose the quantity tiles for the displayed formula a*b; submit the resulting recall the full-length pull in N.",
         "question": "Choose the quantity tiles for the displayed formula a*b; submit the resulting recall the full-length pull in N.",
-        "answer": "T=16000×10=160000 N; steady speed removes ma but not the load’s weight.",
+        "answer": "T=16000×10=160000 N; steady speed removes ma but not the load's weight.",
         "why": "Cruise means the cage has constant speed, so its acceleration is zero and the mean net force on the hanging system is zero. Tension must still balance the weight of both the cage and the rope: 16000×10=160000 N. The earlier 176000 N result included an upward acceleration that is absent here. Using only 40000 N would discard the hanging steel. This steady pull is the force whose work rate increases when the proposed cruise speed is raised.",
         "givens": [],
         "relationship": "",

@@ -124,7 +124,7 @@
     motivation: "The calculated quantity sets the comparison the crew must satisfy before it acts."
     format: BALLPARK
     question: "Multiply offspring count by recessive fraction; submit expected recessive offspring count."
-    answerText: The heterozygous parent supplies T or t with equal probability, while the recessive parent supplies only t. This result is now recorded for the next comparison.
+    answerText: "The heterozygous parent supplies T or t with equal probability, while the recessive parent supplies only t. This result is now recorded for the next comparison."
     why: "The heterozygous parent supplies T or t with equal probability, while the recessive parent supplies only t. Half the offspring are therefore expected to be tt: 24 × 1/2 = 12. This is an expectation, not a demand that every finite family contain exactly twelve recessive offspring. The calculation makes the proposed test cross informative because a TT parent would predict no recessive offspring under the same assumptions. The crew can now compare an observed family with these alternatives."
     # wrong-path feedback, one rebuttal per wrong option:
     #   6 uses a one-quarter probability from a different cross. 24 assumes the dominant-phenotype parent supplies only t. Retry: keep the visible evidence, clear only the committed response and reopen this board; no later stop unlocks until a correct submission. For matching/order errors, highlight the first mismatched biological relationship with the specific feedback above; for numerical errors, display the stated formula and substituted units after grading.

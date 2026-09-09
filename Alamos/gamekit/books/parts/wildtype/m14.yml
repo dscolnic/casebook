@@ -51,7 +51,7 @@
     motivation: "The calculated quantity sets the comparison the crew must satisfy before it acts."
     format: BALLPARK
     question: "Calculate initial oxygen minus rate times time; submit final oxygen in mg per litre."
-    answerText: The projected final concentration is 8 − 0.5 × 8 = 4 mg/L. This result is now recorded for the next comparison.
+    answerText: "The projected final concentration is 8 − 0.5 × 8 = 4 mg/L. This result is now recorded for the next comparison."
     why: "The projected final concentration is 8 − 0.5 × 8 = 4 mg/L. This uses a measured net loss for the stated dark interval, so a separate respiration subtraction would count consumption twice. The linear model is limited to the supplied interval and does not describe every possible oxygen level. The calculation retrieves the sealed-pot lesson in a community with additional consumers. It identifies a night-time risk that the healthy daylight appearance cannot rule out, and the full-cycle measurements can now test it."
     # wrong-path feedback, one rebuttal per wrong option:
     #   8 ignores the eight-hour loss. 0 subtracts a full concentration each hour instead of the stated rate. Retry: keep the visible evidence, clear only the committed response and reopen this board; no later stop unlocks until a correct submission. For matching/order errors, highlight the first mismatched biological relationship with the specific feedback above; for numerical errors, display the stated formula and substituted units after grading.
@@ -120,7 +120,7 @@
     motivation: "A station-specific failure identifies the comparison that must govern the next handling decision."
     format: PROBE
     question: "Take and record all four station readings with the sample selector, holding the assay method fixed; compare each with its own expected value and submit the one station ID outside its stated range; no restoration is needed."
-    answerText: Only the dawn reading from the standard pilot falls outside its expected range. This result is now recorded for the next comparison.
+    answerText: "Only the dawn reading from the standard pilot falls outside its expected range. This result is now recorded for the next comparison."
     why: "Only the dawn reading from the standard pilot falls outside its expected range. The air-supply comparison remains within range, as does the independent receiving-water sample. The contrast supports insufficient oxygen replacement relative to community demand during the night in this design. It does not blame every receiving-site water source or invalidate the measured daylight success. The old sealed-pot clue now pays off at a larger scale: a community can pass a daytime inspection and still fail over its actual operating cycle."
     # wrong-path feedback, one rebuttal per wrong option:
     #   The noon result lies in range but covers only daylight. The air-supply trial is inside the expected range. The independent water sample is normal and weakens a source-wide explanation. Retry: keep the visible evidence, clear only the committed response and reopen this board; no later stop unlocks until a correct submission. For matching/order errors, highlight the first mismatched biological relationship with the specific feedback above; for numerical errors, display the stated formula and substituted units after grading.

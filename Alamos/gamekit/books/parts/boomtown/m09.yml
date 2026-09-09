@@ -50,7 +50,7 @@
     motivation: "A single buyer's hiring cost can exceed the wage printed in the job offer."
     format: BALLPARK
     question: "Submit the fourth worker's marginal factor cost as the increase in the whole wage bill."
-    answerText: The wage bill rises from 3×25 = $75 to 4×30 = $120, so the fourth worker costs an extra $45.
+    answerText: "The wage bill rises from 3×25 = $75 to 4×30 = $120, so the fourth worker costs an extra $45."
     why: "The wage bill rises from 3×25 = $75 to 4×30 = $120, so the fourth worker costs an extra $45. A single buyer's hiring cost can exceed the wage printed in the job offer. Factor demand must be compared with marginal factor cost, which includes the extra wages paid to existing employees under this employer's upward-sloping labor supply. 30 is the new wage, not the change in the whole bill."
     # data: Without a wage floor, three workers each earn $25 per shift; recruiting a fourth requires $30 for each of all four workers.
     # correct result: 45; absolute tolerance 0.05 in the requested unit.
@@ -228,7 +228,7 @@
     motivation: "The wage floor must be evaluated against the actual hiring schedule."
     format: VERIFY
     question: "First, calculate and commit the profit-maximizing worker count under the floor. Then set the Order Terminal wage to $30, measure the chosen staffing count, and select whether it matches; restore the trial setting after reading, with no second measurement required."
-    answerText: The first four workers each add at least $30 and cost $30 each under the floor. A fifth adds $20 but increases the wage bill from $120 to $175, a $55 marginal cost, so staffing stops at four.
+    answerText: "The first four workers each add at least $30 and cost $30 each under the floor. A fifth adds $20 but increases the wage bill from $120 to $175, a $55 marginal cost, so staffing stops at four."
     why: "The first four workers each add at least $30 and cost $30 each under the floor. A fifth adds $20 but increases the wage bill from $120 to $175, a $55 marginal cost, so staffing stops at four. The wage floor must be evaluated against the actual hiring schedule. 3 ignores that the floor removes the upward wage-bill jump through four workers. 5 ignores the $55 marginal bill for the fifth."
     # data: Marginal revenue products for workers 1–5 are $60,$50,$40,$30,$20; with a $30 wage floor the firm can hire up to four workers at $30 each, but a fifth would require $35 for all five. Hold output demand and productivity fixed; at equality hire the worker.
     # correct result: 4; absolute tolerance 0.05 in the requested unit.

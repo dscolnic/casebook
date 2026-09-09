@@ -52,7 +52,7 @@
     motivation: "A real loss is the start of the operating decision, not its conclusion."
     format: BALLPARK
     question: "Submit the positive magnitude of the daily economic loss using (average total cost minus price) times output."
-    answerText: Cost exceeds price by 10−8 = $2 per unit; at 20 units the economic loss is 2×20 = $40 per day.
+    answerText: "Cost exceeds price by 10−8 = $2 per unit; at 20 units the economic loss is 2×20 = $40 per day."
     why: "Cost exceeds price by 10−8 = $2 per unit; at 20 units the economic loss is 2×20 = $40 per day. A real loss is the start of the operating decision, not its conclusion. Cost structure matters because a loss relative to all costs need not imply revenue falls below avoidable costs; the next comparison must inspect that distinction. −40 is signed profit, not the requested positive loss magnitude. 160 is total revenue."
     # data: At the supplier's profit-maximizing output of 20 units daily, market price is $8 and average total cost is $10; the firm is a price taker.
     # correct result: 40; absolute tolerance 0.05 in the requested unit.
@@ -224,7 +224,7 @@
     motivation: "The comparison protects current supplies without promising permanent profitability."
     format: VERIFY
     question: "First, calculate and commit the daily advantage of operating over shutdown using revenue minus avoidable variable cost. Then run the Hearing Table, measure the loss avoided, and select whether it matches; no restoration or second reading is required."
-    answerText: "Operating contributes 160−100 = $60 toward fixed costs: its $40 loss is $60 smaller than shutdown’s $100 loss."
+    answerText: "Operating contributes 160−100 = $60 toward fixed costs: its $40 loss is $60 smaller than shutdown's $100 loss."
     why: "Operating contributes 160−100 = $60 toward fixed costs: its $40 loss is $60 smaller than shutdown's $100 loss. The comparison protects current supplies without promising permanent profitability. Cost structure separates the avoidable wage and materials bill from the unchanged current lease; marginal analysis asks which choice leaves the owner less badly off today. 40 is the operating loss, not the advantage. 100 is the shutdown loss. 160 ignores variable costs."
     # data: At the current best output, revenue is $160, variable cost $100 and unavoidable fixed cost $100 daily; keep price and the lease fixed.
     # correct result: 60; absolute tolerance 0.05 in the requested unit.

@@ -132,7 +132,7 @@
     motivation: "The calculated quantity sets the comparison the crew must satisfy before it acts."
     format: BALLPARK
     question: "Use stored biomass energy times transfer fraction; submit primary-consumer energy in kJ."
-    answerText: Under the explicitly simplified ten-percent model, primary consumers receive 5,000 × 0.1 = 500 kJ. This result is now recorded for the next comparison.
+    answerText: "Under the explicitly simplified ten-percent model, primary consumers receive 5,000 × 0.1 = 500 kJ. This result is now recorded for the next comparison."
     why: "Under the explicitly simplified ten-percent model, primary consumers receive 5,000 × 0.1 = 500 kJ. The remainder is not transferred to that next trophic level as new biomass; energy supports metabolism, is dissipated as heat, or remains in material not eaten or assimilated. Actual efficiencies vary, so the result is a campaign estimate rather than a universal constant. It shows why adding consumers without supporting production cannot create a self-sustaining pilot from an energy shortage."
     # wrong-path feedback, one rebuttal per wrong option:
     #   50 applies the transfer twice and estimates the next level. 5,000 assumes all producer biomass energy becomes consumer biomass. Retry: keep the visible evidence, clear only the committed response and reopen this board; no later stop unlocks until a correct submission. For matching/order errors, highlight the first mismatched biological relationship with the specific feedback above; for numerical errors, display the stated formula and substituted units after grading.

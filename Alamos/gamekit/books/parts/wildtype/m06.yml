@@ -120,7 +120,7 @@
     motivation: "The calculated quantity sets the comparison the crew must satisfy before it acts."
     format: BALLPARK
     question: "Use dividing cells divided by total cells times 100; submit the unusual tray fraction as a percent."
-    answerText: The observed dividing fraction is 18/60 × 100 = 30 percent. This result is now recorded for the next comparison.
+    answerText: "The observed dividing fraction is 18/60 × 100 = 30 percent. This result is now recorded for the next comparison."
     why: "The observed dividing fraction is 18/60 × 100 = 30 percent. This is a snapshot of sampled cells, not a direct measurement of the time required for one complete cell cycle. The normal comparison has fewer dividing cells under the same counting method, making the unusual tray worth investigating. Sampling and cell-cycle regulation both matter: the larger fraction identifies a difference, but a controlled response to signal removal is needed before attributing it to a specific regulatory failure."
     # wrong-path feedback, one rebuttal per wrong option:
     #   10 uses the normal tray count instead of the unusual tray count. 300 misplaces the percentage scale by a factor of ten. Retry: keep the visible evidence, clear only the committed response and reopen this board; no later stop unlocks until a correct submission. For matching/order errors, highlight the first mismatched biological relationship with the specific feedback above; for numerical errors, display the stated formula and substituted units after grading.

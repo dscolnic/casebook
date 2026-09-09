@@ -2,9 +2,9 @@
 
 ## AP Physics C: Mechanics Campaign Implementation Bible
 
-**Version:** 1.1 — Handback 1 revision, static review edition
+**Version:** 1.2 — Ensemble and optional-depth expansion, source-reviewed edition
 
-**Campaign length:** 12 days, 48 graded stops, 12 DERIVE stops, 60 optional worked examples
+**Campaign length:** 12 days, 48 graded stops, 12 DERIVE stops, 60 optional worked examples, 72 optional GO DEEPER questions
 
 **Setting:** Kerrow Mine No. 3, a 1240 m shaft beneath a 32 m headframe on a moor
 
@@ -19,9 +19,9 @@ Canonical artifact: `OVERWIND_AP_Physics_C_Mechanics_Campaign_Implementation_Bib
 | Course | AP Physics C: Mechanics | The-Simple-AP-Physics-C_-Mechanics-Cheat-Sheet (1).pdf | MATCH | Seven-unit concept reference; specific peripheral bullets mapped below |
 | Place | Kerrow Mine No. 3 | overwind.txt | MATCH | Preserve six groups, coordinates, silhouette and persistent fixture IDs |
 | Format | Canonical interactions | QUESTION_TYPES(1).md | MATCH | Provisional supplied format and stopKind authority |
-| Master | Current campaign design | Campaign_Design_and_Implementation_Master_Brief_v3.3(1).md | MATCH | Authoring and copy authority |
-| Ledger | Current authoring ledger | FIRST_PERSON_LEARNING_AUTHORING_LEDGER_TEMPLATE_v1.3(1).md | MATCH | Original filled companion and machine ledger are historical; regenerate from v1.1 before import |
-| Gate | Current static gate | FIRST_PERSON_LEARNING_GIANT_CAMPAIGN_GATE_CHECK_v2.3(1).md | MATCH | Original exact-ID gate report is historical; current check covers the handback revision |
+| Master | Current campaign design | Campaign_Design_and_Implementation_Master_Brief_v3.5.md | MATCH | Authoring and copy authority |
+| Ledger | Current authoring ledger | FIRST_PERSON_LEARNING_AUTHORING_LEDGER_TEMPLATE_v1.5.md | MATCH | Original filled companion and machine ledger are historical; regenerate from v1.1 before import |
+| Gate | Current static gate | FIRST_PERSON_LEARNING_GIANT_CAMPAIGN_GATE_CHECK_v2.5.md | MATCH | Original exact-ID gate report is historical; current check covers the handback revision |
 | Format exemplar | Whiteout bible | WHITEOUT_AP_Computer_Science_A_Campaign_Implementation_Bible_v2.11_HAND_BACK_4(1).md | MATCH | Numbered front matter and mission A–K shape; no inherited handback claims |
 | Schema/importer | Current repository | Not supplied | MISSING | Importer/schema/render/runtime gates NOT TESTED |
 | World implementation | Referenced source modules | Place export only | PARTIAL | Source geometry preserved; runtime reachability NOT TESTED |
@@ -138,58 +138,58 @@ The reference path earns only 4 RP per day (for example, eight wrong submissions
 
 Source position (-9, -4); canonical named owner Ruth Bell, cage operator.
 
-| ID | Persistent object | Build | Wall | One-sentence caption |
-|---|---|---|---|---|
-| profile-desk | The profile desk | bench | left | The planned speed curve lies under a clear cover. |
-| signal-board | The signal board | board | back | The bell handle carries a red test lock. |
-| depth-dial | The depth indicator | board | right | The pointer marks the cage position. |
+| ID | Persistent object | Kind | Area/place | Wall | Physical appearance | Player-facing caption | Graded stop references |
+|---|---|---|---|---|---|---|---|
+| profile-desk | The profile desk | bench | BANK — The Bank | left | A sloping oak desk with a hinged clear sheet and pencil groove. | The planned speed curve lies under a clear cover. | 1, 2, 42 |
+| signal-board | The signal board | board | BANK — The Bank | back | A black timber board with brass bell handle and forty-one tally hooks. | The bell handle carries a red test lock. | 4, 36 |
+| depth-dial | The depth indicator | board | BANK — The Bank | right | A round brass dial with a long pointer behind scratched glass. | The pointer marks the cage position. | 3, 35, 45 |
 ## WIND — Winder House
 
 Source position (-30, 6); canonical named owner Ewan Price, winding engineer.
 
-| ID | Persistent object | Build | Wall | One-sentence caption |
-|---|---|---|---|---|
-| drum | The drum | vessel | left | Fresh flange bolts ring the winding drum. |
-| winder-desk | The winder desk | bench | back | The Safe Winding Plan sits beside the motor record. |
-| test-trace | The test wind trace | rack | left | The unoccupied test trace hangs beside the drum record. |
+| ID | Persistent object | Kind | Area/place | Wall | Physical appearance | Player-facing caption | Graded stop references |
+|---|---|---|---|---|---|---|---|
+| drum | The drum | vessel | WIND — Winder House | left | A broad steel cylinder with bolted flanges and a visible central opening. | Fresh flange bolts ring the winding drum. | 7, 15 |
+| winder-desk | The winder desk | bench | WIND — Winder House | back | A scarred writing desk with a binder cradle and clip for operating sheets. | The Safe Winding Plan sits beside the motor record. | 5, 6, 8, 13, 14, 16, 19, 20, 29, 30, 44, 48 |
+| test-trace | The test wind trace | rack | WIND — Winder House | left | A wall rack holding two rolls of ruled paper under separate retaining clips. | The unoccupied test trace hangs beside the drum record. | 43, 47 |
 ## ROPE — Rope Shop
 
 Source position (-34, 34); canonical named owner Mara Shaw, rope technician.
 
-| ID | Persistent object | Build | Wall | One-sentence caption |
-|---|---|---|---|---|
-| rope-bench | The rope bench | bench | left | The rope record lists four shortened ends. |
-| coil-rig | The coil rig | rack | left | A gauge measures the stretch between two anchors. |
-| cappel | The spare cappel | vessel | right | The spare fitting grips a cut rope end. |
+| ID | Persistent object | Kind | Area/place | Wall | Physical appearance | Player-facing caption | Graded stop references |
+|---|---|---|---|---|---|---|---|
+| rope-bench | The rope bench | bench | ROPE — Rope Shop | left | A long timber bench with rope-end samples and a steel measuring rule. | The rope record lists four shortened ends. | 9, 10, 12, 27, 28, 33, 34, 39, 40, 46 |
+| coil-rig | The coil rig | rack | ROPE — Rope Shop | left | Two fixed anchors hold a short test coil above a mechanical extension gauge. | A gauge measures the stretch between two anchors. | 11 |
+| cappel | The spare cappel | vessel | ROPE — Rope Shop | right | A heavy socket fitting encloses a short cut length of winding rope. | The spare fitting grips a cut rope end. | None; inspectable persistent reference |
 ## CAGE — Shaft and Brake House
 
 Source position (20, -4); canonical named owner Ada Kerr, mine safety engineer.
 
-| ID | Persistent object | Build | Wall | One-sentence caption |
-|---|---|---|---|---|
-| body-bench | The bench drawing | bench | left | A scale drawing separates the cage from its rope. |
-| pad-bench | The pad bench | bench | right | Cold test certificates lie beside worn brake pads. |
-| arrestor | The crush-tested arrestor | rack | left | The folded metal shows how far the buffer crushed. |
-| march-drawer | The inquiry drawer | bench | right | The sealed March tape waits under its case number. |
-| march-board | The March board | board | left | The recovered tape shares a board with the rope measurements. |
+| ID | Persistent object | Kind | Area/place | Wall | Physical appearance | Player-facing caption | Graded stop references |
+|---|---|---|---|---|---|---|---|
+| body-bench | The bench drawing | bench | CAGE — Shaft and Brake House | left | A flat drawing bench carries a cage outline and loose force-arrow cards. | A scale drawing separates the cage from its rope. | 17, 18 |
+| pad-bench | The pad bench | bench | CAGE — Shaft and Brake House | right | A steel tray holds worn brake pads beside a clip of paper certificates. | Cold test certificates lie beside worn brake pads. | 23, 24, 41 |
+| arrestor | The crush-tested arrestor | rack | CAGE — Shaft and Brake House | left | A buckled metal buffer rests on a rack beside a ruler and test photographs. | The folded metal shows how far the buffer crushed. | None; inspectable persistent reference |
+| march-drawer | The inquiry drawer | bench | CAGE — Shaft and Brake House | right | A shallow locked drawer has a glass label pocket and a tape case inside. | The sealed March tape waits under its case number. | None; inspectable persistent reference |
+| march-board | The March board | board | CAGE — Shaft and Brake House | left | A broad pinboard has clips for three records and a rope-length scale. | The recovered tape shares a board with the rope measurements. | 37, 38 |
 ## TIP — Tip and Conveyor
 
 Source position (34, -30); canonical named owner Ivo Reed, conveyor foreman.
 
-| ID | Persistent object | Build | Wall | One-sentence caption |
-|---|---|---|---|---|
-| belt-drive | The belt drive | rack | left | The belt motor carries two recent trip tags. |
-| weightometer | The weightometer | board | back | The scale records the ore delivered each minute. |
-| bin-bolts | Two sheared bin bolts | bench | right | The broken bolts lie beside their test photographs. |
+| ID | Persistent object | Kind | Area/place | Wall | Physical appearance | Player-facing caption | Graded stop references |
+|---|---|---|---|---|---|---|---|
+| belt-drive | The belt drive | rack | TIP — Tip and Conveyor | left | A guarded belt drive has an inspection window and a bracket for maintenance tags. | The belt motor carries two recent trip tags. | 31 |
+| weightometer | The weightometer | board | TIP — Tip and Conveyor | back | A large mechanical scale stands beside a tray for dated ore tickets. | The scale records the ore delivered each minute. | 21, 22, 32 |
+| bin-bolts | Two sheared bin bolts | bench | TIP — Tip and Conveyor | right | Two fractured bolts lie in separate grooves beneath their matching photographs. | The broken bolts lie beside their test photographs. | None; inspectable persistent reference |
 ## GRAV — Gravity Station
 
 Source position (-70, -290); canonical named owner Nia Cole, survey engineer.
 
-| ID | Persistent object | Build | Wall | One-sentence caption |
-|---|---|---|---|---|
-| gravimeter | The gravimeter | vessel | right | The meter rests in a padded case. |
-| level-book | The level book | bench | right | Survey heights and reading times fill the book. |
-| pillar | The station pillar | rack | back | A concrete pillar reaches down to solid rock. |
+| ID | Persistent object | Kind | Area/place | Wall | Physical appearance | Player-facing caption | Graded stop references |
+|---|---|---|---|---|---|---|---|
+| gravimeter | The gravimeter | vessel | GRAV — Gravity Station | right | A compact instrument sits level in an open padded carrying case. | The meter rests in a padded case. | 25 |
+| level-book | The level book | bench | GRAV — Gravity Station | right | A clothbound survey book lies open beneath a weighted straightedge. | Survey heights and reading times fill the book. | 26 |
+| pillar | The station pillar | rack | GRAV — Gravity Station | back | A low concrete pillar has a smooth instrument seat and a marked reference point. | A concrete pillar reaches down to solid rock. | None; inspectable persistent reference |
 
 ## Landmark-only spaces
 
@@ -403,6 +403,66 @@ bioCheck:
 ```
 
 **Bio check behavior:** Show with this roster passage when opened; one answer reveals feedback, with retry available. This is an optional, state-neutral reading check: no stop number, RP, timer cost, mission prerequisite or mastery credit.
+
+## 4.1 Evidence changes relationships
+
+The following conversation state reads accepted core evidence only. `accepted_stop_N` means Stop N's existing accepted completion, and `mission_complete_N` means its existing outcome/metric transition has finished. These are aliases for existing progression, not new gates or trust scores. Optional dialogue never sets them. A restart restores the mission snapshot; replay never doubles an object action or reward. Every required beat is logged, timer-paused, at most two short bubbles, and returns control after one Continue. Intermediate conversations attach to the listed acceptance event, not to opening a question or submitting a wrong attempt.
+
+| Relationship | Early position | Evidence that changes it | Later conduct shown in exact beats |
+|---|---|---|---|
+| Ruth Bell / Ada Kerr | M1: Ruth wants a cage check; Ada owns the March drum-based sign-off. | M9 Stop 34 establishes a separate oscillation period; M10 Stop 38 reconstructs the delayed motion. | M10: Ada attaches her old signed check rather than removing it. M12: Ruth agrees to reopen only with Ada's limits still attached. |
+| Ewan Price / Ivo Reed | M4: Ewan wants a faster passenger timetable; Ivo wants ore throughput kept separate. | M6 Stop 22 gives a way to spread momentum transfer; M8 Stop 30 establishes only a power bound. | M8: Ewan labels his proposed speed as power-only. M12: he personally posts the slower sheet and owns the lost overtime promise. |
+| Mara Shaw / Nia Cole | M3: Mara will not let a local measurement represent the whole hanging rope; Nia asks which assumptions travel with it. | M7 Stops 26–27 distinguish the ideal gravity model from site evidence; M9 Stop 34 couples rope stiffness and effective mass. | M9: Nia asks for Mara's length labels on the period record. M11: both preserve the full-range conditions rather than promote a single successful trial. |
+
+## 4.2 Conditional greetings — exact player copy
+
+At each main character's existing fixture, an optional TALK action offers the highest-priority eligible greeting: late (3), then middle (2), else early (1, unconditional fallback). Present locally when that owner is present; otherwise show a labeled radio response from the same person without moving them. Read evidence at the moment TALK opens. Show each state automatically at most once only when TALK is selected; a REPLAY GREETING action can repeat it. Closing/reopening is state-neutral: no timer, bar, RP, mastery, story-flag or unlock effect. These lines replace generic 'keep the tested conditions' greetings in the mission F descriptions.
+
+| Person | Priority / condition | Exact greeting |
+|---|---|---|
+| Ruth Bell | 1 / otherwise | “Finn's tally stays here until the cage has a check of its own.” |
+| Ruth Bell | 2 / accepted_stop_34 | “A stopped drum leaves a moving cage. Now I know why I wanted both traces.” |
+| Ruth Bell | 3 / mission_complete_12 | “Finn took his tally. The limits stay up for the next forty-one.” |
+| Ewan Price | 1 / otherwise | “I promised extra trips. Show me which part of that promise the machine can keep.” |
+| Ewan Price | 2 / accepted_stop_30 | “The motor can supply the power. That is all this page says.” |
+| Ewan Price | 3 / mission_complete_12 | “The lost overtime was my promise. I will explain the new sheet myself.” |
+| Mara Shaw | 1 / otherwise | “This end is short enough to lift. The hanging rope is another matter.” |
+| Mara Shaw | 2 / accepted_stop_34 | “Nia kept the length beside the period. We can finally compare like with like.” |
+| Mara Shaw | 3 / accepted_stop_44 | “We kept the warm test's conditions. A neat trace must not erase them.” |
+| Ada Kerr | 1 / otherwise | “My signature is on the March check. Leave it there while we find what it missed.” |
+| Ada Kerr | 2 / accepted_stop_38 | “The delay fits the rope's motion. My old check watched the wrong stopping event.” |
+| Ada Kerr | 3 / mission_complete_12 | “Ruth has the full range, including what would require us to stop and test again.” |
+| Ivo Reed | 1 / otherwise | “Ore can wait in a bin. People cannot be our test load.” |
+| Ivo Reed | 2 / accepted_stop_24 | “The staged chute gives the ore more time to change momentum. That is our gain.” |
+| Ivo Reed | 3 / mission_complete_12 | “I will work around the posted trips. Ewan is not asking the cage to make up my losses.” |
+| Nia Cole | 1 / otherwise | “Tell me which depth and which reference. Then I can tell you what the reading means.” |
+| Nia Cole | 2 / accepted_stop_28 | “The gravity correction belongs in the survey. It does not explain a delayed bounce.” |
+| Nia Cole | 3 / accepted_stop_44 | “Mara's length labels stay with my records. Neither of us will certify an unnamed range.” |
+
+## 4.3 Supporting voices and physical props
+
+These three people are supporting cast, not new stop owners. Finn Bell is a miner, Ruth's brother and an unhurt March passenger; Mina Holt is a brake fitter; Jon Pike is the ore dispatch clerk. Their exact lines appear only in the named mission beat below: Finn M1-END, Mina M5-R3, Jon M6-END. Only one supporting voice appears in any scene. Finn remains outside the passenger gate throughout testing and takes his tally only after the finale's existing gates. Mina speaks over the maintenance radio; Jon speaks over the dispatch radio. No new compulsory route, quiz or person stop is added.
+
+| Prop ID | Physical object and home | Initial state / permitted use |
+|---|---|---|
+| ow-start-sheet | Fast-start sheet at signal-board | Posted proposal; removed and retained after M1 decision. |
+| ow-drum-tag | Superseded-drawing tag at drum | Loose paper tag; tied onto the obsolete drawing after M2 decision. |
+| ow-rope-tags | Length tags at rope-bench | Untied measured-length labels; attached after M3. |
+| ow-load-envelope | Load-envelope card at winder-desk | Unmarked card; clipped to the selected system drawing after M4. |
+| ow-brake-slip | Brake-check slip at pad-bench | Cold-test-only sheet; clipped to the worn pad tray after M5. |
+| ow-chute-tag | Staged-chute tag at bin-bolts | Spare maintenance tag; attached to the approved arrangement after M6. |
+| ow-survey-tab | Reference tab at level-book | Loose tab; placed beside the corrected site entry after M7. |
+| ow-power-sheet | Power-only proposal sheet at winder-desk | Blank heading; posted with BRAKE PAGE OPEN after M8. |
+| ow-two-trace-slip | Two-trace check slip at signal-board | One empty cage-trace box; clipped beside the drum-check box after M9. |
+| ow-march-check | Ada's signed old check at march-board | Preserved with March file; pinned next to reconstructed cage motion after M10. |
+| ow-range-sleeve | Conditions sleeve at test-trace | Open transparent document sleeve; loaded with the warm surrogate record after M11. |
+| ow-shift-sheet | Amended timetable at winder-desk | Old promise visible; slower sheet posted above it after final approval. |
+
+Props belong to the listed persistent fixture; IDs identify visual state, not inventory slots. If that fixture is in an earlier room of the same mission, the owner reports the physical action over radio and its after-state is retained there; the existing final-room aftermath inspection shows the corresponding retained decision sheet. Never add a return trip or wait for inspection of the remote prop to complete the mission. Retained paper stays inspectable at its home. They require no fetching and never carry a prerequisite absent from the core question. The original shift-board landmark mirrors the timetable and removed start-sheet states; it does not become a new graded fixture.
+
+## 4.4 Optional depth presentation contract
+
+Each mission's section K now includes GO DEEPER in addition to its unchanged quick review and five worked examples. The button becomes available after `mission_complete_N`. It opens the secondary brief, concepts, and six individually selectable review cards. Every review card has one four-choice question, hint, and feedback for each option; reveal selected feedback on submission, permit retry, and expose the solution on request. It is ungraded, timer-paused and reopenable; it changes no bars, RP, mastery, evidence flags, travel or unlocks. IDs `OW-GD-Mn-Qn` are review IDs, never graded stops. M12 is different only in presentation order: show its GO DEEPER button solely after the ending's Continue has returned normal control, and open it only on explicit player selection. Do not place optional review between sign-off and the ending. The current importer must map this authored contract; source review does not establish runtime behavior.
 
 # 5. Authoritative numbered concept spine
 
@@ -704,7 +764,9 @@ Reject the proposed start; its acceleration exceeds the trial limit. The four st
 
 **World state:** The day’s record is open and passenger approval is still limited.
 
-**Dialogue bubble — Ruth Bell, cage operator:** “Ruth Bell receives the locked record: Can the proposed start be used for passenger trips?”
+**Dialogue bubble — Ruth Bell, by radio:** “Finn was in that cage. I want to know when the cage stops, not just when its drum does.”
+
+**Dialogue bubble — Ada Kerr, by radio:** “My March check recorded the drum. Today we start with what the proposed motion actually demands.”
 
 **Panel text:** “The day’s record is open and passenger approval is still limited.”
 
@@ -714,7 +776,7 @@ Reject the proposed start; its acceleration exceeds the trial limit. The four st
 
 **Location:** The Bank.
 
-**Presentation:** equipment_panel_update.
+**Presentation:** equipment_panel_update with two radio dialogue bubbles.
 
 **Player control:** One Continue; timer paused while the required text is visible, then immediate control return.
 
@@ -722,7 +784,25 @@ Reject the proposed start; its acceleration exceeds the trial limit. The four st
 
 **Panel text:** “a(t)=2 m/s². The accepted result stays in the log beside the next unresolved test.”
 
+**Dialogue bubble — Ada Kerr, by radio:** “That acceleration exceeds the trial limit. My old check cannot turn it into permission.”
+
+**Dialogue bubble — Ruth Bell, by radio:** “Keep it on the page. I can explain a closed gate if the reason is there.”
+
 **Unlocks:** Stop 3.
+
+### Beat OW-D1-R3 — After Stop 3 is accepted
+
+**Location:** Current Stop 3 fixture (The Bank, The depth indicator (`depth-dial`).); the named speaker uses radio unless already local.
+
+**Presentation:** radio dialogue bubble.
+
+**Player control:** One Continue; timer paused, line logged, immediate control return.
+
+**World state:** Existing accepted Stop 3 evidence is retained; no additional state or reward.
+
+**Dialogue bubble — Ruth Bell, by radio:** “The separate displacement check is in. Leave the fast-start sheet within reach while we decide.”
+
+**Unlocks:** No new gate; continue to existing Stop 4.
 
 ### Beat OW-D1-DEC — After Stop 4
 
@@ -750,7 +830,17 @@ Reject the proposed start; its acceleration exceeds the trial limit. The four st
 
 **Panel text:** “Ruth takes the fast-start sheet off the shift board. Her brother Finn’s tally stays on the hook with the other forty; no one boards for a test. But Ewan Price’s faster timetable also rests on a drum drawing that leaves out a hole in the steel.”
 
+**Dialogue bubble — Finn Bell, by radio:** “My tally can stay on that hook. Tell me what will be different before I take it.”
+
+**Dialogue bubble — Ruth Bell, by radio:** “The new check will follow the cage. You will not ride in a test.”
+
 **Unlocks:** metric screen after the changed-state inspection.
+
+### Physical aftermath — ow-start-sheet
+
+**Home:** `signal-board`. **Before:** Posted fast-start proposal. **After — exact action:** Ruth removes the proposal and clips it behind the restricted sheet.
+
+**Trigger:** accepted_stop_4. The accepted decision causes this visible action once; it is not triggered by optional dialogue or merely opening a question. **Persistence:** retain the changed prop at its home for later inspection; retries and replay do not repeat the action or award resources. Restoring a mission-start snapshot restores its matching prop state; re-acceptance reapplies it once. **Interaction:** existing changed-object inspection only, no inventory or new graded task. The same state is used by the existing mission aftermath; this is a concrete rendering of that consequence, not a second reward.
 
 ## E. Location plan
 
@@ -765,7 +855,7 @@ Every transition is caused by the preceding record. The next room supplies a spe
 
 ## F. Characters and dramatic beat
 
-Ruth Bell, cage operator, owns the BANK evidence and can stop an unsupported approval. The greeting changes after accepting this day’s result: “Keep the tested conditions with the number.”
+Ruth Bell, cage operator, owns the BANK evidence and can stop an unsupported approval. Optional greeting selection follows the exact milestone rules in §4.2.
 
 ## G. Key concepts, explained here
 
@@ -1099,6 +1189,171 @@ Mission decision: Reject the fast start. Its speed grows too fast for the stated
 - **Mission takeaway:** A correct motion calculation can still fail a safety limit.
 
 ---
+
+### GO DEEPER — Mission 1 — optional exact player copy
+
+**Availability:** After mission_complete_1, on explicit GO DEEPER selection. Use the state-neutral review contract in §4.4; no graded-stop, timer, RP, bar or unlock effects.
+
+**Secondary brief:** Try motion records for a cart and a falling package. Use slopes for instantaneous rates and signed areas for displacement; then decide what each measurement can establish.
+
+**Supporting concepts:**
+
+- Instantaneous velocity is the derivative of position: v=dx/dt. Differentiate before substituting a time.
+- Displacement is the signed integral of velocity. Distance instead adds the magnitudes of motion in both directions.
+- Acceleration is dv/dt. A zero velocity at one instant does not require zero acceleration.
+- Independent checks use a separately obtained observation; differentiating and integrating the same fitted curve do not create independent evidence.
+
+#### OW-GD-M1-Q1
+
+**Objective:** Apply or evaluate the mission’s mechanics model in a new case.
+
+**Prompt:** A cart has x(t)=2t³−3t metres. What is its velocity at t=2 s?
+
+- **A.** 10 m/s
+- **B.** 21 m/s
+- **C.** 24 m/s
+- **D.** 9 m/s
+
+**Correct key:** B
+
+**Hint:** Find dx/dt before inserting t.
+
+**Feedback A:** 10 is the position in metres at 2 s, not the derivative in m/s.
+
+**Feedback B:** Differentiate to get 6t²−3, then substitute 2 s.
+
+**Feedback C:** The derivative of −3t is −3, which must remain.
+
+**Feedback D:** The squared time in 6t² cannot be replaced by t.
+
+**Independent solution:** v=6t²−3; v(2)=24−3=21 m/s.
+
+#### OW-GD-M1-Q2
+
+**Objective:** Apply or evaluate the mission’s mechanics model in a new case.
+
+**Prompt:** A cart travels at +3 m/s for 2 s, then −2 m/s for 1 s. What are its displacement and distance?
+
+- **A.** 8 m; 8 m
+- **B.** 4 m; 4 m
+- **C.** 4 m; 8 m
+- **D.** 1 m; 5 m
+
+**Correct key:** C
+
+**Hint:** Calculate the length of each leg first.
+
+**Feedback A:** Displacement must subtract the return leg.
+
+**Feedback B:** Distance counts the return leg positively.
+
+**Feedback C:** Signed motion is 6−2; distance is 6+2.
+
+**Feedback D:** Velocity values cannot be added without their durations.
+
+**Independent solution:** Forward leg=6 m; reverse leg=2 m. Displacement=4 m, distance=8 m.
+
+#### OW-GD-M1-Q3
+
+**Objective:** Apply or evaluate the mission’s mechanics model in a new case.
+
+**Prompt:** At the top of a vertical throw, neglect air resistance and use upward positive. Which pair describes velocity and acceleration?
+
+- **A.** 0; −g
+- **B.** 0; 0
+- **C.** +g; 0
+- **D.** −g; −g
+
+**Correct key:** A
+
+**Hint:** Distinguish a turning point from force balance.
+
+**Feedback A:** The velocity is momentarily zero while gravity still accelerates downward.
+
+**Feedback B:** Gravity does not switch off at the turning point.
+
+**Feedback C:** g is an acceleration, not a velocity.
+
+**Feedback D:** Velocity and acceleration have different units; velocity is zero here.
+
+**Independent solution:** At maximum height v=0 and a=−g.
+
+#### OW-GD-M1-Q4
+
+**Objective:** Apply or evaluate the mission’s mechanics model in a new case.
+
+**Prompt:** A velocity graph rises linearly from 2 to 8 m/s over 3 s. How far does the cart move?
+
+- **A.** 18 m
+- **B.** 24 m
+- **C.** 10 m
+- **D.** 15 m
+
+**Correct key:** D
+
+**Hint:** For a straight-line graph, use the average of the endpoint velocities.
+
+**Feedback A:** This uses the velocity change times time, not the area under velocity.
+
+**Feedback B:** The final speed is not maintained for all 3 seconds.
+
+**Feedback C:** The mean speed is 5 m/s and acts for 3 seconds.
+
+**Feedback D:** The trapezoid area is (2+8)×3/2.
+
+**Independent solution:** Δx=[(v_initial+v_final)/2]Δt=[(2+8)/2]×3=15 m.
+
+#### OW-GD-M1-Q5
+
+**Objective:** Apply or evaluate the mission’s mechanics model in a new case.
+
+**Prompt:** A package leaves a horizontal table at 4 m/s from height 1.25 m. With g=10 m/s² and no drag, how far horizontally does it travel before impact?
+
+- **A.** 0.5 m
+- **B.** 2 m
+- **C.** 5 m
+- **D.** 8 m
+
+**Correct key:** B
+
+**Hint:** Use h=gt²/2 for time, then horizontal distance=vt.
+
+**Feedback A:** 0.5 is the fall time in seconds, not the horizontal range.
+
+**Feedback B:** The fall takes 0.5 s and horizontal speed remains 4 m/s.
+
+**Feedback C:** Multiplying speed by height mixes incompatible quantities.
+
+**Feedback D:** The fall time is not 2 s.
+
+**Independent solution:** t=sqrt(2×1.25/10)=0.5 s; range=4×0.5=2 m.
+
+#### OW-GD-M1-Q6
+
+**Objective:** Apply or evaluate the mission’s mechanics model in a new case.
+
+**Prompt:** A fitted position curve predicts a cart travels 15 m in an interval. Which is an independent check of that prediction?
+
+- **A.** Differentiate the fitted curve
+- **B.** Integrate that derivative
+- **C.** Measure the interval travel with a separate calibrated distance sensor
+- **D.** Measure the fitted curve’s plotted length with a ruler
+
+**Correct key:** C
+
+**Hint:** Ask where the new evidence comes from.
+
+**Feedback A:** This derives another quantity from the same fitted evidence.
+
+**Feedback B:** This recovers the fitted displacement, not a new observation.
+
+**Feedback C:** A separately obtained displacement can test the prediction.
+
+**Feedback D:** That still measures a representation of the same fitted evidence.
+
+**Independent solution:** Only the separate calibrated distance observation is independent of the fitted curve.
+
+
 # Mission 2 — STEEL OUTSIDE THE AXIS
 
 ## A. Mission briefing card — exact player copy
@@ -1181,7 +1436,9 @@ Use 45,000 kg m² and retire the old solid-disk value. The four stops produce ev
 
 **World state:** The day’s record is open and passenger approval is still limited.
 
-**Dialogue bubble — Ewan Price, winding engineer:** “Ewan Price receives the locked record: Which drum inertia belongs in the winding model?”
+**Dialogue bubble — Ewan Price, by radio:** “I priced those extra trips using the old drum drawing. If the steel is different, my timetable is too.”
+
+**Dialogue bubble — Mara Shaw, by radio:** “Then let the measured drum settle it before we blame the rope.”
 
 **Panel text:** “The day’s record is open and passenger approval is still limited.”
 
@@ -1191,7 +1448,7 @@ Use 45,000 kg m² and retire the old solid-disk value. The four stops produce ev
 
 **Location:** Winder House.
 
-**Presentation:** equipment_panel_update.
+**Presentation:** equipment_panel_update with two radio dialogue bubbles.
 
 **Player control:** One Continue; timer paused while the required text is visible, then immediate control return.
 
@@ -1199,7 +1456,25 @@ Use 45,000 kg m² and retire the old solid-disk value. The four stops produce ev
 
 **Panel text:** “I=M(A²+B²)/2=45000 kg m². The accepted result stays in the log beside the next unresolved test.”
 
+**Dialogue bubble — Mara Shaw, by radio:** “The removed centre and outer steel do not contribute the same inertia per kilogram.”
+
+**Dialogue bubble — Ewan Price, by radio:** “I used the mass as if its position did not matter. Mark that drawing as superseded.”
+
 **Unlocks:** Stop 7.
+
+### Beat OW-D2-R3 — After Stop 7 is accepted
+
+**Location:** Current Stop 7 fixture (Winder House, The drum (`drum`).); the named speaker uses radio unless already local.
+
+**Presentation:** radio dialogue bubble.
+
+**Player control:** One Continue; timer paused, line logged, immediate control return.
+
+**World state:** Existing accepted Stop 7 evidence is retained; no additional state or reward.
+
+**Dialogue bubble — Ewan Price, by radio:** “The independent check agrees with the revised drum model. I can no longer use the old drawing's smaller demand.”
+
+**Unlocks:** No new gate; continue to existing Stop 8.
 
 ### Beat OW-D2-DEC — After Stop 8
 
@@ -1227,7 +1502,15 @@ Use 45,000 kg m² and retire the old solid-disk value. The four stops produce ev
 
 **Panel text:** “Ewan marks the old drum drawing superseded in his own hand. The first record behind his promised timetable has failed a physical check. Now Mara Shaw must defend the next load record: 12,000 kg of rope hangs above the cage.”
 
+**Dialogue bubble — Ewan Price, by radio:** “The obsolete drawing is tagged. I have to revise my promise before someone builds a shift around it.”
+
 **Unlocks:** metric screen after the changed-state inspection.
+
+### Physical aftermath — ow-drum-tag
+
+**Home:** `drum`. **Before:** Obsolete drawing has no warning tag. **After — exact action:** Ewan ties the superseded tag through the drawing clip.
+
+**Trigger:** accepted_stop_8. The accepted decision causes this visible action once; it is not triggered by optional dialogue or merely opening a question. **Persistence:** retain the changed prop at its home for later inspection; retries and replay do not repeat the action or award resources. Restoring a mission-start snapshot restores its matching prop state; re-acceptance reapplies it once. **Interaction:** existing changed-object inspection only, no inventory or new graded task. The same state is used by the existing mission aftermath; this is a concrete rendering of that consequence, not a second reward.
 
 ## E. Location plan
 
@@ -1242,7 +1525,7 @@ Every transition is caused by the preceding record. The next room supplies a spe
 
 ## F. Characters and dramatic beat
 
-Ewan Price, winding engineer, owns the WIND evidence and can stop an unsupported approval. The greeting changes after accepting this day’s result: “Keep the tested conditions with the number.”
+Ewan Price, winding engineer, owns the WIND evidence and can stop an unsupported approval. Optional greeting selection follows the exact milestone rules in §4.2.
 
 ## G. Key concepts, explained here
 
@@ -1576,6 +1859,171 @@ Mission decision: Use the ring-shaped drum model. The measured hole changes how 
 - **Mission takeaway:** Where mass sits matters when a body turns.
 
 ---
+
+### GO DEEPER — Mission 2 — optional exact player copy
+
+**Availability:** After mission_complete_2, on explicit GO DEEPER selection. Use the state-neutral review contract in §4.4; no graded-stop, timer, RP, bar or unlock effects.
+
+**Secondary brief:** Use simple rotating bodies to test why the position of mass matters. Compare inertia, torque and energy, and keep angular speed distinct from the speed of a point on a rim.
+
+**Supporting concepts:**
+
+- Moment of inertia is I=Σmr² for point masses; a uniform disk has I=MR²/2 and a thin hoop has I=MR².
+- Net torque produces angular acceleration: τ=Iα. For a tangential force at radius R, τ=FR.
+- Rotational kinetic energy is Iω²/2. At a fixed angular speed, moving mass outward increases this energy.
+- For rigid rotation, all points share angular speed ω, while tangential speed is v=ωr.
+
+#### OW-GD-M2-Q1
+
+**Objective:** Apply or evaluate the mission’s mechanics model in a new case.
+
+**Prompt:** Two 2 kg point masses are each 0.5 m from a light axle. What is their total moment of inertia?
+
+- **A.** 1 kg m²
+- **B.** 2 kg m²
+- **C.** 0.5 kg m²
+- **D.** 4 kg m²
+
+**Correct key:** A
+
+**Hint:** Add mr² for both masses.
+
+**Feedback A:** Each contributes 2×0.5²=0.5 kg m².
+
+**Feedback B:** The radius must be squared, not used once.
+
+**Feedback C:** That counts only one mass.
+
+**Feedback D:** Total mass alone is not moment of inertia.
+
+**Independent solution:** I=2×2×0.5²=1 kg m².
+
+#### OW-GD-M2-Q2
+
+**Objective:** Apply or evaluate the mission’s mechanics model in a new case.
+
+**Prompt:** A uniform disk and thin hoop each have mass 4 kg and radius 1 m. The same net torque acts on each. How do their angular accelerations compare?
+
+- **A.** Equal
+- **B.** Hoop twice disk
+- **C.** Disk four times hoop
+- **D.** Disk twice hoop
+
+**Correct key:** D
+
+**Hint:** Use α=τ/I.
+
+**Feedback A:** Their moments of inertia differ despite equal mass and radius.
+
+**Feedback B:** The hoop has more inertia, so it accelerates less.
+
+**Feedback C:** The disk has half, not one quarter, of the hoop inertia.
+
+**Feedback D:** I_disk=2 and I_hoop=4 kg m², so τ/I is twice as large for the disk.
+
+**Independent solution:** I_disk=2; I_hoop=4; α_disk/α_hoop=2.
+
+#### OW-GD-M2-Q3
+
+**Objective:** Apply or evaluate the mission’s mechanics model in a new case.
+
+**Prompt:** A rotor with I=3 kg m² accelerates at 2 rad/s². What net torque acts on it?
+
+- **A.** 1.5 N m
+- **B.** 6 N m
+- **C.** 12 N m
+- **D.** 2 N m
+
+**Correct key:** B
+
+**Hint:** Use the rotational form of Newton’s second law.
+
+**Feedback A:** Torque is I times α, not I divided by α.
+
+**Feedback B:** The product Iα gives 6 N m.
+
+**Feedback C:** Angular acceleration is not squared in τ=Iα.
+
+**Feedback D:** This omits the inertia.
+
+**Independent solution:** τ=3×2=6 N m.
+
+#### OW-GD-M2-Q4
+
+**Objective:** Apply or evaluate the mission’s mechanics model in a new case.
+
+**Prompt:** A 2 kg m² rotor turns at 3 rad/s. How much rotational kinetic energy does it have?
+
+- **A.** 3 J
+- **B.** 6 J
+- **C.** 9 J
+- **D.** 18 J
+
+**Correct key:** C
+
+**Hint:** Use K=Iω²/2.
+
+**Feedback A:** Angular speed must be squared and multiplied by I/2.
+
+**Feedback B:** This omits the square on angular speed.
+
+**Feedback C:** K=0.5×2×3².
+
+**Feedback D:** This omits the factor one half.
+
+**Independent solution:** K=Iω²/2=(2×3²)/2=9 J.
+
+#### OW-GD-M2-Q5
+
+**Objective:** Apply or evaluate the mission’s mechanics model in a new case.
+
+**Prompt:** A disk rotates at 4 rad/s. What are the tangential speeds at radii 0.25 m and 0.5 m?
+
+- **A.** 1 m/s and 2 m/s
+- **B.** 4 m/s and 4 m/s
+- **C.** 2 m/s and 1 m/s
+- **D.** 16 m/s and 8 m/s
+
+**Correct key:** A
+
+**Hint:** Points share ω, not v.
+
+**Feedback A:** Multiplying the common angular speed by each radius gives these speeds.
+
+**Feedback B:** Common angular speed does not mean common tangential speed.
+
+**Feedback C:** The outer point travels faster, not slower.
+
+**Feedback D:** The relation is ωr, not ω/r.
+
+**Independent solution:** v_inner=4×0.25=1; v_outer=4×0.5=2 m/s.
+
+#### OW-GD-M2-Q6
+
+**Objective:** Apply or evaluate the mission’s mechanics model in a new case.
+
+**Prompt:** A 5 N force acts tangentially at radius 0.4 m. Which change doubles its torque?
+
+- **A.** Move the force to radius 0.2 m
+- **B.** Keep radius fixed and direct the force radially
+- **C.** Halve the force at the same radius
+- **D.** Use 10 N tangentially at the same radius
+
+**Correct key:** D
+
+**Hint:** Torque depends on the perpendicular force times lever arm.
+
+**Feedback A:** That halves the torque.
+
+**Feedback B:** A radial force gives zero torque about the centre.
+
+**Feedback C:** That halves the torque.
+
+**Feedback D:** The perpendicular force doubles while the lever arm stays fixed.
+
+**Independent solution:** Initial τ=2 N m; 10×0.4=4 N m.
+
+
 # Mission 3 — THE ROPE IS A LOAD
 
 ## A. Mission briefing card — exact player copy
@@ -1658,7 +2106,9 @@ The one-unit acceleration passes the stated pull limit, with a massive-rope mode
 
 **World state:** The day’s record is open and passenger approval is still limited.
 
-**Dialogue bubble — Mara Shaw, rope technician:** “Mara Shaw receives the locked record: Does the proposed one-unit acceleration pass the rope pull limit?”
+**Dialogue bubble — Mara Shaw, by radio:** “This rope has four shortened ends in its record. Nobody gets to call its hanging mass negligible today.”
+
+**Dialogue bubble — Nia Cole, by radio:** “Keep the measured length with each number. I cannot correct a depth that nobody wrote down.”
 
 **Panel text:** “The day’s record is open and passenger approval is still limited.”
 
@@ -1668,7 +2118,7 @@ The one-unit acceleration passes the stated pull limit, with a massive-rope mode
 
 **Location:** Rope Shop.
 
-**Presentation:** equipment_panel_update.
+**Presentation:** equipment_panel_update with two radio dialogue bubbles.
 
 **Player control:** One Continue; timer paused while the required text is visible, then immediate control return.
 
@@ -1676,7 +2126,25 @@ The one-unit acceleration passes the stated pull limit, with a massive-rope mode
 
 **Panel text:** “T=(M+λs)(g+a)=176000 N at s=1200 m. The accepted result stays in the log beside the next unresolved test.”
 
+**Dialogue bubble — Nia Cole, by radio:** “The integral counts each hanging piece once. A single end sample cannot replace that sum.”
+
+**Dialogue bubble — Mara Shaw, by radio:** “Good. Attach the length as firmly as the answer.”
+
 **Unlocks:** Stop 11.
+
+### Beat OW-D3-R3 — After Stop 11 is accepted
+
+**Location:** Current Stop 11 fixture (Rope Shop, The coil rig (`coil-rig`).); the named speaker uses radio unless already local.
+
+**Presentation:** radio dialogue bubble.
+
+**Player control:** One Continue; timer paused, line logged, immediate control return.
+
+**World state:** Existing accepted Stop 11 evidence is retained; no additional state or reward.
+
+**Dialogue bubble — Mara Shaw, by radio:** “The measured extension has its own record now. I will not merge a local coil test with the full hanging rope.”
+
+**Unlocks:** No new gate; continue to existing Stop 12.
 
 ### Beat OW-D3-DEC — After Stop 12
 
@@ -1704,7 +2172,15 @@ The one-unit acceleration passes the stated pull limit, with a massive-rope mode
 
 **Panel text:** “Mara keeps the sound rope in the plan and pins its measured mass beside the pull limit. She refuses a replacement order that would leave the missing dynamics unexplained. Yet Ewan Price still needs the motor to pull that steel and speed up the drum before he can keep his promise.”
 
+**Dialogue bubble — Mara Shaw, by radio:** “The length tags stay on. Tomorrow's load calculation must carry this rope with it.”
+
 **Unlocks:** metric screen after the changed-state inspection.
+
+### Physical aftermath — ow-rope-tags
+
+**Home:** `rope-bench`. **Before:** Length tags lie loose beside measured rope ends. **After — exact action:** Mara attaches each length tag to its matching sample record.
+
+**Trigger:** accepted_stop_12. The accepted decision causes this visible action once; it is not triggered by optional dialogue or merely opening a question. **Persistence:** retain the changed prop at its home for later inspection; retries and replay do not repeat the action or award resources. Restoring a mission-start snapshot restores its matching prop state; re-acceptance reapplies it once. **Interaction:** existing changed-object inspection only, no inventory or new graded task. The same state is used by the existing mission aftermath; this is a concrete rendering of that consequence, not a second reward.
 
 ## E. Location plan
 
@@ -1719,7 +2195,7 @@ Every transition is caused by the preceding record. The next room supplies a spe
 
 ## F. Characters and dramatic beat
 
-Mara Shaw, rope technician, owns the ROPE evidence and can stop an unsupported approval. The greeting changes after accepting this day’s result: “Keep the tested conditions with the number.”
+Mara Shaw, rope technician, owns the ROPE evidence and can stop an unsupported approval. Optional greeting selection follows the exact milestone rules in §4.2.
 
 ## G. Key concepts, explained here
 
@@ -2043,6 +2519,171 @@ Mission decision: The slower rise passes the mean rope-pull limit. The rope’s 
 - **Mission takeaway:** A hanging rope is part of the load.
 
 ---
+
+### GO DEEPER — Mission 3 — optional exact player copy
+
+**Availability:** After mission_complete_3, on explicit GO DEEPER selection. Use the state-neutral review contract in §4.4; no graded-stop, timer, RP, bar or unlock effects.
+
+**Secondary brief:** A hanging chain lets you connect integration to a real distributed load. Compare different lengths and extensions without confusing a short sample with the complete system.
+
+**Supporting concepts:**
+
+- A uniform rope with linear density λ has mass λL over length L.
+- For a stationary vertical rope, tension at a point supports the mass hanging below that point.
+- An ideal uniform elastic member has stiffness k=EA/L; E is Young’s modulus and A cross-sectional area.
+- Elastic energy is kx²/2 for extension x within the linear range. A local spring model requires its own stated length and loading assumptions.
+
+#### OW-GD-M3-Q1
+
+**Objective:** Apply or evaluate the mission’s mechanics model in a new case.
+
+**Prompt:** A 6 m uniform rope has linear density 2 kg/m. What is its mass?
+
+- **A.** 3 kg
+- **B.** 12 kg
+- **C.** 8 kg
+- **D.** 24 kg
+
+**Correct key:** B
+
+**Hint:** Treat λ as kilograms in each metre.
+
+**Feedback A:** Length divided by density does not give the rope mass.
+
+**Feedback B:** Mass is density per length times total length.
+
+**Feedback C:** Adding length and density is dimensionally invalid.
+
+**Feedback D:** There is no extra factor two in λL.
+
+**Independent solution:** m=2×6=12 kg.
+
+#### OW-GD-M3-Q2
+
+**Objective:** Apply or evaluate the mission’s mechanics model in a new case.
+
+**Prompt:** A stationary 5 m rope of linear density 2 kg/m hangs from a ceiling with no end load. With g=10 m/s², what is the top tension?
+
+- **A.** 20 N
+- **B.** 50 N
+- **C.** 100 N
+- **D.** 0 N
+
+**Correct key:** C
+
+**Hint:** Count all mass below the top.
+
+**Feedback A:** That is the weight of one metre only.
+
+**Feedback B:** This omits the density of 2 kg/m.
+
+**Feedback C:** The top supports all 10 kg of rope.
+
+**Feedback D:** No end load does not mean the rope has no weight.
+
+**Independent solution:** T=λLg=2×5×10=100 N.
+
+#### OW-GD-M3-Q3
+
+**Objective:** Apply or evaluate the mission’s mechanics model in a new case.
+
+**Prompt:** A stationary vertical rope has λ=1 kg/m and a 3 kg mass on its bottom. At a point 2 m above the bottom, what is tension for g=10 m/s²?
+
+- **A.** 50 N
+- **B.** 30 N
+- **C.** 20 N
+- **D.** 10 N
+
+**Correct key:** A
+
+**Hint:** Choose the system below the point.
+
+**Feedback A:** It supports the 3 kg mass and 2 kg of rope below.
+
+**Feedback B:** This omits the rope below the chosen point.
+
+**Feedback C:** This omits the attached mass.
+
+**Feedback D:** Both contributions act downward and add.
+
+**Independent solution:** T=(3+1×2)×10=50 N.
+
+#### OW-GD-M3-Q4
+
+**Objective:** Apply or evaluate the mission’s mechanics model in a new case.
+
+**Prompt:** Two elastic rods have the same E and A. Rod B is twice as long as rod A. If k_A=800 N/m, what is k_B?
+
+- **A.** 1600 N/m
+- **B.** 800 N/m
+- **C.** 200 N/m
+- **D.** 400 N/m
+
+**Correct key:** D
+
+**Hint:** Use k=EA/L.
+
+**Feedback A:** Doubling length reduces stiffness in EA/L.
+
+**Feedback B:** Length matters even with the same material and area.
+
+**Feedback C:** The dependence is inverse length, not inverse length squared.
+
+**Feedback D:** Twice the length gives half the stiffness.
+
+**Independent solution:** k_B=800/2=400 N/m.
+
+#### OW-GD-M3-Q5
+
+**Objective:** Apply or evaluate the mission’s mechanics model in a new case.
+
+**Prompt:** An ideal spring has k=200 N/m and extension 0.1 m. What elastic energy is stored?
+
+- **A.** 20 J
+- **B.** 1 J
+- **C.** 2 J
+- **D.** 10 J
+
+**Correct key:** B
+
+**Hint:** Energy is area under the force-extension graph.
+
+**Feedback A:** That is the numerical value of force, not energy.
+
+**Feedback B:** U=0.5×200×0.1².
+
+**Feedback C:** This omits the one-half factor.
+
+**Feedback D:** The extension must be squared.
+
+**Independent solution:** U=kx²/2=(200×0.1²)/2=1 J.
+
+#### OW-GD-M3-Q6
+
+**Objective:** Apply or evaluate the mission’s mechanics model in a new case.
+
+**Prompt:** A uniform rod stays in its linear elastic range. Which pair of measurements best tests the prediction that doubling force doubles extension?
+
+- **A.** Two forces on rods of different length
+- **B.** One extension measured twice at one force
+- **C.** Extensions at F and 2F on the same rod under unchanged conditions
+- **D.** Extensions at F on two rods with different cross-sectional areas
+
+**Correct key:** C
+
+**Hint:** Hold the member and its conditions fixed.
+
+**Feedback A:** Length changes stiffness and confounds the comparison.
+
+**Feedback B:** This tests repeatability, not the doubling prediction.
+
+**Feedback C:** Only applied force changes, so the proportionality can be tested.
+
+**Feedback D:** Area changes stiffness, while the force never doubles.
+
+**Independent solution:** Same E,A,L gives constant k; x=F/k predicts x_2=2x_1.
+
+
 # Mission 4 — ONE MOTOR, TWO JOBS
 
 ## A. Mission briefing card — exact player copy
@@ -2125,7 +2766,9 @@ Use 1 m/s²; the 2 m/s² start exceeds the motor torque limit. The four stops pr
 
 **World state:** The day’s record is open and passenger approval is still limited.
 
-**Dialogue bubble — Ewan Price, winding engineer:** “Ewan Price receives the locked record: Which starting acceleration can the motor supply?”
+**Dialogue bubble — Ewan Price, by radio:** “The motor turns the drum and raises the load. I need to know where the same pull appears in both jobs.”
+
+**Dialogue bubble — Ivo Reed, by radio:** “And I need the ore plan kept separate from passenger approval.”
 
 **Panel text:** “The day’s record is open and passenger approval is still limited.”
 
@@ -2135,7 +2778,7 @@ Use 1 m/s²; the 2 m/s² start exceeds the motor torque limit. The four stops pr
 
 **Location:** Winder House.
 
-**Presentation:** equipment_panel_update.
+**Presentation:** equipment_panel_update with two radio dialogue bubbles.
 
 **Player control:** One Continue; timer paused while the required text is visible, then immediate control return.
 
@@ -2143,7 +2786,25 @@ Use 1 m/s²; the 2 m/s² start exceeds the motor torque limit. The four stops pr
 
 **Panel text:** “τmotor=TR+Ia/R=374500 N m. The accepted result stays in the log beside the next unresolved test.”
 
+**Dialogue bubble — Ivo Reed, by radio:** “Changing the system boundary changes which forces are external. It does not create extra motor capacity.”
+
+**Dialogue bubble — Ewan Price, by radio:** “Then I will keep the drum torque and lifting work on separate lines.”
+
 **Unlocks:** Stop 15.
+
+### Beat OW-D4-R3 — After Stop 15 is accepted
+
+**Location:** Current Stop 15 fixture (Winder House, The drum (`drum`).); the named speaker uses radio unless already local.
+
+**Presentation:** radio dialogue bubble.
+
+**Player control:** One Continue; timer paused, line logged, immediate control return.
+
+**World state:** Existing accepted Stop 15 evidence is retained; no additional state or reward.
+
+**Dialogue bubble — Ivo Reed, by radio:** “The demand is now separated by job. We can choose the start without disguising one job as the other.”
+
+**Unlocks:** No new gate; continue to existing Stop 16.
 
 ### Beat OW-D4-DEC — After Stop 16
 
@@ -2171,7 +2832,15 @@ Use 1 m/s²; the 2 m/s² start exceeds the motor torque limit. The four stops pr
 
 **Panel text:** “Ewan locks the start to 1 m/s². He must now tell management why a rope that passes cannot make the motor deliver the faster start. Now Ada Kerr has enough torque for a start, but the full 1,200 m lift still needs an energy page.”
 
+**Dialogue bubble — Ivo Reed, by radio:** “Now the passenger start has a limit of its own. I will look for the ore gain at the chute.”
+
 **Unlocks:** metric screen after the changed-state inspection.
+
+### Physical aftermath — ow-load-envelope
+
+**Home:** `winder-desk`. **Before:** Loose load card beside system drawing. **After — exact action:** Ada clips the accepted load-envelope card to the drawing.
+
+**Trigger:** accepted_stop_16. The accepted decision causes this visible action once; it is not triggered by optional dialogue or merely opening a question. **Persistence:** retain the changed prop at its home for later inspection; retries and replay do not repeat the action or award resources. Restoring a mission-start snapshot restores its matching prop state; re-acceptance reapplies it once. **Interaction:** existing changed-object inspection only, no inventory or new graded task. The same state is used by the existing mission aftermath; this is a concrete rendering of that consequence, not a second reward.
 
 ## E. Location plan
 
@@ -2186,7 +2855,7 @@ Every transition is caused by the preceding record. The next room supplies a spe
 
 ## F. Characters and dramatic beat
 
-Ewan Price, winding engineer, owns the WIND evidence and can stop an unsupported approval. The greeting changes after accepting this day’s result: “Keep the tested conditions with the number.”
+Ewan Price, winding engineer, owns the WIND evidence and can stop an unsupported approval. Optional greeting selection follows the exact milestone rules in §4.2.
 
 ## G. Key concepts, explained here
 
@@ -2508,6 +3177,171 @@ Mission decision: Use the slower start. The faster start asks too much of the mo
 - **Mission takeaway:** The motor must supply load torque and acceleration torque.
 
 ---
+
+### GO DEEPER — Mission 4 — optional exact player copy
+
+**Availability:** After mission_complete_4, on explicit GO DEEPER selection. Use the state-neutral review contract in §4.4; no graded-stop, timer, RP, bar or unlock effects.
+
+**Secondary brief:** Draw boundaries around a translating load and a rotating drive. Use force, torque and energy to describe the same motion without counting an internal force twice.
+
+**Supporting concepts:**
+
+- A free-body diagram includes only forces exerted on the chosen body by something outside it.
+- For an upward-accelerating mass, T−mg=ma. T is rope tension on that mass.
+- A massless rope on a no-slip pulley links tangential and angular acceleration: a=Rα.
+- With no losses, net work equals change in total kinetic energy; translational and rotational energy are separate terms.
+
+#### OW-GD-M4-Q1
+
+**Objective:** Apply or evaluate the mission’s mechanics model in a new case.
+
+**Prompt:** A 3 kg mass accelerates upward at 2 m/s². Using g=10 m/s², what upward rope tension is required?
+
+- **A.** 24 N
+- **B.** 30 N
+- **C.** 6 N
+- **D.** 36 N
+
+**Correct key:** D
+
+**Hint:** Write upward force minus downward force.
+
+**Feedback A:** Subtracting ma would describe downward acceleration.
+
+**Feedback B:** Weight alone corresponds to zero acceleration.
+
+**Feedback C:** Net force is 6 N, but tension must also oppose weight.
+
+**Feedback D:** T=m(g+a)=3×12.
+
+**Independent solution:** T−30=6, so T=36 N.
+
+#### OW-GD-M4-Q2
+
+**Objective:** Apply or evaluate the mission’s mechanics model in a new case.
+
+**Prompt:** Two blocks are connected by a light cord on a frictionless table. For the system containing both blocks and the cord, how is the cord tension treated?
+
+- **A.** Internal; it does not enter the net external force sum
+- **B.** External twice
+- **C.** External once
+- **D.** Always zero on each block
+
+**Correct key:** A
+
+**Hint:** Ask whether the interacting objects lie inside the boundary.
+
+**Feedback A:** Forces between parts of the selected system cancel in its total momentum balance.
+
+**Feedback B:** Both tension forces act within the selected boundary.
+
+**Feedback C:** There is no cord force crossing this chosen boundary.
+
+**Feedback D:** Each block can have a nonzero tension force even though it cancels for the combined system.
+
+**Independent solution:** Both blocks and cord are inside; internal tensions cancel in the combined force sum.
+
+#### OW-GD-M4-Q3
+
+**Objective:** Apply or evaluate the mission’s mechanics model in a new case.
+
+**Prompt:** A no-slip pulley has radius 0.5 m and angular acceleration 4 rad/s². What is rope acceleration?
+
+- **A.** 8 m/s²
+- **B.** 4 m/s²
+- **C.** 2 m/s²
+- **D.** 1 m/s²
+
+**Correct key:** C
+
+**Hint:** Use the acceleration of the rim.
+
+**Feedback A:** The relation multiplies by radius rather than divides.
+
+**Feedback B:** The angular value is not directly the linear value.
+
+**Feedback C:** a=Rα=0.5×4.
+
+**Feedback D:** No factor one half enters the kinematic constraint.
+
+**Independent solution:** a=Rα=0.5×4=2 m/s².
+
+#### OW-GD-M4-Q4
+
+**Objective:** Apply or evaluate the mission’s mechanics model in a new case.
+
+**Prompt:** A 2 kg cart moves at 3 m/s while its attached rotor has I=1 kg m² and ω=2 rad/s. What is their total kinetic energy?
+
+- **A.** 9 J
+- **B.** 11 J
+- **C.** 13 J
+- **D.** 5 J
+
+**Correct key:** B
+
+**Hint:** Add mv²/2 and Iω²/2.
+
+**Feedback A:** That includes only translation.
+
+**Feedback B:** Translation gives 9 J and rotation gives 2 J.
+
+**Feedback C:** The rotor energy requires a factor one half.
+
+**Feedback D:** Both speed terms must be squared.
+
+**Independent solution:** K=0.5×2×9+0.5×1×4=11 J.
+
+#### OW-GD-M4-Q5
+
+**Objective:** Apply or evaluate the mission’s mechanics model in a new case.
+
+**Prompt:** A drum has opposing tangential forces 30 N and 10 N at radius 0.2 m. What is its net torque magnitude?
+
+- **A.** 8 N m
+- **B.** 20 N m
+- **C.** 2 N m
+- **D.** 4 N m
+
+**Correct key:** D
+
+**Hint:** Choose a positive rotation direction and subtract opposing torques.
+
+**Feedback A:** Opposing torques subtract rather than add.
+
+**Feedback B:** The net tangential force still needs a lever arm.
+
+**Feedback C:** That counts only the smaller opposing torque.
+
+**Feedback D:** (30−10)×0.2 gives the net torque.
+
+**Independent solution:** τ_net=6−2=4 N m.
+
+#### OW-GD-M4-Q6
+
+**Objective:** Apply or evaluate the mission’s mechanics model in a new case.
+
+**Prompt:** A frictionless machine receives 40 J of net work and gains 15 J of translational kinetic energy, with no potential-energy change. What rotational energy gain remains?
+
+- **A.** 25 J
+- **B.** 55 J
+- **C.** 40 J
+- **D.** 15 J
+
+**Correct key:** A
+
+**Hint:** Account for the whole system’s energy once.
+
+**Feedback A:** Energy conservation leaves 40−15 J for rotation.
+
+**Feedback B:** The input is shared, not added again to one output.
+
+**Feedback C:** This would ignore the translational gain.
+
+**Feedback D:** The two forms need not receive equal energy.
+
+**Independent solution:** ΔK_rot=40−15=25 J.
+
+
 # Mission 5 — ENOUGH ENERGY IS NOT ENOUGH
 
 ## A. Mission briefing card — exact player copy
@@ -2592,7 +3426,9 @@ The full lift energy budget passes, but it does not certify an emergency stop. T
 
 **World state:** The day’s record is open and passenger approval is still limited.
 
-**Dialogue bubble — Ada Kerr, mine safety engineer:** “Ada Kerr receives the locked record: Does the lift energy budget clear the emergency stop?”
+**Dialogue bubble — Ada Kerr, by radio:** “This certificate came from cold pads. The worn pair beside it did not work under those conditions.”
+
+**Dialogue bubble — Ruth Bell, by radio:** “Then leave the certificate open until its limits are clear.”
 
 **Panel text:** “The day’s record is open and passenger approval is still limited.”
 
@@ -2602,7 +3438,7 @@ The full lift energy budget passes, but it does not certify an emergency stop. T
 
 **Location:** Shaft and Brake House.
 
-**Presentation:** equipment_panel_update.
+**Presentation:** equipment_panel_update with two radio dialogue bubbles.
 
 **Player control:** One Continue; timer paused while the required text is visible, then immediate control return.
 
@@ -2610,7 +3446,25 @@ The full lift energy budget passes, but it does not certify an emergency stop. T
 
 **Panel text:** “Wtotal=MgL+λgL²/2=120000000 J. Take this evidence to Winder House at The winder desk; only that record or test can check the next part.”
 
+**Dialogue bubble — Ruth Bell, by radio:** “The energy calculation gives a total. It does not tell us the peak force during contact.”
+
+**Dialogue bubble — Ada Kerr, by radio:** “Exactly. The certificate must say what the stopping hardware can actually withstand.”
+
 **Unlocks:** Stop 19 and waypoint to Winder House.
+
+### Beat OW-D5-R3 — After Stop 19 is accepted
+
+**Location:** Current Stop 19 fixture (Winder House, The winder desk (`winder-desk`).); the named speaker uses radio unless already local.
+
+**Presentation:** radio dialogue bubble.
+
+**Player control:** One Continue; timer paused, line logged, immediate control return.
+
+**World state:** Existing accepted Stop 19 evidence is retained; no additional state or reward.
+
+**Dialogue bubble — Mina Holt, by radio:** “These pads are off the machine. Keep their cold-test slip with them so nobody calls it a warm-stop approval.”
+
+**Unlocks:** No new gate; continue to existing Stop 20.
 
 ### Beat OW-D5-DEC — After Stop 20
 
@@ -2638,7 +3492,15 @@ The full lift energy budget passes, but it does not certify an emergency stop. T
 
 **Panel text:** “Ada signs the energy page but leaves her brake page open. She places the March check beside it so the crew can see that enough lift energy has answered a different question. But Ivo Reed has broken bin bolts and a tripping belt, so lost ore time adds pressure to Ewan’s schedule.”
 
+**Dialogue bubble — Ada Kerr, by radio:** “The pad tray keeps its slip. A total energy number will not conceal a peak-force limit.”
+
 **Unlocks:** metric screen after the changed-state inspection.
+
+### Physical aftermath — ow-brake-slip
+
+**Home:** `pad-bench`. **Before:** Cold-test slip loose beside pad tray. **After — exact action:** Ada clips the slip to the worn-pad tray with its limits visible.
+
+**Trigger:** accepted_stop_20. The accepted decision causes this visible action once; it is not triggered by optional dialogue or merely opening a question. **Persistence:** retain the changed prop at its home for later inspection; retries and replay do not repeat the action or award resources. Restoring a mission-start snapshot restores its matching prop state; re-acceptance reapplies it once. **Interaction:** existing changed-object inspection only, no inventory or new graded task. The same state is used by the existing mission aftermath; this is a concrete rendering of that consequence, not a second reward.
 
 ## E. Location plan
 
@@ -2653,9 +3515,9 @@ Every transition is caused by the preceding record. The next room supplies a spe
 
 ## F. Characters and dramatic beat
 
-Ada Kerr, mine safety engineer, owns the CAGE evidence and can stop an unsupported approval. The greeting changes after accepting this day’s result: “Keep the tested conditions with the number.”
+Ada Kerr, mine safety engineer, owns the CAGE evidence and can stop an unsupported approval. Optional greeting selection follows the exact milestone rules in §4.2.
 
-Ewan Price, winding engineer, owns the WIND evidence and can stop an unsupported approval. The greeting changes after accepting this day’s result: “Keep the tested conditions with the number.”
+Ewan Price, winding engineer, owns the WIND evidence and can stop an unsupported approval. Optional greeting selection follows the exact milestone rules in §4.2.
 
 ## G. Key concepts, explained here
 
@@ -2986,6 +3848,171 @@ Mission decision: The lift has enough energy, but the stop is not cleared. The d
 - **Mission takeaway:** Enough energy does not establish a safe stop.
 
 ---
+
+### GO DEEPER — Mission 5 — optional exact player copy
+
+**Availability:** After mission_complete_5, on explicit GO DEEPER selection. Use the state-neutral review contract in §4.4; no graded-stop, timer, RP, bar or unlock effects.
+
+**Secondary brief:** Compare brakes and buffers through work and impulse. A device may absorb enough total energy while still producing an unacceptable peak force, so keep averages and maxima separate.
+
+**Supporting concepts:**
+
+- Work is the integral of force along displacement; stopping work has magnitude equal to the removed kinetic energy.
+- Impulse is the integral of force over time and equals momentum change.
+- Average stopping force is energy divided by stopping distance only for the corresponding distance-averaged force.
+- A maximum cannot generally be inferred from an average. A force profile or independent peak measurement is needed.
+
+#### OW-GD-M5-Q1
+
+**Objective:** Apply or evaluate the mission’s mechanics model in a new case.
+
+**Prompt:** A 2 kg cart moving at 4 m/s is stopped. How much kinetic energy must be removed?
+
+- **A.** 8 J
+- **B.** 32 J
+- **C.** 16 J
+- **D.** 4 J
+
+**Correct key:** C
+
+**Hint:** Use the kinetic energy before stopping.
+
+**Feedback A:** The speed is squared in kinetic energy.
+
+**Feedback B:** This omits the one-half factor.
+
+**Feedback C:** K=0.5×2×4².
+
+**Feedback D:** This omits both mass and the speed square.
+
+**Independent solution:** K=mv²/2=(2×4²)/2=16 J.
+
+#### OW-GD-M5-Q2
+
+**Objective:** Apply or evaluate the mission’s mechanics model in a new case.
+
+**Prompt:** A brake removes 30 J over 0.5 m. What is the magnitude of its distance-averaged resisting force?
+
+- **A.** 15 N
+- **B.** 60 N
+- **C.** 30 N
+- **D.** 120 N
+
+**Correct key:** B
+
+**Hint:** Use the area under the force-distance graph.
+
+**Feedback A:** Energy must be divided by distance.
+
+**Feedback B:** 30 J divided by 0.5 m is 60 N.
+
+**Feedback C:** Joules do not equal newtons without a distance.
+
+**Feedback D:** No extra factor two enters work divided by distance.
+
+**Independent solution:** F_average=30/0.5=60 N.
+
+#### OW-GD-M5-Q3
+
+**Objective:** Apply or evaluate the mission’s mechanics model in a new case.
+
+**Prompt:** A constant 12 N horizontal force opposes a cart for 0.25 s. What impulse magnitude does it deliver?
+
+- **A.** 48 N s
+- **B.** 12 N s
+- **C.** 0.25 N s
+- **D.** 3 N s
+
+**Correct key:** D
+
+**Hint:** For constant force, J=FΔt.
+
+**Feedback A:** Impulse multiplies force by time.
+
+**Feedback B:** The force does not last one second.
+
+**Feedback C:** Time alone does not give impulse.
+
+**Feedback D:** 12×0.25=3 N s.
+
+**Independent solution:** J=FΔt=12×0.25=3 N s.
+
+#### OW-GD-M5-Q4
+
+**Objective:** Apply or evaluate the mission’s mechanics model in a new case.
+
+**Prompt:** A buffer force rises linearly from zero to 100 N over 0.2 m of compression. What work does the buffer absorb?
+
+- **A.** 10 J
+- **B.** 20 J
+- **C.** 50 J
+- **D.** 500 J
+
+**Correct key:** A
+
+**Hint:** Sketch a triangle under the force-distance line.
+
+**Feedback A:** The triangular force-distance area is 100×0.2/2.
+
+**Feedback B:** That rectangular area assumes maximum force throughout.
+
+**Feedback C:** The average force still must be multiplied by compression.
+
+**Feedback D:** Force divided by distance is stiffness, not work.
+
+**Independent solution:** W=(F_peak×compression)/2=(100×0.2)/2=10 J.
+
+#### OW-GD-M5-Q5
+
+**Objective:** Apply or evaluate the mission’s mechanics model in a new case.
+
+**Prompt:** Two brakes stop identical carts through the same distance on a level track; each brake is the only force doing work. One produces a short large force peak. What follows from their equal initial kinetic energies?
+
+- **A.** Their peak forces are equal
+- **B.** Their stopping times are equal
+- **C.** They absorb equal total work, but their peak forces can differ
+- **D.** The peaked brake absorbs more energy
+
+**Correct key:** C
+
+**Hint:** Distinguish area from maximum height.
+
+**Feedback A:** Equal areas do not require equal heights.
+
+**Feedback B:** Equal distance and energy do not fix the force-time profile.
+
+**Feedback C:** The force-distance integrals agree while the profiles may differ.
+
+**Feedback D:** Both carts lose the same kinetic energy under the stated conditions.
+
+**Independent solution:** Both remove the same K; equal work alone does not fix peak force.
+
+#### OW-GD-M5-Q6
+
+**Objective:** Apply or evaluate the mission’s mechanics model in a new case.
+
+**Prompt:** A 1 kg cart slows from +6 to +2 m/s. What signed impulse acts on it?
+
+- **A.** +4 N s
+- **B.** −4 N s
+- **C.** −8 N s
+- **D.** +2 N s
+
+**Correct key:** B
+
+**Hint:** Use final momentum minus initial momentum.
+
+**Feedback A:** The cart loses positive momentum, so the change is negative.
+
+**Feedback B:** Δp=1×(2−6).
+
+**Feedback C:** Subtract velocities; do not add their magnitudes.
+
+**Feedback D:** That is final momentum, not its change.
+
+**Independent solution:** J=Δp=m(v_final−v_initial)=1×(2−6)=−4 N s.
+
+
 # Mission 6 — THE STREAM HITS BACK
 
 ## A. Mission briefing card — exact player copy
@@ -3068,7 +4095,9 @@ Spread the incoming momentum change over more time with the staged chute. The fo
 
 **World state:** The day’s record is open and passenger approval is still limited.
 
-**Dialogue bubble — Ivo Reed, conveyor foreman:** “Ivo Reed receives the locked record: Which feed change protects the conveyor and bin?”
+**Dialogue bubble — Ivo Reed, by radio:** “We can change how ore enters the bin. We cannot ask the passenger cage to make every lost minute back.”
+
+**Dialogue bubble — Ewan Price, by radio:** “Show me a throughput gain I can defend without adding passenger speed.”
 
 **Panel text:** “The day’s record is open and passenger approval is still limited.”
 
@@ -3078,7 +4107,7 @@ Spread the incoming momentum change over more time with the staged chute. The fo
 
 **Location:** Tip and Conveyor.
 
-**Presentation:** equipment_panel_update.
+**Presentation:** equipment_panel_update with two radio dialogue bubbles.
 
 **Player control:** One Continue; timer paused while the required text is visible, then immediate control return.
 
@@ -3086,7 +4115,25 @@ Spread the incoming momentum change over more time with the staged chute. The fo
 
 **Panel text:** “F=Δp/Δt=ṁv=1000 N for ṁ=200 kg/s and v=5 m/s. Take this evidence to Shaft and Brake House at The pad bench; only that record or test can check the next part.”
 
+**Dialogue bubble — Ewan Price, by radio:** “The same incoming momentum can be transferred over more time.”
+
+**Dialogue bubble — Ivo Reed, by radio:** “That gives the chute a job. I do not need to promise a faster cage to make it useful.”
+
 **Unlocks:** Stop 23 and waypoint to Shaft and Brake House.
+
+### Beat OW-D6-R3 — After Stop 23 is accepted
+
+**Location:** Current Stop 23 fixture (Shaft and Brake House, The pad bench (`pad-bench`).); the named speaker uses radio unless already local.
+
+**Presentation:** radio dialogue bubble.
+
+**Player control:** One Continue; timer paused, line logged, immediate control return.
+
+**World state:** Existing accepted Stop 23 evidence is retained; no additional state or reward.
+
+**Dialogue bubble — Ivo Reed, by radio:** “The comparison supports the staged feed. Let us label that arrangement before the next ore run.”
+
+**Unlocks:** No new gate; continue to existing Stop 24.
 
 ### Beat OW-D6-DEC — After Stop 24
 
@@ -3114,7 +4161,17 @@ Spread the incoming momentum change over more time with the staged chute. The fo
 
 **Panel text:** “Ivo marks the staged chute for installation. It preserves daily delivery in the stated model, removing one reason to demand that the passenger cage make up lost ore time. Now Nia Cole must explain two readings that do not match, before a small gravity change is blamed for March.”
 
+**Dialogue bubble — Jon Pike, by radio:** “I have labeled the staged ore feed. The passenger timetable is still the old restricted sheet.”
+
+**Dialogue bubble — Ivo Reed, by radio:** “Keep them separate. This gain belongs to the chute.”
+
 **Unlocks:** metric screen after the changed-state inspection.
+
+### Physical aftermath — ow-chute-tag
+
+**Home:** `bin-bolts`. **Before:** Arrangement tag unassigned. **After — exact action:** Ivo attaches the staged-feed tag beside the fracture photographs.
+
+**Trigger:** accepted_stop_24. The accepted decision causes this visible action once; it is not triggered by optional dialogue or merely opening a question. **Persistence:** retain the changed prop at its home for later inspection; retries and replay do not repeat the action or award resources. Restoring a mission-start snapshot restores its matching prop state; re-acceptance reapplies it once. **Interaction:** existing changed-object inspection only, no inventory or new graded task. The same state is used by the existing mission aftermath; this is a concrete rendering of that consequence, not a second reward.
 
 ## E. Location plan
 
@@ -3129,9 +4186,9 @@ Every transition is caused by the preceding record. The next room supplies a spe
 
 ## F. Characters and dramatic beat
 
-Ivo Reed, conveyor foreman, owns the TIP evidence and can stop an unsupported approval. The greeting changes after accepting this day’s result: “Keep the tested conditions with the number.”
+Ivo Reed, conveyor foreman, owns the TIP evidence and can stop an unsupported approval. Optional greeting selection follows the exact milestone rules in §4.2.
 
-Ada Kerr, mine safety engineer, owns the CAGE evidence and can stop an unsupported approval. The greeting changes after accepting this day’s result: “Keep the tested conditions with the number.”
+Ada Kerr, mine safety engineer, owns the CAGE evidence and can stop an unsupported approval. Optional greeting selection follows the exact milestone rules in §4.2.
 
 ## G. Key concepts, explained here
 
@@ -3468,6 +4525,171 @@ Mission decision: Fit the staged chute. The longer stop lowers the force on the 
 - **Mission takeaway:** Changing momentum over a longer time can reduce force.
 
 ---
+
+### GO DEEPER — Mission 6 — optional exact player copy
+
+**Availability:** After mission_complete_6, on explicit GO DEEPER selection. Use the state-neutral review contract in §4.4; no graded-stop, timer, RP, bar or unlock effects.
+
+**Secondary brief:** Study a stream of small parcels entering a receiver. Distinguish the momentum carried in each second from the momentum of the material already collected, and use impulse to compare gentler catches.
+
+**Supporting concepts:**
+
+- Momentum is mv, and a chosen system’s momentum changes through external impulse.
+- A steady stream arriving at mass rate ṁ and losing velocity Δv transfers momentum at rate ṁΔv.
+- For a fixed momentum change, a longer stopping time lowers the time-averaged force.
+- In a perfectly inelastic collision objects stick; momentum can be conserved while kinetic energy decreases.
+
+#### OW-GD-M6-Q1
+
+**Objective:** Apply or evaluate the mission’s mechanics model in a new case.
+
+**Prompt:** A stream supplies 3 kg/s horizontally at 4 m/s and is brought to horizontal rest. What horizontal force magnitude does it exert on the receiver?
+
+- **A.** 12 N
+- **B.** 0.75 N
+- **C.** 7 N
+- **D.** 48 N
+
+**Correct key:** A
+
+**Hint:** Use arriving momentum per second.
+
+**Feedback A:** The momentum flux removed is 3×4.
+
+**Feedback B:** Momentum flux multiplies mass rate and velocity change.
+
+**Feedback C:** Mass rate and velocity cannot be added.
+
+**Feedback D:** The velocity is not squared in momentum flux.
+
+**Independent solution:** F=ṁΔv=3×4=12 N.
+
+#### OW-GD-M6-Q2
+
+**Objective:** Apply or evaluate the mission’s mechanics model in a new case.
+
+**Prompt:** A 2 kg parcel loses 6 m/s of horizontal velocity. The stop lasts 0.3 s. What is the average resisting force magnitude?
+
+- **A.** 3.6 N
+- **B.** 20 N
+- **C.** 12 N
+- **D.** 40 N
+
+**Correct key:** D
+
+**Hint:** Average force is impulse divided by duration.
+
+**Feedback A:** That multiplies momentum change by time rather than dividing.
+
+**Feedback B:** This omits the parcel mass.
+
+**Feedback C:** 12 is the impulse in N s, not the force.
+
+**Feedback D:** Momentum change 12 kg m/s divided by 0.3 s gives 40 N.
+
+**Independent solution:** F_avg=2×6/0.3=40 N.
+
+#### OW-GD-M6-Q3
+
+**Objective:** Apply or evaluate the mission’s mechanics model in a new case.
+
+**Prompt:** A catcher doubles stopping time for the same incoming parcel and final rest state. What happens to average force?
+
+- **A.** It doubles
+- **B.** It halves
+- **C.** It stays fixed
+- **D.** It becomes zero
+
+**Correct key:** B
+
+**Hint:** The momentum change stays fixed.
+
+**Feedback A:** The same impulse is spread over more time.
+
+**Feedback B:** F_avg=Δp/Δt gives half the force.
+
+**Feedback C:** Impulse is fixed, not average force.
+
+**Feedback D:** A finite momentum change still requires nonzero impulse.
+
+**Independent solution:** New F_avg=Δp/(2Δt)=old F_avg/2.
+
+#### OW-GD-M6-Q4
+
+**Objective:** Apply or evaluate the mission’s mechanics model in a new case.
+
+**Prompt:** A 2 kg cart at +3 m/s sticks to a stationary 1 kg cart on a frictionless track. What is their common final velocity?
+
+- **A.** +3 m/s
+- **B.** +1 m/s
+- **C.** +2 m/s
+- **D.** 0 m/s
+
+**Correct key:** C
+
+**Hint:** Conserve total momentum across the collision.
+
+**Feedback A:** The original momentum is now shared by more mass.
+
+**Feedback B:** Initial momentum is 6 kg m/s, not 3.
+
+**Feedback C:** 6 kg m/s divided by 3 kg gives 2 m/s.
+
+**Feedback D:** There is no opposite initial momentum to cancel it.
+
+**Independent solution:** v_f=(2×3+1×0)/(2+1)=2 m/s.
+
+#### OW-GD-M6-Q5
+
+**Objective:** Apply or evaluate the mission’s mechanics model in a new case.
+
+**Prompt:** For that collision—2 kg at 3 m/s sticking to 1 kg initially at rest, ending at 2 m/s—how much kinetic energy is lost?
+
+- **A.** 3 J
+- **B.** 0 J
+- **C.** 6 J
+- **D.** 9 J
+
+**Correct key:** A
+
+**Hint:** Compute both kinetic energies.
+
+**Feedback A:** Initial K=9 J and final K=6 J.
+
+**Feedback B:** Sticking does not conserve kinetic energy.
+
+**Feedback C:** That is final kinetic energy, not the loss.
+
+**Feedback D:** The joined carts are still moving after impact.
+
+**Independent solution:** Loss=0.5×2×9−0.5×3×4=3 J.
+
+#### OW-GD-M6-Q6
+
+**Objective:** Apply or evaluate the mission’s mechanics model in a new case.
+
+**Prompt:** A horizontal stream strikes a stationary wall at 5 m/s, then leaves horizontally at −5 m/s, with mass rate 2 kg/s. What horizontal force magnitude acts on the wall?
+
+- **A.** 10 N
+- **B.** 5 N
+- **C.** 0 N
+- **D.** 20 N
+
+**Correct key:** D
+
+**Hint:** Include the sign reversal.
+
+**Feedback A:** That would apply if the stream only stopped.
+
+**Feedback B:** The mass rate and full velocity change both matter.
+
+**Feedback C:** Equal speed does not mean equal velocity.
+
+**Feedback D:** Reversal changes velocity by 10 m/s; the momentum flux magnitude is 20 N.
+
+**Independent solution:** |F|=2×|−5−5|=20 N.
+
+
 # Mission 7 — WHAT DEPTH CAN CHANGE
 
 ## A. Mission briefing card — exact player copy
@@ -3550,7 +4772,9 @@ Use the corrected survey value, but reject gravity as the explanation of the del
 
 **World state:** The day’s record is open and passenger approval is still limited.
 
-**Dialogue bubble — Nia Cole, survey engineer:** “Nia Cole receives the locked record: Can the local gravity correction explain the March overrun?”
+**Dialogue bubble — Nia Cole, by radio:** “The reference shifted between readings. Let us repair that comparison before we give gravity the blame.”
+
+**Dialogue bubble — Mara Shaw, by radio:** “I will keep the rope lengths beside your survey. Neither record should travel alone.”
 
 **Panel text:** “The day’s record is open and passenger approval is still limited.”
 
@@ -3560,7 +4784,7 @@ Use the corrected survey value, but reject gravity as the explanation of the del
 
 **Location:** Gravity Station.
 
-**Presentation:** equipment_panel_update.
+**Presentation:** equipment_panel_update with two radio dialogue bubbles.
 
 **Player control:** One Continue; timer paused while the required text is visible, then immediate control return.
 
@@ -3568,7 +4792,25 @@ Use the corrected survey value, but reject gravity as the explanation of the del
 
 **Panel text:** “g(R−d)=g0(1−d/R)=9.998 m/s². Take this evidence to Rope Shop at The rope bench; only that record or test can check the next part.”
 
+**Dialogue bubble — Mara Shaw, by radio:** “Your ideal depth trend uses a model of the Earth. Does that certify this shaft's reading?”
+
+**Dialogue bubble — Nia Cole, by radio:** “No. The corrected site record and the ideal model must remain distinct.”
+
 **Unlocks:** Stop 27 and waypoint to Rope Shop.
+
+### Beat OW-D7-R3 — After Stop 27 is accepted
+
+**Location:** Current Stop 27 fixture (Rope Shop, The rope bench (`rope-bench`).); the named speaker uses radio unless already local.
+
+**Presentation:** radio dialogue bubble.
+
+**Player control:** One Continue; timer paused, line logged, immediate control return.
+
+**World state:** Existing accepted Stop 27 evidence is retained; no additional state or reward.
+
+**Dialogue bubble — Nia Cole, by radio:** “The site correction is worth keeping. It still does not produce a delayed cage bounce.”
+
+**Unlocks:** No new gate; continue to existing Stop 28.
 
 ### Beat OW-D7-DEC — After Stop 28
 
@@ -3596,7 +4838,15 @@ Use the corrected survey value, but reject gravity as the explanation of the del
 
 **Panel text:** “Nia signs the drift correction and keeps the March inquiry open. A fault in her reading does not erase the separate evidence of the moving cage. Yet Ewan Price’s timetable still asks the motor to supply energy faster than it may be able to.”
 
+**Dialogue bubble — Nia Cole, by radio:** “The corrected survey is filed. Ada still deserves an answer about the delay in March.”
+
 **Unlocks:** metric screen after the changed-state inspection.
+
+### Physical aftermath — ow-survey-tab
+
+**Home:** `level-book`. **Before:** Reference tab loose. **After — exact action:** Nia places the tab against the corrected entry without erasing the original.
+
+**Trigger:** accepted_stop_28. The accepted decision causes this visible action once; it is not triggered by optional dialogue or merely opening a question. **Persistence:** retain the changed prop at its home for later inspection; retries and replay do not repeat the action or award resources. Restoring a mission-start snapshot restores its matching prop state; re-acceptance reapplies it once. **Interaction:** existing changed-object inspection only, no inventory or new graded task. The same state is used by the existing mission aftermath; this is a concrete rendering of that consequence, not a second reward.
 
 ## E. Location plan
 
@@ -3611,9 +4861,9 @@ Every transition is caused by the preceding record. The next room supplies a spe
 
 ## F. Characters and dramatic beat
 
-Nia Cole, survey engineer, owns the GRAV evidence and can stop an unsupported approval. The greeting changes after accepting this day’s result: “Keep the tested conditions with the number.”
+Nia Cole, survey engineer, owns the GRAV evidence and can stop an unsupported approval. Optional greeting selection follows the exact milestone rules in §4.2.
 
-Mara Shaw, rope technician, owns the ROPE evidence and can stop an unsupported approval. The greeting changes after accepting this day’s result: “Keep the tested conditions with the number.”
+Mara Shaw, rope technician, owns the ROPE evidence and can stop an unsupported approval. Optional greeting selection follows the exact milestone rules in §4.2.
 
 ## G. Key concepts, explained here
 
@@ -3949,6 +5199,171 @@ Mission decision: Correct the survey, but do not blame gravity for March. The we
 - **Mission takeaway:** An ideal depth model is different from a measured gravity value.
 
 ---
+
+### GO DEEPER — Mission 7 — optional exact player copy
+
+**Availability:** After mission_complete_7, on explicit GO DEEPER selection. Use the state-neutral review contract in §4.4; no graded-stop, timer, RP, bar or unlock effects.
+
+**Secondary brief:** Separate a gravitational model from an instrument reading. Work with ideal spherical bodies and simple reference corrections, then decide which claims need additional evidence.
+
+**Supporting concepts:**
+
+- Outside a spherical mass M, gravitational field magnitude is GM/r² at distance r from its centre.
+- Inside an ideal uniform-density sphere of radius R, the field magnitude is g_surface r/R. Real Earth density is not uniform.
+- An instrument offset adds to the true reading; a repeated known reference can reveal a change in that offset.
+- A gravitational potential-energy difference near one location is approximately mgΔh only when g is effectively constant over the height change.
+
+#### OW-GD-M7-Q1
+
+**Objective:** Apply or evaluate the mission’s mechanics model in a new case.
+
+**Prompt:** Outside a spherical planet, a probe moves from radius r to 2r. What happens to gravitational field magnitude?
+
+- **A.** It halves
+- **B.** It doubles
+- **C.** It becomes one quarter
+- **D.** It stays unchanged
+
+**Correct key:** C
+
+**Hint:** Square the new radius in the denominator.
+
+**Feedback A:** The dependence is inverse square, not inverse distance.
+
+**Feedback B:** Field decreases as distance increases.
+
+**Feedback C:** GM/(2r)²=g(r)/4.
+
+**Feedback D:** Outside the body, radius affects the field.
+
+**Independent solution:** g(2r)/g(r)=r²/(4r²)=1/4.
+
+#### OW-GD-M7-Q2
+
+**Objective:** Apply or evaluate the mission’s mechanics model in a new case.
+
+**Prompt:** An ideal uniform-density sphere has surface field 12 m/s². What is the field magnitude halfway from its centre to its surface?
+
+- **A.** 24 m/s²
+- **B.** 6 m/s²
+- **C.** 3 m/s²
+- **D.** 12 m/s²
+
+**Correct key:** B
+
+**Hint:** Use g=g_surface r/R for the stated ideal sphere.
+
+**Feedback A:** The outside inverse-square law cannot be applied inside with all the mass at the centre.
+
+**Feedback B:** Inside this model g is proportional to r.
+
+**Feedback C:** The interior relation is linear, not quadratic.
+
+**Feedback D:** Interior field is not constant in the stated model.
+
+**Independent solution:** g=12×0.5=6 m/s².
+
+#### OW-GD-M7-Q3
+
+**Objective:** Apply or evaluate the mission’s mechanics model in a new case.
+
+**Prompt:** A reference standard has true value 100 units. A sensor reads it as 103, then reads a sample as 118 under the same additive offset. What corrected sample value follows?
+
+- **A.** 121 units
+- **B.** 18 units
+- **C.** 118 units
+- **D.** 115 units
+
+**Correct key:** D
+
+**Hint:** Find the offset using the known standard.
+
+**Feedback A:** The positive offset must be subtracted.
+
+**Feedback B:** Subtracting the full standard value discards the sample baseline.
+
+**Feedback C:** That leaves the measured offset uncorrected.
+
+**Feedback D:** The offset is +3, so subtract 3 from 118.
+
+**Independent solution:** b=103−100=3; sample_true=118−3=115 units.
+
+#### OW-GD-M7-Q4
+
+**Objective:** Apply or evaluate the mission’s mechanics model in a new case.
+
+**Prompt:** A 2 kg object is raised 3 m where g=10 m/s² can be treated as constant. What is its gravitational potential-energy gain?
+
+- **A.** 60 J
+- **B.** 20 J
+- **C.** 30 J
+- **D.** 6 J
+
+**Correct key:** A
+
+**Hint:** Use m g Δh.
+
+**Feedback A:** mgh=2×10×3.
+
+**Feedback B:** That is the weight’s numerical value, not the energy gain.
+
+**Feedback C:** This omits the object mass.
+
+**Feedback D:** This omits g.
+
+**Independent solution:** ΔU=mgΔh=2×10×3=60 J.
+
+#### OW-GD-M7-Q5
+
+**Objective:** Apply or evaluate the mission’s mechanics model in a new case.
+
+**Prompt:** Two spherical planets have the same radius, but planet B has twice planet A’s mass. How do their surface escape speeds compare? Use v_escape=√(2GM/R).
+
+- **A.** B twice A
+- **B.** Equal
+- **C.** B is √2 times A
+- **D.** B half A
+
+**Correct key:** C
+
+**Hint:** Take the ratio before substituting any constants.
+
+**Feedback A:** Mass appears under a square root.
+
+**Feedback B:** The masses are different.
+
+**Feedback C:** At fixed R, escape speed scales with √M.
+
+**Feedback D:** Larger mass increases escape speed.
+
+**Independent solution:** v_B/v_A=sqrt(M_B/M_A)=sqrt(2).
+
+#### OW-GD-M7-Q6
+
+**Objective:** Apply or evaluate the mission’s mechanics model in a new case.
+
+**Prompt:** A sensor’s reading of a stable reference rises by 2 units between two visits, while the sample reading also rises by 2. Assuming the reference is stable and the offset is additive, what is supported?
+
+- **A.** The sample truly increased by 2
+- **B.** The corrected sample is unchanged
+- **C.** The sample decreased by 2
+- **D.** The instrument has zero offset
+
+**Correct key:** B
+
+**Hint:** Compare sample minus reference on both visits.
+
+**Feedback A:** The same rise in the reference indicates an offset change.
+
+**Feedback B:** Subtracting each visit’s reference offset removes the common rise.
+
+**Feedback C:** No residual decrease remains after correction.
+
+**Feedback D:** An offset change is supported; zero absolute offset is not.
+
+**Independent solution:** Δ(sample−reference)=2−2=0; corrected change is zero.
+
+
 # Mission 8 — POWER ARRIVES TOO LATE
 
 ## A. Mission briefing card — exact player copy
@@ -4031,7 +5446,9 @@ Cap cruise at 3.5 m/s pending the emergency-stop test. The four stops produce ev
 
 **World state:** The day’s record is open and passenger approval is still limited.
 
-**Dialogue bubble — Ewan Price, winding engineer:** “Ewan Price receives the locked record: Which cruise speed fits the motor power limit?”
+**Dialogue bubble — Ewan Price, by radio:** “I owe the crew a timetable. Today I can put a power limit on it, but the brake page is still open.”
+
+**Dialogue bubble — Ivo Reed, by radio:** “Write that on the sheet. Dispatch will read the large number first.”
 
 **Panel text:** “The day’s record is open and passenger approval is still limited.”
 
@@ -4041,7 +5458,7 @@ Cap cruise at 3.5 m/s pending the emergency-stop test. The four stops produce ev
 
 **Location:** Winder House.
 
-**Presentation:** equipment_panel_update.
+**Presentation:** equipment_panel_update with two radio dialogue bubbles.
 
 **Player control:** One Continue; timer paused while the required text is visible, then immediate control return.
 
@@ -4049,7 +5466,25 @@ Cap cruise at 3.5 m/s pending the emergency-stop test. The four stops produce ev
 
 **Panel text:** “P(y)=[M+λ(L−y)]gv; Pmax=(M+λL)gv. Take this evidence to Tip and Conveyor at The belt drive; only that record or test can check the next part.”
 
+**Dialogue bubble — Ivo Reed, by radio:** “That speed fits the power calculation. Has it passed stopping?”
+
+**Dialogue bubble — Ewan Price, by radio:** “No. Put POWER ONLY in the heading before anyone posts it as a schedule.”
+
 **Unlocks:** Stop 31 and waypoint to Tip and Conveyor.
+
+### Beat OW-D8-R3 — After Stop 31 is accepted
+
+**Location:** Current Stop 31 fixture (Tip and Conveyor, The belt drive (`belt-drive`).); the named speaker uses radio unless already local.
+
+**Presentation:** radio dialogue bubble.
+
+**Player control:** One Continue; timer paused, line logged, immediate control return.
+
+**World state:** Existing accepted Stop 31 evidence is retained; no additional state or reward.
+
+**Dialogue bubble — Ewan Price, by radio:** “The scaled drive supports the power relation. It has not tested the passenger stop.”
+
+**Unlocks:** No new gate; continue to existing Stop 32.
 
 ### Beat OW-D8-DEC — After Stop 32
 
@@ -4077,7 +5512,15 @@ Cap cruise at 3.5 m/s pending the emergency-stop test. The four stops produce ev
 
 **Panel text:** “Ewan pins up 3.5 m/s as a power-only proposal. Ruth adds BRAKE PAGE OPEN across it before anyone can mistake that limited pass for passenger approval. But Mara Shaw’s test mass keeps bouncing after its support stops, just as Finn’s cage did in March.”
 
+**Dialogue bubble — Ewan Price, by radio:** “POWER ONLY is across the proposal. Ivo was right to ask what dispatch would read first.”
+
 **Unlocks:** metric screen after the changed-state inspection.
+
+### Physical aftermath — ow-power-sheet
+
+**Home:** `winder-desk`. **Before:** Power proposal unposted. **After — exact action:** Ewan posts the power-only sheet with BRAKE PAGE OPEN across it.
+
+**Trigger:** accepted_stop_32. The accepted decision causes this visible action once; it is not triggered by optional dialogue or merely opening a question. **Persistence:** retain the changed prop at its home for later inspection; retries and replay do not repeat the action or award resources. Restoring a mission-start snapshot restores its matching prop state; re-acceptance reapplies it once. **Interaction:** existing changed-object inspection only, no inventory or new graded task. The same state is used by the existing mission aftermath; this is a concrete rendering of that consequence, not a second reward.
 
 ## E. Location plan
 
@@ -4092,9 +5535,9 @@ Every transition is caused by the preceding record. The next room supplies a spe
 
 ## F. Characters and dramatic beat
 
-Ewan Price, winding engineer, owns the WIND evidence and can stop an unsupported approval. The greeting changes after accepting this day’s result: “Keep the tested conditions with the number.”
+Ewan Price, winding engineer, owns the WIND evidence and can stop an unsupported approval. Optional greeting selection follows the exact milestone rules in §4.2.
 
-Ivo Reed, conveyor foreman, owns the TIP evidence and can stop an unsupported approval. The greeting changes after accepting this day’s result: “Keep the tested conditions with the number.”
+Ivo Reed, conveyor foreman, owns the TIP evidence and can stop an unsupported approval. Optional greeting selection follows the exact milestone rules in §4.2.
 
 ## G. Key concepts, explained here
 
@@ -4416,6 +5859,171 @@ Mission decision: Cap cruise at three and a half metres per second for now. The 
 - **Mission takeaway:** Power limits how fast usable energy can be delivered.
 
 ---
+
+### GO DEEPER — Mission 8 — optional exact player copy
+
+**Availability:** After mission_complete_8, on explicit GO DEEPER selection. Use the state-neutral review contract in §4.4; no graded-stop, timer, RP, bar or unlock effects.
+
+**Secondary brief:** Connect work rate to speed, efficiency and stored energy. A steady-power calculation describes a specified operating phase; it does not replace an acceleration or stopping analysis.
+
+**Supporting concepts:**
+
+- Mechanical power is dW/dt and equals Fv when force and velocity are parallel.
+- At constant speed a lifted mass needs useful power mgv, neglecting other loads and losses.
+- Efficiency is useful output power divided by input power; it is dimensionless.
+- Energy is accumulated power over time. A short power peak and a long modest demand can use different total energies.
+
+#### OW-GD-M8-Q1
+
+**Objective:** Apply or evaluate the mission’s mechanics model in a new case.
+
+**Prompt:** A motor pulls with 80 N at steady speed 3 m/s. What useful mechanical power does it deliver?
+
+- **A.** 240 W
+- **B.** 80 W
+- **C.** 26.7 W
+- **D.** 720 W
+
+**Correct key:** A
+
+**Hint:** Use P=Fv.
+
+**Feedback A:** Power is force times parallel velocity.
+
+**Feedback B:** The force still needs the velocity factor.
+
+**Feedback C:** Dividing force by speed does not give power.
+
+**Feedback D:** Velocity is not squared in Fv.
+
+**Independent solution:** P=80×3=240 W.
+
+#### OW-GD-M8-Q2
+
+**Objective:** Apply or evaluate the mission’s mechanics model in a new case.
+
+**Prompt:** A motor supplies 300 W useful output while drawing 500 W. What is its efficiency?
+
+- **A.** 167%
+- **B.** 40%
+- **C.** 80%
+- **D.** 60%
+
+**Correct key:** D
+
+**Hint:** Divide useful output by input.
+
+**Feedback A:** This reverses output and input.
+
+**Feedback B:** That is the fraction lost, not the useful fraction.
+
+**Feedback C:** 300/500 is 0.6, not 0.8.
+
+**Feedback D:** Efficiency is 300/500=0.6.
+
+**Independent solution:** η=P_useful/P_input=300/500=0.6=60%.
+
+#### OW-GD-M8-Q3
+
+**Objective:** Apply or evaluate the mission’s mechanics model in a new case.
+
+**Prompt:** An ideal motor lifts 5 kg at constant 2 m/s with g=10 m/s². What power is needed?
+
+- **A.** 50 W
+- **B.** 100 W
+- **C.** 25 W
+- **D.** 200 W
+
+**Correct key:** B
+
+**Hint:** At steady speed, lifting force equals weight.
+
+**Feedback A:** That is the weight without the velocity factor.
+
+**Feedback B:** mgv=5×10×2.
+
+**Feedback C:** Dividing by velocity gives the wrong dependence.
+
+**Feedback D:** No extra factor two is present.
+
+**Independent solution:** P=Fv=mgv=5×10×2=100 W.
+
+#### OW-GD-M8-Q4
+
+**Objective:** Apply or evaluate the mission’s mechanics model in a new case.
+
+**Prompt:** A device uses a constant 20 W for 15 s. How much energy does it use?
+
+- **A.** 35 J
+- **B.** 1.33 J
+- **C.** 300 J
+- **D.** 150 J
+
+**Correct key:** C
+
+**Hint:** Integrate constant power over the interval.
+
+**Feedback A:** Power and time are multiplied, not added.
+
+**Feedback B:** Dividing power by time does not give energy.
+
+**Feedback C:** Energy is the area under the power-time graph.
+
+**Feedback D:** There is no triangle factor for constant power.
+
+**Independent solution:** E=PΔt=20×15=300 J.
+
+#### OW-GD-M8-Q5
+
+**Objective:** Apply or evaluate the mission’s mechanics model in a new case.
+
+**Prompt:** A drive can deliver at most 600 W against a constant 200 N resistance. What is its maximum steady speed under this power constraint alone?
+
+- **A.** 3 m/s
+- **B.** 120000 m/s
+- **C.** 0.33 m/s
+- **D.** 6 m/s
+
+**Correct key:** A
+
+**Hint:** Solve P=Fv for v.
+
+**Feedback A:** v=P/F=600/200.
+
+**Feedback B:** Multiplying power and force does not give speed.
+
+**Feedback C:** This reverses P/F.
+
+**Feedback D:** At 6 m/s the required power would be 1200 W.
+
+**Independent solution:** v_max=3 m/s; this statement alone says nothing about stopping.
+
+#### OW-GD-M8-Q6
+
+**Objective:** Apply or evaluate the mission’s mechanics model in a new case.
+
+**Prompt:** A motor can sustain a chosen steady speed within its power limit. What additional evidence is needed before claiming the moving system can stop within a specified distance?
+
+- **A.** A steady-speed test showing the predicted electrical input power
+- **B.** An acceleration test that establishes the motor’s starting torque
+- **C.** The system’s kinetic energy calculated at the chosen speed
+- **D.** A stopping test supporting the force and response-delay model for that load
+
+**Correct key:** D
+
+**Hint:** Ask which quantities control the deceleration and delay.
+
+**Feedback A:** That supports steady operation but does not measure braking.
+
+**Feedback B:** Starting torque does not establish braking response or stopping travel.
+
+**Feedback C:** Energy to remove is necessary information but does not alone set stopping distance.
+
+**Feedback D:** This directly tests the quantities that determine stopping travel.
+
+**Independent solution:** A steady power bound does not bound reaction delay, braking deceleration or stored elastic motion; a validated stopping model does.
+
+
 # Mission 9 — THE ROPE HAS ITS OWN CLOCK
 
 ## A. Mission briefing card — exact player copy
@@ -4500,7 +6108,9 @@ No; the rope and cage have their own oscillation period. The four stops produce 
 
 **World state:** The day’s record is open and passenger approval is still limited.
 
-**Dialogue bubble — Mara Shaw, rope technician:** “Mara Shaw receives the locked record: Can a drum stop time alone predict when the cage stops?”
+**Dialogue bubble — Mara Shaw, by radio:** “Watch the test mass after its support stops. The rope still has work to do.”
+
+**Dialogue bubble — Ruth Bell, by radio:** “That is the gap in the March lamp check. Can we give it a measured time?”
 
 **Panel text:** “The day’s record is open and passenger approval is still limited.”
 
@@ -4510,7 +6120,7 @@ No; the rope and cage have their own oscillation period. The four stops produce 
 
 **Location:** Rope Shop.
 
-**Presentation:** equipment_panel_update.
+**Presentation:** equipment_panel_update with two radio dialogue bubbles.
 
 **Player control:** One Continue; timer paused while the required text is visible, then immediate control return.
 
@@ -4518,7 +6128,25 @@ No; the rope and cage have their own oscillation period. The four stops produce 
 
 **Panel text:** “ω=1.25 rad/s; Tperiod=2π/ω≈5.03 s. Take this evidence to The Bank at The depth indicator; only that record or test can check the next part.”
 
+**Dialogue bubble — Nia Cole, by radio:** “The period needs both effective mass and stiffness. I will label the hanging length beside it.”
+
+**Dialogue bubble — Mara Shaw, by radio:** “Thank you. A period without those conditions would mislead the next shift.”
+
 **Unlocks:** Stop 35 and waypoint to The Bank.
+
+### Beat OW-D9-R3 — After Stop 35 is accepted
+
+**Location:** Current Stop 35 fixture (The Bank, The depth indicator (`depth-dial`).); the named speaker uses radio unless already local.
+
+**Presentation:** radio dialogue bubble.
+
+**Player control:** One Continue; timer paused, line logged, immediate control return.
+
+**World state:** Existing accepted Stop 35 evidence is retained; no additional state or reward.
+
+**Dialogue bubble — Ruth Bell, by radio:** “The independent period belongs beside the drum time. One lamp cannot answer both questions.”
+
+**Unlocks:** No new gate; continue to existing Stop 36.
 
 ### Beat OW-D9-DEC — After Stop 36
 
@@ -4546,7 +6174,15 @@ No; the rope and cage have their own oscillation period. The four stops produce 
 
 **Panel text:** “Ruth puts a second space on the shift check for the cage trace. The drum-stop lamp that was lit while Finn was still moving can no longer close that check alone. Now Ada Kerr must unseal the March tape and test the model against the delay her old check missed.”
 
+**Dialogue bubble — Ruth Bell, by radio:** “There are two boxes on the shift check now. Ada can open March knowing what we need to compare.”
+
 **Unlocks:** metric screen after the changed-state inspection.
+
+### Physical aftermath — ow-two-trace-slip
+
+**Home:** `signal-board`. **Before:** Shift check has only its old drum entry. **After — exact action:** Ruth clips the added cage-trace box beside the drum-check box.
+
+**Trigger:** accepted_stop_36. The accepted decision causes this visible action once; it is not triggered by optional dialogue or merely opening a question. **Persistence:** retain the changed prop at its home for later inspection; retries and replay do not repeat the action or award resources. Restoring a mission-start snapshot restores its matching prop state; re-acceptance reapplies it once. **Interaction:** existing changed-object inspection only, no inventory or new graded task. The same state is used by the existing mission aftermath; this is a concrete rendering of that consequence, not a second reward.
 
 ## E. Location plan
 
@@ -4561,9 +6197,9 @@ Every transition is caused by the preceding record. The next room supplies a spe
 
 ## F. Characters and dramatic beat
 
-Mara Shaw, rope technician, owns the ROPE evidence and can stop an unsupported approval. The greeting changes after accepting this day’s result: “Keep the tested conditions with the number.”
+Mara Shaw, rope technician, owns the ROPE evidence and can stop an unsupported approval. Optional greeting selection follows the exact milestone rules in §4.2.
 
-Ruth Bell, cage operator, owns the BANK evidence and can stop an unsupported approval. The greeting changes after accepting this day’s result: “Keep the tested conditions with the number.”
+Ruth Bell, cage operator, owns the BANK evidence and can stop an unsupported approval. Optional greeting selection follows the exact milestone rules in §4.2.
 
 ## G. Key concepts, explained here
 
@@ -4887,6 +6523,171 @@ Mission decision: Keep separate records for drum and cage. The rope gives the ca
 - **Mission takeaway:** A fixed support can hold a load that is still moving.
 
 ---
+
+### GO DEEPER — Mission 9 — optional exact player copy
+
+**Availability:** After mission_complete_9, on explicit GO DEEPER selection. Use the state-neutral review contract in §4.4; no graded-stop, timer, RP, bar or unlock effects.
+
+**Secondary brief:** Explore an ideal spring oscillator around equilibrium. Compare mass, stiffness, phase and energy, while keeping the model’s displacement coordinate distinct from the spring’s total stretch.
+
+**Supporting concepts:**
+
+- For small ideal oscillations about equilibrium, ẍ=−(k/m)x and angular frequency ω=√(k/m).
+- The period is T=2π/ω. Increasing mass at fixed stiffness lengthens the period.
+- Total oscillation energy is kA²/2, with maximum speed ωA at equilibrium.
+- In a vertical spring system, measuring x from the static equilibrium removes the constant gravity term from the oscillation equation.
+
+#### OW-GD-M9-Q1
+
+**Objective:** Apply or evaluate the mission’s mechanics model in a new case.
+
+**Prompt:** An ideal oscillator has m=2 kg and k=18 N/m. What is its angular frequency?
+
+- **A.** 9 rad/s
+- **B.** 3 rad/s
+- **C.** 6 rad/s
+- **D.** 0.33 rad/s
+
+**Correct key:** B
+
+**Hint:** Take the square root of k/m.
+
+**Feedback A:** k/m is ω², not ω.
+
+**Feedback B:** ω=√(18/2)=3.
+
+**Feedback C:** The square root of 9 is 3.
+
+**Feedback D:** This uses √(m/k), which is 1/ω.
+
+**Independent solution:** ω=√(k/m)=√(18/2)=√9=3 rad/s.
+
+#### OW-GD-M9-Q2
+
+**Objective:** Apply or evaluate the mission’s mechanics model in a new case.
+
+**Prompt:** An oscillator has angular frequency 4 rad/s. What is its period?
+
+- **A.** 4π s
+- **B.** 4 s
+- **C.** π/2 s
+- **D.** 1/4 s
+
+**Correct key:** C
+
+**Hint:** One cycle advances phase by 2π radians.
+
+**Feedback A:** The period decreases as angular frequency increases.
+
+**Feedback B:** Radians per second are not seconds.
+
+**Feedback C:** T=2π/4.
+
+**Feedback D:** This omits the full-cycle factor 2π.
+
+**Independent solution:** T=2π/ω=2π/4=π/2 s.
+
+#### OW-GD-M9-Q3
+
+**Objective:** Apply or evaluate the mission’s mechanics model in a new case.
+
+**Prompt:** The mass on a spring is multiplied by four while stiffness stays fixed. How does the period change?
+
+- **A.** It doubles
+- **B.** It quadruples
+- **C.** It halves
+- **D.** It stays fixed
+
+**Correct key:** A
+
+**Hint:** Use a ratio of T=2π√(m/k).
+
+**Feedback A:** T∝√m, so √4=2.
+
+**Feedback B:** Mass enters under a square root.
+
+**Feedback C:** A larger mass oscillates more slowly.
+
+**Feedback D:** Mass affects the ideal oscillator period.
+
+**Independent solution:** T_new/T_old=sqrt(4)=2.
+
+#### OW-GD-M9-Q4
+
+**Objective:** Apply or evaluate the mission’s mechanics model in a new case.
+
+**Prompt:** A spring oscillator has ω=5 rad/s and amplitude 0.2 m. What is maximum speed?
+
+- **A.** 25 m/s
+- **B.** 0.04 m/s
+- **C.** 5 m/s
+- **D.** 1 m/s
+
+**Correct key:** D
+
+**Hint:** Speed is largest at equilibrium.
+
+**Feedback A:** Speed is ωA, not ω/A.
+
+**Feedback B:** This reverses ω and A.
+
+**Feedback C:** This omits amplitude.
+
+**Feedback D:** ωA=5×0.2.
+
+**Independent solution:** v_max=ωA=5×0.2=1 m/s.
+
+#### OW-GD-M9-Q5
+
+**Objective:** Apply or evaluate the mission’s mechanics model in a new case.
+
+**Prompt:** An oscillator is instantaneously at x=+0.1 m relative to equilibrium, with ω=2 rad/s. What is its acceleration?
+
+- **A.** +0.4 m/s²
+- **B.** −0.4 m/s²
+- **C.** −0.2 m/s²
+- **D.** 0 m/s²
+
+**Correct key:** B
+
+**Hint:** Keep the restoring minus sign.
+
+**Feedback A:** Acceleration points back toward equilibrium.
+
+**Feedback B:** a=−ω²x=−4×0.1.
+
+**Feedback C:** Angular frequency must be squared.
+
+**Feedback D:** Displacement from equilibrium gives a restoring acceleration.
+
+**Independent solution:** a=−ω²x=−2²×0.1=−0.4 m/s².
+
+#### OW-GD-M9-Q6
+
+**Objective:** Apply or evaluate the mission’s mechanics model in a new case.
+
+**Prompt:** A vertical spring is already stretched to static equilibrium. Why does the small-oscillation equation in displacement x from that point omit a separate constant mg term?
+
+- **A.** Gravity has disappeared
+- **B.** The spring no longer exerts a force
+- **C.** Gravity cancels the equilibrium part of spring force
+- **D.** Mass no longer affects the period
+
+**Correct key:** C
+
+**Hint:** Separate static extension from displacement about it.
+
+**Feedback A:** Gravity still acts on the mass.
+
+**Feedback B:** The spring supports the mass and provides the changing restoring force.
+
+**Feedback C:** Only the additional spring force −kx remains in the net force.
+
+**Feedback D:** Mass remains in ω=√(k/m).
+
+**Independent solution:** With total extension z_eq+x and kz_eq=mg, net force=mg−k(z_eq+x)=−kx for downward-positive x.
+
+
 # Mission 10 — MARCH, SECOND BY SECOND
 
 ## A. Mission briefing card — exact player copy
@@ -4969,7 +6770,9 @@ The moving cage continued into an elastic oscillation after the drum stopped. Th
 
 **World state:** The day’s record is open and passenger approval is still limited.
 
-**Dialogue bubble — Ada Kerr, mine safety engineer:** “Ada Kerr receives the locked record: What caused the cage to overrun its March landing?”
+**Dialogue bubble — Ada Kerr, by radio:** “My signature stays in this file. If we explain March, the file must also show what I failed to check.”
+
+**Dialogue bubble — Ruth Bell, by radio:** “I want Finn's next trip protected. I do not need the old page to disappear.”
 
 **Panel text:** “The day’s record is open and passenger approval is still limited.”
 
@@ -4979,7 +6782,7 @@ The moving cage continued into an elastic oscillation after the drum stopped. Th
 
 **Location:** Shaft and Brake House.
 
-**Presentation:** equipment_panel_update.
+**Presentation:** equipment_panel_update with two radio dialogue bubbles.
 
 **Player control:** One Continue; timer paused while the required text is visible, then immediate control return.
 
@@ -4987,7 +6790,25 @@ The moving cage continued into an elastic oscillation after the drum stopped. Th
 
 **Panel text:** “xmax=v0/ω=1.60 m at t=π/(2ω)≈1.26 s. Take this evidence to Rope Shop at The rope bench; only that record or test can check the next part.”
 
+**Dialogue bubble — Ada Kerr, by radio:** “The reconstructed cage keeps moving after the drum stops. My check ended before the event that mattered.”
+
+**Dialogue bubble — Ruth Bell, by radio:** “Put that sentence beside your signature. Then we can change the check together.”
+
 **Unlocks:** Stop 39 and waypoint to Rope Shop.
+
+### Beat OW-D10-R3 — After Stop 39 is accepted
+
+**Location:** Current Stop 39 fixture (Rope Shop, The rope bench (`rope-bench`).); the named speaker uses radio unless already local.
+
+**Presentation:** radio dialogue bubble.
+
+**Player control:** One Continue; timer paused, line logged, immediate control return.
+
+**World state:** Existing accepted Stop 39 evidence is retained; no additional state or reward.
+
+**Dialogue bubble — Mara Shaw, by radio:** “The inquiry order keeps the prediction separate from the observed tape. We have not tuned the test to its answer.”
+
+**Unlocks:** No new gate; continue to existing Stop 40.
 
 ### Beat OW-D10-DEC — After Stop 40
 
@@ -5015,7 +6836,17 @@ The moving cage continued into an elastic oscillation after the drum stopped. Th
 
 **Panel text:** “Ada places her signed March check below the two traces. She tells Ruth why its inference failed; the measured delayed peak supports the account without turning it into permission for the next trip. Yet Ada Kerr’s new empty pass faces a lower warm-pad brake limit, so explaining March has not cleared Ewan’s schedule.”
 
+**Dialogue bubble — Ada Kerr, by radio:** “I pinned my old check beside the reconstruction. The next inspector will see the mistake and the repair.”
+
+**Dialogue bubble — Ruth Bell, by radio:** “And Finn will see why I ask for both traces now.”
+
 **Unlocks:** metric screen after the changed-state inspection.
+
+### Physical aftermath — ow-march-check
+
+**Home:** `march-board`. **Before:** Signed old check preserved in file. **After — exact action:** Ada pins her signed check beside the reconstructed cage record.
+
+**Trigger:** accepted_stop_40. The accepted decision causes this visible action once; it is not triggered by optional dialogue or merely opening a question. **Persistence:** retain the changed prop at its home for later inspection; retries and replay do not repeat the action or award resources. Restoring a mission-start snapshot restores its matching prop state; re-acceptance reapplies it once. **Interaction:** existing changed-object inspection only, no inventory or new graded task. The same state is used by the existing mission aftermath; this is a concrete rendering of that consequence, not a second reward.
 
 ## E. Location plan
 
@@ -5030,9 +6861,9 @@ Every transition is caused by the preceding record. The next room supplies a spe
 
 ## F. Characters and dramatic beat
 
-Ada Kerr, mine safety engineer, owns the CAGE evidence and can stop an unsupported approval. The greeting changes after accepting this day’s result: “Keep the tested conditions with the number.”
+Ada Kerr, mine safety engineer, owns the CAGE evidence and can stop an unsupported approval. Optional greeting selection follows the exact milestone rules in §4.2.
 
-Mara Shaw, rope technician, owns the ROPE evidence and can stop an unsupported approval. The greeting changes after accepting this day’s result: “Keep the tested conditions with the number.”
+Mara Shaw, rope technician, owns the ROPE evidence and can stop an unsupported approval. Optional greeting selection follows the exact milestone rules in §4.2.
 
 ## G. Key concepts, explained here
 
@@ -5375,6 +7206,171 @@ Mission decision: The cage kept moving as the rope changed stretch. The model pr
 - **Mission takeaway:** Initial motion and restoring force can explain a delayed overrun.
 
 ---
+
+### GO DEEPER — Mission 10 — optional exact player copy
+
+**Availability:** After mission_complete_10, on explicit GO DEEPER selection. Use the state-neutral review contract in §4.4; no graded-stop, timer, RP, bar or unlock effects.
+
+**Secondary brief:** Reconstruct an oscillator from its initial state and compare its predicted trace with an independent record. A fitted match is useful only when you keep track of what was supplied and what was predicted.
+
+**Supporting concepts:**
+
+- For x(0)=0 and v(0)=v₀, an ideal oscillator follows x(t)=(v₀/ω)sin(ωt).
+- The first turning point occurs one quarter-period after crossing equilibrium with positive velocity.
+- For arbitrary initial x₀ and v₀, amplitude satisfies A²=x₀²+(v₀/ω)².
+- Choosing model parameters using one record and testing on another separates calibration from an independent prediction check.
+
+#### OW-GD-M10-Q1
+
+**Objective:** Apply or evaluate the mission’s mechanics model in a new case.
+
+**Prompt:** An oscillator starts at equilibrium with v₀=3 m/s and ω=2 rad/s. What is its amplitude?
+
+- **A.** 6 m
+- **B.** 0.67 m
+- **C.** 3 m
+- **D.** 1.5 m
+
+**Correct key:** D
+
+**Hint:** Use x(0)=0 and v_max=ωA.
+
+**Feedback A:** Amplitude is v₀/ω, not the product.
+
+**Feedback B:** This reverses the ratio.
+
+**Feedback C:** Initial speed alone is not a length.
+
+**Feedback D:** A=3/2.
+
+**Independent solution:** A=v₀/ω=3/2=1.5 m.
+
+#### OW-GD-M10-Q2
+
+**Objective:** Apply or evaluate the mission’s mechanics model in a new case.
+
+**Prompt:** An oscillator crosses equilibrium moving positively and has period 8 s. When does it first reach maximum positive displacement?
+
+- **A.** 2 s
+- **B.** 4 s
+- **C.** 8 s
+- **D.** 1 s
+
+**Correct key:** A
+
+**Hint:** Follow sine from zero to its first maximum.
+
+**Feedback A:** The first maximum comes after one quarter-cycle.
+
+**Feedback B:** After half a cycle it crosses equilibrium moving negatively.
+
+**Feedback C:** A full cycle returns to the starting state.
+
+**Feedback D:** That is only one eighth-cycle.
+
+**Independent solution:** t=T/4=8/4=2 s.
+
+#### OW-GD-M10-Q3
+
+**Objective:** Apply or evaluate the mission’s mechanics model in a new case.
+
+**Prompt:** An ideal oscillator has x₀=0.3 m, v₀=0.8 m/s and ω=2 rad/s. What is its amplitude?
+
+- **A.** 0.7 m
+- **B.** 0.4 m
+- **C.** 0.5 m
+- **D.** 1.1 m
+
+**Correct key:** C
+
+**Hint:** Use A²=x₀²+(v₀/ω)².
+
+**Feedback A:** The components combine as squares, not by simple addition.
+
+**Feedback B:** This omits the initial displacement energy.
+
+**Feedback C:** A=√(0.3²+0.4²)=0.5.
+
+**Feedback D:** Velocity cannot be added directly to displacement.
+
+**Independent solution:** A²=0.09+0.16=0.25 m²; A=0.5 m.
+
+#### OW-GD-M10-Q4
+
+**Objective:** Apply or evaluate the mission’s mechanics model in a new case.
+
+**Prompt:** A predicted trace is x(t)=0.4 sin(πt) metres. What position is predicted at t=1.5 s?
+
+- **A.** +0.4 m
+- **B.** −0.4 m
+- **C.** 0 m
+- **D.** −0.6 m
+
+**Correct key:** B
+
+**Hint:** Evaluate the phase in radians first.
+
+**Feedback A:** sin(3π/2) is negative.
+
+**Feedback B:** The sine is −1 at phase 3π/2.
+
+**Feedback C:** Zero crossings occur at integer seconds for this trace.
+
+**Feedback D:** The sine is not proportional to time across a full cycle.
+
+**Independent solution:** πt=3π/2; x=0.4×(−1)=−0.4 m.
+
+#### OW-GD-M10-Q5
+
+**Objective:** Apply or evaluate the mission’s mechanics model in a new case.
+
+**Prompt:** An oscillator has amplitude 0.5 m and stiffness 8 N/m. What is its total energy relative to equilibrium?
+
+- **A.** 4 J
+- **B.** 2 J
+- **C.** 0.5 J
+- **D.** 1 J
+
+**Correct key:** D
+
+**Hint:** At a turning point all oscillation energy is elastic.
+
+**Feedback A:** This omits both the square on amplitude and the half factor.
+
+**Feedback B:** This omits the half factor.
+
+**Feedback C:** 0.5×8×0.25 is 1, not 0.5.
+
+**Feedback D:** E=kA²/2=8×0.25/2.
+
+**Independent solution:** E=kA²/2=(8×0.5²)/2=1 J.
+
+#### OW-GD-M10-Q6
+
+**Objective:** Apply or evaluate the mission’s mechanics model in a new case.
+
+**Prompt:** A model’s period and amplitude were tuned to trace A. Which procedure best tests whether it predicts a second run?
+
+- **A.** Lock the model and initial-condition procedure, then predict trace B before viewing its outcomes
+- **B.** Retune the model until it matches B, then call B independent
+- **C.** Delete the largest differences from B without a measurement reason
+- **D.** Average A and B before fitting one curve to both
+
+**Correct key:** A
+
+**Hint:** Separate choosing parameters from testing them.
+
+**Feedback A:** This prevents using B’s outcome to tune the prediction.
+
+**Feedback B:** B has become calibration evidence.
+
+**Feedback C:** This selects evidence for agreement.
+
+**Feedback D:** Both records then contribute to calibration; neither remains an independent test.
+
+**Independent solution:** A locked model with independently supplied initial conditions generates a prediction against which previously unseen B can be compared.
+
+
 # Mission 11 — THE TEST THAT PASSED
 
 ## A. Mission briefing card — exact player copy
@@ -5457,7 +7453,9 @@ Reject that authorization; loaded warm-pad stopping needs the slower candidate. 
 
 **World state:** The day’s record is open and passenger approval is still limited.
 
-**Dialogue bubble — Ada Kerr, mine safety engineer:** “Ada Kerr receives the locked record: Does the empty test authorize the faster passenger profile?”
+**Dialogue bubble — Ada Kerr, by radio:** “The empty test passed its own conditions. That is the beginning of the passenger question, not its answer.”
+
+**Dialogue bubble — Ewan Price, by radio:** “Then show me exactly what survives a warm, loaded surrogate.”
 
 **Panel text:** “The day’s record is open and passenger approval is still limited.”
 
@@ -5481,7 +7479,7 @@ Reject that authorization; loaded warm-pad stopping needs the slower candidate. 
 
 **Location:** The Bank.
 
-**Presentation:** equipment_panel_update.
+**Presentation:** equipment_panel_update with two radio dialogue bubbles.
 
 **Player control:** One Continue; timer paused while the required text is visible, then immediate control return.
 
@@ -5489,7 +7487,25 @@ Reject that authorization; loaded warm-pad stopping needs the slower candidate. 
 
 **Panel text:** “d_bound=v²/(2bmin)+v/ωmin=0.5v²+0.8v. Take this evidence to Winder House at The test wind trace; only that record or test can check the next part.”
 
+**Dialogue bubble — Mara Shaw, by radio:** “A shorter stopping distance in an empty trial cannot stand in for the whole loaded range.”
+
+**Dialogue bubble — Nia Cole, by radio:** “We will keep the range and brake assumptions on the same sleeve as the trace.”
+
 **Unlocks:** Stop 43 and waypoint to Winder House.
+
+### Beat OW-D11-R3 — After Stop 43 is accepted
+
+**Location:** Current Stop 43 fixture (Winder House, The test wind trace (`test-trace`).); the named speaker uses radio unless already local.
+
+**Presentation:** radio dialogue bubble.
+
+**Player control:** One Continue; timer paused, line logged, immediate control return.
+
+**World state:** Existing accepted Stop 43 evidence is retained; no additional state or reward.
+
+**Dialogue bubble — Ada Kerr, by radio:** “The warm loaded surrogate has a record now. Its conditions stay attached through sign-off.”
+
+**Unlocks:** No new gate; continue to existing Stop 44.
 
 ### Beat OW-D11-DEC — After Stop 44
 
@@ -5517,7 +7533,15 @@ Reject that authorization; loaded warm-pad stopping needs the slower candidate. 
 
 **Panel text:** “Ewan crosses out the faster passenger timetable in front of Ruth and cancels the overtime it was meant to support. Ada marks the empty pass with its load and pad state, then carries only the slower candidate into final review. Now Ruth Bell needs the last unoccupied wind and a signed range before the inspector can clear passenger access.”
 
+**Dialogue bubble — Ewan Price, by radio:** “I will take the slower supported proposal to the last check. The overtime promise is mine to withdraw.”
+
 **Unlocks:** metric screen after the changed-state inspection.
+
+### Physical aftermath — ow-range-sleeve
+
+**Home:** `test-trace`. **Before:** Transparent conditions sleeve open. **After — exact action:** Ada encloses the warm-surrogate record with its range and assumptions.
+
+**Trigger:** accepted_stop_44. The accepted decision causes this visible action once; it is not triggered by optional dialogue or merely opening a question. **Persistence:** retain the changed prop at its home for later inspection; retries and replay do not repeat the action or award resources. Restoring a mission-start snapshot restores its matching prop state; re-acceptance reapplies it once. **Interaction:** existing changed-object inspection only, no inventory or new graded task. The same state is used by the existing mission aftermath; this is a concrete rendering of that consequence, not a second reward.
 
 ## E. Location plan
 
@@ -5532,11 +7556,11 @@ Every transition is caused by the preceding record. The next room supplies a spe
 
 ## F. Characters and dramatic beat
 
-Ada Kerr, mine safety engineer, owns the CAGE evidence and can stop an unsupported approval. The greeting changes after accepting this day’s result: “Keep the tested conditions with the number.”
+Ada Kerr, mine safety engineer, owns the CAGE evidence and can stop an unsupported approval. Optional greeting selection follows the exact milestone rules in §4.2.
 
-Ruth Bell, cage operator, owns the BANK evidence and can stop an unsupported approval. The greeting changes after accepting this day’s result: “Keep the tested conditions with the number.”
+Ruth Bell, cage operator, owns the BANK evidence and can stop an unsupported approval. Optional greeting selection follows the exact milestone rules in §4.2.
 
-Ewan Price, winding engineer, owns the WIND evidence and can stop an unsupported approval. The greeting changes after accepting this day’s result: “Keep the tested conditions with the number.”
+Ewan Price, winding engineer, owns the WIND evidence and can stop an unsupported approval. Optional greeting selection follows the exact milestone rules in §4.2.
 
 ## G. Key concepts, explained here
 
@@ -5875,6 +7899,171 @@ Mission decision: The empty test does not clear the faster passenger trip. The l
 - **Mission takeaway:** A test approves only the conditions it actually covers.
 
 ---
+
+### GO DEEPER — Mission 11 — optional exact player copy
+
+**Availability:** After mission_complete_11, on explicit GO DEEPER selection. Use the state-neutral review contract in §4.4; no graded-stop, timer, RP, bar or unlock effects.
+
+**Secondary brief:** Build conservative stopping bounds from response delay and braking. Compare trials only within their stated loads and conditions, and use a failed candidate to learn which limit binds.
+
+**Supporting concepts:**
+
+- For constant deceleration magnitude b>0, braking distance is v²/(2b).
+- A response delay τ before braking adds vτ if speed stays constant during the delay.
+- A conservative excursion bound may add a separately justified positive residual-motion allowance A; its assumptions must be stated.
+- Testing one load and temperature does not establish the same braking performance at all other loads and temperatures.
+
+#### OW-GD-M11-Q1
+
+**Objective:** Apply or evaluate the mission’s mechanics model in a new case.
+
+**Prompt:** A cart at 4 m/s brakes at constant magnitude 2 m/s² with no delay. What is stopping distance?
+
+- **A.** 2 m
+- **B.** 4 m
+- **C.** 8 m
+- **D.** 16 m
+
+**Correct key:** B
+
+**Hint:** Use v_f²=v_i²−2bd with v_f=0.
+
+**Feedback A:** That is the stopping time in seconds, not distance.
+
+**Feedback B:** d=4²/(2×2).
+
+**Feedback C:** This omits the factor two in the denominator.
+
+**Feedback D:** The speed square still needs division by 2b.
+
+**Independent solution:** d=v²/(2b)=4²/(2×2)=16/4=4 m.
+
+#### OW-GD-M11-Q2
+
+**Objective:** Apply or evaluate the mission’s mechanics model in a new case.
+
+**Prompt:** A cart remains at 3 m/s for a 0.4 s response delay before braking starts. How much distance does the delay add?
+
+- **A.** 7.5 m
+- **B.** 0.4 m
+- **C.** 1.2 m
+- **D.** 3.4 m
+
+**Correct key:** C
+
+**Hint:** No deceleration occurs during the stated delay.
+
+**Feedback A:** Delay travel multiplies speed by time.
+
+**Feedback B:** The speed must be included.
+
+**Feedback C:** vτ=3×0.4.
+
+**Feedback D:** Speed and time cannot be added.
+
+**Independent solution:** d_delay=vτ=3×0.4=1.2 m.
+
+#### OW-GD-M11-Q3
+
+**Objective:** Apply or evaluate the mission’s mechanics model in a new case.
+
+**Prompt:** A cart has v=2 m/s, delay τ=0.5 s, braking magnitude b=1 m/s² and a separately justified residual allowance A=0.3 m. What is the bound vτ+v²/(2b)+A?
+
+- **A.** 3.3 m
+- **B.** 2.3 m
+- **C.** 1.3 m
+- **D.** 5.3 m
+
+**Correct key:** A
+
+**Hint:** Calculate each term before adding.
+
+**Feedback A:** The three terms are 1, 2 and 0.3 m.
+
+**Feedback B:** This omits travel during delay.
+
+**Feedback C:** This omits the braking distance.
+
+**Feedback D:** The braking term is 2 m, not 4 m.
+
+**Independent solution:** d_bound=2×0.5+4/(2×1)+0.3=3.3 m.
+
+#### OW-GD-M11-Q4
+
+**Objective:** Apply or evaluate the mission’s mechanics model in a new case.
+
+**Prompt:** Available travel is 5 m. A candidate’s conservative excursion bound is 4.2 m. What positive margin remains?
+
+- **A.** 9.2 m
+- **B.** 4.2 m
+- **C.** −0.8 m
+- **D.** 0.8 m
+
+**Correct key:** D
+
+**Hint:** Define margin as available minus required.
+
+**Feedback A:** Margin subtracts required travel from available travel.
+
+**Feedback B:** That is the required bound, not unused travel.
+
+**Feedback C:** The sign is positive because available travel is larger.
+
+**Feedback D:** 5−4.2=0.8 m.
+
+**Independent solution:** margin=available travel−required bound=5−4.2=0.8 m.
+
+#### OW-GD-M11-Q5
+
+**Objective:** Apply or evaluate the mission’s mechanics model in a new case.
+
+**Prompt:** At the same initial speed and zero delay, available deceleration magnitude halves. What happens to braking distance?
+
+- **A.** It halves
+- **B.** It doubles
+- **C.** It quadruples
+- **D.** It stays fixed
+
+**Correct key:** B
+
+**Hint:** Hold speed fixed in v²/(2b).
+
+**Feedback A:** A weaker brake needs more distance.
+
+**Feedback B:** d∝1/b for fixed v.
+
+**Feedback C:** Only a factor two change in inverse b is present.
+
+**Feedback D:** Braking magnitude appears in the stopping-distance denominator.
+
+**Independent solution:** d_new=v²/[2(b/2)]=2d_old.
+
+#### OW-GD-M11-Q6
+
+**Objective:** Apply or evaluate the mission’s mechanics model in a new case.
+
+**Prompt:** A cold, lightly loaded trial meets its stopping prediction. Which statement is justified by that trial alone?
+
+- **A.** All warm loaded trials must pass
+- **B.** The model is false for heavy loads
+- **C.** The prediction agrees under the tested cold, light conditions
+- **D.** The fastest possible speed has been found
+
+**Correct key:** C
+
+**Hint:** Keep the claim inside the observed conditions.
+
+**Feedback A:** Those conditions were not tested or bounded by the single trial.
+
+**Feedback B:** Lack of evidence is not proof of failure.
+
+**Feedback C:** The claim remains within the evidence’s domain.
+
+**Feedback D:** One trial does not optimize speed over all relevant constraints.
+
+**Independent solution:** Agreement is established only for the measured trial; extending the range requires evidence or justified bounds.
+
+
 # Mission 12 — FORTY-ONE TALLIES
 
 ## A. Mission briefing card — exact player copy
@@ -5951,7 +8140,9 @@ Sign the 2 m/s profile with a 1 m/s² start, tested range limits and unoccupied 
 
 **World state:** The day’s record is open and passenger approval is still limited.
 
-**Dialogue bubble — Ruth Bell, cage operator:** “Ruth Bell receives the locked record: Which complete profile can be signed for the defined operating range?”
+**Dialogue bubble — Ruth Bell, by radio:** “Forty-one tallies are still here. We finish the empty checks before I call anyone forward.”
+
+**Dialogue bubble — Ewan Price, by radio:** “The old overtime promise is beside the new sheet. I will not hide what this decision costs.”
 
 **Panel text:** “The day’s record is open and passenger approval is still limited.”
 
@@ -5975,7 +8166,7 @@ Sign the 2 m/s profile with a 1 m/s² start, tested range limits and unoccupied 
 
 **Location:** Rope Shop.
 
-**Presentation:** equipment_panel_update.
+**Presentation:** equipment_panel_update with two radio dialogue bubbles.
 
 **Player control:** One Continue; timer paused while the required text is visible, then immediate control return.
 
@@ -5983,7 +8174,25 @@ Sign the 2 m/s profile with a 1 m/s² start, tested range limits and unoccupied 
 
 **Panel text:** “v=2.0 m/s: P=320 kW and d_bound=3.6 m; faster listed speeds fail stopping. Take this evidence to Winder House at The test wind trace; only that record or test can check the next part.”
 
+**Dialogue bubble — Ewan Price, by radio:** “Two metres per second is the fastest listed candidate that survives the combined limits.”
+
+**Dialogue bubble — Ruth Bell, by radio:** “Keep 'listed' and the tested range on the sheet. Nobody should read that as an unlimited promise.”
+
 **Unlocks:** Stop 47 and waypoint to Winder House.
+
+### Beat OW-D12-R3 — After Stop 47 is accepted
+
+**Location:** Current Stop 47 fixture (Winder House, The test wind trace (`test-trace`).); the named speaker uses radio unless already local.
+
+**Presentation:** radio dialogue bubble.
+
+**Player control:** One Continue; timer paused, line logged, immediate control return.
+
+**World state:** Existing accepted Stop 47 evidence is retained; no additional state or reward.
+
+**Dialogue bubble — Ruth Bell, by radio:** “The independent margin is recorded. The gate stays shut until the decision and final allocation are complete.”
+
+**Unlocks:** No new gate; continue to existing Stop 48.
 
 ### Beat OW-D12-DEC — After Stop 48
 
@@ -6011,7 +8220,17 @@ Sign the 2 m/s profile with a 1 m/s² start, tested range limits and unoccupied 
 
 **Panel text:** “Ruth opens the passenger gate for the signed range. Ewan posts the slower timetable above his crossed-out promise. The crew regains regular access but loses the planned overtime; Ruth’s ending account says Finn takes his tally only after the final checks are complete. Now Ruth Bell can call the shift forward, but Ewan Price’s posted limits must hold even when production falls behind.”
 
+**Dialogue bubble — Ruth Bell, by radio:** “The signed limits stay here when this shift leaves. Ada, they belong to the next operator too.”
+
+**Dialogue bubble — Ada Kerr, by radio:** “They will. Ewan's slower sheet carries the conditions, not just the speed.”
+
 **Unlocks:** metric screen after the changed-state inspection.
+
+### Physical aftermath — ow-shift-sheet
+
+**Home:** `winder-desk`. **Before:** Old overtime promise posted. **After — exact action:** Ewan pins the slower timetable above the crossed-out promise.
+
+**Trigger:** mission_complete_12 AND final allocation complete AND all original final gates satisfied. The accepted decision causes this visible action once; it is not triggered by optional dialogue or merely opening a question. **Persistence:** retain the changed prop at its home for later inspection; retries and replay do not repeat the action or award resources. Restoring a mission-start snapshot restores its matching prop state; re-acceptance reapplies it once. **Interaction:** existing changed-object inspection only, no inventory or new graded task. The gate and passenger movement still wait for the existing final checks; this action accompanies their successful transition.
 
 ## E. Location plan
 
@@ -6026,11 +8245,11 @@ Every transition is caused by the preceding record. The next room supplies a spe
 
 ## F. Characters and dramatic beat
 
-Ruth Bell, cage operator, owns the BANK evidence and can stop an unsupported approval. The greeting changes after accepting this day’s result: “Keep the tested conditions with the number.”
+Ruth Bell, cage operator, owns the BANK evidence and can stop an unsupported approval. Optional greeting selection follows the exact milestone rules in §4.2.
 
-Mara Shaw, rope technician, owns the ROPE evidence and can stop an unsupported approval. The greeting changes after accepting this day’s result: “Keep the tested conditions with the number.”
+Mara Shaw, rope technician, owns the ROPE evidence and can stop an unsupported approval. Optional greeting selection follows the exact milestone rules in §4.2.
 
-Ewan Price, winding engineer, owns the WIND evidence and can stop an unsupported approval. The greeting changes after accepting this day’s result: “Keep the tested conditions with the number.”
+Ewan Price, winding engineer, owns the WIND evidence and can stop an unsupported approval. Optional greeting selection follows the exact milestone rules in §4.2.
 
 ## G. Key concepts, explained here
 
@@ -6346,6 +8565,169 @@ Mission decision: Sign the two-metre-per-second plan within its tested range. Th
 - **Mission takeaway:** A signed profile must keep every constraint and its tested range.
 
 ---
+### GO DEEPER — Mission 12 — optional exact player copy
+
+**Availability:** Only on explicit selection after the ending card has closed and normal control has returned. Use the state-neutral review contract in §4.4; no graded-stop, timer, RP, bar or unlock effects.
+
+**Secondary brief:** Combine independent constraints in a new transport example. Find the fastest listed choice that survives every bound, then state the operating range and what would trigger a new check.
+
+**Supporting concepts:**
+
+- Feasibility requires every applicable inequality to hold; passing one cannot compensate for failing another.
+- The fastest feasible member of a finite list is not a proof of the global maximum over all possible profiles.
+- A signed operating range states loads, geometry and performance assumptions together with the chosen setting.
+- A repeat acceptance test checks its specified case; continued validity also depends on the assumptions remaining true.
+
+#### OW-GD-M12-Q1
+
+**Objective:** Apply or evaluate the mission’s mechanics model in a new case.
+
+**Prompt:** Listed speeds are 1, 2, 3 and 4 m/s. Power requires v≤3 m/s and stopping requires v≤2.5 m/s. Which is the fastest listed feasible speed?
+
+- **A.** 1 m/s
+- **B.** 3 m/s
+- **C.** 4 m/s
+- **D.** 2 m/s
+
+**Correct key:** D
+
+**Hint:** Intersect the constraints before selecting from the list.
+
+**Feedback A:** It is feasible, but 2 m/s is also feasible and faster.
+
+**Feedback B:** It violates the stopping limit.
+
+**Feedback C:** It violates both limits.
+
+**Feedback D:** It is the largest listed value below both bounds.
+
+**Independent solution:** Combined bound is v≤2.5; feasible listed choices are 1 and 2; choose 2 m/s.
+
+#### OW-GD-M12-Q2
+
+**Objective:** Apply or evaluate the mission’s mechanics model in a new case.
+
+**Prompt:** A proposal must satisfy T≤90 N and P≤160 W. Candidate A has T=80 N, P=150 W; candidate B has T=95 N, P=120 W. Which is feasible?
+
+- **A.** A only
+- **B.** B only
+- **C.** Both
+- **D.** Neither
+
+**Correct key:** A
+
+**Hint:** Check each candidate against each inequality.
+
+**Feedback A:** A passes both; B fails tension despite using less power.
+
+**Feedback B:** Lower power cannot compensate for excessive tension.
+
+**Feedback C:** B violates the tension inequality.
+
+**Feedback D:** A is within both bounds.
+
+**Independent solution:** A:80≤90 and150≤160. B:95>90, so B fails.
+
+#### OW-GD-M12-Q3
+
+**Objective:** Apply or evaluate the mission’s mechanics model in a new case.
+
+**Prompt:** A test cart at 1.2 m/s brakes at 1.8 m/s² with no delay. What stopping distance should be committed before the test?
+
+- **A.** 0.8 m
+- **B.** 0.6 m
+- **C.** 0.4 m
+- **D.** 1.44 m
+
+**Correct key:** C
+
+**Hint:** Use the specified constant-braking model.
+
+**Feedback A:** The denominator includes the factor two.
+
+**Feedback B:** This is not v²/(2b).
+
+**Feedback C:** 1.2²/(2×1.8)=1.44/3.6.
+
+**Feedback D:** This is only the squared speed, not a distance calculation.
+
+**Independent solution:** d=v²/(2b)=1.2²/(2×1.8)=1.44/3.6=0.4 m.
+
+#### OW-GD-M12-Q4
+
+**Objective:** Apply or evaluate the mission’s mechanics model in a new case.
+
+**Prompt:** A machine has constant resisting force 120 N, input power limit 400 W and efficiency 75%. What is the steady-speed ceiling from power alone?
+
+- **A.** 3.33 m/s
+- **B.** 2.5 m/s
+- **C.** 0.4 m/s
+- **D.** 4 m/s
+
+**Correct key:** B
+
+**Hint:** Apply efficiency before dividing by force.
+
+**Feedback A:** That treats all input power as useful output.
+
+**Feedback B:** Useful power=300 W, so v=300/120.
+
+**Feedback C:** This reverses force and useful power.
+
+**Feedback D:** At 4 m/s useful power would be 480 W, beyond the input limit.
+
+**Independent solution:** P_useful=0.75×400=300 W; v=300/120=2.5 m/s.
+
+#### OW-GD-M12-Q5
+
+**Objective:** Apply or evaluate the mission’s mechanics model in a new case.
+
+**Prompt:** A plan assumes braking magnitude at least 2 m/s². A later check measures 1.5 m/s² under the same load. What follows?
+
+- **A.** Keep the same stopping bound because the load is unchanged
+- **B.** Lower only the acceleration while retaining the approved cruise speed
+- **C.** Use the original empty-trial stopping distance for the present load
+- **D.** Suspend use of that approval and recalculate or restore the braking performance
+
+**Correct key:** D
+
+**Hint:** Which inequality justified the approved stopping travel?
+
+**Feedback A:** The brake assumption itself has failed.
+
+**Feedback B:** Lower start acceleration does not restore the failed braking bound.
+
+**Feedback C:** A different trial cannot erase the failed braking assumption.
+
+**Feedback D:** The stated operating conditions no longer support the old bound.
+
+**Independent solution:** The old bound used b≥2; measured b=1.5 violates it, increasing v²/(2b) at fixed speed.
+
+#### OW-GD-M12-Q6
+
+**Objective:** Apply or evaluate the mission’s mechanics model in a new case.
+
+**Prompt:** A report says “2 m/s is the fastest listed candidate passing all limits.” Which revision preserves its actual scope?
+
+- **A.** “Use 2 m/s within the documented load and response bounds; other profiles require evaluation.”
+- **B.** “No possible design can exceed 2 m/s.”
+- **C.** “Any load is safe at 2 m/s.”
+- **D.** “A later brake change needs no new check.”
+
+**Correct key:** A
+
+**Hint:** Retain the candidate-list qualification and operating domain.
+
+**Feedback A:** This states the approved setting and its domain without claiming a global optimum.
+
+**Feedback B:** A finite candidate list cannot establish that universal claim.
+
+**Feedback C:** The load range remains part of the evidence.
+
+**Feedback D:** Changing an essential assumption can invalidate the approval.
+
+**Independent solution:** A finite feasible selection establishes only the chosen listed setting under its specified constraints.
+
 ## Ending card — exact player copy
 
 The inspector has read all twelve pages. Ruth Bell opens the passenger gate, and her brother Finn takes his tally from the row of forty-one. Ada’s March check stays beside the new cage trace. You showed what it missed: the drum was still, but the cage rose on while the rope changed stretch.
@@ -6358,4 +8740,4 @@ The mine has a service it can use, but the crew has lost the planned overtime an
 
 # 8. Implementation boundary and handoff
 
-This artifact specifies new content and world decisions; it is not an engine patch. Convert against the actual current importer, preserve all resolved build decisions and verify every rendered phase. Run import, schema, content, world parity, reachable fixtures, lessons, duplicate IDs, format mix, copy length, readability and both full playthroughs. The exact current project commands and version are unavailable, so no command completion or runtime PASS is asserted. The v1.0 ledger, author script, numeric audit and Giant Gate assessment are historical. This revised bible and OVERWIND_HANDBACK_CHECK.md are the v1.1 handback; regenerate derived imports from this bible and rerun build checks against it.
+This artifact specifies new content and world decisions; it is not an engine patch. Convert against the actual current importer, preserve all resolved build decisions and verify every rendered phase. Run import, schema, content, world parity, reachable fixtures, lessons, duplicate IDs, format mix, copy length, readability and both full playthroughs. The exact current project commands and version are unavailable, so no command completion or runtime PASS is asserted. The v1.0 ledger, author script, numeric audit and Giant Gate assessment are historical. This v1.2 bible preserves the v1.1 handback and adds the ensemble/depth requirements from Master v3.5, Ledger v1.5 and Gate v2.5. OVERWIND_EXPANSION_CHECK.md and OVERWIND_REVIEW_QUESTIONS.json document the current source checks; regenerate imports and rerun build checks against this version.

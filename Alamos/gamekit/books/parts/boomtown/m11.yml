@@ -48,7 +48,7 @@
     motivation: "A large joint profit is not evidence of individual stability."
     format: BALLPARK
     question: "Submit combined profit if both firms Restrict."
-    answerText: The pact gives 40+40 = 80 thousand dollars daily across the two firms; the combined total alone does not establish that each wants to comply.
+    answerText: "The pact gives 40+40 = 80 thousand dollars daily across the two firms; the combined total alone does not establish that each wants to comply."
     why: "The pact gives 40+40 = 80 thousand dollars daily across the two firms; the combined total alone does not establish that each wants to comply. A large joint profit is not evidence of individual stability. Strategic interaction requires individual incentive comparisons; a combined payoff cannot show whether a firm benefits from changing its own action while its rival stays put. 40 counts only one firm. 60 is the both-expand total."
     # data: Payoffs are daily profit in thousands of dollars, listed (Firm A,Firm B): both Restrict (40,40); A Expand/B Restrict (60,20); A Restrict/B Expand (20,60); both Expand (30,30).
     # correct result: 80; absolute tolerance 0.05 in the requested unit.
@@ -218,7 +218,7 @@
     motivation: "A forecast that survives unilateral incentives is safer than the companies' joint promise."
     format: VERIFY
     question: "First, calculate and commit Firm A's payoff at the stable action pair in thousands of dollars. Then run the Hearing Table with the same payoff table, measure A's payoff, and select whether it matches; no restoration or second reading is required."
-    answerText: Expansion is each firm’s dominant strategy, so both expand; neither gains by switching alone from that profile, and A receives 30 thousand dollars.
+    answerText: "Expansion is each firm's dominant strategy, so both expand; neither gains by switching alone from that profile, and A receives 30 thousand dollars."
     why: "Expansion is each firm's dominant strategy, so both expand; neither gains by switching alone from that profile, and A receives 30 thousand dollars. A forecast that survives unilateral incentives is safer than the companies' joint promise. Competition between these firms is modeled as simultaneous and one-shot; repeat business, punishments or a binding agreement could change the incentive problem and need separate evidence. 40 assumes cooperation without incentive support. 60 assumes only A deviates while B Restricts."
     # data: Use payoffs (40,40),(60,20),(20,60),(30,30) for Restrict/Restrict, Expand/Restrict, Restrict/Expand, Expand/Expand. Both choose simultaneously, maximizing own profit in one round.
     # correct result: 30; absolute tolerance 0.05 in the requested unit.

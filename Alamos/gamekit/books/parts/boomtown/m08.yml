@@ -51,7 +51,7 @@
     motivation: "An incumbent cannot count every accounting dollar as an excess return threatened by entry."
     format: BALLPARK
     question: "Submit economic profit after both cost types."
-    answerText: 180−120−40 = $20 economic profit; the $60 accounting margin includes compensation for the owner’s forgone outside work.
+    answerText: "180−120−40 = $20 economic profit; the $60 accounting margin includes compensation for the owner's forgone outside work."
     why: "180−120−40 = $20 economic profit; the $60 accounting margin includes compensation for the owner's forgone outside work. An incumbent cannot count every accounting dollar as an excess return threatened by entry. Opportunity cost counts the owner's foregone alternative even without a cash payment; positive economic profit is the remainder after paying for that resource too. 60 ignores implicit cost. 40 reports outside earnings only. 180 ignores all resource costs."
     # data: A new food vendor expects daily revenue $180, explicit costs $120 and a forgone outside earning of $40 from its owner's time.
     # correct result: 20; absolute tolerance 0.05 in the requested unit.

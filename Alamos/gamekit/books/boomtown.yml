@@ -1159,7 +1159,7 @@ missions:
     motivation: "The cost of doing repairs internally sets the highest meal payment the diner should accept."
     format: BALLPARK
     question: "Use forgone meal boxes divided by repair hours to submit the opportunity cost of one repair hour in meal boxes."
-    answerText: The full shift gives up 24 meal boxes to gain 8 repair hours, so 24/8 = 3 meal boxes per repair hour.
+    answerText: "The full shift gives up 24 meal boxes to gain 8 repair hours, so 24/8 = 3 meal boxes per repair hour."
     why: "The full shift gives up 24 meal boxes to gain 8 repair hours, so 24/8 = 3 meal boxes per repair hour. The cost of doing repairs internally sets the highest meal payment the diner should accept. Opportunity cost measures the next-best output forgone, so its unit must name meal boxes for each repair hour gained. 8/24 reverses the requested unit. 24 treats the whole shift as one repair hour."
     # data: In one shift the diner team can pack 24 meal boxes or perform 8 repair hours; a straight production boundary and constant tradeoffs apply.
     # correct result: 3; absolute tolerance 0.05 in the requested unit.
@@ -1329,7 +1329,7 @@ missions:
     motivation: "A trial invoice makes the promised exchange concrete before either team changes its work."
     format: VERIFY
     question: "First, calculate and commit the meal boxes due using boxes = boxes per hour × hours. Then set the Order Terminal to the four-hour trial, measure the invoice total, and select whether it matches your prediction; no restoration or second reading is required."
-    answerText: The contract charges 2 meal boxes per repair hour for 4 hours, giving 2 × 4 = 8 boxes; that is below the diner’s 12-box internal cost and above the crew’s 4-box internal cost.
+    answerText: "The contract charges 2 meal boxes per repair hour for 4 hours, giving 2 × 4 = 8 boxes; that is below the diner's 12-box internal cost and above the crew's 4-box internal cost."
     why: "The contract charges 2 meal boxes per repair hour for 4 hours, giving 2 × 4 = 8 boxes; that is below the diner's 12-box internal cost and above the crew's 4-box internal cost. A trial invoice makes the promised exchange concrete before either team changes its work. Comparative advantage makes the interval between the two internal costs the relevant test; an invoice inside that interval supports voluntary exchange. 4 counts repair hours as meal boxes."
     # data: A proposed contract exchanges 2 meal boxes for each repair hour; request 4 repair hours, keep both production schedules fixed, and assume no transfer cost.
     # correct result: 8; absolute tolerance 0.05 in the requested unit.
@@ -1516,7 +1516,7 @@ missions:
     motivation: "An unmet quantity explains the queue without yet explaining what moved."
     format: BALLPARK
     question: "Submit the daily lunch shortage using quantity demanded minus quantity supplied."
-    answerText: At the posted price, 90 − 60 = 30 lunches per day are wanted but not supplied.
+    answerText: "At the posted price, 90 − 60 = 30 lunches per day are wanted but not supplied."
     why: "At the posted price, 90 − 60 = 30 lunches per day are wanted but not supplied. An unmet quantity explains the queue without yet explaining what moved. Equilibrium reasoning begins by comparing the two planned quantities at the same price; the shortage does not itself identify which demand or supply determinant changed. 60 is supplied quantity, not shortage. 150 adds plans on opposite sides. 6 is a price, not a lunch count."
     # data: At the old $6 lunch price, customers request 90 lunches and the diner can supply 60 lunches each day.
     # correct result: 30; absolute tolerance 0.05 in the requested unit.
@@ -1881,7 +1881,7 @@ missions:
     motivation: "The owner needs receipts rather than the price sign alone."
     format: BALLPARK
     question: "Submit the nightly revenue decrease as old revenue minus new revenue."
-    answerText: Old receipts are 40×10 = 400; new receipts are 50×6 = 300; revenue falls by 400−300 = $100 per night.
+    answerText: "Old receipts are 40×10 = 400; new receipts are 50×6 = 300; revenue falls by 400−300 = $100 per night."
     why: "Old receipts are 40×10 = 400; new receipts are 50×6 = 300; revenue falls by 400−300 = $100 per night. The owner needs receipts rather than the price sign alone. Elasticity connects a price change to its quantity response, but the revenue comparison must multiply each price by the quantity actually sold at that price. −100 is the signed new-minus-old change, not the requested decrease magnitude. 10 is only the nightly price increase."
     # data: Ten rooms sold at $40 per night before the increase; six sell at $50 after it. Revenue equals price × rooms sold.
     # correct result: 100; absolute tolerance 0.05 in the requested unit.
@@ -2059,7 +2059,7 @@ missions:
     motivation: "The magnitude tests whether the revenue loss is consistent with the price response."
     format: VERIFY
     question: "First, calculate and commit absolute midpoint price elasticity from the two prices and quantities. Then run the Hearing Table archive check, measure its computed ratio, and select whether your prediction matches; no restoration or second measurement is required."
-    answerText: Quantity changes by −4/8 = −0.5; price changes by 10/45 = 2/9; absolute elasticity is 0.5 ÷ (2/9) = 2.25. A four-function calculator is supplied on the panel.
+    answerText: "Quantity changes by −4/8 = −0.5; price changes by 10/45 = 2/9; absolute elasticity is 0.5 ÷ (2/9) = 2.25. A four-function calculator is supplied on the panel."
     why: "Quantity changes by −4/8 = −0.5; price changes by 10/45 = 2/9; absolute elasticity is 0.5 ÷ (2/9) = 2.25. A four-function calculator is supplied on the panel. The magnitude tests whether the revenue loss is consistent with the price response. 1.6 uses initial values rather than midpoint averages. 0.4 reports a percentage quantity change without dividing by price response. 0.44 reverses the elasticity ratio."
     # data: The same rooms sell 10 nights at $40 and 6 nights at $50; use midpoint percentage changes, holding season, room quality and advertising fixed.
     # correct result: 2.25; absolute tolerance 0.05 in the requested unit.
@@ -2246,7 +2246,7 @@ missions:
     motivation: "Hiring depends on the contribution of the next worker, not average sales."
     format: BALLPARK
     question: "Submit the fourth cook's marginal revenue product as added lunches times price."
-    answerText: The fourth cook adds 60−48 = 12 lunches, each selling for $5, so extra receipts are 12×5 = $60 per shift.
+    answerText: "The fourth cook adds 60−48 = 12 lunches, each selling for $5, so extra receipts are 12×5 = $60 per shift."
     why: "The fourth cook adds 60−48 = 12 lunches, each selling for $5, so extra receipts are 12×5 = $60 per shift. Hiring depends on the contribution of the next worker, not average sales. Marginal analysis uses the change from three cooks to four; including the whole kitchen output would assign existing workers' production to the newcomer. 300 counts all output as the new worker's contribution. 12 is output rather than revenue."
     # data: Three cooks produce 48 lunches; four produce 60; five produce 68. The oven is fixed and every extra lunch sells at a fixed $5 price.
     # correct result: 60; absolute tolerance 0.05 in the requested unit.
@@ -2418,7 +2418,7 @@ missions:
     motivation: "A smaller contribution can make the next hire unprofitable while total output still rises."
     format: VERIFY
     question: "First, calculate and commit the fifth cook's net addition to profit as added revenue minus wage. Then set the Order Terminal to five cooks, run one trial shift, measure the net change, and select whether it matches; restore the staffing simulation to four cooks after reading, with no second reading required."
-    answerText: The fifth cook adds 8×5 = $40 revenue but costs $50, reducing profit by $10 per shift.
+    answerText: "The fifth cook adds 8×5 = $40 revenue but costs $50, reducing profit by $10 per shift."
     why: "The fifth cook adds 8×5 = $40 revenue but costs $50, reducing profit by $10 per shift. A smaller contribution can make the next hire unprofitable while total output still rises. Factor demand depends on the extra receipts produced by the additional worker; diminishing marginal product can make a further hire unprofitable despite higher total production. 40 omits the wage. 10 reverses revenue and wage. 50 treats wage as extra output."
     # data: A fifth cook raises lunches from 60 to 68 at $5 each; wage is $50 per shift, and the oven and price stay fixed.
     # correct result: -10; absolute tolerance 0.05 in the requested unit.
@@ -2604,7 +2604,7 @@ missions:
     motivation: "A cap can help successful tenants while leaving an allocation problem."
     format: BALLPARK
     question: "Submit the housing shortage at the proposed ceiling."
-    answerText: The ceiling is below $700 and therefore binds; at $500, 120−80 = 40 households cannot obtain a unit in this model.
+    answerText: "The ceiling is below $700 and therefore binds; at $500, 120−80 = 40 households cannot obtain a unit in this model."
     why: "The ceiling is below $700 and therefore binds; at $500, 120−80 = 40 households cannot obtain a unit in this model. A cap can help successful tenants while leaving an allocation problem. Equilibrium reasoning distinguishes a binding price rule from its distributional effects: successful tenants pay less, while some applicants remain without a home. 120 ignores the available homes. 200 adds both sides. 40 dollars uses the wrong unit for a quantity gap."
     # data: At the proposed $500 monthly ceiling, 120 households seek homes and 80 homes are offered; the otherwise available equilibrium is $700.
     # correct result: 40; absolute tolerance 0.05 in the requested unit.
@@ -3140,7 +3140,7 @@ missions:
     motivation: "The recommendation must carry its efficiency cost alongside revenue."
     format: VERIFY
     question: "First, calculate and commit deadweight loss using half the tax wedge times lost deliveries. Then run the Order Terminal market trial, measure the surplus loss excluding transfers, and select whether it matches; no restoration or second reading is required."
-    answerText: Lost trade is 50−30 = 20; the triangular lost gains are 0.5×4×20 = $40 per day. Tax receipts are transfers and are not counted again as lost gains.
+    answerText: "Lost trade is 50−30 = 20; the triangular lost gains are 0.5×4×20 = $40 per day. Tax receipts are transfers and are not counted again as lost gains."
     why: "Lost trade is 50−30 = 20; the triangular lost gains are 0.5×4×20 = $40 per day. Tax receipts are transfers and are not counted again as lost gains. The recommendation must carry its efficiency cost alongside revenue. Surplus accounting distinguishes a transfer to the treasury from gains that disappear because beneficial trades no longer occur; only the latter form this triangle. 120 is revenue, not deadweight loss. 80 omits the triangle's half."
     # data: With linear supply and demand, no external effects, a $4 tax reduces deliveries from 50 to 30; all other determinants stay fixed.
     # correct result: 40; absolute tolerance 0.05 in the requested unit.
@@ -3328,7 +3328,7 @@ missions:
     motivation: "A real loss is the start of the operating decision, not its conclusion."
     format: BALLPARK
     question: "Submit the positive magnitude of the daily economic loss using (average total cost minus price) times output."
-    answerText: Cost exceeds price by 10−8 = $2 per unit; at 20 units the economic loss is 2×20 = $40 per day.
+    answerText: "Cost exceeds price by 10−8 = $2 per unit; at 20 units the economic loss is 2×20 = $40 per day."
     why: "Cost exceeds price by 10−8 = $2 per unit; at 20 units the economic loss is 2×20 = $40 per day. A real loss is the start of the operating decision, not its conclusion. Cost structure matters because a loss relative to all costs need not imply revenue falls below avoidable costs; the next comparison must inspect that distinction. −40 is signed profit, not the requested positive loss magnitude. 160 is total revenue."
     # data: At the supplier's profit-maximizing output of 20 units daily, market price is $8 and average total cost is $10; the firm is a price taker.
     # correct result: 40; absolute tolerance 0.05 in the requested unit.
@@ -3500,7 +3500,7 @@ missions:
     motivation: "The comparison protects current supplies without promising permanent profitability."
     format: VERIFY
     question: "First, calculate and commit the daily advantage of operating over shutdown using revenue minus avoidable variable cost. Then run the Hearing Table, measure the loss avoided, and select whether it matches; no restoration or second reading is required."
-    answerText: "Operating contributes 160−100 = $60 toward fixed costs: its $40 loss is $60 smaller than shutdown’s $100 loss."
+    answerText: "Operating contributes 160−100 = $60 toward fixed costs: its $40 loss is $60 smaller than shutdown's $100 loss."
     why: "Operating contributes 160−100 = $60 toward fixed costs: its $40 loss is $60 smaller than shutdown's $100 loss. The comparison protects current supplies without promising permanent profitability. Cost structure separates the avoidable wage and materials bill from the unchanged current lease; marginal analysis asks which choice leaves the owner less badly off today. 40 is the operating loss, not the advantage. 100 is the shutdown loss. 160 ignores variable costs."
     # data: At the current best output, revenue is $160, variable cost $100 and unavoidable fixed cost $100 daily; keep price and the lease fixed.
     # correct result: 60; absolute tolerance 0.05 in the requested unit.
@@ -3687,7 +3687,7 @@ missions:
     motivation: "An incumbent cannot count every accounting dollar as an excess return threatened by entry."
     format: BALLPARK
     question: "Submit economic profit after both cost types."
-    answerText: 180−120−40 = $20 economic profit; the $60 accounting margin includes compensation for the owner’s forgone outside work.
+    answerText: "180−120−40 = $20 economic profit; the $60 accounting margin includes compensation for the owner's forgone outside work."
     why: "180−120−40 = $20 economic profit; the $60 accounting margin includes compensation for the owner's forgone outside work. An incumbent cannot count every accounting dollar as an excess return threatened by entry. Opportunity cost counts the owner's foregone alternative even without a cash payment; positive economic profit is the remainder after paying for that resource too. 60 ignores implicit cost. 40 reports outside earnings only. 180 ignores all resource costs."
     # data: A new food vendor expects daily revenue $180, explicit costs $120 and a forgone outside earning of $40 from its owner's time.
     # correct result: 20; absolute tolerance 0.05 in the requested unit.
@@ -4024,7 +4024,7 @@ missions:
     motivation: "A single buyer's hiring cost can exceed the wage printed in the job offer."
     format: BALLPARK
     question: "Submit the fourth worker's marginal factor cost as the increase in the whole wage bill."
-    answerText: The wage bill rises from 3×25 = $75 to 4×30 = $120, so the fourth worker costs an extra $45.
+    answerText: "The wage bill rises from 3×25 = $75 to 4×30 = $120, so the fourth worker costs an extra $45."
     why: "The wage bill rises from 3×25 = $75 to 4×30 = $120, so the fourth worker costs an extra $45. A single buyer's hiring cost can exceed the wage printed in the job offer. Factor demand must be compared with marginal factor cost, which includes the extra wages paid to existing employees under this employer's upward-sloping labor supply. 30 is the new wage, not the change in the whole bill."
     # data: Without a wage floor, three workers each earn $25 per shift; recruiting a fourth requires $30 for each of all four workers.
     # correct result: 45; absolute tolerance 0.05 in the requested unit.
@@ -4202,7 +4202,7 @@ missions:
     motivation: "The wage floor must be evaluated against the actual hiring schedule."
     format: VERIFY
     question: "First, calculate and commit the profit-maximizing worker count under the floor. Then set the Order Terminal wage to $30, measure the chosen staffing count, and select whether it matches; restore the trial setting after reading, with no second measurement required."
-    answerText: The first four workers each add at least $30 and cost $30 each under the floor. A fifth adds $20 but increases the wage bill from $120 to $175, a $55 marginal cost, so staffing stops at four.
+    answerText: "The first four workers each add at least $30 and cost $30 each under the floor. A fifth adds $20 but increases the wage bill from $120 to $175, a $55 marginal cost, so staffing stops at four."
     why: "The first four workers each add at least $30 and cost $30 each under the floor. A fifth adds $20 but increases the wage bill from $120 to $175, a $55 marginal cost, so staffing stops at four. The wage floor must be evaluated against the actual hiring schedule. 3 ignores that the floor removes the upward wage-bill jump through four workers. 5 ignores the $55 marginal bill for the fifth."
     # data: Marginal revenue products for workers 1–5 are $60,$50,$40,$30,$20; with a $30 wage floor the firm can hire up to four workers at $30 each, but a fifth would require $35 for all five. Hold output demand and productivity fixed; at equality hire the worker.
     # correct result: 4; absolute tolerance 0.05 in the requested unit.
@@ -4388,7 +4388,7 @@ missions:
     motivation: "A pricing claim needs the demand price at the chosen output."
     format: BALLPARK
     question: "Submit the price from the demand curve at 20 slots."
-    answerText: Demand gives P = 100−2×20 = $60 per slot; the corresponding marginal revenue is $20, not the charged price.
+    answerText: "Demand gives P = 100−2×20 = $60 per slot; the corresponding marginal revenue is $20, not the charged price."
     why: "Demand gives P = 100−2×20 = $60 per slot; the corresponding marginal revenue is $20, not the charged price. A pricing claim needs the demand price at the chosen output. Marginal analysis locates output by comparing marginal revenue and cost; the demand schedule then determines the price charged on all units sold. 20 reads marginal revenue as the selling price. 100 uses the intercept at zero quantity. 40 reports the deduction instead of price."
     # data: The terminal's demand is P=100−2Q dollars per slot; it chooses Q=20 slots daily under its current contract.
     # correct result: 60; absolute tolerance 0.05 in the requested unit.
@@ -4752,7 +4752,7 @@ missions:
     motivation: "A large joint profit is not evidence of individual stability."
     format: BALLPARK
     question: "Submit combined profit if both firms Restrict."
-    answerText: The pact gives 40+40 = 80 thousand dollars daily across the two firms; the combined total alone does not establish that each wants to comply.
+    answerText: "The pact gives 40+40 = 80 thousand dollars daily across the two firms; the combined total alone does not establish that each wants to comply."
     why: "The pact gives 40+40 = 80 thousand dollars daily across the two firms; the combined total alone does not establish that each wants to comply. A large joint profit is not evidence of individual stability. Strategic interaction requires individual incentive comparisons; a combined payoff cannot show whether a firm benefits from changing its own action while its rival stays put. 40 counts only one firm. 60 is the both-expand total."
     # data: Payoffs are daily profit in thousands of dollars, listed (Firm A,Firm B): both Restrict (40,40); A Expand/B Restrict (60,20); A Restrict/B Expand (20,60); both Expand (30,30).
     # correct result: 80; absolute tolerance 0.05 in the requested unit.
@@ -4922,7 +4922,7 @@ missions:
     motivation: "A forecast that survives unilateral incentives is safer than the companies' joint promise."
     format: VERIFY
     question: "First, calculate and commit Firm A's payoff at the stable action pair in thousands of dollars. Then run the Hearing Table with the same payoff table, measure A's payoff, and select whether it matches; no restoration or second reading is required."
-    answerText: Expansion is each firm’s dominant strategy, so both expand; neither gains by switching alone from that profile, and A receives 30 thousand dollars.
+    answerText: "Expansion is each firm's dominant strategy, so both expand; neither gains by switching alone from that profile, and A receives 30 thousand dollars."
     why: "Expansion is each firm's dominant strategy, so both expand; neither gains by switching alone from that profile, and A receives 30 thousand dollars. A forecast that survives unilateral incentives is safer than the companies' joint promise. Competition between these firms is modeled as simultaneous and one-shot; repeat business, punishments or a binding agreement could change the incentive problem and need separate evidence. 40 assumes cooperation without incentive support. 60 assumes only A deviates while B Restricts."
     # data: Use payoffs (40,40),(60,20),(20,60),(30,30) for Restrict/Restrict, Expand/Restrict, Restrict/Expand, Expand/Expand. Both choose simultaneously, maximizing own profit in one round.
     # correct result: 30; absolute tolerance 0.05 in the requested unit.
@@ -5110,7 +5110,7 @@ missions:
     motivation: "Water users become part of the cost comparison even though they buy no freight."
     format: BALLPARK
     question: "Submit marginal social cost per freight unit."
-    answerText: Marginal social cost is private 20 plus external 20, or $40 per freight unit; the damage is not a payment already included in private cost.
+    answerText: "Marginal social cost is private 20 plus external 20, or $40 per freight unit; the damage is not a payment already included in private cost."
     why: "Marginal social cost is private 20 plus external 20, or $40 per freight unit; the damage is not a payment already included in private cost. Water users become part of the cost comparison even though they buy no freight. Social effects require adding genuine outside resource damage to private cost; a transfer already counted elsewhere would not belong in this sum a second time. 20 excludes the external harm. 0 assumes unpaid means costless."
     # data: Private marginal freight cost is $20 per unit; independently measured downstream water damage adds $20 per unit across the relevant range.
     # correct result: 40; absolute tolerance 0.05 in the requested unit.
@@ -5280,7 +5280,7 @@ missions:
     motivation: "The player must revise an earlier benchmark when a previously unpriced cost is measured."
     format: VERIFY
     question: "First, calculate and commit the efficient freight quantity using marginal social benefit equals marginal social cost. Then run the Hearing Table, measure the welfare-maximizing quantity, and select whether it matches; no restoration or second reading is required."
-    answerText: Set 100−2Q = 20+20 = 40; then 2Q=60 and Q=30. The no-harm competitive benchmark of 40 units no longer supplies the correct target.
+    answerText: "Set 100−2Q = 20+20 = 40; then 2Q=60 and Q=30. The no-harm competitive benchmark of 40 units no longer supplies the correct target."
     why: "Set 100−2Q = 20+20 = 40; then 2Q=60 and Q=30. The no-harm competitive benchmark of 40 units no longer supplies the correct target. The player must revise an earlier benchmark when a previously unpriced cost is measured. Marginal analysis now includes the social effects measured downstream; the revised benchmark is distinct from both unrestricted competition without harm and private monopoly choice. 40 leaves out water damage. 20 confuses the monopoly's private output with the corrected efficient output."
     # data: Freight benefit is MSB=100−2Q dollars per unit; private MC is $20 and external marginal harm $20; hold demand and the damage estimate fixed.
     # correct result: 30; absolute tolerance 0.05 in the requested unit.
@@ -5829,7 +5829,7 @@ missions:
     motivation: "The apparent victory depended on counting a price transfer as a resource saving."
     format: BALLPARK
     question: "Submit the positive magnitude of the daily net resource loss, excluding the internal payment transfer."
-    answerText: Construction uses $70 in daily equivalent resources and operations save $60, leaving a $10 daily resource loss; the $40 internal payment change is a transfer, not another saving.
+    answerText: "Construction uses $70 in daily equivalent resources and operations save $60, leaving a $10 daily resource loss; the $40 internal payment change is a transfer, not another saving."
     why: "Construction uses $70 in daily equivalent resources and operations save $60, leaving a $10 daily resource loss; the $40 internal payment change is a transfer, not another saving. The apparent victory depended on counting a price transfer as a resource saving. 30 counts the internal transfer as a resource saving. −10 is signed net gain, not the requested positive loss magnitude. 40 is a transfer between local groups, not net resources consumed."
     # data: The new line claims $100 daily gain: $60 real operating-resource saving plus $40 lower payments to the locally owned incumbent terminal; local incidence is the stated accounting boundary. Construction uses $70 in daily equivalent real resources.
     # correct result: 10; absolute tolerance 0.05 in the requested unit.
@@ -5999,7 +5999,7 @@ missions:
     motivation: "The last complication changes the plan because of the criterion the town adopted, not a surprise new preference."
     format: STRESS
     question: "Move the construction-overrun control through 0–40%, inspect which plans remain feasible, then select the surviving plan with the greatest net resource benefit."
-    answerText: At 40% overrun the new line is infeasible, while the retrofit and status quo survive. The retrofit’s net resource benefit score of 15 exceeds the status quo’s 0, so it is the robust choice under the explicit rule.
+    answerText: "At 40% overrun the new line is infeasible, while the retrofit and status quo survive. The retrofit's net resource benefit score of 15 exceeds the status quo's 0, so it is the robust choice under the explicit rule."
     why: "At 40% overrun the new line is infeasible, while the retrofit and status quo survive. The retrofit's net resource benefit score of 15 exceeds the status quo's 0, so it is the robust choice under the explicit rule. The last complication changes the plan because of the criterion the town adopted, not a surprise new preference. New line fails above 10% even though its nominal service score is attractive. Status quo survives but its resource benefit is below the retrofit."
     # data: Assumption: construction cost overrun from 0% to 40%, nominal 10%. Require feasibility across the whole range; among feasible plans maximize net resource benefit. New line survives to 10%, access retrofit to 40%, status quo to 40%. Benefits are comparative model scores in dollars per day. The net resource score is −10 for the new line, 15 for the retrofit and 0 for status quo; the new line offers more capacity but fails the adopted cost-risk rule.
     # correct result: "Access retrofit"; exact selection or mapping required.
@@ -6200,7 +6200,7 @@ missions:
     motivation: "The hearing can promise only measures whose costs have a confirmed source."
     format: BALLPARK
     question: "Submit the total confirmed daily funding; then compare it with the visible $150 plan cost."
-    answerText: Confirmed funding is 120+30 = $150 daily, exactly matching the $150 plan cost; no unconfirmed grant is counted.
+    answerText: "Confirmed funding is 120+30 = $150 daily, exactly matching the $150 plan cost; no unconfirmed grant is counted."
     why: "Confirmed funding is 120+30 = $150 daily, exactly matching the $150 plan cost; no unconfirmed grant is counted. The hearing can promise only measures whose costs have a confirmed source. Opportunity cost and fiscal discipline require counting only confirmed funding once; the absence of a gap does not prove that the agreement has no real resource costs. 0 is the funding gap, not the requested confirmed funding total. 120 omits the cooperative contribution."
     # data: The complete daily plan costs $150: retrofit support $20, housing support $120, water reporting $10. Confirmed sources are the $120 market-fee revenue and $30 cooperative contribution; no grant is counted.
     # correct result: 150; absolute tolerance 0.05 in the requested unit.

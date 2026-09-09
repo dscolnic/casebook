@@ -116,7 +116,7 @@
     motivation: "The calculated quantity sets the comparison the crew must satisfy before it acts."
     format: BALLPARK
     question: "Use the tiles to calculate modeled net growth in plants per week."
-    answerText: The unused-capacity factor is (80 − 40)/80 = 0.5. This result is now recorded for the next comparison.
+    answerText: "The unused-capacity factor is (80 − 40)/80 = 0.5. This result is now recorded for the next comparison."
     why: "The unused-capacity factor is (80 − 40)/80 = 0.5. Multiplying rN by that factor gives 0.5 × 40 × 0.5 = 10 plants per week. The exponential value would be twenty, but the stated logistic model reduces growth as the population approaches the assumed carrying capacity. That capacity is a campaign estimate under prepared-site conditions, not an immutable property of the land. Water and nutrients must actually support those conditions before the number can justify stocking the pilot."
     # wrong-path feedback, one rebuttal per wrong option:
     #   20 omits the resource-limitation factor. 80 is the assumed capacity, not the rate of net growth. Retry: keep the visible evidence, clear only the committed response and reopen this board; no later stop unlocks until a correct submission. For matching/order errors, highlight the first mismatched biological relationship with the specific feedback above; for numerical errors, display the stated formula and substituted units after grading.

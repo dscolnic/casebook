@@ -188,7 +188,7 @@
     motivation: "The momentum history decides whether the feed arrangement can protect the machinery while keeping ore moving."
     format: BALLPARK
     question: "Choose the quantity tiles for the displayed formula a/b; submit the resulting mean bin impact force in N."
-    answerText: Favg=600/0.2=3000 N, so the short impact exceeds the fictional 1500 N limit; a 0.6 s stop would give 1000 N.
+    answerText: "Favg=600/0.2=3000 N, so the short impact exceeds the fictional 1500 N limit; a 0.6 s stop would give 1000 N."
     why: "Favg=600/0.2=3000 N, so the short impact exceeds the fictional 1500 N limit; a 0.6 s stop would give 1000 N. Multiplying momentum by time does not give force. The alternative '1000 N' fails for this reason: That is the proposed longer stop, not the measured short stop. Instrumented bin surrogate receives 600 kg m/s momentum and stops it in 0.2 s; Favg=Δp/Δt; force limit 1500 N."
     # wrong-path feedback, one rebuttal per wrong option:
     #   **120 N:** Multiplying momentum by time does not give force. **1000 N:** That is the proposed longer stop, not the measured short stop.

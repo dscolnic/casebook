@@ -1,18 +1,21 @@
-// props.js — the objects that make Pellow Head a cable landing station.
+// props.js — the objects that make Pellow Head a working field station.
 //
 // Generic fittings come from engine/world/kit.js and are placed from site.js.
 // What is here is the handful of things this place has and nowhere else does:
 //
-//   · **The cable is the object and it is buried.** What can be seen of it is a
-//     manhole lid in the dunes, a line of duct markers up to the station, and
-//     one bight of the real thing on a drum in the store yard — armoured, as
-//     thick as a wrist, and the only piece of this game a player can look at.
-//   · **The bay is separated by distance rather than by lead**, which is why it
-//     is a small concrete box with a rope barrier at eighteen metres and a
-//     warning beacon on a pole. The empty ground round it is the shielding.
+//   · **The living island is the subject.** Nursery beds under hoop tunnels, a
+//     marsh with a boardwalk and a hide, grazing, a seed orchard, a strand line
+//     and the ship at its jetty — see the dressing pass at the foot of this
+//     file, which is most of what a player walks through.
+//   · **The shore sampling point is where the island is measured**, above the
+//     tide line, with a quadrat frame against it and a marked stake at the
+//     water. The route out to it is marked the whole way.
+//   · **The marsh bay is separated by distance**, which is why it is a small
+//     building with a rope barrier at eighteen metres. The open ground round it
+//     is what keeps the survey undisturbed.
 //   · **The dune crest is the edge of the world.** A fence along it and a set of
 //     steps down that go nowhere the player may follow.
-//   · **The station's own aerials and cable racks** are on the roof, because a
+//   · **The station's own aerials and racks** are on the roof, because a
 //     one-storey building with nothing on it reads as a garage.
 //
 // Placement helpers take `(x, z, y)` — ground last.
@@ -29,6 +32,15 @@ const CONCRETE = () => MATERIALS.concrete();
 const PAINT = (c) => MATERIALS.paintedSteel(c);
 
 /** The manhole: a lid, a frame and the duct stubs either side of it. */
+/**
+ * The shore sampling point, which was a cable manhole.
+ *
+ * Same chamber, same lid, same bollards: what a field station has above its
+ * tide line is a hatch over a sampling well with a stand beside it, and what
+ * the previous campaign had was where a submarine cable stopped being one. The
+ * geometry survives the change; the quadrat frame leaning on it is what says
+ * which campaign this is.
+ */
 function manhole(scene, x, z, y){
   box(scene, 4.4, 0.35, 4.4, x, y + 0.18, z, CONCRETE());
   box(scene, 2.4, 0.12, 1.6, x, y + 0.40, z, PAINT(0x6f6a5c));
@@ -37,9 +49,24 @@ function manhole(scene, x, z, y){
   for(const [dx, dz] of [[-3, -3], [3, -3], [-3, 3], [3, 3]]){
     cyl(scene, 0.11, 1.0, x + dx, y + 0.5, z + dz, PAINT(0xc9a23f));
   }
+  // A quadrat frame propped against the chamber, and a marked stake at the
+  // tide line — the two objects a shore survey leaves where it works.
+  const q = box(scene, 1.0, 1.0, 0.06, x + 2.4, y + 0.6, z - 0.4, PAINT(0xb8b2a4));
+  q.rotation.x = 0.5;
+  q.rotation.y = 0.3;
+  cyl(scene, 0.05, 1.4, x - 2.6, y + 0.7, z + 1.2, PAINT(0xc9a23f));
+  for(let i = 0; i < 4; i++){
+    box(scene, 0.13, 0.05, 0.13, x - 2.6, y + 0.35 + i * 0.3, z + 1.2, PAINT(0x2f2f2c));
+  }
 }
 
-/** A drum of the real cable, in the store yard: the only visible bight of it. */
+/**
+ * A HOSE REEL, WHICH WAS A DRUM OF SUBMARINE CABLE.
+ *
+ * The store yard's one big round thing. A nursery runs on water and this is
+ * what it is carried in; the previous campaign's drum of armoured cable is the
+ * same two flanges and a barrel, in green, with a lay-flat tail led off it.
+ */
 function cableDrum(scene, x, z, y){
   const flange = () => cyl(scene, 1.6, 0.14, x, y + 1.6, z, PAINT(0x7f7a6c));
   for(const dz of [-0.7, 0.7]){
@@ -47,11 +74,11 @@ function cableDrum(scene, x, z, y){
     f.rotation.x = Math.PI / 2;
   }
   void flange;
-  const barrel = cyl(scene, 1.05, 1.3, x, y + 1.6, z, PAINT(0x3a3a36));
+  const barrel = cyl(scene, 1.05, 1.3, x, y + 1.6, z, PAINT(0x2f5f3a));
   barrel.rotation.x = Math.PI / 2;
   cyl(scene, 0.07, 3.4, x, y + 1.6, z, MATERIALS.steel()).rotation.x = Math.PI / 2;
-  // The tail, led off the drum and pegged down.
-  box(scene, 0.09, 0.09, 2.6, x + 1.1, y + 0.12, z + 2.0, PAINT(0x2f2f2c));
+  // The tail, led off the reel and pegged down.
+  box(scene, 0.09, 0.09, 2.6, x + 1.1, y + 0.12, z + 2.0, PAINT(0x2f5f3a));
 }
 
 /** The bay: a rope barrier at the working distance, and a beacon on a pole. */

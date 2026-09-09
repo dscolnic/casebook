@@ -75,34 +75,43 @@ export const DIVISION_STYLE = {
  * the housing rows, stucco for the chapel and infirmary, and the shallow plinth
  * the hutments barely had.
  */
+// RENAMED FOR THE TOWN THIS IS NOW. The footprints, the colours and the
+// sidings are the source's and stay — the bible preserves them by coordinate —
+// and every one of these carries a SIGN a player reads. Left alone they said
+// Sundt 4-Plex Row, WAC Barracks, Post Exchange, Army Chapel and Main Gate
+// House on a mesa whose campaign is a freight agreement, and the status board
+// on the main road said "Project Y — Status". What each building is now is the
+// bible's own §3 sentence: the lodge is the community dining lodge, the
+// hutments are modular homes, the exchange is a convenience store, the
+// infirmary is a clinic, the gatehouse is a delivery checkpoint.
 export const FILLER = [
-  { id: 'FULLER', name: 'Fuller Lodge',       x: 0,   z: -30, w: 22, d: 12, h: 8,
+  { id: 'FULLER', name: 'Community Lodge',    x: 0,   z: -30, w: 22, d: 12, h: 8,
     colour: 0x7a4a2e, siding: 'wood',   base: 0.6,  corners: false },
-  { id: 'BIG',    name: 'Big House',          x: 10,  z: -38, w: 16, d: 10, h: 7.5,
+  { id: 'BIG',    name: 'Mesa Guesthouse',    x: 10,  z: -38, w: 16, d: 10, h: 7.5,
     colour: 0x6b3a1f, siding: 'wood',   base: 0.6,  corners: false },
-  { id: 'SUNDTS', name: 'Sundt 4-Plex Row',   x: -48, z: -26, w: 18, d: 9,  h: 7,
+  { id: 'SUNDTS', name: 'West Apartments',    x: -48, z: -26, w: 18, d: 9,  h: 7,
     colour: 0x8a6a3a, siding: 'board',  base: 0.45 },
-  { id: 'SUNDTS2', name: 'Sundt 4-Plex Row',  x: 44,  z: -26, w: 18, d: 9,  h: 7,
+  { id: 'SUNDTS2', name: 'East Apartments',   x: 44,  z: -26, w: 18, d: 9,  h: 7,
     colour: 0x8a6a3a, siding: 'board',  base: 0.45 },
-  { id: 'DUP',    name: 'Sundt Duplexes',     x: -28, z: 24,  w: 14, d: 8,  h: 5.5,
+  { id: 'DUP',    name: 'Duplex Row',         x: -28, z: 24,  w: 14, d: 8,  h: 5.5,
     colour: 0x9a8a73, siding: 'board',  base: 0.45 },
-  { id: 'MCKEE',  name: 'McKee Hutments',     x: 30,  z: 26,  w: 16, d: 8,  h: 4.5,
+  { id: 'MCKEE',  name: 'Modular Homes',      x: 30,  z: 26,  w: 16, d: 8,  h: 4.5,
     colour: 0x6b7a6b, siding: 'board',  base: 0.22 },
-  { id: 'DORMF',  name: 'Women\u2019s Dorm T-178', x: -66, z: -6, w: 14, d: 10, h: 6,
+  { id: 'DORMF',  name: 'North Dormitory',      x: -66, z: -6, w: 14, d: 10, h: 6,
     colour: 0xd9d2c5, siding: 'board',  base: 0.45 },
-  { id: 'DORMM',  name: 'Men\u2019s Dorm',        x: -80, z: -6,  w: 14, d: 10, h: 6,
+  { id: 'DORMM',  name: 'West Dormitory',       x: -80, z: -6,  w: 14, d: 10, h: 6,
     colour: 0xd9d2c5, siding: 'board',  base: 0.45 },
-  { id: 'WAC',    name: 'WAC Barracks',       x: -76, z: 26,  w: 16, d: 9,  h: 5,
+  { id: 'WAC',    name: 'Seasonal Housing',   x: -76, z: 26,  w: 16, d: 9,  h: 5,
     colour: 0x5a6a7a, siding: 'board',  base: 0.45 },
-  { id: 'THEAT',  name: 'Theater No. 2',      x: 68,  z: -6,  w: 16, d: 12, h: 8,
+  { id: 'THEAT',  name: 'Town Theatre',       x: 68,  z: -6,  w: 16, d: 12, h: 8,
     colour: 0x4a3d2e, siding: 'board',  base: 0.45 },
-  { id: 'PX',     name: 'Post Exchange',      x: 58,  z: 24,  w: 11, d: 10, h: 6,
+  { id: 'PX',     name: 'Convenience Store',  x: 58,  z: 24,  w: 11, d: 10, h: 6,
     colour: 0x9a741d, siding: 'board',  base: 0.45 },
-  { id: 'CHAPL',  name: 'Army Chapel',        x: -48, z: 34,  w: 10, d: 12, h: 7,
+  { id: 'CHAPL',  name: 'Meeting Hall',       x: -48, z: 34,  w: 10, d: 12, h: 7,
     colour: 0xf5f1e9, siding: 'stucco', base: 0.45, corners: false },
-  { id: 'INFIR',  name: 'Infirmary',          x: 58,  z: 38,  w: 12, d: 10, h: 6.5,
+  { id: 'INFIR',  name: 'Town Clinic',        x: 58,  z: 38,  w: 12, d: 10, h: 6.5,
     colour: 0xf2f2f0, siding: 'stucco', base: 0.45, corners: false },
-  { id: 'GUARD',  name: 'Main Gate House',    x: 27,  z: 88,  w: 6,  d: 6,  h: 4,
+  { id: 'GUARD',  name: 'Delivery Checkpoint',    x: 27,  z: 88,  w: 6,  d: 6,  h: 4,
     colour: 0x3a2e22, siding: 'board',  base: 0.22 },
 ];
 
@@ -148,7 +157,7 @@ export const site = {
 
   // The status board on Trinity Drive, which src/world.js drew by hand as
   // `centralBoardMesh`. Same place, same facing.
-  board: { x: 0, z: 22, facing: 0, title: 'Project Y — Status' },
+  board: { x: 0, z: 22, facing: 0, title: 'Town Notices' },
 
   // The Hill had two mountain ranges and they are nothing like each other: the
   // Jemez rise immediately west, close and dark, and the Sangre de Cristo stand

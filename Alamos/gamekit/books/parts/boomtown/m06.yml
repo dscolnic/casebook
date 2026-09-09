@@ -222,7 +222,7 @@
     motivation: "The recommendation must carry its efficiency cost alongside revenue."
     format: VERIFY
     question: "First, calculate and commit deadweight loss using half the tax wedge times lost deliveries. Then run the Order Terminal market trial, measure the surplus loss excluding transfers, and select whether it matches; no restoration or second reading is required."
-    answerText: Lost trade is 50−30 = 20; the triangular lost gains are 0.5×4×20 = $40 per day. Tax receipts are transfers and are not counted again as lost gains.
+    answerText: "Lost trade is 50−30 = 20; the triangular lost gains are 0.5×4×20 = $40 per day. Tax receipts are transfers and are not counted again as lost gains."
     why: "Lost trade is 50−30 = 20; the triangular lost gains are 0.5×4×20 = $40 per day. Tax receipts are transfers and are not counted again as lost gains. The recommendation must carry its efficiency cost alongside revenue. Surplus accounting distinguishes a transfer to the treasury from gains that disappear because beneficial trades no longer occur; only the latter form this triangle. 120 is revenue, not deadweight loss. 80 omits the triangle's half."
     # data: With linear supply and demand, no external effects, a $4 tax reduces deliveries from 50 to 30; all other determinants stay fixed.
     # correct result: 40; absolute tolerance 0.05 in the requested unit.

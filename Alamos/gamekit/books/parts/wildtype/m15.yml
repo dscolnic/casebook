@@ -198,7 +198,7 @@
     motivation: "The calculated quantity sets the comparison the crew must satisfy before it acts."
     format: BALLPARK
     question: "Calculate final oxygen using start minus net rate times duration; submit mg per litre, then compare with the recorded minimum."
-    answerText: The corrected pilot projects 9 − 0.25 × 8 = 7 mg/L at the end of the dark interval, one mg/L above the inclusive six-mg/L requirement. This result is now recorded for the next comparison.
+    answerText: "The corrected pilot projects 9 − 0.25 × 8 = 7 mg/L at the end of the dark interval, one mg/L above the inclusive six-mg/L requirement. This result is now recorded for the next comparison."
     why: "The corrected pilot projects 9 − 0.25 × 8 = 7 mg/L at the end of the dark interval, one mg/L above the inclusive six-mg/L requirement. The net rate already includes the tested oxygen-supply correction and community demand. This arithmetic agrees with the measured corrected trial recorded in Mission 14, but only for the stated conditions and interval. It clears the full-cycle component of the final plan while leaving family identity, screened partners, receiving-site preparation and monitoring as separate requirements for the director to integrate."
     # wrong-path feedback, one rebuttal per wrong option:
     #   6 is the threshold rather than the calculated final reading. 8.75 subtracts one hour of loss instead of eight. Retry: keep the visible evidence, clear only the committed response and reopen this board; no later stop unlocks until a correct submission. For matching/order errors, highlight the first mismatched biological relationship with the specific feedback above; for numerical errors, display the stated formula and substituted units after grading.

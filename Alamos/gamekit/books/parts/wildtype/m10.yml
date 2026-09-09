@@ -125,7 +125,7 @@
     motivation: "The calculated quantity sets the comparison the crew must satisfy before it acts."
     format: BALLPARK
     question: "Calculate the early group contribution with adults times offspring per adult; submit surviving offspring."
-    answerText: The early group contributes 10 × 6 = 60 surviving offspring, compared with 10 × 3 = 30 for the late group. This result is now recorded for the next comparison.
+    answerText: "The early group contributes 10 × 6 = 60 surviving offspring, compared with 10 × 3 = 30 for the late group. This result is now recorded for the next comparison."
     why: "The early group contributes 10 × 6 = 60 surviving offspring, compared with 10 × 3 = 30 for the late group. The equal adult counts make the reproductive contrast easy to interpret. A single season alone would not prove a lasting genetic change, but the archive also tracks inherited emergence types across repeated generations. Together those records support selection in the stated environment. Fitness here means reproductive contribution under those conditions, not general superiority or an organism trying to meet the preserve plan."
     # wrong-path feedback, one rebuttal per wrong option:
     #   30 uses the late group reproductive rate. 6 reports offspring per adult rather than the whole group contribution. Retry: keep the visible evidence, clear only the committed response and reopen this board; no later stop unlocks until a correct submission. For matching/order errors, highlight the first mismatched biological relationship with the specific feedback above; for numerical errors, display the stated formula and substituted units after grading.

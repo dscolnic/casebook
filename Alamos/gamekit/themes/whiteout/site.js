@@ -1,8 +1,8 @@
-// site.js — Vestri Dome, as data. Outdoor, and flatter than anywhere else here.
+// site.js — Aster Station, as data. Outdoor, and flatter than anywhere else here.
 //
-// `engine/world/outdoorTown.js` builds all of it. The place is a deep-drilling
-// camp on the high plateau: six modules on legs beside a groomed route, a drill
-// trench dug into the snow at the far end, and a stake array out to the east.
+// `engine/world/outdoorTown.js` builds all of it. The place is a research
+// station on the high plateau: six modules on legs beside a groomed route, the
+// communications mast at the far end of it, and the runway door out to the east.
 //
 // Looking down, -Z is away from the player at spawn:
 //
@@ -36,7 +36,7 @@ const flags = (x0, z0, x1, z1, n) => Array.from({ length: n }, (_, i) => ({
 
 export const site = {
   kind: 'outdoor',
-  name: 'Vestri Dome Station',
+  name: 'Aster Station',
 
   terrain: {
     size: 900, segments: 300, playerLimit: 150,
@@ -63,7 +63,7 @@ export const site = {
     // The groomed route through camp, and the spur out to the stake array.
     { cx: 0, cz: -14, w: 12, d: 130, worn: 7, tone: [-16, -6, 8], lift: 74 },
     { cx: 38, cz: 26, w: 90, d: 8, worn: 5, tone: [-16, -6, 8], lift: 74 },
-    // The skiway, off to the west, groomed flat and two hundred metres long.
+    // The runway, off to the west, groomed flat and two hundred metres long.
     { cx: -96, cz: 10, w: 26, d: 200, worn: 8, tone: [-14, -5, 8], lift: 82 },
   ],
 

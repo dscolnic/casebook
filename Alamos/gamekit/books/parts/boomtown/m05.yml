@@ -50,7 +50,7 @@
     motivation: "A cap can help successful tenants while leaving an allocation problem."
     format: BALLPARK
     question: "Submit the housing shortage at the proposed ceiling."
-    answerText: The ceiling is below $700 and therefore binds; at $500, 120−80 = 40 households cannot obtain a unit in this model.
+    answerText: "The ceiling is below $700 and therefore binds; at $500, 120−80 = 40 households cannot obtain a unit in this model."
     why: "The ceiling is below $700 and therefore binds; at $500, 120−80 = 40 households cannot obtain a unit in this model. A cap can help successful tenants while leaving an allocation problem. Equilibrium reasoning distinguishes a binding price rule from its distributional effects: successful tenants pay less, while some applicants remain without a home. 120 ignores the available homes. 200 adds both sides. 40 dollars uses the wrong unit for a quantity gap."
     # data: At the proposed $500 monthly ceiling, 120 households seek homes and 80 homes are offered; the otherwise available equilibrium is $700.
     # correct result: 40; absolute tolerance 0.05 in the requested unit.

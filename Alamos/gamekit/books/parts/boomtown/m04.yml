@@ -51,7 +51,7 @@
     motivation: "Hiring depends on the contribution of the next worker, not average sales."
     format: BALLPARK
     question: "Submit the fourth cook's marginal revenue product as added lunches times price."
-    answerText: The fourth cook adds 60−48 = 12 lunches, each selling for $5, so extra receipts are 12×5 = $60 per shift.
+    answerText: "The fourth cook adds 60−48 = 12 lunches, each selling for $5, so extra receipts are 12×5 = $60 per shift."
     why: "The fourth cook adds 60−48 = 12 lunches, each selling for $5, so extra receipts are 12×5 = $60 per shift. Hiring depends on the contribution of the next worker, not average sales. Marginal analysis uses the change from three cooks to four; including the whole kitchen output would assign existing workers' production to the newcomer. 300 counts all output as the new worker's contribution. 12 is output rather than revenue."
     # data: Three cooks produce 48 lunches; four produce 60; five produce 68. The oven is fixed and every extra lunch sells at a fixed $5 price.
     # correct result: 60; absolute tolerance 0.05 in the requested unit.
@@ -223,7 +223,7 @@
     motivation: "A smaller contribution can make the next hire unprofitable while total output still rises."
     format: VERIFY
     question: "First, calculate and commit the fifth cook's net addition to profit as added revenue minus wage. Then set the Order Terminal to five cooks, run one trial shift, measure the net change, and select whether it matches; restore the staffing simulation to four cooks after reading, with no second reading required."
-    answerText: The fifth cook adds 8×5 = $40 revenue but costs $50, reducing profit by $10 per shift.
+    answerText: "The fifth cook adds 8×5 = $40 revenue but costs $50, reducing profit by $10 per shift."
     why: "The fifth cook adds 8×5 = $40 revenue but costs $50, reducing profit by $10 per shift. A smaller contribution can make the next hire unprofitable while total output still rises. Factor demand depends on the extra receipts produced by the additional worker; diminishing marginal product can make a further hire unprofitable despite higher total production. 40 omits the wage. 10 reverses revenue and wage. 50 treats wage as extra output."
     # data: A fifth cook raises lunches from 60 to 68 at $5 each; wage is $50 per shift, and the oven and price stay fixed.
     # correct result: -10; absolute tolerance 0.05 in the requested unit.

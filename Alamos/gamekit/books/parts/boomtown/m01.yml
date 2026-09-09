@@ -51,7 +51,7 @@
     motivation: "The cost of doing repairs internally sets the highest meal payment the diner should accept."
     format: BALLPARK
     question: "Use forgone meal boxes divided by repair hours to submit the opportunity cost of one repair hour in meal boxes."
-    answerText: The full shift gives up 24 meal boxes to gain 8 repair hours, so 24/8 = 3 meal boxes per repair hour.
+    answerText: "The full shift gives up 24 meal boxes to gain 8 repair hours, so 24/8 = 3 meal boxes per repair hour."
     why: "The full shift gives up 24 meal boxes to gain 8 repair hours, so 24/8 = 3 meal boxes per repair hour. The cost of doing repairs internally sets the highest meal payment the diner should accept. Opportunity cost measures the next-best output forgone, so its unit must name meal boxes for each repair hour gained. 8/24 reverses the requested unit. 24 treats the whole shift as one repair hour."
     # data: In one shift the diner team can pack 24 meal boxes or perform 8 repair hours; a straight production boundary and constant tradeoffs apply.
     # correct result: 3; absolute tolerance 0.05 in the requested unit.
@@ -221,7 +221,7 @@
     motivation: "A trial invoice makes the promised exchange concrete before either team changes its work."
     format: VERIFY
     question: "First, calculate and commit the meal boxes due using boxes = boxes per hour × hours. Then set the Order Terminal to the four-hour trial, measure the invoice total, and select whether it matches your prediction; no restoration or second reading is required."
-    answerText: The contract charges 2 meal boxes per repair hour for 4 hours, giving 2 × 4 = 8 boxes; that is below the diner’s 12-box internal cost and above the crew’s 4-box internal cost.
+    answerText: "The contract charges 2 meal boxes per repair hour for 4 hours, giving 2 × 4 = 8 boxes; that is below the diner's 12-box internal cost and above the crew's 4-box internal cost."
     why: "The contract charges 2 meal boxes per repair hour for 4 hours, giving 2 × 4 = 8 boxes; that is below the diner's 12-box internal cost and above the crew's 4-box internal cost. A trial invoice makes the promised exchange concrete before either team changes its work. Comparative advantage makes the interval between the two internal costs the relevant test; an invoice inside that interval supports voluntary exchange. 4 counts repair hours as meal boxes."
     # data: A proposed contract exchanges 2 meal boxes for each repair hour; request 4 repair hours, keep both production schedules fixed, and assume no transfer cost.
     # correct result: 8; absolute tolerance 0.05 in the requested unit.

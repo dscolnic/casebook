@@ -1,7 +1,8 @@
-// site.js — Pellow Head landing station, as data. Dunes, a blockhouse and a bay.
+// site.js — Pellow Head Island, as data. Dunes, low buildings and a marsh bay.
 //
 // `engine/world/outdoorTown.js` builds all of it. The place is where a submarine
-// cable comes ashore: a manhole in the dunes above the tide line, a duct trench
+// island prepares a return: a sampling point in the dunes above the tide line,
+// a service trench
 // up to a low concrete station, and a radiography bay three hundred metres out
 // along the dunes because of what is in the pot.
 //
@@ -10,9 +11,9 @@
 //                 ~ the sea, to the horizon ~                 z = -430
 //        — — — the dune crest — — —                           z = -210
 //   [ Marsh Research Bay ]                                       z = -196
-//                    [ Beach Manhole ]                        z = -120
+//                    [ Shore Sampling Point ]                 z = -120
 //        [ Genetics Trailer ]      [ Field Planning Room ]                z =  -18
-//   [ Cable Termination ]   [ Growth Hall ]      z =    8
+//   [ Seed Room ]            [ Growth Hall ]      z =    8
 //        [ Field Clinic ]     [ Generator House ]             z =   34
 //                     ¤ spawn ¤                               z =   70
 //
@@ -29,12 +30,12 @@
 //     nothing at all. The dune crest at z = -210 is that edge.
 //   · The station is one storey and the dunes are higher than it. The silhouette
 //     of this game is a low concrete box with sand above it and nothing on the
-//     skyline, which is what a cable landing station actually looks like: the
+//     skyline, which is what a working field station looks like: the
 //     interesting object is buried.
 
 const PI = Math.PI;
 
-/** A run of marker posts: the duct route, and the track out to the bay. */
+/** A run of marker posts: the service route, and the track out to the bay. */
 const posts = (x0, z0, x1, z1, n, height = 1.1) => Array.from({ length: n }, (_, i) => ({
   kind: 'post',
   x: x0 + ((x1 - x0) * i) / (n - 1),
@@ -89,7 +90,7 @@ export const site = {
     { cx: -50, cz: -194, w: 40, d: 5, worn: 3, tone: [-18, -15, -10], colour: 0x9c9482 },  // the last leg to the bay
   ],
 
-  // Painted in what a landing station gets painted in: grey concrete, one green
+  // Painted in what a field station gets painted in: grey concrete, one green
   // trailer, a white generator house. Nothing above five metres.
   buildings: [
     { id: 'SEED', group: 'SEED', name: 'Seed Room',
@@ -107,21 +108,21 @@ export const site = {
     { id: 'MARSH', group: 'MARSH', name: 'Marsh Research Bay',
       x: -70, z: -196, w: 9, d: 8, h: 3.6, facing: PI / 2, colour: 0xc2bcac },
 
-    // No group: the cable's own route, and what keeps the station alive.
+    // No group: the shore route, and what keeps the station alive.
     //
     // `enter:` gives a building an interiors key without making it an area — no
     // case stand, no beacon, nothing called there by the day model. What sends a
     // player in is a stop SITED at a fixture declared under that key in
     // fixtures.js, which is how day 4 ends up at the power feed board and days 8
-    // and 12 in the store. See themes/darkfibre/minors.js.
+    // and 12 in the store. See themes/wildtype/minors.js.
     //
-    // The manhole deliberately has no `enter:`. It is 1.2 m high and a chamber
+    // The sampling point deliberately has no `enter:`. It is 1.2 m high and a chamber
     // under the sand: there is nowhere in it to stand and nothing in it to ask.
-    { id: 'MANHOLE', name: 'Beach Manhole', sub: 'Where the sea cable stops being one',
+    { id: 'MANHOLE', name: 'Shore Sampling Point', sub: 'Where the tide line is measured',
       x: 4, z: -120, w: 4, d: 4, h: 1.2, facing: PI, colour: 0x8f8b80 },
     { id: 'GEN', enter: 'GEN', name: 'Generator House', sub: 'Two sets, one running',
       x: 26, z: 34, w: 12, d: 9, h: 4.4, facing: PI, colour: 0xc8c4b6 },
-    { id: 'STORE', enter: 'STORE', name: "Ship's Store", sub: 'Staged for a charter from the thirteenth',
+    { id: 'STORE', enter: 'STORE', name: 'Shipping Store', sub: 'Staged for the ship on the fifteenth',
       x: -44, z: 52, w: 14, d: 9, h: 4.6, facing: PI, colour: 0x8a8272 },
   ],
 
@@ -133,7 +134,7 @@ export const site = {
   furniture: [
     { kind: 'bench', x: -4, z: 48, facing: PI },
     { kind: 'bin', x: 14, z: 46 },
-    // The duct route, marked the whole way to the manhole, and the dune track.
+    // The service route, marked the whole way to the shore, and the dune track.
     ...posts(4, -30, 4, -116, 9),
     ...posts(-34, -90, -34, -190, 8),
     ...posts(-52, -192, -64, -192, 3),

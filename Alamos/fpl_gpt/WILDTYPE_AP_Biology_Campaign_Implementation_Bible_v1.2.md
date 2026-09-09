@@ -2,11 +2,17 @@
 
 ## AP Biology Campaign Implementation Bible
 
-**Version:** 1.1 — Handback 1 revision
+**Version:** 1.2 — ensemble, physical story and optional review expansion
 
 **Campaign length:** 15 missions, 60 graded stops; fifteen field days before the charter ship departs.
 
 **Setting:** Pellow Head Island preserve, reusing Dark Fibre geography and building footprints.
+
+## Revision 1.2 — ensemble and optional depth
+
+Adds evidence-triggered crew exchanges, relationship milestones, exact optional greetings, three supporting voices, persistent physical prop actions, complete fixture descriptions and 90 optional GO DEEPER questions. The 60 graded boards, 75 worked examples, four-bar economy, fifteen delivery pieces, prior handback fixes and contained-pilot ending remain the required core. Companion WILDTYPE_EXPANSION_CHECK records source checks; runtime remains untested.
+
+All dialogue added by this revision is exact authored copy, stored in the mission log. Ordinary beats contain at most two short speech bubbles with one Continue and immediate control return. Remote voices are labeled radio; no voice requires new travel. Existing arrival, B2, B4 and aftermath trigger names remain stable; new B3 fires after the third accepted stop without adding a graded interaction.
 
 ## 0. Readiness boundary
 
@@ -119,61 +125,61 @@ The reference route earns only 4 RP every day, allocates to the lowest bar (ties
 
 **Coordinates:** (-18, 34); **footprint:** 13 × 9 × 3.8 m. **Area owner:** Mara Vale, veterinary biologist.
 
-| ID | Fixture | Build | Wall | Exact caption |
-|---|---|---|---|---|
-| sample-bench | Sample Bench | bench | back | Sealed samples wait beside a microscope. |
-| care-board | Care Board | board | left | A wipe-clean board records each animal or plant under care. |
-| culture-rack | Culture Rack | rack | right | Closed cultures sit in labeled trays. |
+| ID | Fixture | Build / kind | Wall | Area / place | Physical appearance | Exact caption | Stop references |
+|---|---|---|---|---|---|---|---|
+| sample-bench | Sample Bench | bench | back | CLINIC / Field Clinic | Scratched white worktop with a microscope, a washable tray and a raised edge for sealed bottles. | Sealed samples wait beside a microscope. | 1, 2, 5, 6, 7, 21, 22, 31, 47 |
+| care-board | Care Board | board | left | CLINIC / Field Clinic | Wipe-clean board with individual care cards held beneath clear clips. | A wipe-clean board records each animal or plant under care. | 4, 8, 32 |
+| culture-rack | Culture Rack | rack | right | CLINIC / Field Clinic | Three shallow rack shelves with lidded culture trays and a separate marked hold shelf. | Closed cultures sit in labeled trays. | 3 |
 
 ## GROW — Growth Hall
 
 **Coordinates:** (16, 8); **footprint:** 18 × 12 × 5.4 m. **Area owner:** Ivo Reed, plant physiologist.
 
-| ID | Fixture | Build | Wall | Exact caption |
-|---|---|---|---|---|
-| growth-bench | Growth Bench | bench | back | Potted dune plants sit beneath timed lamps. |
-| light-panel | Light Panel | rack | left | The lamp controls stand beside a printed flowering calendar. |
-| pond-tanks | Pond Tanks | vessel | right | Clear tanks hold small aquatic communities. |
+| ID | Fixture | Build / kind | Wall | Area / place | Physical appearance | Exact caption | Stop references |
+|---|---|---|---|---|---|---|---|
+| growth-bench | Growth Bench | bench | back | GROW / Growth Hall | Long metal potting bench with water stains, individual pots and visible lid slots. | Potted dune plants sit beneath timed lamps. | 9, 10, 13, 14, 15, 17, 18, 33, 34, 51, 53 |
+| light-panel | Light Panel | rack | left | GROW / Growth Hall | Wall rack of lamp switches beside a paper calendar; the reset handle receives its trial-only tag in M4. | The lamp controls stand beside a printed flowering calendar. | 12, 16 |
+| pond-tanks | Pond Tanks | vessel | right | GROW / Growth Hall | Two clear tanks on a steel frame with service rails and accessible sample ports. | Clear tanks hold small aquatic communities. | 11, 54 |
 
 ## SEED — Seed Room
 
 **Coordinates:** (-28, 8); **footprint:** 14 × 10 × 4.2 m. **Area owner:** Nell Shah, conservation geneticist.
 
-| ID | Fixture | Build | Wall | Exact caption |
-|---|---|---|---|---|
-| seed-table | Seed Table | bench | back | Seed packets lie beside their family records. |
-| family-board | Family Board | board | left | Parent and offspring records hang on a cork board. |
-| storage-rack | Storage Rack | rack | right | Sealed jars preserve separate seed families. |
+| ID | Fixture | Build / kind | Wall | Area / place | Physical appearance | Exact caption | Stop references |
+|---|---|---|---|---|---|---|---|
+| seed-table | Seed Table | bench | back | SEED / Seed Room | Low sorting table with separate packet trays and a cork strip for loose parent cards. | Seed packets lie beside their family records. | 25, 26, 41, 42, 57, 58 |
+| family-board | Family Board | board | left | SEED / Seed Room | Cork board with linked parent and offspring cards under reusable clips. | Parent and offspring records hang on a cork board. | 35, 36 |
+| storage-rack | Storage Rack | rack | right | SEED / Seed Room | Shaded shelves of sealed family jars, with separate travel and reserve shelf labels. | Sealed jars preserve separate seed families. |  |
 
 ## PLAN — Field Planning Room
 
 **Coordinates:** (24, -18); **footprint:** 12 × 9 × 4 m. **Area owner:** Ada Penn, preserve director.
 
-| ID | Fixture | Build | Wall | Exact caption |
-|---|---|---|---|---|
-| release-board | Release Board | board | back | The Contained Pilot board holds fifteen plan pieces beside the mainland plot map. |
-| survey-table | Survey Table | bench | right | Field notebooks lie open beside a scale map. |
-| sample-cart | Sample Cart | rack | left | A wheeled rack carries sealed samples between rooms. |
+| ID | Fixture | Build / kind | Wall | Area / place | Physical appearance | Exact caption | Stop references |
+|---|---|---|---|---|---|---|---|
+| release-board | Release Board | board | back | PLAN / Field Planning Room | Wide planning board carrying fifteen removable plan pieces beside a mainland plot map. | The Contained Pilot board holds fifteen plan pieces beside the mainland plot map. | 40, 44, 48, 52, 56, 60 |
+| survey-table | Survey Table | bench | right | PLAN / Field Planning Room | Waist-high map table with field notebooks, a ruler and a clear protective map cover. | Field notebooks lie open beside a scale map. | 39 |
+| sample-cart | Sample Cart | rack | left | PLAN / Field Planning Room | Four-wheeled rack with raised shelf lips, sealed sample boxes and a washable cover. | A wheeled rack carries sealed samples between rooms. |  |
 
 ## GENE — Genetics Trailer
 
 **Coordinates:** (-22, -18); **footprint:** 10 × 4.5 × 3.2 m. **Area owner:** Nell Shah, conservation geneticist.
 
-| ID | Fixture | Build | Wall | Exact caption |
-|---|---|---|---|---|
-| dna-bench | DNA Bench | bench | left | Sample tubes stand beside a printed sequence reader. |
-| gel-rig | Gel Rig | vessel | right | A covered gel tray separates labeled DNA fragments. |
-| records-board | Records Board | board | back | Sample histories link each test to its original organism. |
+| ID | Fixture | Build / kind | Wall | Area / place | Physical appearance | Exact caption | Stop references |
+|---|---|---|---|---|---|---|---|
+| dna-bench | DNA Bench | bench | left | GENE / Genetics Trailer | Narrow worktop with a tube stand, protected sequence printouts and a clean mat. | Sample tubes stand beside a printed sequence reader. | 29, 30, 43 |
+| gel-rig | Gel Rig | vessel | right | GENE / Genetics Trailer | Covered rectangular gel tray with a loading edge, well labels and a shielded viewing surface. | A covered gel tray separates labeled DNA fragments. |  |
+| records-board | Records Board | board | back | GENE / Genetics Trailer | Pinboard of sample histories joined by family and collection labels. | Sample histories link each test to its original organism. | 23, 24, 27, 28 |
 
 ## MARSH — Marsh Research Bay
 
 **Coordinates:** (-70, -196); **footprint:** 9 × 8 × 3.6 m. **Area owner:** Tess Rowan, field ecologist.
 
-| ID | Fixture | Build | Wall | Exact caption |
-|---|---|---|---|---|
-| water-rack | Water Rack | rack | left | Water bottles hold samples from the shore pools. |
-| field-bench | Field Bench | bench | back | Plant trays and insect counts fill a weathered workbench. |
-| habitat-board | Habitat Board | board | right | A habitat map records flowers and feeding links. |
+| ID | Fixture | Build / kind | Wall | Area / place | Physical appearance | Exact caption | Stop references |
+|---|---|---|---|---|---|---|---|
+| water-rack | Water Rack | rack | left | MARSH / Marsh Research Bay | Bottle rack with shore sample labels, capped comparison bottles and drip trays. | Water bottles hold samples from the shore pools. | 19, 37, 38, 45, 46, 49, 50 |
+| field-bench | Field Bench | bench | back | MARSH / Marsh Research Bay | Weathered workbench with insect-count sheets, separated plant trays and sealed soil cores. | Plant trays and insect counts fill a weathered workbench. | 55, 59 |
+| habitat-board | Habitat Board | board | right | MARSH / Marsh Research Bay | Map board with feeding links, flower dates and clips for archived emergence strips. | A habitat map records flowers and feeding links. | 20 |
 
 ## Landmark-only spaces
 
@@ -239,7 +245,7 @@ Alive-world states: M1 a bird feeds beside the sample cart; M3 pond tanks carry 
 **Bio response — exact player copy:** Yes. Leaves can grow while flower timing no longer matches the bugs that carry pollen.
 
 - **Role:** plant physiologist. **Pronouns:** he/him. **Allowed short name:** Ivo. **Area ownership:** GROW.
-- **First entrance:** Keeps the oxygen-supply trial running through the dark interval.
+- **First entrance:** Replies to Mara on the M1 field radio; first local Growth Hall scene keeps the oxygen-supply trial running through the dark interval.
 - **Wants:** Restore vigorous nursery growth.
 - **Blind spot:** Initially sees recovered leaves as evidence the old settings work broadly.
 - **Scientific domain and decision function:** plant physiologist; owns evidence and actions in GROW, including the local final CHOICE.
@@ -279,7 +285,7 @@ Alive-world states: M1 a bird feeds beside the sample cart; M3 pond tanks carry 
 **Bio response — exact player copy:** A plant may depend on partners that move nutrients or pollen. The new site needs its own tests of those links.
 
 - **Role:** field ecologist. **Pronouns:** she/her. **Allowed short name:** Tess. **Area ownership:** MARSH.
-- **First entrance:** Closes a dune path around a nesting patch while preserving the sample route.
+- **First entrance:** Questions the lamp expansion on the M4 radio; the M5 marsh visit shows her nesting-path closure with the sample route preserved.
 - **Wants:** Protect working habitats and relationships.
 - **Blind spot:** Can assume island dependencies transfer with the organisms.
 - **Scientific domain and decision function:** field ecologist; owns evidence and actions in MARSH, including the local final CHOICE.
@@ -287,6 +293,79 @@ Alive-world states: M1 a bird feeds beside the sample cart; M3 pond tanks carry 
 - **Arc:** Requires receiving-site tests instead of copying the island wholesale.
 - **Relationship state:** early greeting “The field record has a longer day.”; after M5 for Ivo/Tess, M8 for Mara/Nell and M14 for Ada, “The mainland needs its own evidence.”
 - **Gameplay necessity:** Removing this person removes the field ecologist viewpoint and its owned evidence or authorization.
+
+## 4.1 Evidence changes relationships — authoritative expansion
+
+The following flags record accepted required evidence, not player charm or optional talk. `wt_evidence_m01` through `wt_evidence_m15` become true when that mission's fourth graded stop is accepted and M#-B4 fires. The existing mission-start restore rolls these flags and associated prop changes back with the rest of the mission. Replay of an accepted trigger is idempotent. No trust bar, RP change, hidden grade or alternative curriculum is introduced.
+
+| Relationship | Early pressure | Evidence that changes it | Later cooperation made visible |
+|---|---|---|---|
+| Ivo–Tess | M4-B2: Ivo wants the successful leaf treatment widened; Tess asks him to count flower visitors first. | M5-B2/B3: flowering and emergence records reveal the missed overlap; set `wt_evidence_m05` after the decision. | M5-BE: Ivo puts Tess's timing record beside his lamp plan. M13-B2: Tess accepts Ivo's receiving-site comparison rather than treating her island knowledge as universal. |
+| Mara–Nell | M6-B2: Mara wants the unusual line held; Nell refuses to blame every relative without inheritance evidence. | M8-B2/B3: sequence and enzyme evidence support a lead while leaving whole-organism causation unresolved; set `wt_evidence_m08`. | M8-BE: Mara explicitly accepts Nell's bounded lead. M15-B2: family records and health evidence share the same traveling plan rather than compete for authority. |
+| Ada–Nell | M11-B2: one large jar is simpler to ship, but Nell shows what family coverage it would lose. | M11-B3/B4: screened families and a retained reserve replace the single-family shipment; set `wt_evidence_m11`. | M11-BE: Ada makes space at a real packing cost. M15-B2: she promises the departure will preserve the link to the reserve. |
+| Ada–Ivo | M4's partial recovery encourages a broad readiness claim; M14-B2 exposes the unmeasured night. | M14-B3/B4: expansion remains held pending the full-cycle correction; set `wt_evidence_m14`. | M15-BE and the ending retain a right to stop instead of letting the ship schedule define success. |
+
+## 4.2 Conditional greetings — exact optional player copy
+
+Use each person's existing TALK hotspot in their owned area(s). Presence does not move them to a new area. Select the highest-priority satisfied row for that person (3 before 2 before 1); priority 1 is the fallback. A greeting appears only when the player explicitly selects TALK, never during a graded question or another beat. One short bubble, Continue or close, timer paused and restored to its prior state. The selected line may be reopened verbatim; it never mutates story flags, bars, RP, answer history, unlocks or the repetition count used by grading. Newly reached evidence states replace earlier greetings; all earlier lines remain in the review log. The rules here supersede the roster's earlier shorthand relationship-state line.
+
+| Person | Priority | Condition | Exact greeting |
+|---|---:|---|---|
+| Ada Penn | 1 | Always | “I have a ship booked and a list with gaps. Show me what we can fill in.” |
+| Ada Penn | 2 | wt_evidence_m11 | “Nell has her reserve shelf. I made space for more families on the cart.” |
+| Ada Penn | 3 | wt_evidence_m14 | “The berth time has not changed. My signature still waits for the whole cycle.” |
+| Mara Vale | 1 | Always | “Put the healthy comparison beside the suspect tray. I want to see both.” |
+| Mara Vale | 2 | wt_evidence_m08 | “Nell's enzyme result is a lead I can use. We have kept the rest of the cause open.” |
+| Mara Vale | 3 | wt_evidence_m12 | “A healthy plant can still be missing its partner. I check the pair now.” |
+| Ivo Reed | 1 | Always | “The nursery needs green leaves again. I have the old lamp dates ready.” |
+| Ivo Reed | 2 | wt_evidence_m05 | “Tess was right about the visitors. My lamp plan now keeps her dates beside it.” |
+| Ivo Reed | 3 | wt_evidence_m14 | “I missed the night in my first check. The next tank gets the whole cycle.” |
+| Nell Shah | 1 | Always | “Keep the family card with the seed. Leaf shape cannot replace it.” |
+| Nell Shah | 2 | wt_evidence_m08 | “Mara asked me to narrow the claim. The enzyme card now says only what we measured.” |
+| Nell Shah | 3 | wt_evidence_m11 | “Ada found room for the families. Their reserve jars stay on this shelf.” |
+| Tess Rowan | 1 | Always | “Tell me what you changed in the nursery. I will look for what depends on it.” |
+| Tess Rowan | 2 | wt_evidence_m05 | “Ivo stopped the wider reset. We are keeping the leaf gains and the flower dates together.” |
+| Tess Rowan | 3 | wt_evidence_m13 | “The far shore needs its own tests. Knowing this marsh did not give me that answer.” |
+
+## 4.3 Supporting people — authored, no extra stops
+
+At most one supporting speaker appears in any scene. These are practical consequences delivered in existing places or on a named radio link. They do not provide quiz keys or become required destinations. Their lines use the ordinary logged, timer-paused Continue presentation and replay only from the log.
+
+| Person / job | Presence | Trigger | Exact observation |
+|---|---|---|---|
+| Lena Moss, nursery assistant | Local at Growth Hall; no new hotspot | M3-B4 after accepted Stop 12 | “I have fitted the vented lids to the right pots. The roots get air, and each tray keeps its family label.” |
+| Cal Fen, marsh survey assistant | Radio from the nesting-path survey; no compulsory trip | M5-B4 after accepted Stop 20 | “The late flower trays are still getting visits. I have left the path rope up around the nests.” |
+| Jo Pike, ship deckhand | Radio from the ship at the existing jetty | M15-B4 after accepted Stop 60; before final allocation | “The covered space is ready. I will take only the sealed boxes on Ada's cleared list when the loading gate opens.” |
+
+## 4.4 Physical prop state ledger — no inventory system
+
+These props belong to the declared fixtures below. They are scene objects and inspectable log subjects, not new graded hotspots or collectible inventory. The home ID always refers to §3. Ordinary rows commit once at their mission's M#-B4 after acceptance of its fourth stop; M15 stages the load then defers movement until the existing final allocation and loading gate. Each transition persists into later missions, except an explicitly stated replacement. Retry before acceptance preserves the pre-state. Mission-start restore restores the pre-state and flag together. Repeated accepted callbacks do not duplicate props or movements. A player can inspect the changed object or use the same accessible log description; no mandatory wait or fetch is added.
+
+| Mission / trigger | Prop ID / name | Home fixture | Before | After / retained visible action |
+|---|---|---|---|---|
+| M1-B4 / accepted Stop 4 | feed-tin / Complete-feed tin | sample-bench | The incomplete mix sits beside a sealed replacement tin. | Mara withdraws the incomplete mix and sets the tested replacement tin on the nursery handoff tray. |
+| M2-B4 / accepted Stop 8 | rinse-bottle / Matched-rinse bottle | sample-bench | The old rinse bottle stands in the active tray. | Mara caps the old bottle, moves it to the withdrawn side and places the matched rinse in the active tray. |
+| M3-B4 / accepted Stop 12 | vent-lids / Vented pot lids | growth-bench | Solid lids cover the test pots. | Ivo fits the tested vented lids; their open slots remain visible. |
+| M4-B4 / accepted Stop 16 | lamp-lock-tag / Trial-only lamp tag | light-panel | The switch bank has an untagged full-reset handle. | Ivo attaches a TRIAL ONLY tag to the handle; only the existing trial remains lit. |
+| M5-B4 / accepted Stop 20 | staggered-trays / Staggered flower trays | field-bench | The trays are lined up for the wider lamp reset. | Tess sets the retained early and late flower trays apart under their date cards; the wider reset stays halted. |
+| M6-B4 / accepted Stop 24 | held-tissue-box / Held tissue box | culture-rack | The unusual line sits in a closed culture beside the other trays. | Mara places that closed culture behind the HOLD barrier and clips on its original line label. |
+| M7-B4 / accepted Stop 28 | family-clips / Parent-family clips | seed-table | Separate parent packets have loose family cards beside them. | Nell clips each card to its matching packet before any approved cross material is handled. |
+| M8-B4 / accepted Stop 32 | enzyme-sleeve / Enzyme sample sleeve | dna-bench | The archived sample tube and sequence card have separate covers. | Nell sleeves the sealed archived tube with its sequence and activity card; the sleeve reads LEAD — CAUSE NOT COMPLETE. |
+| M9-B4 / accepted Stop 36 | ancestry-tags / Ancestry tags | family-board | Leaf-shape tags partly cover the ancestry cards. | Nell removes the shape-only tags and clips the condition notes beside the exposed ancestry cards. |
+| M10-B4 / accepted Stop 40 | emergence-strips / Dated emergence strips | habitat-board | Archived strips lie stacked by collection date. | Tess pins the strips in generation order with the archive span left visible. |
+| M11-B4 / accepted Stop 44 | reserve-jars / Reserve family jars | storage-rack | The screened family jars have not been split into travel and reserve groups. | Nell separates labeled reserve jars from the travel jars; the reserve shelf remains stocked. |
+| M12-B4 / accepted Stop 48 | partner-box / Screened partner box | sample-cart | An empty contained-sample box sits beside the draft packing sleeve. | Mara closes the tested plant-partner samples in that box; a label excludes untested field soil. |
+| M13-B4 / accepted Stop 52 | receiving-core / Receiving-soil core | field-bench | The sealed receiving-site core stands beside the island reference core. | Tess clips the new site-preparation record to the receiving core and retains both cores for comparison. |
+| M14-B4 / accepted Stop 56 | night-hold-seal / Night-check hold seal | pond-tanks | A HOLD EXPANSION seal hangs on the tank service rail. | Ivo adds the tested correction card under the seal; the seal remains until final full-cycle evidence clears the pilot. |
+| M15-B4 / accepted Stop 60 | covered-pilot-cart / Covered pilot cart | sample-cart | The covered pilot load is parked at the Planning Room loading side with each box sealed. | After final allocation and loading-gate clearance, Ada hands over the attached pilot folio and the covered cart moves to the ship; the reserve stays ashore. |
+
+The night-hold seal is removed only after the M15 full-cycle evidence and existing final loading conditions pass. The covered-pilot-cart is the physical covered load on the already-declared sample-cart fixture, not a second cart or a new route. Nursery handoff trays and the culture-rack hold shelf are dressing on existing fixtures. Remote handling is shown by a named live radio report plus a persistent inspectable state at the home fixture; no character teleport is required.
+
+## 4.5 Optional review contract
+
+Each mission's §K.1 contains a GO DEEPER button, secondary brief, supporting concepts and six fully authored review questions. The visible questions use fresh generic cases. They are separate from the five worked examples and from all 60 graded stops. Offer GO DEEPER after completion and return to normal play for Missions 1–14. Pause the timer on open; restore its previous running/paused state on close. Permit unlimited reopen and retry, with immediate option-specific feedback and no score, RP, bar, story flag, unlock or required-answer effect. Never feed review answers into the graded answer log. Persist only optional viewing position if desired. Review is not a prerequisite for any core concept or mission.
+
+For Mission 15, the existing allocation, loading gate, cart movement and ending run first. Only after the ending closes and normal play resumes can an explicit GO DEEPER selection open its review. Do not automatically show a review card, button interstitial or question between the final decision and the ending. The ending remains available independently.
 
 # 5. Authoritative numbered concept spine
 
@@ -621,7 +700,7 @@ Mission question: whether to replace the failing seedling feed. Actual final ans
 
 **Location:** Field Clinic.
 
-**Presentation:** equipment_panel_update + waypoint_notification.
+**Presentation:** equipment_panel_update + nearby_character_bubble + radio_dialogue + waypoint_notification.
 
 **Player control:** One Continue; timer paused; immediate return to normal control.
 
@@ -630,6 +709,24 @@ Mission question: whether to replace the failing seedling feed. Actual final ans
 **Panel/HUD text:** “The clinic needs a controlled test before changing feed.”
 
 **Unlocks:** Stop 3 at Field Clinic.
+
+**Dialogue bubble — Mara Vale, live radio:** “The feed has fuel, but the label leaves a gap. I should have checked that before the leaves went pale.”
+
+**Dialogue bubble — Ivo Reed, reply on the same radio:** “I counted green leaves as a health check. Tell me which material the new growth cannot build.”
+
+### Beat M1-B3 — After accepted Stop 3
+
+**Trigger:** First acceptance of Stop 3; finish its feedback, then show this beat before opening Stop 4.
+
+**Location:** Field Clinic; speaker on the live field radio, with name and radio label visible.
+
+**Presentation:** radio_dialogue + waypoint_notification.
+
+**Player control:** One Continue or close; timer paused; line retained in the mission log; return to normal control. Accepted-stop replay opens the log instead of firing a second interrupt.
+
+**Dialogue bubble — Mara Vale, live radio:** “The matched trays make the label matter. One mix fails its own range; the other comparisons do not.”
+
+**Unlocks:** The existing Stop 4; no extra condition, answer or destination.
 
 ### Beat M1-B4 — After Stop 4
 
@@ -645,6 +742,10 @@ Mission question: whether to replace the failing seedling feed. Actual final ans
 
 **Unlocks:** The ungraded aftermath.
 
+**Physical action:** Mara withdraws the incomplete mix and sets the tested replacement tin on the nursery handoff tray.
+
+**Prop state:** `feed-tin` at `sample-bench`; apply §4.4 before/after and retry rules. Set `wt_evidence_m01` with the accepted required evidence. The same change is readable in the persistent log.
+
 ### Beat M1-BE — At mission end
 
 **Location:** Field Clinic.
@@ -655,7 +756,7 @@ Mission question: whether to replace the failing seedling feed. Actual final ans
 
 **World state:** The incomplete feed is withdrawn and replacement nutrients reach the nursery. Root cells swell after a fresh-water rinse.
 
-**Dialogue bubble — Mara Vale, veterinary biologist:** “But Mara finds swollen roots in the next tray. She needs the rinse checked before packing.”
+**Dialogue bubble — Mara Vale, live radio:** “The new feed is in the nursery. But roots in the next tray have swollen after a rinse; I need to check whether they are hurt.”
 
 **Unlocks:** Metric screen after inspecting the changed object or accessible log entry.
 
@@ -1095,6 +1196,141 @@ why: 'The feed lacks nitrogen even though it contains an energy source. The grow
 
 ---
 
+## K.1 GO DEEPER — optional review, exact player copy
+
+**Button:** GO DEEPER
+
+**Availability:** After this mission is complete and normal play resumes; explicit selection only. Apply the state-neutral timer, retry and reopening contract in §4.5.
+
+**Secondary brief — exact player copy:** A full lunch is not always a balanced lunch. Use small lab cases to separate energy, building materials and fair tests.
+
+**Supporting concepts — exact player copy:**
+
+- Building materials: Carbon forms four covalent bonds. Nitrogen is present in amino acids and nucleotides; sugar alone cannot supply it.
+- Polymers: Hydrolysis uses water to split a covalent link. Dehydration joins units and releases water.
+- Protein structure: An enzyme depends on its folded shape. Heat can disrupt that shape without first cutting its amino-acid chain.
+- Controls: Change one intended factor while matching other conditions and use independent replicates.
+
+### Optional review WT-M01-GD1
+
+**Prompt:** A culture gets glucose, water and mineral salts with no nitrogen. Which new molecule cannot be made indefinitely from those inputs alone?
+
+- **A.** Cellulose
+- **B.** A triglyceride made only of C, H and O
+- **C.** Protein
+- **D.** Starch
+
+**Hint:** Look for the element absent from the feed.
+
+**Correct key — author only:** C
+
+**Feedback after selection — exact player copy:**
+
+- **A:** Cellulose is a glucose polymer without nitrogen.
+- **B:** The stated triglyceride does not require nitrogen.
+- **C:** Amino acids need nitrogen; glucose cannot provide it.
+- **D:** Starch contains carbon, hydrogen and oxygen.
+
+### Optional review WT-M01-GD2
+
+**Prompt:** A chain of five sugar units is completely split into individual units. How many water molecules are consumed in hydrolyzing its four links?
+
+- **A.** 0
+- **B.** 4
+- **C.** 5
+- **D.** 1
+
+**Hint:** One water molecule is used per link split.
+
+**Correct key — author only:** B
+
+**Feedback after selection — exact player copy:**
+
+- **A:** Hydrolysis consumes water.
+- **B:** Four links require four water molecules.
+- **C:** Count links, not units.
+- **D:** Each of the four links needs water.
+
+### Optional review WT-M01-GD3
+
+**Prompt:** An enzyme stops working after heating, but its amino-acid order remains intact. What best fits these results?
+
+- **A.** Its folded shape changed
+- **B.** Its primary sequence was hydrolyzed
+- **C.** It ran out of substrate permanently because it was heated
+- **D.** It lowered the reaction activation energy too far
+
+**Hint:** Separate sequence from folding.
+
+**Correct key — author only:** A
+
+**Feedback after selection — exact player copy:**
+
+- **A:** Loss of folding can alter the active site while leaving sequence intact.
+- **B:** An intact amino-acid order argues against chain hydrolysis.
+- **C:** A loss of enzyme function with intact sequence points to folding; no substrate depletion is given.
+- **D:** Lower activation energy facilitates reaction rather than explaining loss of activity.
+
+### Optional review WT-M01-GD4
+
+**Prompt:** A seedling needs 15 mg nitrogen per day and gets 6 mg. What daily addition meets that stated need?
+
+- **A.** 21 mg
+- **B.** 2.5 mg
+- **C.** 6 mg
+- **D.** 9 mg
+
+**Hint:** Subtract current supply from the need.
+
+**Correct key — author only:** D
+
+**Feedback after selection — exact player copy:**
+
+- **A:** Adding need and supply overestimates the deficit.
+- **B:** A ratio is not the missing mass.
+- **C:** That repeats the current supply.
+- **D:** 15 − 6 = 9 mg per day.
+
+### Optional review WT-M01-GD5
+
+**Prompt:** Which comparison best tests whether added phosphate changes algal growth?
+
+- **A.** One flask measured only after phosphate addition
+- **B.** Different species given different feeds
+- **C.** Replicate flasks with identical feed and light, differing only in phosphate
+- **D.** Phosphate in bright light versus no phosphate in darkness
+
+**Hint:** Keep light and the rest of the feed matched.
+
+**Correct key — author only:** C
+
+**Feedback after selection — exact player copy:**
+
+- **A:** There is no matched no-addition comparison.
+- **B:** Species and feed both differ.
+- **C:** The intended difference is phosphate.
+- **D:** Light is a second changed factor.
+
+### Optional review WT-M01-GD6
+
+**Prompt:** Water rises in a thin glass tube. Attraction between water and glass contributes to this rise. Which term describes that attraction?
+
+- **A.** Hydrophobic exclusion
+- **B.** Adhesion
+- **C.** Cohesion
+- **D.** Surface tension alone
+
+**Hint:** The two materials differ.
+
+**Correct key — author only:** B
+
+**Feedback after selection — exact player copy:**
+
+- **A:** Glass–water attraction is not exclusion of a nonpolar surface.
+- **B:** Adhesion is attraction between different substances.
+- **C:** Cohesion is attraction between water molecules, not between water and glass.
+- **D:** Surface tension concerns the liquid surface; the named water–glass attraction is adhesion.
+
 
 # Mission 2 — THE RINSE THAT HURTS
 
@@ -1193,7 +1429,7 @@ Mission question: whether the shore seedlings need fresh water or a matched salt
 
 **Location:** Field Clinic.
 
-**Presentation:** equipment_panel_update + waypoint_notification.
+**Presentation:** equipment_panel_update + nearby_character_bubble + radio_dialogue + waypoint_notification.
 
 **Player control:** One Continue; timer paused; immediate return to normal control.
 
@@ -1202,6 +1438,24 @@ Mission question: whether the shore seedlings need fresh water or a matched salt
 **Panel/HUD text:** “The roots need a mechanism for the measured rinse injury.”
 
 **Unlocks:** Stop 7 at Field Clinic.
+
+**Dialogue bubble — Mara Vale, live radio:** “Water moved into the roots. That alone does not tell me whether they were harmed.”
+
+**Dialogue bubble — Ada Penn, reply on the same radio:** “I was ready to list the rinse as a repair. Keep that line blank until the health check is done.”
+
+### Beat M2-B3 — After accepted Stop 7
+
+**Trigger:** First acceptance of Stop 7; finish its feedback, then show this beat before opening Stop 8.
+
+**Location:** Field Clinic; speaker on the live field radio, with name and radio label visible.
+
+**Presentation:** radio_dialogue + waypoint_notification.
+
+**Player control:** One Continue or close; timer paused; line retained in the mission log; return to normal control. Accepted-stop replay opens the log instead of firing a second interrupt.
+
+**Dialogue bubble — Mara Vale, live radio:** “The survival counts separate swelling from injury. The matched rinse keeps far more of this line alive.”
+
+**Unlocks:** The existing Stop 8; no extra condition, answer or destination.
 
 ### Beat M2-B4 — After Stop 8
 
@@ -1217,6 +1471,10 @@ Mission question: whether the shore seedlings need fresh water or a matched salt
 
 **Unlocks:** The ungraded aftermath.
 
+**Physical action:** Mara caps the old bottle, moves it to the withdrawn side and places the matched rinse in the active tray.
+
+**Prop state:** `rinse-bottle` at `sample-bench`; apply §4.4 before/after and retry rules. Set `wt_evidence_m02` with the accepted required evidence. The same change is readable in the persistent log.
+
 ### Beat M2-BE — At mission end
 
 **Location:** Field Clinic.
@@ -1227,7 +1485,7 @@ Mission question: whether the shore seedlings need fresh water or a matched salt
 
 **World state:** The damaging rinse is stopped and matched rinse is issued. Healthy roots still lose energy in sealed pots.
 
-**Dialogue bubble — Mara Vale, veterinary biologist:** “Yet Ivo finds wilted plants in sealed pots. The new rinse has not solved the night loss.”
+**Dialogue bubble — Mara Vale, live radio:** “We have changed the rinse. The healthy roots still fail in closed pots, so care cannot stop at the wash.”
 
 **Unlocks:** Metric screen after inspecting the changed object or accessible log entry.
 
@@ -1673,6 +1931,140 @@ why: The matched rinse prevents the net water movement associated with the damag
 
 ---
 
+## K.1 GO DEEPER — optional review, exact player copy
+
+**Button:** GO DEEPER
+
+**Availability:** After this mission is complete and normal play resumes; explicit selection only. Apply the state-neutral timer, retry and reopening contract in §4.5.
+
+**Secondary brief — exact player copy:** A cell can gain water without being injured. Separate water movement, membrane transport and direct evidence of damage.
+
+**Supporting concepts — exact player copy:**
+
+- Osmosis: Water crosses a selectively permeable membrane toward lower water potential. For open dilute solutions at equal temperature, more dissolved particles lowers water potential.
+- Tonicity: A plant cell wall can resist swelling. Cell swelling alone does not establish injury.
+- Transport: Simple diffusion follows a concentration gradient; pumps can use energy to move solutes against it.
+
+### Optional review WT-M02-GD1
+
+**Prompt:** A membrane lets water pass but not sucrose. Side A has 0.1 M sucrose and side B has 0.4 M at equal pressure and temperature. What is the initial net water flow?
+
+- **A.** Equal net flow in both directions
+- **B.** A to B
+- **C.** B to A
+- **D.** No flow because sucrose cannot cross
+
+**Hint:** Find the side with more dissolved particles.
+
+**Correct key — author only:** B
+
+**Feedback after selection — exact player copy:**
+
+- **A:** Molecules move both ways, but the initial net flow is unequal.
+- **B:** B has lower water potential under these conditions.
+- **C:** This reverses the osmotic direction.
+- **D:** Water can still cross.
+
+### Optional review WT-M02-GD2
+
+**Prompt:** Plant cells swell in dilute water. Which added observation best supports actual injury?
+
+- **A.** Viability falls relative to a matched control
+- **B.** Cell volume rises
+- **C.** Water enters the cells
+- **D.** The surrounding water is dilute
+
+**Hint:** Use a measure of cell survival.
+
+**Correct key — author only:** A
+
+**Feedback after selection — exact player copy:**
+
+- **A:** Reduced survival supports injury.
+- **B:** Swelling alone may be tolerated by walled cells.
+- **C:** Water entry is not itself proof of injury.
+- **D:** This describes the treatment, not damage.
+
+### Optional review WT-M02-GD3
+
+**Prompt:** A pump moves ions from low to high concentration. ATP depletion stops the movement. Which process is supported?
+
+- **A.** Simple diffusion
+- **B.** Osmosis of ions
+- **C.** Unrestricted passage through lipid
+- **D.** Active transport
+
+**Hint:** Consider both direction and energy use.
+
+**Correct key — author only:** D
+
+**Feedback after selection — exact player copy:**
+
+- **A:** Simple diffusion proceeds down a gradient.
+- **B:** Osmosis describes water movement.
+- **C:** Unrestricted passive movement would not require this ATP input.
+- **D:** Movement against the gradient with ATP dependence supports active transport.
+
+### Optional review WT-M02-GD4
+
+**Prompt:** A solution has solute potential −0.6 MPa and pressure potential +0.2 MPa. What is total water potential?
+
+- **A.** +0.4 MPa
+- **B.** +0.8 MPa
+- **C.** −0.4 MPa
+- **D.** −0.8 MPa
+
+**Hint:** Add the two signed terms.
+
+**Correct key — author only:** C
+
+**Feedback after selection — exact player copy:**
+
+- **A:** The negative solute term is larger.
+- **B:** Both signs have been lost.
+- **C:** −0.6 + 0.2 = −0.4 MPa.
+- **D:** The positive pressure term must be added.
+
+### Optional review WT-M02-GD5
+
+**Prompt:** An oxygen molecule crosses a lipid membrane from higher to lower concentration without a protein. What best describes it?
+
+- **A.** An ATP-driven pump
+- **B.** Simple diffusion
+- **C.** Facilitated diffusion
+- **D.** Endocytosis
+
+**Hint:** No carrier or energy input is given.
+
+**Correct key — author only:** B
+
+**Feedback after selection — exact player copy:**
+
+- **A:** No ATP use or uphill movement is given.
+- **B:** Small nonpolar oxygen can diffuse through the bilayer.
+- **C:** That requires a transport protein.
+- **D:** That uses a membrane-bound vesicle.
+
+### Optional review WT-M02-GD6
+
+**Prompt:** A cube-shaped cell doubles its side length. How does its surface-area-to-volume ratio change?
+
+- **A.** It halves
+- **B.** It doubles
+- **C.** It quadruples
+- **D.** It stays the same
+
+**Hint:** Area scales with length squared, volume with length cubed.
+
+**Correct key — author only:** A
+
+**Feedback after selection — exact player copy:**
+
+- **A:** 6L²/L³ = 6/L; doubling L halves the ratio.
+- **B:** Volume grows faster than area.
+- **C:** Area quadruples, but volume increases eightfold.
+- **D:** The ratio depends on size.
+
 
 # Mission 3 — THE POND AFTER DARK
 
@@ -1773,7 +2165,7 @@ Mission question: whether sealed transport pots need an oxygen supply. Actual fi
 
 **Location:** Growth Hall.
 
-**Presentation:** equipment_panel_update + waypoint_notification.
+**Presentation:** equipment_panel_update + nearby_character_bubble + radio_dialogue + waypoint_notification.
 
 **Player control:** One Continue; timer paused; immediate return to normal control.
 
@@ -1782,6 +2174,24 @@ Mission question: whether sealed transport pots need an oxygen supply. Actual fi
 **Panel/HUD text:** “The shipping lids must pass the overnight comparison.”
 
 **Unlocks:** Stop 11 at Growth Hall.
+
+**Dialogue bubble — Ivo Reed, live radio:** “I gave the roots fuel and shut the lids to keep the pots clean. The night record says that was not enough.”
+
+**Dialogue bubble — Mara Vale, reply on the same radio:** “A clean pot still holds living cells. They need a route to keep making ATP when the lights go out.”
+
+### Beat M3-B3 — After accepted Stop 11
+
+**Trigger:** First acceptance of Stop 11; finish its feedback, then show this beat before opening Stop 12.
+
+**Location:** Growth Hall; speaker on the live field radio, with name and radio label visible.
+
+**Presentation:** radio_dialogue + waypoint_notification.
+
+**Player control:** One Continue or close; timer paused; line retained in the mission log; return to normal control. Accepted-stop replay opens the log instead of firing a second interrupt.
+
+**Dialogue bubble — Ivo Reed, live radio:** “The dark comparison rules out light as the whole answer. We have to account for the roots breathing too.”
+
+**Unlocks:** The existing Stop 12; no extra condition, answer or destination.
 
 ### Beat M3-B4 — After Stop 12
 
@@ -1797,6 +2207,12 @@ Mission question: whether sealed transport pots need an oxygen supply. Actual fi
 
 **Unlocks:** The ungraded aftermath.
 
+**Physical action:** Ivo fits the tested vented lids; their open slots remain visible.
+
+**Prop state:** `vent-lids` at `growth-bench`; apply §4.4 before/after and retry rules. Set `wt_evidence_m03` with the accepted required evidence. The same change is readable in the persistent log.
+
+**Dialogue bubble — Lena Moss, local at Growth Hall:** “I have fitted the vented lids to the right pots. The roots get air, and each tray keeps its family label.”
+
 ### Beat M3-BE — At mission end
 
 **Location:** Growth Hall.
@@ -1807,7 +2223,7 @@ Mission question: whether sealed transport pots need an oxygen supply. Actual fi
 
 **World state:** Ventilated pot lids are fitted after the sealed-pot test. The restored plants flower at an unexpected time.
 
-**Dialogue bubble — Ivo Reed, plant physiologist:** “But Ivo sees new flowers come out at the wrong time. The old lamp plan needs a test.”
+**Dialogue bubble — Ivo Reed, live radio:** “The vented lids are fitted. Now the plants are growing, but their first flowers do not match the old dates.”
 
 **Unlocks:** Metric screen after inspecting the changed object or accessible log entry.
 
@@ -2234,6 +2650,140 @@ why: The sealed pots fail the campaign oxygen specification overnight, while the
 
 ---
 
+## K.1 GO DEEPER — optional review, exact player copy
+
+**Button:** GO DEEPER
+
+**Availability:** After this mission is complete and normal play resumes; explicit selection only. Apply the state-neutral timer, retry and reopening contract in §4.5.
+
+**Secondary brief — exact player copy:** Food stores chemical energy, but a cell still needs a way to make usable ATP. Follow electrons, oxygen and carbon through a few short cases.
+
+**Supporting concepts — exact player copy:**
+
+- Respiration: Glycolysis occurs in the cytosol. In aerobic respiration, oxygen accepts electrons at the end of the mitochondrial electron transport chain.
+- Chemiosmosis: Electron transfer builds a proton gradient. Proton flow through ATP synthase can drive ATP production.
+- Fermentation: Regenerating NAD+ lets glycolysis continue without an operating aerobic electron transport chain; fermentation itself adds no ATP beyond glycolysis.
+
+### Optional review WT-M03-GD1
+
+**Prompt:** Which process can directly continue in the cytosol when oxygen is absent, if NAD+ is regenerated?
+
+- **A.** Glycolysis
+- **B.** Reduction of oxygen in the respiratory chain
+- **C.** Oxidative phosphorylation maintained by a normal respiratory proton gradient
+- **D.** The citric acid cycle at its normal sustained aerobic rate
+
+**Hint:** Choose the pathway that does not directly require oxygen.
+
+**Correct key — author only:** A
+
+**Feedback after selection — exact player copy:**
+
+- **A:** Glycolysis can continue with regenerated NAD+.
+- **B:** Oxygen reduction requires oxygen.
+- **C:** Without the terminal acceptor, the aerobic chain cannot maintain its usual gradient.
+- **D:** Without aerobic electron transport, reduced carriers accumulate and limit this cycle; fermentation specifically regenerates NAD+ for glycolysis.
+
+### Optional review WT-M03-GD2
+
+**Prompt:** A drug makes the inner mitochondrial membrane freely permeable to protons. Electron transfer continues. What happens to ATP production by ATP synthase?
+
+- **A.** It rises because protons cross the membrane faster
+- **B.** It stays constant because electron transfer continues
+- **C.** It stops only after all glucose has been consumed
+- **D.** It falls as the gradient dissipates
+
+**Hint:** The gradient supplies the driving force.
+
+**Correct key — author only:** D
+
+**Feedback after selection — exact player copy:**
+
+- **A:** Protons bypassing ATP synthase dissipate rather than usefully harness the gradient.
+- **B:** Continued electron transfer does not guarantee an intact gradient.
+- **C:** Gradient loss can reduce ATP synthesis while fuel remains.
+- **D:** A proton leak weakens the gradient powering ATP synthase.
+
+### Optional review WT-M03-GD3
+
+**Prompt:** An oxygen store starts at 11 mg and a sealed sample consumes 3 mg each hour, with no production. How much remains after two hours?
+
+- **A.** 6 mg
+- **B.** 17 mg
+- **C.** 5 mg
+- **D.** 8 mg
+
+**Hint:** Subtract consumption over the full interval.
+
+**Correct key — author only:** C
+
+**Feedback after selection — exact player copy:**
+
+- **A:** That is the amount consumed, not left.
+- **B:** Respiration consumes the stated oxygen.
+- **C:** 11 − 2×3 = 5 mg.
+- **D:** That accounts for only one hour.
+
+### Optional review WT-M03-GD4
+
+**Prompt:** What is the main role of oxygen at the end of aerobic electron transport?
+
+- **A.** Pump protons directly through ATP synthase
+- **B.** Accept electrons and contribute to water formation
+- **C.** Split glucose during the first glycolytic reaction
+- **D.** Carry electrons from glycolysis to the inner membrane
+
+**Hint:** Follow electrons to their final destination.
+
+**Correct key — author only:** B
+
+**Feedback after selection — exact player copy:**
+
+- **A:** Oxygen is the terminal acceptor; ATP synthase uses an established proton gradient.
+- **B:** Oxygen is the terminal electron acceptor.
+- **C:** Glycolysis does not directly consume oxygen.
+- **D:** Reduced carriers such as NADH transport those electrons; oxygen accepts them at the end.
+
+### Optional review WT-M03-GD5
+
+**Prompt:** Yeast makes ethanol while oxygen is scarce. Why does regenerating NAD+ help ATP production continue?
+
+- **A.** It allows glycolysis to continue
+- **B.** It lets the citric acid cycle replace glycolysis completely
+- **C.** It restores the mitochondrial proton gradient without oxygen
+- **D.** It allows fermentation to produce more ATP per glucose than aerobic respiration
+
+**Hint:** Ask which earlier pathway needs NAD+.
+
+**Correct key — author only:** A
+
+**Feedback after selection — exact player copy:**
+
+- **A:** Glycolysis requires NAD+ to accept electrons.
+- **B:** Fermentation supports glycolysis rather than replacing it with the citric acid cycle.
+- **C:** Fermentation does not restore aerobic electron transport.
+- **D:** The fermentation-supported yield per glucose is much lower.
+
+### Optional review WT-M03-GD6
+
+**Prompt:** A seed respires in darkness. Where does the carbon in its released CO2 originate?
+
+- **A.** CO2 newly fixed by photosynthesis during the dark assay
+- **B.** Dissolved bicarbonate used as the main aerobic fuel
+- **C.** Mineral nitrate absorbed by the roots
+- **D.** Organic fuel molecules being oxidized
+
+**Hint:** Trace matter rather than energy.
+
+**Correct key — author only:** D
+
+**Feedback after selection — exact player copy:**
+
+- **A:** Photosynthetic fixation is not the stated source in this dark respiration assay.
+- **B:** The respiring seed oxidizes organic reserves, not bicarbonate as its main fuel.
+- **C:** Nitrate supplies nitrogen and contains no carbon.
+- **D:** Fuel carbon is released during respiration.
+
 
 # Mission 4 — THE WRONG KIND OF RECOVERY
 
@@ -2322,7 +2872,7 @@ Mission question: whether the old lamp program is ready for wider use. Actual fi
 
 **Location:** Growth Hall.
 
-**Presentation:** equipment_panel_update + waypoint_notification.
+**Presentation:** equipment_panel_update + nearby_character_bubble + radio_dialogue + waypoint_notification.
 
 **Player control:** One Continue; timer paused; immediate return to normal control.
 
@@ -2331,6 +2881,24 @@ Mission question: whether the old lamp program is ready for wider use. Actual fi
 **Panel/HUD text:** “The crew needs to distinguish changed gene use from changed DNA.”
 
 **Unlocks:** Stop 15 at Growth Hall.
+
+**Dialogue bubble — Ivo Reed, live radio:** “The old light settings are helping the leaves. I want the nursery back on them.”
+
+**Dialogue bubble — Tess Rowan, reply on the same radio:** “Let me count what can use the flowers before you change every bed. Leaf gain is only one part of that claim.”
+
+### Beat M4-B3 — After accepted Stop 15
+
+**Trigger:** First acceptance of Stop 15; finish its feedback, then show this beat before opening Stop 16.
+
+**Location:** Growth Hall; speaker on the live field radio, with name and radio label visible.
+
+**Presentation:** radio_dialogue + waypoint_notification.
+
+**Player control:** One Continue or close; timer paused; line retained in the mission log; return to normal control. Accepted-stop replay opens the log instead of firing a second interrupt.
+
+**Dialogue bubble — Ivo Reed, live radio:** “The leaf measurements support this trial. They do not yet tell us what will visit these flowers.”
+
+**Unlocks:** The existing Stop 16; no extra condition, answer or destination.
 
 ### Beat M4-B4 — After Stop 16
 
@@ -2346,6 +2914,10 @@ Mission question: whether the old lamp program is ready for wider use. Actual fi
 
 **Unlocks:** The ungraded aftermath.
 
+**Physical action:** Ivo attaches a TRIAL ONLY tag to the handle; only the existing trial remains lit.
+
+**Prop state:** `lamp-lock-tag` at `light-panel`; apply §4.4 before/after and retry rules. Set `wt_evidence_m04` with the accepted required evidence. The same change is readable in the persistent log.
+
 ### Beat M4-BE — At mission end
 
 **Location:** Growth Hall.
@@ -2356,7 +2928,7 @@ Mission question: whether the old lamp program is ready for wider use. Actual fi
 
 **World state:** A limited lamp trial replaces the proposed full nursery reset. A flowering calendar no longer matches the insect log.
 
-**Dialogue bubble — Ivo Reed, plant physiologist:** “Yet Tess finds that the flowers and insects miss each other. She brings both dated logs.”
+**Dialogue bubble — Ivo Reed, live radio:** “One trial stays lit. Tess has asked me to bring the flower dates to the marsh before I widen it.”
 
 **Unlocks:** Metric screen after inspecting the changed object or accessible log entry.
 
@@ -2804,6 +3376,140 @@ why: 'The local response is real, but its interpretation has limits. Light chang
 
 ---
 
+## K.1 GO DEEPER — optional review, exact player copy
+
+**Button:** GO DEEPER
+
+**Availability:** After this mission is complete and normal play resumes; explicit selection only. Apply the state-neutral timer, retry and reopening contract in §4.5.
+
+**Secondary brief — exact player copy:** A leaf can capture light yet fail to gain much carbon. Test the difference between light reactions, carbon fixation and whole-plant evidence.
+
+**Supporting concepts — exact player copy:**
+
+- Photosynthesis: Light reactions produce ATP and NADPH and split water, releasing oxygen. The Calvin cycle uses ATP, NADPH and CO2 to build carbon compounds.
+- Limiting factors: Raising one input has little effect if another input limits the rate.
+- Net exchange: Net oxygen change equals oxygen production minus oxygen consumption over the same interval.
+
+### Optional review WT-M04-GD1
+
+**Prompt:** A plant is supplied with water containing a labeled oxygen isotope. Which photosynthetic product can directly carry that label from water splitting?
+
+- **A.** The carbon backbone of newly made sugar
+- **B.** The nitrogen bases newly assembled in DNA through nitrogen fixation
+- **C.** CO2 released directly by the water-splitting reaction
+- **D.** Oxygen gas
+
+**Hint:** Identify the source of released oxygen gas.
+
+**Correct key — author only:** D
+
+**Feedback after selection — exact player copy:**
+
+- **A:** An oxygen isotope labels oxygen atoms, not carbon atoms.
+- **B:** Water splitting is not nitrogen fixation or DNA-base assembly.
+- **C:** Water splitting releases O2; it is not a CO2-producing reaction.
+- **D:** Photosynthetic oxygen comes from water splitting.
+
+### Optional review WT-M04-GD2
+
+**Prompt:** A chamber produces 12 units of oxygen by photosynthesis and consumes 5 by respiration per hour. What net increase is expected?
+
+- **A.** 12 units per hour
+- **B.** 5 units per hour
+- **C.** 7 units per hour
+- **D.** 17 units per hour
+
+**Hint:** Use production minus consumption.
+
+**Correct key — author only:** C
+
+**Feedback after selection — exact player copy:**
+
+- **A:** That ignores respiration.
+- **B:** That gives consumption only.
+- **C:** 12 − 5 = 7.
+- **D:** Respiration subtracts from net production.
+
+### Optional review WT-M04-GD3
+
+**Prompt:** Increasing light no longer raises carbon fixation. Adding CO2 at that same light does raise it. What is the best supported interpretation?
+
+- **A.** Respiration has stopped
+- **B.** CO2 availability was limiting under the tested conditions
+- **C.** Light can never limit this species
+- **D.** The plant no longer needs light
+
+**Hint:** Use the intervention that changes the rate.
+
+**Correct key — author only:** B
+
+**Feedback after selection — exact player copy:**
+
+- **A:** Carbon fixation data do not establish that.
+- **B:** Added CO2 increased the rate at matched light.
+- **C:** The test covers only the stated conditions.
+- **D:** Light remains necessary for its usual light reactions.
+
+### Optional review WT-M04-GD4
+
+**Prompt:** A toxin blocks the Calvin cycle while light reactions initially continue. Which immediate function is blocked?
+
+- **A.** Incorporating CO2 into organic compounds
+- **B.** Producing oxygen by splitting water
+- **C.** Building the thylakoid proton gradient by electron transport
+- **D.** Reducing NADP+ in the light reactions
+
+**Hint:** Separate carbon incorporation from water splitting.
+
+**Correct key — author only:** A
+
+**Feedback after selection — exact player copy:**
+
+- **A:** The Calvin cycle fixes carbon.
+- **B:** The prompt says the light reactions initially continue.
+- **C:** This is part of the light reactions, not carbon fixation.
+- **D:** The Calvin cycle uses NADPH rather than carrying out this light-reaction reduction.
+
+### Optional review WT-M04-GD5
+
+**Prompt:** Two plants gain equal leaf mass, but only one produces viable seeds. What can leaf mass alone establish?
+
+- **A.** Equal reproductive success
+- **B.** Identical pollinator access
+- **C.** Identical gene sequences
+- **D.** Similar measured vegetative growth
+
+**Hint:** Match the claim to the measurement.
+
+**Correct key — author only:** D
+
+**Feedback after selection — exact player copy:**
+
+- **A:** The seed evidence differs.
+- **B:** Leaf mass does not measure visitors.
+- **C:** Many genotypes can yield similar mass.
+- **D:** Leaf mass measures this growth, not reproductive success.
+
+### Optional review WT-M04-GD6
+
+**Prompt:** What is the strongest design for testing a new lamp schedule?
+
+- **A.** Change light and fertilizer together without controls
+- **B.** Measure only the tallest treated plant
+- **C.** Randomly assign replicate plants to old or new schedules with other conditions matched
+- **D.** Compare new plants now with unknown plants from last year
+
+**Hint:** Keep a matched comparison over the same time.
+
+**Correct key — author only:** C
+
+**Feedback after selection — exact player copy:**
+
+- **A:** Two intended factors differ.
+- **B:** Selecting an extreme does not characterize treatment response.
+- **C:** This isolates schedule effects while allowing variation to be measured.
+- **D:** Season and plant differences confound the result.
+
 
 # Mission 5 — FLOWERS WITH NO VISITORS
 
@@ -2892,7 +3598,7 @@ Mission question: whether to expand the restored flowering schedule. Actual fina
 
 **Location:** Growth Hall.
 
-**Presentation:** equipment_panel_update + waypoint_notification.
+**Presentation:** equipment_panel_update + nearby_character_bubble + radio_dialogue + waypoint_notification.
 
 **Player control:** One Continue; timer paused; immediate return to normal control.
 
@@ -2901,6 +3607,24 @@ Mission question: whether to expand the restored flowering schedule. Actual fina
 **Panel/HUD text:** “The bay comparison must separate timing mismatch from insect loss. Go to Marsh Research Bay; its Water Rack holds the next comparison.”
 
 **Unlocks:** Stop 19 at Marsh Research Bay.
+
+**Dialogue bubble — Tess Rowan, live radio:** “Your plants recovered, but their flowers now open before many of the visitors arrive.”
+
+**Dialogue bubble — Ivo Reed, reply on the same radio:** “I thought the old schedule was a repair. I should have asked you what else it would move.”
+
+### Beat M5-B3 — After accepted Stop 19
+
+**Trigger:** First acceptance of Stop 19; finish its feedback, then show this beat before opening Stop 20.
+
+**Location:** Marsh Research Bay; speaker on the live field radio, with name and radio label visible.
+
+**Presentation:** radio_dialogue + waypoint_notification.
+
+**Player control:** One Continue or close; timer paused; line retained in the mission log; return to normal control. Accepted-stop replay opens the log instead of firing a second interrupt.
+
+**Dialogue bubble — Tess Rowan, live radio:** “The two date records overlap less in the reset beds. That gives us a link to protect, not just a bad count.”
+
+**Unlocks:** The existing Stop 20; no extra condition, answer or destination.
 
 ### Beat M5-B4 — After Stop 20
 
@@ -2916,6 +3640,12 @@ Mission question: whether to expand the restored flowering schedule. Actual fina
 
 **Unlocks:** The ungraded aftermath.
 
+**Physical action:** Tess sets the retained early and late flower trays apart under their date cards; the wider reset stays halted.
+
+**Prop state:** `staggered-trays` at `field-bench`; apply §4.4 before/after and retry rules. Set `wt_evidence_m05` with the accepted required evidence. The same change is readable in the persistent log.
+
+**Dialogue bubble — Cal Fen, live radio from the nesting-path survey:** “The late flower trays are still getting visits. I have left the path rope up around the nests.”
+
 ### Beat M5-BE — At mission end
 
 **Location:** Marsh Research Bay.
@@ -2926,7 +3656,7 @@ Mission question: whether to expand the restored flowering schedule. Actual fina
 
 **World state:** The wider lamp reset is halted and staggered flower trays are retained. One rapidly growing tissue tray has unusual division counts.
 
-**Dialogue bubble — Tess Rowan, field ecologist:** “But Mara has one tray that will not stop growing. The next test must check its cells.”
+**Dialogue bubble — Ivo Reed, live radio:** “I have stopped the wider reset. Tess keeps the timing record beside my lamp plan from now on.”
 
 **Unlocks:** Metric screen after inspecting the changed object or accessible log entry.
 
@@ -3367,6 +4097,140 @@ why: 'The plants recovered locally under the old lamps, but their flowering no l
 
 ---
 
+## K.1 GO DEEPER — optional review, exact player copy
+
+**Button:** GO DEEPER
+
+**Availability:** After this mission is complete and normal play resumes; explicit selection only. Apply the state-neutral timer, retry and reopening contract in §4.5.
+
+**Secondary brief — exact player copy:** Success for one organism can change the options of another. Use dates and experiments to study flowering, pollination and dependence.
+
+**Supporting concepts — exact player copy:**
+
+- Phenology: The timing of events such as flowering and insect emergence can determine whether partners meet.
+- Mutualism: Both partners benefit. An observed association alone does not establish the benefit or its cause.
+- Field inference: Repeated, matched observations help distinguish a treatment effect from daily variation.
+
+### Optional review WT-M05-GD1
+
+**Prompt:** A flower is open on days 4–10 inclusive and its main pollinator is active on days 8–13 inclusive. How many days overlap?
+
+- **A.** 6 days
+- **B.** 10 days
+- **C.** 3 days
+- **D.** 2 days
+
+**Hint:** List the shared days.
+
+**Correct key — author only:** C
+
+**Feedback after selection — exact player copy:**
+
+- **A:** That is not the shared interval.
+- **B:** The union is not the overlap.
+- **C:** Days 8, 9 and 10 overlap.
+- **D:** Inclusive endpoints add day 10 as well as 8 and 9.
+
+### Optional review WT-M05-GD2
+
+**Prompt:** Bagged flowers make few seeds; hand-pollinated bagged flowers make many. What does the rescue most directly support?
+
+- **A.** The bag reduced seed output solely by blocking light
+- **B.** Pollen delivery limited seed production in the bagged treatment
+- **C.** The bag alone made seed development impossible
+- **D.** The plants are self-pollinated with no need for pollen delivery
+
+**Hint:** What was restored while the bag remained?
+
+**Correct key — author only:** B
+
+**Feedback after selection — exact player copy:**
+
+- **A:** Restoring pollen while retaining the bag argues against light blockage as the sole explanation.
+- **B:** Hand delivery restored pollen and seed production.
+- **C:** Hand-pollinated bagged flowers still made seeds.
+- **D:** The rescue shows delivery mattered in this treatment.
+
+### Optional review WT-M05-GD3
+
+**Prompt:** Flowers provide food to insects, and insect visits increase seed production. Which interaction is supported?
+
+- **A.** Mutualism
+- **B.** Parasitism
+- **C.** Competition only
+- **D.** Predation
+
+**Hint:** Both reported effects are beneficial.
+
+**Correct key — author only:** A
+
+**Feedback after selection — exact player copy:**
+
+- **A:** Both species benefit in the described interaction.
+- **B:** No cost to one partner is described.
+- **C:** The stated effects are reciprocal benefits.
+- **D:** One organism is not described eating the other.
+
+### Optional review WT-M05-GD4
+
+**Prompt:** After an earlier flowering treatment, leaves remain healthy but seed output falls. Which next measurement best tests a timing mismatch?
+
+- **A.** Total visitor count summed across the entire season only
+- **B.** Final plant height in treated and control plots only
+- **C.** Seed mass measured after the season only
+- **D.** Flower-open dates and pollinator-active dates for treated and control plots
+
+**Hint:** Measure when both partners are available.
+
+**Correct key — author only:** D
+
+**Feedback after selection — exact player copy:**
+
+- **A:** A seasonal total can hide whether visits coincided with open flowers.
+- **B:** Height does not measure timing of partner availability.
+- **C:** Seed mass records an outcome but not the proposed timing mismatch.
+- **D:** These directly measure overlap.
+
+### Optional review WT-M05-GD5
+
+**Prompt:** A single cold day produces few insect visits in both treatment and control plots. Why retain the control?
+
+- **A.** It makes replication unnecessary
+- **B.** It guarantees the treatment is harmless
+- **C.** It helps detect a day effect shared by both groups
+- **D.** It proves weather caused every change
+
+**Hint:** Ask what happened to both groups.
+
+**Correct key — author only:** C
+
+**Feedback after selection — exact player copy:**
+
+- **A:** Independent replicates remain useful.
+- **B:** Other outcomes could still differ.
+- **C:** A shared decline may reflect weather rather than treatment.
+- **D:** It supports comparison but does not prove every cause.
+
+### Optional review WT-M05-GD6
+
+**Prompt:** One plant family flowers early and another late. Which observation best supports retaining both for seasonal pollinator food?
+
+- **A.** Their combined leaf area is larger at harvest
+- **B.** Together they cover a longer interval with usable flowers
+- **C.** Their combined seed mass is higher in storage
+- **D.** They attract the same total number of visits on one date
+
+**Hint:** Choose evidence of food availability through time.
+
+**Correct key — author only:** B
+
+**Feedback after selection — exact player copy:**
+
+- **A:** Leaf area does not directly measure the flowering interval.
+- **B:** The combined timing extends the measured resource period.
+- **C:** Stored seed mass does not establish a longer season of usable flowers.
+- **D:** One date does not establish coverage across the season.
+
 
 # Mission 6 — THE TRAY THAT WILL NOT STOP
 
@@ -3462,7 +4326,7 @@ Mission question: whether the unusual tissue tray can join the release stock. Ac
 
 **Location:** Field Clinic.
 
-**Presentation:** equipment_panel_update + waypoint_notification.
+**Presentation:** equipment_panel_update + nearby_character_bubble + radio_dialogue + waypoint_notification.
 
 **Player control:** One Continue; timer paused; immediate return to normal control.
 
@@ -3471,6 +4335,24 @@ Mission question: whether the unusual tissue tray can join the release stock. Ac
 **Panel/HUD text:** “The tray needs a control test rather than a growth-rate label. Go to Genetics Trailer; its Records Board holds the next comparison.”
 
 **Unlocks:** Stop 23 at Genetics Trailer.
+
+**Dialogue bubble — Mara Vale, live radio:** “This tray divides fast. I do not want speed to become the reason we send it.”
+
+**Dialogue bubble — Nell Shah, reply on the same radio:** “Nor do I want its family blamed before we test it. I will keep the line separate and its history intact.”
+
+### Beat M6-B3 — After accepted Stop 23
+
+**Trigger:** First acceptance of Stop 23; finish its feedback, then show this beat before opening Stop 24.
+
+**Location:** Genetics Trailer; speaker on the live field radio, with name and radio label visible.
+
+**Presentation:** radio_dialogue + waypoint_notification.
+
+**Player control:** One Continue or close; timer paused; line retained in the mission log; return to normal control. Accepted-stop replay opens the log instead of firing a second interrupt.
+
+**Dialogue bubble — Nell Shah, live radio:** “The division evidence gives us a reason to hold this line. It does not yet name the cause.”
+
+**Unlocks:** The existing Stop 24; no extra condition, answer or destination.
 
 ### Beat M6-B4 — After Stop 24
 
@@ -3486,6 +4368,10 @@ Mission question: whether the unusual tissue tray can join the release stock. Ac
 
 **Unlocks:** The ungraded aftermath.
 
+**Physical action:** Mara places that closed culture behind the HOLD barrier and clips on its original line label.
+
+**Prop state:** `held-tissue-box` at `culture-rack`; apply §4.4 before/after and retry rules. Set `wt_evidence_m06` with the accepted required evidence. The same change is readable in the persistent log.
+
 ### Beat M6-BE — At mission end
 
 **Location:** Genetics Trailer.
@@ -3496,7 +4382,7 @@ Mission question: whether the unusual tissue tray can join the release stock. Ac
 
 **World state:** The unusual tissue line is separated and the healthy lines stay in care. The held tray came from a small set of related parents.
 
-**Dialogue bubble — Nell Shah, conservation geneticist:** “Now Nell must check the held line’s family. She cannot judge each parent by its looks.”
+**Dialogue bubble — Nell Shah, live radio:** “The line stays here in care. Its family labels now give us a way to check what was passed down.”
 
 **Unlocks:** Metric screen after inspecting the changed object or accessible log entry.
 
@@ -3930,6 +4816,140 @@ why: The controlled signal test gives a concrete reason to hold the unusual tiss
 
 ---
 
+## K.1 GO DEEPER — optional review, exact player copy
+
+**Button:** GO DEEPER
+
+**Availability:** After this mission is complete and normal play resumes; explicit selection only. Apply the state-neutral timer, retry and reopening contract in §4.5.
+
+**Secondary brief — exact player copy:** Fast growth is a result to explain, not a diagnosis. Follow signals, division and controls before deciding what an unusual culture means.
+
+**Supporting concepts — exact player copy:**
+
+- Signaling: A ligand binds a receptor; a transduction pathway can alter cell activity or gene expression.
+- Cell cycle: Checkpoints can prevent division when DNA is damaged. Mitosis normally preserves chromosome number in daughter cells.
+- Causation: An abnormal count suggests further tests. It does not by itself identify an inherited mutation or cancer.
+
+### Optional review WT-M06-GD1
+
+**Prompt:** A signal molecule is present, but cells with a blocked receptor fail to respond. Which conclusion best fits?
+
+- **A.** The blocked cells cannot perform any cellular response
+- **B.** Reception is required for this measured response
+- **C.** Signal synthesis must have failed
+- **D.** The receptor must normally enter the nucleus and bind DNA
+
+**Hint:** Locate the blocked step.
+
+**Correct key — author only:** B
+
+**Feedback after selection — exact player copy:**
+
+- **A:** Only the tested signaling response was measured.
+- **B:** Blocking the receptor interrupts the response despite available signal.
+- **C:** Signal is explicitly present; the intervention blocks reception.
+- **D:** Receptor dependence does not establish nuclear entry or direct DNA binding.
+
+### Optional review WT-M06-GD2
+
+**Prompt:** A diploid cell with 10 chromosomes completes ordinary mitosis and cytokinesis. How many chromosomes does each daughter cell normally have?
+
+- **A.** 10
+- **B.** 5
+- **C.** 20
+- **D.** 0
+
+**Hint:** Mitosis preserves the chromosome complement.
+
+**Correct key — author only:** A
+
+**Feedback after selection — exact player copy:**
+
+- **A:** Each daughter normally keeps the parent cell chromosome number.
+- **B:** That would be the haploid count after meiosis.
+- **C:** DNA replication does not leave each daughter with doubled chromosome number.
+- **D:** Daughter cells receive chromosomes.
+
+### Optional review WT-M06-GD3
+
+**Prompt:** Of 80 observed cells, 20 are in mitosis. What fraction is the mitotic index?
+
+- **A.** 4
+- **B.** 0.20
+- **C.** 60
+- **D.** 0.25
+
+**Hint:** Divide mitotic cells by all observed cells.
+
+**Correct key — author only:** D
+
+**Feedback after selection — exact player copy:**
+
+- **A:** This inverts the ratio.
+- **B:** The denominator is 80, not 100.
+- **C:** That is the count outside mitosis.
+- **D:** 20/80 = 0.25.
+
+### Optional review WT-M06-GD4
+
+**Prompt:** A culture divides rapidly after a growth factor is added. What is the best initial follow-up?
+
+- **A.** Assume rapid growth establishes a heritable mutation
+- **B.** Increase growth factor and label the fastest culture abnormal without a control
+- **C.** Compare matched cultures with and without the factor
+- **D.** Compare the treated culture only with its final cell count
+
+**Hint:** Test whether the response depends on the supplied signal.
+
+**Correct key — author only:** C
+
+**Feedback after selection — exact player copy:**
+
+- **A:** A factor-driven response can occur without a sequence change.
+- **B:** Dose changes without a matched control do not establish the basis of abnormal growth.
+- **C:** The comparison tests signal dependence.
+- **D:** A final count alone lacks a matched untreated comparison.
+
+### Optional review WT-M06-GD5
+
+**Prompt:** DNA damage activates a checkpoint and the cell pauses before division. What is a likely benefit?
+
+- **A.** Producing daughter cells sooner so damage is diluted
+- **B.** Time for repair before damaged DNA reaches daughter cells
+- **C.** Preventing DNA replication in every future cell cycle
+- **D.** Guaranteeing all mutations are repaired before any cell survives
+
+**Hint:** Consider what would happen if damaged DNA were passed on.
+
+**Correct key — author only:** B
+
+**Feedback after selection — exact player copy:**
+
+- **A:** The pause delays division rather than speeding it.
+- **B:** The pause can reduce propagation of damage.
+- **C:** A checkpoint can pause the current cycle without permanently forbidding replication.
+- **D:** Checkpoint action does not guarantee perfect repair.
+
+### Optional review WT-M06-GD6
+
+**Prompt:** A tissue line grows unusually fast. Which evidence is needed before calling the change an inherited sequence variant?
+
+- **A.** Sequence evidence linked to the line and appropriate inheritance tests
+- **B.** A larger colony measured at one time point
+- **C.** The same fast growth in one repeated warm incubation
+- **D.** A high division count in the original culture
+
+**Hint:** Distinguish a phenotype from its proposed genetic cause.
+
+**Correct key — author only:** A
+
+**Feedback after selection — exact player copy:**
+
+- **A:** These address the proposed genetic basis.
+- **B:** Size alone does not show an inherited sequence variant.
+- **C:** Repeated growth under one condition does not identify a sequence change or inheritance.
+- **D:** Division counts measure the phenotype, not its proposed genetic cause.
+
 
 # Mission 7 — THE FAMILY IN THE JAR
 
@@ -4029,7 +5049,7 @@ Mission question: which cross can test the hidden recessive trait. Actual final 
 
 **Location:** Seed Room.
 
-**Presentation:** equipment_panel_update + waypoint_notification.
+**Presentation:** equipment_panel_update + nearby_character_bubble + radio_dialogue + waypoint_notification.
 
 **Player control:** One Continue; timer paused; immediate return to normal control.
 
@@ -4038,6 +5058,24 @@ Mission question: which cross can test the hidden recessive trait. Actual final 
 **Panel/HUD text:** “The family labels must preserve which inheritance model was tested. Go to Genetics Trailer; its Records Board holds the next comparison.”
 
 **Unlocks:** Stop 27 at Genetics Trailer.
+
+**Dialogue bubble — Nell Shah, live radio:** “The dominant trait could hide a second allele. Appearance will not settle this family record.”
+
+**Dialogue bubble — Mara Vale, reply on the same radio:** “Then keep the parent labels. I can hold a line without treating every relative as sick.”
+
+### Beat M7-B3 — After accepted Stop 27
+
+**Trigger:** First acceptance of Stop 27; finish its feedback, then show this beat before opening Stop 28.
+
+**Location:** Genetics Trailer; speaker on the live field radio, with name and radio label visible.
+
+**Presentation:** radio_dialogue + waypoint_notification.
+
+**Player control:** One Continue or close; timer paused; line retained in the mission log; return to normal control. Accepted-stop replay opens the log instead of firing a second interrupt.
+
+**Dialogue bubble — Nell Shah, live radio:** “The cross evidence narrows the possible inheritance. It comes from recorded generations, not plants grown overnight.”
+
+**Unlocks:** The existing Stop 28; no extra condition, answer or destination.
 
 ### Beat M7-B4 — After Stop 28
 
@@ -4053,6 +5091,10 @@ Mission question: which cross can test the hidden recessive trait. Actual final 
 
 **Unlocks:** The ungraded aftermath.
 
+**Physical action:** Nell clips each card to its matching packet before any approved cross material is handled.
+
+**Prop state:** `family-clips` at `seed-table`; apply §4.4 before/after and retry rules. Set `wt_evidence_m07` with the accepted required evidence. The same change is readable in the persistent log.
+
 ### Beat M7-BE — At mission end
 
 **Location:** Genetics Trailer.
@@ -4063,7 +5105,7 @@ Mission question: which cross can test the hidden recessive trait. Actual final 
 
 **World state:** A test cross is approved and family labels stay attached to every sample. The family trait leads to a changed enzyme sequence.
 
-**Dialogue bubble — Nell Shah, conservation geneticist:** “But Nell finds a changed code in one family. Mara needs an enzyme test before a diagnosis.”
+**Dialogue bubble — Nell Shah, live radio:** “Each family keeps its own jar. Mara has asked for the enzyme evidence before we turn ancestry into a diagnosis.”
 
 **Unlocks:** Metric screen after inspecting the changed object or accessible log entry.
 
@@ -4500,6 +5542,140 @@ why: A homozygous recessive partner supplies only t, so recessive offspring reve
 
 ---
 
+## K.1 GO DEEPER — optional review, exact player copy
+
+**Button:** GO DEEPER
+
+**Availability:** After this mission is complete and normal play resumes; explicit selection only. Apply the state-neutral timer, retry and reopening contract in §4.5.
+
+**Secondary brief — exact player copy:** A family label preserves evidence that appearance can hide. Use simple crosses to distinguish possible genotypes without erasing family history.
+
+**Supporting concepts — exact player copy:**
+
+- Alleles: Alternative forms of a gene. A dominant phenotype can be AA or Aa under complete dominance.
+- Test cross: Crossing a dominant-phenotype individual with aa can reveal a recessive allele in its offspring.
+- Meiosis: Homologous chromosomes separate; segregation puts one allele of a locus into each gamete.
+
+### Optional review WT-M07-GD1
+
+**Prompt:** Under complete dominance, a purple plant may be AA or Aa. Which mate makes a test cross?
+
+- **A.** aa
+- **B.** AA
+- **C.** An unknown purple plant
+- **D.** Any plant without recording its genotype
+
+**Hint:** Use a mate that supplies only the recessive allele.
+
+**Correct key — author only:** A
+
+**Feedback after selection — exact player copy:**
+
+- **A:** A recessive mate lets offspring expose a hidden a allele.
+- **B:** All offspring would show the dominant phenotype in this simple model.
+- **C:** The mate genotype adds uncertainty.
+- **D:** Unrecorded parentage weakens the inference.
+
+### Optional review WT-M07-GD2
+
+**Prompt:** For Aa × aa under ordinary segregation, what proportion of offspring is expected to be aa?
+
+- **A.** 1/4
+- **B.** 3/4
+- **C.** 1
+- **D.** 1/2
+
+**Hint:** List the two gametes from Aa.
+
+**Correct key — author only:** D
+
+**Feedback after selection — exact player copy:**
+
+- **A:** That fraction applies to Aa × Aa recessive offspring.
+- **B:** This does not follow from the test cross.
+- **C:** The A gamete produces Aa.
+- **D:** A or a combines with a, giving Aa or aa equally.
+
+### Optional review WT-M07-GD3
+
+**Prompt:** An Aa × Aa cross produces 200 offspring. What number is expected to be AA?
+
+- **A.** 150
+- **B.** 200
+- **C.** 50
+- **D.** 100
+
+**Hint:** The AA probability is one quarter.
+
+**Correct key — author only:** C
+
+**Feedback after selection — exact player copy:**
+
+- **A:** That is the expected dominant-phenotype total.
+- **B:** Only one of four equally likely allele combinations is AA.
+- **C:** 200×1/4 = 50.
+- **D:** That is the expected Aa number.
+
+### Optional review WT-M07-GD4
+
+**Prompt:** Which meiotic event directly separates the two homologs of a chromosome pair?
+
+- **A.** Crossing over in prophase I
+- **B.** Anaphase I
+- **C.** Anaphase II
+- **D.** S phase before meiosis
+
+**Hint:** Distinguish homologs from sister chromatids.
+
+**Correct key — author only:** B
+
+**Feedback after selection — exact player copy:**
+
+- **A:** Crossing over exchanges segments; homolog separation occurs later.
+- **B:** Homologous chromosomes separate in meiosis I.
+- **C:** Anaphase II separates sister chromatids, after homologs separated in meiosis I.
+- **D:** S phase replicates DNA rather than separating homologs.
+
+### Optional review WT-M07-GD5
+
+**Prompt:** Two seed families have the same leaf color. Why keep separate family labels?
+
+- **A.** Similar appearance can hide different alleles and ancestry
+- **B.** Shared color establishes identical genotypes at every locus
+- **C.** Each family must breed true for every trait
+- **D.** Color alone allows the parents to be reconstructed after pooling
+
+**Hint:** A phenotype does not capture all genetic information.
+
+**Correct key — author only:** A
+
+**Feedback after selection — exact player copy:**
+
+- **A:** Labels preserve information not visible in leaf color.
+- **B:** A single phenotype cannot establish whole-genome identity.
+- **C:** A family can still segregate multiple alleles.
+- **D:** Different parents can produce the same color, so pooling loses information.
+
+### Optional review WT-M07-GD6
+
+**Prompt:** A test cross gives 8 dominant offspring and no recessive offspring. Which conclusion is justified?
+
+- **A.** The parent must be AA with certainty
+- **B.** The parent must be aa
+- **C.** Inheritance rules have been disproved
+- **D.** AA is plausible, but Aa is not logically ruled out
+
+**Hint:** A finite sample can miss an outcome.
+
+**Correct key — author only:** D
+
+**Feedback after selection — exact player copy:**
+
+- **A:** The sample is not conclusive.
+- **B:** That cannot produce these dominant offspring with aa in the model.
+- **C:** A small sample need not match exact ratios.
+- **D:** An Aa parent could by chance yield eight dominant offspring.
+
 
 # Mission 8 — ONE LETTER IN THE RECIPE
 
@@ -4590,7 +5766,7 @@ Mission question: whether the sequence change can explain the weak enzyme. Actua
 
 **Location:** Genetics Trailer.
 
-**Presentation:** equipment_panel_update + waypoint_notification.
+**Presentation:** equipment_panel_update + nearby_character_bubble + radio_dialogue + waypoint_notification.
 
 **Player control:** One Continue; timer paused; immediate return to normal control.
 
@@ -4599,6 +5775,24 @@ Mission question: whether the sequence change can explain the weak enzyme. Actua
 **Panel/HUD text:** “The sequence lead must meet measured enzyme activity. Go to Field Clinic; its Sample Bench holds the next comparison.”
 
 **Unlocks:** Stop 31 at Field Clinic.
+
+**Dialogue bubble — Nell Shah, live radio:** “The sequence gives us a lead, and the enzyme test shows a difference. I want the label to say what we found.”
+
+**Dialogue bubble — Mara Vale, reply on the same radio:** “It can say that. It cannot yet say this one change explains the whole plant.”
+
+### Beat M8-B3 — After accepted Stop 31
+
+**Trigger:** First acceptance of Stop 31; finish its feedback, then show this beat before opening Stop 32.
+
+**Location:** Field Clinic; speaker on the live field radio, with name and radio label visible.
+
+**Presentation:** radio_dialogue + waypoint_notification.
+
+**Player control:** One Continue or close; timer paused; line retained in the mission log; return to normal control. Accepted-stop replay opens the log instead of firing a second interrupt.
+
+**Dialogue bubble — Nell Shah, live radio:** “You are right to keep the claim narrow. I will put the measured activity beside the sequence, not a final diagnosis.”
+
+**Unlocks:** The existing Stop 32; no extra condition, answer or destination.
 
 ### Beat M8-B4 — After Stop 32
 
@@ -4614,6 +5808,10 @@ Mission question: whether the sequence change can explain the weak enzyme. Actua
 
 **Unlocks:** The ungraded aftermath.
 
+**Physical action:** Nell sleeves the sealed archived tube with its sequence and activity card; the sleeve reads LEAD — CAUSE NOT COMPLETE.
+
+**Prop state:** `enzyme-sleeve` at `dna-bench`; apply §4.4 before/after and retry rules. Set `wt_evidence_m08` with the accepted required evidence. The same change is readable in the persistent log.
+
 ### Beat M8-BE — At mission end
 
 **Location:** Field Clinic.
@@ -4624,7 +5822,7 @@ Mission question: whether the sequence change can explain the weak enzyme. Actua
 
 **World state:** The enzyme lead is recorded and an environmental comparison is requested. Similar-looking plants respond differently in the same growth room.
 
-**Dialogue bubble — Mara Vale, veterinary biologist:** “Yet Ivo finds that leaf shapes shift between rooms. Nell needs a label that can survive that change.”
+**Dialogue bubble — Mara Vale, live radio:** “Nell has kept the lead and its limits together. Next we compare the plants under the same growing conditions.”
 
 **Unlocks:** Metric screen after inspecting the changed object or accessible log entry.
 
@@ -5072,6 +6270,140 @@ why: The sequence change offers a plausible mechanism for the specific enzyme de
 
 ---
 
+## K.1 GO DEEPER — optional review, exact player copy
+
+**Button:** GO DEEPER
+
+**Availability:** After this mission is complete and normal play resumes; explicit selection only. Apply the state-neutral timer, retry and reopening contract in §4.5.
+
+**Secondary brief — exact player copy:** A changed DNA letter can matter, but it does not explain a whole organism on its own. Trace information and compare enzyme evidence.
+
+**Supporting concepts — exact player copy:**
+
+- Information flow: DNA is transcribed into RNA; ribosomes translate mRNA codons into amino acids.
+- Genetic code: Several codons can encode the same amino acid, so a base substitution can be synonymous.
+- Enzyme tests: Match enzyme quantity, substrate and conditions when comparing activity; a supported molecular effect need not be the sole cause of a phenotype.
+
+### Optional review WT-M08-GD1
+
+**Prompt:** A coding-strand DNA segment is 5′-ATG-3′. What is the matching mRNA sequence, written 5′ to 3′?
+
+- **A.** UAC
+- **B.** ATG
+- **C.** GUA
+- **D.** AUG
+
+**Hint:** For the coding strand, replace T with U.
+
+**Correct key — author only:** D
+
+**Feedback after selection — exact player copy:**
+
+- **A:** That is complementary, not the matching coding sequence.
+- **B:** RNA uses U instead of T.
+- **C:** That reverses the required order.
+- **D:** mRNA matches the coding strand except U replaces T.
+
+### Optional review WT-M08-GD2
+
+**Prompt:** The supplied code says GAA and GAG both encode glutamate. A codon changes from GAA to GAG. What can be concluded about this position in the protein?
+
+- **A.** Translation must stop
+- **B.** Every protein in the cell changes
+- **C.** The encoded amino acid stays the same
+- **D.** The protein gains an extra amino acid
+
+**Hint:** Use the supplied code rather than guessing from the base change.
+
+**Correct key — author only:** C
+
+**Feedback after selection — exact player copy:**
+
+- **A:** Neither supplied codon is a stop codon.
+- **B:** Only this stated codon was considered.
+- **C:** Both codons encode glutamate.
+- **D:** This is a substitution, not an added codon.
+
+### Optional review WT-M08-GD3
+
+**Prompt:** Equal quantities of two enzyme variants produce 18 and 6 units of product per minute under matched conditions. What is the first variant’s rate relative to the second?
+
+- **A.** 24 times as high
+- **B.** 3 times as high
+- **C.** 12 times as high
+- **D.** 1/3 as high
+
+**Hint:** Divide the rates in the order requested.
+
+**Correct key — author only:** B
+
+**Feedback after selection — exact player copy:**
+
+- **A:** Adding rates does not give the ratio.
+- **B:** 18/6 = 3.
+- **C:** 12 is the rate difference, not the ratio.
+- **D:** That inverts the comparison.
+
+### Optional review WT-M08-GD4
+
+**Prompt:** An enzyme variant is less active in a purified assay. What remains unproven?
+
+- **A.** That this variant alone causes the complete organismal phenotype
+- **B.** Whether the two variants had equal activity in that assay
+- **C.** Whether activity differed under the tested conditions
+- **D.** Whether that assay recorded a lower rate for the variant
+
+**Hint:** Separate the assay from the whole organism.
+
+**Correct key — author only:** A
+
+**Feedback after selection — exact player copy:**
+
+- **A:** Other factors may contribute in the organism.
+- **B:** The measured difference already answers that question.
+- **C:** This difference is directly observed.
+- **D:** The prompt explicitly reports lower activity; the unresolved issue is broader causation.
+
+### Optional review WT-M08-GD5
+
+**Prompt:** Which molecule is read by the ribosome during translation?
+
+- **A.** The DNA template strand directly
+- **B.** The tRNA anticodon as the primary message
+- **C.** The promoter sequence on DNA
+- **D.** mRNA
+
+**Hint:** Distinguish the message from the template used to write it.
+
+**Correct key — author only:** D
+
+**Feedback after selection — exact player copy:**
+
+- **A:** DNA is transcribed into mRNA before ribosomal translation.
+- **B:** A tRNA anticodon pairs with a codon; mRNA carries the sequence being read.
+- **C:** Promoters regulate transcription, not the ribosome’s translated message.
+- **D:** Ribosomes read mRNA codons.
+
+### Optional review WT-M08-GD6
+
+**Prompt:** A mutation occurs in a promoter and measured mRNA falls. The protein-coding sequence is unchanged. What is the most direct supported effect?
+
+- **A.** A change in translation rate is the only possible explanation
+- **B.** A confirmed loss of protein folding independent of amount
+- **C.** Altered transcription of the gene
+- **D.** A changed amino-acid sequence caused by the promoter bases becoming codons
+
+**Hint:** A promoter helps regulate transcription.
+
+**Correct key — author only:** C
+
+**Feedback after selection — exact player copy:**
+
+- **A:** The promoter intervention and lower mRNA directly implicate transcription, not only translation.
+- **B:** No folding assay is given.
+- **C:** Lower mRNA is consistent with reduced transcription from the altered promoter.
+- **D:** The promoter is not part of the unchanged protein-coding sequence.
+
 
 # Mission 9 — THE SAME SEED IN TWO ROOMS
 
@@ -5165,7 +6497,7 @@ Mission question: whether leaf shape alone is a reliable breeding label. Actual 
 
 **Location:** Growth Hall.
 
-**Presentation:** equipment_panel_update + waypoint_notification.
+**Presentation:** equipment_panel_update + nearby_character_bubble + radio_dialogue + waypoint_notification.
 
 **Player control:** One Continue; timer paused; immediate return to normal control.
 
@@ -5174,6 +6506,24 @@ Mission question: whether leaf shape alone is a reliable breeding label. Actual 
 **Panel/HUD text:** “The copied sequence must stay distinct from its expressed appearance. Go to Seed Room; its Family Board holds the next comparison.”
 
 **Unlocks:** Stop 35 at Seed Room.
+
+**Dialogue bubble — Ivo Reed, live radio:** “These leaves looked like different kinds when they grew in different rooms.”
+
+**Dialogue bubble — Nell Shah, reply on the same radio:** “Keep both the room record and the family name. If conditions change the leaves, we still need to know whose seed it was.”
+
+### Beat M9-B3 — After accepted Stop 35
+
+**Trigger:** First acceptance of Stop 35; finish its feedback, then show this beat before opening Stop 36.
+
+**Location:** Seed Room; speaker on the live field radio, with name and radio label visible.
+
+**Presentation:** radio_dialogue + waypoint_notification.
+
+**Player control:** One Continue or close; timer paused; line retained in the mission log; return to normal control. Accepted-stop replay opens the log instead of firing a second interrupt.
+
+**Dialogue bubble — Nell Shah, live radio:** “The matched comparison separates a change in form from a claim about ancestry. Neither record can replace the other.”
+
+**Unlocks:** The existing Stop 36; no extra condition, answer or destination.
 
 ### Beat M9-B4 — After Stop 36
 
@@ -5189,6 +6539,10 @@ Mission question: whether leaf shape alone is a reliable breeding label. Actual 
 
 **Unlocks:** The ungraded aftermath.
 
+**Physical action:** Nell removes the shape-only tags and clips the condition notes beside the exposed ancestry cards.
+
+**Prop state:** `ancestry-tags` at `family-board`; apply §4.4 before/after and retry rules. Set `wt_evidence_m09` with the accepted required evidence. The same change is readable in the persistent log.
+
 ### Beat M9-BE — At mission end
 
 **Location:** Seed Room.
@@ -5199,7 +6553,7 @@ Mission question: whether leaf shape alone is a reliable breeding label. Actual 
 
 **World state:** Appearance-only labels are removed and ancestry labels remain. A short-lived insect population has changed across many generations.
 
-**Dialogue bubble — Nell Shah, conservation geneticist:** “But Tess has forty generations of insect records. A change in one plant cannot explain them.”
+**Dialogue bubble — Nell Shah, live radio:** “We removed the shape-only labels. The family labels stay, even when the same seed looks different in a new room.”
 
 **Unlocks:** Metric screen after inspecting the changed object or accessible log entry.
 
@@ -5636,6 +6990,140 @@ why: 'Leaf appearance responds to environment and can reflect several genetic co
 
 ---
 
+## K.1 GO DEEPER — optional review, exact player copy
+
+**Button:** GO DEEPER
+
+**Availability:** After this mission is complete and normal play resumes; explicit selection only. Apply the state-neutral timer, retry and reopening contract in §4.5.
+
+**Secondary brief — exact player copy:** A visible trait can reflect both ancestry and conditions. Use common environments and reciprocal comparisons to separate those effects.
+
+**Supporting concepts — exact player copy:**
+
+- Phenotypic plasticity: One genotype can produce different phenotypes in different environments.
+- Common garden: Growing different lineages in matched conditions helps test whether their differences persist.
+- Gene expression: Environmental signals can alter the amount of RNA or protein produced without changing DNA sequence.
+
+### Optional review WT-M09-GD1
+
+**Prompt:** Clones from one plant grow broad leaves in shade and narrow leaves in sun. What is most directly supported?
+
+- **A.** Leaf width is determined only by the initial genotype
+- **B.** The two plants must have had different parents
+- **C.** Phenotypic plasticity
+- **D.** The light treatment proves a new inherited allele arose
+
+**Hint:** The starting genotype is shared.
+
+**Correct key — author only:** C
+
+**Feedback after selection — exact player copy:**
+
+- **A:** The shared genotype produced different leaf forms in different light.
+- **B:** The experiment explicitly starts with clones.
+- **C:** A shared genotype produced different forms under different conditions.
+- **D:** The phenotype alone does not show an inherited base change.
+
+### Optional review WT-M09-GD2
+
+**Prompt:** Two families differ in height in separate greenhouses. Which next design best tests a family effect?
+
+- **A.** Pool seeds before planting and compare the tallest with the shortest plants
+- **B.** Randomize both families across matched greenhouse positions
+- **C.** Keep each family in its original greenhouse and measure more leaves
+- **D.** Grow the taller family under extra fertilizer and compare final means
+
+**Hint:** Put both families into the same controlled comparison.
+
+**Correct key — author only:** B
+
+**Feedback after selection — exact player copy:**
+
+- **A:** Pooling removes the family identities needed for this test.
+- **B:** This reduces location differences while comparing families.
+- **C:** More measurements do not separate family from greenhouse effects.
+- **D:** This introduces a new treatment difference.
+
+### Optional review WT-M09-GD3
+
+**Prompt:** One clone has 40 units of an mRNA in shade and 10 in sun. What is the shade-to-sun expression ratio?
+
+- **A.** 4
+- **B.** 30
+- **C.** 0.25
+- **D.** 50
+
+**Hint:** Divide shade by sun.
+
+**Correct key — author only:** A
+
+**Feedback after selection — exact player copy:**
+
+- **A:** 40/10 = 4.
+- **B:** 30 is a difference, not a ratio.
+- **C:** That is sun divided by shade.
+- **D:** Adding expression amounts gives no ratio.
+
+### Optional review WT-M09-GD4
+
+**Prompt:** A trait difference disappears when two lineages grow under matched conditions. Which statement is best supported?
+
+- **A.** The matched trait proves the lineages have identical genomes
+- **B.** The original trait difference must have been a measurement error
+- **C.** The trait cannot have any genetic contribution in other environments
+- **D.** The original environmental difference may have contributed to the trait
+
+**Hint:** Keep the conclusion tied to this trait and environment.
+
+**Correct key — author only:** D
+
+**Feedback after selection — exact player copy:**
+
+- **A:** Other genetic differences can remain invisible in this trait.
+- **B:** A real environmental response could also disappear under matched conditions.
+- **C:** The test concerns the observed lineages and tested conditions, not all environments.
+- **D:** The disappearance supports an environmental contribution.
+
+### Optional review WT-M09-GD5
+
+**Prompt:** A temperature shift changes gene expression but sequencing finds no base change in the tested gene. What is consistent with these data?
+
+- **A.** The expression difference proves the change will be inherited by offspring
+- **B.** Different expression requires a different number of chromosomes
+- **C.** Regulation changed how much gene product was made
+- **D.** A detected coding mutation changed the protein sequence
+
+**Hint:** Expression can be regulated without rewriting sequence.
+
+**Correct key — author only:** C
+
+**Feedback after selection — exact player copy:**
+
+- **A:** Expression under one temperature does not establish inheritance.
+- **B:** Expression can change without chromosome-number change.
+- **C:** That fits altered expression without a detected sequence change.
+- **D:** No base change was detected in the tested gene.
+
+### Optional review WT-M09-GD6
+
+**Prompt:** Families A and B are each grown in wet and dry soil. A grows taller when wet, while B changes little. What does this pattern suggest?
+
+- **A.** Moisture alone explains height regardless of family
+- **B.** Families differ in their response to environment
+- **C.** Moisture has the same effect on both families
+- **D.** Family alone explains height regardless of moisture
+
+**Hint:** Compare each family’s response across environments.
+
+**Correct key — author only:** B
+
+**Feedback after selection — exact player copy:**
+
+- **A:** The response to moisture depends on which family is grown.
+- **B:** The effect of moisture depends on family in the observed data.
+- **C:** The described responses differ.
+- **D:** Family A changes across moisture conditions.
+
 
 # Mission 10 — THE INSECTS THAT STAYED
 
@@ -5719,7 +7207,7 @@ Mission question: whether the insect change reflects selection or individual adj
 
 **Location:** Marsh Research Bay.
 
-**Presentation:** equipment_panel_update + waypoint_notification.
+**Presentation:** equipment_panel_update + nearby_character_bubble + radio_dialogue + waypoint_notification.
 
 **Player control:** One Continue; timer paused; immediate return to normal control.
 
@@ -5728,6 +7216,24 @@ Mission question: whether the insect change reflects selection or individual adj
 **Panel/HUD text:** “The archive needs the right selection pattern. Go to Field Planning Room; its Survey Table holds the next comparison.”
 
 **Unlocks:** Stop 39 at Field Planning Room.
+
+**Dialogue bubble — Tess Rowan, live radio:** “The surviving insects left more offspring across these recorded generations. That is a population change.”
+
+**Dialogue bubble — Ada Penn, reply on the same radio:** “I nearly wrote that the insects learned to emerge early. I will change the record to match what their offspring show.”
+
+### Beat M10-B3 — After accepted Stop 39
+
+**Trigger:** First acceptance of Stop 39; finish its feedback, then show this beat before opening Stop 40.
+
+**Location:** Field Planning Room; speaker on the live field radio, with name and radio label visible.
+
+**Presentation:** radio_dialogue + waypoint_notification.
+
+**Player control:** One Continue or close; timer paused; line retained in the mission log; return to normal control. Accepted-stop replay opens the log instead of firing a second interrupt.
+
+**Dialogue bubble — Tess Rowan, live radio:** “The archive spans many generations. We must keep that time span with the result when it goes on the board.”
+
+**Unlocks:** The existing Stop 40; no extra condition, answer or destination.
 
 ### Beat M10-B4 — After Stop 40
 
@@ -5743,6 +7249,10 @@ Mission question: whether the insect change reflects selection or individual adj
 
 **Unlocks:** The ungraded aftermath.
 
+**Physical action:** Tess pins the strips in generation order with the archive span left visible.
+
+**Prop state:** `emergence-strips` at `habitat-board`; apply §4.4 before/after and retry rules. Set `wt_evidence_m10` with the accepted required evidence. The same change is readable in the persistent log.
+
 ### Beat M10-BE — At mission end
 
 **Location:** Field Planning Room.
@@ -5753,7 +7263,7 @@ Mission question: whether the insect change reflects selection or individual adj
 
 **World state:** The insect change is recorded as population-level selection under the measured conditions. A small source group may already have lost rare alleles.
 
-**Dialogue bubble — Ada Penn, preserve director:** “Now Nell checks the seed list. Its largest family may leave rare gene forms behind.”
+**Dialogue bubble — Ada Penn, live radio:** “The record now names selection and the conditions. It leaves me a new question: how much of that variation can a small shipment keep?”
 
 **Unlocks:** Metric screen after inspecting the changed object or accessible log entry.
 
@@ -6202,6 +7712,140 @@ why: The record links inherited emergence timing to differential reproductive su
 
 ---
 
+## K.1 GO DEEPER — optional review, exact player copy
+
+**Button:** GO DEEPER
+
+**Availability:** After this mission is complete and normal play resumes; explicit selection only. Apply the state-neutral timer, retry and reopening contract in §4.5.
+
+**Secondary brief — exact player copy:** Populations can change while individual organisms keep the same inherited traits. Follow survival, reproduction and sampling across generations.
+
+**Supporting concepts — exact player copy:**
+
+- Selection: Heritable variants that leave more offspring can become more common across generations.
+- Drift: Random sampling can change allele frequencies, especially in small populations, without a fitness advantage.
+- Hardy–Weinberg reference: For two alleles with frequencies p and q, p+q=1. Under the model assumptions, genotype frequencies are p², 2pq and q².
+
+### Optional review WT-M10-GD1
+
+**Prompt:** In a population, a heritable early-emergence trait increases after early individuals leave more offspring. What process best fits?
+
+- **A.** Random drift as the only demonstrated mechanism
+- **B.** Natural selection
+- **C.** Acclimation within the surviving adults only
+- **D.** Directional mutation caused by the need to emerge early
+
+**Hint:** Both inheritance and unequal reproduction are stated.
+
+**Correct key — author only:** B
+
+**Feedback after selection — exact player copy:**
+
+- **A:** Unequal reproduction associated with the trait specifically supports selection.
+- **B:** A heritable difference in reproductive success changes trait frequency.
+- **C:** The evidence includes heritable differences in offspring contribution.
+- **D:** The account supplies selection on heritable variation, not need-directed mutation.
+
+### Optional review WT-M10-GD2
+
+**Prompt:** A random storm kills most beetles regardless of color; the survivors happen to be mostly brown. Which process explains the color-frequency shift?
+
+- **A.** Genetic drift
+- **B.** Demonstrated selection for brown color
+- **C.** Directed mutation toward brown
+- **D.** Acclimation of all green beetles
+
+**Hint:** Mortality is stated to be independent of color.
+
+**Correct key — author only:** A
+
+**Feedback after selection — exact player copy:**
+
+- **A:** Chance survival changed frequencies.
+- **B:** No color-dependent survival advantage was given.
+- **C:** The storm did not direct mutations in the account.
+- **D:** Survivor sampling, not color change within individuals, is described.
+
+### Optional review WT-M10-GD3
+
+**Prompt:** An allele occurs in 70 of 200 counted gene copies. What is its frequency?
+
+- **A.** 0.70
+- **B.** 2.86
+- **C.** 130
+- **D.** 0.35
+
+**Hint:** Divide copies of that allele by all copies.
+
+**Correct key — author only:** D
+
+**Feedback after selection — exact player copy:**
+
+- **A:** That would use 100 as the denominator.
+- **B:** This inverts the ratio.
+- **C:** That is the count of other copies.
+- **D:** 70/200 = 0.35.
+
+### Optional review WT-M10-GD4
+
+**Prompt:** Under Hardy–Weinberg assumptions, q=0.3 and p=0.7. What is the expected heterozygote frequency?
+
+- **A.** 0.49
+- **B.** 1.00
+- **C.** 0.42
+- **D.** 0.09
+
+**Hint:** Use 2pq.
+
+**Correct key — author only:** C
+
+**Feedback after selection — exact player copy:**
+
+- **A:** That is p², the other homozygote frequency.
+- **B:** That is the sum of all genotype frequencies.
+- **C:** 2×0.7×0.3 = 0.42.
+- **D:** That is q², the recessive homozygote frequency.
+
+### Optional review WT-M10-GD5
+
+**Prompt:** A frequency shift is found in archived samples spanning 20 generations. What is the appropriate time scale for the evolutionary claim?
+
+- **A.** Twenty calendar days regardless of the insects’ generation length
+- **B.** Those 20 generations
+- **C.** One generation because only the newest insects are alive now
+- **D.** One insect’s lifetime because all change must occur within individuals
+
+**Hint:** Use the span of the population evidence.
+
+**Correct key — author only:** B
+
+**Feedback after selection — exact player copy:**
+
+- **A:** The records specify generations; they do not give that calendar conversion.
+- **B:** The records track change across generations.
+- **C:** Archived earlier samples preserve evidence beyond the living generation.
+- **D:** Evolution concerns populations across generations.
+
+### Optional review WT-M10-GD6
+
+**Prompt:** A trait is common in survivors but is not inherited by offspring. Which key requirement for sustained selection on that trait is missing?
+
+- **A.** Heritable variation in the trait
+- **B.** A difference in survival
+- **C.** A trait that can be measured
+- **D.** A perfectly constant environment for all future generations
+
+**Hint:** A population response requires inheritance of the relevant difference.
+
+**Correct key — author only:** A
+
+**Feedback after selection — exact player copy:**
+
+- **A:** Without inheritance, the survival difference need not cause the proposed inherited shift.
+- **B:** Survivor association is already described.
+- **C:** The trait is already observed; its inheritance is the missing link.
+- **D:** Selection does not require an environment that never changes.
+
 
 # Mission 11 — THE SEEDS LEFT OUT
 
@@ -6293,7 +7937,7 @@ Mission question: whether the largest seed family is enough for the pilot. Actua
 
 **Location:** Seed Room.
 
-**Presentation:** equipment_panel_update + waypoint_notification.
+**Presentation:** equipment_panel_update + nearby_character_bubble + radio_dialogue + waypoint_notification.
 
 **Player control:** One Continue; timer paused; immediate return to normal control.
 
@@ -6303,19 +7947,24 @@ Mission question: whether the largest seed family is enough for the pilot. Actua
 
 **Unlocks:** Stop 43 at Genetics Trailer.
 
-### Beat M11-B3 — After Stop 43
+**Dialogue bubble — Nell Shah, live radio:** “The fullest jar comes from a narrow family line. Its size hides what we would leave behind.”
+**Dialogue bubble — Ada Penn, reply on the same radio:** “A single jar would be simpler to ship. Show me which families that simplicity would cost us.”
 
-**Location:** Genetics Trailer.
+### Beat M11-B3 — After accepted Stop 43
 
-**Presentation:** waypoint_notification.
+**Trigger:** First acceptance of Stop 43; finish its feedback, then show this beat before opening Stop 44.
 
-**Player control:** One Continue; timer paused; immediate return to normal control.
+**Location:** Genetics Trailer; speaker on the live field radio, with name and radio label visible.
 
-**World state:** The tested constraint is pinned to the sample cart.
+**Presentation:** radio_dialogue + waypoint_notification.
+
+**Player control:** One Continue or close; timer paused; line retained in the mission log; return to normal control. Accepted-stop replay opens the log instead of firing a second interrupt.
+
+**Dialogue bubble — Nell Shah, live radio:** “Several screened families retain options the one-family plan loses. A reserve keeps those options here as well.”
 
 **Panel/HUD text:** “Go to Field Planning Room and meet Ada Penn, preserve director, at the Release Board; only the director can authorize the combined plan.”
 
-**Unlocks:** Stop 44.
+**Unlocks:** The existing Stop 44; no extra condition, answer or destination.
 
 ### Beat M11-B4 — After Stop 44
 
@@ -6331,6 +7980,10 @@ Mission question: whether the largest seed family is enough for the pilot. Actua
 
 **Unlocks:** The ungraded aftermath.
 
+**Physical action:** Nell separates labeled reserve jars from the travel jars; the reserve shelf remains stocked.
+
+**Prop state:** `reserve-jars` at `storage-rack`; apply §4.4 before/after and retry rules. Set `wt_evidence_m11` with the accepted required evidence. The same change is readable in the persistent log.
+
 ### Beat M11-BE — At mission end
 
 **Location:** Field Planning Room.
@@ -6341,7 +7994,7 @@ Mission question: whether the largest seed family is enough for the pilot. Actua
 
 **World state:** Several screened families replace the single-family shipment. The chosen plants still depend on partners missing from the manifest.
 
-**Dialogue bubble — Ada Penn, preserve director:** “But Tess spots living partners absent from the list. Healthy plants may still fail without them.”
+**Dialogue bubble — Ada Penn, live radio:** “I have made room for more family jars. Nell keeps a reserve; the ship does not get to take our last chance.”
 
 **Unlocks:** Metric screen after inspecting the changed object or accessible log entry.
 
@@ -6777,6 +8430,140 @@ why: Several screened families preserve variation that the largest family lacks,
 
 ---
 
+## K.1 GO DEEPER — optional review, exact player copy
+
+**Button:** GO DEEPER
+
+**Availability:** After this mission is complete and normal play resumes; explicit selection only. Apply the state-neutral timer, retry and reopening contract in §4.5.
+
+**Secondary brief — exact player copy:** The largest seed family is not the same as the widest genetic sample. Explore reserves, random loss and the limits of screening.
+
+**Supporting concepts — exact player copy:**
+
+- Bottleneck: A sharp population reduction can remove alleles by chance.
+- Genetic diversity: Different families can preserve variants absent from a single large family; family count is a proxy, not proof of all diversity.
+- Reserves: Keeping viable source stock preserves options if a first shipment fails. Screening covers the hazards actually tested.
+
+### Optional review WT-M11-GD1
+
+**Prompt:** Jar A holds 1,000 seeds from one parent pair; jar B holds 200 seeds from 20 parent pairs. Which is the strongest initial reason to consider B for diversity?
+
+- **A.** It represents more parent pairs
+- **B.** Every B seed must carry a unique allele
+- **C.** A’s larger seed number guarantees that it contains every source allele
+- **D.** B’s smaller seed number guarantees better germination
+
+**Hint:** Distinguish seed number from ancestry coverage.
+
+**Correct key — author only:** A
+
+**Feedback after selection — exact player copy:**
+
+- **A:** More ancestry sources can preserve variation missing from one family.
+- **B:** More parent pairs do not guarantee uniqueness in every seed.
+- **C:** Many seeds from one pair can still omit source variation.
+- **D:** Ancestry count does not establish viability.
+
+### Optional review WT-M11-GD2
+
+**Prompt:** A rare allele is absent after ten individuals are randomly selected from a large population. What may explain its loss?
+
+- **A.** Proof the allele reduced survival
+- **B.** Proof the allele cannot be inherited
+- **C.** Evidence that all source individuals lacked the allele
+- **D.** Sampling by genetic drift
+
+**Hint:** The sample is small and random.
+
+**Correct key — author only:** D
+
+**Feedback after selection — exact player copy:**
+
+- **A:** The selection of founders is explicitly random.
+- **B:** A founder sample can miss an inherited allele.
+- **C:** Absence in ten founders does not imply absence in the source.
+- **D:** Rare variants can be missed in a small random founder group.
+
+### Optional review WT-M11-GD3
+
+**Prompt:** A collection has 240 viable seeds. Keeping 25% in reserve leaves how many available for shipment?
+
+- **A.** 215
+- **B.** 300
+- **C.** 180
+- **D.** 60
+
+**Hint:** Subtract the reserve from the total.
+
+**Correct key — author only:** C
+
+**Feedback after selection — exact player copy:**
+
+- **A:** Subtracting 25 seeds is not reserving 25%.
+- **B:** A reserve does not create seeds.
+- **C:** Reserve 60; 240 − 60 = 180.
+- **D:** That is the reserve amount.
+
+### Optional review WT-M11-GD4
+
+**Prompt:** All seeds pass a test for one named fungus. Which claim is justified?
+
+- **A.** Genetic diversity is complete
+- **B.** That test did not detect the named fungus in the tested samples
+- **C.** No seed can carry any pathogen
+- **D.** All offspring will grow equally well
+
+**Hint:** Respect the scope of the test.
+
+**Correct key — author only:** B
+
+**Feedback after selection — exact player copy:**
+
+- **A:** Fungal screening does not measure every allele.
+- **B:** The result is limited to the test and samples.
+- **C:** One test does not cover every pathogen.
+- **D:** Pathogen testing does not establish growth equality.
+
+### Optional review WT-M11-GD5
+
+**Prompt:** Why retain a viable reserve of the same screened families after a pilot shipment?
+
+- **A.** It permits a later attempt or comparison without exhausting the source
+- **B.** It guarantees the first shipment will survive
+- **C.** It guarantees allele frequencies will never change
+- **D.** It permits parent records to be discarded after departure
+
+**Hint:** Think about an unsuccessful first trial.
+
+**Correct key — author only:** A
+
+**Feedback after selection — exact player copy:**
+
+- **A:** A reserve preserves options.
+- **B:** A reserve preserves options but cannot guarantee the trial.
+- **C:** Frequency changes may still occur through sampling and later reproduction.
+- **D:** The reserve remains useful only with its source identity and records.
+
+### Optional review WT-M11-GD6
+
+**Prompt:** Two families contribute equal seed numbers, but one has 90% viability and the other 30%. What should be compared when planning equal viable contributions?
+
+- **A.** Seed number alone for each family
+- **B.** One pooled average viability applied to both families
+- **C.** Each family’s share of the total packet count
+- **D.** Seed number multiplied by each family’s viability
+
+**Hint:** Count expected surviving seeds rather than packets.
+
+**Correct key — author only:** D
+
+**Feedback after selection — exact player copy:**
+
+- **A:** Equal seed counts give unequal expected viable contributions when viability differs.
+- **B:** A pooled rate hides the stated family-specific difference.
+- **C:** Packets need not represent equal viable seed numbers.
+- **D:** That estimates the viable contribution.
+
 
 # Mission 12 — THE SMALL THINGS ON THE LIST
 
@@ -6871,7 +8658,7 @@ Mission question: whether the pilot can use plants alone. Actual final answer: P
 
 **Location:** Marsh Research Bay.
 
-**Presentation:** equipment_panel_update + waypoint_notification.
+**Presentation:** equipment_panel_update + nearby_character_bubble + radio_dialogue + waypoint_notification.
 
 **Player control:** One Continue; timer paused; immediate return to normal control.
 
@@ -6881,19 +8668,24 @@ Mission question: whether the pilot can use plants alone. Actual final answer: P
 
 **Unlocks:** Stop 47 at Field Clinic.
 
-### Beat M12-B3 — After Stop 47
+**Dialogue bubble — Mara Vale, live radio:** “The plants can pass my health check and still lose a partner they need. I missed that in the first packing list.”
+**Dialogue bubble — Tess Rowan, reply on the same radio:** “And I cannot use that link to justify sending a scoop of untested marsh soil. We need the tested partner, with its own record.”
 
-**Location:** Field Clinic.
+### Beat M12-B3 — After accepted Stop 47
 
-**Presentation:** waypoint_notification.
+**Trigger:** First acceptance of Stop 47; finish its feedback, then show this beat before opening Stop 48.
 
-**Player control:** One Continue; timer paused; immediate return to normal control.
+**Location:** Field Clinic; speaker on the live field radio, with name and radio label visible.
 
-**World state:** The tested constraint is pinned to the sample cart.
+**Presentation:** radio_dialogue + waypoint_notification.
+
+**Player control:** One Continue or close; timer paused; line retained in the mission log; return to normal control. Accepted-stop replay opens the log instead of firing a second interrupt.
+
+**Dialogue bubble — Mara Vale, live radio:** “The comparison supports the screened pair in containment. It does not clear the rest of the soil around it.”
 
 **Panel/HUD text:** “Go to Field Planning Room and meet Ada Penn, preserve director, at the Release Board; only the director can authorize the combined plan.”
 
-**Unlocks:** Stop 48.
+**Unlocks:** The existing Stop 48; no extra condition, answer or destination.
 
 ### Beat M12-B4 — After Stop 48
 
@@ -6909,6 +8701,10 @@ Mission question: whether the pilot can use plants alone. Actual final answer: P
 
 **Unlocks:** The ungraded aftermath.
 
+**Physical action:** Mara closes the tested plant-partner samples in that box; a label excludes untested field soil.
+
+**Prop state:** `partner-box` at `sample-cart`; apply §4.4 before/after and retry rules. Set `wt_evidence_m12` with the accepted required evidence. The same change is readable in the persistent log.
+
 ### Beat M12-BE — At mission end
 
 **Location:** Field Planning Room.
@@ -6919,7 +8715,7 @@ Mission question: whether the pilot can use plants alone. Actual final answer: P
 
 **World state:** The contained pilot gains tested partners while untested field soil stays on the island. The receiving soil may not cycle nutrients like island soil.
 
-**Dialogue bubble — Ada Penn, preserve director:** “Yet Tess finds little usable nitrogen in the new soil. The partner test has not cleared the whole site.”
+**Dialogue bubble — Tess Rowan, live radio:** “The screened pair has a box. The field soil stays here; my habitat argument does not make unknown passengers safe.”
 
 **Unlocks:** Metric screen after inspecting the changed object or accessible log entry.
 
@@ -7368,6 +9164,140 @@ why: The contained comparison supports a useful relationship between the tested 
 
 ---
 
+## K.1 GO DEEPER — optional review, exact player copy
+
+**Button:** GO DEEPER
+
+**Availability:** After this mission is complete and normal play resumes; explicit selection only. Apply the state-neutral timer, retry and reopening contract in §4.5.
+
+**Secondary brief — exact player copy:** Small partners can change a plant’s performance, but moving untested soil creates new uncertainty. Design comparisons that separate a useful partner from the rest of a mixture.
+
+**Supporting concepts — exact player copy:**
+
+- Symbiosis: Close association can be beneficial, harmful or neutral; test the specific relationship.
+- Factorial comparison: Testing combinations of two factors can reveal whether their joint effect differs from their separate effects.
+- Containment: A controlled pilot limits exposure and allows monitoring; a successful contained result does not automatically clear open release.
+
+### Optional review WT-M12-GD1
+
+**Prompt:** Plants with a tested fungal partner gain more phosphorus; the fungus receives plant sugars. Which interpretation fits?
+
+- **A.** The fungus replaces the plant’s need for a phosphorus source
+- **B.** The fungus supplies all carbon needed by the plant
+- **C.** Every soil fungus should improve this plant’s growth
+- **D.** A mutualistic exchange under the tested conditions
+
+**Hint:** Track the benefit on each side.
+
+**Correct key — author only:** D
+
+**Feedback after selection — exact player copy:**
+
+- **A:** The fungus aids access; phosphorus still has to come from a source.
+- **B:** The described carbon transfer is from plant to fungus.
+- **C:** The result concerns one tested relationship under stated conditions.
+- **D:** Both partners receive a benefit.
+
+### Optional review WT-M12-GD2
+
+**Prompt:** Which comparison best isolates the effect of adding one cultured partner?
+
+- **A.** Only the fastest growing partnered plant
+- **B.** Different plant species in different climates
+- **C.** Matched sterile growth medium with or without the cultured partner
+- **D.** Field soil versus unrelated potting mix with different nutrients
+
+**Hint:** Match everything except that partner.
+
+**Correct key — author only:** C
+
+**Feedback after selection — exact player copy:**
+
+- **A:** There is no matched unpartnered comparison.
+- **B:** Species and climate confound the comparison.
+- **C:** This separates the added partner from other differences.
+- **D:** Many factors differ.
+
+### Optional review WT-M12-GD3
+
+**Prompt:** A partner treatment gives plants 14 mg phosphorus versus 8 mg in matched controls. What is the measured increase?
+
+- **A.** 8 mg
+- **B.** 6 mg
+- **C.** 22 mg
+- **D.** 1.75 mg
+
+**Hint:** Subtract the control value.
+
+**Correct key — author only:** B
+
+**Feedback after selection — exact player copy:**
+
+- **A:** That repeats the control value.
+- **B:** 14 − 8 = 6 mg.
+- **C:** The sum is not the increase.
+- **D:** 1.75 is a ratio, not a mass increase.
+
+### Optional review WT-M12-GD4
+
+**Prompt:** A plant grows well with a cultured partner in a sealed trial. What does that result alone authorize scientifically?
+
+- **A.** Further evaluation within the tested containment limits
+- **B.** Unrestricted movement of all field soil
+- **C.** A guarantee of no effect on native species
+- **D.** Abandoning all monitoring
+
+**Hint:** Stay within the exposure and conditions tested.
+
+**Correct key — author only:** A
+
+**Feedback after selection — exact player copy:**
+
+- **A:** It supports the tested combination without proving open-release safety.
+- **B:** Untested soil is not the cultured trial.
+- **C:** Those effects have not been established.
+- **D:** Monitoring remains necessary.
+
+### Optional review WT-M12-GD5
+
+**Prompt:** A two-factor test uses partner absent/present and nutrient low/high. How many treatment combinations are required to include every pairing?
+
+- **A.** 2
+- **B.** 3
+- **C.** 8
+- **D.** 4
+
+**Hint:** Multiply the number of levels.
+
+**Correct key — author only:** D
+
+**Feedback after selection — exact player copy:**
+
+- **A:** That omits some pairings.
+- **B:** One combination would be missing.
+- **C:** There are only two levels for each of two factors.
+- **D:** 2×2 = 4 combinations.
+
+### Optional review WT-M12-GD6
+
+**Prompt:** A whole-soil addition improves growth. Why is it premature to credit a particular microbe?
+
+- **A.** Any microbe isolated from that soil must reproduce the effect
+- **B.** Improved growth rules out an effect of soil water retention
+- **C.** The soil also changes nutrients and introduces many organisms
+- **D.** The addition establishes that nutrients had no role
+
+**Hint:** A mixture changes more than one thing.
+
+**Correct key — author only:** C
+
+**Feedback after selection — exact player copy:**
+
+- **A:** Different organisms need not have the same effect.
+- **B:** Physical soil properties can also contribute to growth.
+- **C:** The cause has not been isolated.
+- **D:** A soil addition can alter nutrient supply as well as organisms.
+
 
 # Mission 13 — THE SOIL ON THE OTHER SHORE
 
@@ -7459,7 +9389,7 @@ Mission question: whether the receiving plot is ready for the pilot. Actual fina
 
 **Location:** Marsh Research Bay.
 
-**Presentation:** equipment_panel_update + waypoint_notification.
+**Presentation:** equipment_panel_update + nearby_character_bubble + radio_dialogue + waypoint_notification.
 
 **Player control:** One Continue; timer paused; immediate return to normal control.
 
@@ -7469,19 +9399,24 @@ Mission question: whether the receiving plot is ready for the pilot. Actual fina
 
 **Unlocks:** Stop 51 at Growth Hall.
 
-### Beat M13-B3 — After Stop 51
+**Dialogue bubble — Tess Rowan, live radio:** “I know this island soil. I was treating the far shore as though it would work the same way.”
+**Dialogue bubble — Ivo Reed, reply on the same radio:** “The receiving samples do not give roots the same access. We need a test there before your field knowledge can travel.”
 
-**Location:** Growth Hall.
+### Beat M13-B3 — After accepted Stop 51
 
-**Presentation:** waypoint_notification.
+**Trigger:** First acceptance of Stop 51; finish its feedback, then show this beat before opening Stop 52.
 
-**Player control:** One Continue; timer paused; immediate return to normal control.
+**Location:** Growth Hall; speaker on the live field radio, with name and radio label visible.
 
-**World state:** The tested constraint is pinned to the sample cart.
+**Presentation:** radio_dialogue + waypoint_notification.
+
+**Player control:** One Continue or close; timer paused; line retained in the mission log; return to normal control. Accepted-stop replay opens the log instead of firing a second interrupt.
+
+**Dialogue bubble — Ivo Reed, live radio:** “The site constraints are separate. Enough space cannot make up for the missing resource cycle.”
 
 **Panel/HUD text:** “Go to Field Planning Room and meet Ada Penn, preserve director, at the Release Board; only the director can authorize the combined plan.”
 
-**Unlocks:** Stop 52.
+**Unlocks:** The existing Stop 52; no extra condition, answer or destination.
 
 ### Beat M13-B4 — After Stop 52
 
@@ -7497,6 +9432,10 @@ Mission question: whether the receiving plot is ready for the pilot. Actual fina
 
 **Unlocks:** The ungraded aftermath.
 
+**Physical action:** Tess clips the new site-preparation record to the receiving core and retains both cores for comparison.
+
+**Prop state:** `receiving-core` at `field-bench`; apply §4.4 before/after and retry rules. Set `wt_evidence_m13` with the accepted required evidence. The same change is readable in the persistent log.
+
 ### Beat M13-BE — At mission end
 
 **Location:** Field Planning Room.
@@ -7507,7 +9446,7 @@ Mission question: whether the receiving plot is ready for the pilot. Actual fina
 
 **World state:** Receiving plots are prepared and only the instrumented contained pilot proceeds. A daytime pilot succeeds while its night record is still missing.
 
-**Dialogue bubble — Ada Penn, preserve director:** “But Ivo has no dawn pass yet. A bright noon cannot clear the whole day.”
+**Dialogue bubble — Tess Rowan, live radio:** “The new plots now have their own preparation record. I have stopped calling them a copy of this shore.”
 
 **Unlocks:** Metric screen after inspecting the changed object or accessible log entry.
 
@@ -7944,6 +9883,140 @@ why: The growth model assumes a prepared environment, so its carrying-capacity e
 
 ---
 
+## K.1 GO DEEPER — optional review, exact player copy
+
+**Button:** GO DEEPER
+
+**Availability:** After this mission is complete and normal play resumes; explicit selection only. Apply the state-neutral timer, retry and reopening contract in §4.5.
+
+**Secondary brief — exact player copy:** A receiving site is a new experiment. Compare nutrients, density and water before carrying conclusions from one habitat to another.
+
+**Supporting concepts — exact player copy:**
+
+- Nutrient cycling: Decomposers return some organic nutrients to forms available for further uptake; nitrogen transformations involve distinct microbial processes.
+- Logistic growth: In dN/dt = rN(1−N/K), K is the modeled carrying capacity under stated conditions, not an unchangeable property.
+- Transfer: Similar appearance does not establish similar chemistry or community function.
+
+### Optional review WT-M13-GD1
+
+**Prompt:** A receiving soil has abundant organic nitrogen but little plant-available mineral nitrogen. What measurement most directly tests a nutrient-access problem?
+
+- **A.** Soil moisture alone without nitrogen or uptake measurements
+- **B.** Leaf size alone at the end of the trial
+- **C.** Mineral nitrogen supply and plant uptake under matched conditions
+- **D.** Total organic nitrogen alone, measured again
+
+**Hint:** Measure the form the roots can take up.
+
+**Correct key — author only:** C
+
+**Feedback after selection — exact player copy:**
+
+- **A:** Moisture can matter but does not directly test nitrogen access.
+- **B:** Leaf size is an outcome with several possible causes, not a direct nitrogen-access test.
+- **C:** These address access rather than total stored nitrogen alone.
+- **D:** Total stores do not establish conversion into accessible forms.
+
+### Optional review WT-M13-GD2
+
+**Prompt:** For r=0.2 per day, N=100 and K=200, what is logistic dN/dt?
+
+- **A.** 0 individuals per day
+- **B.** 10 individuals per day
+- **C.** 20 individuals per day
+- **D.** 100 individuals per day
+
+**Hint:** Substitute into rN(1−N/K).
+
+**Correct key — author only:** B
+
+**Feedback after selection — exact player copy:**
+
+- **A:** N is below K.
+- **B:** 0.2×100×(1−0.5)=10.
+- **C:** That omits the density factor.
+- **D:** That omits r and the density factor.
+
+### Optional review WT-M13-GD3
+
+**Prompt:** If water supply falls, what can happen to a habitat’s carrying capacity for a water-limited population?
+
+- **A.** It can decrease
+- **B.** It must remain fixed because it is a species constant
+- **C.** It must increase because competition becomes stronger
+- **D.** It must equal r, the intrinsic per-capita growth parameter
+
+**Hint:** K depends on available resources.
+
+**Correct key — author only:** A
+
+**Feedback after selection — exact player copy:**
+
+- **A:** Less limiting resource can support fewer individuals.
+- **B:** K depends on habitat conditions, not only species identity.
+- **C:** Stronger resource competition does not create carrying capacity.
+- **D:** K and r are different model parameters with different units.
+
+### Optional review WT-M13-GD4
+
+**Prompt:** A microbe converts atmospheric nitrogen into compounds that enter biological nitrogen cycling. Which process is this?
+
+- **A.** Denitrification
+- **B.** Nitrification
+- **C.** Ammonification of organic nitrogen
+- **D.** Nitrogen fixation
+
+**Hint:** The starting material is N2 gas.
+
+**Correct key — author only:** D
+
+**Feedback after selection — exact player copy:**
+
+- **A:** Denitrification returns nitrogen to gaseous forms.
+- **B:** Nitrification oxidizes reduced nitrogen compounds rather than fixing N2.
+- **C:** That releases reduced nitrogen from organic material, not atmospheric N2.
+- **D:** Fixation converts N2 to biologically usable nitrogen compounds.
+
+### Optional review WT-M13-GD5
+
+**Prompt:** Two soils look alike, but only one supports the same plant line. What follows?
+
+- **A.** The failed growth proves the plant line changed its inherited genotype
+- **B.** Different growth proves one particular pathogen is present
+- **C.** Their relevant chemical or biological conditions may differ
+- **D.** Matching color establishes equal nutrient availability
+
+**Hint:** Appearance is one observation, not a full test.
+
+**Correct key — author only:** C
+
+**Feedback after selection — exact player copy:**
+
+- **A:** An environmental effect is possible; no genetic change has been shown.
+- **B:** A cause-specific diagnosis needs further evidence.
+- **C:** Further controlled measurements are needed.
+- **D:** Color is not a complete nutrient or biological assay.
+
+### Optional review WT-M13-GD6
+
+**Prompt:** A plot can supply 900 mL water per day. Each plant needs 75 mL per day under the given conditions. What is the largest whole-number count that this water supply supports?
+
+- **A.** 0.083 plants
+- **B.** 12 plants
+- **C.** 75 plants
+- **D.** 825 plants
+
+**Hint:** Divide available water by daily need per plant.
+
+**Correct key — author only:** B
+
+**Feedback after selection — exact player copy:**
+
+- **A:** That inverts the ratio.
+- **B:** 900/75 = 12.
+- **C:** 75 is the water need, not the supported count.
+- **D:** Subtracting units here does not give plant number.
+
 
 # Mission 14 — GREEN UNTIL MORNING
 
@@ -8032,7 +10105,7 @@ Mission question: whether the full-day pilot clears expansion. Actual final answ
 
 **Location:** Growth Hall.
 
-**Presentation:** equipment_panel_update + waypoint_notification.
+**Presentation:** equipment_panel_update + nearby_character_bubble + radio_dialogue + waypoint_notification.
 
 **Player control:** One Continue; timer paused; immediate return to normal control.
 
@@ -8042,19 +10115,24 @@ Mission question: whether the full-day pilot clears expansion. Actual final answ
 
 **Unlocks:** Stop 55 at Marsh Research Bay.
 
-### Beat M14-B3 — After Stop 55
+**Dialogue bubble — Ivo Reed, live radio:** “At noon the tank looked ready. The dawn record is the part my first check missed.”
+**Dialogue bubble — Ada Penn, reply on the same radio:** “The ship has a berth time, but I cannot sign a day as if it were a full cycle. Keep the expansion on hold.”
 
-**Location:** Marsh Research Bay.
+### Beat M14-B3 — After accepted Stop 55
 
-**Presentation:** waypoint_notification.
+**Trigger:** First acceptance of Stop 55; finish its feedback, then show this beat before opening Stop 56.
 
-**Player control:** One Continue; timer paused; immediate return to normal control.
+**Location:** Marsh Research Bay; speaker on the live field radio, with name and radio label visible.
 
-**World state:** The tested constraint is pinned to the sample cart.
+**Presentation:** radio_dialogue + waypoint_notification.
+
+**Player control:** One Continue or close; timer paused; line retained in the mission log; return to normal control. Accepted-stop replay opens the log instead of firing a second interrupt.
+
+**Dialogue bubble — Ivo Reed, live radio:** “The night result sets the limit. A correction needs a new night check, not another good noon photograph.”
 
 **Panel/HUD text:** “Go to Field Planning Room and meet Ada Penn, preserve director, at the Release Board; only the director can authorize the combined plan.”
 
-**Unlocks:** Stop 56.
+**Unlocks:** The existing Stop 56; no extra condition, answer or destination.
 
 ### Beat M14-B4 — After Stop 56
 
@@ -8070,6 +10148,10 @@ Mission question: whether the full-day pilot clears expansion. Actual final answ
 
 **Unlocks:** The ungraded aftermath.
 
+**Physical action:** Ivo adds the tested correction card under the seal; the seal remains until final full-cycle evidence clears the pilot.
+
+**Prop state:** `night-hold-seal` at `pond-tanks`; apply §4.4 before/after and retry rules. Set `wt_evidence_m14` with the accepted required evidence. The same change is readable in the persistent log.
+
 ### Beat M14-BE — At mission end
 
 **Location:** Field Planning Room.
@@ -8080,7 +10162,7 @@ Mission question: whether the full-day pilot clears expansion. Actual final answ
 
 **World state:** Expansion is halted and the tested oxygen-supply correction is added to the final plan. The final plan must keep a pause and return path.
 
-**Dialogue bubble — Ada Penn, preserve director:** “Now Ada needs a stop rule before the ship leaves. A corrected test cannot promise every future result.”
+**Dialogue bubble — Ada Penn, live radio:** “The correction is in the plan. I will sign only the tested cycle, with a rule that can stop the next step.”
 
 **Unlocks:** Metric screen after inspecting the changed object or accessible log entry.
 
@@ -8521,6 +10603,140 @@ why: The standard design fails the explicit minimum oxygen requirement at dawn, 
 
 ---
 
+## K.1 GO DEEPER — optional review, exact player copy
+
+**Button:** GO DEEPER
+
+**Availability:** After this mission is complete and normal play resumes; explicit selection only. Apply the state-neutral timer, retry and reopening contract in §4.5.
+
+**Secondary brief — exact player copy:** A healthy-looking pond at noon may face a very different night. Follow whole-cycle measurements and test a correction before expanding.
+
+**Supporting concepts — exact player copy:**
+
+- Daily balance: Photosynthesis needs light; respiration continues in living cells during both day and night.
+- Eutrophication: Nutrient enrichment can increase biomass whose respiration and decomposition raise oxygen demand.
+- Validation: A proposed correction needs a new measurement under the failure conditions, not only the conditions that already passed.
+
+### Optional review WT-M14-GD1
+
+**Prompt:** A pond has high oxygen at noon and low oxygen before dawn. Which process continues during the dark interval and consumes oxygen?
+
+- **A.** Nitrogen fixation as the direct oxygen-consuming step in aerobic respiration
+- **B.** Aerobic respiration
+- **C.** Light-driven splitting of water
+- **D.** The Calvin cycle directly using oxygen as its carbon source
+
+**Hint:** Choose a process that does not require light.
+
+**Correct key — author only:** B
+
+**Feedback after selection — exact player copy:**
+
+- **A:** Nitrogen fixation is a distinct process, not the respiratory oxygen reduction asked about.
+- **B:** Organisms can respire through the night.
+- **C:** This requires light and produces rather than consumes oxygen.
+- **D:** The Calvin cycle fixes CO2; it does not use oxygen as a carbon source.
+
+### Optional review WT-M14-GD2
+
+**Prompt:** Oxygen begins at 9 mg/L and falls at 0.5 mg/L per hour for six hours. What concentration remains?
+
+- **A.** 6 mg/L
+- **B.** 8.5 mg/L
+- **C.** 3 mg/L
+- **D.** 12 mg/L
+
+**Hint:** Use the rate over the full interval.
+
+**Correct key — author only:** A
+
+**Feedback after selection — exact player copy:**
+
+- **A:** 9 − 0.5×6 = 6.
+- **B:** That accounts for only one hour.
+- **C:** That is the decrease, not the remaining concentration.
+- **D:** The concentration is falling.
+
+### Optional review WT-M14-GD3
+
+**Prompt:** Fertilizer runoff leads to an algal bloom and then increased microbial decomposition. Why can oxygen fall?
+
+- **A.** The fertilizer directly prevents every algae cell from photosynthesizing
+- **B.** Decomposition returns the same oxygen that photosynthesis released, with no demand
+- **C.** More daytime algal photosynthesis guarantees high oxygen all night
+- **D.** Aerobic decomposers consume oxygen as they oxidize organic material
+
+**Hint:** Consider the metabolism of decomposers.
+
+**Correct key — author only:** D
+
+**Feedback after selection — exact player copy:**
+
+- **A:** The account first describes an algal bloom; later decomposition is the relevant demand.
+- **B:** Aerobic decomposition consumes oxygen.
+- **C:** Daytime production does not guarantee overnight balance.
+- **D:** Increased demand can lower dissolved oxygen.
+
+### Optional review WT-M14-GD4
+
+**Prompt:** An aeration correction passes a daytime test. Which next observation best tests whether it fixes a night failure?
+
+- **A.** A larger algal biomass measurement at noon
+- **B.** The aerator’s rated output without measuring the tank
+- **C.** An overnight oxygen record under the corrected conditions
+- **D.** A second noon reading under the corrected conditions
+
+**Hint:** Test the previously failing interval.
+
+**Correct key — author only:** C
+
+**Feedback after selection — exact player copy:**
+
+- **A:** More biomass does not establish oxygen availability through the night.
+- **B:** A rating does not verify the actual overnight conditions in the tank.
+- **C:** It observes the conditions that failed.
+- **D:** Another daytime result still omits the failing night.
+
+### Optional review WT-M14-GD5
+
+**Prompt:** A sensor reports low oxygen, but a fresh reference measurement is normal. What is the appropriate immediate scientific step?
+
+- **A.** Average the two readings and treat that as a validated concentration
+- **B.** Check calibration and compare repeated measurements before interpreting the discrepancy
+- **C.** Treat the lower reading as the true value solely because it is more cautious
+- **D.** Discard the sensor reading because the newer reading is always right
+
+**Hint:** Resolve the measurement disagreement.
+
+**Correct key — author only:** B
+
+**Feedback after selection — exact player copy:**
+
+- **A:** Averaging inconsistent measurements does not establish calibration or accuracy.
+- **B:** The inconsistent evidence needs measurement checks.
+- **C:** Caution may guide a temporary hold, but choosing truth by magnitude does not resolve the measurement conflict.
+- **D:** Recency alone does not establish accuracy.
+
+### Optional review WT-M14-GD6
+
+**Prompt:** A community gains 50 units of chemical energy in biomass while respiration uses 30 units from gross production. What was gross production?
+
+- **A.** 80 units
+- **B.** 20 units
+- **C.** 50 units
+- **D.** 1500 units
+
+**Hint:** Net production equals gross production minus respiration.
+
+**Correct key — author only:** A
+
+**Feedback after selection — exact player copy:**
+
+- **A:** Gross = 50 + 30 = 80.
+- **B:** Subtracting again confuses net with gross.
+- **C:** That is net production only.
+- **D:** Multiplication is not the balance relationship.
+
 
 # Mission 15 — WHAT GOES HOME
 
@@ -8602,7 +10818,7 @@ Mission question: which release plan the evidence now supports. Actual final ans
 
 **Location:** Seed Room.
 
-**Presentation:** equipment_panel_update + waypoint_notification.
+**Presentation:** equipment_panel_update + nearby_character_bubble + radio_dialogue + waypoint_notification.
 
 **Player control:** One Continue; timer paused; immediate return to normal control.
 
@@ -8612,19 +10828,24 @@ Mission question: which release plan the evidence now supports. Actual final ans
 
 **Unlocks:** Stop 59 at Marsh Research Bay.
 
-### Beat M15-B3 — After Stop 59
+**Dialogue bubble — Nell Shah, live radio:** “The families on this cart have records, and their reserves are still on the rack. Do not let the departure erase that link.”
+**Dialogue bubble — Ada Penn, reply on the same radio:** “It will not. Your labels, Mara’s health checks and Tess’s site limits travel with the tested stock.”
 
-**Location:** Marsh Research Bay.
+### Beat M15-B3 — After accepted Stop 59
 
-**Presentation:** waypoint_notification.
+**Trigger:** First acceptance of Stop 59; finish its feedback, then show this beat before opening Stop 60.
 
-**Player control:** One Continue; timer paused; immediate return to normal control.
+**Location:** Marsh Research Bay; speaker on the live field radio, with name and radio label visible.
 
-**World state:** The tested constraint is pinned to the sample cart.
+**Presentation:** radio_dialogue + waypoint_notification.
+
+**Player control:** One Continue or close; timer paused; line retained in the mission log; return to normal control. Accepted-stop replay opens the log instead of firing a second interrupt.
+
+**Dialogue bubble — Tess Rowan, live radio:** “The final observations support a small monitored start. If the limits fail, the crew needs a route back, not a promise.”
 
 **Panel/HUD text:** “Go to Field Planning Room and meet Ada Penn, preserve director, at the Release Board; only the director can authorize the combined plan.”
 
-**Unlocks:** Stop 60.
+**Unlocks:** The existing Stop 60; no extra condition, answer or destination.
 
 ### Beat M15-B4 — After Stop 60
 
@@ -8640,6 +10861,12 @@ Mission question: which release plan the evidence now supports. Actual final ans
 
 **Unlocks:** The ungraded aftermath; final boarding still waits for allocation and all evidence flags.
 
+**Physical action:** After final allocation and loading-gate clearance, Ada hands over the attached pilot folio and the covered cart moves to the ship; the reserve stays ashore.
+
+**Prop state:** `covered-pilot-cart` at `sample-cart`; apply §4.4 before/after and retry rules. Set `wt_evidence_m15` with the accepted required evidence. The same change is readable in the persistent log.
+
+**Dialogue bubble — Jo Pike, live radio from the ship:** “The covered space is ready. I will take only the sealed boxes on Ada’s cleared list when the loading gate opens.”
+
 ### Beat M15-BE — At mission end
 
 **Location:** Field Planning Room.
@@ -8650,7 +10877,7 @@ Mission question: which release plan the evidence now supports. Actual final ans
 
 **World state:** The corrected pilot is approved and the first covered sample cart reaches the waiting ship. The island keeps a reserve while the mainland pilot begins.
 
-**Dialogue bubble — Ada Penn, preserve director:** “Now Ada can send the small test. The crew must watch it and stop if the recorded limits fail.”
+**Dialogue bubble — Ada Penn, live radio:** “The crew will take The Contained Pilot when the loading checks clear. Our reserve stays here, and so does the right to stop.”
 
 **Unlocks:** Metric screen after inspecting the changed object or accessible log entry.
 
@@ -9100,6 +11327,140 @@ why: 'Only the corrected monitored pilot carries forward every established requi
 
 ---
 
+## K.1 GO DEEPER — optional review, exact player copy
+
+**Button:** GO DEEPER
+
+**Availability:** Explicit selection only after the ending closes and normal play resumes; never interrupt the finale. Apply the state-neutral timer, retry and reopening contract in §4.5.
+
+**Secondary brief — exact player copy:** A final plan should preserve what the tests support and make uncertainty visible. Use unfamiliar cases to combine diversity, controls and stop rules.
+
+**Supporting concepts — exact player copy:**
+
+- Pilot scope: Evidence from a monitored small trial supports decisions within its tested limits; longer-term outcomes need continued observation.
+- Stop rules: A measurable threshold and a named response turn monitoring into an actionable plan.
+- Uncertainty: Lack of observed harm is not proof of no possible harm. Keeping controls, records and reserves preserves the ability to learn and respond.
+
+### Optional review WT-M15-GD1
+
+**Prompt:** A contained trial succeeds for three days with one screened plant-partner pair. Which claim is supported?
+
+- **A.** That pair met the measured criteria during the three-day contained test
+- **B.** Every related pair will meet those criteria in the same container
+- **C.** The same pair is now known to survive ten years at the receiving site
+- **D.** Monitoring can end because all future conditions are represented
+
+**Hint:** Keep the duration, pair and setting in the conclusion.
+
+**Correct key — author only:** A
+
+**Feedback after selection — exact player copy:**
+
+- **A:** This matches the actual observations.
+- **B:** Related organisms still require relevant evidence.
+- **C:** The observation covers three days, not ten years or a new site.
+- **D:** The short trial cannot represent every future condition.
+
+### Optional review WT-M15-GD2
+
+**Prompt:** Which monitoring plan specifies a measurement frequency, a stop threshold and a response when that threshold is crossed?
+
+- **A.** Measure daily and file the values, with no threshold for changing transfers
+- **B.** Pause transfers below a stated survival threshold, with no schedule for measuring survival
+- **C.** Measure survival daily and use only a fixed calendar date to decide whether to expand
+- **D.** Measure daily; pause transfers if survival falls below 90%, then investigate
+
+**Hint:** Check for all three parts: when to measure, the trigger value and the action to take.
+
+**Correct key — author only:** D
+
+**Feedback after selection — exact player copy:**
+
+- **A:** Data collection alone gives no defined intervention rule.
+- **B:** A threshold cannot operate reliably without an observation schedule.
+- **C:** A calendar-only expansion decision does not respond to the measured survival failure.
+- **D:** The trigger and required action are explicit.
+
+### Optional review WT-M15-GD3
+
+**Prompt:** A batch starts with 60 organisms and 54 remain alive. What is its observed survival percentage?
+
+- **A.** 54%
+- **B.** 111%
+- **C.** 90%
+- **D.** 6%
+
+**Hint:** Divide survivors by starting count, then multiply by 100.
+
+**Correct key — author only:** C
+
+**Feedback after selection — exact player copy:**
+
+- **A:** 54 is the survivor count, not the percent of 60.
+- **B:** That inverts the ratio.
+- **C:** 54/60×100 = 90%.
+- **D:** Six is the number lost, not survival percent.
+
+### Optional review WT-M15-GD4
+
+**Prompt:** An untested tissue line looks vigorous next to screened lines. What is the strongest evidence-based handling choice?
+
+- **A.** Declare all its relatives unsafe before testing them
+- **B.** Keep it separate until the relevant tests are complete
+- **C.** Pool it with screened lines so it shares their clearance
+- **D.** Use its rapid growth as a substitute for the missing health tests
+
+**Hint:** Appearance does not replace screening.
+
+**Correct key — author only:** B
+
+**Feedback after selection — exact player copy:**
+
+- **A:** The untested line does not establish every relative’s status.
+- **B:** Vigor alone does not establish the required health evidence.
+- **C:** Screening clearance does not transfer by pooling.
+- **D:** Vigor does not establish the untested health criteria.
+
+### Optional review WT-M15-GD5
+
+**Prompt:** A shipment has complete family records and a daytime tank oxygen result that meets its stated limit, but no overnight measurements. Which claim about the tanks remains unsupported because of this environmental evidence gap?
+
+- **A.** The tanks remain within the oxygen limit throughout the night
+- **B.** The shipped families have recorded identities
+- **C.** The measured daytime oxygen value met the stated limit
+- **D.** The overnight oxygen outcome has not yet been measured
+
+**Hint:** Ask which claim requires data from a time interval that was not measured.
+
+**Correct key — author only:** A
+
+**Feedback after selection — exact player copy:**
+
+- **A:** No overnight record is available; a daytime pass does not establish night conditions.
+- **B:** The complete family records support this claim.
+- **C:** That is explicitly supplied by the daytime result.
+- **D:** The prompt explicitly says those measurements are missing; the unknown outcome cannot be turned into a night pass.
+
+### Optional review WT-M15-GD6
+
+**Prompt:** A pilot is paused after an unexpected health failure. Which retained resource most directly permits tracing whether the same problem was present before shipment?
+
+- **A.** Only the latest health measurements from the receiving site
+- **B.** Archived source samples pooled without family or collection labels
+- **C.** The original shipment count without sample-specific health records
+- **D.** Labeled source samples and their pre-shipment health records
+
+**Hint:** Choose a matched source for comparison.
+
+**Correct key — author only:** D
+
+**Feedback after selection — exact player copy:**
+
+- **A:** These show the new condition but do not provide the pre-shipment baseline.
+- **B:** Pooling loses the link to the shipped material and its history.
+- **C:** A total count does not show whether the same failure was present before shipment.
+- **D:** They connect the new finding to the original material and baseline.
+
 ## Ending card — exact player copy
 
 The ship leaves with the covered cart. It holds screened seed families, plants and their tested partners, each with its care record. Ada gives the crew The Contained Pilot. The new plots are ready, and the plan sets checks for day and night.
@@ -9112,4 +11473,4 @@ The mainland trial has begun; its long-term fate is still unknown. If oxygen dro
 
 # 8. Implementation boundary and resolved handoff
 
-This revised bible is the canonical content source. Earlier v1.0 companion ledgers are not revised by this handback and must not override its delivery, cast copy or concept assignments; regenerate imported metadata from this v1.1 source. No live implementation was modified. Importer/schema and world conversion must preserve the authored source blocks, named people, IDs, exact stopKind placements, units, explicit grading data, route locks, timer pauses, recovery order and visible ship/loading-gate ending. Keys in kernel/ledger sections are author-only and must never be rendered as pre-answer evidence. The companion audit lists every supplied gate requirement and distinguishes static evidence from missing project/runtime checks.
+This revised bible is the canonical content source. Earlier v1.0 companion ledgers are not revised by this handback and must not override its delivery, cast copy or concept assignments; regenerate imported metadata from this v1.2 source. No live implementation was modified. Importer/schema and world conversion must preserve the authored source blocks, named people, IDs, exact stopKind placements, units, explicit grading data, route locks, timer pauses, recovery order and visible ship/loading-gate ending. Keys in kernel/ledger sections are author-only and must never be rendered as pre-answer evidence. The companion audit lists every supplied gate requirement and distinguishes static evidence from missing project/runtime checks.

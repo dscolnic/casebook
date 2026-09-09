@@ -50,7 +50,7 @@
     motivation: "The torque result decides which start the installed motor can actually supply."
     format: BALLPARK
     question: "Choose the quantity tiles for the displayed formula a/b; submit the resulting drum angular acceleration in rad/s²."
-    answerText: α=1/2=0.5 rad/s² links the linear start to the rotating drum.
+    answerText: "α=1/2=0.5 rad/s² links the linear start to the rotating drum."
     why: "The same no-slip geometry that relates rope speed to drum turning speed also relates their accelerations when the working radius is fixed. Differentiate v=Rω to obtain a=Rα, then divide by the measured radius. With a=1 m/s² and R=2 m, α=0.5 rad/s². Using the four-metre diameter gives only half the required angular acceleration. Multiplication by radius reverses the physical relation: a larger drum radius needs less angular acceleration to produce the same upward rope acceleration."
     # wrong-path feedback, one rebuttal per wrong option:
     #   **2 rad/s²:** Multiplying by radius reverses the no-slip relation. **0.25 rad/s²:** Using diameter instead of radius halves the required angular acceleration.

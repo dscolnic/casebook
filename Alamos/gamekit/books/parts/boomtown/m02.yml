@@ -51,7 +51,7 @@
     motivation: "An unmet quantity explains the queue without yet explaining what moved."
     format: BALLPARK
     question: "Submit the daily lunch shortage using quantity demanded minus quantity supplied."
-    answerText: At the posted price, 90 − 60 = 30 lunches per day are wanted but not supplied.
+    answerText: "At the posted price, 90 − 60 = 30 lunches per day are wanted but not supplied."
     why: "At the posted price, 90 − 60 = 30 lunches per day are wanted but not supplied. An unmet quantity explains the queue without yet explaining what moved. Equilibrium reasoning begins by comparing the two planned quantities at the same price; the shortage does not itself identify which demand or supply determinant changed. 60 is supplied quantity, not shortage. 150 adds plans on opposite sides. 6 is a price, not a lunch count."
     # data: At the old $6 lunch price, customers request 90 lunches and the diner can supply 60 lunches each day.
     # correct result: 30; absolute tolerance 0.05 in the requested unit.

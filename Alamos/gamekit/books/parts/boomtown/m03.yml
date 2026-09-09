@@ -51,7 +51,7 @@
     motivation: "The owner needs receipts rather than the price sign alone."
     format: BALLPARK
     question: "Submit the nightly revenue decrease as old revenue minus new revenue."
-    answerText: Old receipts are 40×10 = 400; new receipts are 50×6 = 300; revenue falls by 400−300 = $100 per night.
+    answerText: "Old receipts are 40×10 = 400; new receipts are 50×6 = 300; revenue falls by 400−300 = $100 per night."
     why: "Old receipts are 40×10 = 400; new receipts are 50×6 = 300; revenue falls by 400−300 = $100 per night. The owner needs receipts rather than the price sign alone. Elasticity connects a price change to its quantity response, but the revenue comparison must multiply each price by the quantity actually sold at that price. −100 is the signed new-minus-old change, not the requested decrease magnitude. 10 is only the nightly price increase."
     # data: Ten rooms sold at $40 per night before the increase; six sell at $50 after it. Revenue equals price × rooms sold.
     # correct result: 100; absolute tolerance 0.05 in the requested unit.
@@ -229,7 +229,7 @@
     motivation: "The magnitude tests whether the revenue loss is consistent with the price response."
     format: VERIFY
     question: "First, calculate and commit absolute midpoint price elasticity from the two prices and quantities. Then run the Hearing Table archive check, measure its computed ratio, and select whether your prediction matches; no restoration or second measurement is required."
-    answerText: Quantity changes by −4/8 = −0.5; price changes by 10/45 = 2/9; absolute elasticity is 0.5 ÷ (2/9) = 2.25. A four-function calculator is supplied on the panel.
+    answerText: "Quantity changes by −4/8 = −0.5; price changes by 10/45 = 2/9; absolute elasticity is 0.5 ÷ (2/9) = 2.25. A four-function calculator is supplied on the panel."
     why: "Quantity changes by −4/8 = −0.5; price changes by 10/45 = 2/9; absolute elasticity is 0.5 ÷ (2/9) = 2.25. A four-function calculator is supplied on the panel. The magnitude tests whether the revenue loss is consistent with the price response. 1.6 uses initial values rather than midpoint averages. 0.4 reports a percentage quantity change without dividing by price response. 0.44 reverses the elasticity ratio."
     # data: The same rooms sell 10 nights at $40 and 6 nights at $50; use midpoint percentage changes, holding season, room quality and advertising fixed.
     # correct result: 2.25; absolute tolerance 0.05 in the requested unit.

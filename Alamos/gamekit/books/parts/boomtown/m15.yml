@@ -46,7 +46,7 @@
     motivation: "The hearing can promise only measures whose costs have a confirmed source."
     format: BALLPARK
     question: "Submit the total confirmed daily funding; then compare it with the visible $150 plan cost."
-    answerText: Confirmed funding is 120+30 = $150 daily, exactly matching the $150 plan cost; no unconfirmed grant is counted.
+    answerText: "Confirmed funding is 120+30 = $150 daily, exactly matching the $150 plan cost; no unconfirmed grant is counted."
     why: "Confirmed funding is 120+30 = $150 daily, exactly matching the $150 plan cost; no unconfirmed grant is counted. The hearing can promise only measures whose costs have a confirmed source. Opportunity cost and fiscal discipline require counting only confirmed funding once; the absence of a gap does not prove that the agreement has no real resource costs. 0 is the funding gap, not the requested confirmed funding total. 120 omits the cooperative contribution."
     # data: The complete daily plan costs $150: retrofit support $20, housing support $120, water reporting $10. Confirmed sources are the $120 market-fee revenue and $30 cooperative contribution; no grant is counted.
     # correct result: 150; absolute tolerance 0.05 in the requested unit.

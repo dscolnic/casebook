@@ -50,7 +50,7 @@
     motivation: "A pricing claim needs the demand price at the chosen output."
     format: BALLPARK
     question: "Submit the price from the demand curve at 20 slots."
-    answerText: Demand gives P = 100−2×20 = $60 per slot; the corresponding marginal revenue is $20, not the charged price.
+    answerText: "Demand gives P = 100−2×20 = $60 per slot; the corresponding marginal revenue is $20, not the charged price."
     why: "Demand gives P = 100−2×20 = $60 per slot; the corresponding marginal revenue is $20, not the charged price. A pricing claim needs the demand price at the chosen output. Marginal analysis locates output by comparing marginal revenue and cost; the demand schedule then determines the price charged on all units sold. 20 reads marginal revenue as the selling price. 100 uses the intercept at zero quantity. 40 reports the deduction instead of price."
     # data: The terminal's demand is P=100−2Q dollars per slot; it chooses Q=20 slots daily under its current contract.
     # correct result: 60; absolute tolerance 0.05 in the requested unit.

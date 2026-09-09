@@ -1,4 +1,4 @@
-// props.js — the objects that make Vestri Dome a drilling camp on an ice sheet.
+// props.js — the objects that make Aster Station a research station on a plateau.
 //
 // Generic fittings (benches, bins, posts, signs, crates, vehicles) come from
 // engine/world/kit.js and are configured in site.js. What is here is everything
@@ -10,10 +10,10 @@
 //     not a town.
 //   · **Everything windward has a drift behind it.** Snow banks up on the lee
 //     side of any obstruction, and a camp with no drifts reads as a model.
-//   · **The drill tower is the silhouette.** It is the only tall thing for two
+//   · **The mast is the silhouette.** It is the only tall thing for two
 //     hundred kilometres and it is what the place is for.
 //
-// A note on igloos, since it is the obvious question: a deep-drilling station is
+// A note on igloos, since it is the obvious question: a research station is
 // steel modules, a trench and a tower. Nobody has lived in snow houses on a
 // plateau since aircraft could reach one. The place is made recognisable by the
 // piles, the drifts, the flag lines and the fuel, not by the roofs.
@@ -212,12 +212,22 @@ function piles(scene, b, y){
 }
 
 /**
- * The drill tower over the trench.
+ * The communications mast, which was a drill tower.
  *
  * Four battered legs, three brace levels and a crown sheave, drawn from boxes:
  * at the distance this is read from, the silhouette is the whole content and a
  * real derrick is several hundred members nobody resolves. It stands over the
  * trench rather than beside it, because the hole is under it.
+ */
+/**
+ * A LATTICE, NOT A DERRICK. This is Ice Core's drill tower, and it stood over a
+ * trench at the far end of Aster Station's route — twenty-two metres of the
+ * previous campaign's whole silhouette, in a campaign about software on a
+ * research station. The frame is the right shape for the thing this place
+ * actually has: §3's External Mast Walk, the aerial the COMMS area's questions
+ * are about, and the reason a satellite pass matters. Same lattice, same
+ * height, same collider; the crown loses its crown block and its hanging cable
+ * and gains a dish, an aerial and three guys down to the snow.
  */
 function tower(scene, x, z, y, h = 22){
   const g = new THREE.Group();
@@ -237,14 +247,29 @@ function tower(scene, x, z, y, h = 22){
       box(g, 0.14, 0.14, r * 2, sx * r, h * f, 0, steel);
     }
   }
-  // The crown, and the cable hanging down the middle of the tower.
-  box(g, 2.6, 0.5, 2.6, 0, h + 0.3, 0, dark);
-  cyl(g, 0.05, h - 1.2, 0, (h - 1.2) / 2, 0, dark);
-  // The winch drum at the foot, which is where the season is actually spent.
-  cyl(g, 1.05, 2.6, 3.4, 1.0, 0, dark);
+  // The head: a dish on one side, a whip aerial above it.
+  box(g, 1.4, 0.4, 1.4, 0, h + 0.2, 0, dark);
+  const dish = cyl(g, 1.25, 0.18, 1.0, h - 1.4, 0, MATERIALS.paintedSteel(0xd8d3c4), 0.35);
+  dish.rotation.z = Math.PI / 2;
+  dish.rotation.y = 0.6;
+  cyl(g, 0.06, 4.2, 0, h + 2.4, 0, steel);
   g.rotation.z = Math.PI / 2;
   g.position.set(x, y, z);
   scene.add(g);
+  // Guyed, which is what says mast rather than derrick — three wires to anchors
+  // at fifteen metres, drawn in world space because the frame is rotated.
+  for(let i = 0; i < 3; i++){
+    const a = (i / 3) * Math.PI * 2 + 0.4;
+    const ax = x + Math.cos(a) * 15, az = z + Math.sin(a) * 15;
+    const top = new THREE.Vector3(x, y + h * 0.8, z);
+    const foot = new THREE.Vector3(ax, y, az);
+    const dir = foot.clone().sub(top);
+    const wire = cyl(scene, 0.03, dir.length(),
+      (x + ax) / 2, y + h * 0.4, (z + az) / 2, steel);
+    wire.quaternion.setFromUnitVectors(new THREE.Vector3(0, 1, 0), dir.normalize());
+    wire.castShadow = false;
+    cyl(scene, 0.12, 0.6, ax, y + 0.3, az, dark);
+  }
   return g;
 }
 
@@ -303,7 +328,7 @@ export function decorate(scene, ctx){
   /**
    * A snow tractor with a blade, and the player can drive it.
    *
-   * The camp route and the skiway are groomed by these, which is the only
+   * The camp route and the runway are groomed by these, which is the only
    * reason either exists — snow that nobody moves closes a station in a
    * fortnight. `vehicle()` gives the body, wheels and cab; the blade is two
    * boxes on the front of it, and `driveable` does the rest.
@@ -370,7 +395,7 @@ export function decorate(scene, ctx){
   }
 
   // The banks the tractors throw up either side of the groomed route, the spur
-  // and the skiway. This is what makes a cleared road read as cleared.
+  // and the runway. This is what makes a cleared road read as cleared.
   plowBanks(scene, at, { x0: 0, z0: 46, x1: 0, z1: -78, halfWidth: 6, rand, height: 1.05 });
   plowBanks(scene, at, { x0: 36, z0: 26, x1: 92, z1: 26, halfWidth: 4, rand, height: 0.85, step: 7 });
   plowBanks(scene, at, { x0: -96, z0: 110, x1: -96, z1: -90, halfWidth: 13, rand, height: 0.8, step: 9 });
@@ -384,7 +409,8 @@ export function decorate(scene, ctx){
     [58, 34, 3.2, 1.5], [-64, 20, 5.2, 2.6], [64, -22, 4.0, 2.0],
   ]) if(clearOfDoors(x, z)) pile(scene, x, at(x, z), z, { r, h, rand, lumps: 6 });
 
-  // The tower, over the trench at the far end of the route.
+  // The mast, at the far end of the route — the External Mast Walk of §3, and
+  // the only thing on this plateau above nine metres.
   hard(tower(scene, -4, -68, at(-4, -68), 22));
 
   // Fuel: the year's supply, cached upwind of the generators where a spill
@@ -400,24 +426,24 @@ export function decorate(scene, ctx){
   // Skidoos: the only way anybody gets to the stake array and back in a day.
   //
   // These were three `kit.scooter` calls — kick scooters, on a polar plateau,
-  // under a comment calling them skidoos, and none of them takeable. The comment
+  // under a comment calling them scooters, and none of them takeable. The comment
   // was right about what the camp needs and the geometry was a city pavement.
-  const skidoos = [
-    { at: { x: -14, z: 30 }, facing: 0.4, colour: 0xc4452f, id: 'skidoo-camp', label: 'skidoo' },
-    { at: { x: -11, z: 30 }, facing: 0.4, colour: 0x2f6f9f, id: 'skidoo-spare', label: 'skidoo' },
-    { at: { x: 70, z: 24 }, facing: -1.4, colour: 0xc4452f, id: 'skidoo-array', label: 'array skidoo' },
+  const scooters = [
+    { at: { x: -14, z: 30 }, facing: 0.4, colour: 0xc4452f, id: 'scooter-camp', label: 'snow scooter' },
+    { at: { x: -11, z: 30 }, facing: 0.4, colour: 0x2f6f9f, id: 'scooter-spare', label: 'snow scooter' },
+    { at: { x: 70, z: 24 }, facing: -1.4, colour: 0xc4452f, id: 'scooter-mast', label: 'mast-walk scooter' },
   ];
   let prev = null;
-  for(const d of skidoos){
+  for(const d of scooters){
     const spot = clearSpot(d.at, ctx.blocked, {
       pad: 1.4, step: 1.8,
       avoid: [{ x: 0, z: 44, r: 12 }, ...(prev ? [prev] : [])],
     });
-    const m = skidoo(scene, spot.x, spot.z, at(spot.x, spot.z),
+    const m = scooter(scene, spot.x, spot.z, at(spot.x, spot.z),
       { facing: d.facing, colour: d.colour });
     driveable(scene, m.group, {
       ...SKIDOO_DRIVE,
-      id: d.id, label: d.label, kind: 'skidoo', verb: 'Ride',
+      id: d.id, label: d.label, kind: 'scooter', verb: 'Ride',
       steer: m.steer, wheels: [],
       colliders, interactables,
     });
@@ -466,14 +492,14 @@ export function decorate(scene, ctx){
   }
 
   // Three snow tractors, parked where they are used: one on the camp route, one
-  // at the head of the skiway, one out by the stake array spur. All driveable.
+  // at the head of the runway, one out by the stake array spur. All driveable.
   plow(-14, 38, { facing: 0, colour: 0xc9702a, id: 'plow-camp', label: 'snow tractor' });
-  plow(-84, 34, { facing: -Math.PI / 2, colour: 0xb8452c, id: 'plow-skiway', label: 'skiway groomer' });
-  plow(52, 22, { facing: Math.PI / 2, colour: 0xc9a52a, id: 'plow-array', label: 'stake-array tractor' });
+  plow(-84, 34, { facing: -Math.PI / 2, colour: 0xb8452c, id: 'plow-runway', label: 'apron groomer' });
+  plow(52, 22, { facing: Math.PI / 2, colour: 0xc9a52a, id: 'plow-array', label: 'mast-walk tractor' });
 }
 
 /**
- * A skidoo — a track at the back, two skis at the front, and a handlebar.
+ * A scooter — a track at the back, two skis at the front, and a handlebar.
  *
  * The second kind of transport this camp has, and the one it could not do
  * without: the snow tractors groom, at eight metres a second with a blade on
@@ -486,7 +512,7 @@ export function decorate(scene, ctx){
  * it is about to go — on a white plateau with no landmarks that is the only
  * heading reference there is.
  */
-function skidoo(scene, x, z, y = 0, { facing = 0, colour = 0xc4452f } = {}){
+function scooter(scene, x, z, y = 0, { facing = 0, colour = 0xc4452f } = {}){
   const g = new THREE.Group();
   const paint = MATERIALS.paintedSteel(colour);
   const dark = MATERIALS.paintedSteel(0x23272b);
@@ -503,7 +529,7 @@ function skidoo(scene, x, z, y = 0, { facing = 0, colour = 0xc4452f } = {}){
   box(g, 0.66, 0.34, 0.86, 0, 0.68, 0.62, MATERIALS.paintedSteel(0x1a1c1f));   // seat
   box(g, 0.74, 0.46, 0.90, 0, 0.62, -0.34, paint);          // cowl over the engine
   box(g, 0.80, 0.10, 0.70, 0, 0.90, -0.24, paint);          // hood
-  // The windscreen, which is the part that reads as a skidoo from any distance.
+  // The windscreen, which is the part that reads as a scooter from any distance.
   const screen = box(g, 0.62, 0.34, 0.04, 0, 1.10, -0.02, MATERIALS.glass());
   screen.rotation.x = -0.42;
   for(const s of [-1, 1]) box(g, 0.10, 0.06, 0.70, s * 0.36, 0.44, 0.50, dark);   // running boards
@@ -532,7 +558,7 @@ function skidoo(scene, x, z, y = 0, { facing = 0, colour = 0xc4452f } = {}){
   return { group: g, steer };
 }
 
-/** How a skidoo handles: quick away, and it slides rather than grips. */
+/** How a scooter handles: quick away, and it slides rather than grips. */
 const SKIDOO_DRIVE = {
   halfWidth: 0.55, halfLength: 1.55, height: 1.25, clearance: 0.30,
   seat: { x: 0, y: 1.48, z: 0.55 },

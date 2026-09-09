@@ -41,9 +41,15 @@
 // across four books and their editions, which is real writing rather than a
 // mechanical fix, so it goes on the debt list instead of turning the suite red.
 //
-// The matcher is surnames from the theme's own roster, which is what
-// `checkStory` uses for the opening card. First names alone are not enough:
-// "Ines" appears in two rosters and "Marta" in three.
+// The matcher is names from the THEME'S OWN roster — a surname, or a given name
+// that belongs to exactly one person on it. It was surnames only, on the
+// argument that "Ines" appears in two rosters and "Marta" in three; that is
+// true and it is about two campaigns, and this is measured inside one. Boomtown
+// writes every scene with the short name its §4 declares — "Nico shows you the
+// record: the diner has a full queue…" — and read for surnames its sixty scenes
+// named nobody at all, which is the opposite of what they do. A given name that
+// two of this campaign's own people share is still ambiguous and is still not
+// matched.
 import { pathToFileURL } from 'node:url';
 import { resolve, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -54,16 +60,35 @@ const HERE = dirname(fileURLToPath(import.meta.url));
 const DEBT = resolve(HERE, 'scenecast-debt.json');
 const FLOOR = 0.10;
 
-/** Surnames worth matching: the last capitalised word of each roster name. */
+/**
+ * The names worth matching: every capitalised part of a roster name.
+ *
+ * SURNAMES ALONE ARE NOT HOW EVERY CAMPAIGN WRITES ITS PEOPLE. Boomtown's §4
+ * gives each person an "Allowed short name" and its sixty scenes use it —
+ * "Nico shows you the record: the diner has a full queue…" — so measured on
+ * surnames the campaign read as naming nobody in any scene, which is the exact
+ * opposite of what it does. A scene that says Nico names Nico Bell as surely as
+ * one that says Bell.
+ *
+ * A rank or a courtesy title is not a name, and neither is a one-letter
+ * initial: "Dr." and "Chief Petty Officer" are prefixes here.
+ */
 export function surnamesOf(roster){
+  const TITLE = /^(dr|mr|mrs|ms|miss|prof|professor|sir|dame|capt|captain|lt|sgt|chief|petty|officer|the|of|van|von|de|del|la|le)$/i;
+  const word = (w) => String(w ?? '').replace(/\.$/, '');
+  const usable = (w) => word(w).length > 2 && /^[A-Z]/.test(w) && !TITLE.test(word(w));
   const out = new Set();
+  const given = new Map();          // a given name -> how many people carry it
   for(const p of roster ?? []){
-    const parts = String(p?.name ?? '').split(/\s+/).filter(Boolean);
+    const parts = String(p?.name ?? '').split(/\s+/).filter(usable);
     const last = parts.at(-1);
-    // A rank or a courtesy title is not a surname, and a one-word name is all
-    // there is. "Dr." and "Chief Petty Officer" are prefixes here.
-    if(last && last.length > 2 && /^[A-Z]/.test(last) && !/^[A-Z]\.$/.test(last)) out.add(last);
+    if(last) out.add(word(last));
+    for(const w of parts.slice(0, -1)){
+      given.set(word(w), (given.get(word(w)) ?? 0) + 1);
+    }
   }
+  // A given name only two of this campaign's own people share names neither.
+  for(const [name, n] of given) if(n === 1) out.add(name);
   return [...out];
 }
 
@@ -73,7 +98,9 @@ export function sceneRate(lessons, surnames){
     const scene = String(l?.scene ?? '').trim();
     if(!scene) continue;
     total++;
-    if(surnames.some(s => scene.includes(s))) named++;
+    // On a word boundary: "Penn" must not match "Pennine", and a short given
+    // name is exactly where that would start to happen.
+    if(surnames.some(s => new RegExp(`\\b${s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}\\b`).test(scene))) named++;
   }
   return { named, total, rate: total ? named / total : 1 };
 }
@@ -122,16 +149,29 @@ function selftest(){
                   { name: 'Chief Petty Officer Dario Ferro' }, { name: 'Kovač' }];
   const sn = surnamesOf(roster);
   const cases = [
-    { name: 'surnames are the last word, past a rank or a courtesy title',
-      got: () => sn.sort().join(','), expect: 'Calloway,Ferro,Kovač,Reyes' },
+    { name: 'a surname is the last word, past a rank or a courtesy title',
+      got: () => sn.filter(x => ['Calloway', 'Ferro', 'Kovač', 'Reyes'].includes(x)).sort().join(','),
+      expect: 'Calloway,Ferro,Kovač,Reyes' },
+    { name: '…and a given name only one of them carries is a name too',
+      got: () => ['Camila', 'Dario', 'Ines'].filter(x => sn.includes(x)).sort().join(','),
+      expect: 'Camila,Dario,Ines' },
+    { name: 'a rank or a courtesy title is neither',
+      got: () => sn.filter(x => /^(Dr|Chief|Petty|Officer)$/.test(x)).length, expect: 0 },
     { name: 'a scene naming somebody counts',
       got: () => sceneRate([{ scene: 'Calloway has the landings book open at two pages.' }], sn).named,
       expect: 1 },
     { name: 'an institutional scene names nobody',
       got: () => sceneRate([{ scene: 'The Theoretical Division needs a reaction rate.' }], sn).named,
       expect: 0 },
-    { name: 'a first name alone is not matched — two rosters share "Ines"',
+    { name: 'a given name this roster makes unambiguous is matched',
       got: () => sceneRate([{ scene: 'Ines wants the number before nine.' }], sn).named,
+      expect: 1 },
+    { name: '…but one two of its own people share is not',
+      got: () => sceneRate([{ scene: 'Ines wants the number before nine.' }],
+        surnamesOf([{ name: 'Ines Calloway' }, { name: 'Ines Ferro' }])).named,
+      expect: 0 },
+    { name: 'a name inside a longer word is not a name',
+      got: () => sceneRate([{ scene: 'The Calloways Ridge survey is late.' }], sn).named,
       expect: 0 },
     { name: 'a rank in the scene still matches on the surname',
       got: () => sceneRate([{ scene: 'Chief Ferro says the water is winning below.' }], sn).named,

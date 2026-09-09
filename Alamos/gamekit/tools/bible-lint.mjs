@@ -189,7 +189,15 @@ if(!only){
 // question, asked by `tools/stop-map.mjs` against the actual world.
 const declared = new Map(bible.fixtures.map(f => [f.id, f]));
 // The places section 3 declares, which is the only thing `Area:` may name.
-const placeNames = new Set(bible.fixtures.map(f => norm(f.place)).filter(Boolean));
+//
+// A PLACE MAY BE WRITTEN AS BOTH ITS NAMES. Wildtype's fixture table carries
+// `CLINIC / Field Clinic` in its place column — the id a stop's `Area:` uses and
+// the name a player reads, in one cell — and compared whole that matched neither
+// of them, so all sixty of its stops were reported as naming an area section 3
+// does not declare. Each half counts, and so does the whole.
+const placeNames = new Set(bible.fixtures.flatMap(f => [
+  norm(f.place), ...String(f.place ?? '').split(/\s*[/|·]\s*/).map(norm),
+]).filter(Boolean));
 const KINDS = new Set(['vessel', 'rack', 'bench', 'board']);
 // A TABLE THAT DECLARES NO KINDS AT ALL IS A DIFFERENT THING FROM A ROW THAT
 // FORGOT ONE. Boomtown's fixture table is `| Area | Place | Fixture | Caption |`

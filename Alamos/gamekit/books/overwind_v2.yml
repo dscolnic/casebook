@@ -688,7 +688,7 @@ missions:
     motivation: "The meaning of a motion record determines which part of the passenger proposal can be approved."
     format: BALLPARK
     question: "Choose the quantity tiles for the displayed formula a/b; submit the resulting rope-contact radius in m."
-    answerText: R=6/3=2 m; the rope-contact radius is not the drum diameter.
+    answerText: "R=6/3=2 m; the rope-contact radius is not the drum diameter."
     why: "A point at radius R travels arc length Rθ when the drum rotates through angle θ. Differentiating with respect to time gives the no-slip speed relation v=Rω. The paired readings therefore give R=6/3=2 m. A diameter would be twice this distance and cannot be substituted for the torque arm. Multiplying the two speeds would also have the wrong units for a radius. The measured contact radius is the geometric link needed before the drum's inertia and motor demand can be compared."
     # wrong-path feedback, one rebuttal per wrong option:
     #   **4 m:** Doubling v/ω substitutes diameter for radius. **18 m:** Multiplication violates v=Rω.
@@ -1225,7 +1225,7 @@ missions:
     motivation: "The torque result decides which start the installed motor can actually supply."
     format: BALLPARK
     question: "Choose the quantity tiles for the displayed formula a/b; submit the resulting drum angular acceleration in rad/s²."
-    answerText: α=1/2=0.5 rad/s² links the linear start to the rotating drum.
+    answerText: "α=1/2=0.5 rad/s² links the linear start to the rotating drum."
     why: "The same no-slip geometry that relates rope speed to drum turning speed also relates their accelerations when the working radius is fixed. Differentiate v=Rω to obtain a=Rα, then divide by the measured radius. With a=1 m/s² and R=2 m, α=0.5 rad/s². Using the four-metre diameter gives only half the required angular acceleration. Multiplication by radius reverses the physical relation: a larger drum radius needs less angular acceleration to produce the same upward rope acceleration."
     # wrong-path feedback, one rebuttal per wrong option:
     #   **2 rad/s²:** Multiplying by radius reverses the no-slip relation. **0.25 rad/s²:** Using diameter instead of radius halves the required angular acceleration.
@@ -1606,7 +1606,7 @@ missions:
     motivation: "Stored rotational energy remains part of the brake's job even when the lift supply is sufficient."
     format: BALLPARK
     question: "Choose the quantity tiles for the displayed formula a*b*c*c; submit the resulting drum motion energy in J."
-    answerText: Krot=0.5×45000×2²=90000 J; the stored rotational motion also needs an energy destination during stopping.
+    answerText: "Krot=0.5×45000×2²=90000 J; the stored rotational motion also needs an energy destination during stopping."
     why: "Krot=0.5×45000×2²=90000 J; the stored rotational motion also needs an energy destination during stopping. The alternative '45000 J' fails for this reason: Forgetting to square angular speed loses a factor of two here. The alternative '180000 J' fails for this reason: Omitting the half doubles rotational energy. Use I=45000 kg m² and ω=2 rad/s at a reviewed 4 m/s speed; Krot=Iω²/2."
     # wrong-path feedback, one rebuttal per wrong option:
     #   **45000 J:** Forgetting to square angular speed loses a factor of two here. **180000 J:** Omitting the half doubles rotational energy.
@@ -1891,7 +1891,7 @@ missions:
     motivation: "The momentum history decides whether the feed arrangement can protect the machinery while keeping ore moving."
     format: BALLPARK
     question: "Choose the quantity tiles for the displayed formula a/b; submit the resulting mean bin impact force in N."
-    answerText: Favg=600/0.2=3000 N, so the short impact exceeds the fictional 1500 N limit; a 0.6 s stop would give 1000 N.
+    answerText: "Favg=600/0.2=3000 N, so the short impact exceeds the fictional 1500 N limit; a 0.6 s stop would give 1000 N."
     why: "Favg=600/0.2=3000 N, so the short impact exceeds the fictional 1500 N limit; a 0.6 s stop would give 1000 N. Multiplying momentum by time does not give force. The alternative '1000 N' fails for this reason: That is the proposed longer stop, not the measured short stop. Instrumented bin surrogate receives 600 kg m/s momentum and stops it in 0.2 s; Favg=Δp/Δt; force limit 1500 N."
     # wrong-path feedback, one rebuttal per wrong option:
     #   **120 N:** Multiplying momentum by time does not give force. **1000 N:** That is the proposed longer stop, not the measured short stop.
@@ -2312,7 +2312,7 @@ missions:
     motivation: "The chosen system determines which load the next force limit must protect."
     format: BALLPARK
     question: "Choose the quantity tiles for the displayed formula a*b; submit the resulting recall the full-length pull in N."
-    answerText: T=16000×10=160000 N; steady speed removes ma but not the load’s weight.
+    answerText: "T=16000×10=160000 N; steady speed removes ma but not the load's weight."
     why: "Cruise means the cage has constant speed, so its acceleration is zero and the mean net force on the hanging system is zero. Tension must still balance the weight of both the cage and the rope: 16000×10=160000 N. The earlier 176000 N result included an upward acceleration that is absent here. Using only 40000 N would discard the hanging steel. This steady pull is the force whose work rate increases when the proposed cruise speed is raised."
     # wrong-path feedback, one rebuttal per wrong option:
     #   **176000 N:** That includes the Day 3 upward acceleration, absent at cruise. **40000 N:** That discards hanging-rope weight.

@@ -2,7 +2,7 @@
 
 ## AP Computer Science A Campaign Implementation Bible
 
-**Version:** 2.12 — Handback 6: Recovery Record, ending, and card revision  
+**Version:** 2.13 — Ensemble story, physical evidence and optional depth  
 **Campaign length:** 15 missions, 60 graded stops  
 **Setting:** Aster Station, Antarctica, during polar night  
 **Primary subject:** AP Computer Science A (Java)
@@ -10,6 +10,9 @@
 > **Course-source note.** The supplied cheat sheet is explicitly an **AP Computer Science Principles** sheet, not AP Computer Science A. To avoid silently treating CSP as CSA, WHITEOUT v2 defines its own numbered AP-CSA-oriented Java spine (concepts 1–34) and separately carries the supplied sheet's useful cross-course material on testing, data quality, networks, and impacts (35–38). This campaign spine is the authoritative numbering used by every stop in this bible.
 
 ## 0. Readiness boundary
+
+**v2.13 ensemble expansion:** Applies Master Brief v3.5, Ledger v1.5 and Giant Gate v2.5. Adds exact intermediate exchanges, evidence-dependent greetings, three supporting residents, physical actions, the fixture register and 90 optional review questions. Graded boards, original Java source, four-bar economy, delivery pieces, five worked examples per mission and the handback ending remain intact. Runtime behavior of these additions is not tested in a revised build.
+
 
 This bible is authored to the supplied Master Campaign Brief, `QUESTION_TYPES.md`, and Giant Campaign Gate Check. It contains concrete stop-specific boards rather than payload placeholders. **Build evidence:** Handback 6 reports that v2.11 imports and plays. **This v2.12 revision has not been re-imported or played here** because `engine/content/normalize.js`, the importer/schema, validators, and a playable repository were not supplied; `QUESTION_TYPES.md` itself says those code sources are authoritative over the markdown description.
 
@@ -203,6 +206,47 @@ Satellite links, packet routing, weather instruments, and rescue-window traffic 
 No `s01-...` or stop-shaped fixture exists. Every stop placement below resolves to one declared reusable fixture or one canonical named person.
 
 ---
+## 3.1 Fixture implementation register
+
+These 33 IDs are newly assigned authoring identifiers for the existing named fixtures; v2.12 did not declare engine IDs. Preserve each existing physical name, area, geometry and stop placement. Importers bind these IDs to the existing objects rather than spawn duplicates. Every graded stop resolves to exactly one row. An em dash in Stops means the object remains part of the room without a graded question.
+
+| Stable ID | Name | Kind | Area/place | Physical appearance | Player-facing caption | Stops |
+|---|---|---|---|---|---|---|
+| `ops-incident-console` | Incident Console | console | OPS | A waist-high steel desk with recessed status screens and a covered release switch | Station incidents and release control | 60 |
+| `ops-systems-map` | Systems Map | wall map | OPS | A backlit station plan with each module drawn around its real connecting corridor | Aster Station systems | — |
+| `ops-rescue-board` | Rescue Board | planning board | OPS | A tall magnetic board with a flight-window clock and transparent document pockets | Rescue window and Recovery Record | 45, 57 |
+| `ops-shift-log-desk` | Shift Log Desk | desk | OPS | A scarred writing desk with a fixed file reader, paper roll and archive drawer | Shift records | 29, 30 |
+| `ops-emergency-radio` | Emergency Radio | radio | OPS | A bolted transceiver with a coiled hand microphone and guarded channel selector | Emergency voice link | — |
+| `ops-incident-analysis-board` | Incident Analysis Board | analysis board | OPS | A cork-backed evidence board beside a narrow comparison screen and seal clip | Compare incident evidence | 56 |
+| `code-code-review-wall` | Code Review Wall | code display | CODE | A wide monospace display above a paper tray and clear clips for retained traces | Source and trace review | 15, 16, 18, 23, 31, 35, 39, 42, 46, 47, 49, 50, 58 |
+| `code-test-bench` | Test Bench | test bench | CODE | An insulated bench with labelled harness sockets, a lead tray and a clear isolation cover | Isolated software tests | 13, 14, 28, 32, 53 |
+| `code-build-console` | Build Console | terminal | CODE | A heavy keyboard terminal with separate simulation and release indicator lamps | Build and reference paths | 19, 24 |
+| `code-version-rack` | Version Rack | rack | CODE | A shallow metal rack holding tagged controller replicas and a version reader | Controller versions and identities | 17, 41 |
+| `code-sandbox-terminal` | Sandbox Terminal | terminal | CODE | A compact screen and keyboard under an ISOLATED sign with a physical reset button | Safe simulation | — |
+| `power-generator-controller` | Generator Controller | controller | POWER | A sealed cabinet with a tethered identity strip and a guarded live connector | Generator control and identity | 4, 20, 43, 55 |
+| `power-battery-rack` | Battery Rack | battery rack | POWER | Rows of secured battery modules with insulated terminal covers and charge labels | Battery reserve | — |
+| `power-heat-loop-panel` | Heat-Loop Panel | control panel | POWER | A pipe schematic mounted above valve indicators and temperature readouts | Heat circulation | — |
+| `power-load-board` | Load Board | instrument board | POWER | A metal meter board with load readouts, test-lead clips and an inspection-tag rail | Measured power and controller arithmetic | 1, 2, 3, 54 |
+| `power-breaker-cabinet` | Breaker Cabinet | cabinet | POWER | A tall lockable enclosure with numbered breaker handles behind a clear door | Power isolation | — |
+| `hab-air-handler-panel` | Air Handler Panel | control panel | HAB | A fan and duct diagram beside guarded mode buttons and airflow indicators | Air circulation controls | — |
+| `hab-scrubber-console` | Scrubber Console | console | HAB | A low console with air-quality readouts, separate control covers and a seal tray | Carbon dioxide removal controls | 8, 44 |
+| `hab-sensor-wall` | Sensor Wall | sensor map | HAB | A room plan fitted with numbered sensor labels, cable routes and a notice hook | Rooms and sensor identities | 6, 26, 27 |
+| `hab-alarm-cabinet` | Alarm Cabinet | cabinet | HAB | A narrow alarm cabinet with a visible command counter and a sleeved shutdown handle | Air command and lockout logic | 5 |
+| `hab-habitat-analysis-board` | Habitat Analysis Board | analysis board | HAB | A dry-erase board with room outlines and clips for independent measurement sheets | Compare habitat evidence | 7 |
+| `hab-sensor-probe-rack` | Sensor Probe Rack | probe rack | HAB | A rack of tethered handheld probes with numbered sockets and a calibration strip | Independent room measurements | 25 |
+| `veh-rover-diagnostic-cart` | Rover Diagnostic Cart | diagnostic cart | VEH | A wheeled cart with a secured terminal and rover test sockets | Rover diagnostic checks | 12, 36 |
+| `veh-drone-rack` | Drone Rack | storage rack | VEH | A bolted equipment rack with charging cradles and a shelf for the relay case | Field equipment and relay storage | — |
+| `veh-route-table` | Route Table | map table | VEH | A waist-high table with a gridded survey map, magnetic markers and tethered coordinate cards | Survey grid and rover map | 33 |
+| `veh-charging-console` | Charging Console | console | VEH | A charging controller beside thick dock cables and guarded disconnect handles | Vehicle charge controls | — |
+| `veh-parts-bench` | Parts Bench | workbench | VEH | A worn bench with labelled drawers, a wheel kit and straps for loose equipment | Rover repair parts | — |
+| `veh-route-planning-board` | Route Planning Board | planning board | VEH | A vertical route board with waypoint clips and a docked route simulator | Bounded rover routes | 9, 10, 11, 34, 51 |
+| `comms-link-console` | Link Console | communications console | COMMS | A fixed radio-control desk with a tuning handle, channel tab and link indicators | Primary and relay links | 48, 52 |
+| `comms-packet-monitor` | Packet Monitor | monitor | COMMS | A split-screen packet reader above a strip printer and comparison clip | Raw packets and displayed time | 21, 40, 59 |
+| `comms-weather-mast-console` | Weather Mast Console | console | COMMS | An instrument console showing mast status beside physical icing and wind indicators | Mast weather and icing | — |
+| `comms-antenna-router` | Antenna Router | router | COMMS | A mounted network enclosure with labelled ports and a removable service cover | Antenna routing dependencies | — |
+| `comms-message-queue-board` | Message Queue Board | queue board | COMMS | A wide message display with a visible pass clock and sorted-record reader | Transmission queue and search | 22, 37, 38 |
+
+---
 # 4. Canonical roster
 
 Each roster passage ends with a short recall question. The player answers aloud or thinks of an answer, then selects Reveal answer for feedback. This check is ungraded, costs no time or points, and changes no story state; it is not an added mission stop.
@@ -341,6 +385,72 @@ Each roster passage ends with a short recall question. The player answers aloud 
 
 **Feedback:** Agreement alone does not show that their evidence is independent.
 
+## 4.1 Evidence-driven relationships and greetings
+
+The flags below are derived only from completed existing graded stops. They are monotonic story facts saved with campaign progress; a wrong attempt cannot set them. Optional dialogue reads these facts and never creates them. Do not add a trust bar or make a greeting prerequisite for any mission. All main-character conversations occur on explicit Talk selection while that character is present at their current mission location or by the named station radio. Before their canonical first entrance, the Talk entry is hidden; remote optional contact is available after that entrance without opening a new area.
+
+| Arc | Early position | Evidence turning point | Later demonstrated change |
+|---|---|---|---|
+| Malik and Priya: measurement and code become joint evidence | M1 Malik nearly cuts a healthy generator; M4 Priya admits trusting an interface | Stop 16 reproduces the shared utility failure; Stop 20 verifies object identity at P02 | M11 they design a one-sided mutation together; M14 Malik accepts calm live readings and broken rollback at once |
+| Mei and Liv: agreement needs a source history | M2 Mei questions duplicate commands; M6 Liv almost abandons a good link | Stop 24 repairs the shared parser; Stop 28 pairs the correct sensor identity with Room 7 | M7 Liv requests IDs with values; M13/M15 their late greetings require a genuinely separate relay path |
+| Park and Jonah: rescue speed must preserve a way back | M3 Park accepts holding the rover rather than losing it; M9 Jonah asks that the field crew be cleared | Stop 36 validates the survey mapping; Stop 52 proves the relay route | M13 Jonah holds Park to her reversible-plan promise; M15 Park explicitly retains his fallback through aircraft arrival |
+
+**Greeting selection:** For each named person, select the highest-priority true row: late priority 30, middle priority 20, early priority 10. The early row is the fallback after the canonical first entrance. Show one exact line, pause the timer, log it, and return control on Continue. Do not auto-repeat on proximity. Reopening Talk repeats the currently eligible line on request; reading it changes no metrics, RP, evidence, access or required dialogue. The evidence itself changes willingness to share measurements or accept responsibility, as scripted in the mission exchanges. All flags in this table mean `stop_N_complete`, except `aircraft_stopped`, which is the existing taxi-complete world event.
+
+| Character | Priority / condition | Exact greeting |
+|---|---|---|
+| Dr. Elena Park | 10 / after first entrance | What can we decide with the evidence we have, and what must wait? |
+| Dr. Elena Park | 20 / stop_36_complete | Jonah's survey held up. I have cleared the field crew in the record. |
+| Dr. Elena Park | 30 / stop_57_complete | I promised Jonah a way back. The small release keeps that promise. |
+| Malik Okafor | 10 / after first entrance | The machine still sounds right. Bring the trace beside my load readings. |
+| Malik Okafor | 20 / stop_20_complete | Priya found the wrong object. I am checking identities with her now. |
+| Malik Okafor | 30 / stop_56_complete | Live power is steady. Priya's broken rollback is just as real. |
+| Priya Nair | 10 / after first entrance | I trusted that interface. Show me the input that makes it fail. |
+| Priya Nair | 20 / stop_20_complete | Malik gave us the live identity. My simulator result was not enough. |
+| Priya Nair | 30 / stop_56_complete | We kept the ugly trace. That is why we recognized the rollback fault. |
+| Jonah Reyes | 10 / after first entrance | A repeatable fault tells me more than another box of spare wheels. |
+| Jonah Reyes | 20 / stop_36_complete | Park cleared the survey crew. We can work from the same map now. |
+| Jonah Reyes | 30 / stop_57_complete | Park kept the fallback in the plan. I can keep the rover ready for her. |
+| Liv Andersen | 10 / after first entrance | Two screens can share one mistake. Mei has been reminding me of that. |
+| Liv Andersen | 20 / stop_28_complete | Mei sends sensor IDs with the readings now. I keep both in the message. |
+| Liv Andersen | 30 / stop_52_complete | The rover gives us another path. This time I can name what it avoids. |
+| Mei Alvarez | 10 / after first entrance | I want one action for one event. Let us trace where the second came from. |
+| Mei Alvarez | 20 / stop_28_complete | Room 7 keeps its people. Liv and I keep the sensor IDs with the values. |
+| Mei Alvarez | 30 / stop_52_complete | Liv proved the relay path. Agreement finally has a separate route behind it. |
+
+## 4.2 Supporting station voices
+
+These three residents belong to the existing population of 28, not additional arrivals. They have no graded-stop ownership and do not create new travel objectives. Their exact lines play only on explicit optional inspection of the named changed object after the listed evidence trigger, with at most one supporting voice in a scene. Each inspection pauses the timer, uses one Continue, logs the line and returns control. First inspection plays once; later selection of Replay observation replays without changing state.
+
+| Person / job | Presence and evidence trigger | Exact observation | Consequence |
+|---|---|---|---|
+| Tessa Hale, station medic | Radio from Medical Bay; inspect the controller inspection tag after stop_4_complete | I have kept the warming room open. Tell me before the next power change; two people are still waiting there. | Continued heat supports actual residents; this is no new medical task. |
+| Owen Bell, habitat steward | Local at Sensor Wall; inspect the filed relocation notice after stop_28_complete | I had seven blankets stacked for the move. They can go back on the bunks now. | The corrected mapping prevents an unnecessary room move. |
+| Sana Cho, shift technician | Local at Shift Log Desk; inspect the restored timeline after stop_32_complete | My valve check is back in the log. I thought I would have to prove I had been there. | Recovering the source record removes an unfair implication about a worker. |
+
+## 4.3 Physical story props and persistence
+
+Props below belong to existing fixtures. They are scene objects, not collectible inventory and not new quiz stations. Each before-state is visible from the mission's arrival; each after-state occurs once at the listed evidence trigger, even if its optional observation is skipped. Save the resulting state. Retrying an answer cannot move, consume or duplicate an object; loading a save reconstructs its latest state from completed evidence. Cross-room movement is performed by crew during the existing scene transition, not by a compulsory player fetch. Object animation adds no time cost and does not alter graded unlocks or the existing metric economy. M15's folder handover is subordinate to the existing aircraft taxi and final-release gates and precedes the ending only within that already required arrival scene.
+
+| Mission / prop ID | Physical object and home | Before | Crew action / after | Trigger |
+|---|---|---|---|---|
+| M1 / `wo-prop-01` | Controller inspection tag; Load Board (`power-load-board`) | Loose tag clipped beneath the board | Malik clips the tag to its inspected lead and folds the shutdown tab inward | Stop 3 complete |
+| M2 / `wo-prop-02` | Air-command lockout sleeve; Alarm Cabinet (`hab-alarm-cabinet`) | Amber sleeve covers the manual shutdown handle | Mei folds the sleeve back after the exclusive-command verification | Stop 8 complete |
+| M3 / `wo-prop-03` | Spare wheel kit; Parts Bench (`veh-parts-bench`) | Open kit beside the held rover | Jonah closes the kit and returns it to the lower shelf | Stop 12 complete |
+| M4 / `wo-prop-04` | Isolated test lead; Test Bench (`code-test-bench`) | Coiled lead in the bench tray | Priya plugs the lead into the isolated harness sockets and clips the LIVE DISCONNECTED cover in place | Stop 15 complete |
+| M5 / `wo-prop-05` | C17 and P02 identity tags; Generator Controller (`power-generator-controller`) | Two distinct tags lie side by side on a tethered comparison strip | Malik fastens the P02 tag beneath the live connector, leaving C17 in the comparison pocket | Stop 20 complete |
+| M6 / `wo-prop-06` | Timestamp comparison strip; Packet Monitor (`comms-packet-monitor`) | A physical printer strip contains the original message | Liv clips the untouched strip beside the corrected display without trimming its final digit | Stop 24 complete |
+| M7 / `wo-prop-07` | Room relocation notice; Sensor Wall (`hab-sensor-wall`) | A paper Room 7 move notice hangs from a hook | Mei removes the notice and files it behind the corrected sensor map | Stop 28 complete |
+| M8 / `wo-prop-08` | Cleanup trace print; Code Review Wall (`code-code-review-wall`) | A printer copy of the alternating survivor trace lies in the wall tray | Priya pins the copy under a clear retaining clip for later comparison | Stop 32 complete |
+| M9 / `wo-prop-09` | Survey coordinate card; Route Table (`veh-route-table`) | A tethered survey card rests beside a misplaced magnetic crevasse marker | Jonah moves the marker to the surveyed cell and clamps the card alongside it | Stop 36 complete |
+| M10 / `wo-prop-10` | Frequency channel tab; Link Console (`comms-link-console`) | A blank hinged tab sits above the tuning handle | Liv engraves 122.3 MHz on the replaceable tab and latches it above the handle | Stop 40 complete |
+| M11 / `wo-prop-11` | Controller separation seals; Scrubber Console (`hab-scrubber-console`) | Two separate paper seals rest in the console tray | Mei attaches one seal to the local control cover; Malik confirms by radio that the other is attached at P02 | Stop 44 complete |
+| M12 / `wo-prop-12` | Rescue packet sleeves; Rescue Board (`ops-rescue-board`) | Six field cards are held in a transparent sorting sleeve | Park moves the two excluded field cards into the closed LOCAL ONLY pocket | Stop 45 complete |
+| M13 / `wo-prop-13` | Relay tether flag; Drone Rack (`veh-drone-rack`) | A folded flag is tied to the stored relay case beside the rover equipment | Jonah unfolds the flag when the deployed rover confirms the independent relay path | Stop 52 complete |
+| M14 / `wo-prop-14` | Recovery approval seal; Incident Analysis Board (`ops-incident-analysis-board`) | An intact green paper seal crosses the recovery approval clip | Park breaks the seal and pins the retained Mission 8 trace beside the failed rollback report | Stop 56 complete |
+| M15 / `wo-prop-15` | The Recovery Record handover folder; Rescue Board (`ops-rescue-board`) | The fifteen-piece folder remains open in the board cradle | Park closes the folder and hands it to the arriving relief crew after the aircraft stops | Aircraft taxi complete AND Stop 60 complete |
+
+---
 # 5. Authoritative numbered concept spine
 
 | # | Campaign concept | Source status |
@@ -783,6 +893,8 @@ The mission is one causal investigation rather than four topic-matched questions
 
 ## D. Player-facing beat script
 
+**Beat presentation rule:** Existing panels and waypoints remain, with the exact speech below added to the named checkpoint. At most two short speech bubbles play per checkpoint. One Continue advances each bubble; the timer is paused throughout, speech enters the review log, and the existing unlock fires when speech closes. Local/remote presence is explicit. Replay from the log is state-neutral. The event fires once on the first successful completion of its trigger; retries cannot repeat world actions.
+
 ### Beat M1-B1 — On arrival at Power & Thermal Plant
 
 **Presentation:** nearby_character_bubble.  
@@ -801,6 +913,19 @@ The mission is one causal investigation rather than four topic-matched questions
 
 **Unlocks:** Stop 3.
 
+
+
+**Dialogue bubble — Malik Okafor, local:** “The fuel readings held steady while that percentage collapsed. I nearly cut our heat on a bad calculation.”
+
+**Dialogue bubble — Dr. Elena Park, radio from Operations Module:** “Keep the machine running. I want the repaired value tested before I change the station plan.”
+
+### Beat M1-B3 — After Stop 3
+
+**Trigger:** First successful completion of Stop 3.
+**Presentation:** nearby_character_bubble under the shared beat presentation rule.
+**Unlock:** Continue returns to the existing route to Stop 4.
+
+**Dialogue bubble — Malik Okafor, local:** “The fraction now survives in memory. That still leaves the alarm rule to test.”
 
 ### Beat M1-B4 — After Stop 4
 
@@ -1116,6 +1241,165 @@ verify:
 
 
 ---
+
+## L. GO DEEPER — optional review, exact player copy
+
+**Availability:** After mission completion and its metric screen, select GO DEEPER from the completed mission card. The panel is optional, ungraded, timer-paused and reopenable. Answers, hints and replays change no bars, RP, evidence flags, access or unlocks. Exit review is always available. Preserve the separate five worked examples. Optional review IDs below are never graded stop IDs.
+
+**Secondary brief:** A correct-looking type on the left cannot rescue a value already lost on the right. Try fresh arithmetic cases, then decide where a conversion must occur.
+
+**Java convention:** Each snippet is independent and sits in a suitable enclosing class or method; `java.util.ArrayList` is imported when needed. Do not carry values or class definitions from a different question.
+
+**Supporting concepts:**
+
+- Operand types: Java chooses integer or floating-point division from the operands before assignment.
+- Primitive assignment: an int variable receives a copied value, not a live connection to another variable.
+- Remainder: a % b gives what is left after whole-number division; it is a different operation from /.
+
+### WO-GD-01-1
+
+**Objective:** Apply the mission concept to new data
+
+**Question:** Java evaluates `int n = 7 / 3 * 3;`. What is n?
+
+A. 7.0
+B. 9
+C. 6
+D. 7
+
+**Correct key:** C
+
+**Hint:** Evaluate equal-precedence operations from left to right.
+
+**Option feedback:**
+
+- A: The variable is int, and the division has integer operands.
+- B: The quotient truncates; it does not round up.
+- C: Integer division gives 2, then 2 times 3 is 6.
+- D: Integer division loses the remainder before multiplication.
+
+**Solution check:** Integer division gives 2, then 2 times 3 is 6.
+
+### WO-GD-01-2
+
+**Objective:** Retrieve and trace a prior rule
+
+**Question:** What value is stored by `double x = 9 / 4;`?
+
+A. Compile error
+B. 2.0
+C. 2.25
+D. 2.5
+
+**Correct key:** B
+
+**Hint:** Start with the types of the operands, not the destination.
+
+**Option feedback:**
+
+- A: Java permits widening an int result to double.
+- B: The int division gives 2 before assignment widens it to double.
+- C: A double destination does not change how the right side is evaluated.
+- D: Nine divided by four is neither this fraction nor this integer.
+
+**Solution check:** The int division gives 2 before assignment widens it to double.
+
+### WO-GD-01-3
+
+**Objective:** Distinguish a plausible wrong model
+
+**Question:** Which expression gives 2.25 from int variables a = 9 and b = 4?
+
+A. (double) a / b
+B. (double) (a / b)
+C. a / b
+D. a % b
+
+**Correct key:** A
+
+**Hint:** A cast must affect an operand before division.
+
+**Option feedback:**
+
+- A: Converting the first operand makes the division floating point.
+- B: The parentheses finish integer division before the cast.
+- C: Both operands are int, so the result is 2.
+- D: Remainder is 1, not the quotient.
+
+**Solution check:** Converting the first operand makes the division floating point.
+
+### WO-GD-01-4
+
+**Objective:** Test a boundary case
+
+**Question:** Trace `int a = 4; int b = a; a = 9;`. What is b?
+
+A. 9
+B. 0
+C. 13
+D. 4
+
+**Correct key:** D
+
+**Hint:** Track a separate box for each primitive variable.
+
+**Option feedback:**
+
+- A: Primitive assignment does not create an alias.
+- B: The explicit assignment replaces the default concept with 4.
+- C: No addition appears in the code.
+- D: Assigning a primitive copies its value; b does not follow later changes to a.
+
+**Solution check:** Assigning a primitive copies its value; b does not follow later changes to a.
+
+### WO-GD-01-5
+
+**Objective:** Transfer the idea to a new setting
+
+**Question:** What is `17 % 5` in Java?
+
+A. 3.4
+B. 5
+C. 2
+D. 3
+
+**Correct key:** C
+
+**Hint:** Write 17 = 5q + r with 0 ≤ r < 5.
+
+**Option feedback:**
+
+- A: Percent here is remainder, not division.
+- B: The divisor is not the amount left over.
+- C: Seventeen is three groups of five with remainder two.
+- D: Three is the integer quotient, not the remainder.
+
+**Solution check:** Seventeen is three groups of five with remainder two.
+
+### WO-GD-01-6
+
+**Objective:** Combine reasoning and a decision
+
+**Question:** A calculator must represent 3.75 exactly for this small input. Which declaration preserves it?
+
+A. int value = (int) 3.75;
+B. double value = 15.0 / 4;
+C. int value = 15 / 4;
+D. double value = 15 / 4;
+
+**Correct key:** B
+
+**Hint:** Check both the expression and the receiving type.
+
+**Option feedback:**
+
+- A: The cast discards the fractional part.
+- B: One floating-point operand preserves 3.75, which is exactly representable in binary.
+- C: This stores the integer quotient 3.
+- D: The integer quotient 3 is widened to 3.0.
+
+**Solution check:** One floating-point operand preserves 3.75, which is exactly representable in binary.
+
 # Mission 2 — THE ALARM THAT CALLS TWICE
 
 ## A. Mission briefing card — exact player copy
@@ -1184,6 +1468,8 @@ The mission is one causal investigation rather than four topic-matched questions
 
 ## D. Player-facing beat script
 
+**Beat presentation rule:** Existing panels and waypoints remain, with the exact speech below added to the named checkpoint. At most two short speech bubbles play per checkpoint. One Continue advances each bubble; the timer is paused throughout, speech enters the review log, and the existing unlock fires when speech closes. Local/remote presence is explicit. Replay from the log is state-neutral. The event fires once on the first successful completion of its trigger; retries cannot repeat world actions.
+
 ### Beat M2-B1 — On arrival at Habitat Control
 
 **Presentation:** nearby_character_bubble.  
@@ -1202,6 +1488,19 @@ The mission is one causal investigation rather than four topic-matched questions
 
 **Unlocks:** Stop 7.
 
+
+
+**Dialogue bubble — Mei Alvarez, local:** “One event reached both branches. I blamed the sensor for giving us two orders.”
+
+**Dialogue bubble — Dr. Elena Park, radio from Operations Module:** “Then leave the sensor in service. Show me the rule that prevents the second order.”
+
+### Beat M2-B3 — After Stop 7
+
+**Trigger:** First successful completion of Stop 7.
+**Presentation:** nearby_character_bubble under the shared beat presentation rule.
+**Unlock:** Continue returns to the existing route to Stop 8.
+
+**Dialogue bubble — Mei Alvarez, local:** “The nested lockout has its own path. We need that check before anyone changes the air controls.”
 
 ### Beat M2-B4 — After Stop 8
 
@@ -1515,6 +1814,165 @@ verify:
 
 
 ---
+
+## L. GO DEEPER — optional review, exact player copy
+
+**Availability:** After mission completion and its metric screen, select GO DEEPER from the completed mission card. The panel is optional, ungraded, timer-paused and reopenable. Answers, hints and replays change no bars, RP, evidence flags, access or unlocks. Exit review is always available. Preserve the separate five worked examples. Optional review IDs below are never graded stop IDs.
+
+**Secondary brief:** A condition can be individually sensible yet form the wrong decision when combined with another. Test boundaries and shared cases before choosing the branch structure.
+
+**Java convention:** Each snippet is independent and sits in a suitable enclosing class or method; `java.util.ArrayList` is imported when needed. Do not carry values or class definitions from a different question.
+
+**Supporting concepts:**
+
+- Independent if statements: every reached condition is evaluated, so several bodies may run.
+- Exclusive selection: an else-if chain stops at the first true branch.
+- Boolean boundaries: inclusive limits use >= or <=; && requires both conditions, while || requires at least one.
+
+### WO-GD-02-1
+
+**Objective:** Apply the mission concept to new data
+
+**Question:** Trace `int k = 0; int x = 8; if (x > 3) k++; if (x > 6) k++;`. What is k?
+
+A. 8
+B. 2
+C. 1
+D. 0
+
+**Correct key:** B
+
+**Hint:** Evaluate each if independently.
+
+**Option feedback:**
+
+- A: The code increments k; it does not assign x to k.
+- B: Both independent conditions are true, so both increments run.
+- C: Independent if statements do not exclude one another.
+- D: Eight exceeds both thresholds.
+
+**Solution check:** Both independent conditions are true, so both increments run.
+
+### WO-GD-02-2
+
+**Objective:** Retrieve and trace a prior rule
+
+**Question:** Trace `int k = 0; int x = 8; if (x > 3) k = 1; else if (x > 6) k = 2;`. What is k?
+
+A. 1
+B. 2
+C. 3
+D. 0
+
+**Correct key:** A
+
+**Hint:** An else-if belongs to the preceding if.
+
+**Option feedback:**
+
+- A: The first true branch runs and skips the else-if branch.
+- B: A true first branch prevents evaluation of the alternative branch.
+- C: Assignments are not added.
+- D: The first condition is true.
+
+**Solution check:** The first true branch runs and skips the else-if branch.
+
+### WO-GD-02-3
+
+**Objective:** Distinguish a plausible wrong model
+
+**Question:** An inclusive allowed range is 10 through 20. Which test accepts exactly that range?
+
+A. x > 10 && x < 20
+B. x >= 10 || x <= 20
+C. x <= 10 && x >= 20
+D. x >= 10 && x <= 20
+
+**Correct key:** D
+
+**Hint:** Translate inclusive and both separately.
+
+**Option feedback:**
+
+- A: This rejects the two allowed endpoints.
+- B: Every integer satisfies at least one of those comparisons.
+- C: No value can satisfy both constraints.
+- D: Both lower and upper limits must hold, including endpoints.
+
+**Solution check:** Both lower and upper limits must hold, including endpoints.
+
+### WO-GD-02-4
+
+**Objective:** Test a boundary case
+
+**Question:** With boolean ready = false and boolean blocked = false, what is `!ready || blocked`?
+
+A. Compile error
+B. It depends on evaluation order
+C. true
+D. false
+
+**Correct key:** C
+
+**Hint:** Apply ! before ||.
+
+**Option feedback:**
+
+- A: All operands and operators have valid Boolean types.
+- B: These expressions have no side effects and precedence is defined.
+- C: Not false is true; true OR false is true.
+- D: Negation applies to ready before OR.
+
+**Solution check:** Not false is true; true OR false is true.
+
+### WO-GD-02-5
+
+**Objective:** Transfer the idea to a new setting
+
+**Question:** The rule is: accept only when paid is true and either member or guest is true. Which expression matches it?
+
+A. paid && member && guest
+B. paid && (member || guest)
+C. (paid && member) || guest
+D. paid || (member && guest)
+
+**Correct key:** B
+
+**Hint:** Try the unpaid-guest case to reject a tempting alternative.
+
+**Option feedback:**
+
+- A: This requires both statuses, although either suffices.
+- B: Payment is required in both permitted visitor cases.
+- C: This admits an unpaid guest.
+- D: This admits any paid visitor even with neither status.
+
+**Solution check:** Payment is required in both permitted visitor cases.
+
+### WO-GD-02-6
+
+**Objective:** Combine reasoning and a decision
+
+**Question:** A threshold should accept x = 5 but reject x = 4. Which two-input test best distinguishes `x >= 5` from `x > 5`?
+
+A. Test 4 and 5
+B. Test 6 and 7
+C. Test 1 and 2
+D. Test 4 twice
+
+**Correct key:** A
+
+**Hint:** Include a value where the candidate expressions disagree.
+
+**Option feedback:**
+
+- A: The value 5 exposes the boundary difference; 4 confirms the rejected side.
+- B: Both expressions accept both values.
+- C: Both expressions reject both values.
+- D: Repeated evidence at the same non-discriminating input cannot separate them.
+
+**Solution check:** The value 5 exposes the boundary difference; 4 confirms the rejected side.
+
 # Mission 3 — THE ROVER THAT NEVER ARRIVES
 
 ## A. Mission briefing card — exact player copy
@@ -1585,6 +2043,8 @@ The mission is one causal investigation rather than four topic-matched questions
 
 ## D. Player-facing beat script
 
+**Beat presentation rule:** Existing panels and waypoints remain, with the exact speech below added to the named checkpoint. At most two short speech bubbles play per checkpoint. One Continue advances each bubble; the timer is paused throughout, speech enters the review log, and the existing unlock fires when speech closes. Local/remote presence is explicit. Replay from the log is state-neutral. The event fires once on the first successful completion of its trigger; retries cannot repeat world actions.
+
 ### Beat M3-B1 — On arrival at Vehicle Bay
 
 **Presentation:** nearby_character_bubble.  
@@ -1599,10 +2059,23 @@ The mission is one causal investigation rather than four topic-matched questions
 **Presentation:** equipment_panel_update.  
 **Player control:** Immediate return; timer remains paused during the update.  
 **World state:** The current board records the two established results in text.  
-**Panel text:** “The route loop terminates in simulation and the rover hardware stays in service.”  
+**Panel text:** “The repeated route isolates a loop-progress fault; the index repair and bounded-route verification still follow.”  
 
 **Unlocks:** Stop 11.
 
+
+
+**Dialogue bubble — Jonah Reyes, local:** “It repeats exactly. I can save the wheel kit, but I will not send the rover on an endless route.”
+
+**Dialogue bubble — Dr. Elena Park, radio from Operations Module:** “Agreed. A parked rover is a loss; an unreachable one takes our rescue options with it.”
+
+### Beat M3-B3 — After Stop 11
+
+**Trigger:** First successful completion of Stop 11.
+**Presentation:** nearby_character_bubble under the shared beat presentation rule.
+**Unlock:** Continue returns to the existing route to Stop 12.
+
+**Dialogue bubble — Jonah Reyes, local:** “The index advances now. Give it the bounded route before we trust a real trip.”
 
 ### Beat M3-B4 — After Stop 12
 
@@ -1914,6 +2387,165 @@ verify:
 
 
 ---
+
+## L. GO DEEPER — optional review, exact player copy
+
+**Availability:** After mission completion and its metric screen, select GO DEEPER from the completed mission card. The panel is optional, ungraded, timer-paused and reopenable. Answers, hints and replays change no bars, RP, evidence flags, access or unlocks. Exit review is always available. Preserve the separate five worked examples. Optional review IDs below are never graded stop IDs.
+
+**Secondary brief:** Trace what changes on each visit, not just what a loop is intended to do. These examples separate the counter, accumulated result and rule for stopping.
+
+**Java convention:** Each snippet is independent and sits in a suitable enclosing class or method; `java.util.ArrayList` is imported when needed. Do not carry values or class definitions from a different question.
+
+**Supporting concepts:**
+
+- Termination measure: a changing value must move toward making the loop condition false.
+- Accumulator: a total stores contributions across visits, while a counter identifies the current visit.
+- Half-open range: indexes from zero up to but excluding length visit exactly the valid array positions.
+
+### WO-GD-03-1
+
+**Objective:** Apply the mission concept to new data
+
+**Question:** How many times does `for (int i = 1; i < 5; i++)` execute its body?
+
+A. 4
+B. 3
+C. 5
+D. Forever
+
+**Correct key:** A
+
+**Hint:** List the values that satisfy the condition.
+
+**Option feedback:**
+
+- A: The body runs for i = 1, 2, 3, 4.
+- B: The starting value 1 also executes.
+- C: The strict upper bound excludes 5.
+- D: The increment moves i toward the failing condition.
+
+**Solution check:** The body runs for i = 1, 2, 3, 4.
+
+### WO-GD-03-2
+
+**Objective:** Retrieve and trace a prior rule
+
+**Question:** Trace `int n = 5; while (n > 0) n -= 2;`. What is n after the loop?
+
+A. 0
+B. 1
+C. 5
+D. -1
+
+**Correct key:** D
+
+**Hint:** Check the condition before each subtraction.
+
+**Option feedback:**
+
+- A: Subtracting two from an odd starting value never reaches zero.
+- B: The loop still runs when n is 1.
+- C: The initial condition is true, so execution changes n.
+- D: The states are 5, 3, 1, -1; the next condition is false.
+
+**Solution check:** The states are 5, 3, 1, -1; the next condition is false.
+
+### WO-GD-03-3
+
+**Objective:** Distinguish a plausible wrong model
+
+**Question:** For `int i = 0; while (i < 3) { System.out.print(i); }`, what change makes it print 012 and stop?
+
+A. Change the condition to i <= 3
+B. Set i = 3 before the loop
+C. Add i++ after the print inside the body
+D. Add i++ after the entire loop
+
+**Correct key:** C
+
+**Hint:** The variable in the condition must change while the loop is running.
+
+**Option feedback:**
+
+- A: Without an update it still repeats zero forever.
+- B: The body never executes.
+- C: The three visits print 0, 1, 2 and then the test fails at 3.
+- D: Execution never reaches that increment.
+
+**Solution check:** The three visits print 0, 1, 2 and then the test fails at 3.
+
+### WO-GD-03-4
+
+**Objective:** Test a boundary case
+
+**Question:** Trace `int total = 0; for (int i = 0; i < 3; i++) total += i;`. What is total?
+
+A. 0
+B. 3
+C. 6
+D. 2
+
+**Correct key:** B
+
+**Hint:** Keep the counter and accumulator separate.
+
+**Option feedback:**
+
+- A: The later iterations add nonzero values.
+- B: The additions are 0 + 1 + 2 = 3.
+- C: This includes the excluded value 3.
+- D: Two is the final added value, not the accumulated sum.
+
+**Solution check:** The additions are 0 + 1 + 2 = 3.
+
+### WO-GD-03-5
+
+**Objective:** Transfer the idea to a new setting
+
+**Question:** An array has length 5. Which loop visits each valid index exactly once?
+
+A. for (int i = 0; i < 5; i++)
+B. for (int i = 1; i < 5; i++)
+C. for (int i = 0; i <= 5; i++)
+D. for (int i = 4; i > 0; i--)
+
+**Correct key:** A
+
+**Hint:** Length is one beyond the final index.
+
+**Option feedback:**
+
+- A: The valid indexes are 0 through 4.
+- B: This misses index 0.
+- C: This attempts invalid index 5.
+- D: This misses index 0.
+
+**Solution check:** The valid indexes are 0 through 4.
+
+### WO-GD-03-6
+
+**Objective:** Combine reasoning and a decision
+
+**Question:** A loop starts at n = 8 and applies n /= 2 while n > 1, using int division. How many body executions occur?
+
+A. 4
+B. 8
+C. 2
+D. 3
+
+**Correct key:** D
+
+**Hint:** Count updates, not listed states.
+
+**Option feedback:**
+
+- A: The condition fails at 1 before another update.
+- B: The update halves rather than subtracting one.
+- C: After two updates n is 2, so the condition is still true.
+- D: The updates are 8 to 4 to 2 to 1.
+
+**Solution check:** The updates are 8 to 4 to 2 to 1.
+
 # Mission 4 — THE QUIET TEST
 
 ## A. Mission briefing card — exact player copy
@@ -1982,6 +2614,8 @@ The mission is one causal investigation rather than four topic-matched questions
 
 ## D. Player-facing beat script
 
+**Beat presentation rule:** Existing panels and waypoints remain, with the exact speech below added to the named checkpoint. At most two short speech bubbles play per checkpoint. One Continue advances each bubble; the timer is paused throughout, speech enters the review log, and the existing unlock fires when speech closes. Local/remote presence is explicit. Replay from the log is state-neutral. The event fires once on the first successful completion of its trigger; retries cannot repeat world actions.
+
 ### Beat M4-B1 — On arrival at Software Lab
 
 **Presentation:** nearby_character_bubble.  
@@ -1996,10 +2630,23 @@ The mission is one causal investigation rather than four topic-matched questions
 **Presentation:** equipment_panel_update.  
 **Player control:** Immediate return; timer remains paused during the update.  
 **World state:** The current board records the two established results in text.  
-**Panel text:** “The shared utility reproduces all three failures while hardware controls stay quiet.”  
+**Panel text:** “The first boundary tests challenge the utility; contract and cross-failure checks still follow.”  
 
 **Unlocks:** Stop 15.
 
+
+
+**Dialogue bubble — Priya Nair, local:** “The small boundary case breaks an interface I thought was sound.”
+
+**Dialogue bubble — Malik Okafor, radio from Power & Thermal Plant:** “I brought the heat measurements. Put them beside your trace; neither of us should have to guess alone.”
+
+### Beat M4-B3 — After Stop 15
+
+**Trigger:** First successful completion of Stop 15.
+**Presentation:** nearby_character_bubble under the shared beat presentation rule.
+**Unlock:** Continue returns to the existing route to Stop 16.
+
+**Dialogue bubble — Priya Nair, local:** “That contract check narrows the fault. Now we must show whether the same utility links all three failures.”
 
 ### Beat M4-B4 — After Stop 16
 
@@ -2322,6 +2969,165 @@ rebuttals:
 
 
 ---
+
+## L. GO DEEPER — optional review, exact player copy
+
+**Availability:** After mission completion and its metric screen, select GO DEEPER from the completed mission card. The panel is optional, ungraded, timer-paused and reopenable. Answers, hints and replays change no bars, RP, evidence flags, access or unlocks. Exit review is always available. Preserve the separate five worked examples. Optional review IDs below are never graded stop IDs.
+
+**Secondary brief:** A useful test gives rival explanations different predictions. Build expectations from the promised behavior and include the smallest valid inputs.
+
+**Java convention:** Each snippet is independent and sits in a suitable enclosing class or method; `java.util.ArrayList` is imported when needed. Do not carry values or class definitions from a different question.
+
+**Supporting concepts:**
+
+- Contract: a method promise states the allowed inputs and required output behavior.
+- Boundary case: the smallest permitted size or a threshold endpoint often exposes a hidden assumption.
+- Controlled comparison: keep input and surrounding conditions fixed while changing the proposed cause.
+
+### WO-GD-04-1
+
+**Objective:** Apply the mission concept to new data
+
+**Question:** A function is promised to return the larger of two integers. A proposed implementation always returns its first input. Which single test exposes the fault?
+
+A. Inputs 7 and 2; expect 7
+B. Inputs 4 and 4; expect 4
+C. Inputs 0 and -1; expect 0
+D. Inputs 2 and 7; expect 7
+
+**Correct key:** D
+
+**Hint:** Choose inputs that make candidate explanations disagree.
+
+**Option feedback:**
+
+- A: The faulty function happens to be correct here.
+- B: Equal inputs cannot distinguish the implementations.
+- C: The first input really is larger here.
+- D: The faulty function gives 2 where the contract requires 7.
+
+**Solution check:** The faulty function gives 2 where the contract requires 7.
+
+### WO-GD-04-2
+
+**Objective:** Retrieve and trace a prior rule
+
+**Question:** A method accepts a nonempty array and should return its last element. Which test directly checks the smallest allowed size?
+
+A. Array {6, 9}; expect 9
+B. Array {1, 2, 3}; expect 3
+C. Array {6}; expect 6
+D. Empty array; expect 0
+
+**Correct key:** C
+
+**Hint:** Separate an allowed boundary from a forbidden input.
+
+**Option feedback:**
+
+- A: This is valid but not the smallest allowed size.
+- B: A larger ordinary case does not exercise the minimum.
+- C: One element is the minimum size permitted by the contract.
+- D: An empty array violates the stated precondition.
+
+**Solution check:** One element is the minimum size permitted by the contract.
+
+### WO-GD-04-3
+
+**Objective:** Distinguish a plausible wrong model
+
+**Question:** A sorting function must return ascending order and preserve every input value, including duplicates. Which output violates only preservation for input {2, 1, 2}?
+
+A. {2, 2, 1}
+B. {1, 2}
+C. {1, 2, 2}
+D. {2, 1, 2}
+
+**Correct key:** B
+
+**Hint:** A correct contract can contain more than one independent obligation.
+
+**Option feedback:**
+
+- A: This also preserves values but fails ascending order.
+- B: This is ascending but loses one occurrence of 2.
+- C: This meets both obligations.
+- D: This preserves values but fails ascending order.
+
+**Solution check:** This is ascending but loses one occurrence of 2.
+
+### WO-GD-04-4
+
+**Objective:** Test a boundary case
+
+**Question:** Version A and B produce the same output on 20 ordinary tests. What is justified?
+
+A. They agree on those 20 cases; edge cases may still differ
+B. They are equivalent for every input
+C. Version B is definitely wrong
+D. No useful evidence was collected
+
+**Correct key:** A
+
+**Hint:** State exactly the scope of the evidence.
+
+**Option feedback:**
+
+- A: Finite observations establish those outputs, not agreement on every possible input.
+- B: The test set need not cover all behaviors.
+- C: No disagreement has been observed.
+- D: Agreement on known cases is useful, though limited.
+
+**Solution check:** Finite observations establish those outputs, not agreement on every possible input.
+
+### WO-GD-04-5
+
+**Objective:** Transfer the idea to a new setting
+
+**Question:** To isolate whether a parser causes a failure, which comparison is strongest?
+
+A. Change parser, input, and hardware together
+B. Compare an old screenshot with a new live measurement
+C. Run only the repaired parser once
+D. Feed identical saved input to old and repaired parsers with the other code fixed
+
+**Correct key:** D
+
+**Hint:** Change one proposed cause while preserving the comparison conditions.
+
+**Option feedback:**
+
+- A: Multiple changes hide which difference matters.
+- B: The source inputs and conditions may differ.
+- C: There is no controlled comparison with the earlier behavior.
+- D: Holding input and surroundings fixed makes parser version the controlled difference.
+
+**Solution check:** Holding input and surroundings fixed makes parser version the controlled difference.
+
+### WO-GD-04-6
+
+**Objective:** Combine reasoning and a decision
+
+**Question:** A method promises `abs(x)` for integers -100 through 100. Which expected output is correct for x = -8?
+
+A. 0
+B. 100
+C. 8
+D. -8
+
+**Correct key:** C
+
+**Hint:** A test expectation comes from the contract, not from the current implementation.
+
+**Option feedback:**
+
+- A: Only input zero has absolute value zero.
+- B: The allowed range is not the output for every input.
+- C: Absolute value is distance from zero, so abs(-8) is 8.
+- D: This leaves the negative input unchanged.
+
+**Solution check:** Absolute value is distance from zero, so abs(-8) is 8.
+
 # Mission 5 — ONE NAME, TWO OBJECTS
 
 ## A. Mission briefing card — exact player copy
@@ -2394,6 +3200,8 @@ The mission is one causal investigation rather than four topic-matched questions
 
 ## D. Player-facing beat script
 
+**Beat presentation rule:** Existing panels and waypoints remain, with the exact speech below added to the named checkpoint. At most two short speech bubbles play per checkpoint. One Continue advances each bubble; the timer is paused throughout, speech enters the review log, and the existing unlock fires when speech closes. Local/remote presence is explicit. Replay from the log is state-neutral. The event fires once on the first successful completion of its trigger; retries cannot repeat world actions.
+
 ### Beat M5-B1 — On arrival at Software Lab
 
 **Presentation:** nearby_character_bubble.  
@@ -2410,6 +3218,11 @@ The mission is one causal investigation rather than four topic-matched questions
 **Panel text:** “Same class, different objects; the live path still has to be traced.”  
 **Unlocks:** Stop 19 at the Build Console.
 
+
+**Dialogue bubble — Priya Nair, local:** “Those IDs belong to different objects. I trusted the matching fields more than I should have.”
+
+**Dialogue bubble — Malik Okafor, radio from Power & Thermal Plant:** “I trust the trace now. Follow its arrow all the way to my live controller.”
+
 ### Beat M5-B3 — After Stop 19
 
 **Presentation:** waypoint_notification + equipment_panel_update.  
@@ -2417,6 +3230,8 @@ The mission is one causal investigation rather than four topic-matched questions
 **World state:** The trace shows `active → C17` and `live → P02`.  
 **Waypoint:** “Take the live-reference result to the Generator Controller in Power & Thermal Plant.”  
 **Unlocks:** Power & Thermal Plant and Stop 20.
+
+**Dialogue bubble — Priya Nair, local:** “The active reference ends at C17. Malik needs the live path, not another clean simulator result.”
 
 ### Beat M5-B4 — After Stop 20
 
@@ -2721,6 +3536,165 @@ verify:
 
 
 ---
+
+## L. GO DEEPER — optional review, exact player copy
+
+**Availability:** After mission completion and its metric screen, select GO DEEPER from the completed mission card. The panel is optional, ungraded, timer-paused and reopenable. Answers, hints and replays change no bars, RP, evidence flags, access or unlocks. Exit review is always available. Preserve the separate five worked examples. Optional review IDs below are never graded stop IDs.
+
+**Secondary brief:** A copied reference and a copied object are different things. Follow arrows to objects, then distinguish changing a field from pointing an arrow somewhere else.
+
+**Java convention:** Each snippet is independent and sits in a suitable enclosing class or method; `java.util.ArrayList` is imported when needed. Do not carry values or class definitions from a different question.
+
+**Supporting concepts:**
+
+- Identity: each new expression creates a separate object, even when fields match.
+- Aliasing: two references can reach the same object; a mutation through either is then visible through both.
+- Parameter passing: Java copies argument values into parameters; rebinding a reference parameter does not rebind the caller variable.
+
+### WO-GD-05-1
+
+**Objective:** Apply the mission concept to new data
+
+**Question:** Assume class Box has public int value. Trace `Box a = new Box(); a.value = 3; Box b = a; b.value = 8;`. What is a.value?
+
+A. 0
+B. 11
+C. 8
+D. 3
+
+**Correct key:** C
+
+**Hint:** Draw one object and two arrows.
+
+**Option feedback:**
+
+- A: The field has been assigned twice since construction.
+- B: The assignment replaces the field; it does not add.
+- C: a and b reference the same object, so mutation through b is visible through a.
+- D: Copying a reference does not copy the object.
+
+**Solution check:** a and b reference the same object, so mutation through b is visible through a.
+
+### WO-GD-05-2
+
+**Objective:** Retrieve and trace a prior rule
+
+**Question:** With `Box a = new Box(); Box b = new Box();` and both values set to 3, what is `a == b`?
+
+A. Compile error
+B. false
+C. true
+D. 3
+
+**Correct key:** B
+
+**Hint:** Count constructions, not matching numbers.
+
+**Option feedback:**
+
+- A: Reference equality is allowed for these compatible types.
+- B: Two new expressions create distinct objects; reference equality tests identity.
+- C: Matching fields do not make two references identical.
+- D: The comparison returns a Boolean, not a field value.
+
+**Solution check:** Two new expressions create distinct objects; reference equality tests identity.
+
+### WO-GD-05-3
+
+**Objective:** Distinguish a plausible wrong model
+
+**Question:** In `class Box { int value; Box(int v) { value = v + 1; } }`, what value does `new Box(4)` store?
+
+A. 5
+B. 4
+C. 1
+D. 0
+
+**Correct key:** A
+
+**Hint:** Substitute the argument into the constructor body.
+
+**Option feedback:**
+
+- A: The parameter v receives 4 and the constructor stores 4 + 1.
+- B: The constructor adds one before assigning.
+- C: The supplied argument does not default to zero.
+- D: The constructor assignment replaces the default field value.
+
+**Solution check:** The parameter v receives 4 and the constructor stores 4 + 1.
+
+### WO-GD-05-4
+
+**Objective:** Test a boundary case
+
+**Question:** Assume `class Box { public int value; }` with its implicit no-argument constructor. A reference r initially points to object A. The statement `r = new Box();` runs. What is certain?
+
+A. Every reference to A now points to the new Box
+B. A has been emptied
+C. A must immediately disappear
+D. r now points to a newly created Box
+
+**Correct key:** D
+
+**Hint:** Distinguish changing an arrow from changing its target.
+
+**Option feedback:**
+
+- A: Other variables retain their own references.
+- B: Rebinding does not clear the former object.
+- C: Other references may still reach A; collection timing is not guaranteed.
+- D: Assignment changes r; it does not mutate the former object A.
+
+**Solution check:** Assignment changes r; it does not mutate the former object A.
+
+### WO-GD-05-5
+
+**Objective:** Transfer the idea to a new setting
+
+**Question:** Assume `class Box { public int value; }` with its implicit no-argument constructor. A method is `void set(Box p) { p.value = 9; }`. A caller passes b, whose value is 2. What is b.value after the call?
+
+A. 0
+B. The call cannot change any caller-visible data
+C. 9
+D. 2
+
+**Correct key:** C
+
+**Hint:** Java passes values; a reference value can still locate a shared object.
+
+**Option feedback:**
+
+- A: No operation resets the field.
+- B: Object mutation through a passed reference is visible.
+- C: The copied reference p still reaches the same Box, whose field is changed.
+- D: Java copies the reference value, not a separate object.
+
+**Solution check:** The copied reference p still reaches the same Box, whose field is changed.
+
+### WO-GD-05-6
+
+**Objective:** Combine reasoning and a decision
+
+**Question:** Assume `class Box { public int value; }` with its implicit no-argument constructor. A method is `void replace(Box p) { p = new Box(); p.value = 9; }`. The caller passes b with value 2. What is b.value after the call?
+
+A. Compile error
+B. 2
+C. 9
+D. 0
+
+**Correct key:** B
+
+**Hint:** Compare rebinding p with assigning p.value.
+
+**Option feedback:**
+
+- A: Reassigning a reference parameter is legal.
+- B: Only local parameter p is rebound; b still reaches its original object.
+- C: The new Box is assigned only to p, not to b.
+- D: The original Box is never modified.
+
+**Solution check:** Only local parameter p is rebound; b still reaches its original object.
+
 # Mission 6 — THE MESSAGE WITH THE WRONG MINUTE
 
 ## A. Mission briefing card — exact player copy
@@ -2793,6 +3767,8 @@ The mission is one causal investigation rather than four topic-matched questions
 
 ## D. Player-facing beat script
 
+**Beat presentation rule:** Existing panels and waypoints remain, with the exact speech below added to the named checkpoint. At most two short speech bubbles play per checkpoint. One Continue advances each bubble; the timer is paused throughout, speech enters the review log, and the existing unlock fires when speech closes. Local/remote presence is explicit. Replay from the log is state-neutral. The event fires once on the first successful completion of its trigger; retries cannot repeat world actions.
+
 ### Beat M6-B1 — On arrival at Communications & Weather
 
 **Presentation:** nearby_character_bubble.  
@@ -2809,6 +3785,19 @@ The mission is one causal investigation rather than four topic-matched questions
 **Panel text:** “Transport is on time; the defect is downstream of the packet path.”  
 **Waypoint:** “Take the indexed timestamp to the Code Review Wall in Software Lab.”  
 **Unlocks:** Software Lab and Stop 23.
+
+
+**Dialogue bubble — Liv Andersen, local:** “The clocks clear the packet path. Two matching displays almost made me abandon a working link.”
+
+**Dialogue bubble — Mei Alvarez, radio from Habitat Control:** “I made that mistake with the air commands. Ask what both displays share before calling them two witnesses.”
+
+### Beat M6-B3 — After Stop 23
+
+**Trigger:** First successful completion of Stop 23.
+**Presentation:** nearby_character_bubble under the shared beat presentation rule.
+**Unlock:** Continue returns to the existing route to Stop 24.
+
+**Dialogue bubble — Liv Andersen, radio from Communications & Weather:** “The slice drops the last digit. Repair that boundary while I keep the satellite path open.”
 
 ### Beat M6-B4 — After Stop 24
 
@@ -3111,6 +4100,166 @@ verify:
 
 
 ---
+
+## L. GO DEEPER — optional review, exact player copy
+
+**Availability:** After mission completion and its metric screen, select GO DEEPER from the completed mission card. The panel is optional, ungraded, timer-paused and reopenable. Answers, hints and replays change no bars, RP, evidence flags, access or unlocks. Exit review is always available. Preserve the separate five worked examples. Optional review IDs below are never graded stop IDs.
+
+**Secondary brief:** Text processing can alter what people see while leaving the original message intact. Practice exact boundaries, then ask whether two observations really have separate sources.
+
+**Java convention:** Each snippet is independent and sits in a suitable enclosing class or method; `java.util.ArrayList` is imported when needed. Do not carry values or class definitions from a different question.
+
+**Supporting concepts:**
+
+- Substring bounds: the start index is included and the end index is excluded.
+- String immutability: methods return new text rather than editing existing String contents in place.
+- Content comparison: equals compares String contents; == compares reference identity.
+- Supplementary dependency reasoning: agreement between displays sharing one parser is not an independent validation of that parser.
+
+### WO-GD-06-1
+
+**Objective:** Apply the mission concept to new data
+
+**Question:** For `String s = "PLANET";`, what is `s.substring(1, 4)`?
+
+A. ANE
+B. LAN
+C. LANE
+D. PLA
+
+**Correct key:** B
+
+**Hint:** Mark character indexes from zero.
+
+**Option feedback:**
+
+- A: This starts at index two.
+- B: Indexes 1, 2 and 3 are included; end index 4 is excluded.
+- C: This incorrectly includes the end index.
+- D: This starts at zero instead of one.
+
+**Solution check:** Indexes 1, 2 and 3 are included; end index 4 is excluded.
+
+### WO-GD-06-2
+
+**Objective:** Retrieve and trace a prior rule
+
+**Question:** For `String s = "ICE"; s.substring(1);`, what is s afterward?
+
+A. ICE
+B. CE
+C. I
+D. An empty String
+
+**Correct key:** A
+
+**Hint:** A returned String does not replace its source automatically.
+
+**Option feedback:**
+
+- A: Strings are immutable and the returned substring was not assigned.
+- B: That is the returned value, but it is discarded.
+- C: No truncation is assigned to s.
+- D: The operation does not clear the original.
+
+**Solution check:** Strings are immutable and the returned substring was not assigned.
+
+### WO-GD-06-3
+
+**Objective:** Distinguish a plausible wrong model
+
+**Question:** Which expression extracts the final two characters of a String s known to have length at least 2?
+
+A. s.substring(s.length() - 1)
+B. s.substring(2)
+C. s.substring(s.length())
+D. s.substring(s.length() - 2)
+
+**Correct key:** D
+
+**Hint:** The final character is at length minus one.
+
+**Option feedback:**
+
+- A: This extracts only the final character.
+- B: This discards the first two characters, regardless of total length.
+- C: Starting at length returns an empty String.
+- D: Starting two positions before the length includes the final two characters.
+
+**Solution check:** Starting two positions before the length includes the final two characters.
+
+### WO-GD-06-4
+
+**Objective:** Test a boundary case
+
+**Question:** Assume two separately constructed Strings both contain "go". Which expression compares their contents?
+
+A. a.length() == b.length()
+B. a != b
+C. a.equals(b)
+D. a == b
+
+**Correct key:** C
+
+**Hint:** Use the String content contract, not an identity test.
+
+**Option feedback:**
+
+- A: Equal lengths do not establish equal characters.
+- B: This compares identities for inequality.
+- C: String.equals compares the character content.
+- D: Reference equality asks whether the two references identify the same object.
+
+**Solution check:** String.equals compares the character content.
+
+### WO-GD-06-5
+
+**Objective:** Transfer the idea to a new setting
+
+**Question:** Two displays both show 09:1, but both read the same parser output. What should be checked to test the time independently?
+
+A. Whether the two displays match each other
+B. The original incoming message and a separate clock
+C. A third display of the same parser output
+D. A cached timestamp saved from the same parser output
+
+**Correct key:** B
+
+**Hint:** Trace where each observation obtains its value.
+
+**Option feedback:**
+
+- A: Their matching value is already known and may share one cause.
+- B: These checks avoid relying on the shared parser that may be faulty.
+- C: It repeats the same dependency.
+- D: A saved copy still inherits the parser dependency; storage does not make it independent.
+
+**Solution check:** These checks avoid relying on the shared parser that may be faulty.
+
+### WO-GD-06-6
+
+**Objective:** Combine reasoning and a decision
+
+**Question:** For `String s = "AB:CD";`, what is `s.indexOf(":")`?
+
+A. 2
+B. 3
+C. -1
+D. 4
+
+**Correct key:** A
+
+**Hint:** IndexOf returns a zero-based position or -1 if absent.
+
+**Option feedback:**
+
+- A: The colon follows characters at indexes 0 and 1.
+- B: That counts characters starting at one.
+- C: Minus one would mean the colon was absent.
+- D: Index four contains D.
+
+**Solution check:** The colon follows characters at indexes 0 and 1.
+
 # Mission 7 — THE ARRAY WITH A HOLE
 
 ## A. Mission briefing card — exact player copy
@@ -3183,6 +4332,8 @@ The mission is one causal investigation rather than four topic-matched questions
 
 ## D. Player-facing beat script
 
+**Beat presentation rule:** Existing panels and waypoints remain, with the exact speech below added to the named checkpoint. At most two short speech bubbles play per checkpoint. One Continue advances each bubble; the timer is paused throughout, speech enters the review log, and the existing unlock fires when speech closes. Local/remote presence is explicit. Replay from the log is state-neutral. The event fires once on the first successful completion of its trigger; retries cannot repeat world actions.
+
 ### Beat M7-B1 — On arrival at Habitat Control
 
 **Presentation:** nearby_character_bubble.  
@@ -3199,6 +4350,11 @@ The mission is one causal investigation rather than four topic-matched questions
 **Panel text:** “The physical readings are consistent; the remaining fault is the label/index mapping.”  
 **Unlocks:** Stop 27 at the Sensor Wall.
 
+
+**Dialogue bubble — Mei Alvarez, local:** “The handheld reading keeps Room 7 warm. I had people packing because I trusted the label.”
+
+**Dialogue bubble — Liv Andersen, radio from Communications & Weather:** “Send me the sensor IDs with the numbers. We will keep that separation in the rescue message too.”
+
 ### Beat M7-B3 — After Stop 27
 
 **Presentation:** waypoint_notification.  
@@ -3206,6 +4362,8 @@ The mission is one causal investigation rather than four topic-matched questions
 **World state:** The shifted index is marked in the mission log.  
 **Waypoint:** “Take the corrected mapping to the Test Bench in Software Lab.”  
 **Unlocks:** Software Lab and Stop 28.
+
+**Dialogue bubble — Mei Alvarez, local:** “We found the shifted index. I will wait for the independent check before taking down the move notice.”
 
 ### Beat M7-B4 — After Stop 28
 
@@ -3507,6 +4665,165 @@ verify:
 
 
 ---
+
+## L. GO DEEPER — optional review, exact player copy
+
+**Availability:** After mission completion and its metric screen, select GO DEEPER from the completed mission card. The panel is optional, ungraded, timer-paused and reopenable. Answers, hints and replays change no bars, RP, evidence flags, access or unlocks. Exit review is always available. Preserve the separate five worked examples. Optional review IDs below are never graded stop IDs.
+
+**Secondary brief:** Correct values can still be attached to the wrong places. Use small arrays to check index bounds, copied loop variables and the link between a real label and a stored slot.
+
+**Java convention:** Each snippet is independent and sits in a suitable enclosing class or method; `java.util.ArrayList` is imported when needed. Do not carry values or class definitions from a different question.
+
+**Supporting concepts:**
+
+- Zero-based indexing: the final valid index is length minus one.
+- Enhanced-for primitive variable: a loop variable such as int x receives a copy, so x++ does not write back to the array.
+- Mapping: a physical label may use one-based numbering even though the array uses zero-based indexes.
+
+### WO-GD-07-1
+
+**Objective:** Apply the mission concept to new data
+
+**Question:** For `int[] a = {4, 8, 12, 16};`, what is a[2]?
+
+A. 12
+B. 8
+C. 16
+D. 2
+
+**Correct key:** A
+
+**Hint:** Start the first index at zero.
+
+**Option feedback:**
+
+- A: Index two is the third element.
+- B: Eight is at index one.
+- C: Sixteen is at index three.
+- D: The index selects a value; it is not itself the returned value.
+
+**Solution check:** Index two is the third element.
+
+### WO-GD-07-2
+
+**Objective:** Retrieve and trace a prior rule
+
+**Question:** For an int array a of length 3, which access is invalid?
+
+A. a[0]
+B. a[1]
+C. a[2]
+D. a[3]
+
+**Correct key:** D
+
+**Hint:** The last index is length minus one.
+
+**Option feedback:**
+
+- A: Zero is the first valid index.
+- B: One is a valid interior index.
+- C: Two is the last valid index.
+- D: Valid indexes are 0, 1 and 2.
+
+**Solution check:** Valid indexes are 0, 1 and 2.
+
+### WO-GD-07-3
+
+**Objective:** Distinguish a plausible wrong model
+
+**Question:** Trace `int[] a = {2, 4}; for (int x : a) x++;`. What is a afterward?
+
+A. {4, 6}
+B. {0, 0}
+C. {2, 4}
+D. {3, 5}
+
+**Correct key:** C
+
+**Hint:** Ask whether the left side of an assignment is an array slot.
+
+**Option feedback:**
+
+- A: The loop does not add two to any element.
+- B: No statement clears the array.
+- C: Each x is a copied primitive value; changing x does not assign an array element.
+- D: This would require assigning to the elements themselves.
+
+**Solution check:** Each x is a copied primitive value; changing x does not assign an array element.
+
+### WO-GD-07-4
+
+**Objective:** Test a boundary case
+
+**Question:** An array {3, 5, 7} is traversed with total starting at zero and total += a[i] for i from 0 through 2. What is total?
+
+A. 3
+B. 15
+C. 12
+D. 7
+
+**Correct key:** B
+
+**Hint:** Track the accumulated sum after each index.
+
+**Option feedback:**
+
+- A: This counts elements instead of summing values.
+- B: All three values are added: 3 + 5 + 7.
+- C: This omits the first element.
+- D: This is the last element rather than the sum.
+
+**Solution check:** All three values are added: 3 + 5 + 7.
+
+### WO-GD-07-5
+
+**Objective:** Transfer the idea to a new setting
+
+**Question:** Numbered lockers 1 through 4 are stored in four slots, indexes 0 through 3, in order. Which index belongs to locker number L?
+
+A. L - 1
+B. L
+C. L + 1
+D. 4 - L
+
+**Correct key:** A
+
+**Hint:** Check both the first and final locker.
+
+**Option feedback:**
+
+- A: Subtracting one maps locker 1 to index 0 and locker 4 to index 3.
+- B: This maps the last locker outside the array.
+- C: This shifts even farther past the valid mapping.
+- D: This reverses the specified order.
+
+**Solution check:** Subtracting one maps locker 1 to index 0 and locker 4 to index 3.
+
+### WO-GD-07-6
+
+**Objective:** Combine reasoning and a decision
+
+**Question:** Two room labels appear swapped, while a handheld instrument confirms each sensor value. What test best targets the remaining fault?
+
+A. Replace both sensors without checking IDs
+B. Average the two values
+C. Accept the labels because the numbers are plausible
+D. Compare each physical sensor ID with its array index and displayed label
+
+**Correct key:** D
+
+**Hint:** Separate value accuracy from where a value is placed.
+
+**Option feedback:**
+
+- A: Independent evidence already supports their measured values.
+- B: An average cannot repair an identity mapping.
+- C: Plausibility does not establish that a value belongs to that room.
+- D: The values can be correct while the mapping assigns them to wrong rooms.
+
+**Solution check:** The values can be correct while the mapping assigns them to wrong rooms.
+
 # Mission 8 — THE LOG THAT SKIPS EVERY SECOND LINE
 
 ## A. Mission briefing card — exact player copy
@@ -3579,6 +4896,8 @@ The mission is one causal investigation rather than four topic-matched questions
 
 ## D. Player-facing beat script
 
+**Beat presentation rule:** Existing panels and waypoints remain, with the exact speech below added to the named checkpoint. At most two short speech bubbles play per checkpoint. One Continue advances each bubble; the timer is paused throughout, speech enters the review log, and the existing unlock fires when speech closes. Local/remote presence is explicit. Replay from the log is state-neutral. The event fires once on the first successful completion of its trigger; retries cannot repeat world actions.
+
 ### Beat M8-B1 — On arrival at Operations Module
 
 **Presentation:** nearby_character_bubble.  
@@ -3595,6 +4914,19 @@ The mission is one causal investigation rather than four topic-matched questions
 **Panel text:** “The records survived ingestion; the omission happens during list mutation.”  
 **Waypoint:** “Take the source-versus-view evidence to the Code Review Wall in Software Lab.”  
 **Unlocks:** Software Lab and Stop 31.
+
+
+**Dialogue bubble — Dr. Elena Park, local:** “The raw entries are there. I was about to ask who had failed to log their work.”
+
+**Dialogue bubble — Priya Nair, radio from Software Lab:** “Bring the original with you. Cleanup can hide a record without anyone failing to write it.”
+
+### Beat M8-B3 — After Stop 31
+
+**Trigger:** First successful completion of Stop 31.
+**Presentation:** nearby_character_bubble under the shared beat presentation rule.
+**Unlock:** Continue returns to the existing route to Stop 32.
+
+**Dialogue bubble — Priya Nair, local:** “That skip leaves a pattern. Keep a physical copy; the same mistake may live somewhere else.”
 
 ### Beat M8-B4 — After Stop 32
 
@@ -3899,6 +5231,165 @@ verify:
 
 
 ---
+
+## L. GO DEEPER — optional review, exact player copy
+
+**Availability:** After mission completion and its metric screen, select GO DEEPER from the completed mission card. The panel is optional, ungraded, timer-paused and reopenable. Answers, hints and replays change no bars, RP, evidence flags, access or unlocks. Exit review is always available. Preserve the separate five worked examples. Optional review IDs below are never graded stop IDs.
+
+**Secondary brief:** A collection changes shape when an element is removed. Trace the shifting positions, then separate lost source data from changes made after parsing.
+
+**Java convention:** Each snippet is independent and sits in a suitable enclosing class or method; `java.util.ArrayList` is imported when needed. Do not carry values or class definitions from a different question.
+
+**Supporting concepts:**
+
+- Removal: ArrayList.remove(index) shifts later elements left and decreases size.
+- Insertion versus replacement: add(index, value) creates a slot; set(index, value) replaces a value without changing size.
+- Backward traversal: deletion shifts already-visited positions while leaving lower unvisited indexes stable.
+
+### WO-GD-08-1
+
+**Objective:** Apply the mission concept to new data
+
+**Question:** Start with an ArrayList containing [A, B, C, D]. After remove(1), which item is at index 1?
+
+A. A
+B. B
+C. D
+D. C
+
+**Correct key:** D
+
+**Hint:** Rewrite the list after removal.
+
+**Option feedback:**
+
+- A: A remains at index zero.
+- B: B was removed.
+- C: D moves to index two, not one.
+- D: B is removed and following elements shift left.
+
+**Solution check:** B is removed and following elements shift left.
+
+### WO-GD-08-2
+
+**Objective:** Retrieve and trace a prior rule
+
+**Question:** List [2, 2, 3] is scanned forward; when an element is 2 it is removed, and i increases after every visit. What list remains?
+
+A. [2, 2, 3]
+B. []
+C. [2, 3]
+D. [3]
+
+**Correct key:** C
+
+**Hint:** Track the index and the shifted list together.
+
+**Option feedback:**
+
+- A: The first 2 does get removed.
+- B: The value 3 does not meet the removal condition.
+- C: Removing index zero shifts the second 2 into zero; the increment skips it.
+- D: This requires revisiting the shifted element or walking backward.
+
+**Solution check:** Removing index zero shifts the second 2 into zero; the increment skips it.
+
+### WO-GD-08-3
+
+**Objective:** Distinguish a plausible wrong model
+
+**Question:** Why does removing matching elements from the final index toward zero avoid skipping an unvisited item?
+
+A. The loop counter automatically follows any shifted item
+B. Only higher indexes shift, and those positions have already been visited
+C. ArrayList stops shifting in a backward loop
+D. Backward loops never change size
+
+**Correct key:** B
+
+**Hint:** Identify which side of the removed slot has not yet been inspected.
+
+**Option feedback:**
+
+- A: The counter has no such tracking behavior; safety comes from leaving lower unvisited indexes unchanged.
+- B: Lower, still-unvisited positions retain their indexes after removal.
+- C: Removal still shifts later elements.
+- D: Successful removals still reduce size.
+
+**Solution check:** Lower, still-unvisited positions retain their indexes after removal.
+
+### WO-GD-08-4
+
+**Objective:** Test a boundary case
+
+**Question:** A raw file contains six records; parsing produces six records; cleanup leaves four. Where should the first investigation focus?
+
+A. Cleanup and its mutation rules
+B. The file writer must have lost two records
+C. The parser must have lost two records
+D. The disk must have failed
+
+**Correct key:** A
+
+**Hint:** Find the earliest observed point at which the count differs.
+
+**Option feedback:**
+
+- A: The count first changes at cleanup, though the intended removal contract still needs checking.
+- B: The six source records were observed.
+- C: The parsed count is still six.
+- D: No evidence here singles out hardware.
+
+**Solution check:** The count first changes at cleanup, though the intended removal contract still needs checking.
+
+### WO-GD-08-5
+
+**Objective:** Transfer the idea to a new setting
+
+**Question:** An ArrayList<Integer> starts [5, 9]. After add(1, 7), what does it contain?
+
+A. [5, 7]
+B. [7, 5, 9]
+C. [5, 9, 7]
+D. [5, 7, 9]
+
+**Correct key:** D
+
+**Hint:** Distinguish add(index, value) from set(index, value).
+
+**Option feedback:**
+
+- A: Add inserts; it does not replace the existing 9.
+- B: This would insert at index zero.
+- C: This would append or insert at index two.
+- D: Insertion at index one moves the existing element right.
+
+**Solution check:** Insertion at index one moves the existing element right.
+
+### WO-GD-08-6
+
+**Objective:** Combine reasoning and a decision
+
+**Question:** For list [4, 6, 8], set(1, 9) runs. What is the size afterward?
+
+A. 2
+B. 9
+C. 3
+D. 4
+
+**Correct key:** C
+
+**Hint:** Ask whether the operation changes structure or only a value.
+
+**Option feedback:**
+
+- A: No element is removed.
+- B: The assigned value is unrelated to the number of elements.
+- C: Set replaces one value without adding or removing a slot.
+- D: Insertion would increase size, but set is replacement.
+
+**Solution check:** Set replaces one value without adding or removing a slot.
+
 # Mission 9 — THE MAP THAT LIES BY ONE COLUMN
 
 ## A. Mission briefing card — exact player copy
@@ -3969,6 +5460,8 @@ The mission is one causal investigation rather than four topic-matched questions
 
 ## D. Player-facing beat script
 
+**Beat presentation rule:** Existing panels and waypoints remain, with the exact speech below added to the named checkpoint. At most two short speech bubbles play per checkpoint. One Continue advances each bubble; the timer is paused throughout, speech enters the review log, and the existing unlock fires when speech closes. Local/remote presence is explicit. Replay from the log is state-neutral. The event fires once on the first successful completion of its trigger; retries cannot repeat world actions.
+
 ### Beat M9-B1 — On arrival at Vehicle Bay
 
 **Presentation:** nearby_character_bubble.  
@@ -3986,6 +5479,11 @@ The mission is one causal investigation rather than four topic-matched questions
 **Waypoint:** “Take the grid trace to the Code Review Wall in Software Lab.”  
 **Unlocks:** Software Lab and Stop 35.
 
+
+**Dialogue bubble — Jonah Reyes, local:** “The survey and traversal agree. The field crew did their job.”
+
+**Dialogue bubble — Dr. Elena Park, radio from Operations Module:** “Then clear their work in the record. Hold the rover until its display agrees with the ground.”
+
 ### Beat M9-B3 — After Stop 35
 
 **Presentation:** waypoint_notification + equipment_panel_update.  
@@ -3993,6 +5491,8 @@ The mission is one causal investigation rather than four topic-matched questions
 **World state:** The transposed destination write is identified in the code review.  
 **Waypoint:** “Return to the Rover Diagnostic Cart in Vehicle Bay and verify the repaired display.”  
 **Unlocks:** Vehicle Bay and Stop 36.
+
+**Dialogue bubble — Jonah Reyes, radio from Vehicle Bay:** “The swapped write explains the move. I will compare all four cells before releasing the rover.”
 
 ### Beat M9-B4 — After Stop 36
 
@@ -4297,6 +5797,166 @@ verify:
 
 
 ---
+
+## L. GO DEEPER — optional review, exact player copy
+
+**Availability:** After mission completion and its metric screen, select GO DEEPER from the completed mission card. The panel is optional, ungraded, timer-paused and reopenable. Answers, hints and replays change no bars, RP, evidence flags, access or unlocks. Exit review is always available. Preserve the separate five worked examples. Optional review IDs below are never graded stop IDs.
+
+**Secondary brief:** A grid requires two coordinates whose order matters. Check a rectangular example and a row of a different length so the shape cannot hide an indexing mistake.
+
+**Java convention:** Each snippet is independent and sits in a suitable enclosing class or method; `java.util.ArrayList` is imported when needed. Do not carry values or class definitions from a different question.
+
+**Supporting concepts:**
+
+- Row and column: g[r][c] first selects row r, then column c within that row.
+- Row-major traversal: visit every column in one row before advancing to the next row.
+- Row length: Java permits rows of different lengths, so g[r].length bounds the current row.
+- Discriminating case: an off-diagonal coordinate changes under transposition; a diagonal one does not.
+
+### WO-GD-09-1
+
+**Objective:** Apply the mission concept to new data
+
+**Question:** For `int[][] g = {{1, 2, 3}, {4, 5, 6}};`, what is g[1][2]?
+
+A. 5
+B. 2
+C. 6
+D. 3
+
+**Correct key:** C
+
+**Hint:** Use the first index to choose a row, then the second to choose within it.
+
+**Option feedback:**
+
+- A: That is row one, column one.
+- B: That is row zero, column one.
+- C: Row one is {4, 5, 6}; its index two contains 6.
+- D: That is row zero, column two.
+
+**Solution check:** Row one is {4, 5, 6}; its index two contains 6.
+
+### WO-GD-09-2
+
+**Objective:** Retrieve and trace a prior rule
+
+**Question:** For the rectangular grid {{1, 2}, {3, 4}}, which sequence is a row-major traversal?
+
+A. 1, 4, 2, 3
+B. 1, 2, 3, 4
+C. 1, 3, 2, 4
+D. 4, 3, 2, 1
+
+**Correct key:** B
+
+**Hint:** Hold the row fixed while the inner column loop runs.
+
+**Option feedback:**
+
+- A: This begins with a diagonal rather than completing the first row.
+- B: Row-major completes each row before moving to the next.
+- C: This is column-major traversal.
+- D: This reverses both traversal directions.
+
+**Solution check:** Row-major completes each row before moving to the next.
+
+### WO-GD-09-3
+
+**Objective:** Distinguish a plausible wrong model
+
+**Question:** A rectangular array has 2 rows and 4 columns. Which expression counts its cells?
+
+A. 2 * 4 = 8
+B. 2 + 4 = 6
+C. 4 - 2 = 2
+D. 4 / 2 = 2
+
+**Correct key:** A
+
+**Hint:** Count columns once for each row.
+
+**Option feedback:**
+
+- A: Each of two rows contains four cells.
+- B: Adding dimensions does not count every row-column pair.
+- C: The difference of dimensions is not the cell count.
+- D: The dimension ratio is not the cell count.
+
+**Solution check:** Each of two rows contains four cells.
+
+### WO-GD-09-4
+
+**Objective:** Test a boundary case
+
+**Question:** A source mark is at row 0, column 2. Faulty code writes destination[column][row] in a 3 by 3 grid. Where does it appear?
+
+A. Row 0, column 2
+B. Row 2, column 2
+C. Row 0, column 0
+D. Row 2, column 0
+
+**Correct key:** D
+
+**Hint:** Substitute the two coordinates into the faulty destination order.
+
+**Option feedback:**
+
+- A: That is the intended write using row then column.
+- B: Only one source coordinate equals two.
+- C: The source column is not zero.
+- D: The destination indexes are swapped.
+
+**Solution check:** The destination indexes are swapped.
+
+### WO-GD-09-5
+
+**Objective:** Transfer the idea to a new setting
+
+**Question:** In Java `int[][] g = {{2}, {4, 6, 8}};`, which bound safely traverses every column of current row r?
+
+A. c < g[0].length
+B. c <= g[r].length
+C. c < g[r].length
+D. c < g.length
+
+**Correct key:** C
+
+**Hint:** A two-dimensional Java array is an array of row arrays.
+
+**Option feedback:**
+
+- A: That visits only one column in the longer second row.
+- B: This includes the invalid index equal to row length.
+- C: Java rows can have different lengths; the current row gives its own bound.
+- D: That is the number of rows, not the current row length.
+
+**Solution check:** Java rows can have different lengths; the current row gives its own bound.
+
+### WO-GD-09-6
+
+**Objective:** Combine reasoning and a decision
+
+**Question:** A test uses only marks on a square grid diagonal, where row equals column. Will it expose a row/column swap?
+
+A. No test can expose this fault
+B. No; add an off-diagonal mark
+C. Yes, every diagonal mark moves
+D. Yes, if the grid is square
+
+**Correct key:** B
+
+**Hint:** Choose a case where the two coordinates differ.
+
+**Option feedback:**
+
+- A: Unequal row and column coordinates distinguish the writes.
+- B: Swapping equal indexes leaves diagonal cells unchanged.
+- C: Equal coordinates are unchanged by swapping.
+- D: A square shape permits the mistake without guaranteeing visible movement.
+
+**Solution check:** Swapping equal indexes leaves diagonal cells unchanged.
+
 # Mission 10 — THE FAST ANSWER
 
 ## A. Mission briefing card — exact player copy
@@ -4370,6 +6030,8 @@ The mission is one causal investigation rather than four topic-matched questions
 
 ## D. Player-facing beat script
 
+**Beat presentation rule:** Existing panels and waypoints remain, with the exact speech below added to the named checkpoint. At most two short speech bubbles play per checkpoint. One Continue advances each bubble; the timer is paused throughout, speech enters the review log, and the existing unlock fires when speech closes. Local/remote presence is explicit. Replay from the log is state-neutral. The event fires once on the first successful completion of its trigger; retries cannot repeat world actions.
+
 ### Beat M10-B1 — On arrival at Communications & Weather
 
 **Presentation:** nearby_character_bubble.  
@@ -4387,6 +6049,11 @@ The mission is one causal investigation rather than four topic-matched questions
 **Waypoint:** “Take the selected search to the Code Review Wall in Software Lab.”  
 **Unlocks:** Software Lab and Stop 39.
 
+
+**Dialogue bubble — Liv Andersen, local:** “The sorted table gives us time back. It does not excuse a wrong boundary update.”
+
+**Dialogue bubble — Priya Nair, radio from Software Lab:** “Send the target. I will keep each discarded half visible in the trace.”
+
 ### Beat M10-B3 — After Stop 39
 
 **Presentation:** waypoint_notification + equipment_panel_update.  
@@ -4394,6 +6061,8 @@ The mission is one causal investigation rather than four topic-matched questions
 **World state:** The trace records midpoint indexes `3 → 5 → 4` and finds 122.3 MHz.  
 **Waypoint:** “Return to the Packet Monitor in Communications & Weather and verify the live search.”  
 **Unlocks:** Communications & Weather and Stop 40.
+
+**Dialogue bubble — Liv Andersen, radio from Communications & Weather:** “Three checks found it in the trace. I need the live confirmation before the pass closes.”
 
 ### Beat M10-B4 — After Stop 40
 
@@ -4699,6 +6368,165 @@ verify:
 
 
 ---
+
+## L. GO DEEPER — optional review, exact player copy
+
+**Availability:** After mission completion and its metric screen, select GO DEEPER from the completed mission card. The panel is optional, ungraded, timer-paused and reopenable. Answers, hints and replays change no bars, RP, evidence flags, access or unlocks. Exit review is always available. Preserve the separate five worked examples. Optional review IDs below are never graded stop IDs.
+
+**Secondary brief:** A faster search earns its speed by relying on order. Trace an inclusive interval and check that every update both preserves possible answers and makes progress.
+
+**Java convention:** Each snippet is independent and sits in a suitable enclosing class or method; `java.util.ArrayList` is imported when needed. Do not carry values or class definitions from a different question.
+
+**Supporting concepts:**
+
+- Binary search precondition: the data must be sorted using the same ordering as the comparisons.
+- Inclusive bounds: low and high are possible indexes; after ruling out mid, use mid + 1 or mid - 1.
+- Work bound: a full scan may inspect every item, while balanced halving rapidly reduces the candidate set.
+
+### WO-GD-10-1
+
+**Objective:** Apply the mission concept to new data
+
+**Question:** Binary search uses sorted [2, 4, 6, 8, 10, 12, 14], low = 0, high = 6 and mid = (low + high) / 2 with int division. What value is checked first?
+
+A. 14
+B. 8
+C. 6
+D. 3
+
+**Correct key:** B
+
+**Hint:** Separate the midpoint index from its array value.
+
+**Option feedback:**
+
+- A: The last element is not checked first.
+- B: The midpoint index is 3, which contains 8.
+- C: Six is at index two, not the midpoint.
+- D: Three is the index, not the value stored there.
+
+**Solution check:** The midpoint index is 3, which contains 8.
+
+### WO-GD-10-2
+
+**Objective:** Retrieve and trace a prior rule
+
+**Question:** In an ascending array, the current midpoint value is 20 and the target is 27. With an inclusive search interval, which update is correct?
+
+A. low = mid + 1
+B. high = mid - 1
+C. low = mid
+D. high = mid + 1
+
+**Correct key:** A
+
+**Hint:** Exclude the midpoint once its value has been ruled out.
+
+**Option feedback:**
+
+- A: The midpoint and everything below it are too small.
+- B: This discards the half that may contain the larger target.
+- C: The ruled-out midpoint can be revisited and may prevent progress.
+- D: This does not correctly retain the upper candidate interval.
+
+**Solution check:** The midpoint and everything below it are too small.
+
+### WO-GD-10-3
+
+**Objective:** Distinguish a plausible wrong model
+
+**Question:** Which condition is required by ordinary binary search for a number in an array?
+
+A. Every number is positive
+B. The array length is even
+C. The target appears exactly twice
+D. The array is ordered by the comparison used in the search
+
+**Correct key:** D
+
+**Hint:** Ask why the unchecked half can be rejected.
+
+**Option feedback:**
+
+- A: Negative sorted values work too.
+- B: Odd lengths are valid.
+- C: Binary search can seek a single occurrence or establish absence.
+- D: Only that order justifies discarding half based on a midpoint comparison.
+
+**Solution check:** Only that order justifies discarding half based on a midpoint comparison.
+
+### WO-GD-10-4
+
+**Objective:** Test a boundary case
+
+**Question:** A linear scan checks one item per millisecond. In the worst case, how long to conclude a target is absent from 80 items?
+
+A. 1 ms
+B. 7 ms
+C. 80 ms
+D. 40 ms
+
+**Correct key:** C
+
+**Hint:** Absence is the worst case for an ordinary full scan.
+
+**Option feedback:**
+
+- A: One check cannot rule out the other entries.
+- B: A halving search has a different cost model and requires order.
+- C: An absent target requires checking all 80 items.
+- D: Halfway is not enough to establish absence.
+
+**Solution check:** An absent target requires checking all 80 items.
+
+### WO-GD-10-5
+
+**Objective:** Transfer the idea to a new setting
+
+**Question:** Binary search on seven sorted distinct values uses inclusive endpoints and midpoint floor. How many midpoint checks are needed at most?
+
+A. 4
+B. 3
+C. 2
+D. 7
+
+**Correct key:** B
+
+**Hint:** Draw the candidate counts 7, 3, 1.
+
+**Option feedback:**
+
+- A: For this size the balanced midpoint tree has only three levels.
+- B: Seven candidates can reduce to three, then one, then none or a match.
+- C: A value at the final remaining position needs a third check.
+- D: That is a possible linear-scan bound, not binary search.
+
+**Solution check:** Seven candidates can reduce to three, then one, then none or a match.
+
+### WO-GD-10-6
+
+**Objective:** Combine reasoning and a decision
+
+**Question:** A sorted dataset changes after a search index is built. New values are appended without ordering. What must happen before relying on binary search over the whole array?
+
+A. Restore and verify the ordering or use a search that does not require it
+B. Only make the processor faster
+C. Search twice and accept agreement
+D. Assume old order survives all appends
+
+**Correct key:** A
+
+**Hint:** An algorithm relies on a data property, not merely its name.
+
+**Option feedback:**
+
+- A: Appending arbitrary values can break the invariant that permits halving.
+- B: Speed cannot repair an invalid ordering assumption.
+- C: Repeated invalid searches may repeat the same wrong result.
+- D: An appended value can be smaller than earlier entries.
+
+**Solution check:** Appending arbitrary values can break the invariant that permits halving.
+
 # Mission 11 — THE CLASS THAT REMEMBERS TOO MUCH
 
 ## A. Mission briefing card — exact player copy
@@ -4771,6 +6599,8 @@ The mission is one causal investigation rather than four topic-matched questions
 
 ## D. Player-facing beat script
 
+**Beat presentation rule:** Existing panels and waypoints remain, with the exact speech below added to the named checkpoint. At most two short speech bubbles play per checkpoint. One Continue advances each bubble; the timer is paused throughout, speech enters the review log, and the existing unlock fires when speech closes. Local/remote presence is explicit. Replay from the log is state-neutral. The event fires once on the first successful completion of its trigger; retries cannot repeat world actions.
+
 ### Beat M11-B1 — On arrival at Software Lab
 
 **Presentation:** nearby_character_bubble.  
@@ -4785,11 +6615,16 @@ The mission is one causal investigation rather than four topic-matched questions
 **Presentation:** equipment_panel_update.  
 **Player control:** Immediate return; timer remains paused during the update.  
 **World state:** The current board records the two established results in text.  
-**Panel text:** “The shared static warning is replaced by independent instance state.”  
+**Panel text:** “The shared static warning is identified; independent instance behavior still requires the following checks.”  
 
 **Waypoint:** “Take that result to the Generator Controller in Power & Thermal Plant.”  
 **Unlocks:** Power & Thermal Plant and Stop 43.
 
+
+
+**Dialogue bubble — Priya Nair, local:** “The shared field crosses the object boundary. My clean interface hid a real coupling.”
+
+**Dialogue bubble — Malik Okafor, radio from Power & Thermal Plant:** “You showed me how to trace it. Now change only one controller so we can see whether the other stays put.”
 
 ### Beat M11-B3 — After Stop 43
 
@@ -4799,6 +6634,8 @@ The mission is one causal investigation rather than four topic-matched questions
 **Waypoint:** “The remaining check is at the Scrubber Console in Habitat Control.”  
 **Unlocks:** Habitat Control and Stop 44.
 
+
+**Dialogue bubble — Mei Alvarez, radio from Habitat Control:** “I have the power result. My air controller gets its own check before I call the warnings independent.”
 
 ### Beat M11-B4 — After Stop 44
 
@@ -5112,6 +6949,165 @@ verify:
 
 
 ---
+
+## L. GO DEEPER — optional review, exact player copy
+
+**Availability:** After mission completion and its metric screen, select GO DEEPER from the completed mission card. The panel is optional, ungraded, timer-paused and reopenable. Answers, hints and replays change no bars, RP, evidence flags, access or unlocks. Exit review is always available. Preserve the separate five worked examples. Optional review IDs below are never graded stop IDs.
+
+**Secondary brief:** Objects can look separate while reading one shared field. Decide which state belongs to an instance and which belongs to the class, then test the ownership with a one-sided change.
+
+**Java convention:** Each snippet is independent and sits in a suitable enclosing class or method; `java.util.ArrayList` is imported when needed. Do not carry values or class definitions from a different question.
+
+**Supporting concepts:**
+
+- Static field: one class-level value is shared rather than separately stored in each instance.
+- Instance field: each distinct object retains its own field value.
+- Static method: no implicit receiver object exists, so reading an instance field requires an appropriate object reference.
+
+### WO-GD-11-1
+
+**Objective:** Apply the mission concept to new data
+
+**Question:** Class Meter has `static int count = 0;`. After creating two instances, one executes `Meter.count = 5;`. What does the other read from Meter.count?
+
+A. 5
+B. 0
+C. 2
+D. 10
+
+**Correct key:** A
+
+**Hint:** Draw one class field, not one copy per object.
+
+**Option feedback:**
+
+- A: A static field belongs to the class and is shared by its instances.
+- B: A second instance does not own a separate static copy.
+- C: No constructor increment was specified.
+- D: Reading through another instance does not multiply the value.
+
+**Solution check:** A static field belongs to the class and is shared by its instances.
+
+### WO-GD-11-2
+
+**Objective:** Retrieve and trace a prior rule
+
+**Question:** Each Meter has instance field int warning. a.warning is 2 and b.warning is 7 for distinct objects. After a.warning = 4, what is b.warning?
+
+A. 4
+B. 2
+C. 0
+D. 7
+
+**Correct key:** D
+
+**Hint:** Separate instance storage for distinct objects.
+
+**Option feedback:**
+
+- A: That would require shared state or aliasing, neither of which is stated.
+- B: The earlier value on a never belonged to b.
+- C: No statement resets b.
+- D: Changing a field on a does not change the corresponding field on distinct b.
+
+**Solution check:** Changing a field on a does not change the corresponding field on distinct b.
+
+### WO-GD-11-3
+
+**Objective:** Distinguish a plausible wrong model
+
+**Question:** Every new Ticket should have its own passenger name, but all tickets share one issued counter. Which field design fits?
+
+A. Both fields static
+B. Both fields local to a constructor only
+C. Instance passenger; static issued counter
+D. Static passenger; instance issued counter
+
+**Correct key:** C
+
+**Hint:** Classify each datum by who must own its lifetime and value.
+
+**Option feedback:**
+
+- A: Creating another ticket could overwrite the shared passenger.
+- B: Local variables do not retain the required object/class state afterward.
+- C: Names belong to individual tickets; the aggregate count belongs to the class.
+- D: This shares the data that should differ and separates the aggregate.
+
+**Solution check:** Names belong to individual tickets; the aggregate count belongs to the class.
+
+### WO-GD-11-4
+
+**Objective:** Test a boundary case
+
+**Question:** A constructor contains `count++;`, where count is static and starts at 0. Three objects are constructed. What is count?
+
+A. 6
+B. 3
+C. 1
+D. 0
+
+**Correct key:** B
+
+**Hint:** Count constructor executions on a single shared variable.
+
+**Option feedback:**
+
+- A: There are three increments, not a cumulative sum of instance numbers.
+- B: Each constructor increments the one shared counter once.
+- C: The static counter is not reset for each instance.
+- D: The constructors execute the increments.
+
+**Solution check:** Each constructor increments the one shared counter once.
+
+### WO-GD-11-5
+
+**Objective:** Transfer the idea to a new setting
+
+**Question:** Two different controllers always report the same warning. Which test distinguishes shared storage from coincidental equal inputs?
+
+A. Set a warning on only one controller and then read both
+B. Read both again without changing anything
+C. Give both the same new warning
+D. Compare both with a third panel reading the same warning field
+
+**Correct key:** A
+
+**Hint:** Make the candidate explanations predict different observations.
+
+**Option feedback:**
+
+- A: A controlled one-sided mutation tests whether the state is coupled.
+- B: Unchanged agreement does not distinguish the causes.
+- C: Both models predict agreement again.
+- D: A third reader of shared storage repeats the dependency rather than testing coupling.
+
+**Solution check:** A controlled one-sided mutation tests whether the state is coupled.
+
+### WO-GD-11-6
+
+**Objective:** Combine reasoning and a decision
+
+**Question:** A static method has no object parameter and tries to read a non-static field directly. Why does Java reject that use?
+
+A. Static methods cannot return values
+B. Instance fields can never be read
+C. All fields must be static
+D. There is no particular instance whose field it can read
+
+**Correct key:** D
+
+**Hint:** Ask which object the method means.
+
+**Option feedback:**
+
+- A: They can return values with a declared return type.
+- B: They can be read through an appropriate instance subject to access rules.
+- C: Classes can and normally do contain instance fields.
+- D: A static method needs an object reference to select instance storage.
+
+**Solution check:** A static method needs an object reference to select instance storage.
+
 # Mission 12 — THE SORTED QUEUE
 
 ## A. Mission briefing card — exact player copy
@@ -5184,6 +7180,8 @@ The mission is one causal investigation rather than four topic-matched questions
 
 ## D. Player-facing beat script
 
+**Beat presentation rule:** Existing panels and waypoints remain, with the exact speech below added to the named checkpoint. At most two short speech bubbles play per checkpoint. One Continue advances each bubble; the timer is paused throughout, speech enters the review log, and the existing unlock fires when speech closes. Local/remote presence is explicit. Replay from the log is state-neutral. The event fires once on the first successful completion of its trigger; retries cannot repeat world actions.
+
 ### Beat M12-B1 — On arrival at Operations Module
 
 **Presentation:** nearby_character_bubble.  
@@ -5201,6 +7199,11 @@ The mission is one causal investigation rather than four topic-matched questions
 **Waypoint:** “Take the four selected fields to the Code Review Wall in Software Lab.”  
 **Unlocks:** Software Lab and Stop 46.
 
+
+**Dialogue bubble — Dr. Elena Park, local:** “These four fields tell the aircraft what it can do. The names can stay here.”
+
+**Dialogue bubble — Jonah Reyes, radio from Vehicle Bay:** “Keep runway status ahead of anything optional. The crew outside needs a decision, not a document dump.”
+
 ### Beat M12-B2B — After Stop 46
 
 **Presentation:** equipment_panel_update.  
@@ -5208,6 +7211,8 @@ The mission is one causal investigation rather than four topic-matched questions
 **World state:** Selection-sort passes place WEATHER first and expose the equal-priority POWER/RUNWAY pair.  
 **Panel text:** “The priority values are ordered; one equal-priority relationship still has to be preserved.”  
 **Unlocks:** Stop 47.
+
+**Dialogue bubble — Priya Nair, local:** “The numbers are sorted. Equal priorities can still change places; check which order must survive.”
 
 ### Beat M12-B3 — After Stop 47
 
@@ -5521,6 +7526,166 @@ verify:
 
 
 ---
+
+## L. GO DEEPER — optional review, exact player copy
+
+**Availability:** After mission completion and its metric screen, select GO DEEPER from the completed mission card. The panel is optional, ungraded, timer-paused and reopenable. Answers, hints and replays change no bars, RP, evidence flags, access or unlocks. Exit review is always available. Preserve the separate five worked examples. Optional review IDs below are never graded stop IDs.
+
+**Secondary brief:** Ordering is only one part of a correct queue. Check value preservation and ties, then use two clearly marked supplementary questions to consider information size and privacy.
+
+**Java convention:** Each snippet is independent and sits in a suitable enclosing class or method; `java.util.ArrayList` is imported when needed. Do not carry values or class definitions from a different question.
+
+**Supporting concepts:**
+
+- Selection sort: choose the smallest remaining item and swap it into the first unsorted position.
+- Stable sorting: equal-key items retain their earlier relative order.
+- Preservation: sorting keeps every original occurrence, not merely the number of slots.
+- Supplementary computing topics: a byte budget limits total payload size; data minimization means sending only what the recipient needs. These extend the CSA sorting work and are not presented as additional CSA exam requirements.
+
+### WO-GD-12-1
+
+**Objective:** Apply the mission concept to new data
+
+**Question:** Selection sort chooses the smallest remaining value and swaps it into the first unsorted position. After one pass on [5, 2, 4, 1], what is the list?
+
+A. [2, 5, 4, 1]
+B. [1, 2, 5, 4]
+C. [1, 4, 2, 5]
+D. [1, 2, 4, 5]
+
+**Correct key:** D
+
+**Hint:** Locate the minimum before performing one swap.
+
+**Option feedback:**
+
+- A: This swaps only the first adjacent pair, not the full remaining minimum.
+- B: The specified single swap puts 5 at the old position of 1.
+- C: There is no reason to exchange the middle two values.
+- D: The minimum 1 swaps with the first value 5.
+
+**Solution check:** The minimum 1 swaps with the first value 5.
+
+### WO-GD-12-2
+
+**Objective:** Retrieve and trace a prior rule
+
+**Question:** Ascending stable sorting is applied to [(A, 2), (B, 1), (C, 2)]. Which output is stable by the number?
+
+A. [(A, 2), (B, 1), (C, 2)]
+B. [(C, 2), (A, 2), (B, 1)]
+C. [(B, 1), (A, 2), (C, 2)]
+D. [(B, 1), (C, 2), (A, 2)]
+
+**Correct key:** C
+
+**Hint:** Stability concerns equal keys, not keeping every original position.
+
+**Option feedback:**
+
+- A: This preserves ties but is not ascending.
+- B: This fails ascending order and reverses the tie.
+- C: B moves first, while equal-priority A remains before C.
+- D: This is sorted but reverses the original equal-key order.
+
+**Solution check:** B moves first, while equal-priority A remains before C.
+
+### WO-GD-12-3
+
+**Objective:** Distinguish a plausible wrong model
+
+**Question:** Insertion sort shifts prior elements while their key is greater than the inserted key. Why use > rather than >= to preserve stability?
+
+A. Using >= cannot compile
+B. Equal prior elements stay before the inserted element
+C. Equal keys must be removed
+D. The array must remain unsorted
+
+**Correct key:** B
+
+**Hint:** Consider a new item tied with the preceding item.
+
+**Option feedback:**
+
+- A: Both comparisons compile; their tie behavior differs.
+- B: Shifting only strictly larger keys retains the original order of equal keys.
+- C: Sorting preserves elements, including duplicates.
+- D: The > rule still produces ascending order.
+
+**Solution check:** Shifting only strictly larger keys retains the original order of equal keys.
+
+### WO-GD-12-4
+
+**Objective:** Test a boundary case
+
+**Question:** Supplementary computing topic: a report channel allows 12 bytes. Required field A uses 5 bytes and B uses 4; optional C uses 4. Ignoring overhead, which required-complete set fits?
+
+A. A and B only
+B. A, B and C
+C. A and C only
+D. B and C only
+
+**Correct key:** A
+
+**Hint:** Check both completeness and the sum of sizes.
+
+**Option feedback:**
+
+- A: The required pair uses 9 bytes; adding C would use 13.
+- B: Thirteen exceeds the twelve-byte limit.
+- C: This omits required B.
+- D: This omits required A.
+
+**Solution check:** The required pair uses 9 bytes; adding C would use 13.
+
+### WO-GD-12-5
+
+**Objective:** Transfer the idea to a new setting
+
+**Question:** Supplementary privacy topic: a dispatcher needs the count of passengers requiring assistance, not their identities. Which field best meets the stated need?
+
+A. Names and home addresses
+B. All medical notes
+C. No assistance information
+D. Assistance count
+
+**Correct key:** D
+
+**Hint:** Use the least identifying data that still supports the decision.
+
+**Option feedback:**
+
+- A: Those identify people but exceed the stated operational need.
+- B: Detailed records disclose more than the dispatcher needs.
+- C: That withholds information necessary for the stated task.
+- D: The aggregate supplies the required planning information without unnecessary identity data.
+
+**Solution check:** The aggregate supplies the required planning information without unnecessary identity data.
+
+### WO-GD-12-6
+
+**Objective:** Combine reasoning and a decision
+
+**Question:** A sorter outputs [1, 3, 3] from input [3, 1, 2]. Is ascending order alone enough to certify it?
+
+A. No; duplicates are forbidden in every sorted list
+B. Yes; the input and output have equal lengths
+C. No; it changed the multiset of values
+D. Yes; the only contract of sorting is increasing order
+
+**Correct key:** C
+
+**Hint:** Check preservation as well as order.
+
+**Option feedback:**
+
+- A: Duplicates may be perfectly valid when present in the input.
+- B: Equal length does not guarantee equal contents.
+- C: One 2 was lost and an extra 3 appeared despite ascending order.
+- D: Sorting must also preserve the input items.
+
+**Solution check:** One 2 was lost and an extra 3 appeared despite ascending order.
+
 # Mission 13 — THE CALL THAT CALLS ITSELF
 
 ## A. Mission briefing card — exact player copy
@@ -5593,6 +7758,8 @@ The mission is one causal investigation rather than four topic-matched questions
 
 ## D. Player-facing beat script
 
+**Beat presentation rule:** Existing panels and waypoints remain, with the exact speech below added to the named checkpoint. At most two short speech bubbles play per checkpoint. One Continue advances each bubble; the timer is paused throughout, speech enters the review log, and the existing unlock fires when speech closes. Local/remote presence is explicit. Replay from the log is state-neutral. The event fires once on the first successful completion of its trigger; retries cannot repeat world actions.
+
 ### Beat M13-B1 — On arrival at Software Lab
 
 **Presentation:** nearby_character_bubble.  
@@ -5607,11 +7774,16 @@ The mission is one causal investigation rather than four topic-matched questions
 **Presentation:** equipment_panel_update.  
 **Player control:** Immediate return; timer remains paused during the update.  
 **World state:** The current board records the two established results in text.  
-**Panel text:** “The recursive builder returns four safe waypoints and the rover relay comes online.”  
+**Panel text:** “The recursive trace reaches its base case; route verification and relay deployment still follow.”  
 
 **Waypoint:** “Take that result to the Route Planning Board in Vehicle Bay.”  
 **Unlocks:** Vehicle Bay and Stop 51.
 
+
+
+**Dialogue bubble — Priya Nair, local:** “The base case is reachable. Jonah still needs proof of what comes back from the calls.”
+
+**Dialogue bubble — Jonah Reyes, radio from Vehicle Bay:** “I will wait for the route contract. Park promised a reversible plan, and sending the rover blind would break it.”
 
 ### Beat M13-B3 — After Stop 51
 
@@ -5621,6 +7793,8 @@ The mission is one causal investigation rather than four topic-matched questions
 **Waypoint:** “The remaining check is at the Link Console in Communications & Weather.”  
 **Unlocks:** Communications & Weather and Stop 52.
 
+
+**Dialogue bubble — Jonah Reyes, local:** “The route check holds. Liv can test the relay path before we call it a backup.”
 
 ### Beat M13-B4 — After Stop 52
 
@@ -5934,6 +8108,166 @@ verify:
 
 
 ---
+
+## L. GO DEEPER — optional review, exact player copy
+
+**Availability:** After mission completion and its metric screen, select GO DEEPER from the completed mission card. The panel is optional, ungraded, timer-paused and reopenable. Answers, hints and replays change no bars, RP, evidence flags, access or unlocks. Exit review is always available. Preserve the separate five worked examples. Optional review IDs below are never graded stop IDs.
+
+**Secondary brief:** A recursive call needs both a reachable stop and a useful return value. Follow calls down and results back up; one supplementary question revisits shared communication dependencies.
+
+**Java convention:** Each snippet is independent and sits in a suitable enclosing class or method; `java.util.ArrayList` is imported when needed. Do not carry values or class definitions from a different question.
+
+**Supporting concepts:**
+
+- Base case: a directly answered input stops further recursive calls.
+- Progress: a nonnegative measure decreases toward the base case on each allowed recursive step.
+- Call stack: each invocation keeps its own parameter while waiting for its child call to finish.
+- Supplementary reliability: two channels can still depend on the same failing component.
+
+### WO-GD-13-1
+
+**Objective:** Apply the mission concept to new data
+
+**Question:** For `int f(int n) { if (n == 0) return 0; return n + f(n - 1); }`, what is f(3)?
+
+A. 9
+B. 0
+C. 6
+D. 3
+
+**Correct key:** C
+
+**Hint:** Write the calls down, then accumulate returns upward.
+
+**Option feedback:**
+
+- A: The code adds different decreasing n values, not three threes.
+- B: Only the base call returns zero directly.
+- C: The expansion is 3 + 2 + 1 + 0.
+- D: That ignores the recursive return values.
+
+**Solution check:** The expansion is 3 + 2 + 1 + 0.
+
+### WO-GD-13-2
+
+**Objective:** Retrieve and trace a prior rule
+
+**Question:** A recursive method handles nonnegative n, returns at n == 0, and otherwise calls itself with n + 1. What repair establishes progress for positive n?
+
+A. Call with n + 2
+B. Call with n - 1
+C. Call again with n
+D. Remove the base case
+
+**Correct key:** B
+
+**Hint:** Use a nonnegative measure that decreases on every recursive step.
+
+**Option feedback:**
+
+- A: This moves farther from zero.
+- B: For positive integer n, each call reduces the distance to zero.
+- C: The input does not move toward the base case.
+- D: Then no call has a stopping rule.
+
+**Solution check:** For positive integer n, each call reduces the distance to zero.
+
+### WO-GD-13-3
+
+**Objective:** Distinguish a plausible wrong model
+
+**Question:** A method f(n) calls only f(n - 1) until f(0), including the base call. How many total calls occur for f(4)?
+
+A. 5
+B. 4
+C. 3
+D. 8
+
+**Correct key:** A
+
+**Hint:** Count the initial and base calls as well as intermediate calls.
+
+**Option feedback:**
+
+- A: The calls have inputs 4, 3, 2, 1 and 0.
+- B: This omits the base call.
+- C: This omits more than the terminating call.
+- D: There is one recursive child per call, not branching into two.
+
+**Solution check:** The calls have inputs 4, 3, 2, 1 and 0.
+
+### WO-GD-13-4
+
+**Objective:** Test a boundary case
+
+**Question:** What does this method print for show(3)? `void show(int n) { if (n == 0) return; show(n - 1); System.out.print(n); }`
+
+A. 321
+B. 0123
+C. 333
+D. 123
+
+**Correct key:** D
+
+**Hint:** Follow execution back out of the call stack.
+
+**Option feedback:**
+
+- A: That would print before the recursive call.
+- B: The base case returns before printing zero.
+- C: Each active call has its own parameter value.
+- D: The recursive call completes before the current n is printed.
+
+**Solution check:** The recursive call completes before the current n is printed.
+
+### WO-GD-13-5
+
+**Objective:** Transfer the idea to a new setting
+
+**Question:** Supplementary reliability topic: two radio channels use the same router. What does successful transmission on both prove about surviving that router failing?
+
+A. The router cannot fail
+B. Both channels are useless for every purpose
+C. It does not establish survival of the shared-router failure
+D. Either channel must survive
+
+**Correct key:** C
+
+**Hint:** Trace the component both paths still require.
+
+**Option feedback:**
+
+- A: Successful tests cannot establish physical impossibility of failure.
+- B: They may work well now; the limitation concerns this specific failure.
+- C: Both successes occur while the shared dependency works.
+- D: Different channel labels do not remove the shared dependency.
+
+**Solution check:** Both successes occur while the shared dependency works.
+
+### WO-GD-13-6
+
+**Objective:** Combine reasoning and a decision
+
+**Question:** A recursive route method promises an empty list for n = 0 and prepends one waypoint to route(n - 1). Assuming it terminates, how many waypoints does route(3) return?
+
+A. 0
+B. 3
+C. 4
+D. 1
+
+**Correct key:** B
+
+**Hint:** Track list length, starting with the base contract.
+
+**Option feedback:**
+
+- A: Only the base result is empty.
+- B: The base has zero items and each of three levels adds one.
+- C: The empty base does not contribute a waypoint.
+- D: Each recursive level contributes, not just the outer call.
+
+**Solution check:** The base has zero items and each of three levels adds one.
+
 # Mission 14 — ALL GREEN
 
 ## A. Mission briefing card — exact player copy
@@ -6006,6 +8340,8 @@ The mission is one causal investigation rather than four topic-matched questions
 
 ## D. Player-facing beat script
 
+**Beat presentation rule:** Existing panels and waypoints remain, with the exact speech below added to the named checkpoint. At most two short speech bubbles play per checkpoint. One Continue advances each bubble; the timer is paused throughout, speech enters the review log, and the existing unlock fires when speech closes. Local/remote presence is explicit. Replay from the log is state-neutral. The event fires once on the first successful completion of its trigger; retries cannot repeat world actions.
+
 ### Beat M14-B1 — On arrival at Software Lab
 
 **Presentation:** nearby_character_bubble.  
@@ -6023,6 +8359,11 @@ The mission is one causal investigation rather than four topic-matched questions
 **Waypoint:** “Take the holdout failure to Malik Okafor, power and thermal engineer, at the Load Board.”  
 **Unlocks:** Power & Thermal Plant and Stop 54.
 
+
+**Dialogue bubble — Priya Nair, local:** “The fresh cases break rollback. Malik, your live readings can be right while my recovery code is wrong.”
+
+**Dialogue bubble — Malik Okafor, radio from Power & Thermal Plant:** “I believe both now. Bring the failing cases; I will keep power steady while we find a safe way back.”
+
 ### Beat M14-B2B — After Stop 54
 
 **Presentation:** equipment_panel_update.  
@@ -6030,6 +8371,8 @@ The mission is one causal investigation rather than four topic-matched questions
 **World state:** The Load Board shows backward removal as the only strategy that stays correct and under twelve inspections.  
 **Panel text:** “One robust candidate remains; compare its failure pattern with the old incident trace.”  
 **Unlocks:** Stop 55 at the Generator Controller.
+
+**Dialogue bubble — Malik Okafor, local:** “Only the backward method met both limits. Compare its pattern with the trace Priya asked us to keep.”
 
 ### Beat M14-B3 — After Stop 55
 
@@ -6367,6 +8710,165 @@ rebuttals:
 
 
 ---
+
+## L. GO DEEPER — optional review, exact player copy
+
+**Availability:** After mission completion and its metric screen, select GO DEEPER from the completed mission card. The panel is optional, ungraded, timer-paused and reopenable. Answers, hints and replays change no bars, RP, evidence flags, access or unlocks. Exit review is always available. Preserve the separate five worked examples. Optional review IDs below are never graded stop IDs.
+
+**Secondary brief:** A passing development set is evidence with a boundary. Introduce a fresh structural case, keep the adverse result, and judge correctness separately from execution cost.
+
+**Java convention:** Each snippet is independent and sits in a suitable enclosing class or method; `java.util.ArrayList` is imported when needed. Do not carry values or class definitions from a different question.
+
+**Supporting concepts:**
+
+- Holdout: cases kept out of repair decisions supply a fresh check; using them to tune a repair consumes that independence.
+- Stress variable: deliberately vary the feature suspected of causing failure, such as adjacent removals.
+- Joint requirements: a candidate must meet both the correctness contract and any stated resource bound.
+
+### WO-GD-14-1
+
+**Objective:** Apply the mission concept to new data
+
+**Question:** A patch passes ten development cases but fails two fresh cases. What is the strongest justified conclusion?
+
+A. The patch fails on every possible input
+B. The patch does not meet its contract on those fresh cases
+C. The fresh cases should be deleted to restore a perfect score
+D. All ten earlier results must be false
+
+**Correct key:** B
+
+**Hint:** Distinguish refuting universal success from proving universal failure.
+
+**Option feedback:**
+
+- A: Two failures do not establish universal failure.
+- B: Observed failures refute a claim of success over the entire stated input domain.
+- C: Removing valid adverse evidence does not repair behavior.
+- D: Earlier passes may remain valid for their own inputs.
+
+**Solution check:** Observed failures refute a claim of success over the entire stated input domain.
+
+### WO-GD-14-2
+
+**Objective:** Retrieve and trace a prior rule
+
+**Question:** You repair code using the original holdout cases repeatedly. What should happen before claiming a new independent holdout result?
+
+A. Reserve fresh valid cases not used to shape the repair
+B. Rename the old cases
+C. Hide the old output column
+D. Count the same old cases twice
+
+**Correct key:** A
+
+**Hint:** Independence refers to how cases were used, not how they are displayed.
+
+**Option feedback:**
+
+- A: Once examples guide changes, performance on them is no longer an independent holdout check.
+- B: A new label does not remove their influence on the repair.
+- C: The development process already used their evidence.
+- D: Repeated counts do not create independent cases.
+
+**Solution check:** Once examples guide changes, performance on them is no longer an independent holdout check.
+
+### WO-GD-14-3
+
+**Objective:** Distinguish a plausible wrong model
+
+**Question:** Cleanup fails only when removable records are adjacent. Which next input most directly tests that hypothesis?
+
+A. A list with no removable records
+B. A list with only isolated removable records
+C. An empty list only
+D. Two adjacent removable records between retained records
+
+**Correct key:** D
+
+**Hint:** Vary the suspected structural feature.
+
+**Option feedback:**
+
+- A: It never exercises deletion.
+- B: It repeats cases outside the proposed trigger.
+- C: It tests a useful boundary, but not adjacency.
+- D: This introduces the proposed trigger while keeping visible neighbors to inspect.
+
+**Solution check:** This introduces the proposed trigger while keeping visible neighbors to inspect.
+
+### WO-GD-14-4
+
+**Objective:** Test a boundary case
+
+**Question:** A recovery method must finish within 9 inspections and be correct. Method A is correct in 8; B is correct in 11; C is wrong in 4. Which candidate satisfies both requirements?
+
+A. C only
+B. A and B
+C. A only
+D. B only
+
+**Correct key:** C
+
+**Hint:** Treat correctness and resource use as separate required checks.
+
+**Option feedback:**
+
+- A: Speed does not compensate for a wrong result.
+- B: B still violates the stated limit.
+- C: Only A is both correct and within nine inspections.
+- D: Eleven exceeds the time-work limit.
+
+**Solution check:** Only A is both correct and within nine inspections.
+
+### WO-GD-14-5
+
+**Objective:** Transfer the idea to a new setting
+
+**Question:** A live dashboard is normal, but the fallback method fails a valid test. What does this establish?
+
+A. Every recovery method is impossible
+B. Current operation is calm while recovery remains unverified
+C. The current hardware is definitely broken
+D. Recovery is safe because no alarm is visible
+
+**Correct key:** B
+
+**Hint:** Current state and behavior after a failure are different claims.
+
+**Option feedback:**
+
+- A: One failing method does not rule out other designs.
+- B: Normal current outputs do not exercise the failed fallback path.
+- C: The evidence is about fallback behavior, not current hardware failure.
+- D: The relevant recovery test already failed.
+
+**Solution check:** Normal current outputs do not exercise the failed fallback path.
+
+### WO-GD-14-6
+
+**Objective:** Combine reasoning and a decision
+
+**Question:** A check counts leftover removable entries after cleanup. Across three tests it observes 0, 1 and 0; the contract requires none. What is the pass count?
+
+A. 2 of 3
+B. 3 of 3
+C. 1 of 3
+D. 0 of 3
+
+**Correct key:** A
+
+**Hint:** Apply the expected value separately to each test.
+
+**Option feedback:**
+
+- A: Only the tests with zero leftovers meet the contract.
+- B: A single leftover violates the requirement.
+- C: The one nonzero observation is a failure, not the only pass.
+- D: Two tests do satisfy the zero-leftover rule.
+
+**Solution check:** Only the tests with zero leftovers meet the contract.
+
 # Mission 15 — WHITEOUT
 
 ## A. Mission briefing card — exact player copy
@@ -6439,6 +8941,8 @@ The mission is one causal investigation rather than four topic-matched questions
 
 ## D. Player-facing beat script
 
+**Beat presentation rule:** Existing panels and waypoints remain, with the exact speech below added to the named checkpoint. At most two short speech bubbles play per checkpoint. One Continue advances each bubble; the timer is paused throughout, speech enters the review log, and the existing unlock fires when speech closes. Local/remote presence is explicit. Replay from the log is state-neutral. The event fires once on the first successful completion of its trigger; retries cannot repeat world actions.
+
 ### Beat M15-B1 — On arrival at Operations Module
 
 **Presentation:** nearby_character_bubble.  
@@ -6456,6 +8960,11 @@ The mission is one causal investigation rather than four topic-matched questions
 **Waypoint:** “Take the release plan to the Code Review Wall in Software Lab.”  
 **Unlocks:** Software Lab and Stop 58.
 
+
+**Dialogue bubble — Dr. Elena Park, local:** “We keep the small first release and the rover path. Jonah, I am not spending the fallback to gain a minute.”
+
+**Dialogue bubble — Jonah Reyes, radio from Vehicle Bay:** “Then I can stand behind the route. We keep the relay until the aircraft is down.”
+
 ### Beat M15-B3 — After Stop 58
 
 **Presentation:** equipment_panel_update + waypoint_notification.  
@@ -6463,6 +8972,8 @@ The mission is one causal investigation rather than four topic-matched questions
 **World state:** The backward traversal is marked MECHANISM VERIFIED.  
 **Waypoint:** “Take the verified rollback to the Packet Monitor in Communications & Weather.”  
 **Unlocks:** Communications & Weather and Stop 59.
+
+**Dialogue bubble — Priya Nair, local:** “The rollback trace holds. Liv still has to show the control path survives the shared-router failure.”
 
 ### Beat M15-B3B — After Stop 59
 
@@ -6799,6 +9310,166 @@ verify:
 
 
 ---
+
+## L. GO DEEPER — optional review, exact player copy
+
+**Availability:** Only after the ending card has closed and the player has returned to normal play, explicitly select GO DEEPER on the completed Mission 15 card. Never auto-open a question after the finale. The panel is optional, ungraded, timer-paused and reopenable. Answers, hints and replays change no bars, RP, evidence flags, access or unlocks. Exit review is always available. Preserve the separate five worked examples. Optional review IDs below are never graded stop IDs.
+
+**Secondary brief:** Practice combining the code evidence with a staged decision. Keep each conclusion tied to the cases tested and record the limits another crew would need to know.
+
+**Java convention:** Each snippet is independent and sits in a suitable enclosing class or method; `java.util.ArrayList` is imported when needed. Do not carry values or class definitions from a different question.
+
+**Supporting concepts:**
+
+- Canary: a small first deployment is monitored against committed expected results before wider expansion.
+- Reversibility: a tested rollback offers a way to undo a failed release; its own behavior needs evidence.
+- Scope: a pass on one layout does not automatically cover a changed layout.
+- Supplementary systems reasoning: independence is relative to a named failure; a handover preserves reproducible evidence and remaining limits.
+
+### WO-GD-15-1
+
+**Objective:** Apply the mission concept to new data
+
+**Question:** A release plan requires a tested rollback, an independent control path and a small first deployment. Which proposal meets all three?
+
+A. Test rollback, retain a separate path, then deploy to one monitored unit
+B. Restart every unit and test afterward
+C. Deploy one unit but disconnect the backup path
+D. Keep two channels on one router and skip rollback tests
+
+**Correct key:** A
+
+**Hint:** Check every gate rather than choosing the fastest sounding plan.
+
+**Option feedback:**
+
+- A: The proposal supplies reversibility, independence and limited initial exposure.
+- B: This lacks a small first deployment and verified rollback before action.
+- C: Limited exposure alone does not satisfy independence.
+- D: Shared dependency and untested recovery violate two requirements.
+
+**Solution check:** The proposal supplies reversibility, independence and limited initial exposure.
+
+### WO-GD-15-2
+
+**Objective:** Retrieve and trace a prior rule
+
+**Question:** A canary is a small monitored first deployment. Expected readings are [4, 0, 7]; measured readings are [4, 1, 7], with exact matching required. Should expansion proceed?
+
+A. Yes; most readings match
+B. Yes; the sum is almost equal
+C. No; none of the readings match
+D. No; the second reading mismatches
+
+**Correct key:** D
+
+**Hint:** Compare corresponding values before applying the release rule.
+
+**Option feedback:**
+
+- A: The gate requires all three, not a majority.
+- B: The test requires individual exact values.
+- C: The first and third do match; only the second fails.
+- D: All required checks must pass, and the middle value differs.
+
+**Solution check:** All required checks must pass, and the middle value differs.
+
+### WO-GD-15-3
+
+**Objective:** Distinguish a plausible wrong model
+
+**Question:** A rollback removes every marked item by visiting indexes from size - 1 down to zero. Starting [keep A, remove B, remove C, keep D], what remains?
+
+A. [keep A]
+B. []
+C. [keep A, keep D]
+D. [keep A, remove C, keep D]
+
+**Correct key:** C
+
+**Hint:** Trace from the final index toward zero.
+
+**Option feedback:**
+
+- A: D is not marked for removal.
+- B: Only marked items should be removed.
+- C: Backward removal visits C then B without skipping a shifted unvisited item.
+- D: That is the forward-skip failure, not the backward result.
+
+**Solution check:** Backward removal visits C then B without skipping a shifted unvisited item.
+
+### WO-GD-15-4
+
+**Objective:** Test a boundary case
+
+**Question:** Two backup routes avoid the main router but share one power supply. What limitation belongs in the recovery record?
+
+A. Their route names prove independence
+B. They are independent of that router, but not of the shared power supply
+C. They are independent of every failure
+D. They cannot transmit while the supply works
+
+**Correct key:** B
+
+**Hint:** Name the component whose failure is being considered.
+
+**Option feedback:**
+
+- A: Names do not describe dependencies.
+- B: Independence is relative to a specified failure, not an absolute label.
+- C: A shared supply creates a common failure point.
+- D: Sharing a supply does not prevent normal operation.
+
+**Solution check:** Independence is relative to a specified failure, not an absolute label.
+
+### WO-GD-15-5
+
+**Objective:** Transfer the idea to a new setting
+
+**Question:** After a code fix passes new boundary tests, what should the handover record preserve?
+
+A. The fault, exact fix, test inputs, expected and observed outputs, and remaining limits
+B. Only a green screenshot
+C. Only the developer name
+D. Only the fastest test time
+
+**Correct key:** A
+
+**Hint:** Ask what another person needs to repeat or challenge the claim.
+
+**Option feedback:**
+
+- A: A later crew needs reproducible evidence and scope, not only a success label.
+- B: A screenshot omits the reproducible inputs and limits.
+- C: Authorship does not establish behavior.
+- D: Speed omits correctness and the conditions of the test.
+
+**Solution check:** A later crew needs reproducible evidence and scope, not only a success label.
+
+### WO-GD-15-6
+
+**Objective:** Combine reasoning and a decision
+
+**Question:** A staged release passes on one unit. The next unit uses a different input layout not yet tested. What action best follows the evidence?
+
+A. Assume one unit proves every layout
+B. Declare the first success meaningless
+C. Change every unit at once to save time
+D. Test the new layout before expanding to that unit
+
+**Correct key:** D
+
+**Hint:** Carry forward the scope of a result, not just its pass label.
+
+**Option feedback:**
+
+- A: The new condition was not covered.
+- B: It remains evidence for the first unit and conditions.
+- C: That expands exposure before checking the known difference.
+- D: The first pass supports its tested conditions; the changed layout introduces an untested assumption.
+
+**Solution check:** The first pass supports its tested conditions; the changed layout introduces an untested assumption.
+
 ## Ending card — exact player copy
 
 The plane lands. Its lights cross the snow, and the Runway Door opens. You step out while the crew keeps the heat on and the rover link clear. Park takes The Recovery Record with her: fifteen parts, each tied to a test the next crew can repeat.

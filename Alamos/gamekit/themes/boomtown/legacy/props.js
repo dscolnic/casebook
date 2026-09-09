@@ -123,6 +123,17 @@ function wireRun(scene, x0, z0, x1, z1, gaps = []){
   });
 }
 
+/**
+ * A SITE MAST, WHICH THIS WAS A GUARD TOWER.
+ *
+ * The wire and the gates stay — the bible keeps the fences in their original
+ * bounds and turns the security signage into delivery and worksite access — but
+ * two manned towers with searchlights over a town's freight yard are the one
+ * piece of this place that cannot be re-signed into something else. Same frame,
+ * same colliders, same height: the platform loses its railing and its shed and
+ * gains a floodlight head and an aerial, which is what a works compound puts on
+ * a corner.
+ */
 function guardTower(scene, x, z, facing){
   const y = terrainHeight(x, z);
   const H = 6.4;
@@ -130,20 +141,19 @@ function guardTower(scene, x, z, facing){
     cyl(scene, 0.11, 0.14, H, x + dx, y + H / 2, z + dz, M.woodDark, 6);
   }
   box(scene, 3.0, 0.22, 3.0, x, y + H, z, M.wood);
-  // railing
+  // A low kerb rather than a railing to stand behind, and no shed: nobody is
+  // posted up here.
   for(const [dx, dz, w, d] of [[0, -1.45, 3.0, 0.12], [0, 1.45, 3.0, 0.12], [-1.45, 0, 0.12, 3.0], [1.45, 0, 0.12, 3.0]]){
-    box(scene, w, 0.9, d, x + dx, y + H + 0.55, z + dz, M.woodDark);
+    box(scene, w, 0.28, d, x + dx, y + H + 0.24, z + dz, M.woodDark);
   }
-  // shed roof on four short posts
-  for(const [dx, dz] of [[-1.3, -1.3], [1.3, -1.3], [-1.3, 1.3], [1.3, 1.3]]){
-    cyl(scene, 0.07, 0.07, 2.0, x + dx, y + H + 1.1, z + dz, M.woodDark, 5);
-  }
-  const roof = box(scene, 3.6, 0.16, 3.6, x, y + H + 2.15, z, M.weathered);
-  roof.rotation.x = 0.08;
-  // searchlight
-  const lampY = y + H + 1.0;
-  cyl(scene, 0.3, 0.34, 0.5, x + Math.sin(facing) * 1.2, lampY, z + Math.cos(facing) * 1.2, M.steel, 10)
-    .rotation.set(Math.PI / 2 - 0.25, facing, 0);
+  // The floodlight head, pointed down at the yard rather than out at a fence.
+  const lampY = y + H + 1.1;
+  cyl(scene, 0.11, 0.11, 2.2, x, y + H + 1.1, z, M.steel, 6);
+  const head = box(scene, 1.1, 0.34, 0.42,
+    x + Math.sin(facing) * 0.5, lampY + 0.9, z + Math.cos(facing) * 0.5, M.steel);
+  head.rotation.set(0.5, facing, 0);
+  // …and an aerial, because a works compound's corner carries one.
+  cyl(scene, 0.04, 0.04, 3.4, x + 0.9, y + H + 1.7, z + 0.9, M.steel, 5);
   hard(x, z, 3.2, 3.2, H);
   soft(x, z, 1.9);
 }
@@ -428,7 +438,7 @@ function bicycle(scene, x, z, ry){
 }
 
 // ------------------------------------------------------------------- vehicles
-function jeep(scene, x, z, ry, { drive = false, label = 'jeep', id = null } = {}){
+function jeep(scene, x, z, ry, { drive = false, label = 'pickup', id = null } = {}){
   const y = terrainHeight(x, z);
   const g = new THREE.Group();
   // body tub
@@ -529,7 +539,7 @@ function jeep(scene, x, z, ry, { drive = false, label = 'jeep', id = null } = {}
     // The jeep's body is built along +x, so its long axis is x and the driver
     // sits on the left of the tub, facing the way the body points.
     driveables.push({
-      group: g, wheels, label, id, kind: 'jeep',
+      group: g, wheels, label, id, kind: 'pickup',
       halfWidth: 0.95, halfLength: 1.95, height: 1.9,
       // Seat given in the driving wrapper's frame (see driving.js): the jeep's
       // own +x becomes -z there, so its left-hand seat lands on +x.
@@ -700,10 +710,10 @@ export function buildProps(scene){
   // is six hundred metres end to end and everybody who worked there complained
   // about the walking. The fifth stays parked so the motor pool still reads as
   // a motor pool rather than an empty lot.
-  jeep(scene, -12, 17.4, 0.12, { drive: true, id: 'JEEP_POOL_A', label: 'jeep' });
-  jeep(scene, 26, 17.2, -0.08, { drive: true, id: 'JEEP_POOL_B', label: 'jeep' });
-  jeep(scene, 6, 3.4, Math.PI + 0.1, { drive: true, id: 'JEEP_TECH', label: 'jeep' });
-  jeep(scene, -37, 6, Math.PI / 2, { drive: true, id: 'JEEP_WEST', label: 'jeep' });
+  jeep(scene, -12, 17.4, 0.12, { drive: true, id: 'PICKUP_YARD_A', label: 'pickup' });
+  jeep(scene, 26, 17.2, -0.08, { drive: true, id: 'PICKUP_YARD_B', label: 'pickup' });
+  jeep(scene, 6, 3.4, Math.PI + 0.1, { drive: true, id: 'PICKUP_OFFICE', label: 'pickup' });
+  jeep(scene, -37, 6, Math.PI / 2, { drive: true, id: 'PICKUP_WEST', label: 'pickup' });
   jeep(scene, 17, 44, 0.02);
   stakeTruck(scene, -30, 16.5, 0.05);
   stakeTruck(scene, 42, 33, Math.PI / 2 + 0.1);

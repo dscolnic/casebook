@@ -52,7 +52,7 @@
     motivation: "Water users become part of the cost comparison even though they buy no freight."
     format: BALLPARK
     question: "Submit marginal social cost per freight unit."
-    answerText: Marginal social cost is private 20 plus external 20, or $40 per freight unit; the damage is not a payment already included in private cost.
+    answerText: "Marginal social cost is private 20 plus external 20, or $40 per freight unit; the damage is not a payment already included in private cost."
     why: "Marginal social cost is private 20 plus external 20, or $40 per freight unit; the damage is not a payment already included in private cost. Water users become part of the cost comparison even though they buy no freight. Social effects require adding genuine outside resource damage to private cost; a transfer already counted elsewhere would not belong in this sum a second time. 20 excludes the external harm. 0 assumes unpaid means costless."
     # data: Private marginal freight cost is $20 per unit; independently measured downstream water damage adds $20 per unit across the relevant range.
     # correct result: 40; absolute tolerance 0.05 in the requested unit.
@@ -222,7 +222,7 @@
     motivation: "The player must revise an earlier benchmark when a previously unpriced cost is measured."
     format: VERIFY
     question: "First, calculate and commit the efficient freight quantity using marginal social benefit equals marginal social cost. Then run the Hearing Table, measure the welfare-maximizing quantity, and select whether it matches; no restoration or second reading is required."
-    answerText: Set 100−2Q = 20+20 = 40; then 2Q=60 and Q=30. The no-harm competitive benchmark of 40 units no longer supplies the correct target.
+    answerText: "Set 100−2Q = 20+20 = 40; then 2Q=60 and Q=30. The no-harm competitive benchmark of 40 units no longer supplies the correct target."
     why: "Set 100−2Q = 20+20 = 40; then 2Q=60 and Q=30. The no-harm competitive benchmark of 40 units no longer supplies the correct target. The player must revise an earlier benchmark when a previously unpriced cost is measured. Marginal analysis now includes the social effects measured downstream; the revised benchmark is distinct from both unrestricted competition without harm and private monopoly choice. 40 leaves out water damage. 20 confuses the monopoly's private output with the corrected efficient output."
     # data: Freight benefit is MSB=100−2Q dollars per unit; private MC is $20 and external marginal harm $20; hold demand and the damage estimate fixed.
     # correct result: 30; absolute tolerance 0.05 in the requested unit.
