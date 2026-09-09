@@ -1150,15 +1150,21 @@ export function createDay({
     // "what has happened" — and until the delivery existed the campaign answered
     // it with a week number in the corner of the HUD.
     //
-    // A brief plan card drops it. Read on its own it is a good line; read in
+    // OFF BY DEFAULT, EVERYWHERE. Read on its own it is a good line; read in
     // place it is the third block of prose above the objectives, on a card whose
-    // whole point is now that the player gets to the objectives — and it is the
-    // same sentence with one noun and one number changed, fifteen mornings
-    // running. What it says is not lost: the delivery is named on the opening
-    // card, and `deliveryGainHTML` puts the count on the card that closes every
-    // day, which is where a running total belongs. See gamekit/BRIEFING_PASS.md.
-    const deliverLine = theme?.stakeStyle === 'brief'
-      ? '' : deliveryPlanLine(theme, state, { dayNoun: DAY_NOUN });
+    // whole point is that the player gets to the objectives — and it is the same
+    // sentence with one noun and one number changed, fifteen mornings running:
+    // "Today you add the counting notebook to The Evidence Chain. 0 of 15 are on
+    // the board in Civic Advice Office."
+    //
+    // It was dropped for a brief plan card first and kept everywhere else, which
+    // made it the default for every campaign that had not opted out. What it
+    // says is not lost: the delivery is named on the opening card, and
+    // `deliveryGainHTML` puts the count on the card that closes every day, which
+    // is where a running total belongs. A campaign that wants it back says
+    // `deliveryPlanLine: true`. See gamekit/BRIEFING_PASS.md.
+    const deliverLine = theme?.deliveryPlanLine === true
+      ? deliveryPlanLine(theme, state, { dayNoun: DAY_NOUN }) : '';
     // ------------------------------------------------- the authored card
     //
     // A campaign bible can write the briefing card as exact player copy — a

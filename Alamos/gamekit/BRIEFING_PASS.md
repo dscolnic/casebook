@@ -111,9 +111,14 @@ So, in order:
   a period, so an authored one is visibly a different shape. Do not restate the task —
   it is printed directly above.
 
-**The delivery line comes off the card too.** `stakeStyle: 'brief'` also suppresses
-`deliveryPlanLine` — the sentence under the stake reading *"Today you add the feed
-limit table to The Propellant Handover. 0 of 15 are on the board in Plant Control."*
+**The delivery line is off everywhere, and that is the default.** It began as
+something `stakeStyle: 'brief'` suppressed, which made it the default for every
+campaign that had not opted out — so four new campaigns arrived carrying *"Today
+you add the counting notebook to The Evidence Chain. 0 of 15 are on the board in
+Civic Advice Office."* `deliveryPlanLine` is now printed only where a theme sets
+`deliveryPlanLine: true`, and no theme does. The sentence read *"Today you add the
+feed limit table to The Propellant Handover. 0 of 15 are on the board in Plant
+Control."*
 Read on its own it is a good line. Read in place it is the third block of prose above
 the objectives, on a card whose whole point is now that the player reaches the
 objectives — and it is the same sentence with one noun and one number changed, every
@@ -463,7 +468,7 @@ did not move.
 | File | What it does |
 | --- | --- |
 | `engine/core/app.js` — `reasonFor` | picks the line under each call: authored `reason` first, then the person's role, then the group's `desc`. The book override was always there and no book used it. |
-| `engine/core/app.js` — `planHTML` | assembles the card, and skips `deliveryPlanLine` when the theme is `brief`. |
+| `engine/core/app.js` — `planHTML` | assembles the card. `deliveryPlanLine` is off unless a theme sets `deliveryPlanLine: true`. |
 | `engine/core/delivery.js` — `deliveryGainHTML` | where the delivery count still appears: the card that closes the day. |
 | `tools/import-book.mjs` | carries `reason:` from the book onto the mission stop. |
 | `tools/export-book.mjs` | writes it back out, so `bookParity` sees it. |

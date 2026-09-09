@@ -16,5 +16,20 @@ export const OPENING = [
 ];
 
 export const ENDING = [
-  "```json",
+  "The Town and Freight Agreement is signed. At the public board, Mara puts the last piece "
+    +   "beside the first meal trade. The gate will take more freight under new access terms. The "
+    +   "wage clause adds a job in the model you checked. Housing help has funds, and the water "
+    +   "rule has an owner. Outside, Nico serves lunch beside the new stalls he once tried to "
+    +   "keep out.",
+  "The gains have names, and so do the costs. New sellers get a chance to trade; Nico faces "
+    +   "more rivals. The gate loses some power to hold back service, while the plan must still "
+    +   "cover its fixed bill. Buyers and sellers share the housing fee. The filter stays cheaper "
+    +   "without the proposed tax, so local filter sellers lose the extra price that tax would "
+    +   "have given them. Freight users must now face the water cost once left to people down the "
+    +   "stream.",
+  "Leila leaves the unmatched home requests on the board. This deal does not give each new "
+    +   "arrival a home, end every water risk or prove that trade will keep growing. Owen will "
+    +   "check the water record, and the named owners must report back on their terms. The new "
+    +   "line’s ribbon is gone. In its place is a plan the town can read, challenge and change "
+    +   "when the facts change.",
 ];

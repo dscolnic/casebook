@@ -23,7 +23,7 @@ import { COPY } from './content/copy.js';
 import { INTERIORS } from './interiors.js';
 import { FIXTURES } from './fixtures.js';
 import { decorate, fitOutRoom, fitOutSpine } from './props.js';
-import { OPENING } from './cards.js';
+import { OPENING, ENDING } from './cards.js';
 
 export default {
   // Who this edition is for. `engine/core/typography.js` reads it and scales the
@@ -152,16 +152,8 @@ export default {
   // this is the paragraph that is easy to leave out — what the *player* did.
   // `checkStory` fails a campaign whose closing paragraph is not addressed to
   // them, because a fortnight of work should not finish on a report.
-  ending: [
-    'On inspection morning, the trial cage rises from 1,240 metres below on the profile you signed. It reaches the landing and stops where it should. '
-    + 'The inspector approves a cycle seven seconds faster — not twelve — with the cage slowed to 4.5 metres a second before braking, descending emergency stops reserved for true emergencies, and the rope stiffness recalculated whenever the rope is shortened.',
-    'March finally has an explanation. The brake stopped the drum on time; the 1,200 metres of stretched steel rope acted like a spring and carried the cage another 1.6 metres. '
-    + 'Anand was right when she said the machine stopped and the cage did not. The pads were replaced after the incident, but they were not what caused the extra motion.',
-    'The new safety record also calls for a cage-position recorder at the top landing, a direct measurement of the rope\'s stiffness, and brake-friction tests at real operating temperature. '
-    + 'Those are the measurements that would have made March understandable the night it happened instead of eight months later.',
-    'You did not make the mine faster by accepting more risk. You found where the real limits were: in the motor, the brake, and especially the long elastic rope between them and the people below. '
-    + 'The miners get a faster trip because the physics says exactly how fast is safe. That was your call.',
-  ],
+  // The bible's own ending card, verbatim — see cards.js.
+  ending: ENDING,
 
   look: {
     fov: 66,            // a 72° field distorts badly down a straight street

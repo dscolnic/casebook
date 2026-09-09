@@ -24,7 +24,7 @@ import { INTERIORS } from './interiors.js';
 import { MINOR_INTERIORS } from './minors.js';
 import { FIXTURES } from './fixtures.js';
 import { decorate, fitOutRoom, fitOutSpine } from './props.js';
-import { OPENING } from './cards.js';
+import { OPENING, ENDING } from './cards.js';
 
 export default {
   // Who this edition is for. `engine/core/typography.js` reads it and scales the
@@ -155,14 +155,8 @@ export default {
   // this is the paragraph that is easy to leave out — what the *player* did.
   // `checkStory` fails a campaign whose closing paragraph is not addressed to
   // them, because a fortnight of work should not finish on a report.
-  ending: [
-    'At dawn the captain takes the order you signed: recover repeater 6 at 82.9 kilometres along the route. The ship reaches the site inside the weather window, lifts the housing, and finds the aging pump you diagnosed. '
-    + 'The replacement housing is ready, the repair is made, and the main fibre link comes back before the sea closes.',
-    'The ship succeeded because the physics answered both halves of the problem. A clean break should have sent back a strong reflection and did not. A bend or crush should have hurt the longer test wavelength more and did not. '
-    + 'Switching to the spare pump returned 3.6 of the missing 4.1 decibels. And correcting the pulse speed, the extra fibre inside the cable and the slack on the seabed moved the target from 84.6 to 82.9 kilometres.',
-    'You did not use equations because the ship needed equations. You used them to decide which measurements to trust, which explanations to reject, what object to recover and where to find it. '
-    + 'Pellow Head gets its main connection back because the repair ship went to the right place for the right reason. That was your call.',
-  ],
+  // The bible's own ending card, verbatim — see cards.js.
+  ending: ENDING,
 
   look: {
     fov: 66,            // a 72° field distorts badly down a straight street

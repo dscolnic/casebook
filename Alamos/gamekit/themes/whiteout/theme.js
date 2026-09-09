@@ -23,7 +23,7 @@ import { INTERIORS } from './interiors.js';
 import metrics from './metrics.js';
 import { FIXTURES } from './fixtures.js';
 import { decorate, fitOutRoom, fitOutSpine } from './props.js';
-import { OPENING } from './cards.js';
+import { OPENING, ENDING } from './cards.js';
 
 export default {
   // Who this edition is for. `engine/core/typography.js` reads it and scales the
@@ -159,25 +159,8 @@ export default {
 
   // The last thing anybody reads. Says what happened, what it cost and what is
   // unfinished, and takes all three from the fifteen days the player worked.
-  ending: [
-    'At 08:17 on Monday the Vestri Record went out. The first mismatch with Skarv had been about nine '
-    + 'tenths of a per mil. Four tenths belonged to the two laboratories’ reporting scales. Much of what '
-    + 'remained came from pairing an atmospheric gas event to ice on two different gas–ice clocks. The '
-    + 'best alignment left only a small residual, but the final correction was not known tightly enough to '
-    + 'turn that best value into a claim that the two sites were identical. The signed sentence said what '
-    + 'survived the whole range: chronology explained part of the apparent disagreement, and the remainder '
-    + 'was unresolved.',
-    'The hole closed the season near 2,470 metres. Annual layers could be counted only through the section '
-    + 'where the signals stayed resolvable; below that, the age scale remained a flow model constrained by '
-    + 'volcanic and radiocarbon evidence. The generator failure did not magically destroy four gas sections. '
-    + 'It broke their validated cold-chain record, so they were quarantined and the gas–ice correction stayed '
-    + 'wider than planned. That uncertainty is printed in the record instead of disappearing into it.',
-    'The aircraft lifted with the Skarv material on board and the two groups still had a scientific question '
-    + 'between them. They did not have a false answer. You measured the common scale while you still could, '
-    + 'kept the gas and ice clocks separate, checked modelled ages against markers the model did not create, '
-    + 'and signed the qualified sentence when a cleaner headline was available. The Vestri Record can now be '
-    + 'used by somebody who knows exactly where it is strong and exactly where it can still move.',
-  ],
+  // The bible's own ending card, verbatim — see cards.js.
+  ending: ENDING,
 
   look: {
     fov: 66,            // a 72° field distorts badly down a straight street

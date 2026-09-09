@@ -57,8 +57,46 @@ const BIBLES = JSON.parse(readFileSync(resolve(gamekit, 'books/parts/bibles.json
  * import. That is what `kept` in `emit` is for.
  */
 export function readEnding(text){
-  const said = [...text.matchAll(/\*\*[A-Za-z ]*ending card[^:]*:\*\*\s*([^\n*]+)/g)]
+  // A LABEL LIVES ON ONE LINE. `[^:]*` does not exclude a newline, so this
+  // matched a bold phrase in one paragraph against a "…ending card…:**" a
+  // hundred lines further down and returned whatever followed it — for Boomtown,
+  // the string "```json". Anchored to the start of a line and stopped at one.
+  const said = [...text.matchAll(/^\*\*[A-Za-z ]*ending card[^:\n]*:\*\*[ \t]*([^\n*]+)/gm)]
     .map(m => m[1].replace(/\s+/g, ' ').trim()).filter(Boolean);
+  /**
+   * OR AS A HEADING, WHICH IS HOW ALL FOUR OF THE NEW BIBLES WRITE IT.
+   *
+   *   ## Ending card — exact player copy
+   *
+   *   The ship leaves with the covered cart. …
+   *   Nell keeps a reserve of each chosen family on the island. …
+   *
+   *   **Ending trigger:** Only after Mission 15 RP allocation …
+   *
+   * Read for a bold field only, that is four campaigns reported as writing no
+   * ending at all — and each of them then shipped its BASE game's closing
+   * paragraphs, so a biology campaign ended on a submarine cable repair. The
+   * same defect as the opening card one section up, which this file already
+   * reads both ways; the ending was left behind when that was fixed.
+   *
+   * Every paragraph under the heading is the card. A bold field is an
+   * instruction to the build (`**Ending trigger:**`) and is not player copy, so
+   * it stops the read.
+   */
+  if(!said.length){
+    const at = /^#{1,4}\s+(?:[A-Z]+\d*\.\s*)?Ending card[^\n]*$/m.exec(text);
+    if(at){
+      const after = text.slice(at.index + at[0].length);
+      const paras = [];
+      for(const raw of after.split(/\n\s*\n/)){
+        const p = raw.trim();
+        if(!p) continue;
+        if(p.startsWith('#') || p.startsWith('**') || p.startsWith('|') || p === '---') break;
+        paras.push(p.replace(/^>\s?/gm, '').replace(/\s+/g, ' ').trim());
+      }
+      if(paras.length) return { said: paras, owes: [] };
+    }
+  }
   if(!said.length) return { said: '', owes: ['no "ending card - exact player copy" line'] };
   // The last mission's, which is the one that closes the campaign. Identical
   // fifteen still give the same answer they always did.
@@ -123,7 +161,8 @@ function emit(theme, said, ending, kept){
     + `// here was written down to that bar in this repo, which put the game and the\n`
     + `// bible in disagreement about what the player is told on the first screen.\n`
     + `export const OPENING = [\n${body},\n];\n`
-    + (ending ? `\nexport const ENDING = [\n${wrap(ending)},\n];\n`
+    + (ending ? `\nexport const ENDING = [\n${(Array.isArray(ending) ? ending : [ending])
+        .map(p => wrap(p)).join(',\n')},\n];\n`
               : (kept ? `\n// The bible writes no ending card, so this is the one the campaign already\n`
                       + `// had, carried forward unchanged.\n${kept}\n` : ''));
 }
@@ -201,7 +240,10 @@ for(const theme of (RUN ? themes : [])){
 
   const words = said.split(/\s+/).length;
   console.log(`${theme.padEnd(22)} opening ${words} word(s)`
-    + (fin.said ? ` · ending ${fin.said.split(/\s+/).length} word(s)` : ' · no ending in the bible'));
+    + (fin.said
+      ? ` · ending ${[fin.said].flat().join(' ').split(/\s+/).length} word(s)`
+        + ` in ${[fin.said].flat().length} paragraph(s)`
+      : ' · no ending in the bible'));
   if(!dry){
     const cf = resolve(gamekit, `themes/${theme}/cards.js`);
     // What is there now, so an ending the bible no longer writes survives.
