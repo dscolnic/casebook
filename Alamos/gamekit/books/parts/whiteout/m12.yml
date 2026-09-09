@@ -171,7 +171,7 @@
     scene: "Priya Nair checks the evidence: Insertion sort shifts prior items while their priority is worse than the current item. Choose the comparison that shifts only strictly larger priority numbers and therefore preserves POWER before RUNWAY when both have priority 2."
     motivation: "A one-character comparison choice can change whether equal-priority rescue actions retain their original operational order."
     format: DERIVE
-    question: "Choose the insertion-sort comparison and the resulting order for the equal-priority pair."
+    question: "Choose the insertion-sort comparison and the resulting order for the equal-priority pair. Then select the replay result from the local givens."
     answerText: "Strict > shifts only worse priorities, so an equal-priority earlier item is not moved behind the later one."
     why: "Sorting correctness can include a stability requirement in addition to numeric order."
     # wrong-path feedback, one rebuttal per wrong option:
@@ -196,7 +196,7 @@
     #           - {line: "POWER stays before RUNWAY", correct: true}
     #           - {line: "RUNWAY may move ahead of POWER solely because priorities tie", correct: false, survives: true, why: "A stable insertion preserves the original order of equal keys; equality alone is not a reason to reverse them."}
     derive:
-      start: "POWER precedes RUNWAY in the input; both have priority 2. Smaller numbers go first. j indexes an earlier item; valid indexes start at 0. A stable sort keeps ties in input order. Source: The list already contains POWER before RUNWAY, and the current item has the same priority."
+      start: "POWER precedes RUNWAY in the input; both have priority 2. Smaller numbers go first. j indexes an earlier item; valid indexes start at 0. A stable sort keeps ties in input order. Source: The list already contains POWER before RUNWAY, and the current item has the same priority. In this replay j = 0, queue[0] is POWER and current is RUNWAY."
       goal: insert an item without reversing earlier equal-priority items
       steps:
         - ask: Choose the stable shift condition.
@@ -212,6 +212,13 @@
             - text: POWER stays before RUNWAY
             - text: RUNWAY may move ahead of POWER solely because priorities tie
               why: A stable insertion preserves the original order of equal keys; equality alone is not a reason to reverse them.
+              survives: true
+        - ask: Apply the selected rule to the given replay. Choose its evaluated result.
+          answer: 0
+          candidates:
+            - text: j=0; 2 > 2 is false, so POWER is not shifted behind RUNWAY
+            - text: j=0; 2 >= 2 is true, so POWER is shifted behind RUNWAY
+              why: Shifting on equality moves the earlier tied item behind the later one and breaks stability.
               survives: true
 
   # --- Stop 48: Transmit the ordered plan

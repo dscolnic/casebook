@@ -103,18 +103,21 @@ export const site = {
     // No group: the plant the mechanics sits inside.
     { id: 'COMPRESSOR', name: 'Compressor House', sub: 'Air for the drills below',
       x: 40, z: 22, w: 14, d: 10, h: 5.6, facing: PI, colour: 0x8f8b80 },
-    { id: 'LAMP', name: 'Lamp Room', sub: 'Forty-one lamps, forty-one tallies',
+    { id: 'LAMP', enter: 'LAMP', name: 'Lamp Room', sub: 'Forty-one lamps, forty-one tallies',
       x: 12, z: 8, w: 8, d: 6, h: 3.4, facing: PI, colour: 0xc9a23f },
     // Off the axis on purpose: at x = 6 this stood between the spawn and the
     // headframe and the first frame of the game was a grey wall. House rule 8 is
     // about the route; this is the same rule about the *view*, and only a
     // screenshot shows it.
-    { id: 'CHANGE', name: 'Change House', sub: 'Where a shift starts and ends',
+    { id: 'CHANGE', enter: 'CHANGE', name: 'Change House', sub: 'Where a shift starts and ends',
       x: 28, z: 44, w: 16, d: 10, h: 4.2, facing: PI, colour: 0xa39d8c },
   ],
 
   // The map should show the ground people stand on rather than 300 m of moor.
   mapBounds: { x0: -100, x1: 100, z0: -310, z1: 100 },
+
+  // Moor weather. story.js thins it by the day and clears it for the inspector.
+  weather: { kind: 'drizzle', density: 0.45, wind: { x: 2.2, z: -1.4 } },
 
   board: { x: 14, z: 52, facing: PI, title: 'Shift board' },
 

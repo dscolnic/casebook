@@ -99,7 +99,7 @@
     scene: "Malik Okafor checks the evidence: Stop 1 produced 0 even though 83 of 100 kilowatts are being delivered, proving the fraction disappears before the percentage is formed. Build the corrected expression so Java performs real-number division before the result is multiplied by 100."
     motivation: "A correct cast should predict 83.0 percent without changing any physical generator setting."
     format: DERIVE
-    question: "Build the repaired calculation one line at a time; choose exactly one line at each step."
+    question: "Build the repaired calculation one line at a time; choose exactly one line at each step. Then select the replay result from the local givens."
     answerText: "Casting one operand before division changes the operation to floating-point division, so 83/100 becomes 0.83 and then 83.0 percent."
     why: "The cast must occur before the division; casting the already-truncated result cannot recover discarded information."
     # wrong-path feedback, one rebuttal per wrong option:
@@ -140,6 +140,13 @@
             - text: double percent = fraction * 100.0;
             - text: double percent = (int) fraction * 100.0;
               why: Casting fraction back to int discards its fractional part before multiplying and recreates the whole-number loss.
+              survives: true
+        - ask: Apply the selected rule to the given replay. Choose its evaluated result.
+          answer: 0
+          candidates:
+            - text: (double) 83 / 100 = 0.83; 0.83 * 100.0 = 83.0 percent
+            - text: (double) (83 / 100) = 0.0; 0.0 * 100.0 = 0.0 percent
+              why: Casting after integer division preserves the already-truncated zero; cast an operand before division.
               survives: true
 
   # --- Stop 3: Store the repaired value

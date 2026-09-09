@@ -1,5 +1,5 @@
 {
-  "_comment": "Which bible each campaign under books/parts/ was lifted from. The fragments used to carry the path in their own header comment, and that broke the first time a bible was re-uploaded under a new name — six of the eight arrived as `…(1)(1).md` and every header pointed at a file that no longer existed. One map, one place to correct. Round 13 arrived under clean short names (CARRYING_Round13.md and so on), which is the first set that needed no repointing guesswork. Paths are relative to gamekit/.",
+  "_comment": "Which bible each campaign under books/parts/ was lifted from. The fragments used to carry the path in their own header comment, and that broke the first time a bible was re-uploaded under a new name \u2014 six of the eight arrived as `\u2026(1)(1).md` and every header pointed at a file that no longer existed. One map, one place to correct. Round 13 arrived under clean short names (CARRYING_Round13.md and so on), which is the first set that needed no repointing guesswork. Paths are relative to gamekit/.",
   "carrying_v2": "../fpl_gpt/CARRYING.md",
   "changeover_v2": "../fpl_gpt/CHANGEOVER.md",
   "groundtruth_v2": "../fpl_gpt/GROUNDTRUTH.md",
@@ -8,8 +8,8 @@
   "planetary_defense_v2": "../fpl_gpt/PLANETARY.md",
   "redsand_v5": "../fpl_gpt/MARS.md",
   "the_trial_v2": "../fpl_gpt/TRIAL.md",
-  "whiteout": "../fpl_gpt/WHITEOUT_AP_Computer_Science_A_Campaign_Implementation_Bible_v2.13.md",
-  "overwind_v2": "../fpl_gpt/OVERWIND_AP_Physics_C_Mechanics_Campaign_Implementation_Bible_v1.2.md",
-  "boomtown": "../fpl_gpt/BOOMTOWN_AP_Microeconomics_Campaign_Implementation_Bible_v1.2.md",
-  "wildtype": "../fpl_gpt/WILDTYPE_AP_Biology_Campaign_Implementation_Bible_v1.2.md"
+  "whiteout": "../fpl_gpt/WHITEOUT_AP_Computer_Science_A_Campaign_Implementation_Bible_v2.14.md",
+  "overwind_v2": "../fpl_gpt/OVERWIND_AP_Physics_C_Mechanics_Campaign_Implementation_Bible_v1.3.md",
+  "boomtown": "../fpl_gpt/BOOMTOWN_AP_Microeconomics_Campaign_Implementation_Bible_v1.3.md",
+  "wildtype": "../fpl_gpt/WILDTYPE_AP_Biology_Campaign_Implementation_Bible_v1.3.md"
 }

@@ -17,6 +17,7 @@
 //
 // Placement helpers take `(x, z, y)` — ground last.
 import * as THREE from 'three';
+import { storyOutdoors } from './story.js';
 import {
   MATERIALS, box, cyl, sign, post, bench, crateStack, fenceRun,
   vehicle, VEHICLE_DRIVE, quadBike, QUAD_DRIVE, clearSpot,
@@ -198,6 +199,9 @@ export function decorate(scene, ctx){
   wreckedDrum(scene, ctx);      // 14
   motion(scene, ctx, sheaves);  // 15–17
   campaignState(scene, ctx);    // 18–19
+  // The twelve days in the yard: the shift, the belt, the chute, the wreck's
+  // plate. See story.js and gamekit/STORY_DRESSING_PASS.md §2.
+  storyOutdoors(scene, ctx);
 
   // The bins under the tip, and the two sheared bolts' worth of steel frame.
   for(const [x, z] of [[30, -22], [38, -22]]){

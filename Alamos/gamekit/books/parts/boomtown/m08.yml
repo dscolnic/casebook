@@ -300,11 +300,11 @@
     format: CHOICE
     question: "Select the one recommendation supported by the recorded evidence and the stated decision rule."
     choices:
-      - Allow the proposed food sellers to enter and review service quality separately
-      - Block entry solely to preserve incumbent economic profit
-      - Promise every entrant permanent economic profit
-      - Declare all cafés price takers despite differentiated menus
-    answer: Allow the proposed food sellers to enter and review service quality separately
+      - Allow entry and treat different menus as one identical market product
+      - Allow entry and assess service quality under a separate rule
+      - Block entry and protect the existing firms’ positive economic profit
+      - Allow entry and forecast lasting economic profit for every new firm
+    answer: Allow entry and assess service quality under a separate rule
     answerText: "The evidence contains no violation of the entry rule. Competition may reduce incumbent economic profit and give buyers more options, while product differences mean the perfect-competition price-taking model is not exact for every café."
     why: "The evidence contains no violation of the entry rule. Competition may reduce incumbent economic profit and give buyers more options, while product differences mean the perfect-competition price-taking model is not exact for every café. The diner owner accepts new sellers after seeing that earlier calls for cheaper inputs used the same competition argument. Protecting incumbent profit alone is not the adopted external-harm test. Entry can erode economic profit and does not guarantee returns."
     # wrong-path feedback, one rebuttal per wrong option:
@@ -333,7 +333,7 @@
     #     "answerText": "The evidence contains no violation of the entry rule. Competition may reduce incumbent economic profit and give buyers more options, while product differences mean the perfect-competition price-taking model is not exact for every café."
     #   }
     rebuttals:
+      - Differentiated menus can give individual firms price discretion.
       - Protecting incumbent profit alone is not the adopted external-harm test.
       - Entry can erode economic profit and does not guarantee returns.
-      - Differentiated menus can give individual firms price discretion.
 

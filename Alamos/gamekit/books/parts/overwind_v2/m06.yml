@@ -18,7 +18,7 @@
   - {name: "Impulse", def: "the change in momentum caused by force over time."}
   - {name: "Mass flow", def: "the mass passing a point each second."}
   equations:
-  - {"e":"F = ṁ(vout−vin); J = ∫F dt = Δp","c":"momentum, impulse and open systems in the measured system.","v":[["F","force on the stream in newtons"],["ṁ","mass flow in kilograms per second"],["vout","and vin exit and entry velocities"],["J","impulse in newton seconds"],["p","momentum in kilogram metres per second"]],"s":"Which feed change protects the conveyor and bin?"}
+  - {"e":"F = ṁ(vout−vin); Favg = Δp/Δt","c":"momentum, impulse and open systems in the measured system.","v":[["F","steady force in newtons"],["ṁ","mass flow in kilograms per second"],["vout","and vin exit and entry velocities in metres per second"],["Favg","mean force in newtons"],["Δp","momentum change in kilogram metres per second"],["Δt","elapsed time in seconds"]],"s":"Which feed change protects the conveyor and bin?"}
   primer:
   - "Name the body, positive direction and quantity before using a relation."
   - "Compare a result only with the condition and range that its record actually covers."

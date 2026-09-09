@@ -321,11 +321,11 @@
     format: CHOICE
     question: "Select the one recommendation supported by the recorded evidence and the stated decision rule."
     choices:
-      - Hire the fourth cook but not the fifth at the stated wage
-      - Hire both because total output keeps rising
-      - Hire neither because the lease is expensive
-      - Hire the fifth because average output is positive
-    answer: Hire the fourth cook but not the fifth at the stated wage
+      - Hire the fourth cook only, since the fifth reduces profit
+      - Hire both extra cooks, since each adds to total lunch output
+      - Hire neither extra cook, since the fixed lease must be paid first
+      - Hire the fifth cook too, since average output remains above zero
+    answer: Hire the fourth cook only, since the fifth reduces profit
     answerText: "The fourth hire adds $10 to profit, while the fifth subtracts $10. The fixed lease does not change this marginal comparison, and positive total or average output cannot justify a hire whose added revenue is below added cost."
     why: "The fourth hire adds $10 to profit, while the fifth subtracts $10. The fixed lease does not change this marginal comparison, and positive total or average output cannot justify a hire whose added revenue is below added cost. The diner fills one post while admitting that its offer may shift workers between local firms. Rising output does not establish that revenue covers the next wage. The lease is unchanged across the available hiring choices."
     # wrong-path feedback, one rebuttal per wrong option:

@@ -211,42 +211,42 @@ roster:
   division: BANK
   pronouns: "she/her"
   bio: |
-    Ruth Bell is cage operator. Wants keep the shift moving without another landing overrun. The drum record has usually been a sufficient proxy for cage motion. The independent cage record makes her require two motion histories. Says, "Which part is still moving?"
+    Ruth Bell is cage operator. Wants her brother Finn rode the March cage and was unhurt. She wants his next shift to run, but she will not use the drum lamp as his safety check again. The drum record has usually been a sufficient proxy for cage motion. She moves from privately asking for reassurance to publicly refusing to post a faster schedule without a cage trace. Says, "Which part is still moving?"
 - id: price
   name: "Ewan Price"
   role: "winding engineer"
   division: WIND
   pronouns: "he/him"
   bio: |
-    Ewan Price is winding engineer. Wants keep a usable winding service rather than shut the mine indefinitely. The old inertia drawing and a good empty test initially look adequate. He accepts a slower tested range instead of the largest motor-feasible speed. Says, "What else must this shaft turn?"
+    Ewan Price is winding engineer. Wants he promised management a faster timetable before the inspection. A longer access closure means suspended underground shifts for the crew he works beside. The old inertia drawing and a good empty test initially look adequate. He first argues that each passed limit brings his promise within reach. At the warm-pad reversal he crosses out his own faster timetable and signs the slower supported range. Says, "What else must this shaft turn?"
 - id: shaw
   name: "Mara Shaw"
   role: "rope technician"
   division: ROPE
   pronouns: "she/her"
   bio: |
-    Mara Shaw is rope technician. Wants protect sound rope from replacement while identifying real motion limits. A passed mean-pull test can distract from rapidly changing stretch. She makes rope length and residual state explicit in each accepted profile. Says, "What length was hanging?"
+    Mara Shaw is rope technician. Wants management wants a quick rope-replacement answer. She needs to show whether replacing sound steel would solve the motion problem or merely spend the remaining workshop reserve. A passed mean-pull test can distract from rapidly changing stretch. She defends measured rope condition without defending the old model, then insists that length and rebound limits appear on the signed plan. Says, "What length was hanging?"
 - id: kerr
   name: "Ada Kerr"
   role: "mine safety engineer"
   division: CAGE
   pronouns: "she/her"
   bio: |
-    Ada Kerr is mine safety engineer. Wants explain March and protect the people who ride the cage. An empty success initially seems close to full acceptance. She narrows the approved test scope after the warm-pad contradiction. Says, "What did this test actually prove?"
+    Ada Kerr is mine safety engineer. Wants her signature is on the March drum-stop check. She gives you that page at arrival, with no attempt to hide it, but still hopes the new empty test will settle the inquiry. An empty success initially seems close to full acceptance. She explains her own mistaken inference in front of Ruth, then limits the empty-test claim even though the correction weakens the case for quick reopening. Says, "What did this test actually prove?"
 - id: reed
   name: "Ivo Reed"
   role: "conveyor foreman"
   division: TIP
   pronouns: "he/him"
   bio: |
-    Ivo Reed is conveyor foreman. Wants restore steady ore delivery without breaking the bin again. Standing belt mass has been his familiar overload measure. He separates stored load, arrival rate and impact duration. Says, "How much arrives each second?"
+    Ivo Reed is conveyor foreman. Wants his broken bin has cut ore flow just as the lift is losing time. He fears that a feed cut will be treated as the crew failing to keep up. Standing belt mass has been his familiar overload measure. He uses the staged chute to keep daily delivery while reducing impact, giving the crew a practical gain that does not require a faster passenger cage. Says, "How much arrives each second?"
 - id: cole
   name: "Nia Cole"
   role: "survey engineer"
   division: GRAV
   pronouns: "she/her"
   bio: |
-    Nia Cole is survey engineer. Wants maintain a defensible survey tied to reference readings. A tidy spherical model can be easier to discuss than messy local evidence. She records local measurements separately from ideal depth predictions. Says, "What did the reference do?"
+    Nia Cole is survey engineer. Wants the repeated gravity readings were taken on her watch. She must own the drift correction without letting it become a convenient explanation for March. A tidy spherical model can be easier to discuss than messy local evidence. She signs the corrected survey and refuses to let a small weight change stand in for the missing account of delayed motion. Says, "What did the reference do?"
 
 glossary:
   - name: Mass
@@ -1450,6 +1450,7 @@ missions:
   segue: "Mission decision: The lift has enough energy, but the stop is not cleared. The drum stores motion energy too. The brake page stays open. Two trip tags now hang on the feed belt. Ada signs the energy page but leaves her brake page open. She places the March check beside it so the crew can see that enough lift energy has answered a different question."
   # The mission card's own "Primer concepts", printed on the plan card.
   terms:
+  - {name: "MJ (megajoule)", def: "one million joules of energy; kJ (kilojoule) means one thousand joules."}
   - {name: "Work", def: "energy transferred by a force through a displacement."}
   - {name: "Potential energy", def: "energy associated with a system's position or arrangement."}
   - {name: "Kinetic energy", def: "energy of motion."}
@@ -1721,7 +1722,7 @@ missions:
   - {name: "Impulse", def: "the change in momentum caused by force over time."}
   - {name: "Mass flow", def: "the mass passing a point each second."}
   equations:
-  - {"e":"F = ṁ(vout−vin); J = ∫F dt = Δp","c":"momentum, impulse and open systems in the measured system.","v":[["F","force on the stream in newtons"],["ṁ","mass flow in kilograms per second"],["vout","and vin exit and entry velocities"],["J","impulse in newton seconds"],["p","momentum in kilogram metres per second"]],"s":"Which feed change protects the conveyor and bin?"}
+  - {"e":"F = ṁ(vout−vin); Favg = Δp/Δt","c":"momentum, impulse and open systems in the measured system.","v":[["F","steady force in newtons"],["ṁ","mass flow in kilograms per second"],["vout","and vin exit and entry velocities in metres per second"],["Favg","mean force in newtons"],["Δp","momentum change in kilogram metres per second"],["Δt","elapsed time in seconds"]],"s":"Which feed change protects the conveyor and bin?"}
   primer:
   - "Name the body, positive direction and quantity before using a relation."
   - "Compare a result only with the condition and range that its record actually covers."
@@ -2004,7 +2005,7 @@ missions:
   - {name: "Drift", def: "a measuring instrument's gradual change over time."}
   - {name: "Spherical symmetry", def: "mass distributed equally in every direction from a center."}
   equations:
-  - {"e":"g(r)=GM(r)/r²; M(r)=Mtotal(r/R)³ for a uniform sphere","c":"gravitation and measurement models in the measured system.","v":[["g","gravitational acceleration"],["G","gravitational constant"],["M(r)","mass inside radius r"],["Mtotal","full sphere mass"],["R","sphere radius"],["r","distance from the sphere center"]],"s":"Can the local gravity correction explain the March overrun?"}
+  - {"e":"gdepth = g0(1−d/R)","c":"gravitation and measurement models in the measured system.","v":[["gdepth","gravity at depth in metres per second squared"],["g0","surface gravity in the same units"],["d","depth in metres"],["R","radius of the stipulated uniform sphere in metres"]],"s":"Can the local gravity correction explain the March overrun?"}
   primer:
   - "Name the body, positive direction and quantity before using a relation."
   - "Compare a result only with the condition and range that its record actually covers."
@@ -2280,7 +2281,7 @@ missions:
   - {name: "Efficiency", def: "useful output energy divided by input energy over the same interval."}
   - {name: "Cruise", def: "motion at a steady planned speed."}
   equations:
-  - {"e":"P = Fv = τω; Pin = Pout/η","c":"power and efficiency in the measured system.","v":[["P","power in watts"],["F","force in newtons"],["v","speed in metres per second"],["τ","torque"],["ω","angular speed"],["Pin","input power"],["Pout","useful output power"],["η","efficiency"]],"s":"Which cruise speed fits the motor power limit?"}
+  - {"e":"P = dW/dt = Fv","c":"power and efficiency in the measured system.","v":[["P useful shaft power","in watts"],["W work","in joules"],["t time","in seconds"],["F lifting force","in newtons"],["v lifting speed","in metres per second"]],"s":"Which cruise speed fits the motor power limit?"}
   primer:
   - "Name the body, positive direction and quantity before using a relation."
   - "Compare a result only with the condition and range that its record actually covers."
@@ -2542,7 +2543,7 @@ missions:
   - {name: "Oscillation", def: "repeated motion about an equilibrium position."}
   - {name: "Effective mass", def: "the mass assigned to a simplified motion model to represent distributed moving material."}
   equations:
-  - {"e":"m_eff x″ + kx = 0; ω = √(k/m_eff); Tperiod = 2π/ω","c":"elasticity and simple harmonic motion in the measured system.","v":[["m_eff","effective moving mass in kilograms"],["x","upward displacement from the fixed-support equilibrium in metres"],["x″","second time derivative"],["k","restoring stiffness in newtons per metre"],["ω","angular frequency"],["Tperiod","oscillation period in seconds"]],"s":"Can a drum stop time alone predict when the cage stops?"}
+  - {"e":"ω = √(k/m_eff); Tperiod = 2π/ω","c":"elasticity and simple harmonic motion in the measured system.","v":[["m_eff","effective moving mass in kilograms"],["k","restoring stiffness in newtons per metre"],["ω","angular frequency in radians per second"],["Tperiod","oscillation period in seconds"],["π","the circle constant"]],"s":"Can a drum stop time alone predict when the cage stops?"}
   primer:
   - "Name the body, positive direction and quantity before using a relation."
   - "Compare a result only with the condition and range that its record actually covers."
@@ -2797,7 +2798,7 @@ missions:
   - {name: "Amplitude", def: "the largest displacement from equilibrium in an oscillation."}
   - {name: "Phase", def: "the part of an oscillation's cycle at a chosen time."}
   equations:
-  - {"e":"x(t)=x0 cos(ωt)+(v0/ω)sin(ωt)","c":"elasticity and simple harmonic motion in the measured system.","v":[["x","upward displacement from fixed-support equilibrium"],["x0","initial displacement"],["v0","initial upward velocity"],["ω","angular frequency"],["t","time since drum reached rest"]],"s":"What caused the cage to overrun its March landing?"}
+  - {"e":"xmax = v0/ω; tpeak = π/(2ω), for x0=0 and v0>0","c":"elasticity and simple harmonic motion in the measured system.","v":[["xmax","first upward excursion in metres"],["v0","initial upward velocity in metres per second"],["ω","angular frequency in radians per second"],["tpeak","time to that peak in seconds"],["x0","initial displacement from equilibrium in metres"],["π","the circle constant"]],"s":"What caused the cage to overrun its March landing?"}
   primer:
   - "Name the body, positive direction and quantity before using a relation."
   - "Compare a result only with the condition and range that its record actually covers."
@@ -3077,7 +3078,7 @@ missions:
   objective: "Does the empty test authorize the faster passenger profile?"
   stake: "March is explained, and the empty cage stops within the marked space. Warm brake pads and more load can change that distance. At the brake house, Bank and Winder House, check those limits before the shift rides. By the end of the mission, you decide if the empty test earns a faster passenger run."
   takeaway: "A test approves only the conditions it actually covers. ---"
-  segue: "Mission decision: The empty test does not clear the faster passenger trip. The loaded warm case needs more space. Keep the two-metre-per-second choice for final review. The last empty test is ready. Ewan crosses out the faster passenger timetable in front of Ruth and cancels the overtime it was meant to support. Ada marks the empty pass with its load and pad state, then carries only the slower candidate into final review."
+  segue: "Mission decision: The empty test does not clear the faster passenger trip. The loaded warm case needs more space. Keep the two-metre-per-second choice for final review. The last empty test is ready. Ewan crosses out the fast shift sheet. The extra pay he promised is gone. Ada writes the load and pad state on the empty-test pass. Only the slow choice goes to the last check."
   # The mission card's own "Primer concepts", printed on the plan card.
   terms:
   - {name: "Braking deceleration", def: "the positive size of acceleration opposite motion."}
@@ -3359,7 +3360,7 @@ missions:
 # the bible's, verbatim; engine/dev/bibleParity.mjs holds it to that.
 - title: "FORTY-ONE TALLIES"
   card:
-    header: "DAY 12 OF 12 — INSPECTION IN 1 DAYS"
+    header: "DAY 12 OF 12 — INSPECTION TODAY"
     title: "FORTY-ONE TALLIES"
     goNow: "Go to The Bank and meet Ruth Bell, cage operator, at The depth indicator."
     body: "The slower speed fits the worst stop, and the last test is ready. The plan must meet each limit for the loads it covers. At the Bank, Rope Shop and Winder House, check the final record. By the end of the mission, you choose the full profile that can open passenger access."
@@ -3367,7 +3368,7 @@ missions:
   objective: "Which complete profile can be signed for the defined operating range?"
   stake: "The slower speed fits the worst stop, and the last test is ready. The plan must meet each limit for the loads it covers. At the Bank, Rope Shop and Winder House, check the final record. By the end of the mission, you choose the full profile that can open passenger access."
   takeaway: "A signed profile must keep every constraint and its tested range. ---"
-  segue: "Mission decision: Sign the two-metre-per-second plan within its tested range. The slower start and all limits stay attached. The empty test agrees with its prediction. Once the four bars are full, the passenger gate opens. Ruth opens the passenger gate for the signed range. Ewan posts the slower timetable above his crossed-out promise. The crew regains regular access but loses the planned overtime; Ruth's ending account says Finn takes his tally only after the final checks are complete."
+  segue: "Mission decision: Sign the two-metre-per-second plan within its tested range. The slower start and all limits stay attached. The empty test agrees with its prediction. Once the four bars are full, the passenger gate opens. Ruth opens the passenger gate for the signed range. Ewan posts the slower timetable above his crossed-out promise. The crew can reach work again once all checks pass. The extra shifts are gone. Finn takes his tally only after the last gates clear."
   # The mission card's own "Primer concepts", printed on the plan card.
   terms:
   - {name: "Operating range", def: "the loads, lengths and conditions for which a plan has been checked."}
@@ -3607,78 +3608,24 @@ missions:
 
 interiors:
   BANK:
-    caption: Every wind ends here, and the last three seconds of it are the ones nobody costs.
-    standLine: The signal board, the gate, and a chalk mark on the guide where the cage should stop.
-    station:
-      kind: panel
-      title: Landing desk
-      rows:
-        - { label: 'Winding speed, full', value: 7.2 m/s, status: normal }
-        - { label: Ramp up, value: 12 s, status: normal }
-        - { label: 'Crawl, present', value: 3.0 s, status: high }
+    caption: "Source position (-9, -4); canonical named owner Ruth Bell, cage operator."
   WIND:
-    caption: A drum, a motor and a brake, and eighteen tonnes of steel nobody counts.
-    standLine: The drum record from March, still on the desk, showing a stop made on time.
-    station:
-      kind: panel
-      title: Winder desk
-      rows:
-        - { label: Drum inertia, value: 72200 kg·m², status: high }
-        - { label: 'Torque needed, worst instant', value: 390 kN·m, status: normal }
-        - { label: 'Power needed, worst instant', value: 1.03 MW, status: high }
+    caption: "Source position (-30, 6); canonical named owner Ewan Price, winding engineer."
   ROPE:
-    caption: Twelve hundred metres of steel that weighs three times what it carries.
-    standLine: 'The rope record: four re-caps in two years, forty metres shorter, same steel.'
-    station:
-      kind: panel
-      title: Rope bench
-      rows:
-        - { label: 'Tension at the drum, worst', value: 166 kN, status: high }
-        - { label: Stiffness at the inset, value: 110 kN/m, status: alarm }
-        - { label: 'Period of the cage on it', value: 1.20 s, status: alarm }
+    caption: "Source position (-34, 34); canonical named owner Mara Shaw, rope technician."
   CAGE:
-    caption: What the cage does, what stops it, and where the energy goes.
-    standLine: The pad certificate, the position tape from March, and a crush-tested arrestor in the corner.
-    station:
-      kind: panel
-      title: Brake bench
-      rows:
-        - { label: 'Pads rated, per stop', value: 600 kJ, status: normal }
-        - { label: 'Upward emergency stop', value: 558 kJ, status: high }
-        - { label: 'Downward emergency stop', value: 1.27 MJ, status: alarm }
+    caption: "Source position (20, -4); canonical named owner Ada Kerr, mine safety engineer."
   TIP:
-    caption: Ore in a stream rather than in a lump, and the force a stream makes.
-    standLine: Two sheared bin bolts on the bench, and a belt drive that tripped twice on Friday.
-    station:
-      kind: panel
-      title: Belt desk
-      rows:
-        - { label: Arrival rate, value: 88.9 kg/s, status: normal }
-        - { label: 'Force on the drive, horizontal', value: 222 N, status: normal }
-        - { label: 'Force on the frame, vertical', value: 737 N, status: high }
+    caption: "Source position (34, -30); canonical named owner Ivo Reed, conveyor foreman."
   GRAV:
-    caption: Three hundred metres out on the bench, where g is measured rather than assumed.
-    standLine: Four years of readings, two of them taken at the bottom of a working shaft.
-    station:
-      kind: panel
-      title: Gravity bench
-      rows:
-        - { label: 'Gradient, free air', value: 0.3086 mGal/m, status: normal }
-        - { label: 'Gradient, this shaft', value: 0.0849 mGal/m, status: high }
-        - { label: 'Rock density implied', value: 2.67 g/cm³, status: normal }
-
+    caption: "Source position (-70, -290); canonical named owner Nia Cole, survey engineer."
 copy:
-  BANK: <p>The bank. A signal board, a gate, and a chalk mark on the guide where the cage should stop, which the cage has been stopping a little past for eight months.</p>
-  WIND: <p>The winder house. A drum two metres to the rope, a motor rated at 480 kilonewton metres, and a brake that is held on by weights so that losing the oil applies it rather than releasing it.</p>
-  ROPE: <p>The rope shop. Splicing gear, four re-cap records in two years, and a length of locked coil clamped between two anchors with a dial gauge on it.</p>
-  CAGE: <p>The brake house, at the foot of the headframe. Pad certificates on the wall, a crush-tested arrestor in the corner, and the position tape from March in a drawer nobody has opened since the inquiry.</p>
-  TIP: <p>The tip. Bins, a chute and a belt that carries nine hundred tonnes a shift up to the plant, with two of its mounting bolts sheared and on the bench.</p>
-  GRAV: <p>The gravity station, three hundred metres out on the bench. A concrete pillar, a hut, and an instrument that reads where it is standing to a millionth.</p>
-  HEAD: <p>The headframe. Thirty-two metres of steel over the shaft, two sheave wheels at the top of it, and the arrestors above the bank that have never been used.</p>
-  COMPRESSOR: <p>The compressor house. Air for the drills below, and the loudest building on the site by a long way.</p>
-  LAMP: <p>The lamp room. Forty-one lamps on charge, forty-one tallies on the board, and the count that says who is underground.</p>
-  CHANGE: <p>The change house. Where a shift starts and ends, and where the men read whatever the winder house has decided about the cycle they ride.</p>
-
+  BANK: "<p>Source position (-9, -4); canonical named owner Ruth Bell, cage operator.</p>"
+  WIND: "<p>Source position (-30, 6); canonical named owner Ewan Price, winding engineer.</p>"
+  ROPE: "<p>Source position (-34, 34); canonical named owner Mara Shaw, rope technician.</p>"
+  CAGE: "<p>Source position (20, -4); canonical named owner Ada Kerr, mine safety engineer.</p>"
+  TIP: "<p>Source position (34, -30); canonical named owner Ivo Reed, conveyor foreman.</p>"
+  GRAV: "<p>Source position (-70, -290); canonical named owner Nia Cole, survey engineer.</p>"
 # ---------------------------------------------------------------- review variants
 #
 # Lessons no mission stop points at. `shapeMissions` reaches a "<title> — Review"

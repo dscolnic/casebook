@@ -6,10 +6,10 @@
     header: "DAY 7 OF 15 — SHIP DEPARTS AFTER DAY 15"
     title: "THE FAMILY IN THE JAR"
     goNow: "Go to Seed Room and meet Nell Shah, conservation geneticist, at the Seed Table."
-    body: "The odd tissue stays here, but its family needs a check. A parent can carry a gene form that its looks hide. Read the seed records with Nell, then check the cross. By the end of the mission, you decide which cross can test for that hidden form."
+    body: "The odd tissue stays here, but its family needs a check. A parent can carry a gene form that its looks hide. Read the seed records with Nell, then check the cross. Today you decide which cross can test the hidden recessive trait."
     objective: "Resolve which cross can test the hidden recessive trait; a poor breeding choice could lose useful variation."
   objective: "Resolve which cross can test the hidden recessive trait; a poor breeding choice could lose useful variation."
-  stake: "The odd tissue stays here, but its family needs a check. A parent can carry a gene form that its looks hide. Read the seed records with Nell, then check the cross. By the end of the mission, you decide which cross can test for that hidden form."
+  stake: "The odd tissue stays here, but its family needs a check. A parent can carry a gene form that its looks hide. Read the seed records with Nell, then check the cross. Today you decide which cross can test the hidden recessive trait."
   takeaway: "Use a test cross and keep each family separate. ---"
   segue: "Mission decision: Use a test cross and keep each family separate. The recessive partner can reveal the hidden allele."
   # The mission card's own "Primer concepts", printed on the plan card.

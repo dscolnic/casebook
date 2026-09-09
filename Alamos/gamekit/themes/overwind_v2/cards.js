@@ -9,10 +9,10 @@
 // bible in disagreement about what the player is told on the first screen.
 export const OPENING = [
   "Forty-one miners wait at Kerrow No. 3, and Ruth Bell’s brother rode the cage that would "
-    +   "not stop. The drum was still, but the cage passed its March landing. You have twelve "
-    +   "days to write a Safe Winding Plan, or passenger access stays shut for a longer review. "
-    +   "Ada Kerr puts her signed check beside you and says, “I trusted the drum lamp, so show me "
-    +   "what I missed.”",
+    +   "not stop. The drum was still, but the cage passed its March landing. You are the lift "
+    +   "safety engineer who must write the Safe Winding Plan before passenger access can reopen. "
+    +   "Ada Kerr puts her signed check beside you and says, “Show me what I missed before the "
+    +   "inspector arrives in twelve days.”",
 ];
 
 export const ENDING = [

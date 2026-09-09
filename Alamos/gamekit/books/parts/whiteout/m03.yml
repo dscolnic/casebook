@@ -90,7 +90,7 @@
     scene: "Jonah Reyes checks the evidence: the current while loop checks index < waypoints.length, reads waypoints[index], and steers correctly, but its body never changes index. Choose the progress statement and explain why the condition can otherwise remain true forever."
     motivation: "A loop terminates only if repeated work changes state in a way that can eventually make its condition false."
     format: DERIVE
-    question: "Choose the missing progress statement and the explanation that proves the loop can terminate."
+    question: "Choose the missing progress statement and the explanation that proves the loop can terminate. Then select the replay result from the local givens."
     answerText: "Without changing index, the condition index < length remains true for the same stored value."
     why: "A while loop does not know that a physical action finished unless program state is updated explicitly."
     # wrong-path feedback, one rebuttal per wrong option:
@@ -131,6 +131,13 @@
             - text: index eventually reaches waypoints.length, making index < length false
             - text: steering changes, so the Java condition becomes false automatically
               why: The while condition reads index and the array length; changing unrelated state cannot make that Boolean expression false.
+              survives: true
+        - ask: Apply the selected rule to the given replay. Choose its evaluated result.
+          answer: 0
+          candidates:
+            - text: "index: 0 → 1 → 2 → 3 → 4; 4 < 4 is false, so four arrivals finish"
+            - text: "index: 0 → 1 → 2 → 3; 3 < 4 is false, so three arrivals finish"
+              why: Three is still less than four. The index advances to four after arrival at index three.
               survives: true
 
   # --- Stop 11: Advance the route index

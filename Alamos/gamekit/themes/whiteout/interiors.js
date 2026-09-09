@@ -4,183 +4,21 @@
 
 export const INTERIORS = {
   "OPS": {
-    "caption": "Station command, incident coordination, rescue decisions, and the wall-size systems map live here.",
-    "standLine": "Six incidents open, none closed. Rescue window in 36 hours, aircraft not yet committed.",
-    "station": {
-      "kind": "panel",
-      "title": "Station status",
-      "rows": [
-        {
-          "label": "People on station",
-          "value": "28",
-          "status": "normal"
-        },
-        {
-          "label": "Rescue window",
-          "value": "36 h",
-          "status": "normal"
-        },
-        {
-          "label": "Open incidents",
-          "value": "6",
-          "status": "alarm"
-        },
-        {
-          "label": "Verified control paths",
-          "value": "0 of 6",
-          "status": "alarm"
-        }
-      ]
-    }
+    "caption": "Station command, incident coordination, rescue decisions, and the wall-size systems map live here."
   },
   "CODE": {
-    "caption": "The station's source mirror, test harnesses, build tools, and safe simulations live here.",
-    "standLine": "Live patching frozen. Nothing goes to a controller that has not been run against the mirror first.",
-    "station": {
-      "kind": "panel",
-      "title": "Build and mirror",
-      "rows": [
-        {
-          "label": "Mirror in step with live",
-          "value": "yes",
-          "status": "normal"
-        },
-        {
-          "label": "Builds since the storm",
-          "value": "4",
-          "status": "normal"
-        },
-        {
-          "label": "Tests run against them",
-          "value": "0",
-          "status": "alarm"
-        },
-        {
-          "label": "Patches applied live",
-          "value": "3",
-          "status": "alarm"
-        }
-      ]
-    }
+    "caption": "The station's source mirror, test harnesses, build tools, and safe simulations live here."
   },
   "POWER": {
-    "caption": "Generators, batteries, heat loops, and the controllers that keep the station warm live here.",
-    "standLine": "The generator is running and the board says it is not. Nobody has shut it down yet.",
-    "station": {
-      "kind": "panel",
-      "title": "Generator and load",
-      "rows": [
-        {
-          "label": "Delivered power",
-          "value": "83 kW",
-          "status": "normal"
-        },
-        {
-          "label": "Requested power",
-          "value": "100 kW",
-          "status": "normal"
-        },
-        {
-          "label": "Controller reports",
-          "value": "0 %",
-          "status": "alarm"
-        },
-        {
-          "label": "Battery reserve",
-          "value": "68 %",
-          "status": "normal"
-        }
-      ]
-    }
+    "caption": "Generators, batteries, heat loops, and the controllers that keep the station warm live here."
   },
   "HAB": {
-    "caption": "Air handling, scrubbers, room sensors, water, and life-support automation live here.",
-    "standLine": "One sensor reading, two shutdown orders. The scrubber is off and the air is still good.",
-    "station": {
-      "kind": "panel",
-      "title": "Habitat and air",
-      "rows": [
-        {
-          "label": "Occupied rooms",
-          "value": "11",
-          "status": "normal"
-        },
-        {
-          "label": "Scrubbers running",
-          "value": "1 of 2",
-          "status": "alarm"
-        },
-        {
-          "label": "Shutdown orders today",
-          "value": "2",
-          "status": "alarm"
-        },
-        {
-          "label": "Habitat stability",
-          "value": "72 %",
-          "status": "normal"
-        }
-      ]
-    }
+    "caption": "Air handling, scrubbers, room sensors, water, and life-support automation live here."
   },
   "VEH": {
-    "caption": "Rovers, drones, chargers, route maps, and the software that moves field machines live here.",
-    "standLine": "Rover Three has driven the same lap eleven times. The wheels are fine.",
-    "station": {
-      "kind": "panel",
-      "title": "Vehicles and routes",
-      "rows": [
-        {
-          "label": "Rovers available",
-          "value": "2 of 3",
-          "status": "normal"
-        },
-        {
-          "label": "Laps completed",
-          "value": "0",
-          "status": "alarm"
-        },
-        {
-          "label": "Same lap repeated",
-          "value": "11",
-          "status": "alarm"
-        },
-        {
-          "label": "Charge on the bay",
-          "value": "4 of 6",
-          "status": "normal"
-        }
-      ]
-    }
+    "caption": "Rovers, drones, chargers, route maps, and the software that moves field machines live here."
   },
   "COMMS": {
-    "caption": "Satellite links, packet routing, weather instruments, and rescue-window traffic live here.",
-    "standLine": "The packet says 08:07 and the wall display says 08:0. One of them is missing a character.",
-    "station": {
-      "kind": "panel",
-      "title": "Link and weather",
-      "rows": [
-        {
-          "label": "Next satellite pass",
-          "value": "00:41",
-          "status": "normal"
-        },
-        {
-          "label": "Burst length",
-          "value": "10 s",
-          "status": "normal"
-        },
-        {
-          "label": "Visibility",
-          "value": "under 20 m",
-          "status": "alarm"
-        },
-        {
-          "label": "Rescue readiness",
-          "value": "48 %",
-          "status": "alarm"
-        }
-      ]
-    }
+    "caption": "Satellite links, packet routing, weather instruments, and rescue-window traffic live here."
   }
 };

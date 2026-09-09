@@ -53,7 +53,6 @@ theme:
     on one backup line. If that fails, emergency calls, hospital links and normal communication with the mainland
     go down.
 
-
     A repair ship arrives in twelve days, just before bad weather closes the sea for weeks. It gets one safe day
     to pull up one part of the cable. You are the optical measurements lead. Use the physics of light to answer
     two questions: what failed, and where is it? Send the ship to the wrong thing or place, and Pellow Head may
@@ -376,22 +375,16 @@ missions:
 interiors:
   CLINIC:
     caption: "Field Clinic."
-    standLine: "Sealed samples wait beside a microscope."
   GROW:
     caption: "Growth Hall."
-    standLine: "Potted dune plants sit beneath timed lamps."
   SEED:
     caption: "Seed Room."
-    standLine: "Seed packets lie beside their family records."
   PLAN:
     caption: "Field Planning Room."
-    standLine: "A map holds the proposed mainland planting sites."
   GENE:
     caption: "Genetics Trailer."
-    standLine: "Sample tubes stand beside a printed sequence reader."
   MARSH:
     caption: "Marsh Research Bay."
-    standLine: "Water bottles hold samples from the shore pools."
 copy:
   CLINIC: "<p>Field Clinic.</p>"
   GROW: "<p>Growth Hall.</p>"

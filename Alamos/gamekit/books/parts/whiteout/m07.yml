@@ -106,7 +106,7 @@
     scene: "Mei Alvarez checks the evidence: the display loop should pair labels[i] with temps[i] for indexes zero through three, but one candidate increments the temperature index twice. Build the traversal that visits every element once and preserves same-index pairing."
     motivation: "A correct traversal should keep Room 6's 4.1°C value at the same index as the Room 6 label."
     format: DERIVE
-    question: "Choose the loop header and element pairing that display every valid sensor once without shifting indexes."
+    question: "Choose the loop header and element pairing that display every valid sensor once without shifting indexes. Then select the replay result from the local givens."
     answerText: "Valid array indexes are zero through length minus one, and the same i must select the corresponding label and temperature."
     why: "Array traversal uses a loop variable as an index; bounds and same-index relationships are part of algorithm correctness."
     # wrong-path feedback, one rebuttal per wrong option:
@@ -131,7 +131,7 @@
     #           - {line: "show(labels[i], temps[i]);", correct: true}
     #           - {line: "show(labels[i], temps[i+1]);", correct: false, survives: true, why: "Using i+1 shifts every value one label forward and eventually reads past the array instead of preserving same-index correspondence."}
     derive:
-      start: "labels and temps have equal length, with matching indexes. Java starts array indexes at 0 and increases each successive index by 1; length is the number of items, not the final valid index. Source: String[] labels = {...}; double[] temps = {...}; both arrays have matching indexes and the same length."
+      start: "labels and temps have equal length, with matching indexes. Java starts array indexes at 0 and increases each successive index by 1; length is the number of items, not the final valid index. Source: String[] labels = {\"Room 1\", \"Room 2\"}; double[] temps = {20.0, 21.0}; both arrays have matching indexes and the same length. Replay arrays: labels = [\"Room 1\", \"Room 2\"]; temps = [20.0, 21.0] degrees C."
       goal: visit every legal index once and pair each label with the value at that same index
       steps:
         - ask: Choose the traversal header.
@@ -147,6 +147,13 @@
             - text: show(labels[i], temps[i]);
             - text: show(labels[i], temps[i+1]);
               why: Using i+1 shifts every value one label forward and eventually reads past the array instead of preserving same-index correspondence.
+              survives: true
+        - ask: Apply the selected rule to the given replay. Choose its evaluated result.
+          answer: 0
+          candidates:
+            - text: i=0 pairs Room 1 with 20.0; i=1 pairs Room 2 with 21.0; 2 < 2 is false
+            - text: i=0 pairs Room 1 with 21.0; i=1 pairs Room 2 with 20.0; 2 < 2 is false
+              why: Both arrays use the same index. Swapping the temperatures breaks the stated label-to-reading correspondence.
               survives: true
 
   # --- Stop 27: Catch the shifted index

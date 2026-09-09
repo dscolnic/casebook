@@ -2,11 +2,15 @@
 
 ## AP Biology Campaign Implementation Bible
 
-**Version:** 1.2 — ensemble, physical story and optional review expansion
+**Version:** 1.3 — handback 2: explicit decisions and local teaching
 
 **Campaign length:** 15 missions, 60 graded stops; fifteen field days before the charter ship departs.
 
 **Setting:** Pellow Head Island preserve, reusing Dark Fibre geography and building footprints.
+
+## Revision 1.3 — handback 2
+
+Adds explicit stakes and decision fields, a junior-biologist opening, equation-to-required-exercise mappings, local scientific definitions and prerequisite scaffolds. Retains all 60 stop keys, the 90 optional questions, five optional roster questions, ensemble scenes and contained-pilot ending. Source findings are recorded in WILDTYPE_ROUND_CHECK.md; importer and runtime verification remain outstanding.
 
 ## Revision 1.2 — ensemble and optional depth
 
@@ -14,9 +18,25 @@ Adds evidence-triggered crew exchanges, relationship milestones, exact optional 
 
 All dialogue added by this revision is exact authored copy, stored in the mission log. Ordinary beats contain at most two short speech bubbles with one Continue and immediate control return. Remote voices are labeled radio; no voice requires new travel. Existing arrival, B2, B4 and aftermath trigger names remain stable; new B3 fires after the third accepted stop without adding a graded interaction.
 
+**Mission-card binding:** Stakes is its own exact-copy field. If a renderer combines Stakes with Card body, merge their shared decision sentence once; do not omit the decision or display it twice.
+
+## Source-to-display contract — handback 2
+
+| Source field | Required display | Verification boundary |
+|---|---|---|
+| §1 Opening card | Opening narrative, including junior-biologist role and The Contained Pilot | Authored; new rendering not tested. |
+| Each mission A: Stakes | Compact stakes on mission card, decision shown once when merged with Card body | Fifteen source fields; do not derive from designer summary. |
+| Each mission I: Segue | Transition after outcome; exact complication copy | Fifteen source fields with named people. |
+| Each mission A: Equation + Required exercise use | Equation on Worth knowing first; author-only mapping resolves to that mission's required stop | Eleven entries map to numerical submissions; four missions introduce no new equation. |
+| Each stop: Before you answer | Required local teaching on the same question card before response controls; reopenable, no separate graded stop | Does not rely on optional review or ungraded bios for prerequisite completion. |
+| §4 Bio / Bio question / Bio response | Optional TALK card: paragraph, reflection question, then response behind REVEAL | Five complete pairs already existed; retain all five in export. |
+| Stop payload id / order / mapping | Internal identifiers and answer wiring; display human labels instead | `id` means identifier. Raw serialization keys are author/build data, not glossary lessons. |
+
+The handback reports v1.2 builds, imports and plays. This source revision has not been rebuilt. Several reported omissions already had source content in v1.2: equations had required numerical exercises, segues turned with named people, bios had question/reveal pairs, and the treatment already said “plus the nitrogen top-up.” These are preserved and explicitly mapped; their absence in a rendered build is an export/display finding, not proof that a new graded stop is needed.
+
 ## 0. Readiness boundary
 
-Canonical artifact: `WILDTYPE_AP_Biology_Campaign_Implementation_Bible_v1.1.md`. Master Brief v3.3, Giant Gate v2.3 and Authoring Ledger v1.3 govern this work. Whiteout supplies section order and A–K mission layout, not its old short explanations or handback history. No working repository, importer, renderer or project readability checker was supplied; schema conversion, rendering, full play and actual project readability are NOT TESTED. The payloads use the supplied format documentation provisionally. This is a complete authored bible for review, not a claim of release readiness.
+Canonical artifact: `WILDTYPE_AP_Biology_Campaign_Implementation_Bible_v1.3.md`. This round starts from v1.2 and applies WILDTYPE_HANDBACK_2.md alongside Master Brief v3.6, Giant Gate v2.6 and Authoring Ledger v1.6. Whiteout supplies section order and A–K mission layout, not its old short explanations or handback history. No working repository, importer, renderer or project readability checker was supplied; schema conversion, rendering, full play and actual project readability are NOT TESTED. The payloads use the supplied format documentation provisionally. This is a complete authored bible for review, not a claim of release readiness.
 
 ### Source-pack inventory
 | Source | Status | Authority/action |
@@ -50,7 +70,7 @@ The island once held a living backup for a damaged mainland coast. Thirty years 
 
 ## Opening card — exact player copy
 
-You reach Pellow Head as a bird picks bugs from a cart of pale plants. Ada Penn asks you to build The Contained Pilot, a plan to test a small group of plants and their partners on the coast. Each day adds one piece to the Release Board. The ship leaves in fifteen days. You must learn what can go, what must stay, and when to stop the test.
+You are the junior biologist on Pellow Head. A bird picks bugs from a cart of pale plants. Ada Penn asks you to build The Contained Pilot, a plan to test a small group of plants and their partners on the coast. Each day adds one piece to the Release Board. Before the ship leaves in fifteen days, decide what can go, what stays, and when to stop the test.
 
 ### Opening implementation state
 
@@ -200,7 +220,7 @@ Alive-world states: M1 a bird feeds beside the sample cart; M3 pond tanks carry 
 
 **Bio question — exact player copy:** “What does this result let us do, and where must we still wait?”
 
-**Bio interaction:** Optional TALK card. After the question, a REVEAL button shows the response below. No score, RP, unlock or retrieval flag changes; the timer pauses.
+**Bio interaction:** Optional TALK card: display the bio, then its Bio question as a question for the player to consider; a REVEAL button shows Bio response below. The player may close without responding; this is not an additional graded stop. No score, RP, unlock or retrieval flag changes; the timer pauses.
 
 **Bio response — exact player copy:** A result clears only the tested step. Ada waits where the evidence does not yet cover the plan.
 
@@ -220,7 +240,7 @@ Alive-world states: M1 a bird feeds beside the sample cart; M3 pond tanks carry 
 
 **Bio question — exact player copy:** “Which comparison stayed healthy, and what does that let us change?”
 
-**Bio interaction:** Optional TALK card. After the question, a REVEAL button shows the response below. No score, RP, unlock or retrieval flag changes; the timer pauses.
+**Bio interaction:** Optional TALK card: display the bio, then its Bio question as a question for the player to consider; a REVEAL button shows Bio response below. The player may close without responding; this is not an additional graded stop. No score, RP, unlock or retrieval flag changes; the timer pauses.
 
 **Bio response — exact player copy:** The matched healthy control shows what stayed well. Mara compares it with the changed treatment before she changes care.
 
@@ -240,7 +260,7 @@ Alive-world states: M1 a bird feeds beside the sample cart; M3 pond tanks carry 
 
 **Bio question — exact player copy:** “Can the leaves grow well while the flowers lose their visitors?”
 
-**Bio interaction:** Optional TALK card. After the question, a REVEAL button shows the response below. No score, RP, unlock or retrieval flag changes; the timer pauses.
+**Bio interaction:** Optional TALK card: display the bio, then its Bio question as a question for the player to consider; a REVEAL button shows Bio response below. The player may close without responding; this is not an additional graded stop. No score, RP, unlock or retrieval flag changes; the timer pauses.
 
 **Bio response — exact player copy:** Yes. Leaves can grow while flower timing no longer matches the bugs that carry pollen.
 
@@ -260,7 +280,7 @@ Alive-world states: M1 a bird feeds beside the sample cart; M3 pond tanks carry 
 
 **Bio question — exact player copy:** “Can we still trace that family after we sort these plants?”
 
-**Bio interaction:** Optional TALK card. After the question, a REVEAL button shows the response below. No score, RP, unlock or retrieval flag changes; the timer pauses.
+**Bio interaction:** Optional TALK card: display the bio, then its Bio question as a question for the player to consider; a REVEAL button shows Bio response below. The player may close without responding; this is not an additional graded stop. No score, RP, unlock or retrieval flag changes; the timer pauses.
 
 **Bio response — exact player copy:** Yes, if its family label and source record stay with it. Leaf shape alone cannot keep that history.
 
@@ -280,7 +300,7 @@ Alive-world states: M1 a bird feeds beside the sample cart; M3 pond tanks carry 
 
 **Bio question — exact player copy:** “What else depends on that plant, and will the new site support the link?”
 
-**Bio interaction:** Optional TALK card. After the question, a REVEAL button shows the response below. No score, RP, unlock or retrieval flag changes; the timer pauses.
+**Bio interaction:** Optional TALK card: display the bio, then its Bio question as a question for the player to consider; a REVEAL button shows Bio response below. The player may close without responding; this is not an additional graded stop. No score, RP, unlock or retrieval flag changes; the timer pauses.
 
 **Bio response — exact player copy:** A plant may depend on partners that move nutrients or pollen. The new site needs its own tests of those links.
 
@@ -419,7 +439,7 @@ For Mission 15, the existing allocation, loading gate, cart movement and ending 
 
 ## 5.2 Dependency graph
 
-The following table replaces the former broad unit-chain arrows. A prerequisite means an earlier graded encounter with the component used by this task. Stop 1 actually matches carbon skeletons and nitrogen/phosphorus sources, establishing concept 1’s elemental foundation before the feed calculation. Stop 9 actually orders the oxygen-supported ATP pathway, establishing concept 7 before the oxygen-balance and respiration comparisons. These are metadata corrections to existing boards, not extra stops or new answer keys. Water properties and full hydrolysis details remain explicitly taught in the required M1 primer; they are not falsely claimed as graded by the ingredient match.
+The table records earlier graded **components**, not completion of every topic in a broad concept label. Required, local “Before you answer” teaching supplies the additional foundations in the register below, on the question card before response controls. Same-day order is stop order, not merely the mission number. Optional bios, reviews and worked examples never satisfy a required prerequisite. A carbon-source match does not grade all water chemistry; a nutrient subtraction does not grade hydrolysis.
 
 | Concept | Prerequisites | First graded evidence |
 |---|---|---|
@@ -455,6 +475,18 @@ The following table replaces the former broad unit-chain arrows. A prerequisite 
 | 30 | None | Stop 3 |
 
 Concept 19’s first lamp-response task needs signaling (11) and the required M4 definition of DNA/RNA/protein; it does not require the later full transcription sequence (18). Concept 27’s first pollinator task needs photosynthesis (8), not evolution or population genetics. The allele-count baseline (24) needs meiosis and probability, not the later drift classification (23). Nitrogen cycling (29) uses elemental requirements, transport and organism links; it does not require ungraded speciation (25). Fermentation (10) and speciation/phylogeny (25) remain supporting coverage without outgoing graded prerequisite claims. Primers remain visible and required before first tasks; optional worked examples are never counted as prerequisite completion.
+
+### Required prerequisite teaching register — author-only
+
+| First dependent task | Earlier evidence | Additional required foundation, visible before answering | Honest scope |
+|---|---|---|---|
+| M1 Stop 2 | M1 Stop 1 carbon and mineral-source match | Stop 1 water polarity; Stop 2 macromolecules and hydrolysis | Stop 2 grades a matter budget; hydrolysis is taught support, not a scored mechanism. |
+| M2 Stop 6 | M2 Stop 5 cell structures | Stop 5 selective membrane; Stop 6 osmosis and water potential plus cube geometry | Membrane foundation precedes ratio; detailed transport classification remains Stop 7. |
+| M3 Stops 9–10 | Stops 2 and 5 matter and cells | Stop 9 catalysts, ATP coupling, electrons and proton gradient; Stop 10 light reactions and carbon fixation | Enzyme kinetics later at Stop 13 is not presumed complete. |
+| M4 Stop 15 | Stop 14 signaling sequence | Stop 14 DNA/RNA/protein teaching, recalled locally at Stop 15 | Gene-expression foundation precedes regulation; full transcription sequence is later Stop 29. |
+| M6 Stop 21 / M7 Stop 25 | Stops 5 and 14 cell and signal foundations; Stop 21 cell-cycle ordering | Stop 21 DNA replication before division; Stop 25 homologs, chromatids and crossing over | Detailed replication enzymes remain Stop 35. |
+| M11 Stop 41 | Stops 25 and 26 alleles and probability | Stop 41 Hardy-Weinberg assumptions, drift and gene-flow definitions | Observed counting does not claim equilibrium; Stop 42 grades mechanisms before Stop 43 reference prediction. |
+| M5 Stop 18 | Stop 17 photosynthesis versus pollen transfer | Stop 18 partner benefit and shared timing | Pollination does not require population genetics; those topics remain later teaching. |
 
 ## 5.3 Concept encounter matrix
 
@@ -610,9 +642,11 @@ M2: the helpful-looking rinse causes measured injury in the tested line. M3: foo
 
 **Go now:** Go to Field Clinic and meet Mara Vale, veterinary biologist, at the Sample Bench.
 
-**Card body:** The first trays have pale new leaves, but the ship is booked. Plants need the right mix of matter as well as fuel. Check the feed with Mara at the Sample Bench. By the end of the mission, you decide whether to change the feed.
+**Card body:** The first trays have pale new leaves, but the ship is booked. Plants need the right mix of matter as well as fuel. Check the feed with Mara at the Sample Bench. Today you decide whether to replace the failing seedling feed.
 
 **Objective:** Resolve whether to replace the failing seedling feed; the young plants may die before planting.
+
+**Stakes — exact player copy:** Today you decide whether to replace the failing seedling feed. The young plants may die before planting.
 
 ### Worth knowing first — exact player copy
 
@@ -621,7 +655,7 @@ M2: the helpful-looking rinse causes measured injury in the tested line. M3: foo
 - Element: A substance made of one kind of atom.
 - Monomer: A small building unit that can join others.
 - Protein: A chain of amino acids folded into a working shape.
-- Enzyme: A protein or RNA catalyst that speeds a reaction without being consumed.
+- Enzyme: A protein or RNA catalyst: a substance that speeds a reaction without being consumed.
 - Control: A comparison treated the same way except for the tested factor.
 - Atom: A small unit of an element.
 - Molecule: Two or more atoms bonded together.
@@ -651,6 +685,8 @@ M2: the helpful-looking rinse causes measured injury in the tested line. M3: foo
 **Symbols:** deficit, requirement and supply are nitrogen masses per day.
 
 **Why this campaign needs it:** Size the nutrient replacement test.
+
+**Required exercise use — author-only:** Stop 2: 12 − 3 = 9 mg nitrogen/day. This maps to the existing required graded stop, not the optional examples.
 
 ### Optional worked examples — exact player copy
 
@@ -821,6 +857,8 @@ Water molecules are polar; hydrogen bonds support cohesion, adhesion and surface
 
 **Question card story-science connection — exact player copy:** Distinguishing these mechanisms keeps the next handling decision tied to the evidence.
 
+**Before you answer — exact player copy:** Carbon can form the skeletons of organic molecules. Water is polar: its uneven charge helps dissolve ions such as nitrate and phosphate. Nitrogen and phosphorus must come from matter in the feed; cells cannot make one element from another. Match the ingredient to the material it supplies.
+
 **Data/readings/options:** The following labeled observations and candidates are shown in full before submission.
 
 **Format-specific interaction block:**
@@ -925,6 +963,8 @@ answerText: The pale seedlings need materials as well as fuel. This result is no
 
 **Question card story-science connection — exact player copy:** The calculated quantity sets the comparison the crew must satisfy before it acts.
 
+**Before you answer — exact player copy:** Stop 1 established the elements in feed. Macromolecules are large biological molecules: proteins contain amino acids, and nucleic acids contain nucleotides. Hydrolysis splits a bond using water; it can release smaller units but cannot turn carbon into nitrogen. This task tests the nitrogen budget, not hydrolysis rate.
+
 **Data/readings/options:** A tray needs 12 mg nitrogen per day; the stored feed supplies 3 mg per day. Assume no other nitrogen input.
 
 **Format-specific interaction block:**
@@ -998,8 +1038,8 @@ answerText: 'The deficit is the daily requirement minus the nitrogen already sup
 | Kernel field | Author-only value |
 |---|---|
 | player_knows | 9 |
-| player_sees | {"probe": {"stations": [{"id": "t1", "label": "Complete-feed control", "reading": "8 mm growth/day", "expected": "7–9 mm/day", "load": "same seed line, light and water"}, {"id": "t2", "label": "Stored-feed tray", "reading": "2 mm growth/day", "expected": "7–9 mm/day", "load": "same seed line, light and water"}, {"id": "t3", "label": "Nitrogen-restored tray", "reading": "8 mm growth/day", "expected": "7–9 mm/day", "load": "stored feed plus the nitrogen top-up"}, {"id": "t4", "label": "Assay standard", "reading": "10 mg/L nitrate", "expected": "9–11 mg/L", "load": "known solution"}], "target": "t2", "correctChoice": "t2", "quantityAndUnits": "Take and record all four station readings with the sample selector, holding the assay method fixed; compare each with its own expected value and submit the one station ID outside its stated range; no restoration is needed.", "correctConclusion": "Only the stored-feed tray lies outside its own expected range. This result is now recorded for the next comparison.", "answerText": "Only the stored-feed tray lies outside its own expected range. This result is now recorded for the next comparison."}, "answerText": "Only the stored-feed tray lies outside its own expected range. This result is now recorded for the next comparison."} |
-| player_must_determine | "Take and record all four station readings with the sample selector, holding the assay method fixed; compare each with its own expected value and submit the one station ID outside its stated range; no restoration is needed." |
+| player_sees | {"probe": {"stations": [{"id": "t1", "label": "Complete-feed control", "reading": "8 mm growth/day", "expected": "7–9 mm/day", "load": "same seed line, light and water"}, {"id": "t2", "label": "Stored-feed tray", "reading": "2 mm growth/day", "expected": "7–9 mm/day", "load": "same seed line, light and water"}, {"id": "t3", "label": "Nitrogen-restored tray", "reading": "8 mm growth/day", "expected": "7–9 mm/day", "load": "stored feed plus the nitrogen top-up"}, {"id": "t4", "label": "Assay standard", "reading": "10 mg/L nitrate", "expected": "9–11 mg/L", "load": "known solution"}], "target": "t2", "correctChoice": "t2", "quantityAndUnits": "Take and record all four station readings with the sample selector, holding the assay method fixed; compare each with its own expected value and submit the one station ID (identifier, the station’s short label) outside its stated range; no restoration is needed.", "correctConclusion": "Only the stored-feed tray lies outside its own expected range. This result is now recorded for the next comparison.", "answerText": "Only the stored-feed tray lies outside its own expected range. This result is now recorded for the next comparison."}, "answerText": "Only the stored-feed tray lies outside its own expected range. This result is now recorded for the next comparison."} |
+| player_must_determine | "Take and record all four station readings with the sample selector, holding the assay method fixed; compare each with its own expected value and submit the one station ID (identifier, the station’s short label) outside its stated range; no restoration is needed." |
 | correct_result | "t2" |
 | most_tempting_wrong_result | "The complete-feed control is within its range." |
 | why_wrong_occurs | "The complete-feed control is within its range." |
@@ -1042,13 +1082,13 @@ probe:
     load: known solution
   target: t2
   correctChoice: t2
-  quantityAndUnits: Take and record all four station readings with the sample selector, holding the assay method fixed; compare each with its own expected value and submit the one station ID outside its stated range; no restoration is needed.
+  quantityAndUnits: Take and record all four station readings with the sample selector, holding the assay method fixed; compare each with its own expected value and submit the one station ID (identifier, the station’s short label) outside its stated range; no restoration is needed.
   correctConclusion: Only the stored-feed tray lies outside its own expected range. This result is now recorded for the next comparison.
   answerText: Only the stored-feed tray lies outside its own expected range. This result is now recorded for the next comparison.
 answerText: Only the stored-feed tray lies outside its own expected range. This result is now recorded for the next comparison.
 ```
 
-**Question card prompt — exact player copy:** Take and record all four station readings with the sample selector, holding the assay method fixed; compare each with its own expected value and submit the one station ID outside its stated range; no restoration is needed.
+**Question card prompt — exact player copy:** Take and record all four station readings with the sample selector, holding the assay method fixed; compare each with its own expected value and submit the one station ID (identifier, the station’s short label) outside its stated range; no restoration is needed.
 
 **Correct result:** "t2"; exact label, complete mapping or complete order; no partial completion.
 
@@ -1164,6 +1204,8 @@ why: 'The feed lacks nitrogen even though it contains an energy source. The grow
 **Delivery piece:** The feed correction — record the evidence from this mission on The Contained Pilot board.
 
 **Segue — exact player copy:** But Mara finds swollen roots in the next tray. She needs the rinse checked before packing.
+
+**Segue binding — author-only:** Use the exact Segue field above as the mission transition, once; it introduces an unresolved complication and names a person. Do not substitute the outcome summary.
 
 ## J. Post-mission metric screen — exact player copy
 
@@ -1342,9 +1384,11 @@ why: 'The feed lacks nitrogen even though it contains an energy source. The grow
 
 **Go now:** Go to Field Clinic and meet Mara Vale, veterinary biologist, at the Sample Bench.
 
-**Card body:** The new feed works, but the rinsed roots lose live cells. Water can cross a cell wall and its thin membrane. Test the rinse with Mara in the Field Clinic. By the end of the mission, you decide which rinse the shore plants need.
+**Card body:** The new feed works, but the rinsed roots lose live cells. Water can cross a cell wall and its thin membrane. Test the rinse with Mara in the Field Clinic. Today you decide whether the shore seedlings need fresh water or a matched salt rinse.
 
 **Objective:** Resolve whether the shore seedlings need fresh water or a matched salt rinse; more roots could be damaged during packing.
+
+**Stakes — exact player copy:** Today you decide whether the shore seedlings need fresh water or a matched salt rinse. More roots could be damaged during packing.
 
 ### Worth knowing first — exact player copy
 
@@ -1380,6 +1424,8 @@ why: 'The feed lacks nitrogen even though it contains an energy source. The grow
 **Symbols:** SA is surface area; V is volume; L is cube side length.
 
 **Why this campaign needs it:** Separate exchange capacity from rinse direction.
+
+**Required exercise use — author-only:** Stop 6: 6/3 = 2 inverse micrometres; the board requires the ratio, then distinguishes exchange capacity from water direction. This maps to the existing required graded stop, not the optional examples.
 
 ### Optional worked examples — exact player copy
 
@@ -1550,6 +1596,8 @@ Nucleus stores DNA and supports transcription; rough ER bears ribosomes for prot
 
 **Question card story-science connection — exact player copy:** Distinguishing these mechanisms keeps the next handling decision tied to the evidence.
 
+**Before you answer — exact player copy:** A cell membrane is a selective boundary that controls exchange. A plant cell also has a supporting wall outside that membrane. A vacuole is an internal fluid compartment. Use the listed structures to identify each sample.
+
 **Data/readings/options:** The following labeled observations and candidates are shown in full before submission.
 
 **Format-specific interaction block:**
@@ -1653,6 +1701,8 @@ answerText: The damaged sample contains cell walls and large vacuoles, identifyi
 **Question card story setup — exact player copy:** The sample is plant tissue with membranes and supporting walls, so the damaged roots cannot be treated as empty bags of water. Mara Vale asks: “Compare exchange surface with cell volume before interpreting what a change in size actually means.”
 
 **Question card story-science connection — exact player copy:** The calculated quantity sets the comparison the crew must satisfy before it acts.
+
+**Before you answer — exact player copy:** Stop 5 identified a cell and its boundary. For a cube, six square faces give surface area 6L², and volume is L³. Dividing gives 6/L. More surface per volume can support more exchange per unit of interior. Osmosis is water movement across a selective membrane; water potential describes its tendency to move. The surface ratio alone cannot tell which way water moves.
 
 **Data/readings/options:** A model root cell is a cube of side 3 micrometres; surface area = 6L² and volume = L³.
 
@@ -1900,6 +1950,8 @@ why: The matched rinse prevents the net water movement associated with the damag
 
 **Segue — exact player copy:** Yet Ivo finds wilted plants in sealed pots. The new rinse has not solved the night loss.
 
+**Segue binding — author-only:** Use the exact Segue field above as the mission transition, once; it introduces an unresolved complication and names a person. Do not substitute the outcome summary.
+
 ## J. Post-mission metric screen — exact player copy
 
 **Header:** MISSION 2 COMPLETE
@@ -2076,9 +2128,11 @@ why: The matched rinse prevents the net water movement associated with the damag
 
 **Go now:** Go to Growth Hall and meet Ivo Reed, plant physiologist, at the Growth Bench.
 
-**Card body:** The roots survive the rinse, but plants wilt in sealed pots. Roots need oxygen to get much of their useful energy from food. Check day and night with Ivo at the Pond Tanks. By the end of the mission, you decide how the pots should get air.
+**Card body:** The roots survive the rinse, but plants wilt in sealed pots. Roots need oxygen to get much of their useful energy from food. Check day and night with Ivo at the Pond Tanks. Today you decide whether sealed transport pots need an oxygen supply.
 
 **Objective:** Resolve whether sealed transport pots need an oxygen supply; the packed seedlings may fail before arrival.
+
+**Stakes — exact player copy:** Today you decide whether sealed transport pots need an oxygen supply. The packed seedlings may fail before arrival.
 
 ### Worth knowing first — exact player copy
 
@@ -2094,8 +2148,8 @@ why: The matched rinse prevents the net water movement associated with the damag
 - Gradient: A difference in a quantity between places.
 - ATP synthase: An enzyme that couples ion movement down a gradient to ATP production.
 - NADH: An electron carrier used in respiration.
-- NADPH: An electron carrier used in photosynthetic carbon fixation.
-- NAD+: The oxidized carrier that can accept electrons during glycolysis.
+- NADPH: An electron carrier that supplies reducing electrons for photosynthetic carbon fixation.
+- NAD+: An electron carrier in its oxidized form, meaning it has lost electrons and can accept them during glycolysis.
 - Glycolysis: A cytosolic pathway that splits glucose and yields a small net ATP gain.
 - Thylakoid: A membrane compartment carrying light-reaction machinery in a chloroplast.
 - Stroma: The fluid compartment around chloroplast thylakoids.
@@ -2116,6 +2170,8 @@ why: The matched rinse prevents the net water movement associated with the damag
 **Symbols:** All three quantities are oxygen mass per hour.
 
 **Why this campaign needs it:** Avoid using daylight gross production as net gain.
+
+**Required exercise use — author-only:** Stop 10: 14 − 6 = 8 mg oxygen/hour. This maps to the existing required graded stop, not the optional examples.
 
 ### Optional worked examples — exact player copy
 
@@ -2262,7 +2318,7 @@ In the qualitative energy model, exergonic reactions release usable free energy 
 
 **Required stop kind:** calculation/room. **Player verb:** order causal dependencies.
 
-**Metadata:** Concept: 7 — A test cross is approved and family labels stay attached to every sample. Sampling and care consume the shown supplies.; Keystone: Energy coupling, Structure and function; Area: GROW; Prerequisites: Required mission primer; graded foundations Concept 2 at Stop 2, Concept 4 at Stop 5; Learning role: INTRODUCE; Difficulty: L2; Story role: clue.
+**Metadata:** Concept: 7 — ATP and energy coupling; Keystone: Energy coupling, Structure and function; Area: GROW; Prerequisites: Required mission primer; graded foundations Concept 2 at Stop 2, Concept 4 at Stop 5; Learning role: INTRODUCE; Difficulty: L2; Story role: clue.
 
 **Briefing decision advanced:** whether sealed transport pots need an oxygen supply.
 
@@ -2287,6 +2343,8 @@ In the qualitative energy model, exergonic reactions release usable free energy 
 **Question card story setup — exact player copy:** The rinsed roots now remain viable, yet seedlings still wilt after their pots are sealed for the journey to the mainland. Ivo Reed asks: “Trace how food supports cellular work before testing whether a full pot actually contains what roots need.”
 
 **Question card story-science connection — exact player copy:** The causal order identifies what the next test must preserve or challenge.
+
+**Before you answer — exact player copy:** Stops 2 and 5 supplied matter and cell foundations. ATP is a molecule that couples energy-releasing processes to cellular work; hydrolysis of ATP can power a coupled reaction. Enzymes are catalysts, substances that speed reactions without being used up. Electron carriers move electrons from food to a membrane chain. A proton gradient stores energy as a concentration and charge difference; ATP synthase uses that difference to make ATP.
 
 **Data/readings/options:** The following labeled observations and candidates are shown in full before submission.
 
@@ -2379,6 +2437,8 @@ answerText: Energy from food reaches electron carriers and then the mitochondria
 
 **Question card story-science connection — exact player copy:** The calculated quantity sets the comparison the crew must satisfy before it acts.
 
+**Before you answer — exact player copy:** In photosynthesis, light reactions supply ATP and NADPH, an electron carrier that provides reducing electrons for carbon fixation. Photosystem II (two) is the light-absorbing complex where water splitting replaces lost electrons and releases oxygen. The Calvin cycle uses carbon dioxide, ATP and NADPH to make carbon compounds. Respiration also consumes oxygen in light; subtract that measured use from gross production.
+
 **Data/readings/options:** Matched planted pots produce 14 mg oxygen/hour in light and consume 6 mg oxygen/hour through respiration. Assume these measured rates stay constant for one hour.
 
 **Format-specific interaction block:**
@@ -2452,8 +2512,8 @@ answerText: 'The net daylight oxygen gain is gross production minus respiratory 
 | Kernel field | Author-only value |
 |---|---|
 | player_knows | 8 |
-| player_sees | {"probe": {"stations": [{"id": "t1", "label": "Ventilated planted pot", "reading": "7 mg/L oxygen", "expected": "6–8 mg/L", "load": "after eight dark hours"}, {"id": "t2", "label": "Sealed planted pot", "reading": "1 mg/L oxygen", "expected": "6–8 mg/L", "load": "after eight dark hours"}, {"id": "t3", "label": "Sealed empty pot", "reading": "7 mg/L oxygen", "expected": "6–8 mg/L", "load": "same water without organisms"}, {"id": "t4", "label": "Oxygen standard", "reading": "8 mg/L oxygen", "expected": "7–9 mg/L", "load": "known standard"}], "target": "t2", "correctChoice": "t2", "quantityAndUnits": "Take and record all four station readings with the sample selector, holding the assay method fixed; compare each with its own expected value and submit the one station ID outside its stated range; no restoration is needed.", "correctConclusion": "The sealed planted pot is the only station outside its expected oxygen range. This result is now recorded for the next comparison.", "answerText": "The sealed planted pot is the only station outside its expected oxygen range. This result is now recorded for the next comparison."}, "answerText": "The sealed planted pot is the only station outside its expected oxygen range. This result is now recorded for the next comparison."} |
-| player_must_determine | "Take and record all four station readings with the sample selector, holding the assay method fixed; compare each with its own expected value and submit the one station ID outside its stated range; no restoration is needed." |
+| player_sees | {"probe": {"stations": [{"id": "t1", "label": "Ventilated planted pot", "reading": "7 mg/L oxygen", "expected": "6–8 mg/L", "load": "after eight dark hours"}, {"id": "t2", "label": "Sealed planted pot", "reading": "1 mg/L oxygen", "expected": "6–8 mg/L", "load": "after eight dark hours"}, {"id": "t3", "label": "Sealed empty pot", "reading": "7 mg/L oxygen", "expected": "6–8 mg/L", "load": "same water without organisms"}, {"id": "t4", "label": "Oxygen standard", "reading": "8 mg/L oxygen", "expected": "7–9 mg/L", "load": "known standard"}], "target": "t2", "correctChoice": "t2", "quantityAndUnits": "Take and record all four station readings with the sample selector, holding the assay method fixed; compare each with its own expected value and submit the one station ID (identifier, the station’s short label) outside its stated range; no restoration is needed.", "correctConclusion": "The sealed planted pot is the only station outside its expected oxygen range. This result is now recorded for the next comparison.", "answerText": "The sealed planted pot is the only station outside its expected oxygen range. This result is now recorded for the next comparison."}, "answerText": "The sealed planted pot is the only station outside its expected oxygen range. This result is now recorded for the next comparison."} |
+| player_must_determine | "Take and record all four station readings with the sample selector, holding the assay method fixed; compare each with its own expected value and submit the one station ID (identifier, the station’s short label) outside its stated range; no restoration is needed." |
 | correct_result | "t2" |
 | most_tempting_wrong_result | "The ventilated planted pot is inside its expected range." |
 | why_wrong_occurs | "The ventilated planted pot is inside its expected range." |
@@ -2496,13 +2556,13 @@ probe:
     load: known standard
   target: t2
   correctChoice: t2
-  quantityAndUnits: Take and record all four station readings with the sample selector, holding the assay method fixed; compare each with its own expected value and submit the one station ID outside its stated range; no restoration is needed.
+  quantityAndUnits: Take and record all four station readings with the sample selector, holding the assay method fixed; compare each with its own expected value and submit the one station ID (identifier, the station’s short label) outside its stated range; no restoration is needed.
   correctConclusion: The sealed planted pot is the only station outside its expected oxygen range. This result is now recorded for the next comparison.
   answerText: The sealed planted pot is the only station outside its expected oxygen range. This result is now recorded for the next comparison.
 answerText: The sealed planted pot is the only station outside its expected oxygen range. This result is now recorded for the next comparison.
 ```
 
-**Question card prompt — exact player copy:** Take and record all four station readings with the sample selector, holding the assay method fixed; compare each with its own expected value and submit the one station ID outside its stated range; no restoration is needed.
+**Question card prompt — exact player copy:** Take and record all four station readings with the sample selector, holding the assay method fixed; compare each with its own expected value and submit the one station ID (identifier, the station’s short label) outside its stated range; no restoration is needed.
 
 **Correct result:** "t2"; exact label, complete mapping or complete order; no partial completion.
 
@@ -2618,6 +2678,8 @@ why: The sealed pots fail the campaign oxygen specification overnight, while the
 **Delivery piece:** The ventilated lids — record the evidence from this mission on The Contained Pilot board.
 
 **Segue — exact player copy:** But Ivo sees new flowers come out at the wrong time. The old lamp plan needs a test.
+
+**Segue binding — author-only:** Use the exact Segue field above as the mission transition, once; it introduces an unresolved complication and names a person. Do not substitute the outcome summary.
 
 ## J. Post-mission metric screen — exact player copy
 
@@ -2795,9 +2857,11 @@ why: The sealed pots fail the campaign oxygen specification overnight, while the
 
 **Go now:** Go to Growth Hall and meet Ivo Reed, plant physiologist, at the Growth Bench.
 
-**Card body:** The pots now have air, and the plants grow well. Light can change how a plant uses its genes. Check the old lamps with Ivo at the Growth Bench. By the end of the mission, you decide if the old lamp plan should spread.
+**Card body:** The pots now have air, and the plants grow well. Light can change how a plant uses its genes. Check the old lamps with Ivo at the Growth Bench. Today you decide whether the old lamp program is ready for wider use.
 
 **Objective:** Resolve whether the old lamp program is ready for wider use; a rushed change could damage the whole nursery.
+
+**Stakes — exact player copy:** Today you decide whether the old lamp program is ready for wider use. A rushed change could damage the whole nursery.
 
 ### Worth knowing first — exact player copy
 
@@ -2993,6 +3057,8 @@ Reception, transduction and response describe signal flow. Local paracrine signa
 
 **Question card story-science connection — exact player copy:** Distinguishing these mechanisms keeps the next handling decision tied to the evidence.
 
+**Before you answer — exact player copy:** Proteins are chains of amino acids folded into working shapes; that shape helps determine what they bind. An enzyme is a catalyst: it lowers the activation-energy barrier without being consumed. A substrate is the molecule it acts on. A competitive blocker occupies the active site; a noncompetitive blocker in this model reduces activity at a different site.
+
 **Data/readings/options:** The following labeled observations and candidates are shown in full before submission.
 
 **Format-specific interaction block:**
@@ -3097,6 +3163,8 @@ answerText: The four observations distinguish mechanisms that can all lower a me
 
 **Question card story-science connection — exact player copy:** The causal order identifies what the next test must preserve or challenge.
 
+**Before you answer — exact player copy:** A receptor detects a signal, a relay carries its effect, and a cell response follows. DNA stores a gene sequence; transcription copies it into RNA, and translation uses RNA to build protein. Changing how much RNA or protein is made can change a response without changing the DNA sequence.
+
 **Data/readings/options:** The following labeled observations and candidates are shown in full before submission.
 
 **Format-specific interaction block:**
@@ -3187,6 +3255,8 @@ answerText: The lamp is an environmental cue as well as an energy source. This r
 **Question card story setup — exact player copy:** The signal pathway predicts that a lamp cue could change gene use without replacing the inherited instructions inside the plants being tested. Ivo Reed asks: “Compare sequence, RNA and protein evidence before deciding what the recovered leaves actually prove about the treatment.”
 
 **Question card story-science connection — exact player copy:** An explanation must survive the normal controls before it can justify changing the release stock.
+
+**Before you answer — exact player copy:** Stop 14 taught the DNA → RNA → protein link and signaling. Gene expression means using a gene to make its RNA or protein product. Regulation changes when or how much product is made. Differentiation gives cells different roles through different expression patterns; it need not change their DNA. Use the measured transcript and sequence evidence to distinguish those claims.
 
 **Data/readings/options:** The following labeled observations and candidates are shown in full before submission.
 
@@ -3345,6 +3415,8 @@ why: 'The local response is real, but its interpretation has limits. Light chang
 
 **Segue — exact player copy:** Yet Tess finds that the flowers and insects miss each other. She brings both dated logs.
 
+**Segue binding — author-only:** Use the exact Segue field above as the mission transition, once; it introduces an unresolved complication and names a person. Do not substitute the outcome summary.
+
 ## J. Post-mission metric screen — exact player copy
 
 **Header:** MISSION 4 COMPLETE
@@ -3386,7 +3458,7 @@ why: 'The local response is real, but its interpretation has limits. Light chang
 
 **Supporting concepts — exact player copy:**
 
-- Photosynthesis: Light reactions produce ATP and NADPH and split water, releasing oxygen. The Calvin cycle uses ATP, NADPH and CO2 to build carbon compounds.
+- Photosynthesis: Light reactions produce ATP and NADPH (an electron carrier that supplies reducing electrons) and split water, releasing oxygen. Photosystem II (two) is the light-absorbing complex that replaces electrons by splitting water. The Calvin cycle uses ATP, NADPH and CO2 to build carbon compounds.
 - Limiting factors: Raising one input has little effect if another input limits the rate.
 - Net exchange: Net oxygen change equals oxygen production minus oxygen consumption over the same interval.
 
@@ -3521,9 +3593,11 @@ why: 'The local response is real, but its interpretation has limits. Light chang
 
 **Go now:** Go to Growth Hall and meet Ivo Reed, plant physiologist, at the Growth Bench.
 
-**Card body:** The lamp trial helps leaves grow, but fewer bugs visit the flowers. Flowers and their pollen carriers need to share the same days. Check the field counts with Tess at the Marsh Research Bay. By the end of the mission, you decide if more plants should use the old lamps.
+**Card body:** The lamp trial helps leaves grow, but fewer bugs visit the flowers. Flowers and their pollen carriers need to share the same days. Check the field counts with Tess at the Marsh Research Bay. Today you decide whether to expand the restored flowering schedule.
 
 **Objective:** Resolve whether to expand the restored flowering schedule; seed production could fall despite healthy leaves.
+
+**Stakes — exact player copy:** Today you decide whether to expand the restored flowering schedule. Seed production could fall despite healthy leaves.
 
 ### Worth knowing first — exact player copy
 
@@ -3549,6 +3623,8 @@ why: 'The local response is real, but its interpretation has limits. Light chang
 **Symbols:** Each day label is an integer; overlap is days.
 
 **Why this campaign needs it:** Check flower and visitor timing.
+
+**Required exercise use — author-only:** Stop 18: 4 − 4 + 1 = 1 shared day. This maps to the existing required graded stop, not the optional examples.
 
 ### Optional worked examples — exact player copy
 
@@ -3721,6 +3797,8 @@ This mission retrieves the prior mechanisms identified below and does not add a 
 
 **Question card story-science connection — exact player copy:** Distinguishing these mechanisms keeps the next handling decision tied to the evidence.
 
+**Before you answer — exact player copy:** NADPH is an electron carrier that supplies reducing electrons to carbon fixation. Oxidized means losing electrons; oxidizing sugar transfers electrons from the fuel. Photosystem II (two) splits water during light reactions, releasing oxygen. The Calvin cycle uses ATP and NADPH to fix carbon; pollen transfer is a separate reproductive process.
+
 **Data/readings/options:** The following labeled observations and candidates are shown in full before submission.
 
 **Format-specific interaction block:**
@@ -3825,6 +3903,8 @@ answerText: Healthy photosynthetic leaves show that the plants can capture light
 
 **Question card story-science connection — exact player copy:** The calculated quantity sets the comparison the crew must satisfy before it acts.
 
+**Before you answer — exact player copy:** Stop 17 distinguishes photosynthesis from pollen transfer. Pollination moves pollen between flowers and can support seed formation; the insect may receive food. Such an interaction requires both partners to be present at the same time. Count only shared calendar days, including both endpoints.
+
 **Data/readings/options:** Old-program flowers are open on days 1–4 inclusive; field pollinators are active on days 4–9 inclusive. The original field schedule was days 3–8.
 
 **Format-specific interaction block:**
@@ -3899,8 +3979,8 @@ answerText: The overlap consists only of day 4. This result is now recorded for 
 | Kernel field | Author-only value |
 |---|---|
 | player_knows | 1 |
-| player_sees | {"probe": {"stations": [{"id": "t1", "label": "Old-program flowers", "reading": "2 visits/hour", "expected": "8–12 visits/hour", "load": "equal flower count; matched weather"}, {"id": "t2", "label": "Staggered flowers", "reading": "10 visits/hour", "expected": "8–12 visits/hour", "load": "equal flower count; matched weather"}, {"id": "t3", "label": "Unchanged field flowers", "reading": "9 visits/hour", "expected": "8–12 visits/hour", "load": "equal flower count; matched weather"}, {"id": "t4", "label": "Open-tray pollen check", "reading": "8 transfers/hour", "expected": "7–9 transfers/hour", "load": "independent manual observation"}], "target": "t1", "correctChoice": "t1", "quantityAndUnits": "Take and record all four station readings with the sample selector, holding the assay method fixed; compare each with its own expected value and submit the one station ID outside its stated range; no restoration is needed.", "correctConclusion": "Only the old-program flower tray falls below its station-specific expected range. This result is now recorded for the next comparison.", "answerText": "Only the old-program flower tray falls below its station-specific expected range. This result is now recorded for the next comparison."}, "answerText": "Only the old-program flower tray falls below its station-specific expected range. This result is now recorded for the next comparison."} |
-| player_must_determine | "Take and record all four station readings with the sample selector, holding the assay method fixed; compare each with its own expected value and submit the one station ID outside its stated range; no restoration is needed." |
+| player_sees | {"probe": {"stations": [{"id": "t1", "label": "Old-program flowers", "reading": "2 visits/hour", "expected": "8–12 visits/hour", "load": "equal flower count; matched weather"}, {"id": "t2", "label": "Staggered flowers", "reading": "10 visits/hour", "expected": "8–12 visits/hour", "load": "equal flower count; matched weather"}, {"id": "t3", "label": "Unchanged field flowers", "reading": "9 visits/hour", "expected": "8–12 visits/hour", "load": "equal flower count; matched weather"}, {"id": "t4", "label": "Open-tray pollen check", "reading": "8 transfers/hour", "expected": "7–9 transfers/hour", "load": "independent manual observation"}], "target": "t1", "correctChoice": "t1", "quantityAndUnits": "Take and record all four station readings with the sample selector, holding the assay method fixed; compare each with its own expected value and submit the one station ID (identifier, the station’s short label) outside its stated range; no restoration is needed.", "correctConclusion": "Only the old-program flower tray falls below its station-specific expected range. This result is now recorded for the next comparison.", "answerText": "Only the old-program flower tray falls below its station-specific expected range. This result is now recorded for the next comparison."}, "answerText": "Only the old-program flower tray falls below its station-specific expected range. This result is now recorded for the next comparison."} |
+| player_must_determine | "Take and record all four station readings with the sample selector, holding the assay method fixed; compare each with its own expected value and submit the one station ID (identifier, the station’s short label) outside its stated range; no restoration is needed." |
 | correct_result | "t1" |
 | most_tempting_wrong_result | "Staggered flowers receive the expected number of visits." |
 | why_wrong_occurs | "Staggered flowers receive the expected number of visits." |
@@ -3943,13 +4023,13 @@ probe:
     load: independent manual observation
   target: t1
   correctChoice: t1
-  quantityAndUnits: Take and record all four station readings with the sample selector, holding the assay method fixed; compare each with its own expected value and submit the one station ID outside its stated range; no restoration is needed.
+  quantityAndUnits: Take and record all four station readings with the sample selector, holding the assay method fixed; compare each with its own expected value and submit the one station ID (identifier, the station’s short label) outside its stated range; no restoration is needed.
   correctConclusion: Only the old-program flower tray falls below its station-specific expected range. This result is now recorded for the next comparison.
   answerText: Only the old-program flower tray falls below its station-specific expected range. This result is now recorded for the next comparison.
 answerText: Only the old-program flower tray falls below its station-specific expected range. This result is now recorded for the next comparison.
 ```
 
-**Question card prompt — exact player copy:** Take and record all four station readings with the sample selector, holding the assay method fixed; compare each with its own expected value and submit the one station ID outside its stated range; no restoration is needed.
+**Question card prompt — exact player copy:** Take and record all four station readings with the sample selector, holding the assay method fixed; compare each with its own expected value and submit the one station ID (identifier, the station’s short label) outside its stated range; no restoration is needed.
 
 **Correct result:** "t1"; exact label, complete mapping or complete order; no partial completion.
 
@@ -4065,6 +4145,8 @@ why: 'The plants recovered locally under the old lamps, but their flowering no l
 **Delivery piece:** The flower schedule — record the evidence from this mission on The Contained Pilot board.
 
 **Segue — exact player copy:** But Mara has one tray that will not stop growing. The next test must check its cells.
+
+**Segue binding — author-only:** Use the exact Segue field above as the mission transition, once; it introduces an unresolved complication and names a person. Do not substitute the outcome summary.
 
 ## J. Post-mission metric screen — exact player copy
 
@@ -4242,9 +4324,11 @@ why: 'The plants recovered locally under the old lamps, but their flowering no l
 
 **Go now:** Go to Field Clinic and meet Mara Vale, veterinary biologist, at the Sample Bench.
 
-**Card body:** One tray keeps growing when the trays next to it stop. Cells use signals to control when they split. Check cell counts with Mara, then meet Nell at the Genetics Trailer. By the end of the mission, you decide if this tissue line can join the stock for the trip.
+**Card body:** One tray keeps growing when the trays next to it stop. Cells use signals to control when they split. Check cell counts with Mara, then meet Nell at the Genetics Trailer. Today you decide whether the unusual tissue tray can join the release stock.
 
 **Objective:** Resolve whether the unusual tissue tray can join the release stock; unexplained growth could enter release stock.
+
+**Stakes — exact player copy:** Today you decide whether the unusual tissue tray can join the release stock. Unexplained growth could enter release stock.
 
 ### Worth knowing first — exact player copy
 
@@ -4277,6 +4361,8 @@ why: 'The plants recovered locally under the old lamps, but their flowering no l
 **Symbols:** Both counts refer to the same sample; fraction is percent.
 
 **Why this campaign needs it:** Quantify the unusual tissue sample.
+
+**Required exercise use — author-only:** Stop 22: 18/60 × 100 = 30%. This maps to the existing required graded stop, not the optional examples.
 
 ### Optional worked examples — exact player copy
 
@@ -4446,6 +4532,8 @@ G0 is a nondividing state; G1 precedes DNA replication in S, G2 follows it, and 
 **Question card story setup — exact player copy:** The nursery is keeping flowers available, but a tissue tray continues growing after neighboring trays have stopped under the same care schedule. Mara Vale asks: “Put the cell-cycle stages in order before the clinic compares where the unusual line differs.”
 
 **Question card story-science connection — exact player copy:** The causal order identifies what the next test must preserve or challenge.
+
+**Before you answer — exact player copy:** DNA replication copies a chromosome before division. A copied chromosome has two sister chromatids; these separate in mitosis so daughter cells receive copies. A checkpoint is a control that can delay the next cell-cycle step when conditions are unsuitable. The detailed copying machinery is taught later at Stop 35; the copying-before-division relationship is needed here.
 
 **Data/readings/options:** The following labeled observations and candidates are shown in full before submission.
 
@@ -4785,6 +4873,8 @@ why: The controlled signal test gives a concrete reason to hold the unusual tiss
 
 **Segue — exact player copy:** Now Nell must check the held line’s family. She cannot judge each parent by its looks.
 
+**Segue binding — author-only:** Use the exact Segue field above as the mission transition, once; it introduces an unresolved complication and names a person. Do not substitute the outcome summary.
+
 ## J. Post-mission metric screen — exact player copy
 
 **Header:** MISSION 6 COMPLETE
@@ -4961,9 +5051,11 @@ why: The controlled signal test gives a concrete reason to hold the unusual tiss
 
 **Go now:** Go to Seed Room and meet Nell Shah, conservation geneticist, at the Seed Table.
 
-**Card body:** The odd tissue stays here, but its family needs a check. A parent can carry a gene form that its looks hide. Read the seed records with Nell, then check the cross. By the end of the mission, you decide which cross can test for that hidden form.
+**Card body:** The odd tissue stays here, but its family needs a check. A parent can carry a gene form that its looks hide. Read the seed records with Nell, then check the cross. Today you decide which cross can test the hidden recessive trait.
 
 **Objective:** Resolve which cross can test the hidden recessive trait; a poor breeding choice could lose useful variation.
+
+**Stakes — exact player copy:** Today you decide which cross can test the hidden recessive trait. A poor breeding choice could lose useful variation.
 
 ### Worth knowing first — exact player copy
 
@@ -5000,6 +5092,8 @@ why: The controlled signal test gives a concrete reason to hold the unusual tiss
 **Symbols:** Count and total are offspring numbers; probability is dimensionless.
 
 **Why this campaign needs it:** Distinguish TT from Tt predictions.
+
+**Required exercise use — author-only:** Stop 26: 24 × 1/2 = 12 expected offspring. This maps to the existing required graded stop, not the optional examples.
 
 ### Optional worked examples — exact player copy
 
@@ -5169,6 +5263,8 @@ Random fertilization and crossing over produce combinations of alleles. Nondisju
 **Question card story setup — exact player copy:** The unusual tissue line is held, and its family record points to a trait that may be hidden in some healthy-looking parents. Nell Shah asks: “Follow allele separation into gametes before the seed team chooses a cross to test that possibility.”
 
 **Question card story-science connection — exact player copy:** The causal order identifies what the next test must preserve or challenge.
+
+**Before you answer — exact player copy:** Stop 21 established chromosome copying before division. Meiosis starts after one DNA replication and has two divisions. Homologous chromosomes carry corresponding genes and separate in the first division; sister chromatids separate in the second. Crossing over exchanges segments between homologs. Alleles are alternative forms of a gene.
 
 **Data/readings/options:** The following labeled observations and candidates are shown in full before submission.
 
@@ -5511,6 +5607,8 @@ why: A homozygous recessive partner supplies only t, so recessive offspring reve
 
 **Segue — exact player copy:** But Nell finds a changed code in one family. Mara needs an enzyme test before a diagnosis.
 
+**Segue binding — author-only:** Use the exact Segue field above as the mission transition, once; it introduces an unresolved complication and names a person. Do not substitute the outcome summary.
+
 ## J. Post-mission metric screen — exact player copy
 
 **Header:** MISSION 7 COMPLETE
@@ -5687,9 +5785,11 @@ why: A homozygous recessive partner supplies only t, so recessive offspring reve
 
 **Go now:** Go to Genetics Trailer and meet Nell Shah, conservation geneticist, at the DNA Bench.
 
-**Card body:** The family stays on the list, but one enzyme works poorly. Cells use RNA to turn DNA code into proteins. Trace the code with Nell, then check the enzyme with Mara. By the end of the mission, you decide how much the changed code can explain.
+**Card body:** The family stays on the list, but one enzyme works poorly. Cells use RNA to turn DNA code into proteins. Trace the code with Nell, then check the enzyme with Mara. Today you decide whether the sequence change can explain the weak enzyme.
 
 **Objective:** Resolve whether the sequence change can explain the weak enzyme; the wrong diagnosis could remove a healthy family.
+
+**Stakes — exact player copy:** Today you decide whether the sequence change can explain the weak enzyme. The wrong diagnosis could remove a healthy family.
 
 ### Worth knowing first — exact player copy
 
@@ -5887,6 +5987,8 @@ DNA polymerase extends at a 3-prime end; helicase separates strands, topoisomera
 
 **Question card story-science connection — exact player copy:** The causal order identifies what the next test must preserve or challenge.
 
+**Before you answer — exact player copy:** A codon is a group of three RNA bases read as one instruction during translation. RNA uses A, U, C and G; most codons specify an amino acid, while a stop codon ends translation. Transcription makes RNA from DNA; a ribosome reads the RNA, with tRNAs supplying amino acids. The amino-acid chain then folds.
+
 **Data/readings/options:** The following labeled observations and candidates are shown in full before submission.
 
 **Format-specific interaction block:**
@@ -5977,6 +6079,8 @@ answerText: The enzyme message passes through transcription and translation befo
 **Question card story setup — exact player copy:** The message pathway connects inherited instructions to the enzyme, and the sequence reader now shows several different kinds of change in comparison samples. Nell Shah asks: “Classify their effects on codons before the clinic compares the specific weak-enzyme line with its reference.”
 
 **Question card story-science connection — exact player copy:** Distinguishing these mechanisms keeps the next handling decision tied to the evidence.
+
+**Before you answer — exact player copy:** A codon is a three-base RNA instruction, read in a fixed frame from 5′ to 3′. The code used on this card is GCU → alanine; GCC → alanine; GUU → valine; UGG → tryptophan; UGA → stop translation. Alanine, valine and tryptophan are amino acids. A silent substitution preserves the amino acid; a missense substitution changes it; a nonsense substitution makes a stop; deleting one base shifts the following reading frame.
 
 **Data/readings/options:** The following labeled observations and candidates are shown in full before submission.
 
@@ -6239,6 +6343,8 @@ why: The sequence change offers a plausible mechanism for the specific enzyme de
 
 **Segue — exact player copy:** Yet Ivo finds that leaf shapes shift between rooms. Nell needs a label that can survive that change.
 
+**Segue binding — author-only:** Use the exact Segue field above as the mission transition, once; it introduces an unresolved complication and names a person. Do not substitute the outcome summary.
+
 ## J. Post-mission metric screen — exact player copy
 
 **Header:** MISSION 8 COMPLETE
@@ -6415,9 +6521,11 @@ why: The sequence change offers a plausible mechanism for the specific enzyme de
 
 **Go now:** Go to Growth Hall and meet Ivo Reed, plant physiologist, at the Growth Bench.
 
-**Card body:** The enzyme lead is saved, but leaf shapes give mixed family labels. The same genes can yield new shapes when the light changes. Check the plants with Ivo, then read the seed records with Nell. By the end of the mission, you decide if leaf shape is a sound family label.
+**Card body:** The enzyme lead is saved, but leaf shapes give mixed family labels. The same genes can yield new shapes when the light changes. Check the plants with Ivo, then read the seed records with Nell. Today you decide whether leaf shape alone is a reliable breeding label.
 
 **Objective:** Resolve whether leaf shape alone is a reliable breeding label; a misleading label could remove useful seed families.
+
+**Stakes — exact player copy:** Today you decide whether leaf shape alone is a reliable breeding label. A misleading label could remove useful seed families.
 
 ### Worth knowing first — exact player copy
 
@@ -6448,6 +6556,8 @@ why: The sequence change offers a plausible mechanism for the specific enzyme de
 **Symbols:** Both quantities are counts from the same scored cross.
 
 **Why this campaign needs it:** Keep ancestry traceable across changing leaf forms.
+
+**Required exercise use — author-only:** Stop 34: 16/80 × 100 = 20% recombination. This maps to the existing required graded stop, not the optional examples.
 
 ### Optional worked examples — exact player copy
 
@@ -6959,6 +7069,8 @@ why: 'Leaf appearance responds to environment and can reflect several genetic co
 
 **Segue — exact player copy:** But Tess has forty generations of insect records. A change in one plant cannot explain them.
 
+**Segue binding — author-only:** Use the exact Segue field above as the mission transition, once; it introduces an unresolved complication and names a person. Do not substitute the outcome summary.
+
 ## J. Post-mission metric screen — exact player copy
 
 **Header:** MISSION 9 COMPLETE
@@ -7135,9 +7247,11 @@ why: 'Leaf appearance responds to environment and can reflect several genetic co
 
 **Go now:** Go to Marsh Research Bay and meet Tess Rowan, field ecologist, at the Water Rack.
 
-**Card body:** Leaf shape can change, but the bug records span many generations. A trait can spread when those that carry it leave more young. Check the old field logs with Tess, then meet Ada. By the end of the mission, you decide what changed in the insect group.
+**Card body:** Leaf shape can change, but the bug records span many generations. A trait can spread when those that carry it leave more young. Check the old field logs with Tess, then meet Ada. Today you decide whether the insect change reflects selection or individual adjustment.
 
 **Objective:** Resolve whether the insect change reflects selection or individual adjustment; a false explanation could guide the wrong release stock.
+
+**Stakes — exact player copy:** Today you decide whether the insect change reflects selection or individual adjustment. A false explanation could guide the wrong release stock.
 
 ### Worth knowing first — exact player copy
 
@@ -7681,6 +7795,8 @@ why: The record links inherited emergence timing to differential reproductive su
 
 **Segue — exact player copy:** Now Nell checks the seed list. Its largest family may leave rare gene forms behind.
 
+**Segue binding — author-only:** Use the exact Segue field above as the mission transition, once; it introduces an unresolved complication and names a person. Do not substitute the outcome summary.
+
 ## J. Post-mission metric screen — exact player copy
 
 **Header:** MISSION 10 COMPLETE
@@ -7857,9 +7973,11 @@ why: The record links inherited emergence timing to differential reproductive su
 
 **Go now:** Go to Seed Room and meet Nell Shah, conservation geneticist, at the Seed Table.
 
-**Card body:** The insect story is clear, but the seed list has just one large family. A small sample can lose gene forms by chance. Count the forms with Nell, then take the list to Ada. By the end of the mission, you decide if one family is enough for the test.
+**Card body:** The insect story is clear, but the seed list has just one large family. A small sample can lose gene forms by chance. Count the forms with Nell, then take the list to Ada. Today you decide whether the largest seed family is enough for the pilot.
 
 **Objective:** Resolve whether the largest seed family is enough for the pilot; the new population could start with too little variation.
+
+**Stakes — exact player copy:** Today you decide whether the largest seed family is enough for the pilot. The new population could start with too little variation.
 
 ### Worth knowing first — exact player copy
 
@@ -7881,13 +7999,15 @@ why: The record links inherited emergence timing to differential reproductive su
 
 #### Equations first needed today
 
-**Equation:** p = (2AA + Aa)/(2N); p + q = 1; expected heterozygote fraction = 2pq
+**Equation:** p = (2AA + Aa)/(2N); expected heterozygote percent = 2pq × 100
 
 **What it is for:** Count alleles and obtain a Hardy-Weinberg reference.
 
-**Symbols:** AA and Aa are genotype counts; N is diploid plant count; p and q are allele frequencies.
+**Symbols:** AA and Aa are genotype counts; N is diploid plant count; p and q are allele frequencies. The model has two alleles, so their frequencies sum to one; Stop 43 supplies q.
 
 **Why this campaign needs it:** Compare what a founding family contains with a conditional reference.
+
+**Required exercise use — author-only:** Stop 41: (2×8 + 8)/(2×20) = 0.6; Stop 43: 2×0.6×0.4×100 = 48% heterozygotes. The supplied q = 0.4 is checked against 1 − p. This maps to the existing required graded stop, not the optional examples.
 
 ### Optional worked examples — exact player copy
 
@@ -8058,6 +8178,8 @@ Hardy-Weinberg is a reference under stated assumptions, not a mechanism causing 
 **Question card story setup — exact player copy:** The insect record supports selection, but the proposed seed shipment still comes from one large family that looks healthy in the nursery. Nell Shah asks: “Count its allele copies before the team decides whether size alone preserves enough variation for founding a population.”
 
 **Question card story-science connection — exact player copy:** The calculated quantity sets the comparison the crew must satisfy before it acts.
+
+**Before you answer — exact player copy:** Stops 25 and 26 established alleles and inheritance probabilities. Count two copies per diploid plant. Hardy-Weinberg is a reference model with random mating, a very large population, and no selection, mutation or migration; it predicts genotype proportions from allele frequencies. Counting the observed allele frequency needs none of those equilibrium assumptions. Drift is chance change in allele frequency; gene flow is movement of alleles between populations. Stop 42 will distinguish those mechanisms with evidence.
 
 **Data/readings/options:** A screened family contains 8 AA, 8 Aa and 4 aa diploid plants. Count A copies as 2AA + Aa and divide by twice the plant count.
 
@@ -8252,6 +8374,8 @@ answerText: A small founding sample can omit alleles by chance even when every s
 
 **Question card story-science connection — exact player copy:** The calculated quantity sets the comparison the crew must satisfy before it acts.
 
+**Before you answer — exact player copy:** Stop 41 counted p, and Stop 42 distinguished drift and gene flow. For two alleles, q = 1 − p. Random union of gametes gives heterozygotes in either order, pq + qp = 2pq. Use the stated Hardy-Weinberg assumptions as a reference, not proof that this small family is at equilibrium.
+
 **Data/readings/options:** Use recorded p = 0.6 and q = 0.4. Under Hardy-Weinberg assumptions, expected heterozygote fraction is 2pq.
 
 **Format-specific interaction block:**
@@ -8398,6 +8522,8 @@ why: Several screened families preserve variation that the largest family lacks,
 **Delivery piece:** The varied seed stock — record the evidence from this mission on The Contained Pilot board.
 
 **Segue — exact player copy:** But Tess spots living partners absent from the list. Healthy plants may still fail without them.
+
+**Segue binding — author-only:** Use the exact Segue field above as the mission transition, once; it introduces an unresolved complication and names a person. Do not substitute the outcome summary.
 
 ## J. Post-mission metric screen — exact player copy
 
@@ -8575,9 +8701,11 @@ why: Several screened families preserve variation that the largest family lacks,
 
 **Go now:** Go to Marsh Research Bay and meet Tess Rowan, field ecologist, at the Water Rack.
 
-**Card body:** The seed list is set, but it leaves out living partners. Plants can need other life to get food or nutrients. Trace the links with Tess, then take the tests to Ada. By the end of the mission, you decide if the plants can travel alone.
+**Card body:** The seed list is set, but it leaves out living partners. Plants can need other life to get food or nutrients. Trace the links with Tess, then take the tests to Ada. Today you decide whether the pilot can use plants alone.
 
 **Objective:** Resolve whether the pilot can use plants alone; a healthy shipment could fail after planting.
+
+**Stakes — exact player copy:** Today you decide whether the pilot can use plants alone. A healthy shipment could fail after planting.
 
 ### Worth knowing first — exact player copy
 
@@ -8609,6 +8737,8 @@ why: Several screened families preserve variation that the largest family lacks,
 **Symbols:** Energy is kJ; transfer fraction is dimensionless.
 
 **Why this campaign needs it:** Check the pilot food-web demand.
+
+**Required exercise use — author-only:** Stop 46: 5,000 × 0.10 = 500 kJ. This maps to the existing required graded stop, not the optional examples.
 
 ### Optional worked examples — exact player copy
 
@@ -9133,6 +9263,8 @@ why: The contained comparison supports a useful relationship between the tested 
 
 **Segue — exact player copy:** Yet Tess finds little usable nitrogen in the new soil. The partner test has not cleared the whole site.
 
+**Segue binding — author-only:** Use the exact Segue field above as the mission transition, once; it introduces an unresolved complication and names a person. Do not substitute the outcome summary.
+
 ## J. Post-mission metric screen — exact player copy
 
 **Header:** MISSION 12 COMPLETE
@@ -9309,9 +9441,11 @@ why: The contained comparison supports a useful relationship between the tested 
 
 **Go now:** Go to Marsh Research Bay and meet Tess Rowan, field ecologist, at the Water Rack.
 
-**Card body:** The partners are chosen, but the new soil lacks usable nitrogen. Roots need water and a form of nutrients they can take up. Test the soil with Tess, then take the plan to Ada. By the end of the mission, you decide if the plot is ready to plant.
+**Card body:** The partners are chosen, but the new soil lacks usable nitrogen. Roots need water and a form of nutrients they can take up. Test the soil with Tess, then take the plan to Ada. Today you decide whether the receiving plot is ready for the pilot.
 
 **Objective:** Resolve whether the receiving plot is ready for the pilot; the new plants could starve in suitable-looking ground.
+
+**Stakes — exact player copy:** Today you decide whether the receiving plot is ready for the pilot. The new plants could starve in suitable-looking ground.
 
 ### Worth knowing first — exact player copy
 
@@ -9340,6 +9474,8 @@ why: The contained comparison supports a useful relationship between the tested 
 **Symbols:** N is population; t is time; r is growth parameter per time; K is carrying capacity.
 
 **Why this campaign needs it:** Make stocking assumptions explicit.
+
+**Required exercise use — author-only:** Stop 50: 0.5×40×(80−40)/80 = 10 plants/week. This maps to the existing required graded stop, not the optional examples.
 
 ### Optional worked examples — exact player copy
 
@@ -9852,6 +9988,8 @@ why: The growth model assumes a prepared environment, so its carrying-capacity e
 
 **Segue — exact player copy:** But Ivo has no dawn pass yet. A bright noon cannot clear the whole day.
 
+**Segue binding — author-only:** Use the exact Segue field above as the mission transition, once; it introduces an unresolved complication and names a person. Do not substitute the outcome summary.
+
 ## J. Post-mission metric screen — exact player copy
 
 **Header:** MISSION 13 COMPLETE
@@ -10028,9 +10166,11 @@ why: The growth model assumes a prepared environment, so its carrying-capacity e
 
 **Go now:** Go to Growth Hall and meet Ivo Reed, plant physiologist, at the Growth Bench.
 
-**Card body:** The test looks good by day, but the animals rise to the surface at dawn. Life in the tanks uses oxygen all night. Check the full day with Ivo, then take the facts to Ada. By the end of the mission, you decide if the test is ready to grow.
+**Card body:** The test looks good by day, but the animals rise to the surface at dawn. Life in the tanks uses oxygen all night. Check the full day with Ivo, then take the facts to Ada. Today you decide whether the full-day pilot clears expansion.
 
 **Objective:** Resolve whether the full-day pilot clears expansion; a daytime pass could hide a night-time failure.
+
+**Stakes — exact player copy:** Today you decide whether the full-day pilot clears expansion. A daytime pass could hide a night-time failure.
 
 ### Worth knowing first — exact player copy
 
@@ -10056,6 +10196,8 @@ why: The growth model assumes a prepared environment, so its carrying-capacity e
 **Symbols:** Oxygen is mg/L; rate is mg/L/hour; duration is hours.
 
 **Why this campaign needs it:** Test the missing night-time margin.
+
+**Required exercise use — author-only:** Stop 53: 8 − 0.5×8 = 4 mg/L. This maps to the existing required graded stop, not the optional examples.
 
 ### Optional worked examples — exact player copy
 
@@ -10301,8 +10443,8 @@ answerText: The projected final concentration is 8 − 0.5 × 8 = 4 mg/L. This r
 | Kernel field | Author-only value |
 |---|---|
 | player_knows | 4 |
-| player_sees | {"probe": {"stations": [{"id": "t1", "label": "Pilot at noon", "reading": "9 mg/L oxygen", "expected": "6–10 mg/L", "load": "standard design"}, {"id": "t2", "label": "Pilot at dawn", "reading": "4 mg/L oxygen", "expected": "6–10 mg/L", "load": "same design after eight dark hours"}, {"id": "t3", "label": "Air-supply trial at dawn", "reading": "7 mg/L oxygen", "expected": "6–10 mg/L", "load": "matched organisms and temperature"}, {"id": "t4", "label": "Receiving-water sample", "reading": "8 mg/L oxygen", "expected": "6–10 mg/L", "load": "independent field bottle"}], "target": "t2", "correctChoice": "t2", "quantityAndUnits": "Take and record all four station readings with the sample selector, holding the assay method fixed; compare each with its own expected value and submit the one station ID outside its stated range; no restoration is needed.", "correctConclusion": "Only the dawn reading from the standard pilot falls outside its expected range. This result is now recorded for the next comparison.", "answerText": "Only the dawn reading from the standard pilot falls outside its expected range. This result is now recorded for the next comparison."}, "answerText": "Only the dawn reading from the standard pilot falls outside its expected range. This result is now recorded for the next comparison."} |
-| player_must_determine | "Take and record all four station readings with the sample selector, holding the assay method fixed; compare each with its own expected value and submit the one station ID outside its stated range; no restoration is needed." |
+| player_sees | {"probe": {"stations": [{"id": "t1", "label": "Pilot at noon", "reading": "9 mg/L oxygen", "expected": "6–10 mg/L", "load": "standard design"}, {"id": "t2", "label": "Pilot at dawn", "reading": "4 mg/L oxygen", "expected": "6–10 mg/L", "load": "same design after eight dark hours"}, {"id": "t3", "label": "Air-supply trial at dawn", "reading": "7 mg/L oxygen", "expected": "6–10 mg/L", "load": "matched organisms and temperature"}, {"id": "t4", "label": "Receiving-water sample", "reading": "8 mg/L oxygen", "expected": "6–10 mg/L", "load": "independent field bottle"}], "target": "t2", "correctChoice": "t2", "quantityAndUnits": "Take and record all four station readings with the sample selector, holding the assay method fixed; compare each with its own expected value and submit the one station ID (identifier, the station’s short label) outside its stated range; no restoration is needed.", "correctConclusion": "Only the dawn reading from the standard pilot falls outside its expected range. This result is now recorded for the next comparison.", "answerText": "Only the dawn reading from the standard pilot falls outside its expected range. This result is now recorded for the next comparison."}, "answerText": "Only the dawn reading from the standard pilot falls outside its expected range. This result is now recorded for the next comparison."} |
+| player_must_determine | "Take and record all four station readings with the sample selector, holding the assay method fixed; compare each with its own expected value and submit the one station ID (identifier, the station’s short label) outside its stated range; no restoration is needed." |
 | correct_result | "t2" |
 | most_tempting_wrong_result | "The noon result lies in range but covers only daylight." |
 | why_wrong_occurs | "The noon result lies in range but covers only daylight." |
@@ -10345,13 +10487,13 @@ probe:
     load: independent field bottle
   target: t2
   correctChoice: t2
-  quantityAndUnits: Take and record all four station readings with the sample selector, holding the assay method fixed; compare each with its own expected value and submit the one station ID outside its stated range; no restoration is needed.
+  quantityAndUnits: Take and record all four station readings with the sample selector, holding the assay method fixed; compare each with its own expected value and submit the one station ID (identifier, the station’s short label) outside its stated range; no restoration is needed.
   correctConclusion: Only the dawn reading from the standard pilot falls outside its expected range. This result is now recorded for the next comparison.
   answerText: Only the dawn reading from the standard pilot falls outside its expected range. This result is now recorded for the next comparison.
 answerText: Only the dawn reading from the standard pilot falls outside its expected range. This result is now recorded for the next comparison.
 ```
 
-**Question card prompt — exact player copy:** Take and record all four station readings with the sample selector, holding the assay method fixed; compare each with its own expected value and submit the one station ID outside its stated range; no restoration is needed.
+**Question card prompt — exact player copy:** Take and record all four station readings with the sample selector, holding the assay method fixed; compare each with its own expected value and submit the one station ID (identifier, the station’s short label) outside its stated range; no restoration is needed.
 
 **Correct result:** "t2"; exact label, complete mapping or complete order; no partial completion.
 
@@ -10572,6 +10714,8 @@ why: The standard design fails the explicit minimum oxygen requirement at dawn, 
 
 **Segue — exact player copy:** Now Ada needs a stop rule before the ship leaves. A corrected test cannot promise every future result.
 
+**Segue binding — author-only:** Use the exact Segue field above as the mission transition, once; it introduces an unresolved complication and names a person. Do not substitute the outcome summary.
+
 ## J. Post-mission metric screen — exact player copy
 
 **Header:** MISSION 14 COMPLETE
@@ -10748,9 +10892,11 @@ why: The standard design fails the explicit minimum oxygen requirement at dawn, 
 
 **Go now:** Go to Seed Room and meet Nell Shah, conservation geneticist, at the Seed Table.
 
-**Card body:** The ship waits, but the plan must work at night too. Each living group needs its tested care and links. Check the seed list with Nell, then take the final plan to Ada. By the end of the mission, you decide which plan the ship can take.
+**Card body:** The ship waits, but the plan must work at night too. Each living group needs its tested care and links. Check the seed list with Nell, then take the final plan to Ada. Today you decide which release plan the evidence now supports.
 
 **Objective:** Resolve which release plan the evidence now supports; an unchecked move could lose both the stock and its habitat.
+
+**Stakes — exact player copy:** Today you decide which release plan the evidence now supports. An unchecked move could lose both the stock and its habitat.
 
 ### Worth knowing first — exact player copy
 
@@ -11295,6 +11441,8 @@ why: 'Only the corrected monitored pilot carries forward every established requi
 **Delivery piece:** The signed stop rule — record the evidence from this mission on The Contained Pilot board.
 
 **Segue — exact player copy:** Now Ada can send the small test. The crew must watch it and stop if the recorded limits fail.
+
+**Segue binding — author-only:** Use the exact Segue field above as the mission transition, once; it introduces an unresolved complication and names a person. Do not substitute the outcome summary.
 
 ## J. Post-mission metric screen — exact player copy
 

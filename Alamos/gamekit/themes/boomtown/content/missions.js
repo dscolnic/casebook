@@ -155,23 +155,14 @@ export const MISSIONS = [
     ],
     "equations": [
       {
-        "e": "Qd = Qs",
-        "c": "Find the price at which planned buying and selling agree.",
+        "e": "Shortage = quantity demanded − quantity supplied",
+        "c": "Count orders the diner cannot fill at the posted price.",
         "v": [
           [
-            "Qd",
-            "quantity demanded"
-          ],
-          [
-            "Qs",
-            "quantity supplied"
-          ],
-          [
-            "P in the records",
-            "dollars per lunch"
+            "Both quantities",
+            "lunches per day"
           ]
-        ],
-        "s": "The board needs an explanation for the queue."
+        ]
       }
     ],
     "worked": {

@@ -16,7 +16,7 @@
   terms:
   - {name: "binary search", def: "a search on sorted data that repeatedly discards half of the remaining range. loop: code that repeats while a condition or counter says more work remains."}
   equations:
-  - {"e":"binary-search work ≈ log₂(n)","c":"estimate how many halvings are needed for a sorted table.","v":[["n","number of sorted records"]],"s":"the rescue link has a short time window."}
+  - {"e":"mid = (low + high) / 2, using Java integer division","c":"find the middle index of the remaining search interval.","v":[["low","first candidate index"],["high","last candidate index"],["mid","index to compare"]],"s":"Stop 39 computes each midpoint before narrowing the rescue-frequency search."}
   primer:
   - "Binary search requires sorted data."
   - "After each midpoint comparison, discard only the half that cannot contain the target."
@@ -174,21 +174,21 @@
         - ask: At mid=3, value 121.6 < 122.3. Choose the update.
           answer: 0
           candidates:
-            - text: low = mid + 1;
+            - text: mid=(0+7)/2=3; low=3+1=4;
             - text: high = mid - 1;
               why: The midpoint is below the target in a sorted array, so lowering high discards the half that can still contain the target.
               survives: true
         - ask: Now low=4, high=7, mid=5, value 123.1 > 122.3. Choose the update.
           answer: 0
           candidates:
-            - text: high = mid - 1;
+            - text: mid=(4+7)/2=5; high=5-1=4;
             - text: low = mid + 1; // move lower bound upward
               why: The midpoint is above the target, so raising low would discard index 4, the remaining location that contains 122.3.
               survives: true
         - ask: Now low=4, high=4. Choose the result.
           answer: 0
           candidates:
-            - text: "mid=4 and value=122.3: found"
+            - text: "mid=(4+4)/2=4; value=122.3: found"
             - text: "mid=5 and value=123.1: not found"
               why: After the bounds change, the midpoint must be recomputed as 4; reusing the prior midpoint ignores the current interval.
               survives: true

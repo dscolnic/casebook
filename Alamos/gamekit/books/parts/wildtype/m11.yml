@@ -6,10 +6,10 @@
     header: "DAY 11 OF 15 — SHIP DEPARTS AFTER DAY 15"
     title: "THE SEEDS LEFT OUT"
     goNow: "Go to Seed Room and meet Nell Shah, conservation geneticist, at the Seed Table."
-    body: "The insect story is clear, but the seed list has just one large family. A small sample can lose gene forms by chance. Count the forms with Nell, then take the list to Ada. By the end of the mission, you decide if one family is enough for the test."
+    body: "The insect story is clear, but the seed list has just one large family. A small sample can lose gene forms by chance. Count the forms with Nell, then take the list to Ada. Today you decide whether the largest seed family is enough for the pilot."
     objective: "Resolve whether the largest seed family is enough for the pilot; the new population could start with too little variation."
   objective: "Resolve whether the largest seed family is enough for the pilot; the new population could start with too little variation."
-  stake: "The insect story is clear, but the seed list has just one large family. A small sample can lose gene forms by chance. Count the forms with Nell, then take the list to Ada. By the end of the mission, you decide if one family is enough for the test."
+  stake: "The insect story is clear, but the seed list has just one large family. A small sample can lose gene forms by chance. Count the forms with Nell, then take the list to Ada. Today you decide whether the largest seed family is enough for the pilot."
   takeaway: "Take several tested families and keep a reserve. ---"
   segue: "Mission decision: Take several tested families and keep a reserve. The largest family lacks two rare alleles."
   # The mission card's own "Primer concepts", printed on the plan card.
@@ -22,7 +22,7 @@
   - {name: "Postzygotic barrier", def: "A barrier affecting hybrid survival or reproduction after fertilization."}
   - {name: "Founder effect", def: "A change in allele frequencies caused by the chance composition of a small founding group."}
   equations:
-  - {"e":"p = (2AA + Aa)/(2N); p + q = 1; expected heterozygote fraction = 2pq","c":"Count alleles and obtain a Hardy-Weinberg reference.","v":[["AA and Aa","genotype counts"],["N","diploid plant count"],["p and q","allele frequencies"]],"s":"Compare what a founding family contains with a conditional reference."}
+  - {"e":"p = (2AA + Aa)/(2N); expected heterozygote percent = 2pq × 100","c":"Count alleles and obtain a Hardy-Weinberg reference.","v":[["AA","and Aa are genotype counts; N is diploid plant count; p and q are allele frequencies. The model has two alleles"],["so","their frequencies sum to one; Stop 43 supplies q"]],"s":"Compare what a founding family contains with a conditional reference."}
   primer:
   - "Hardy-Weinberg needs large population, random mating, no selection, mutation or gene flow."
   - "A model deviation does not name its cause alone."

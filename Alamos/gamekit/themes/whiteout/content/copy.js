@@ -3,10 +3,10 @@
 // Hand edits are lost on the next import. Change the book.
 
 export const COPY = {
-  "OPS": "<p>The operations module: the systems map across the end wall, the incident console under it, and the rescue board nobody has been able to fill in yet.</p>",
-  "CODE": "<p>The software lab. The station’s source on glass, a bench to run a suite on, and a rack of every build the station has ever run.</p>",
-  "POWER": "<p>The power and thermal plant: generators behind the wall, batteries along it, and a load board saying what is being asked for and what is arriving.</p>",
-  "HAB": "<p>Habitat control, where the air is. A tile per occupied room, two scrubbers, and a cabinet of every alarm the habitat is allowed to raise.</p>",
-  "VEH": "<p>The vehicle bay, big enough to drive out of. Rovers on the floor, drones on their sides, and the route the software thinks it is driving on the board.</p>",
-  "COMMS": "<p>Communications and weather, out under the mast. The pass counted down to the second, the raw traffic before anything has formatted it, and the wind.</p>"
+  "OPS": "<p>Station command, incident coordination, rescue decisions, and the wall-size systems map live here.</p>",
+  "CODE": "<p>The station's source mirror, test harnesses, build tools, and safe simulations live here.</p>",
+  "POWER": "<p>Generators, batteries, heat loops, and the controllers that keep the station warm live here.</p>",
+  "HAB": "<p>Air handling, scrubbers, room sensors, water, and life-support automation live here.</p>",
+  "VEH": "<p>Rovers, drones, chargers, route maps, and the software that moves field machines live here.</p>",
+  "COMMS": "<p>Satellite links, packet routing, weather instruments, and rescue-window traffic live here.</p>"
 };

@@ -26,6 +26,8 @@ import { sway, bob } from '../../engine/world/animators.js';
 import { driveable } from '../../engine/world/driving.js';
 import { buildProps } from './legacy/props.js';
 import { plantTrees, srand, srandRange } from './legacy/env.js';
+import { storyOutdoors } from './story.js';
+import { missionsAccepted } from '../../engine/world/paper.js';
 
 /** Where the road lamps stand. Unchanged from the hand-built world. */
 const LAMPS = [[-24, 19.2], [4, 19.2], [26, 19.2], [17.6, 50], [17.6, 80], [-48, -20]];
@@ -133,7 +135,10 @@ export function decorate(scene, ctx){
   lodgePorch(scene, ctx);       // 10
   windbreak(scene, ctx);        // 11
   approachDust(scene, ctx);     // 12
-  campaignStreet(scene, ctx);   // 13–19
+  campaignStreet(scene, ctx);
+  // The boom in public: the notice board, the queue, the tokens, the freight
+  // slots, the trucks. See story.js and gamekit/STORY_DRESSING_PASS.md §3.
+  storyOutdoors(scene, ctx);   // 13–19
 
   plantTrees(scene, isBlocked).forEach(c => softColliders.push(c));
 
@@ -226,8 +231,9 @@ export function decorate(scene, ctx){
       cyl(scene, 0.08, 1.0, rx + 6.5, rY + 0.5, rz, rail);
       if(i % 2 === 0) box(scene, 13, 0.05, 8, rx, rY + 0.03, rz, MATERIALS.concrete());
     }
-    sign(scene, 'EAST GATE', { x: 16, z: 100, y: y(16, 100) + 2.2, w: 4.6, h: 1.2,
-      facing: 0, sub: 'Santa Fe 35 miles · badge required', accent: 0x8a2d22 });
+    // §3: security signage becomes delivery and worksite access signage.
+    sign(scene, 'DELIVERY ACCESS', { x: 16, z: 100, y: y(16, 100) + 2.2, w: 4.6, h: 1.2,
+      facing: 0, sub: 'worksite and delivery vehicles · checkpoint ahead', accent: 0x8a2d22 });
   }
 
   // ------------------------------------------------- the icehouse by the pond
@@ -253,7 +259,8 @@ export function decorate(scene, ctx){
     const mx = px - 8, mz = pz - 6, mY = y(mx, mz);
     box(scene, 0.8, 1.2, 0.6, mx, mY + 0.6, mz, MATERIALS.paintedSteel(0x2f4a3a));
     box(scene, 0.9, 0.14, 0.7, mx, mY + 1.27, mz, MATERIALS.paintedSteel(0x24382c));
-    sign(scene, 'MAIL — SUBJECT TO CENSORSHIP', {
+    // §3: censorship mail signage becomes parcel collection.
+    sign(scene, 'PARCELS', {
       x: mx, z: mz - 0.4, y: mY + 1.9, w: 3.0, h: 0.8, facing: 0, accent: 0x8a2d22 });
     soft({ x: mx, z: mz, r: 0.8 });
     // The queue: eight stanchions with a rope between, doubling back once.
@@ -611,14 +618,17 @@ function queues(scene, ctx){
     for(let i = 0; i < n; i++) out.push(person(x0 + dx * i, z0 + dz * i, facing));
     return out;
   };
-  // The diner is the community lodge; its queue is mission 1's own event.
-  const diner = line(6, -22, 0.85, 0.35, 9, Math.PI);
-  for(const g of diner) g.visible = false;
+  // The diner is the community lodge; its queue is the campaign's own barometer.
+  // Five on day one, nine when the meal-for-repair agreement reopens it (M1),
+  // fourteen when it "still stretches past the door" (M2), six once the fourth
+  // cook is at the stove (M4). The bible's world-state lines, as a headcount.
+  const diner = line(6, -22, 0.85, 0.35, 14, Math.PI);
   line(-77, 31, 0.8, 0.5, 4, -Math.PI / 2);       // the standpipe
   line(56, 26, 0.75, 0.55, 6, 0);                  // the parcel counter
   stateHooks?.push((state) => {
-    const day = Math.max(1, state?.week ?? 1);
-    for(const g of diner) g.visible = day >= 1;
+    const k = missionsAccepted(state, ctx.theme);
+    const count = k >= 4 ? 6 : k >= 2 ? 14 : k >= 1 ? 9 : 5;
+    diner.forEach((g, i) => { g.visible = i < count; });
   });
 }
 

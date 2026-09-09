@@ -322,11 +322,11 @@
     format: CHOICE
     question: "Select the one recommendation supported by the recorded evidence and the stated decision rule."
     choices:
-      - Keep the supplier operating this month while reviewing long-run exit
-      - Shut immediately because any economic loss requires closure
-      - Keep operating forever because revenue is positive
-      - Treat the unavoidable lease as zero economic cost
-    answer: Keep the supplier operating this month while reviewing long-run exit
+      - Operate this month and review exit when the lease expires
+      - Close this month because revenue fails to cover total economic cost
+      - Operate after lease renewal because current sales revenue remains positive
+      - Exclude the lease from total cost because it cannot be avoided now
+    answer: Operate this month and review exit when the lease expires
     answerText: "Operating minimizes the current loss, because revenue covers variable cost and part of the unavoidable lease. A later exit review is still needed when the lease can be avoided and all resources regain alternative uses."
     why: "Operating minimizes the current loss, because revenue covers variable cost and part of the unavoidable lease. A later exit review is still needed when the lease can be avoided and all resources regain alternative uses. Short-run continuity and long-run sustainability require different comparisons. Shutdown loses $100 rather than $40 this month. Positive revenue alone does not cover all opportunity costs. The lease is a cost; it is simply unchanged by today's shutdown choice."
     # wrong-path feedback, one rebuttal per wrong option:

@@ -316,11 +316,11 @@
     format: CHOICE
     question: "Select the one recommendation supported by the recorded evidence and the stated decision rule."
     choices:
-      - Expect both firms to expand under the one-shot payoff table
-      - Guarantee the pact because joint profit is higher
-      - Predict only A expands despite symmetric incentives
-      - Claim Nash equilibrium maximizes joint profit
-    answer: Expect both firms to expand under the one-shot payoff table
+      - Predict either joint-profit maximum as the Nash equilibrium outcome
+      - Predict both firms expand, since each gains by expanding against either choice by its rival
+      - Predict both firms restrict using their combined profit advantage
+      - Predict only A expands using the same incentives for both firms
+    answer: Predict both firms expand, since each gains by expanding against either choice by its rival
     answerText: "The stable prediction follows each firm's incentives, not their joint total. Both expanding is worse for both firms than mutual restriction, but neither wants to remain restricted while the other expands under the stated one-shot conditions."
     why: "The stable prediction follows each firm's incentives, not their joint total. Both expanding is worse for both firms than mutual restriction, but neither wants to remain restricted while the other expands under the stated one-shot conditions. The town must not budget service on an unstable private promise. Each firm can increase its own profit by leaving mutual restriction. The incentives are symmetric for B. A Nash equilibrium concerns unilateral deviations, not collective maximization."
     # wrong-path feedback, one rebuttal per wrong option:
@@ -349,7 +349,7 @@
     #     "answerText": "The stable prediction follows each firm’s incentives, not their joint total. Both expanding is worse for both firms than mutual restriction, but neither wants to remain restricted while the other expands under the stated one-shot conditions."
     #   }
     rebuttals:
+      - A Nash equilibrium concerns unilateral deviations, not collective maximization.
       - Each firm can increase its own profit by leaving mutual restriction.
       - The incentives are symmetric for B.
-      - A Nash equilibrium concerns unilateral deviations, not collective maximization.
 

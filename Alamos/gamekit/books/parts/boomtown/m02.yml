@@ -20,7 +20,7 @@
   - {name: "Substitute", def: "A good that can be used in place of another."}
   - {name: "Complement", def: "A good used together with another."}
   equations:
-  - {"e":"Qd = Qs","c":"Find the price at which planned buying and selling agree.","v":[["Qd","quantity demanded"],["Qs","quantity supplied"],["P in the records","dollars per lunch"]],"s":"The board needs an explanation for the queue."}
+  - {"e":"Shortage = quantity demanded − quantity supplied","c":"Count orders the diner cannot fill at the posted price.","v":[["Both quantities","lunches per day"]]}
   primer:
   - "A price can rise because buyers want more or because sellers can offer less."
   - "Compare each proposed change with the stated alternative; record who gains and who pays."
@@ -222,10 +222,10 @@
     format: DIAGNOSIS
     question: "Read every zone and select the one explanation consistent with all observations."
     choices:
+      - Fewer buyers at each price
       - More buyers at each price
       - Higher cooking input costs
       - Fewer meals from each cook
-      - Fewer buyers at each price
     answer: More buyers at each price
     answerText: "Both price and traded quantity rose, and orders at the unchanged price increased while input cost stayed fixed. These readings support a rightward demand shift; a supply contraction alone predicts less output."
     why: "Both price and traded quantity rose, and orders at the unchanged price increased while input cost stayed fixed. These readings support a rightward demand shift; a supply contraction alone predicts less output. The quiet cost reading rules out a tempting accusation. Input cost is unchanged, contradicting the proposed cost shock. Lower productivity would constrain supply and reduce quantity, unlike the sales record. Fewer buyers contradicts the 90 orders at the old price."
@@ -310,9 +310,9 @@
         status: watch
     headline: Read the lunch record
     rebuttals:
+      - Fewer buyers contradicts the 90 orders at the old price.
       - Input cost is unchanged, contradicting the proposed cost shock.
       - Lower productivity would constrain supply and reduce quantity, unlike the sales record.
-      - Fewer buyers contradicts the 90 orders at the old price.
 
   # --- Stop 8: Explain the rise in public
   #     Concept: 4 — Demand, supply and equilibrium; Narrow concept: Explain the rise in public; Keystone: Price incentives, Equilibrium; Area: T; Prerequisites: 1, 3; Learning role: COMBINE; Difficulty: L2; Story role: decision.
@@ -327,11 +327,11 @@
     format: CHOICE
     question: "Select the one recommendation supported by the recorded evidence and the stated decision rule."
     choices:
-      - Record higher demand as the cause of the lunch price rise
-      - Record falling supply as the sole cause
-      - Record a movement along unchanged demand only
-      - Record a demand fall and a price fall
-    answer: Record higher demand as the cause of the lunch price rise
+      - Record unchanged demand, since higher prices explain the rise in orders
+      - Record lower demand, since more residents divide a fixed food budget
+      - Record higher demand, since orders rose at the unchanged price
+      - Record lower supply, since higher prices must reflect higher input costs
+    answer: Record higher demand, since orders rose at the unchanged price
     answerText: "Higher orders at the same old price identify a demand shift, not movement along an unchanged curve. The price and sales increase agree with that diagnosis while the quiet cost record weakens a supply explanation."
     why: "Higher orders at the same old price identify a demand shift, not movement along an unchanged curve. The price and sales increase agree with that diagnosis while the quiet cost record weakens a supply explanation. A documented cause lets the town respond to capacity rather than blame without evidence. A supply contraction predicts lower traded quantity with demand fixed. The old-price order comparison proves demand itself changed. The paid price rose rather than fell."
     # wrong-path feedback, one rebuttal per wrong option:
@@ -360,7 +360,7 @@
     #     "answerText": "Higher orders at the same old price identify a demand shift, not movement along an unchanged curve. The price and sales increase agree with that diagnosis while the quiet cost record weakens a supply explanation."
     #   }
     rebuttals:
-      - A supply contraction predicts lower traded quantity with demand fixed.
       - The old-price order comparison proves demand itself changed.
       - The paid price rose rather than fell.
+      - A supply contraction predicts lower traded quantity with demand fixed.
 

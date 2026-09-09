@@ -90,7 +90,7 @@
     scene: "Priya Nair checks the evidence: the empty-route case should return before another call, while every nonzero call must reduce n. Choose the base condition and recursive progress line that guarantee the method reaches a solved smaller problem instead of stepping past the route start."
     motivation: "A correct base case is both a stopping rule and part of the method's promised behavior for empty input."
     format: DERIVE
-    question: "Choose the base case and recursive call that guarantee termination."
+    question: "Choose the base case and recursive call that guarantee termination. Then select the replay result from the local givens."
     answerText: "Zero is the first input with no waypoints left to add, and subtracting one moves every positive input toward that case."
     why: "Recursive methods need a directly solvable base case and guaranteed progress toward it."
     # wrong-path feedback, one rebuttal per wrong option:
@@ -115,7 +115,7 @@
     #           - {line: "build(n - 1);", correct: true}
     #           - {line: "build(n + 1);", correct: false, survives: true, why: "Increasing n moves the argument away from the zero base case, so the recursion cannot terminate through the intended countdown."}
     derive:
-      start: "n is a nonnegative whole-number count. At 0 there is no waypoint to add, so return at once. Each nonempty call consumes exactly 1 waypoint; negative counts are invalid. Source: build(n) is called with a nonnegative count; each recursive call must move n toward its stopping case."
+      start: "n is a nonnegative whole-number count. At 0 there is no waypoint to add, so return at once. Each nonempty call consumes exactly 1 waypoint; negative counts are invalid. Source: build(n) is called with a nonnegative count; each recursive call must move n toward its stopping case. Replay build(3); an empty call adds no waypoint."
       goal: reach a terminating base case by reducing the remaining count
       steps:
         - ask: Choose the base case.
@@ -131,6 +131,13 @@
             - text: build(n - 1);
             - text: build(n + 1);
               why: Increasing n moves the argument away from the zero base case, so the recursion cannot terminate through the intended countdown.
+              survives: true
+        - ask: Apply the selected rule to the given replay. Choose its evaluated result.
+          answer: 0
+          candidates:
+            - text: build(3) → build(2) → build(1) → build(0), which returns without another call
+            - text: build(3) → build(2) → build(1) → build(0) → build(-1), which returns next
+              why: The base case returns at zero. Calling build(-1) crosses into an explicitly invalid count.
               survives: true
 
   # --- Stop 51: Test the recursive contract

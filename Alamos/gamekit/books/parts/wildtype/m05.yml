@@ -6,10 +6,10 @@
     header: "DAY 5 OF 15 — SHIP DEPARTS AFTER DAY 15"
     title: "FLOWERS WITH NO VISITORS"
     goNow: "Go to Growth Hall and meet Ivo Reed, plant physiologist, at the Growth Bench."
-    body: "The lamp trial helps leaves grow, but fewer bugs visit the flowers. Flowers and their pollen carriers need to share the same days. Check the field counts with Tess at the Marsh Research Bay. By the end of the mission, you decide if more plants should use the old lamps."
+    body: "The lamp trial helps leaves grow, but fewer bugs visit the flowers. Flowers and their pollen carriers need to share the same days. Check the field counts with Tess at the Marsh Research Bay. Today you decide whether to expand the restored flowering schedule."
     objective: "Resolve whether to expand the restored flowering schedule; seed production could fall despite healthy leaves."
   objective: "Resolve whether to expand the restored flowering schedule; seed production could fall despite healthy leaves."
-  stake: "The lamp trial helps leaves grow, but fewer bugs visit the flowers. Flowers and their pollen carriers need to share the same days. Check the field counts with Tess at the Marsh Research Bay. By the end of the mission, you decide if more plants should use the old lamps."
+  stake: "The lamp trial helps leaves grow, but fewer bugs visit the flowers. Flowers and their pollen carriers need to share the same days. Check the field counts with Tess at the Marsh Research Bay. Today you decide whether to expand the restored flowering schedule."
   takeaway: "Stop the wider reset and keep a mixed flowering schedule. ---"
   segue: "Mission decision: Stop the wider reset and keep a mixed flowering schedule. The mixed trays still get insect visits."
   # The mission card's own "Primer concepts", printed on the plan card.
@@ -194,7 +194,7 @@
     scene: "The calendar comparison identifies a possible timing mismatch, but the team still needs to know whether insects are absent from all available flowers. Tess Rowan asks: \"Compare the matched field trays before deciding whether to expand the nursery lamp program.\""
     motivation: "A station-specific failure identifies the comparison that must govern the next handling decision."
     format: PROBE
-    question: "Take and record all four station readings with the sample selector, holding the assay method fixed; compare each with its own expected value and submit the one station ID outside its stated range; no restoration is needed."
+    question: "Take and record all four station readings with the sample selector, holding the assay method fixed; compare each with its own expected value and submit the one station ID (identifier, the station's short label) outside its stated range; no restoration is needed."
     answerText: "Only the old-program flower tray falls below its station-specific expected range. This result is now recorded for the next comparison."
     why: "Only the old-program flower tray falls below its station-specific expected range. Staggered and unchanged flowers still receive visits, and the independent pollen observation is normal. The comparison therefore weakens a general insect disappearance explanation and supports a timing mismatch associated with the lamp program. These are teaching data from matched conditions, not a universal pollination threshold. The same intervention that improved leaf growth has reduced overlap with partners, so the field result changes how broadly the nursery should act."
     # wrong-path feedback, one rebuttal per wrong option:
@@ -257,7 +257,7 @@
           load: independent manual observation
       target: t1
       correctChoice: t1
-      quantityAndUnits: Take and record all four station readings with the sample selector, holding the assay method fixed; compare each with its own expected value and submit the one station ID outside its stated range; no restoration is needed.
+      quantityAndUnits: Take and record all four station readings with the sample selector, holding the assay method fixed; compare each with its own expected value and submit the one station ID (identifier, the station’s short label) outside its stated range; no restoration is needed.
       correctConclusion: Only the old-program flower tray falls below its station-specific expected range. This result is now recorded for the next comparison.
       answerText: Only the old-program flower tray falls below its station-specific expected range. This result is now recorded for the next comparison.
 

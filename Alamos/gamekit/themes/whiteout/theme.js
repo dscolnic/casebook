@@ -23,6 +23,8 @@ import { INTERIORS } from './interiors.js';
 import metrics from './metrics.js';
 import { FIXTURES } from './fixtures.js';
 import { decorate, fitOutRoom, fitOutSpine } from './props.js';
+import { dressRoom } from './story.js';
+import { MINOR_INTERIORS } from './minors.js';
 import { OPENING, ENDING } from './cards.js';
 
 export default {
@@ -101,12 +103,14 @@ export default {
     // Background people. A narrow place needs far fewer: on the submarine more
     // than eight and the player cannot get down the passage.
     extras: 18,
+    // A rescue moves faster than a stroll.
+    pace: 1.25,
   },
 
   // What is inside each room the player walks into, from book.yml. Rooms are
   // built by engine/world/interiorBuilding.js on first entry, in a district
   // four kilometres from the town.
-  interiors: INTERIORS,
+  interiors: { ...INTERIORS, ...MINOR_INTERIORS },
   // The objects the questions are asked AT, one list per area — built on entry
   // by engine/world/interiorFixtures.js; catalogue in ./fixtures.js. The names
   // and the areas are the bible's §3; the wall each one stands against is ours.
@@ -163,6 +167,12 @@ export default {
   ending: ENDING,
 
   look: {
+    // Polar night, as far as a day can go there: the mission's clock runs the
+    // window, so [13, 20] is an afternoon of low sun going down into dark. The
+    // last hours of every rescue window are played by the station's own lights,
+    // the runway lights and the aurora — see story.js.
+    dayWindow: [13, 20],
+    nightLift: 0.5,
     fov: 66,            // a 72° field distorts badly down a straight street
     near: 0.1,
     // Outdoors this has to reach past the horizon ranks and the sky dome. At an
@@ -170,7 +180,7 @@ export default {
     // black, in broad daylight, with no error anywhere.
     far: 900,
     // Ice fog and blowing snow: a pale, close horizon with nothing behind it.
-    fog: { colour: 0xd6dee6, near: 190, far: 620 },
+    fog: { colour: 0xd6dee6, near: 40, far: 240 },   // story.js lifts it on mission 15
     // Below 1.0 outdoors, or a mid albedo under a bright sky IBL blows out.
     // Snow is the brightest ground in the set and blows out first.
     exposure: 0.80,
@@ -187,4 +197,6 @@ export default {
   decorate,
   fitOutRoom,
   fitOutSpine,
+  // The bible's own board states on the fixtures, and the two landmark rooms.
+  dressRoom,
 };

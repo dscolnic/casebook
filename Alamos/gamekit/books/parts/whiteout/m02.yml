@@ -88,7 +88,7 @@
     scene: "Mei Alvarez checks the evidence: the current controller uses two independent if statements, so 1050 ppm can issue both SHUTDOWN and HIGH VENT commands in sequence. Build an exclusive branch structure that chooses the emergency action first and otherwise chooses the lower-level response."
     motivation: "An exclusive structure should preserve the emergency response while preventing a second conflicting command from the same reading."
     format: DERIVE
-    question: "Choose the emergency branch and then the mutually exclusive lower-level branch."
+    question: "Choose the emergency branch and then the mutually exclusive lower-level branch. Then select the replay result from the local givens."
     answerText: "Once the first condition is true, else if prevents the second branch from running for the same reading."
     why: "Selection structure, not sensor count, determines whether multiple true conditions can produce multiple actions."
     # wrong-path feedback, one rebuttal per wrong option:
@@ -129,6 +129,13 @@
             - text: else if (co2 > 900 && co2 <= 1100) highVent();
             - text: if (co2 > 900 && co2 <= 1100) highVent(); // second check
               why: A second independent if is checked even after shutdown runs, so one reading can still issue two commands.
+              survives: true
+        - ask: Apply the selected rule to the given replay. Choose its evaluated result.
+          answer: 0
+          candidates:
+            - text: "1050 > 1000 is true: shutdown runs; the else-if is skipped"
+            - text: "1050 > 1000 is true: shutdown runs; the else-if runs too"
+              why: An else-if is considered only when the earlier if condition is false.
               survives: true
 
   # --- Stop 7: Trace the nested lockout

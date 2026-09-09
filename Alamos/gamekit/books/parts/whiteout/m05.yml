@@ -92,7 +92,7 @@
     scene: "Priya Nair checks the evidence: P02 should start with identifier P02 and a 70 percent safety limit, but one constructor call swaps the arguments. Build the constructor and call that produce the displayed live state without silently changing which value belongs to which field."
     motivation: "A reference trace is only useful after the object itself has been initialized with the state the crew thinks it has."
     format: DERIVE
-    question: "Choose the constructor assignments and the call that create P02 with identifier P02 and limit 70."
+    question: "Choose the constructor assignments and the call that create P02 with identifier P02 and limit 70. Then select the replay result from the local givens."
     answerText: "The constructor copies each parameter into the corresponding instance field, producing the intended live state."
     why: "Constructors establish initial object state; this distinguishes the object's field from a parameter with the same name."
     # wrong-path feedback, one rebuttal per wrong option:
@@ -133,6 +133,13 @@
             - text: new PowerController("P02", 70);
             - text: new PowerController("70", 70 + 0);
               why: The first argument is the object ID, so passing "70" creates the wrong identity even though the numeric limit is 70.
+              survives: true
+        - ask: Apply the selected rule to the given replay. Choose its evaluated result.
+          answer: 0
+          candidates:
+            - text: new PowerController("P02", 70) stores id="P02" and limit=70
+            - text: new PowerController("P02", 70) stores id="P02" and limit=90
+              why: The constructor must use the supplied limit 70, not the tempting hard-coded 90.
               survives: true
 
   # --- Stop 19: Follow the live reference

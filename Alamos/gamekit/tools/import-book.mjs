@@ -372,6 +372,22 @@ for(const g of GROUPS){
   }
 }
 
+// A GROUP WHOSE LEADER IS NOT ON THE LEADERS LIST CRASHES THE FIRST MISSION END.
+// `completeMission` reads `leader(gs.leaderId).management` for every group, and
+// a book whose `leaders:` block came across from the base game — Boomtown's
+// carried Project Y's cast under groups led by the bible's — threw there, on the
+// first day, after every gate had passed. Synthesise the missing ones from the
+// roster and say so, rather than ship the crash.
+// Only when the book WROTE a leaders block: a book with none takes its leaders
+// from the groups below, as it always has.
+for(const g of leaders.length ? GROUPS : []){
+  if(!g.defaultLeader || leaders.some(l => l.id === g.defaultLeader)) continue;
+  const person = roster.find(p => p.id === g.defaultLeader);
+  if(!person){ problems.push(`group ${g.id}: defaultLeader "${g.defaultLeader}" is neither a leader nor on the roster`); continue; }
+  leaders.push({ id: person.id, name: person.name, role: person.role ?? '', science: 4, management: 4,
+    trait: String(person.bio ?? '').split(/(?<=[.?!])\s/)[0] ?? '' });
+  warn(`group ${g.id}: leader "${g.defaultLeader}" was not in leaders: — added from the roster`);
+}
 const LEADERS = leaders.length ? leaders : GROUPS.map(g => {
   const p = ROSTER.find(x => x.id === g.defaultLeader) ?? ROSTER.find(x => x.division === g.id);
   return { id: p?.id ?? g.id, name: p?.name ?? g.name, role: p?.role ?? '',

@@ -1,12 +1,27 @@
 # BOOMTOWN — AP Microeconomics Campaign Implementation Bible
 
-**Version 1.2 | 15 missions | 60 graded stops | contemporary Project Y adaptation**
+**Version 1.3 | 15 missions | 60 graded stops | contemporary Project Y adaptation**
+
+## Source-to-display register — version 1.3
+
+Render the following canonical copy verbatim once at its stated event. Keep the established world/metric/stop sequencing; these are field bindings, not new screens or extra gates. If an importer uses another key, map it explicitly rather than synthesizing a summary.
+
+| Canonical source | Player surface and event |
+|---|---|
+| §1 Opening card — exact player copy, including its final line | Campaign opening before M1 starts; retain role, named action and closing constraint together |
+| Each mission §A four-sentence mission body | Existing mission briefing when that mission opens |
+| Each mission §A Stakes — exact player copy | Separate stakes block on that same briefing; do not substitute objective or designer intent |
+| Each mission §A Worth knowing first glossary and Primer concepts | Required preparation card before the first graded stop; includes M2 marginal choice and M4 MRP |
+| Each mission §A Equations first needed today | Same preparation card; render the equations and symbols, using §5’s authoring register to verify required exercise coverage |
+| Each mission §J takeaway and Segue — exact player copy | Post-mission metric/result screen after existing outcome processing; show each in its distinct field |
+| §4 per-person Bio question / Bio answer | Optional roster bio after selecting that person; question then reveal-on-request, timer paused, no state effects |
+| M15 Ending card — exact player copy | Campaign completion after final mission result using the existing ending contract; preserve its three paragraphs |
 
 ## 0. Readiness boundary
 
-The supplied handback reports that version 1.0 was built, imported and playable. Version 1.1 applied that handback; version 1.2 adds ensemble scenes, physical prop states and optional review and has been checked as authored text; a new build has not been run here. The attached gate report distinguishes tested content from absent engine checks and records the authoring-process deviation.
+The supplied handback reports that version 1.0 was built, imported and playable. Version 1.1 applied that handback; version 1.2 adds ensemble scenes, physical prop states and optional review. Handback 2 reports v1.2 builds, imports and plays. Version 1.3 revises choices, prerequisite/render mappings and mission-card copy against that handback; its new build has not been run here. The attached gate report distinguishes tested content from absent engine checks and records the authoring-process deviation.
 
-**Authority:** Master Brief v3.5, Giant Gate v2.5, Ledger v1.5, QUESTION_TYPES(1).md and Whiteout v2.11 structure. The supplied Albert Microeconomics sheet supplies Units 1–6. Course percentages and exam timings are source metadata, not verified current exam claims. Project Y supplies geography, not the old nuclear subject or historical cast. Schema/importer and executable world files are absent; engine checks remain NOT TESTED.
+**Authority:** Master Brief v3.6, Giant Gate v2.6, Ledger v1.6, QUESTION_TYPES(1).md and Whiteout v2.11 structure. The supplied Albert Microeconomics sheet supplies Units 1–6. Course percentages and exam timings are source metadata, not verified current exam claims. Project Y supplies geography, not the old nuclear subject or historical cast. Schema/importer and executable world files are absent; engine checks remain NOT TESTED.
 
 # 1. Campaign premise and opening
 
@@ -14,7 +29,7 @@ Six weeks after a mineral discovery, a small mesa town faces rapid population gr
 
 ## Opening card — exact player copy
 
-You have come to a town on a mesa where a mine has brought a rush of new people. Shops need staff, homes cost more, and the taps serve long queues. You will build The Town and Freight Agreement, one piece each day, so the town can see who gains and who pays. Mara Velez gives you six weeks to check the plan before the firms sign their terms. First, the diner has run out of food.
+As a junior state economic adviser, you arrive in a mesa town where a mine has drawn a rush of people. Shops need staff, homes cost more, and the taps serve long queues. You will build The Town and Freight Agreement so the town can see who gains and who pays. Mara Velez hands you the firms’ proposed terms to check. You have six weeks before they sign, and your first case is a diner that has run out of food.
 
 ## Opening implementation state
 
@@ -242,6 +257,10 @@ For operated VERIFY stops, T uses a portable Hearing Terminal at the Hearing Tab
 
 No real historical speaker is retained. Unnamed workers, applicants, council members and company labels are groups represented by these canonical owners, not extra quiz identities. Document headings, including Optional worked examples, are excluded from roster parsing.
 
+## 4.0 Roster reflection rendering contract
+
+Bind each canonical roster entry’s **Bio question — optional, ungraded** and **Bio answer — reveal on request** to the same person’s optional bio panel. Show the question after the biography and a Show explanation control directly below it; reveal only that person’s answer. No submitted answer, score, timer charge, unlock or story flag is required. All five questions and reveals were already present in v1.2 source; their visibility in the imported build must be checked, not inferred from source presence.
+
 ## 4.1 Ensemble state and optional conversation contract
 
 Evidence flags `bt_evidence_M01` through `bt_evidence_M15` become true once the corresponding mission outcome is committed; `bt_signed` becomes true only after Stop 60, the final allocation and all existing signing conditions. Existing intermediate success events fire the numbered beats once. Flags grant no RP, change no bars and unlock no required question. Save them with the existing mission snapshot; restore uncommitted flags on retry. Earlier committed flags survive. `bt_signed` never substitutes for the resource gate.
@@ -334,11 +353,100 @@ Concept 13 requires 7 and 11: cost measures and the competitive firm benchmark h
 
 Same-day dependencies are intentional and enforced through the existing one-stop-at-a-time unlocks: M1 Stop 1 precedes Stops 2–4 (concept 1 → 2); M4 Stop 13 precedes Stop 14 (6 → 7) and Stops 15–16 (6 → 14); M12 Stop 45 precedes Stop 46 (18 → 19). The earlier result and explanation remain in the log before the next stop opens. All other required concept introductions occur on earlier days. Day boundaries do not substitute for this stop-order check.
 
+### Stop-level prerequisite evidence and primer binding
+
+The table below maps every required prerequisite to an earlier accepted stop and its displayed explanation. Existing sequential unlocks enforce the order; accepting a stop makes its feedback available before the next stop opens. The same-day chains are 1→2–4, 13→14–16, and 45→46. They do not require a day boundary.
+
+Concept 3 now has explicit required teaching in the M2 primer, before Stop 5: next-unit gain, a six-versus-three utility-per-dollar comparison, and the interior allocation condition. It is preparatory household-choice coverage, not a claim that a graded stop assesses full utility maximization. Concept 4 uses a supplied demand schedule, so it requires scarcity (1), not a prior graded utility optimization. Hiring instead compares extra receipts with extra wage cost, taught before Stop 13 and applied at Stops 13 and 15; household utility is not its prerequisite. The curriculum coverage statement must retain this distinction.
+
+**Rendering requirement:** Render every mission’s entire Worth knowing first glossary and primer before its first graded stop. Acknowledge the card with the existing mission-start control; do not add a quiz gate. Do not drop the marginal-choice paragraph or infer that opening optional examples teaches a prerequisite. Bind equation cards to the exact required uses below; optional questions and worked examples do not count as proof of mission use.
+
+| Stop | Assessed concept | Prerequisite concept → earlier teaching/application stop |
+|---:|---:|---|
+| 1 | 1 | None |
+| 2 | 2 | 1 → Stop 1 |
+| 3 | 2 | 1 → Stop 1 |
+| 4 | 2 | 1 → Stop 1 |
+| 5 | 4 | 1 → Stop 1 |
+| 6 | 4 | 1 → Stop 1 |
+| 7 | 4 | 1 → Stop 1 |
+| 8 | 4 | 1 → Stop 1 |
+| 9 | 5 | 4 → Stop 5 |
+| 10 | 5 | 4 → Stop 5 |
+| 11 | 5 | 4 → Stop 5 |
+| 12 | 5 | 4 → Stop 5 |
+| 13 | 6 | 1 → Stop 1 |
+| 14 | 7 | 1 → Stop 1; 6 → Stop 13 |
+| 15 | 14 | 6 → Stop 13 |
+| 16 | 14 | 6 → Stop 13 |
+| 17 | 8 | 4 → Stop 5 |
+| 18 | 8 | 4 → Stop 5 |
+| 19 | 8 | 4 → Stop 5 |
+| 20 | 8 | 4 → Stop 5 |
+| 21 | 9 | 4 → Stop 5; 5 → Stop 9 |
+| 22 | 9 | 4 → Stop 5; 5 → Stop 9 |
+| 23 | 10 | 4 → Stop 5 |
+| 24 | 9 | 4 → Stop 5; 5 → Stop 9 |
+| 25 | 11 | 6 → Stop 13; 7 → Stop 14 |
+| 26 | 7 | 1 → Stop 1; 6 → Stop 13 |
+| 27 | 11 | 6 → Stop 13; 7 → Stop 14 |
+| 28 | 11 | 6 → Stop 13; 7 → Stop 14 |
+| 29 | 7 | 1 → Stop 1; 6 → Stop 13 |
+| 30 | 13 | 7 → Stop 14; 11 → Stop 25 |
+| 31 | 12 | 4 → Stop 5; 11 → Stop 25 |
+| 32 | 12 | 4 → Stop 5; 11 → Stop 25 |
+| 33 | 15 | 14 → Stop 15 |
+| 34 | 14 | 6 → Stop 13 |
+| 35 | 15 | 14 → Stop 15 |
+| 36 | 15 | 14 → Stop 15 |
+| 37 | 16 | 7 → Stop 14; 10 → Stop 23 |
+| 38 | 16 | 7 → Stop 14; 10 → Stop 23 |
+| 39 | 16 | 7 → Stop 14; 10 → Stop 23 |
+| 40 | 16 | 7 → Stop 14; 10 → Stop 23 |
+| 41 | 17 | 16 → Stop 37 |
+| 42 | 17 | 16 → Stop 37 |
+| 43 | 17 | 16 → Stop 37 |
+| 44 | 17 | 16 → Stop 37 |
+| 45 | 18 | 10 → Stop 23 |
+| 46 | 19 | 1 → Stop 1; 18 → Stop 45 |
+| 47 | 18 | 10 → Stop 23 |
+| 48 | 18 | 10 → Stop 23 |
+| 49 | 20 | 2 → Stop 2; 4 → Stop 5; 10 → Stop 23 |
+| 50 | 20 | 2 → Stop 2; 4 → Stop 5; 10 → Stop 23 |
+| 51 | 20 | 2 → Stop 2; 4 → Stop 5; 10 → Stop 23 |
+| 52 | 20 | 2 → Stop 2; 4 → Stop 5; 10 → Stop 23 |
+| 53 | 21 | 7 → Stop 14; 10 → Stop 23; 18 → Stop 45 |
+| 54 | 21 | 7 → Stop 14; 10 → Stop 23; 18 → Stop 45 |
+| 55 | 21 | 7 → Stop 14; 10 → Stop 23; 18 → Stop 45 |
+| 56 | 21 | 7 → Stop 14; 10 → Stop 23; 18 → Stop 45 |
+| 57 | 21 | 7 → Stop 14; 10 → Stop 23; 18 → Stop 45 |
+| 58 | 21 | 7 → Stop 14; 10 → Stop 23; 18 → Stop 45 |
+| 59 | 18 | 10 → Stop 23 |
+| 60 | 21 | 7 → Stop 14; 10 → Stop 23; 18 → Stop 45 |
+
+| Mission | Required use of displayed equation, or conceptual alternative |
+|---:|---|
+| 1 | Stop 1: 24/8 = 3 meal boxes per repair hour. |
+| 2 | Stop 5: 90−60 = 30 lunches per day. |
+| 3 | Stop 11: (4/8)/(10/45) = 2.25. |
+| 4 | Stop 13: (60−48)/1 = 12 lunches per worker; 12×5 = $60 per shift. |
+| 5 | Stop 17: 120−80 = 40 homes. |
+| 6 | Stop 21: 4×30 = $120; Stop 23: 0.5×4×(50−30) = $40. |
+| 7 | Stop 25: (8−10)×20 = −$40 profit; Stop 26: 100/20 = $5 AVC; Stop 27 compares $60 contribution with $100 fixed cost. |
+| 8 | Stop 29: 180−120−40 = $20 economic profit. |
+| 9 | Stop 33: (4×30−3×25)/1 = $45 per extra worker; Stop 35: the fifth adds $20 but costs 175−120=$55, while each of the first four adds at least its $30 wage. |
+| 10 | Stop 37 uses 100−4Q = 20 to get Q=20, then P=100−2×20=$60. |
+| 11 | No new equation; read each firm’s supplied payoff and compare unilateral changes at Stops 41–43. |
+| 12 | Stop 45: 20+20=$40; Stop 47: 100−2Q=40 gives Q=30. |
+| 13 | Stop 49: 100−40=60 imported filters. |
+| 14 | No new equation; separate resource use from transfers at Stops 53–55. |
+| 15 | No new equation; retrieve funding addition at Stop 57 and the social-cost target at Stop 59. |
+
 ## 5.1 Course-sheet coverage and qualifications
 
 Units 1–6 are represented. Scarcity, factors, PPC location and utility-per-dollar receive primer/worked-example coverage; trade, market shifts, midpoint elasticity, cost measures, price controls, tax incidence, firm shutdown/entry, differentiation/scale, hiring/monopsony, monopoly, game theory, externalities/goods, trade policy and distribution receive graded applications. This is a cumulative campaign, not an exhaustive replacement for every graph-drawing FRQ; PPC construction, smooth cost-curve tangencies, detailed Lorenz/Gini calculation and every cross-elasticity variation need complementary practice. No source exam timing claim is adopted as current.
 
-Sheet shorthand is qualified: general MRP=MP×MR, with MP×P only for price-taking output; doubled MR slope only for linear demand; double shifts may be resolved if their magnitudes are supplied; taxes/subsidies can correct preexisting distortions; public goods can have multiple provision institutions; housing-ceiling effects depend on horizon and enforcement; a harm charge on an unchanged monopoly does not alone establish social efficiency. M15 specifies a replacement regulated access regime and separately funded fixed costs.
+Sheet shorthand is qualified: general marginal revenue product (MRP, added revenue from one more worker)=MP×MR, with MP×P only for price-taking output; doubled MR slope only for linear demand; double shifts may be resolved if their magnitudes are supplied; taxes/subsidies can correct preexisting distortions; public goods can have multiple provision institutions; housing-ceiling effects depend on horizon and enforcement; a harm charge on an unchanged monopoly does not alone establish social efficiency. M15 specifies a replacement regulated access regime and separately funded fixed costs.
 
 ## 5.2 Keystone encounter matrix and architecture exceptions
 
@@ -628,7 +736,7 @@ All props below are small dressing at existing fixtures, not inventory items, ne
 
 **Objective:** Decide whether the diner should trade packed meals for repairs.
 
-**Stakes — exact player copy:** If the trade fails, Nico loses lunch sales. The crew may lose both meals and work time.
+**Stakes — exact player copy:** You decide whether Nico should trade meals for repairs. A bad rate can cost one team more than doing the work itself.
 
 ### Worth knowing first — exact player copy
 
@@ -656,6 +764,8 @@ Production possibilities curve: The maximum combinations of two goods that avail
 **What it is for:** Find what one additional unit costs in another good.  
 **Symbols:** OC is opportunity cost; output is measured in the two stated goods.  
 **Why this campaign needs it:** The diner needs a trade that both sides prefer.
+
+**Required equation or concept use — authoring/render check:** Stop 1: 24/8 = 3 meal boxes per repair hour.
 
 **Optional help button:** `WORKED EXAMPLES (5)` — opens five generic worked examples; opening pauses time, changes no bars, unlocks, story state or retrieval bookkeeping, and remains ungraded and reopenable.
 
@@ -1164,7 +1274,7 @@ Nico marks two meal crates for the repair crew; the bench gains a completed-work
 
 **Briefing decision advanced:** whether the diner should trade packed meals for repairs.
 
-**Actual mission answer — authoring only:** Trade two meal boxes for one repair hour.
+**Actual mission answer — authoring only:** Trade two boxes per repair hour, below the diner’s cost and above the crew’s cost.
 
 **Call — exact player copy:** Go to Business Workshop and meet Nico Bell, diner owner, at the Kitchen Planning Table.
 
@@ -1184,17 +1294,17 @@ Nico marks two meal crates for the repair crew; the bench gains a completed-work
 {
   "question": "Select the one recommendation supported by the recorded evidence and the stated decision rule.",
   "choices": [
-    "Trade two meal boxes for one repair hour",
-    "Pay four meal boxes for one repair hour",
-    "Reject trade because repair productivity is tied",
-    "Assign both teams only to diner repairs"
+    "Trade two boxes per repair hour, below the diner’s cost and above the crew’s cost",
+    "Trade at four boxes per hour, above both internal costs",
+    "Reject any trade, since both teams have equal repair productivity",
+    "Assign both teams to repairs, since the broken bench limits meals"
   ],
-  "answer": "Trade two meal boxes for one repair hour",
+  "answer": "Trade two boxes per repair hour, below the diner’s cost and above the crew’s cost",
   "why": "At two boxes per hour, the diner gives up fewer boxes than its internal cost of three, while the crew receives more than its internal cost of one. Both gain on their own terms; tied absolute repair productivity does not erase different opportunity costs. The adviser can recommend the agreement without ordering either business to accept it. Four boxes exceeds the diner’s three-box internal cost. Comparative advantage depends on opportunity cost, not whether absolute productivity ties.",
   "rebuttals": {
-    "Pay four meal boxes for one repair hour": "Four boxes exceeds the diner’s three-box internal cost.",
-    "Reject trade because repair productivity is tied": "Comparative advantage depends on opportunity cost, not whether absolute productivity ties.",
-    "Assign both teams only to diner repairs": "That discards the diner’s lower-cost meal production and leaves food unmade."
+    "Trade at four boxes per hour, above both internal costs": "Four boxes exceeds the diner’s three-box internal cost.",
+    "Reject any trade, since both teams have equal repair productivity": "Comparative advantage depends on opportunity cost, not whether absolute productivity ties.",
+    "Assign both teams to repairs, since the broken bench limits meals": "That discards the diner’s lower-cost meal production and leaves food unmade."
   },
   "answerText": "At two boxes per hour, the diner gives up fewer boxes than its internal cost of three, while the crew receives more than its internal cost of one. Both gain on their own terms; tied absolute repair productivity does not erase different opportunity costs."
 }
@@ -1202,7 +1312,7 @@ Nico marks two meal crates for the repair crew; the bench gains a completed-work
 
 **Question card prompt — exact player copy:** Select the one recommendation supported by the recorded evidence and the stated decision rule.
 
-**Correct result:** "Trade two meal boxes for one repair hour"; exact selection or mapping required.
+**Correct result:** "Trade two boxes per repair hour, below the diner’s cost and above the crew’s cost"; exact selection or mapping required.
 
 **Answer text:** At two boxes per hour, the diner gives up fewer boxes than its internal cost of three, while the crew receives more than its internal cost of one. Both gain on their own terms; tied absolute repair productivity does not erase different opportunity costs.
 
@@ -1231,7 +1341,7 @@ Nico marks two meal crates for the repair crew; the bench gains a completed-work
   "derived_values": "At two boxes per hour, the diner gives up fewer boxes than its internal cost of three, while the crew receives more than its internal cost of one. Both gain on their own terms; tied absolute repair productivity does not erase different opportunity costs.",
   "displayed_prediction": "blank until player commit",
   "observed_measurement": null,
-  "correct_result": "Trade two meal boxes for one repair hour",
+  "correct_result": "Trade two boxes per repair hour, below the diner’s cost and above the crew’s cost",
   "tolerance": "exact labels/mapping",
   "answer_text_values": "At two boxes per hour, the diner gives up fewer boxes than its internal cost of three, while the crew receives more than its internal cost of one. Both gain on their own terms; tied absolute repair productivity does not erase different opportunity costs.",
   "wrong_feedback_values": [
@@ -1271,7 +1381,7 @@ Nico marks two meal crates for the repair crew; the bench gains a completed-work
 
 **Lock/failure result:** Check for zero after the event and restore the mission snapshot if needed; all bars remain unlocked until the final agreement and four 100% bars.
 
-**Segue — exact player copy:** But the fixed bench cannot explain why the lunch queue still grows.
+**Segue — exact player copy:** But Nico still has a growing lunch queue; repaired equipment has not settled why orders rose.
 
 ## K. Quick concept review
 
@@ -1455,7 +1565,7 @@ Nico marks two meal crates for the repair crew; the bench gains a completed-work
 
 **Objective:** Decide whether demand or supply explains the lunch price rise.
 
-**Stakes — exact player copy:** If the town posts the wrong cause, it may back the wrong fix. Nico and the lunch queue need a claim they can trust.
+**Stakes — exact player copy:** You decide which cause belongs on the public board. A false claim can send Nico toward a fix that leaves the queue growing.
 
 ### Worth knowing first — exact player copy
 
@@ -1479,12 +1589,20 @@ Complement: A good used together with another.
 
 - Compare each proposed change with the stated alternative; record who gains and who pays.
 
+- Marginal means the gain from the next unit, not the total already gained. A household with a fixed budget compares extra satisfaction per dollar.
+
+- The next dollar on food gives six utility units; transport gives three. Moving a dollar from transport to food increases total utility by three units.
+
+- At an interior best allocation, marginal utility per dollar is equal across goods. Units must be affordable and available; utility does not compare different people’s happiness.
+
 #### Equations first needed today
 
-**Equation:** Qd = Qs  
-**What it is for:** Find the price at which planned buying and selling agree.  
-**Symbols:** Qd is quantity demanded; Qs is quantity supplied; P in the records is dollars per lunch.  
-**Why this campaign needs it:** The board needs an explanation for the queue.
+**Equation:** Shortage = quantity demanded − quantity supplied  
+**What it is for:** Count orders the diner cannot fill at the posted price.  
+**Symbols:** Both quantities are lunches per day.  
+**Required use:** Stop 5 computes 90 − 60 = 30 unfilled lunches per day.
+
+**Required equation or concept use — authoring/render check:** Stop 5: 90−60 = 30 lunches per day.
 
 **Optional help button:** `WORKED EXAMPLES (5)` — opens five generic worked examples; opening pauses time, changes no bars, unlocks, story state or retrieval bookkeeping, and remains ungraded and reopenable.
 
@@ -1926,6 +2044,10 @@ The public board displays the old-price order count beside the new sales receipt
   ],
   "choices": [
     {
+      "label": "Fewer buyers at each price",
+      "mechanism": "Fewer buyers contradicts the 90 orders at the old price."
+    },
+    {
       "label": "More buyers at each price",
       "mechanism": "Both price and traded quantity rose, and orders at the unchanged price increased while input cost stayed fixed. These readings support a rightward demand shift; a supply contraction alone predicts less output."
     },
@@ -1936,10 +2058,6 @@ The public board displays the old-price order count beside the new sales receipt
     {
       "label": "Fewer meals from each cook",
       "mechanism": "Lower productivity would constrain supply and reduce quantity, unlike the sales record."
-    },
-    {
-      "label": "Fewer buyers at each price",
-      "mechanism": "Fewer buyers contradicts the 90 orders at the old price."
     }
   ],
   "answer": "More buyers at each price",
@@ -2005,7 +2123,7 @@ The public board displays the old-price order count beside the new sales receipt
 
 **Briefing decision advanced:** whether demand or supply explains the lunch price rise.
 
-**Actual mission answer — authoring only:** Record higher demand as the cause of the lunch price rise.
+**Actual mission answer — authoring only:** Record higher demand, since orders rose at the unchanged price.
 
 **Call — exact player copy:** Go to Civic Advice Office and meet Mara Velez, state economic adviser, at the Town Map.
 
@@ -2025,17 +2143,17 @@ The public board displays the old-price order count beside the new sales receipt
 {
   "question": "Select the one recommendation supported by the recorded evidence and the stated decision rule.",
   "choices": [
-    "Record higher demand as the cause of the lunch price rise",
-    "Record falling supply as the sole cause",
-    "Record a movement along unchanged demand only",
-    "Record a demand fall and a price fall"
+    "Record unchanged demand, since higher prices explain the rise in orders",
+    "Record lower demand, since more residents divide a fixed food budget",
+    "Record higher demand, since orders rose at the unchanged price",
+    "Record lower supply, since higher prices must reflect higher input costs"
   ],
-  "answer": "Record higher demand as the cause of the lunch price rise",
+  "answer": "Record higher demand, since orders rose at the unchanged price",
   "why": "Higher orders at the same old price identify a demand shift, not movement along an unchanged curve. The price and sales increase agree with that diagnosis while the quiet cost record weakens a supply explanation. A documented cause lets the town respond to capacity rather than blame without evidence. A supply contraction predicts lower traded quantity with demand fixed. The old-price order comparison proves demand itself changed. The paid price rose rather than fell.",
   "rebuttals": {
-    "Record falling supply as the sole cause": "A supply contraction predicts lower traded quantity with demand fixed.",
-    "Record a movement along unchanged demand only": "The old-price order comparison proves demand itself changed.",
-    "Record a demand fall and a price fall": "The paid price rose rather than fell."
+    "Record lower supply, since higher prices must reflect higher input costs": "A supply contraction predicts lower traded quantity with demand fixed.",
+    "Record unchanged demand, since higher prices explain the rise in orders": "The old-price order comparison proves demand itself changed.",
+    "Record lower demand, since more residents divide a fixed food budget": "The paid price rose rather than fell."
   },
   "answerText": "Higher orders at the same old price identify a demand shift, not movement along an unchanged curve. The price and sales increase agree with that diagnosis while the quiet cost record weakens a supply explanation."
 }
@@ -2043,7 +2161,7 @@ The public board displays the old-price order count beside the new sales receipt
 
 **Question card prompt — exact player copy:** Select the one recommendation supported by the recorded evidence and the stated decision rule.
 
-**Correct result:** "Record higher demand as the cause of the lunch price rise"; exact selection or mapping required.
+**Correct result:** "Record higher demand, since orders rose at the unchanged price"; exact selection or mapping required.
 
 **Answer text:** Higher orders at the same old price identify a demand shift, not movement along an unchanged curve. The price and sales increase agree with that diagnosis while the quiet cost record weakens a supply explanation.
 
@@ -2072,7 +2190,7 @@ The public board displays the old-price order count beside the new sales receipt
   "derived_values": "Higher orders at the same old price identify a demand shift, not movement along an unchanged curve. The price and sales increase agree with that diagnosis while the quiet cost record weakens a supply explanation.",
   "displayed_prediction": "blank until player commit",
   "observed_measurement": null,
-  "correct_result": "Record higher demand as the cause of the lunch price rise",
+  "correct_result": "Record higher demand, since orders rose at the unchanged price",
   "tolerance": "exact labels/mapping",
   "answer_text_values": "Higher orders at the same old price identify a demand shift, not movement along an unchanged curve. The price and sales increase agree with that diagnosis while the quiet cost record weakens a supply explanation.",
   "wrong_feedback_values": [
@@ -2112,7 +2230,7 @@ The public board displays the old-price order count beside the new sales receipt
 
 **Lock/failure result:** Check for zero after the event and restore the mission snapshot if needed; all bars remain unlocked until the final agreement and four 100% bars.
 
-**Segue — exact player copy:** Yet a higher room price has left beds empty, even as people arrive.
+**Segue — exact player copy:** Yet Leila finds empty rooms after the rent rise; more arrivals have not guaranteed more bookings.
 
 ## K. Quick concept review
 
@@ -2296,7 +2414,7 @@ The public board displays the old-price order count beside the new sales receipt
 
 **Objective:** Decide whether the tested rent increase raises room revenue.
 
-**Stakes — exact player copy:** High rent does not help the owner if rooms stay empty. Workers also lose a place they could have booked.
+**Stakes — exact player copy:** You decide whether to reverse the tested rent rise. Empty rooms cost the owner sales and leave workers without bookings.
 
 ### Worth knowing first — exact player copy
 
@@ -2324,6 +2442,8 @@ Cross-price elasticity: The percentage quantity response to another good’s per
 **What it is for:** Compare percentage quantity and price changes.  
 **Symbols:** PED is price elasticity of demand; Q1,Q2 are old and new quantities; P1,P2 are old and new prices.  
 **Why this campaign needs it:** The town must distinguish high prices from high receipts.
+
+**Required equation or concept use — authoring/render check:** Stop 11: (4/8)/(10/45) = 2.25.
 
 **Optional help button:** `WORKED EXAMPLES (5)` — opens five generic worked examples; opening pauses time, changes no bars, unlocks, story state or retrieval bookkeeping, and remains ungraded and reopenable.
 
@@ -2836,7 +2956,7 @@ The guesthouse listing drops to the earlier rate and its vacant-room cards flip 
 
 **Briefing decision advanced:** whether the tested rent increase raises room revenue.
 
-**Actual mission answer — authoring only:** Reject the tested rent increase because room revenue falls.
+**Actual mission answer — authoring only:** Reverse the tested rent rise, since lost bookings outweigh the higher payment per occupied room.
 
 **Call — exact player copy:** Go to Civic Advice Office and meet Mara Velez, state economic adviser, at the Town Map.
 
@@ -2856,17 +2976,17 @@ The guesthouse listing drops to the earlier rate and its vacant-room cards flip 
 {
   "question": "Select the one recommendation supported by the recorded evidence and the stated decision rule.",
   "choices": [
-    "Reject the tested rent increase because room revenue falls",
-    "Keep the increase because each occupied room pays more",
-    "Keep the increase because demand must be inelastic",
-    "Reject the increase because every high price is illegal"
+    "Retain the rent rise, since each occupied room pays more",
+    "Retain the rent rise, since room demand is price inelastic",
+    "Reverse the rent rise, since fewer bookings imply falling demand",
+    "Reverse the tested rent rise, since lost bookings outweigh the higher payment per occupied room"
   ],
-  "answer": "Reject the tested rent increase because room revenue falls",
-  "why": "The higher payment per occupied room is outweighed by fewer occupied rooms. The archive gives an elastic response and a $100 revenue loss, supporting reversal of this particular price experiment without asserting anything about legality. Vacant beds can reopen without pretending every landlord faces identical demand. Per-room receipts ignore the four lost bookings. The measured elasticity exceeds one, contradicting inelastic demand. No legal rule is given; the economic comparison alone supports the decision.",
+  "answer": "Reverse the tested rent rise, since lost bookings outweigh the higher payment per occupied room",
+  "why": "The higher payment per occupied room is outweighed by fewer occupied rooms. The archive gives an elastic response and a $100 revenue loss, supporting reversal of this particular price experiment without asserting anything about legality. Vacant beds can reopen without pretending every landlord faces identical demand. Per-room receipts ignore the four lost bookings. The measured elasticity exceeds one, contradicting inelastic demand. Fewer bookings after the room’s own price rises can be movement along demand; no separate demand shift is shown.",
   "rebuttals": {
-    "Keep the increase because each occupied room pays more": "Per-room receipts ignore the four lost bookings.",
-    "Keep the increase because demand must be inelastic": "The measured elasticity exceeds one, contradicting inelastic demand.",
-    "Reject the increase because every high price is illegal": "No legal rule is given; the economic comparison alone supports the decision."
+    "Retain the rent rise, since each occupied room pays more": "Per-room receipts ignore the four lost bookings.",
+    "Retain the rent rise, since room demand is price inelastic": "The measured elasticity exceeds one, contradicting inelastic demand.",
+    "Reverse the rent rise, since fewer bookings imply falling demand": "Fewer bookings after the room’s own price rises can be movement along demand; no separate demand shift is shown."
   },
   "answerText": "The higher payment per occupied room is outweighed by fewer occupied rooms. The archive gives an elastic response and a $100 revenue loss, supporting reversal of this particular price experiment without asserting anything about legality."
 }
@@ -2874,11 +2994,11 @@ The guesthouse listing drops to the earlier rate and its vacant-room cards flip 
 
 **Question card prompt — exact player copy:** Select the one recommendation supported by the recorded evidence and the stated decision rule.
 
-**Correct result:** "Reject the tested rent increase because room revenue falls"; exact selection or mapping required.
+**Correct result:** "Reverse the tested rent rise, since lost bookings outweigh the higher payment per occupied room"; exact selection or mapping required.
 
 **Answer text:** The higher payment per occupied room is outweighed by fewer occupied rooms. The archive gives an elastic response and a $100 revenue loss, supporting reversal of this particular price experiment without asserting anything about legality.
 
-**Why/mechanism:** The higher payment per occupied room is outweighed by fewer occupied rooms. The archive gives an elastic response and a $100 revenue loss, supporting reversal of this particular price experiment without asserting anything about legality. Vacant beds can reopen without pretending every landlord faces identical demand. Per-room receipts ignore the four lost bookings. The measured elasticity exceeds one, contradicting inelastic demand. No legal rule is given; the economic comparison alone supports the decision.
+**Why/mechanism:** The higher payment per occupied room is outweighed by fewer occupied rooms. The archive gives an elastic response and a $100 revenue loss, supporting reversal of this particular price experiment without asserting anything about legality. Vacant beds can reopen without pretending every landlord faces identical demand. Per-room receipts ignore the four lost bookings. The measured elasticity exceeds one, contradicting inelastic demand. Fewer bookings after the room’s own price rises can be movement along demand; no separate demand shift is shown.
 
 **Misconception / wrong-path feedback:**
 
@@ -2886,7 +3006,7 @@ The guesthouse listing drops to the earlier rate and its vacant-room cards flip 
 
 - The measured elasticity exceeds one, contradicting inelastic demand. Reopen the unchanged board, inspect the cited evidence, then commit a revised answer.
 
-- No legal rule is given; the economic comparison alone supports the decision. Reopen the unchanged board, inspect the cited evidence, then commit a revised answer.
+- Fewer bookings after the room’s own price rises can be movement along demand; no separate demand shift is shown. Reopen the unchanged board, inspect the cited evidence, then commit a revised answer.
 
 **State/output:** The Town Map stores this dated finding in text: The higher payment per occupied room is outweighed by fewer occupied rooms. The archive gives an elastic response and a $100 revenue loss, supporting reversal of this particular price experiment without asserting anything about legality.
 
@@ -2903,13 +3023,13 @@ The guesthouse listing drops to the earlier rate and its vacant-room cards flip 
   "derived_values": "The higher payment per occupied room is outweighed by fewer occupied rooms. The archive gives an elastic response and a $100 revenue loss, supporting reversal of this particular price experiment without asserting anything about legality.",
   "displayed_prediction": "blank until player commit",
   "observed_measurement": null,
-  "correct_result": "Reject the tested rent increase because room revenue falls",
+  "correct_result": "Reverse the tested rent rise, since lost bookings outweigh the higher payment per occupied room",
   "tolerance": "exact labels/mapping",
   "answer_text_values": "The higher payment per occupied room is outweighed by fewer occupied rooms. The archive gives an elastic response and a $100 revenue loss, supporting reversal of this particular price experiment without asserting anything about legality.",
   "wrong_feedback_values": [
     "Per-room receipts ignore the four lost bookings.",
     "The measured elasticity exceeds one, contradicting inelastic demand.",
-    "No legal rule is given; the economic comparison alone supports the decision."
+    "Fewer bookings after the room’s own price rises can be movement along demand; no separate demand shift is shown."
   ],
   "later_story_references": "The diner still cannot turn all its new orders into meals"
 }
@@ -2943,7 +3063,7 @@ The guesthouse listing drops to the earlier rate and its vacant-room cards flip 
 
 **Lock/failure result:** Check for zero after the event and restore the mission snapshot if needed; all bars remain unlocked until the final agreement and four 100% bars.
 
-**Segue — exact player copy:** Now rooms fill, but Nico still needs more meals from one stove.
+**Segue — exact player copy:** Now Nico needs more meals from one stove, but another cook may cost more than the meals they add.
 
 ## K. Quick concept review
 
@@ -3128,7 +3248,7 @@ The guesthouse listing drops to the earlier rate and its vacant-room cards flip 
 
 **Objective:** Decide whether another cook is worth hiring at the current wage.
 
-**Stakes — exact player copy:** An extra job helps a cook, but its wage can use cash Nico needs for food. A bad choice puts the whole shift at risk.
+**Stakes — exact player copy:** You decide which cook Nico should hire. The wrong extra wage can use cash needed to keep the diner open.
 
 ### Worth knowing first — exact player copy
 
@@ -3158,6 +3278,8 @@ Marginal utility: Extra satisfaction from one more unit consumed.
 **What it is for:** Find extra output and extra receipts from one more worker.  
 **Symbols:** MP is marginal product; TP is total product; L is labor; MRP is marginal revenue product; P is output price.  
 **Why this campaign needs it:** The diner must compare added receipts with its wage offer.
+
+**Required equation or concept use — authoring/render check:** Stop 13: (60−48)/1 = 12 lunches per worker; 12×5 = $60 per shift.
 
 **Optional help button:** `WORKED EXAMPLES (5)` — opens five generic worked examples; opening pauses time, changes no bars, unlocks, story state or retrieval bookkeeping, and remains ungraded and reopenable.
 
@@ -3668,7 +3790,7 @@ One job card appears; a second is stamped HOLD FOR EQUIPMENT REVIEW. The filled 
 
 **Briefing decision advanced:** whether another cook is worth hiring at the current wage.
 
-**Actual mission answer — authoring only:** Hire the fourth cook but not the fifth at the stated wage.
+**Actual mission answer — authoring only:** Hire the fourth cook only, since the fifth reduces profit.
 
 **Call — exact player copy:** Go to Business Workshop and meet Nico Bell, diner owner, at the Kitchen Planning Table.
 
@@ -3688,17 +3810,17 @@ One job card appears; a second is stamped HOLD FOR EQUIPMENT REVIEW. The filled 
 {
   "question": "Select the one recommendation supported by the recorded evidence and the stated decision rule.",
   "choices": [
-    "Hire the fourth cook but not the fifth at the stated wage",
-    "Hire both because total output keeps rising",
-    "Hire neither because the lease is expensive",
-    "Hire the fifth because average output is positive"
+    "Hire the fourth cook only, since the fifth reduces profit",
+    "Hire both extra cooks, since each adds to total lunch output",
+    "Hire neither extra cook, since the fixed lease must be paid first",
+    "Hire the fifth cook too, since average output remains above zero"
   ],
-  "answer": "Hire the fourth cook but not the fifth at the stated wage",
+  "answer": "Hire the fourth cook only, since the fifth reduces profit",
   "why": "The fourth hire adds $10 to profit, while the fifth subtracts $10. The fixed lease does not change this marginal comparison, and positive total or average output cannot justify a hire whose added revenue is below added cost. The diner fills one post while admitting that its offer may shift workers between local firms. Rising output does not establish that revenue covers the next wage. The lease is unchanged across the available hiring choices.",
   "rebuttals": {
-    "Hire both because total output keeps rising": "Rising output does not establish that revenue covers the next wage.",
-    "Hire neither because the lease is expensive": "The lease is unchanged across the available hiring choices.",
-    "Hire the fifth because average output is positive": "Positive average output says nothing about the fifth worker’s marginal net gain."
+    "Hire both extra cooks, since each adds to total lunch output": "Rising output does not establish that revenue covers the next wage.",
+    "Hire neither extra cook, since the fixed lease must be paid first": "The lease is unchanged across the available hiring choices.",
+    "Hire the fifth cook too, since average output remains above zero": "Positive average output says nothing about the fifth worker’s marginal net gain."
   },
   "answerText": "The fourth hire adds $10 to profit, while the fifth subtracts $10. The fixed lease does not change this marginal comparison, and positive total or average output cannot justify a hire whose added revenue is below added cost."
 }
@@ -3706,7 +3828,7 @@ One job card appears; a second is stamped HOLD FOR EQUIPMENT REVIEW. The filled 
 
 **Question card prompt — exact player copy:** Select the one recommendation supported by the recorded evidence and the stated decision rule.
 
-**Correct result:** "Hire the fourth cook but not the fifth at the stated wage"; exact selection or mapping required.
+**Correct result:** "Hire the fourth cook only, since the fifth reduces profit"; exact selection or mapping required.
 
 **Answer text:** The fourth hire adds $10 to profit, while the fifth subtracts $10. The fixed lease does not change this marginal comparison, and positive total or average output cannot justify a hire whose added revenue is below added cost.
 
@@ -3735,7 +3857,7 @@ One job card appears; a second is stamped HOLD FOR EQUIPMENT REVIEW. The filled 
   "derived_values": "The fourth hire adds $10 to profit, while the fifth subtracts $10. The fixed lease does not change this marginal comparison, and positive total or average output cannot justify a hire whose added revenue is below added cost.",
   "displayed_prediction": "blank until player commit",
   "observed_measurement": null,
-  "correct_result": "Hire the fourth cook but not the fifth at the stated wage",
+  "correct_result": "Hire the fourth cook only, since the fifth reduces profit",
   "tolerance": "exact labels/mapping",
   "answer_text_values": "The fourth hire adds $10 to profit, while the fifth subtracts $10. The fixed lease does not change this marginal comparison, and positive total or average output cannot justify a hire whose added revenue is below added cost.",
   "wrong_feedback_values": [
@@ -3775,7 +3897,7 @@ One job card appears; a second is stamped HOLD FOR EQUIPMENT REVIEW. The filled 
 
 **Lock/failure result:** Check for zero after the event and restore the mission snapshot if needed; all bars remain unlocked until the final agreement and four 100% bars.
 
-**Segue — exact player copy:** But the new cook came from a bakery, and workers still lack homes.
+**Segue — exact player copy:** But Nico’s new cook still needs a home; Leila cannot turn a job offer into an available room.
 
 ## K. Quick concept review
 
@@ -3959,7 +4081,7 @@ One job card appears; a second is stamped HOLD FOR EQUIPMENT REVIEW. The filled 
 
 **Objective:** Decide whether the proposed rent ceiling alone houses every applicant.
 
-**Stakes — exact player copy:** People who hold a lease may pay less. Those still in the queue need the town to count them too.
+**Stakes — exact player copy:** You decide whether the rent cap needs an access measure. Lower rent can help tenants while other applicants still lack homes.
 
 ### Worth knowing first — exact player copy
 
@@ -3985,6 +4107,8 @@ Distribution: How gains, costs or income are shared among people.
 **What it is for:** Count unmet requests at a controlled price.  
 **Symbols:** Qd is homes requested; Qs is homes offered.  
 **Why this campaign needs it:** A lower price must not be confused with universal access.
+
+**Required equation or concept use — authoring/render check:** Stop 17: 120−80 = 40 homes.
 
 **Optional help button:** `WORKED EXAMPLES (5)` — opens five generic worked examples; opening pauses time, changes no bars, unlocks, story state or retrieval bookkeeping, and remains ungraded and reopenable.
 
@@ -4428,27 +4552,27 @@ One row of lease cards turns to reduced rent; forty application tokens remain ma
   ],
   "choices": [
     {
-      "label": "A binding cap leaves excess demand",
+      "label": "A fall in housing demand leaves fewer applicants seeking homes",
+      "mechanism": "There are 120 applicants and 80 offered homes; a fall in demand does not explain the excess applications."
+    },
+    {
+      "label": "The binding rent cap leaves more applicants than offered homes",
       "mechanism": "The ceiling is below the stated equilibrium, offers are below applications, and no destruction occurred. A shortage follows without any assumption that the policy immediately destroys homes; the separate long-run response remains conditional."
     },
     {
-      "label": "A fire removed offered housing",
-      "mechanism": "The destruction reading is zero."
+      "label": "A loss of physical homes leaves fewer units available to offer",
+      "mechanism": "The destruction reading is zero, so physical loss does not explain this shortage."
     },
     {
-      "label": "The ceiling is above market rent",
-      "mechanism": "The ceiling is $200 below the market figure."
-    },
-    {
-      "label": "Every applicant already has a home",
-      "mechanism": "There are 40 more applicants than offered homes."
+      "label": "A nonbinding rent cap leaves the existing market rent unchanged",
+      "mechanism": "The ceiling is $200 below the market figure, so it is binding rather than nonbinding."
     }
   ],
-  "answer": "A binding cap leaves excess demand",
+  "answer": "The binding rent cap leaves more applicants than offered homes",
   "rebuttals": {
-    "A fire removed offered housing": "The destruction reading is zero.",
-    "The ceiling is above market rent": "The ceiling is $200 below the market figure.",
-    "Every applicant already has a home": "There are 40 more applicants than offered homes."
+    "A loss of physical homes leaves fewer units available to offer": "The destruction reading is zero, so physical loss does not explain this shortage.",
+    "A nonbinding rent cap leaves the existing market rent unchanged": "The ceiling is $200 below the market figure, so it is binding rather than nonbinding.",
+    "A fall in housing demand leaves fewer applicants seeking homes": "There are 120 applicants and 80 offered homes; a fall in demand does not explain the excess applications."
   },
   "answerText": "The ceiling is below the stated equilibrium, offers are below applications, and no destruction occurred. A shortage follows without any assumption that the policy immediately destroys homes; the separate long-run response remains conditional."
 }
@@ -4456,19 +4580,19 @@ One row of lease cards turns to reduced rent; forty application tokens remain ma
 
 **Question card prompt — exact player copy:** Read every zone and select the one explanation consistent with all observations.
 
-**Correct result:** "A binding cap leaves excess demand"; exact selection or mapping required.
+**Correct result:** "The binding rent cap leaves more applicants than offered homes"; exact selection or mapping required.
 
 **Answer text:** The ceiling is below the stated equilibrium, offers are below applications, and no destruction occurred. A shortage follows without any assumption that the policy immediately destroys homes; the separate long-run response remains conditional.
 
-**Why/mechanism:** The ceiling is below the stated equilibrium, offers are below applications, and no destruction occurred. A shortage follows without any assumption that the policy immediately destroys homes; the separate long-run response remains conditional. The housing office can separate rationing now from possible construction changes later. Price incentives help explain the immediate mismatch between demand and offers; this evidence does not measure how builders respond after several years. The destruction reading is zero.
+**Why/mechanism:** The ceiling is below the stated equilibrium, offers are below applications, and no destruction occurred. A shortage follows without any assumption that the policy immediately destroys homes; the separate long-run response remains conditional. The housing office can separate rationing now from possible construction changes later. Price incentives help explain the immediate mismatch between demand and offers; this evidence does not measure how builders respond after several years. The destruction reading is zero, so physical loss does not explain this shortage.
 
 **Misconception / wrong-path feedback:**
 
-- The destruction reading is zero. Reopen the unchanged board, inspect the cited evidence, then commit a revised answer.
+- The destruction reading is zero, so physical loss does not explain this shortage. Reopen the unchanged board, inspect the cited evidence, then commit a revised answer.
 
-- The ceiling is $200 below the market figure. Reopen the unchanged board, inspect the cited evidence, then commit a revised answer.
+- The ceiling is $200 below the market figure, so it is binding rather than nonbinding. Reopen the unchanged board, inspect the cited evidence, then commit a revised answer.
 
-- There are 40 more applicants than offered homes. Reopen the unchanged board, inspect the cited evidence, then commit a revised answer.
+- There are 120 applicants and 80 offered homes; a fall in demand does not explain the excess applications. Reopen the unchanged board, inspect the cited evidence, then commit a revised answer.
 
 **State/output:** The Lease Desk stores this dated finding in text: The ceiling is below the stated equilibrium, offers are below applications, and no destruction occurred. A shortage follows without any assumption that the policy immediately destroys homes; the separate long-run response remains conditional.
 
@@ -4485,13 +4609,13 @@ One row of lease cards turns to reduced rent; forty application tokens remain ma
   "derived_values": "The ceiling is below the stated equilibrium, offers are below applications, and no destruction occurred. A shortage follows without any assumption that the policy immediately destroys homes; the separate long-run response remains conditional.",
   "displayed_prediction": "blank until player commit",
   "observed_measurement": null,
-  "correct_result": "A binding cap leaves excess demand",
+  "correct_result": "The binding rent cap leaves more applicants than offered homes",
   "tolerance": "exact labels/mapping",
   "answer_text_values": "The ceiling is below the stated equilibrium, offers are below applications, and no destruction occurred. A shortage follows without any assumption that the policy immediately destroys homes; the separate long-run response remains conditional.",
   "wrong_feedback_values": [
-    "The destruction reading is zero.",
-    "The ceiling is $200 below the market figure.",
-    "There are 40 more applicants than offered homes."
+    "The destruction reading is zero, so physical loss does not explain this shortage.",
+    "The ceiling is $200 below the market figure, so it is binding rather than nonbinding.",
+    "There are 120 applicants and 80 offered homes; a fall in demand does not explain the excess applications."
   ],
   "later_story_references": "The council asks how to fund the separate housing measure"
 }
@@ -4507,7 +4631,7 @@ One row of lease cards turns to reduced rent; forty application tokens remain ma
 
 **Briefing decision advanced:** whether the proposed rent ceiling alone houses every applicant.
 
-**Actual mission answer — authoring only:** Reject the ceiling as a complete housing plan and retain a separate access measure.
+**Actual mission answer — authoring only:** Retain tenant relief, but add a separate housing access measure.
 
 **Call — exact player copy:** Go to Housing and Work Office and meet Leila Moss, housing cooperative organizer, at the Job Board.
 
@@ -4527,17 +4651,17 @@ One row of lease cards turns to reduced rent; forty application tokens remain ma
 {
   "question": "Select the one recommendation supported by the recorded evidence and the stated decision rule.",
   "choices": [
-    "Reject the ceiling as a complete housing plan and retain a separate access measure",
-    "Certify the ceiling alone as housing every applicant",
-    "Reject all tenant relief because some people lose",
-    "Promise immediate construction without funds or permits"
+    "Remove all tenant relief, since any landlord loss makes relief inefficient",
+    "Count planned building as housing supply, before funding and permits arrive",
+    "Retain tenant relief, but add a separate housing access measure",
+    "Certify the rent cap, since lower rent gives every applicant access"
   ],
-  "answer": "Reject the ceiling as a complete housing plan and retain a separate access measure",
+  "answer": "Retain tenant relief, but add a separate housing access measure",
   "why": "The stated goal concerns access, and 40 applicants remain unmatched under the cap. That disproves the claim that the ceiling alone meets the goal while leaving room for a normative choice to retain relief for existing tenants alongside additional measures. The advice distinguishes a factual shortage from a value judgment about tenant protection. A lower legal rent does not fill the 40-unit quantity gap. Distributional benefits remain real even when a policy is incomplete.",
   "rebuttals": {
-    "Certify the ceiling alone as housing every applicant": "A lower legal rent does not fill the 40-unit quantity gap.",
-    "Reject all tenant relief because some people lose": "Distributional benefits remain real even when a policy is incomplete.",
-    "Promise immediate construction without funds or permits": "No evidence or authorized input supports instant new supply."
+    "Certify the rent cap, since lower rent gives every applicant access": "A lower legal rent does not fill the 40-unit quantity gap.",
+    "Remove all tenant relief, since any landlord loss makes relief inefficient": "Distributional benefits remain real even when a policy is incomplete.",
+    "Count planned building as housing supply, before funding and permits arrive": "No evidence or authorized input supports instant new supply."
   },
   "answerText": "The stated goal concerns access, and 40 applicants remain unmatched under the cap. That disproves the claim that the ceiling alone meets the goal while leaving room for a normative choice to retain relief for existing tenants alongside additional measures."
 }
@@ -4545,7 +4669,7 @@ One row of lease cards turns to reduced rent; forty application tokens remain ma
 
 **Question card prompt — exact player copy:** Select the one recommendation supported by the recorded evidence and the stated decision rule.
 
-**Correct result:** "Reject the ceiling as a complete housing plan and retain a separate access measure"; exact selection or mapping required.
+**Correct result:** "Retain tenant relief, but add a separate housing access measure"; exact selection or mapping required.
 
 **Answer text:** The stated goal concerns access, and 40 applicants remain unmatched under the cap. That disproves the claim that the ceiling alone meets the goal while leaving room for a normative choice to retain relief for existing tenants alongside additional measures.
 
@@ -4574,7 +4698,7 @@ One row of lease cards turns to reduced rent; forty application tokens remain ma
   "derived_values": "The stated goal concerns access, and 40 applicants remain unmatched under the cap. That disproves the claim that the ceiling alone meets the goal while leaving room for a normative choice to retain relief for existing tenants alongside additional measures.",
   "displayed_prediction": "blank until player commit",
   "observed_measurement": null,
-  "correct_result": "Reject the ceiling as a complete housing plan and retain a separate access measure",
+  "correct_result": "Retain tenant relief, but add a separate housing access measure",
   "tolerance": "exact labels/mapping",
   "answer_text_values": "The stated goal concerns access, and 40 applicants remain unmatched under the cap. That disproves the claim that the ceiling alone meets the goal while leaving room for a normative choice to retain relief for existing tenants alongside additional measures.",
   "wrong_feedback_values": [
@@ -4614,7 +4738,7 @@ One row of lease cards turns to reduced rent; forty application tokens remain ma
 
 **Lock/failure result:** Check for zero after the event and restore the mission snapshot if needed; all bars remain unlocked until the final agreement and four 100% bars.
 
-**Segue — exact player copy:** So the town needs a separate housing plan, but who will pay for it?
+**Segue — exact player copy:** So Leila asks who will fund the access measure; a lower posted rent has created no new public revenue.
 
 ## K. Quick concept review
 
@@ -4798,7 +4922,7 @@ One row of lease cards turns to reduced rent; forty application tokens remain ma
 
 **Objective:** Decide whether the proposed market fee supplies enough revenue for the housing measure.
 
-**Stakes — exact player copy:** The fee can fund housing help. But both buyers and sellers may pay, and some trades may be lost.
+**Stakes — exact player copy:** You decide how much fee revenue the town can promise. An inflated budget leaves Leila’s housing measure short of cash.
 
 ### Worth knowing first — exact player copy
 
@@ -4830,6 +4954,8 @@ Subsidy: A payment that lowers a recipient’s effective cost or raises its effe
 **What it is for:** Separate tax receipts from lost gains in a competitive market with no external effects.  
 **Symbols:** t is tax per unit; Q is taxed trade; Q0 is initial trade; Qt is trade after tax; DWL is deadweight loss.  
 **Why this campaign needs it:** The housing promise needs real receipts and honest costs.
+
+**Required equation or concept use — authoring/render check:** Stop 21: 4×30 = $120; Stop 23: 0.5×4×(50−30) = $40.
 
 **Optional help button:** `WORKED EXAMPLES (5)` — opens five generic worked examples; opening pauses time, changes no bars, unlocks, story state or retrieval bookkeeping, and remains ungraded and reopenable.
 
@@ -5342,7 +5468,7 @@ The housing fund receives a posted reservation while the delivery board loses tw
 
 **Briefing decision advanced:** whether the proposed market fee supplies enough revenue for the housing measure.
 
-**Actual mission answer — authoring only:** Use the fee’s $120 revenue estimate and acknowledge its $40 efficiency cost.
+**Actual mission answer — authoring only:** Budget $120 in receipts and report $40 in lost gains.
 
 **Call — exact player copy:** Go to Business Workshop and meet Nico Bell, diner owner, at the Kitchen Planning Table.
 
@@ -5362,17 +5488,17 @@ The housing fund receives a posted reservation while the delivery board loses tw
 {
   "question": "Select the one recommendation supported by the recorded evidence and the stated decision rule.",
   "choices": [
-    "Use the fee’s $120 revenue estimate and acknowledge its $40 efficiency cost",
-    "Budget $200 because pre-tax sales were higher",
-    "Claim the fee has no cost because sellers remit it",
-    "Reject the revenue estimate because every tax destroys all trade"
+    "Budget $200 in receipts and use the original volume of sales",
+    "Budget $120 in receipts and assign the whole burden to sellers",
+    "Budget $120 in receipts and count the receipts as net social gain",
+    "Budget $120 in receipts and report $40 in lost gains"
   ],
-  "answer": "Use the fee’s $120 revenue estimate and acknowledge its $40 efficiency cost",
-  "why": "Under the council’s stated funding choice, $120 covers the measure. The adviser must also disclose $40 in lost gains and the buyer-heavy burden; those facts do not themselves establish whether redistribution is morally desirable. The council owns the distribution choice while the player certifies the calculation. The post-tax quantity is 30, not 50. Buyers bear most of the measured burden despite seller remittance. Thirty deliveries remain and generate the stated receipts.",
+  "answer": "Budget $120 in receipts and report $40 in lost gains",
+  "why": "Under the council’s stated funding choice, $120 covers the measure. The adviser must also disclose $40 in lost gains and the buyer-heavy burden; those facts do not themselves establish whether redistribution is morally desirable. The council owns the distribution choice while the player certifies the calculation. The post-tax quantity is 30, not 50. Buyers bear most of the measured burden despite seller remittance. Tax receipts transfer money to the state; they are not an extra net social gain that erases the $40 deadweight loss.",
   "rebuttals": {
-    "Budget $200 because pre-tax sales were higher": "The post-tax quantity is 30, not 50.",
-    "Claim the fee has no cost because sellers remit it": "Buyers bear most of the measured burden despite seller remittance.",
-    "Reject the revenue estimate because every tax destroys all trade": "Thirty deliveries remain and generate the stated receipts."
+    "Budget $200 in receipts and use the original volume of sales": "The post-tax quantity is 30, not 50.",
+    "Budget $120 in receipts and assign the whole burden to sellers": "Buyers bear most of the measured burden despite seller remittance.",
+    "Budget $120 in receipts and count the receipts as net social gain": "Tax receipts transfer money to the state; they are not an extra net social gain that erases the $40 deadweight loss."
   },
   "answerText": "Under the council’s stated funding choice, $120 covers the measure. The adviser must also disclose $40 in lost gains and the buyer-heavy burden; those facts do not themselves establish whether redistribution is morally desirable."
 }
@@ -5380,11 +5506,11 @@ The housing fund receives a posted reservation while the delivery board loses tw
 
 **Question card prompt — exact player copy:** Select the one recommendation supported by the recorded evidence and the stated decision rule.
 
-**Correct result:** "Use the fee’s $120 revenue estimate and acknowledge its $40 efficiency cost"; exact selection or mapping required.
+**Correct result:** "Budget $120 in receipts and report $40 in lost gains"; exact selection or mapping required.
 
 **Answer text:** Under the council’s stated funding choice, $120 covers the measure. The adviser must also disclose $40 in lost gains and the buyer-heavy burden; those facts do not themselves establish whether redistribution is morally desirable.
 
-**Why/mechanism:** Under the council’s stated funding choice, $120 covers the measure. The adviser must also disclose $40 in lost gains and the buyer-heavy burden; those facts do not themselves establish whether redistribution is morally desirable. The council owns the distribution choice while the player certifies the calculation. The post-tax quantity is 30, not 50. Buyers bear most of the measured burden despite seller remittance. Thirty deliveries remain and generate the stated receipts.
+**Why/mechanism:** Under the council’s stated funding choice, $120 covers the measure. The adviser must also disclose $40 in lost gains and the buyer-heavy burden; those facts do not themselves establish whether redistribution is morally desirable. The council owns the distribution choice while the player certifies the calculation. The post-tax quantity is 30, not 50. Buyers bear most of the measured burden despite seller remittance. Tax receipts transfer money to the state; they are not an extra net social gain that erases the $40 deadweight loss.
 
 **Misconception / wrong-path feedback:**
 
@@ -5392,7 +5518,7 @@ The housing fund receives a posted reservation while the delivery board loses tw
 
 - Buyers bear most of the measured burden despite seller remittance. Reopen the unchanged board, inspect the cited evidence, then commit a revised answer.
 
-- Thirty deliveries remain and generate the stated receipts. Reopen the unchanged board, inspect the cited evidence, then commit a revised answer.
+- Tax receipts transfer money to the state; they are not an extra net social gain that erases the $40 deadweight loss. Reopen the unchanged board, inspect the cited evidence, then commit a revised answer.
 
 **State/output:** The Kitchen Planning Table stores this dated finding in text: Under the council’s stated funding choice, $120 covers the measure. The adviser must also disclose $40 in lost gains and the buyer-heavy burden; those facts do not themselves establish whether redistribution is morally desirable.
 
@@ -5409,13 +5535,13 @@ The housing fund receives a posted reservation while the delivery board loses tw
   "derived_values": "Under the council’s stated funding choice, $120 covers the measure. The adviser must also disclose $40 in lost gains and the buyer-heavy burden; those facts do not themselves establish whether redistribution is morally desirable.",
   "displayed_prediction": "blank until player commit",
   "observed_measurement": null,
-  "correct_result": "Use the fee’s $120 revenue estimate and acknowledge its $40 efficiency cost",
+  "correct_result": "Budget $120 in receipts and report $40 in lost gains",
   "tolerance": "exact labels/mapping",
   "answer_text_values": "Under the council’s stated funding choice, $120 covers the measure. The adviser must also disclose $40 in lost gains and the buyer-heavy burden; those facts do not themselves establish whether redistribution is morally desirable.",
   "wrong_feedback_values": [
     "The post-tax quantity is 30, not 50.",
     "Buyers bear most of the measured burden despite seller remittance.",
-    "Thirty deliveries remain and generate the stated receipts."
+    "Tax receipts transfer money to the state; they are not an extra net social gain that erases the $40 deadweight loss."
   ],
   "later_story_references": "One supplier says the new costs will force it to close"
 }
@@ -5449,7 +5575,7 @@ The housing fund receives a posted reservation while the delivery board loses tw
 
 **Lock/failure result:** Check for zero after the event and restore the mission snapshot if needed; all bars remain unlocked until the final agreement and four 100% bars.
 
-**Segue — exact player copy:** Yet a supplier now wants to close; did the fee make that the best choice?
+**Segue — exact player copy:** But Nico’s supplier is losing money; fee receipts will not tell its owner whether to close this month.
 
 ## K. Quick concept review
 
@@ -5633,7 +5759,7 @@ The housing fund receives a posted reservation while the delivery board loses tw
 
 **Objective:** Decide whether the supplier should operate during the current month.
 
-**Stakes — exact player copy:** Closing could save some bills and leave others due. The wrong choice could cost more cash and a whole shift of work.
+**Stakes — exact player copy:** You decide whether the supplier should stay open this month. Closing too soon can deepen its loss and cut the town’s supplies.
 
 ### Worth knowing first — exact player copy
 
@@ -5663,6 +5789,8 @@ Exit: Leaving an industry when all commitments can be reconsidered.
 **What it is for:** Distinguish a loss from a reason to shut now.  
 **Symbols:** P is price; ATC is average total cost; AVC is average variable cost; Q is output.  
 **Why this campaign needs it:** The town needs supplies while the owner weighs an expiring lease.
+
+**Required equation or concept use — authoring/render check:** Stop 25: (8−10)×20 = −$40 profit; Stop 26: 100/20 = $5 AVC; Stop 27 compares $60 contribution with $100 fixed cost.
 
 **Optional help button:** `WORKED EXAMPLES (5)` — opens five generic worked examples; opening pauses time, changes no bars, unlocks, story state or retrieval bookkeeping, and remains ungraded and reopenable.
 
@@ -6176,7 +6304,7 @@ The supplier shutter remains open and the next-month lease review appears beside
 
 **Briefing decision advanced:** whether the supplier should operate during the current month.
 
-**Actual mission answer — authoring only:** Keep the supplier operating this month while reviewing long-run exit.
+**Actual mission answer — authoring only:** Operate this month and review exit when the lease expires.
 
 **Call — exact player copy:** Go to Civic Advice Office and meet Mara Velez, state economic adviser, at the Town Map.
 
@@ -6196,17 +6324,17 @@ The supplier shutter remains open and the next-month lease review appears beside
 {
   "question": "Select the one recommendation supported by the recorded evidence and the stated decision rule.",
   "choices": [
-    "Keep the supplier operating this month while reviewing long-run exit",
-    "Shut immediately because any economic loss requires closure",
-    "Keep operating forever because revenue is positive",
-    "Treat the unavoidable lease as zero economic cost"
+    "Operate this month and review exit when the lease expires",
+    "Close this month because revenue fails to cover total economic cost",
+    "Operate after lease renewal because current sales revenue remains positive",
+    "Exclude the lease from total cost because it cannot be avoided now"
   ],
-  "answer": "Keep the supplier operating this month while reviewing long-run exit",
+  "answer": "Operate this month and review exit when the lease expires",
   "why": "Operating minimizes the current loss, because revenue covers variable cost and part of the unavoidable lease. A later exit review is still needed when the lease can be avoided and all resources regain alternative uses. Short-run continuity and long-run sustainability require different comparisons. Shutdown loses $100 rather than $40 this month. Positive revenue alone does not cover all opportunity costs. The lease is a cost; it is simply unchanged by today’s shutdown choice.",
   "rebuttals": {
-    "Shut immediately because any economic loss requires closure": "Shutdown loses $100 rather than $40 this month.",
-    "Keep operating forever because revenue is positive": "Positive revenue alone does not cover all opportunity costs.",
-    "Treat the unavoidable lease as zero economic cost": "The lease is a cost; it is simply unchanged by today’s shutdown choice."
+    "Close this month because revenue fails to cover total economic cost": "Shutdown loses $100 rather than $40 this month.",
+    "Operate after lease renewal because current sales revenue remains positive": "Positive revenue alone does not cover all opportunity costs.",
+    "Exclude the lease from total cost because it cannot be avoided now": "The lease is a cost; it is simply unchanged by today’s shutdown choice."
   },
   "answerText": "Operating minimizes the current loss, because revenue covers variable cost and part of the unavoidable lease. A later exit review is still needed when the lease can be avoided and all resources regain alternative uses."
 }
@@ -6214,7 +6342,7 @@ The supplier shutter remains open and the next-month lease review appears beside
 
 **Question card prompt — exact player copy:** Select the one recommendation supported by the recorded evidence and the stated decision rule.
 
-**Correct result:** "Keep the supplier operating this month while reviewing long-run exit"; exact selection or mapping required.
+**Correct result:** "Operate this month and review exit when the lease expires"; exact selection or mapping required.
 
 **Answer text:** Operating minimizes the current loss, because revenue covers variable cost and part of the unavoidable lease. A later exit review is still needed when the lease can be avoided and all resources regain alternative uses.
 
@@ -6243,7 +6371,7 @@ The supplier shutter remains open and the next-month lease review appears beside
   "derived_values": "Operating minimizes the current loss, because revenue covers variable cost and part of the unavoidable lease. A later exit review is still needed when the lease can be avoided and all resources regain alternative uses.",
   "displayed_prediction": "blank until player commit",
   "observed_measurement": null,
-  "correct_result": "Keep the supplier operating this month while reviewing long-run exit",
+  "correct_result": "Operate this month and review exit when the lease expires",
   "tolerance": "exact labels/mapping",
   "answer_text_values": "Operating minimizes the current loss, because revenue covers variable cost and part of the unavoidable lease. A later exit review is still needed when the lease can be avoided and all resources regain alternative uses.",
   "wrong_feedback_values": [
@@ -6283,7 +6411,7 @@ The supplier shutter remains open and the next-month lease review appears beside
 
 **Lock/failure result:** Check for zero after the event and restore the mission snapshot if needed; all bars remain unlocked until the final agreement and four 100% bars.
 
-**Segue — exact player copy:** But new food stalls want to enter, and Nico wants them kept out.
+**Segue — exact player copy:** Yet Nico wants to block new kitchens; the entry he welcomed for supplies now threatens his own profit.
 
 ## K. Quick concept review
 
@@ -6467,7 +6595,7 @@ The supplier shutter remains open and the next-month lease review appears beside
 
 **Objective:** Decide whether the town should block new food sellers to protect current profits.
 
-**Stakes — exact player copy:** New stalls may lower prices for diners. Nico may lose sales, so the entry rule must apply to old and new firms alike.
+**Stakes — exact player copy:** You decide whether new food sellers can enter. Nico fears lost profit; residents need more options for meals.
 
 ### Worth knowing first — exact player copy
 
@@ -6495,6 +6623,8 @@ Normal profit: Zero economic profit after all opportunity costs are covered.
 **What it is for:** Distinguish a return to owned resources from above-normal gain.  
 **Symbols:** All terms are dollars per period; implicit costs are forgone alternatives.  
 **Why this campaign needs it:** Entry arguments must identify what income is actually threatened.
+
+**Required equation or concept use — authoring/render check:** Stop 29: 180−120−40 = $20 economic profit.
 
 **Optional help button:** `WORKED EXAMPLES (5)` — opens five generic worked examples; opening pauses time, changes no bars, unlocks, story state or retrieval bookkeeping, and remains ungraded and reopenable.
 
@@ -7008,7 +7138,7 @@ New vendor permit placards appear at the existing supply shelves; the diner’s 
 
 **Briefing decision advanced:** whether the town should block new food sellers to protect current profits.
 
-**Actual mission answer — authoring only:** Allow the proposed food sellers to enter and review service quality separately.
+**Actual mission answer — authoring only:** Allow entry and assess service quality under a separate rule.
 
 **Call — exact player copy:** Go to Housing and Work Office and meet Leila Moss, housing cooperative organizer, at the Job Board.
 
@@ -7028,17 +7158,17 @@ New vendor permit placards appear at the existing supply shelves; the diner’s 
 {
   "question": "Select the one recommendation supported by the recorded evidence and the stated decision rule.",
   "choices": [
-    "Allow the proposed food sellers to enter and review service quality separately",
-    "Block entry solely to preserve incumbent economic profit",
-    "Promise every entrant permanent economic profit",
-    "Declare all cafés price takers despite differentiated menus"
+    "Allow entry and treat different menus as one identical market product",
+    "Allow entry and assess service quality under a separate rule",
+    "Block entry and protect the existing firms’ positive economic profit",
+    "Allow entry and forecast lasting economic profit for every new firm"
   ],
-  "answer": "Allow the proposed food sellers to enter and review service quality separately",
+  "answer": "Allow entry and assess service quality under a separate rule",
   "why": "The evidence contains no violation of the entry rule. Competition may reduce incumbent economic profit and give buyers more options, while product differences mean the perfect-competition price-taking model is not exact for every café. The diner owner accepts new sellers after seeing that earlier calls for cheaper inputs used the same competition argument. Protecting incumbent profit alone is not the adopted external-harm test. Entry can erode economic profit and does not guarantee returns.",
   "rebuttals": {
-    "Block entry solely to preserve incumbent economic profit": "Protecting incumbent profit alone is not the adopted external-harm test.",
-    "Promise every entrant permanent economic profit": "Entry can erode economic profit and does not guarantee returns.",
-    "Declare all cafés price takers despite differentiated menus": "Differentiated menus can give individual firms price discretion."
+    "Block entry and protect the existing firms’ positive economic profit": "Protecting incumbent profit alone is not the adopted external-harm test.",
+    "Allow entry and forecast lasting economic profit for every new firm": "Entry can erode economic profit and does not guarantee returns.",
+    "Allow entry and treat different menus as one identical market product": "Differentiated menus can give individual firms price discretion."
   },
   "answerText": "The evidence contains no violation of the entry rule. Competition may reduce incumbent economic profit and give buyers more options, while product differences mean the perfect-competition price-taking model is not exact for every café."
 }
@@ -7046,7 +7176,7 @@ New vendor permit placards appear at the existing supply shelves; the diner’s 
 
 **Question card prompt — exact player copy:** Select the one recommendation supported by the recorded evidence and the stated decision rule.
 
-**Correct result:** "Allow the proposed food sellers to enter and review service quality separately"; exact selection or mapping required.
+**Correct result:** "Allow entry and assess service quality under a separate rule"; exact selection or mapping required.
 
 **Answer text:** The evidence contains no violation of the entry rule. Competition may reduce incumbent economic profit and give buyers more options, while product differences mean the perfect-competition price-taking model is not exact for every café.
 
@@ -7075,7 +7205,7 @@ New vendor permit placards appear at the existing supply shelves; the diner’s 
   "derived_values": "The evidence contains no violation of the entry rule. Competition may reduce incumbent economic profit and give buyers more options, while product differences mean the perfect-competition price-taking model is not exact for every café.",
   "displayed_prediction": "blank until player commit",
   "observed_measurement": null,
-  "correct_result": "Allow the proposed food sellers to enter and review service quality separately",
+  "correct_result": "Allow entry and assess service quality under a separate rule",
   "tolerance": "exact labels/mapping",
   "answer_text_values": "The evidence contains no violation of the entry rule. Competition may reduce incumbent economic profit and give buyers more options, while product differences mean the perfect-competition price-taking model is not exact for every café.",
   "wrong_feedback_values": [
@@ -7115,7 +7245,7 @@ New vendor permit placards appear at the existing supply shelves; the diner’s 
 
 **Lock/failure result:** Check for zero after the event and restore the mission snapshot if needed; all bars remain unlocked until the final agreement and four 100% bars.
 
-**Segue — exact player copy:** Yet the mine still buys most skilled work; more stalls do not end that power.
+**Segue — exact player copy:** Now Leila has more job offers to examine, but one large employer can still shape the wage.
 
 ## K. Quick concept review
 
@@ -7299,7 +7429,7 @@ New vendor permit placards appear at the existing supply shelves; the diner’s 
 
 **Objective:** Decide whether the proposed wage floor can raise both pay and employment in the stated model.
 
-**Stakes — exact player copy:** A wage floor may help in this market. Set it without checking the model, and the town could promise jobs that do not come.
+**Stakes — exact player copy:** You decide whether to support the tested wage floor. Leila needs a job forecast that workers can use.
 
 ### Worth knowing first — exact player copy
 
@@ -7325,6 +7455,8 @@ Minimum wage: A legal minimum payment per unit of labor.
 **What it is for:** Compare the extra wage bill with extra receipts.  
 **Symbols:** MFC is marginal factor cost; L is workers; MRP is marginal revenue product.  
 **Why this campaign needs it:** The wage proposal changes hiring incentives.
+
+**Required equation or concept use — authoring/render check:** Stop 33: (4×30−3×25)/1 = $45 per extra worker; Stop 35: the fifth adds $20 but costs 175−120=$55, while each of the first four adds at least its $30 wage.
 
 **Optional help button:** `WORKED EXAMPLES (5)` — opens five generic worked examples; opening pauses time, changes no bars, unlocks, story state or retrieval bookkeeping, and remains ungraded and reopenable.
 
@@ -7837,7 +7969,7 @@ The job board changes from three to four filled posts at the signed offer. The e
 
 **Briefing decision advanced:** whether the proposed wage floor can raise both pay and employment in the stated model.
 
-**Actual mission answer — authoring only:** Support the $30 wage floor under the stated monopsony model.
+**Actual mission answer — authoring only:** Support the tested $30 wage floor, since this monopsony model predicts more jobs at that wage.
 
 **Call — exact player copy:** Go to Business Workshop and meet Nico Bell, diner owner, at the Kitchen Planning Table.
 
@@ -7857,17 +7989,17 @@ The job board changes from three to four filled posts at the signed offer. The e
 {
   "question": "Select the one recommendation supported by the recorded evidence and the stated decision rule.",
   "choices": [
-    "Support the $30 wage floor under the stated monopsony model",
-    "Reject it because wage floors always reduce employment",
-    "Claim any higher wage floor must also add jobs",
-    "Call the original labor market perfectly competitive"
+    "Support every higher floor using this rise in jobs",
+    "Treat the original wage as the competitive labor-market wage",
+    "Support the tested $30 wage floor, since this monopsony model predicts more jobs at that wage",
+    "Reject the $30 floor using the competitive labor-market prediction"
   ],
-  "answer": "Support the $30 wage floor under the stated monopsony model",
+  "answer": "Support the tested $30 wage floor, since this monopsony model predicts more jobs at that wage",
   "why": "The specified wage floor raises pay and employment in this monopsony example by changing the marginal hiring-cost schedule. This is a model-dependent result, not a claim that every floor or every labor market behaves the same way. The worker agreement gains support from evidence rather than a blanket claim about regulation. The trial and schedules show four jobs instead of three. A floor above enough workers’ MRP can reduce hiring.",
   "rebuttals": {
-    "Reject it because wage floors always reduce employment": "The trial and schedules show four jobs instead of three.",
-    "Claim any higher wage floor must also add jobs": "A floor above enough workers’ MRP can reduce hiring.",
-    "Call the original labor market perfectly competitive": "One buyer faces rising supply and marginal hiring cost above wage."
+    "Reject the $30 floor using the competitive labor-market prediction": "The trial and schedules show four jobs instead of three.",
+    "Support every higher floor using this rise in jobs": "A floor above enough workers’ MRP can reduce hiring.",
+    "Treat the original wage as the competitive labor-market wage": "One buyer faces rising supply and marginal hiring cost above wage."
   },
   "answerText": "The specified wage floor raises pay and employment in this monopsony example by changing the marginal hiring-cost schedule. This is a model-dependent result, not a claim that every floor or every labor market behaves the same way."
 }
@@ -7875,7 +8007,7 @@ The job board changes from three to four filled posts at the signed offer. The e
 
 **Question card prompt — exact player copy:** Select the one recommendation supported by the recorded evidence and the stated decision rule.
 
-**Correct result:** "Support the $30 wage floor under the stated monopsony model"; exact selection or mapping required.
+**Correct result:** "Support the tested $30 wage floor, since this monopsony model predicts more jobs at that wage"; exact selection or mapping required.
 
 **Answer text:** The specified wage floor raises pay and employment in this monopsony example by changing the marginal hiring-cost schedule. This is a model-dependent result, not a claim that every floor or every labor market behaves the same way.
 
@@ -7904,7 +8036,7 @@ The job board changes from three to four filled posts at the signed offer. The e
   "derived_values": "The specified wage floor raises pay and employment in this monopsony example by changing the marginal hiring-cost schedule. This is a model-dependent result, not a claim that every floor or every labor market behaves the same way.",
   "displayed_prediction": "blank until player commit",
   "observed_measurement": null,
-  "correct_result": "Support the $30 wage floor under the stated monopsony model",
+  "correct_result": "Support the tested $30 wage floor, since this monopsony model predicts more jobs at that wage",
   "tolerance": "exact labels/mapping",
   "answer_text_values": "The specified wage floor raises pay and employment in this monopsony example by changing the marginal hiring-cost schedule. This is a model-dependent result, not a claim that every floor or every labor market behaves the same way.",
   "wrong_feedback_values": [
@@ -7944,7 +8076,7 @@ The job board changes from three to four filled posts at the signed offer. The e
 
 **Lock/failure result:** Check for zero after the event and restore the mission snapshot if needed; all bars remain unlocked until the final agreement and four 100% bars.
 
-**Segue — exact player copy:** But the mine says high freight fees will undo the new jobs.
+**Segue — exact player copy:** But Ruth has unused freight slots; better wages alone will not give rival firms access to them.
 
 ## K. Quick concept review
 
@@ -8128,7 +8260,7 @@ The job board changes from three to four filled posts at the signed offer. The e
 
 **Objective:** Decide whether the freight shortage is entirely a physical capacity problem.
 
-**Stakes — exact player copy:** A new line costs real land and work. The town needs to know if it can use the space it has first.
+**Stakes — exact player copy:** You decide why Ruth’s freight slots sit empty. The wrong diagnosis can leave rival firms paying for a false capacity shortage.
 
 ### Worth knowing first — exact player copy
 
@@ -8156,6 +8288,8 @@ Barrier to entry: A condition that prevents or discourages new sellers.
 **What it is for:** Find the monopoly’s output and price in the stated linear model.  
 **Symbols:** P is price; Q is quantity; a is demand intercept; b is demand slope magnitude; MR is marginal revenue; MC is marginal cost.  
 **Why this campaign needs it:** Unused capacity may reflect pricing incentives rather than broken equipment.
+
+**Required equation or concept use — authoring/render check:** Stop 37 uses 100−4Q = 20 to get Q=20, then P=100−2×20=$60.
 
 **Optional help button:** `WORKED EXAMPLES (5)` — opens five generic worked examples; opening pauses time, changes no bars, unlocks, story state or retrieval bookkeeping, and remains ungraded and reopenable.
 
@@ -8600,27 +8734,27 @@ The freight wall map keeps thirty unused slots lit with text labels beside the e
   ],
   "choices": [
     {
-      "label": "Pricing restricts the booked quantity",
-      "mechanism": "The dispatch count agrees with demand at the charged price, and usable capacity exceeds it. With unchanged marginal cost, the supplied monopoly model explains the low output without a breakdown; this does not claim every unused slot in reality proves monopoly abuse."
+      "label": "Mechanical slot failures limit supply below the terminal’s design capacity",
+      "mechanism": "All 50 slots are reported usable, so mechanical loss does not explain the booking limit."
     },
     {
-      "label": "A fifty-slot mechanical breakdown",
-      "mechanism": "All 50 slots are reported usable."
-    },
-    {
-      "label": "Marginal cost rose above price",
+      "label": "Marginal operating cost exceeds price and prevents profitable slot use",
       "mechanism": "Marginal cost is $20, below $60."
     },
     {
-      "label": "Demand requires every slot at $60",
+      "label": "Demand at the charged price requires all fifty usable slots",
       "mechanism": "Demand at $60 is 20, not 50."
+    },
+    {
+      "label": "The charged price limits demand below the usable slot capacity",
+      "mechanism": "The dispatch count agrees with demand at the charged price, and usable capacity exceeds it. With unchanged marginal cost, the supplied monopoly model explains the low output without a breakdown; this does not claim every unused slot in reality proves monopoly abuse."
     }
   ],
-  "answer": "Pricing restricts the booked quantity",
+  "answer": "The charged price limits demand below the usable slot capacity",
   "rebuttals": {
-    "A fifty-slot mechanical breakdown": "All 50 slots are reported usable.",
-    "Marginal cost rose above price": "Marginal cost is $20, below $60.",
-    "Demand requires every slot at $60": "Demand at $60 is 20, not 50."
+    "Mechanical slot failures limit supply below the terminal’s design capacity": "All 50 slots are reported usable, so mechanical loss does not explain the booking limit.",
+    "Marginal operating cost exceeds price and prevents profitable slot use": "Marginal cost is $20, below $60.",
+    "Demand at the charged price requires all fifty usable slots": "Demand at $60 is 20, not 50."
   },
   "answerText": "The dispatch count agrees with demand at the charged price, and usable capacity exceeds it. With unchanged marginal cost, the supplied monopoly model explains the low output without a breakdown; this does not claim every unused slot in reality proves monopoly abuse."
 }
@@ -8628,15 +8762,15 @@ The freight wall map keeps thirty unused slots lit with text labels beside the e
 
 **Question card prompt — exact player copy:** Read every zone and select the one explanation consistent with all observations.
 
-**Correct result:** "Pricing restricts the booked quantity"; exact selection or mapping required.
+**Correct result:** "The charged price limits demand below the usable slot capacity"; exact selection or mapping required.
 
 **Answer text:** The dispatch count agrees with demand at the charged price, and usable capacity exceeds it. With unchanged marginal cost, the supplied monopoly model explains the low output without a breakdown; this does not claim every unused slot in reality proves monopoly abuse.
 
-**Why/mechanism:** The dispatch count agrees with demand at the charged price, and usable capacity exceeds it. With unchanged marginal cost, the supplied monopoly model explains the low output without a breakdown; this does not claim every unused slot in reality proves monopoly abuse. The capacity reading changes the meaning of the queue photographs planted earlier. All 50 slots are reported usable. Marginal cost is $20, below $60. Demand at $60 is 20, not 50.
+**Why/mechanism:** The dispatch count agrees with demand at the charged price, and usable capacity exceeds it. With unchanged marginal cost, the supplied monopoly model explains the low output without a breakdown; this does not claim every unused slot in reality proves monopoly abuse. The capacity reading changes the meaning of the queue photographs planted earlier. All 50 slots are reported usable, so mechanical loss does not explain the booking limit. Marginal cost is $20, below $60. Demand at $60 is 20, not 50.
 
 **Misconception / wrong-path feedback:**
 
-- All 50 slots are reported usable. Reopen the unchanged board, inspect the cited evidence, then commit a revised answer.
+- All 50 slots are reported usable, so mechanical loss does not explain the booking limit. Reopen the unchanged board, inspect the cited evidence, then commit a revised answer.
 
 - Marginal cost is $20, below $60. Reopen the unchanged board, inspect the cited evidence, then commit a revised answer.
 
@@ -8657,11 +8791,11 @@ The freight wall map keeps thirty unused slots lit with text labels beside the e
   "derived_values": "The dispatch count agrees with demand at the charged price, and usable capacity exceeds it. With unchanged marginal cost, the supplied monopoly model explains the low output without a breakdown; this does not claim every unused slot in reality proves monopoly abuse.",
   "displayed_prediction": "blank until player commit",
   "observed_measurement": null,
-  "correct_result": "Pricing restricts the booked quantity",
+  "correct_result": "The charged price limits demand below the usable slot capacity",
   "tolerance": "exact labels/mapping",
   "answer_text_values": "The dispatch count agrees with demand at the charged price, and usable capacity exceeds it. With unchanged marginal cost, the supplied monopoly model explains the low output without a breakdown; this does not claim every unused slot in reality proves monopoly abuse.",
   "wrong_feedback_values": [
-    "All 50 slots are reported usable.",
+    "All 50 slots are reported usable, so mechanical loss does not explain the booking limit.",
     "Marginal cost is $20, below $60.",
     "Demand at $60 is 20, not 50."
   ],
@@ -8679,7 +8813,7 @@ The freight wall map keeps thirty unused slots lit with text labels beside the e
 
 **Briefing decision advanced:** whether the freight shortage is entirely a physical capacity problem.
 
-**Actual mission answer — authoring only:** Record market power as part of the freight shortage.
+**Actual mission answer — authoring only:** Record market power as a cause of restricted freight bookings.
 
 **Call — exact player copy:** Go to Civic Advice Office and meet Mara Velez, state economic adviser, at the Town Map.
 
@@ -8699,17 +8833,17 @@ The freight wall map keeps thirty unused slots lit with text labels beside the e
 {
   "question": "Select the one recommendation supported by the recorded evidence and the stated decision rule.",
   "choices": [
-    "Record market power as part of the freight shortage",
-    "Certify that all 50 slots are physically full",
-    "Demand a $20 price without examining fixed costs",
-    "Say monopoly price equals marginal revenue"
+    "Record market power as a cause of restricted freight bookings",
+    "Record full physical capacity as the cause of restricted freight bookings",
+    "Require marginal-cost pricing without identifying funds for the fixed bill",
+    "Use marginal revenue as the price that terminal customers should pay"
   ],
-  "answer": "Record market power as part of the freight shortage",
+  "answer": "Record market power as a cause of restricted freight bookings",
   "why": "Pricing incentives and an entry barrier explain restricted output in the stated model. That makes access rules worth comparing with a new line; it does not yet establish how to cover fixed costs or external harms. The town can ask whether competition requires duplicate infrastructure or better access. Dispatch uses only 20 of 50 usable slots. Marginal-cost pricing may leave fixed costs uncovered. At the chosen output, price is 60 while marginal revenue is 20.",
   "rebuttals": {
-    "Certify that all 50 slots are physically full": "Dispatch uses only 20 of 50 usable slots.",
-    "Demand a $20 price without examining fixed costs": "Marginal-cost pricing may leave fixed costs uncovered.",
-    "Say monopoly price equals marginal revenue": "At the chosen output, price is 60 while marginal revenue is 20."
+    "Record full physical capacity as the cause of restricted freight bookings": "Dispatch uses only 20 of 50 usable slots.",
+    "Require marginal-cost pricing without identifying funds for the fixed bill": "Marginal-cost pricing may leave fixed costs uncovered.",
+    "Use marginal revenue as the price that terminal customers should pay": "At the chosen output, price is 60 while marginal revenue is 20."
   },
   "answerText": "Pricing incentives and an entry barrier explain restricted output in the stated model. That makes access rules worth comparing with a new line; it does not yet establish how to cover fixed costs or external harms."
 }
@@ -8717,7 +8851,7 @@ The freight wall map keeps thirty unused slots lit with text labels beside the e
 
 **Question card prompt — exact player copy:** Select the one recommendation supported by the recorded evidence and the stated decision rule.
 
-**Correct result:** "Record market power as part of the freight shortage"; exact selection or mapping required.
+**Correct result:** "Record market power as a cause of restricted freight bookings"; exact selection or mapping required.
 
 **Answer text:** Pricing incentives and an entry barrier explain restricted output in the stated model. That makes access rules worth comparing with a new line; it does not yet establish how to cover fixed costs or external harms.
 
@@ -8746,7 +8880,7 @@ The freight wall map keeps thirty unused slots lit with text labels beside the e
   "derived_values": "Pricing incentives and an entry barrier explain restricted output in the stated model. That makes access rules worth comparing with a new line; it does not yet establish how to cover fixed costs or external harms.",
   "displayed_prediction": "blank until player commit",
   "observed_measurement": null,
-  "correct_result": "Record market power as part of the freight shortage",
+  "correct_result": "Record market power as a cause of restricted freight bookings",
   "tolerance": "exact labels/mapping",
   "answer_text_values": "Pricing incentives and an entry barrier explain restricted output in the stated model. That makes access rules worth comparing with a new line; it does not yet establish how to cover fixed costs or external harms.",
   "wrong_feedback_values": [
@@ -8786,7 +8920,7 @@ The freight wall map keeps thirty unused slots lit with text labels beside the e
 
 **Lock/failure result:** Check for zero after the event and restore the mission snapshot if needed; all bars remain unlocked until the final agreement and four 100% bars.
 
-**Segue — exact player copy:** Now two firms offer a pact, but each may gain by breaking it.
+**Segue — exact player copy:** Yet Ruth’s rivals promise to limit expansion; Mara needs a forecast built from incentives, not that promise.
 
 ## K. Quick concept review
 
@@ -8970,7 +9104,7 @@ The freight wall map keeps thirty unused slots lit with text labels beside the e
 
 **Objective:** Decide whether the firms will keep their low-output pact without enforcement.
 
-**Stakes — exact player copy:** A pact is not a sure freight service. Homes and firms could pay for a plan based on a promise each firm wants to break.
+**Stakes — exact player copy:** You decide which service forecast to use. A pact the firms have reason to break can leave the town planning for the wrong traffic.
 
 ### Worth knowing first — exact player copy
 
@@ -8995,6 +9129,8 @@ Collusion: An agreement among firms to reduce competition.
 #### Equations first needed today
 
 This mission retrieves the relationships already recorded in the mission log.
+
+**Required equation or concept use — authoring/render check:** No new equation; read each firm’s supplied payoff and compare unilateral changes at Stops 41–43.
 
 **Optional help button:** `WORKED EXAMPLES (5)` — opens five generic worked examples; opening pauses time, changes no bars, unlocks, story state or retrieval bookkeeping, and remains ungraded and reopenable.
 
@@ -9505,7 +9641,7 @@ The pact’s guaranteed-service stamp is revoked and its forecast is relabeled c
 
 **Briefing decision advanced:** whether the firms will keep their low-output pact without enforcement.
 
-**Actual mission answer — authoring only:** Expect both firms to expand under the one-shot payoff table.
+**Actual mission answer — authoring only:** Predict both firms expand, since each gains by expanding against either choice by its rival.
 
 **Call — exact player copy:** Go to Civic Advice Office and meet Mara Velez, state economic adviser, at the Town Map.
 
@@ -9525,17 +9661,17 @@ The pact’s guaranteed-service stamp is revoked and its forecast is relabeled c
 {
   "question": "Select the one recommendation supported by the recorded evidence and the stated decision rule.",
   "choices": [
-    "Expect both firms to expand under the one-shot payoff table",
-    "Guarantee the pact because joint profit is higher",
-    "Predict only A expands despite symmetric incentives",
-    "Claim Nash equilibrium maximizes joint profit"
+    "Predict either joint-profit maximum as the Nash equilibrium outcome",
+    "Predict both firms expand, since each gains by expanding against either choice by its rival",
+    "Predict both firms restrict using their combined profit advantage",
+    "Predict only A expands using the same incentives for both firms"
   ],
-  "answer": "Expect both firms to expand under the one-shot payoff table",
+  "answer": "Predict both firms expand, since each gains by expanding against either choice by its rival",
   "why": "The stable prediction follows each firm’s incentives, not their joint total. Both expanding is worse for both firms than mutual restriction, but neither wants to remain restricted while the other expands under the stated one-shot conditions. The town must not budget service on an unstable private promise. Each firm can increase its own profit by leaving mutual restriction. The incentives are symmetric for B. A Nash equilibrium concerns unilateral deviations, not collective maximization.",
   "rebuttals": {
-    "Guarantee the pact because joint profit is higher": "Each firm can increase its own profit by leaving mutual restriction.",
-    "Predict only A expands despite symmetric incentives": "The incentives are symmetric for B.",
-    "Claim Nash equilibrium maximizes joint profit": "A Nash equilibrium concerns unilateral deviations, not collective maximization."
+    "Predict both firms restrict using their combined profit advantage": "Each firm can increase its own profit by leaving mutual restriction.",
+    "Predict only A expands using the same incentives for both firms": "The incentives are symmetric for B.",
+    "Predict either joint-profit maximum as the Nash equilibrium outcome": "A Nash equilibrium concerns unilateral deviations, not collective maximization."
   },
   "answerText": "The stable prediction follows each firm’s incentives, not their joint total. Both expanding is worse for both firms than mutual restriction, but neither wants to remain restricted while the other expands under the stated one-shot conditions."
 }
@@ -9543,7 +9679,7 @@ The pact’s guaranteed-service stamp is revoked and its forecast is relabeled c
 
 **Question card prompt — exact player copy:** Select the one recommendation supported by the recorded evidence and the stated decision rule.
 
-**Correct result:** "Expect both firms to expand under the one-shot payoff table"; exact selection or mapping required.
+**Correct result:** "Predict both firms expand, since each gains by expanding against either choice by its rival"; exact selection or mapping required.
 
 **Answer text:** The stable prediction follows each firm’s incentives, not their joint total. Both expanding is worse for both firms than mutual restriction, but neither wants to remain restricted while the other expands under the stated one-shot conditions.
 
@@ -9572,7 +9708,7 @@ The pact’s guaranteed-service stamp is revoked and its forecast is relabeled c
   "derived_values": "The stable prediction follows each firm’s incentives, not their joint total. Both expanding is worse for both firms than mutual restriction, but neither wants to remain restricted while the other expands under the stated one-shot conditions.",
   "displayed_prediction": "blank until player commit",
   "observed_measurement": null,
-  "correct_result": "Expect both firms to expand under the one-shot payoff table",
+  "correct_result": "Predict both firms expand, since each gains by expanding against either choice by its rival",
   "tolerance": "exact labels/mapping",
   "answer_text_values": "The stable prediction follows each firm’s incentives, not their joint total. Both expanding is worse for both firms than mutual restriction, but neither wants to remain restricted while the other expands under the stated one-shot conditions.",
   "wrong_feedback_values": [
@@ -9612,7 +9748,7 @@ The pact’s guaranteed-service stamp is revoked and its forecast is relabeled c
 
 **Lock/failure result:** Check for zero after the event and restore the mission snapshot if needed; all bars remain unlocked until the final agreement and four 100% bars.
 
-**Segue — exact player copy:** Yet more freight could send more costs down the stream.
+**Segue — exact player copy:** But Owen says more freight sends more harm downstream; the firms’ payoffs leave that bill out.
 
 ## K. Quick concept review
 
@@ -9796,7 +9932,7 @@ The pact’s guaranteed-service stamp is revoked and its forecast is relabeled c
 
 **Objective:** Decide whether the town should use the uncorrected freight quantity as its efficiency target.
 
-**Stakes — exact player copy:** Cheap freight can leave a bill for people down the stream. Their cost must shape the plan even if they buy no freight.
+**Stakes — exact player copy:** You decide the freight target after counting water harm. Owen’s downstream users pay costs that freight prices leave out.
 
 ### Worth knowing first — exact player copy
 
@@ -9828,6 +9964,8 @@ Free rider: Someone who benefits without contributing to provision.
 **What it is for:** Include costs or benefits outside the market transaction.  
 **Symbols:** MSC is marginal social cost; MPC private marginal cost; MEC external marginal cost; MSB marginal social benefit.  
 **Why this campaign needs it:** The freight decision must account for downstream water users.
+
+**Required equation or concept use — authoring/render check:** Stop 45: 20+20=$40; Stop 47: 100−2Q=40 gives Q=30.
 
 **Optional help button:** `WORKED EXAMPLES (5)` — opens five generic worked examples; opening pauses time, changes no bars, unlocks, story state or retrieval bookkeeping, and remains ungraded and reopenable.
 
@@ -10342,7 +10480,7 @@ The catchment map adds the measured damage cost and an accessible report beside 
 
 **Briefing decision advanced:** whether the town should use the uncorrected freight quantity as its efficiency target.
 
-**Actual mission answer — authoring only:** Use 30 freight units as the corrected efficiency target in the stated model.
+**Actual mission answer — authoring only:** Target 30 units, where social benefit equals social cost.
 
 **Call — exact player copy:** Go to Civic Advice Office and meet Mara Velez, state economic adviser, at the Town Map.
 
@@ -10362,17 +10500,17 @@ The catchment map adds the measured damage cost and an accessible report beside 
 {
   "question": "Select the one recommendation supported by the recorded evidence and the stated decision rule.",
   "choices": [
-    "Use 30 freight units as the corrected efficiency target in the stated model",
-    "Use 40 because competition always removes every inefficiency",
-    "Use 20 because any pollution means monopoly is efficient",
-    "Reject all public-good provision because some users free ride"
+    "Target 20 units, where marginal revenue equals private marginal cost",
+    "Target zero units, because each shipment imposes some external harm",
+    "Target 30 units, where social benefit equals social cost",
+    "Target 40 units, where social benefit equals private marginal cost"
   ],
-  "answer": "Use 30 freight units as the corrected efficiency target in the stated model",
+  "answer": "Target 30 units, where social benefit equals social cost",
   "why": "The efficient quantity equates social benefit and social cost at 30. Competition can remove a markup while leaving an external cost, so replacing market power does not by itself settle the environmental problem or how to provide shared services. The freight agreement now needs both access and a water-cost rule. The 40-unit benchmark omitted $20 marginal external harm. The coincidence of lower output does not prove the monopoly selects the social optimum.",
   "rebuttals": {
-    "Use 40 because competition always removes every inefficiency": "The 40-unit benchmark omitted $20 marginal external harm.",
-    "Use 20 because any pollution means monopoly is efficient": "The coincidence of lower output does not prove the monopoly selects the social optimum.",
-    "Reject all public-good provision because some users free ride": "Free riding explains underfunding pressure; it does not prove provision should be zero or that only government can provide."
+    "Target 40 units, where social benefit equals private marginal cost": "The 40-unit benchmark omitted $20 marginal external harm.",
+    "Target 20 units, where marginal revenue equals private marginal cost": "The coincidence of lower output does not prove the monopoly selects the social optimum.",
+    "Target zero units, because each shipment imposes some external harm": "Some harm does not justify zero output when marginal benefit exceeds social cost below 30 units."
   },
   "answerText": "The efficient quantity equates social benefit and social cost at 30. Competition can remove a markup while leaving an external cost, so replacing market power does not by itself settle the environmental problem or how to provide shared services."
 }
@@ -10380,7 +10518,7 @@ The catchment map adds the measured damage cost and an accessible report beside 
 
 **Question card prompt — exact player copy:** Select the one recommendation supported by the recorded evidence and the stated decision rule.
 
-**Correct result:** "Use 30 freight units as the corrected efficiency target in the stated model"; exact selection or mapping required.
+**Correct result:** "Target 30 units, where social benefit equals social cost"; exact selection or mapping required.
 
 **Answer text:** The efficient quantity equates social benefit and social cost at 30. Competition can remove a markup while leaving an external cost, so replacing market power does not by itself settle the environmental problem or how to provide shared services.
 
@@ -10392,7 +10530,7 @@ The catchment map adds the measured damage cost and an accessible report beside 
 
 - The coincidence of lower output does not prove the monopoly selects the social optimum. Reopen the unchanged board, inspect the cited evidence, then commit a revised answer.
 
-- Free riding explains underfunding pressure; it does not prove provision should be zero or that only government can provide. Reopen the unchanged board, inspect the cited evidence, then commit a revised answer.
+- Some harm does not justify zero output when marginal benefit exceeds social cost below 30 units. Reopen the unchanged board, inspect the cited evidence, then commit a revised answer.
 
 **State/output:** The Town Map stores this dated finding in text: The efficient quantity equates social benefit and social cost at 30. Competition can remove a markup while leaving an external cost, so replacing market power does not by itself settle the environmental problem or how to provide shared services.
 
@@ -10409,13 +10547,13 @@ The catchment map adds the measured damage cost and an accessible report beside 
   "derived_values": "The efficient quantity equates social benefit and social cost at 30. Competition can remove a markup while leaving an external cost, so replacing market power does not by itself settle the environmental problem or how to provide shared services.",
   "displayed_prediction": "blank until player commit",
   "observed_measurement": null,
-  "correct_result": "Use 30 freight units as the corrected efficiency target in the stated model",
+  "correct_result": "Target 30 units, where social benefit equals social cost",
   "tolerance": "exact labels/mapping",
   "answer_text_values": "The efficient quantity equates social benefit and social cost at 30. Competition can remove a markup while leaving an external cost, so replacing market power does not by itself settle the environmental problem or how to provide shared services.",
   "wrong_feedback_values": [
     "The 40-unit benchmark omitted $20 marginal external harm.",
     "The coincidence of lower output does not prove the monopoly selects the social optimum.",
-    "Free riding explains underfunding pressure; it does not prove provision should be zero or that only government can provide."
+    "Some harm does not justify zero output when marginal benefit exceeds social cost below 30 units."
   ],
   "later_story_references": "Imported filters could cut the harm, but a new border charge is proposed"
 }
@@ -10449,7 +10587,7 @@ The catchment map adds the measured damage cost and an accessible report beside 
 
 **Lock/failure result:** Check for zero after the event and restore the mission snapshot if needed; all bars remain unlocked until the final agreement and four 100% bars.
 
-**Segue — exact player copy:** So the water rule needs a filter, but a border tax may raise its price.
+**Segue — exact player copy:** So Owen needs affordable filters, but a border tax could raise the cost of his water plan.
 
 ## K. Quick concept review
 
@@ -10633,7 +10771,7 @@ The catchment map adds the measured damage cost and an accessible report beside 
 
 **Objective:** Decide whether the proposed filter tariff preserves the cheapest compliance option.
 
-**Stakes — exact player copy:** A tax can help local filter sellers. It can also make clean water cost more for everyone who needs the filter.
+**Stakes — exact player copy:** You decide how to compare taxed and untaxed filters. Hidden transfers can make Owen’s protection plan look cheaper than it is.
 
 ### Worth knowing first — exact player copy
 
@@ -10661,6 +10799,8 @@ Gini coefficient: An inequality summary from zero for equality toward one for ma
 **What it is for:** Find the gap met by foreign sellers at the given price.  
 **Symbols:** Quantities are filters per month; price is dollars per filter.  
 **Why this campaign needs it:** Filter prices change what the water protection plan costs.
+
+**Required equation or concept use — authoring/render check:** Stop 49: 100−40=60 imported filters.
 
 **Optional help button:** `WORKED EXAMPLES (5)` — opens five generic worked examples; opening pauses time, changes no bars, unlocks, story state or retrieval bookkeeping, and remains ungraded and reopenable.
 
@@ -11106,27 +11246,27 @@ The untaxed filter quote remains pinned to the compliance plan and the tariff tr
   ],
   "choices": [
     {
-      "label": "A larger share need not mean more income",
-      "mechanism": "The bottom half receives 20% of $1000 = $200 before and 25% of $800 = $200 after. Its share rises while its nominal amount stays unchanged; this distribution record alone cannot establish a welfare gain, especially with dearer filters."
-    },
-    {
-      "label": "The bottom half’s cash income rose",
+      "label": "The bottom half’s cash income rises as its share of income increases",
       "mechanism": "Both products equal $200."
     },
     {
-      "label": "All households have equal incomes",
+      "label": "The bottom half receives half of total income after the share change",
       "mechanism": "The bottom half receives only 25%, not 50%."
     },
     {
-      "label": "The filter price fell after the tariff",
+      "label": "The bottom half buys cheaper filters after the tariff raises domestic output",
       "mechanism": "The price rose from $10 to $12."
+    },
+    {
+      "label": "The bottom half’s share rises, but its unchanged $200 cash total does not establish an income gain",
+      "mechanism": "The bottom half receives 20% of $1000 = $200 before and 25% of $800 = $200 after. Its share rises while its nominal amount stays unchanged; this distribution record alone cannot establish a welfare gain, especially with dearer filters."
     }
   ],
-  "answer": "A larger share need not mean more income",
+  "answer": "The bottom half’s share rises, but its unchanged $200 cash total does not establish an income gain",
   "rebuttals": {
-    "The bottom half’s cash income rose": "Both products equal $200.",
-    "All households have equal incomes": "The bottom half receives only 25%, not 50%.",
-    "The filter price fell after the tariff": "The price rose from $10 to $12."
+    "The bottom half’s cash income rises as its share of income increases": "Both products equal $200.",
+    "The bottom half receives half of total income after the share change": "The bottom half receives only 25%, not 50%.",
+    "The bottom half buys cheaper filters after the tariff raises domestic output": "The price rose from $10 to $12."
   },
   "answerText": "The bottom half receives 20% of $1000 = $200 before and 25% of $800 = $200 after. Its share rises while its nominal amount stays unchanged; this distribution record alone cannot establish a welfare gain, especially with dearer filters."
 }
@@ -11134,7 +11274,7 @@ The untaxed filter quote remains pinned to the compliance plan and the tariff tr
 
 **Question card prompt — exact player copy:** Read every zone and select the one explanation consistent with all observations.
 
-**Correct result:** "A larger share need not mean more income"; exact selection or mapping required.
+**Correct result:** "The bottom half’s share rises, but its unchanged $200 cash total does not establish an income gain"; exact selection or mapping required.
 
 **Answer text:** The bottom half receives 20% of $1000 = $200 before and 25% of $800 = $200 after. Its share rises while its nominal amount stays unchanged; this distribution record alone cannot establish a welfare gain, especially with dearer filters.
 
@@ -11163,7 +11303,7 @@ The untaxed filter quote remains pinned to the compliance plan and the tariff tr
   "derived_values": "The bottom half receives 20% of $1000 = $200 before and 25% of $800 = $200 after. Its share rises while its nominal amount stays unchanged; this distribution record alone cannot establish a welfare gain, especially with dearer filters.",
   "displayed_prediction": "blank until player commit",
   "observed_measurement": null,
-  "correct_result": "A larger share need not mean more income",
+  "correct_result": "The bottom half’s share rises, but its unchanged $200 cash total does not establish an income gain",
   "tolerance": "exact labels/mapping",
   "answer_text_values": "The bottom half receives 20% of $1000 = $200 before and 25% of $800 = $200 after. Its share rises while its nominal amount stays unchanged; this distribution record alone cannot establish a welfare gain, especially with dearer filters.",
   "wrong_feedback_values": [
@@ -11185,7 +11325,7 @@ The untaxed filter quote remains pinned to the compliance plan and the tariff tr
 
 **Briefing decision advanced:** whether the proposed filter tariff preserves the cheapest compliance option.
 
-**Actual mission answer — authoring only:** Keep the untaxed filter option in the comparison and disclose the tariff’s transfers.
+**Actual mission answer — authoring only:** Retain the untaxed option and disclose who gains from the tariff.
 
 **Call — exact player copy:** Go to Civic Advice Office and meet Mara Velez, state economic adviser, at the Town Map.
 
@@ -11205,17 +11345,17 @@ The untaxed filter quote remains pinned to the compliance plan and the tariff tr
 {
   "question": "Select the one recommendation supported by the recorded evidence and the stated decision rule.",
   "choices": [
-    "Keep the untaxed filter option in the comparison and disclose the tariff’s transfers",
-    "Declare the tariff free because government gets revenue",
-    "Award the tariff to domestic sellers without counting buyer losses",
-    "Treat quota receipts as public revenue without an auction rule"
+    "Retain the untaxed option and disclose who gains from the tariff",
+    "Prefer the tariff option and count public receipts as a net social gain",
+    "Prefer the tariff option and count producer gains without buyer losses",
+    "Replace the tariff with a quota and assume the state receives the rents"
   ],
-  "answer": "Keep the untaxed filter option in the comparison and disclose the tariff’s transfers",
+  "answer": "Retain the untaxed option and disclose who gains from the tariff",
   "why": "The tariff raises buyers’ cost and changes production and consumption while transferring some surplus to producers and government. Under the stated least-resource-cost comparison, the cheaper option remains relevant; distributional preferences must be recorded separately rather than hidden inside the cost total. The town keeps both fiscal and resource accounts visible for the final agreement. Revenue is a transfer and does not cancel every resource loss. Producer gains alone do not establish aggregate improvement.",
   "rebuttals": {
-    "Declare the tariff free because government gets revenue": "Revenue is a transfer and does not cancel every resource loss.",
-    "Award the tariff to domestic sellers without counting buyer losses": "Producer gains alone do not establish aggregate improvement.",
-    "Treat quota receipts as public revenue without an auction rule": "Quota rents belong to whoever holds the rights unless an allocation rule says otherwise."
+    "Prefer the tariff option and count public receipts as a net social gain": "Revenue is a transfer and does not cancel every resource loss.",
+    "Prefer the tariff option and count producer gains without buyer losses": "Producer gains alone do not establish aggregate improvement.",
+    "Replace the tariff with a quota and assume the state receives the rents": "Quota rents belong to whoever holds the rights unless an allocation rule says otherwise."
   },
   "answerText": "The tariff raises buyers’ cost and changes production and consumption while transferring some surplus to producers and government. Under the stated least-resource-cost comparison, the cheaper option remains relevant; distributional preferences must be recorded separately rather than hidden inside the cost total."
 }
@@ -11223,7 +11363,7 @@ The untaxed filter quote remains pinned to the compliance plan and the tariff tr
 
 **Question card prompt — exact player copy:** Select the one recommendation supported by the recorded evidence and the stated decision rule.
 
-**Correct result:** "Keep the untaxed filter option in the comparison and disclose the tariff’s transfers"; exact selection or mapping required.
+**Correct result:** "Retain the untaxed option and disclose who gains from the tariff"; exact selection or mapping required.
 
 **Answer text:** The tariff raises buyers’ cost and changes production and consumption while transferring some surplus to producers and government. Under the stated least-resource-cost comparison, the cheaper option remains relevant; distributional preferences must be recorded separately rather than hidden inside the cost total.
 
@@ -11252,7 +11392,7 @@ The untaxed filter quote remains pinned to the compliance plan and the tariff tr
   "derived_values": "The tariff raises buyers’ cost and changes production and consumption while transferring some surplus to producers and government. Under the stated least-resource-cost comparison, the cheaper option remains relevant; distributional preferences must be recorded separately rather than hidden inside the cost total.",
   "displayed_prediction": "blank until player commit",
   "observed_measurement": null,
-  "correct_result": "Keep the untaxed filter option in the comparison and disclose the tariff’s transfers",
+  "correct_result": "Retain the untaxed option and disclose who gains from the tariff",
   "tolerance": "exact labels/mapping",
   "answer_text_values": "The tariff raises buyers’ cost and changes production and consumption while transferring some surplus to producers and government. Under the stated least-resource-cost comparison, the cheaper option remains relevant; distributional preferences must be recorded separately rather than hidden inside the cost total.",
   "wrong_feedback_values": [
@@ -11292,7 +11432,7 @@ The untaxed filter quote remains pinned to the compliance plan and the tariff tr
 
 **Lock/failure result:** Check for zero after the event and restore the mission snapshot if needed; all bars remain unlocked until the final agreement and four 100% bars.
 
-**Segue — exact player copy:** Now the new line looks ready to sign, but its claimed savings need one last check.
+**Segue — exact player copy:** Now Mara can compare filter costs, but the new rail line’s claimed savings still mix transfers with real gains.
 
 ## K. Quick concept review
 
@@ -11476,7 +11616,7 @@ The untaxed filter quote remains pinned to the compliance plan and the tariff tr
 
 **Objective:** Decide whether the second line remains the best plan after correcting the cost comparison.
 
-**Stakes — exact player copy:** The new line could use funds the town needs for homes. A false saving could win the vote and leave those homes unfunded.
+**Stakes — exact player copy:** You decide whether the new line survives the cost test. A false saving can take money promised for homes.
 
 ### Worth knowing first — exact player copy
 
@@ -11499,6 +11639,8 @@ Sunk cost: A cost already incurred that the current choice cannot recover.
 #### Equations first needed today
 
 This mission retrieves the relationships already recorded in the mission log.
+
+**Required equation or concept use — authoring/render check:** No new equation; separate resource use from transfers at Stops 53–55.
 
 **Optional help button:** `WORKED EXAMPLES (5)` — opens five generic worked examples; opening pauses time, changes no bars, unlocks, story state or retrieval bookkeeping, and remains ungraded and reopenable.
 
@@ -12020,7 +12162,7 @@ The new-line ribbon disappears from the public board; the retrofit receives the 
 
 **Briefing decision advanced:** whether the second line remains the best plan after correcting the cost comparison.
 
-**Actual mission answer — authoring only:** Reject the second line’s claimed dominance and retain the access retrofit.
+**Actual mission answer — authoring only:** Retain the retrofit after correcting transfers and testing cost overruns.
 
 **Call — exact player copy:** Go to Civic Advice Office and meet Mara Velez, state economic adviser, at the Town Map.
 
@@ -12040,17 +12182,17 @@ The new-line ribbon disappears from the public board; the retrofit receives the 
 {
   "question": "Select the one recommendation supported by the recorded evidence and the stated decision rule.",
   "choices": [
-    "Reject the second line’s claimed dominance and retain the access retrofit",
-    "Approve the new line because its banner is already printed",
-    "Discard both plans because transfers never matter",
-    "Keep status quo because it avoids every possible risk"
+    "Retain the status quo because its feasible plan must beat any investment",
+    "Retain the retrofit after correcting transfers and testing cost overruns",
+    "Approve the new line after adding lower fees to its resource savings",
+    "Reject the retrofit because transfers change who receives the freight fees"
   ],
-  "answer": "Reject the second line’s claimed dominance and retain the access retrofit",
-  "why": "Correcting the resource ledger and applying the previously adopted stress rule removes the new line’s claimed dominance. Transfers still matter to affected people and must receive a distribution plan, but they cannot rescue an infeasible design by being counted twice. The final hearing can now choose an agreement whose claims use one consistent accounting boundary. A printed banner is not evidence about resource use or feasibility. Transfers matter to distribution even when excluded from net-resource totals.",
+  "answer": "Retain the retrofit after correcting transfers and testing cost overruns",
+  "why": "Correcting the resource ledger and applying the previously adopted stress rule removes the new line’s claimed dominance. Transfers still matter to affected people and must receive a distribution plan, but they cannot rescue an infeasible design by being counted twice. The final hearing can now choose an agreement whose claims use one consistent accounting boundary. Lower local fees are transfers, already separated from the $60 resource saving; adding them counts a gain twice. Transfers matter to distribution even when excluded from net-resource totals.",
   "rebuttals": {
-    "Approve the new line because its banner is already printed": "A printed banner is not evidence about resource use or feasibility.",
-    "Discard both plans because transfers never matter": "Transfers matter to distribution even when excluded from net-resource totals.",
-    "Keep status quo because it avoids every possible risk": "The retrofit survives the stated range and offers a larger benefit."
+    "Approve the new line after adding lower fees to its resource savings": "Lower local fees are transfers, already separated from the $60 resource saving; adding them counts a gain twice.",
+    "Reject the retrofit because transfers change who receives the freight fees": "Transfers matter to distribution even when excluded from net-resource totals.",
+    "Retain the status quo because its feasible plan must beat any investment": "The retrofit survives the stated range and offers a larger benefit."
   },
   "answerText": "Correcting the resource ledger and applying the previously adopted stress rule removes the new line’s claimed dominance. Transfers still matter to affected people and must receive a distribution plan, but they cannot rescue an infeasible design by being counted twice."
 }
@@ -12058,15 +12200,15 @@ The new-line ribbon disappears from the public board; the retrofit receives the 
 
 **Question card prompt — exact player copy:** Select the one recommendation supported by the recorded evidence and the stated decision rule.
 
-**Correct result:** "Reject the second line’s claimed dominance and retain the access retrofit"; exact selection or mapping required.
+**Correct result:** "Retain the retrofit after correcting transfers and testing cost overruns"; exact selection or mapping required.
 
 **Answer text:** Correcting the resource ledger and applying the previously adopted stress rule removes the new line’s claimed dominance. Transfers still matter to affected people and must receive a distribution plan, but they cannot rescue an infeasible design by being counted twice.
 
-**Why/mechanism:** Correcting the resource ledger and applying the previously adopted stress rule removes the new line’s claimed dominance. Transfers still matter to affected people and must receive a distribution plan, but they cannot rescue an infeasible design by being counted twice. The final hearing can now choose an agreement whose claims use one consistent accounting boundary. A printed banner is not evidence about resource use or feasibility. Transfers matter to distribution even when excluded from net-resource totals.
+**Why/mechanism:** Correcting the resource ledger and applying the previously adopted stress rule removes the new line’s claimed dominance. Transfers still matter to affected people and must receive a distribution plan, but they cannot rescue an infeasible design by being counted twice. The final hearing can now choose an agreement whose claims use one consistent accounting boundary. Lower local fees are transfers, already separated from the $60 resource saving; adding them counts a gain twice. Transfers matter to distribution even when excluded from net-resource totals.
 
 **Misconception / wrong-path feedback:**
 
-- A printed banner is not evidence about resource use or feasibility. Reopen the unchanged board, inspect the cited evidence, then commit a revised answer.
+- Lower local fees are transfers, already separated from the $60 resource saving; adding them counts a gain twice. Reopen the unchanged board, inspect the cited evidence, then commit a revised answer.
 
 - Transfers matter to distribution even when excluded from net-resource totals. Reopen the unchanged board, inspect the cited evidence, then commit a revised answer.
 
@@ -12087,11 +12229,11 @@ The new-line ribbon disappears from the public board; the retrofit receives the 
   "derived_values": "Correcting the resource ledger and applying the previously adopted stress rule removes the new line’s claimed dominance. Transfers still matter to affected people and must receive a distribution plan, but they cannot rescue an infeasible design by being counted twice.",
   "displayed_prediction": "blank until player commit",
   "observed_measurement": null,
-  "correct_result": "Reject the second line’s claimed dominance and retain the access retrofit",
+  "correct_result": "Retain the retrofit after correcting transfers and testing cost overruns",
   "tolerance": "exact labels/mapping",
   "answer_text_values": "Correcting the resource ledger and applying the previously adopted stress rule removes the new line’s claimed dominance. Transfers still matter to affected people and must receive a distribution plan, but they cannot rescue an infeasible design by being counted twice.",
   "wrong_feedback_values": [
-    "A printed banner is not evidence about resource use or feasibility.",
+    "Lower local fees are transfers, already separated from the $60 resource saving; adding them counts a gain twice.",
     "Transfers matter to distribution even when excluded from net-resource totals.",
     "The retrofit survives the stated range and offers a larger benefit."
   ],
@@ -12127,7 +12269,7 @@ The new-line ribbon disappears from the public board; the retrofit receives the 
 
 **Lock/failure result:** Check for zero after the event and restore the mission snapshot if needed; all bars remain unlocked until the final agreement and four 100% bars.
 
-**Segue — exact player copy:** But the gate upgrade still needs real funds and people bound to keep its terms.
+**Segue — exact player copy:** But Leila needs confirmed housing funds before signing; the retrofit’s better cost test is not a funded agreement.
 
 ## K. Quick concept review
 
@@ -12311,7 +12453,7 @@ The new-line ribbon disappears from the public board; the retrofit receives the 
 
 **Objective:** Decide which complete agreement the council can sign under its published rules.
 
-**Stakes — exact player copy:** A signed promise still needs money and an owner. The town must see who gains, who pays and who still needs help.
+**Stakes — exact player copy:** You decide which funded agreement to sign. The town needs named owners for access, housing and water protection.
 
 ### Worth knowing first — exact player copy
 
@@ -12330,6 +12472,8 @@ Feasible plan: A plan that meets all stated constraints with available resources
 #### Equations first needed today
 
 This mission retrieves the relationships already recorded in the mission log.
+
+**Required equation or concept use — authoring/render check:** No new equation; retrieve funding addition at Stop 57 and the social-cost target at Stop 59.
 
 **Optional help button:** `WORKED EXAMPLES (5)` — opens five generic worked examples; opening pauses time, changes no bars, unlocks, story state or retrieval bookkeeping, and remains ungraded and reopenable.
 
@@ -12836,7 +12980,7 @@ The public board holds the unsigned final agreement; lease support and water-rev
 
 **Briefing decision advanced:** which complete agreement the council can sign under its published rules.
 
-**Actual mission answer — authoring only:** Sign the access retrofit with funded housing support and the water-cost rule.
+**Actual mission answer — authoring only:** Sign the retrofit with funded housing and the water-cost rule.
 
 **Call — exact player copy:** Go to Civic Advice Office and meet Mara Velez, state economic adviser, at the Town Map.
 
@@ -12856,17 +13000,17 @@ The public board holds the unsigned final agreement; lease support and water-rev
 {
   "question": "Select the one recommendation supported by the recorded evidence and the stated decision rule.",
   "choices": [
-    "Sign the access retrofit with funded housing support and the water-cost rule",
-    "Sign the new line while relying on an unconfirmed grant",
-    "Sign access only and drop the water-cost rule",
-    "Keep the current monopoly and call the housing cap sufficient"
+    "Sign the retrofit with housing but omit the measured water-cost charge",
+    "Retain the monopoly with the rent cap as the entire housing access plan",
+    "Sign the retrofit with funded housing and the water-cost rule",
+    "Sign the new line with housing funded by the pending grant application"
   ],
-  "answer": "Sign the access retrofit with funded housing support and the water-cost rule",
+  "answer": "Sign the retrofit with funded housing and the water-cost rule",
   "why": "The retrofit bundle meets the adopted feasibility, funding, access, environmental and accountability conditions together. Its superiority is conditional on those explicit rules and evidence; the decision does not claim every resident gains or that the same intervention fits every town. The council can sign a complete agreement while publishing who pays, who benefits and what would trigger review. The new line fails the stress condition and its grant is unconfirmed.",
   "rebuttals": {
-    "Sign the new line while relying on an unconfirmed grant": "The new line fails the stress condition and its grant is unconfirmed.",
-    "Sign access only and drop the water-cost rule": "Removing the water rule recreates the unpriced external cost.",
-    "Keep the current monopoly and call the housing cap sufficient": "The cap leaves applicants unmatched and monopoly access remains unresolved."
+    "Sign the new line with housing funded by the pending grant application": "The new line fails the stress condition and its grant is unconfirmed.",
+    "Sign the retrofit with housing but omit the measured water-cost charge": "Removing the water rule recreates the unpriced external cost.",
+    "Retain the monopoly with the rent cap as the entire housing access plan": "The cap leaves applicants unmatched and monopoly access remains unresolved."
   },
   "answerText": "The retrofit bundle meets the adopted feasibility, funding, access, environmental and accountability conditions together. Its superiority is conditional on those explicit rules and evidence; the decision does not claim every resident gains or that the same intervention fits every town."
 }
@@ -12874,7 +13018,7 @@ The public board holds the unsigned final agreement; lease support and water-rev
 
 **Question card prompt — exact player copy:** Select the one recommendation supported by the recorded evidence and the stated decision rule.
 
-**Correct result:** "Sign the access retrofit with funded housing support and the water-cost rule"; exact selection or mapping required.
+**Correct result:** "Sign the retrofit with funded housing and the water-cost rule"; exact selection or mapping required.
 
 **Answer text:** The retrofit bundle meets the adopted feasibility, funding, access, environmental and accountability conditions together. Its superiority is conditional on those explicit rules and evidence; the decision does not claim every resident gains or that the same intervention fits every town.
 
@@ -12903,7 +13047,7 @@ The public board holds the unsigned final agreement; lease support and water-rev
   "derived_values": "The retrofit bundle meets the adopted feasibility, funding, access, environmental and accountability conditions together. Its superiority is conditional on those explicit rules and evidence; the decision does not claim every resident gains or that the same intervention fits every town.",
   "displayed_prediction": "blank until player commit",
   "observed_measurement": null,
-  "correct_result": "Sign the access retrofit with funded housing support and the water-cost rule",
+  "correct_result": "Sign the retrofit with funded housing and the water-cost rule",
   "tolerance": "exact labels/mapping",
   "answer_text_values": "The retrofit bundle meets the adopted feasibility, funding, access, environmental and accountability conditions together. Its superiority is conditional on those explicit rules and evidence; the decision does not claim every resident gains or that the same intervention fits every town.",
   "wrong_feedback_values": [
@@ -12943,7 +13087,7 @@ The public board holds the unsigned final agreement; lease support and water-rev
 
 **Lock/failure result:** Check for zero after the event and restore the mission snapshot if needed; all bars remain unlocked until the final agreement and four 100% bars. After this allocation, when all four bars equal 100 and Stop 60 is passed, Mara Velez signs the council-authorized agreement, the public board changes to SIGNED, all bars lock, and the rent-support and water-review notices are posted; return to free exploration with no further quiz.
 
-**Segue — exact player copy:** Yet the signed plan cannot house every new arrival; the town must keep counting who is left out.
+**Segue — exact player copy:** Yet Leila still has unmatched housing requests; the signed agreement must keep those people in its review.
 
 ## K. Quick concept review
 

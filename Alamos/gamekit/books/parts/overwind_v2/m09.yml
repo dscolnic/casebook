@@ -19,7 +19,7 @@
   - {name: "Oscillation", def: "repeated motion about an equilibrium position."}
   - {name: "Effective mass", def: "the mass assigned to a simplified motion model to represent distributed moving material."}
   equations:
-  - {"e":"m_eff x″ + kx = 0; ω = √(k/m_eff); Tperiod = 2π/ω","c":"elasticity and simple harmonic motion in the measured system.","v":[["m_eff","effective moving mass in kilograms"],["x","upward displacement from the fixed-support equilibrium in metres"],["x″","second time derivative"],["k","restoring stiffness in newtons per metre"],["ω","angular frequency"],["Tperiod","oscillation period in seconds"]],"s":"Can a drum stop time alone predict when the cage stops?"}
+  - {"e":"ω = √(k/m_eff); Tperiod = 2π/ω","c":"elasticity and simple harmonic motion in the measured system.","v":[["m_eff","effective moving mass in kilograms"],["k","restoring stiffness in newtons per metre"],["ω","angular frequency in radians per second"],["Tperiod","oscillation period in seconds"],["π","the circle constant"]],"s":"Can a drum stop time alone predict when the cage stops?"}
   primer:
   - "Name the body, positive direction and quantity before using a relation."
   - "Compare a result only with the condition and range that its record actually covers."

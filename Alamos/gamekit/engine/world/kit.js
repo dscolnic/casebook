@@ -16,6 +16,11 @@
 import * as THREE from 'three';
 import { canvasTex, mat, srand, srandRange } from './materials.js';
 
+// SHARED. Every `box()` in every scene is this one geometry, scaled per mesh.
+// So `mesh.geometry.translate(...)` on a kit box moves EVERY box in the world by
+// that much times its own scale — a 3 m shift on a barrier arm put Boomtown's
+// icehouse nineteen metres east, into the pond. Clone before you translate:
+// `m.geometry = m.geometry.clone().translate(...)`.
 const BOX = new THREE.BoxGeometry(1, 1, 1);
 const CYL = new THREE.CylinderGeometry(1, 1, 1, 12);
 

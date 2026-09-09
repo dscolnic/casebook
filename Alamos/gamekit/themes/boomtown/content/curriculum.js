@@ -96,9 +96,9 @@ export const CURRICULUM = {
         "answer": "Both price and traded quantity rose, and orders at the unchanged price increased while input cost stayed fixed. These readings support a rightward demand shift; a supply contraction alone predicts less output.",
         "why": "Both price and traded quantity rose, and orders at the unchanged price increased while input cost stayed fixed. These readings support a rightward demand shift; a supply contraction alone predicts less output. The quiet cost reading rules out a tempting accusation. Input cost is unchanged, contradicting the proposed cost shock. Lower productivity would constrain supply and reduce quantity, unlike the sales record. Fewer buyers contradicts the 90 orders at the old price.",
         "rebuttals": [
+          "Fewer buyers contradicts the 90 orders at the old price.",
           "Input cost is unchanged, contradicting the proposed cost shock.",
-          "Lower productivity would constrain supply and reduce quantity, unlike the sales record.",
-          "Fewer buyers contradicts the 90 orders at the old price."
+          "Lower productivity would constrain supply and reduce quantity, unlike the sales record."
         ],
         "headline": "Read the lunch record",
         "readings": [
@@ -128,10 +128,10 @@ export const CURRICULUM = {
           }
         ],
         "choices": [
+          "Fewer buyers at each price",
           "More buyers at each price",
           "Higher cooking input costs",
-          "Fewer meals from each cook",
-          "Fewer buyers at each price"
+          "Fewer meals from each cook"
         ],
         "correctChoice": "More buyers at each price"
       },
@@ -162,17 +162,17 @@ export const CURRICULUM = {
         "answer": "Higher orders at the same old price identify a demand shift, not movement along an unchanged curve. The price and sales increase agree with that diagnosis while the quiet cost record weakens a supply explanation.",
         "why": "Higher orders at the same old price identify a demand shift, not movement along an unchanged curve. The price and sales increase agree with that diagnosis while the quiet cost record weakens a supply explanation. A documented cause lets the town respond to capacity rather than blame without evidence. A supply contraction predicts lower traded quantity with demand fixed. The old-price order comparison proves demand itself changed. The paid price rose rather than fell.",
         "rebuttals": [
-          "A supply contraction predicts lower traded quantity with demand fixed.",
           "The old-price order comparison proves demand itself changed.",
-          "The paid price rose rather than fell."
+          "The paid price rose rather than fell.",
+          "A supply contraction predicts lower traded quantity with demand fixed."
         ],
         "choices": [
-          "Record higher demand as the cause of the lunch price rise",
-          "Record falling supply as the sole cause",
-          "Record a movement along unchanged demand only",
-          "Record a demand fall and a price fall"
+          "Record unchanged demand, since higher prices explain the rise in orders",
+          "Record lower demand, since more residents divide a fixed food budget",
+          "Record higher demand, since orders rose at the unchanged price",
+          "Record lower supply, since higher prices must reflect higher input costs"
         ],
-        "correctChoice": "Record higher demand as the cause of the lunch price rise"
+        "correctChoice": "Record higher demand, since orders rose at the unchanged price"
       },
       "concept": {
         "n": 4,
@@ -327,19 +327,19 @@ export const CURRICULUM = {
         "task": "Select the one recommendation supported by the recorded evidence and the stated decision rule.",
         "question": "Select the one recommendation supported by the recorded evidence and the stated decision rule.",
         "answer": "The higher payment per occupied room is outweighed by fewer occupied rooms. The archive gives an elastic response and a $100 revenue loss, supporting reversal of this particular price experiment without asserting anything about legality.",
-        "why": "The higher payment per occupied room is outweighed by fewer occupied rooms. The archive gives an elastic response and a $100 revenue loss, supporting reversal of this particular price experiment without asserting anything about legality. Vacant beds can reopen without pretending every landlord faces identical demand. Per-room receipts ignore the four lost bookings. The measured elasticity exceeds one, contradicting inelastic demand. No legal rule is given; the economic comparison alone supports the decision.",
+        "why": "The higher payment per occupied room is outweighed by fewer occupied rooms. The archive gives an elastic response and a $100 revenue loss, supporting reversal of this particular price experiment without asserting anything about legality. Vacant beds can reopen without pretending every landlord faces identical demand. Per-room receipts ignore the four lost bookings. The measured elasticity exceeds one, contradicting inelastic demand. Fewer bookings after the room's own price rises can be movement along demand; no separate demand shift is shown.",
         "rebuttals": [
           "Per-room receipts ignore the four lost bookings.",
           "The measured elasticity exceeds one, contradicting inelastic demand.",
-          "No legal rule is given; the economic comparison alone supports the decision."
+          "Fewer bookings after the room’s own price rises can be movement along demand; no separate demand shift is shown."
         ],
         "choices": [
-          "Reject the tested rent increase because room revenue falls",
-          "Keep the increase because each occupied room pays more",
-          "Keep the increase because demand must be inelastic",
-          "Reject the increase because every high price is illegal"
+          "Retain the rent rise, since each occupied room pays more",
+          "Retain the rent rise, since room demand is price inelastic",
+          "Reverse the rent rise, since fewer bookings imply falling demand",
+          "Reverse the tested rent rise, since lost bookings outweigh the higher payment per occupied room"
         ],
-        "correctChoice": "Reject the tested rent increase because room revenue falls"
+        "correctChoice": "Reverse the tested rent rise, since lost bookings outweigh the higher payment per occupied room"
       },
       "concept": {
         "n": 5,
@@ -576,12 +576,12 @@ export const CURRICULUM = {
           "The lease is a cost; it is simply unchanged by today’s shutdown choice."
         ],
         "choices": [
-          "Keep the supplier operating this month while reviewing long-run exit",
-          "Shut immediately because any economic loss requires closure",
-          "Keep operating forever because revenue is positive",
-          "Treat the unavoidable lease as zero economic cost"
+          "Operate this month and review exit when the lease expires",
+          "Close this month because revenue fails to cover total economic cost",
+          "Operate after lease renewal because current sales revenue remains positive",
+          "Exclude the lease from total cost because it cannot be avoided now"
         ],
-        "correctChoice": "Keep the supplier operating this month while reviewing long-run exit"
+        "correctChoice": "Operate this month and review exit when the lease expires"
       },
       "concept": {
         "n": 11,
@@ -608,9 +608,9 @@ export const CURRICULUM = {
         "task": "Read every zone and select the one explanation consistent with all observations.",
         "question": "Read every zone and select the one explanation consistent with all observations.",
         "answer": "The dispatch count agrees with demand at the charged price, and usable capacity exceeds it. With unchanged marginal cost, the supplied monopoly model explains the low output without a breakdown; this does not claim every unused slot in reality proves monopoly abuse.",
-        "why": "The dispatch count agrees with demand at the charged price, and usable capacity exceeds it. With unchanged marginal cost, the supplied monopoly model explains the low output without a breakdown; this does not claim every unused slot in reality proves monopoly abuse. The capacity reading changes the meaning of the queue photographs planted earlier. All 50 slots are reported usable. Marginal cost is $20, below $60. Demand at $60 is 20, not 50.",
+        "why": "The dispatch count agrees with demand at the charged price, and usable capacity exceeds it. With unchanged marginal cost, the supplied monopoly model explains the low output without a breakdown; this does not claim every unused slot in reality proves monopoly abuse. The capacity reading changes the meaning of the queue photographs planted earlier. All 50 slots are reported usable, so mechanical loss does not explain the booking limit. Marginal cost is $20, below $60. Demand at $60 is 20, not 50.",
         "rebuttals": [
-          "All 50 slots are reported usable.",
+          "All 50 slots are reported usable, so mechanical loss does not explain the booking limit.",
           "Marginal cost is $20, below $60.",
           "Demand at $60 is 20, not 50."
         ],
@@ -642,12 +642,12 @@ export const CURRICULUM = {
           }
         ],
         "choices": [
-          "Pricing restricts the booked quantity",
-          "A fifty-slot mechanical breakdown",
-          "Marginal cost rose above price",
-          "Demand requires every slot at $60"
+          "Mechanical slot failures limit supply below the terminal’s design capacity",
+          "Marginal operating cost exceeds price and prevents profitable slot use",
+          "Demand at the charged price requires all fifty usable slots",
+          "The charged price limits demand below the usable slot capacity"
         ],
-        "correctChoice": "Pricing restricts the booked quantity"
+        "correctChoice": "The charged price limits demand below the usable slot capacity"
       },
       "concept": {
         "n": 16,
@@ -682,12 +682,12 @@ export const CURRICULUM = {
           "At the chosen output, price is 60 while marginal revenue is 20."
         ],
         "choices": [
-          "Record market power as part of the freight shortage",
-          "Certify that all 50 slots are physically full",
-          "Demand a $20 price without examining fixed costs",
-          "Say monopoly price equals marginal revenue"
+          "Record market power as a cause of restricted freight bookings",
+          "Record full physical capacity as the cause of restricted freight bookings",
+          "Require marginal-cost pricing without identifying funds for the fixed bill",
+          "Use marginal revenue as the price that terminal customers should pay"
         ],
-        "correctChoice": "Record market power as part of the freight shortage"
+        "correctChoice": "Record market power as a cause of restricted freight bookings"
       },
       "concept": {
         "n": 16,
@@ -773,17 +773,17 @@ export const CURRICULUM = {
         "answer": "The stable prediction follows each firm's incentives, not their joint total. Both expanding is worse for both firms than mutual restriction, but neither wants to remain restricted while the other expands under the stated one-shot conditions.",
         "why": "The stable prediction follows each firm's incentives, not their joint total. Both expanding is worse for both firms than mutual restriction, but neither wants to remain restricted while the other expands under the stated one-shot conditions. The town must not budget service on an unstable private promise. Each firm can increase its own profit by leaving mutual restriction. The incentives are symmetric for B. A Nash equilibrium concerns unilateral deviations, not collective maximization.",
         "rebuttals": [
+          "A Nash equilibrium concerns unilateral deviations, not collective maximization.",
           "Each firm can increase its own profit by leaving mutual restriction.",
-          "The incentives are symmetric for B.",
-          "A Nash equilibrium concerns unilateral deviations, not collective maximization."
+          "The incentives are symmetric for B."
         ],
         "choices": [
-          "Expect both firms to expand under the one-shot payoff table",
-          "Guarantee the pact because joint profit is higher",
-          "Predict only A expands despite symmetric incentives",
-          "Claim Nash equilibrium maximizes joint profit"
+          "Predict either joint-profit maximum as the Nash equilibrium outcome",
+          "Predict both firms expand, since each gains by expanding against either choice by its rival",
+          "Predict both firms restrict using their combined profit advantage",
+          "Predict only A expands using the same incentives for both firms"
         ],
-        "correctChoice": "Expect both firms to expand under the one-shot payoff table"
+        "correctChoice": "Predict both firms expand, since each gains by expanding against either choice by its rival"
       },
       "concept": {
         "n": 17,
@@ -868,17 +868,17 @@ export const CURRICULUM = {
         "answer": "The efficient quantity equates social benefit and social cost at 30. Competition can remove a markup while leaving an external cost, so replacing market power does not by itself settle the environmental problem or how to provide shared services.",
         "why": "The efficient quantity equates social benefit and social cost at 30. Competition can remove a markup while leaving an external cost, so replacing market power does not by itself settle the environmental problem or how to provide shared services. The freight agreement now needs both access and a water-cost rule. The 40-unit benchmark omitted $20 marginal external harm. The coincidence of lower output does not prove the monopoly selects the social optimum.",
         "rebuttals": [
-          "The 40-unit benchmark omitted $20 marginal external harm.",
           "The coincidence of lower output does not prove the monopoly selects the social optimum.",
-          "Free riding explains underfunding pressure; it does not prove provision should be zero or that only government can provide."
+          "Some harm does not justify zero output when marginal benefit exceeds social cost below 30 units.",
+          "The 40-unit benchmark omitted $20 marginal external harm."
         ],
         "choices": [
-          "Use 30 freight units as the corrected efficiency target in the stated model",
-          "Use 40 because competition always removes every inefficiency",
-          "Use 20 because any pollution means monopoly is efficient",
-          "Reject all public-good provision because some users free ride"
+          "Target 20 units, where marginal revenue equals private marginal cost",
+          "Target zero units, because each shipment imposes some external harm",
+          "Target 30 units, where social benefit equals social cost",
+          "Target 40 units, where social benefit equals private marginal cost"
         ],
-        "correctChoice": "Use 30 freight units as the corrected efficiency target in the stated model"
+        "correctChoice": "Target 30 units, where social benefit equals social cost"
       },
       "concept": {
         "n": 18,
@@ -939,12 +939,12 @@ export const CURRICULUM = {
           }
         ],
         "choices": [
-          "A larger share need not mean more income",
-          "The bottom half’s cash income rose",
-          "All households have equal incomes",
-          "The filter price fell after the tariff"
+          "The bottom half’s cash income rises as its share of income increases",
+          "The bottom half receives half of total income after the share change",
+          "The bottom half buys cheaper filters after the tariff raises domestic output",
+          "The bottom half’s share rises, but its unchanged $200 cash total does not establish an income gain"
         ],
-        "correctChoice": "A larger share need not mean more income"
+        "correctChoice": "The bottom half’s share rises, but its unchanged $200 cash total does not establish an income gain"
       },
       "concept": {
         "n": 20,
@@ -979,12 +979,12 @@ export const CURRICULUM = {
           "Quota rents belong to whoever holds the rights unless an allocation rule says otherwise."
         ],
         "choices": [
-          "Keep the untaxed filter option in the comparison and disclose the tariff’s transfers",
-          "Declare the tariff free because government gets revenue",
-          "Award the tariff to domestic sellers without counting buyer losses",
-          "Treat quota receipts as public revenue without an auction rule"
+          "Retain the untaxed option and disclose who gains from the tariff",
+          "Prefer the tariff option and count public receipts as a net social gain",
+          "Prefer the tariff option and count producer gains without buyer losses",
+          "Replace the tariff with a quota and assume the state receives the rents"
         ],
-        "correctChoice": "Keep the untaxed filter option in the comparison and disclose the tariff’s transfers"
+        "correctChoice": "Retain the untaxed option and disclose who gains from the tariff"
       },
       "concept": {
         "n": 20,
@@ -1099,19 +1099,19 @@ export const CURRICULUM = {
         "task": "Select the one recommendation supported by the recorded evidence and the stated decision rule.",
         "question": "Select the one recommendation supported by the recorded evidence and the stated decision rule.",
         "answer": "Correcting the resource ledger and applying the previously adopted stress rule removes the new line's claimed dominance. Transfers still matter to affected people and must receive a distribution plan, but they cannot rescue an infeasible design by being counted twice.",
-        "why": "Correcting the resource ledger and applying the previously adopted stress rule removes the new line's claimed dominance. Transfers still matter to affected people and must receive a distribution plan, but they cannot rescue an infeasible design by being counted twice. The final hearing can now choose an agreement whose claims use one consistent accounting boundary. A printed banner is not evidence about resource use or feasibility. Transfers matter to distribution even when excluded from net-resource totals.",
+        "why": "Correcting the resource ledger and applying the previously adopted stress rule removes the new line's claimed dominance. Transfers still matter to affected people and must receive a distribution plan, but they cannot rescue an infeasible design by being counted twice. The final hearing can now choose an agreement whose claims use one consistent accounting boundary. Lower local fees are transfers, already separated from the $60 resource saving; adding them counts a gain twice. Transfers matter to distribution even when excluded from net-resource totals.",
         "rebuttals": [
-          "A printed banner is not evidence about resource use or feasibility.",
-          "Transfers matter to distribution even when excluded from net-resource totals.",
-          "The retrofit survives the stated range and offers a larger benefit."
+          "The retrofit survives the stated range and offers a larger benefit.",
+          "Lower local fees are transfers, already separated from the $60 resource saving; adding them counts a gain twice.",
+          "Transfers matter to distribution even when excluded from net-resource totals."
         ],
         "choices": [
-          "Reject the second line’s claimed dominance and retain the access retrofit",
-          "Approve the new line because its banner is already printed",
-          "Discard both plans because transfers never matter",
-          "Keep status quo because it avoids every possible risk"
+          "Retain the status quo because its feasible plan must beat any investment",
+          "Retain the retrofit after correcting transfers and testing cost overruns",
+          "Approve the new line after adding lower fees to its resource savings",
+          "Reject the retrofit because transfers change who receives the freight fees"
         ],
-        "correctChoice": "Reject the second line’s claimed dominance and retain the access retrofit"
+        "correctChoice": "Retain the retrofit after correcting transfers and testing cost overruns"
       },
       "concept": {
         "n": 21,
@@ -1197,17 +1197,17 @@ export const CURRICULUM = {
         "answer": "The retrofit bundle meets the adopted feasibility, funding, access, environmental and accountability conditions together. Its superiority is conditional on those explicit rules and evidence; the decision does not claim every resident gains or that the same intervention fits every town.",
         "why": "The retrofit bundle meets the adopted feasibility, funding, access, environmental and accountability conditions together. Its superiority is conditional on those explicit rules and evidence; the decision does not claim every resident gains or that the same intervention fits every town. The council can sign a complete agreement while publishing who pays, who benefits and what would trigger review. The new line fails the stress condition and its grant is unconfirmed.",
         "rebuttals": [
-          "The new line fails the stress condition and its grant is unconfirmed.",
           "Removing the water rule recreates the unpriced external cost.",
-          "The cap leaves applicants unmatched and monopoly access remains unresolved."
+          "The cap leaves applicants unmatched and monopoly access remains unresolved.",
+          "The new line fails the stress condition and its grant is unconfirmed."
         ],
         "choices": [
-          "Sign the access retrofit with funded housing support and the water-cost rule",
-          "Sign the new line while relying on an unconfirmed grant",
-          "Sign access only and drop the water-cost rule",
-          "Keep the current monopoly and call the housing cap sufficient"
+          "Sign the retrofit with housing but omit the measured water-cost charge",
+          "Retain the monopoly with the rent cap as the entire housing access plan",
+          "Sign the retrofit with funded housing and the water-cost rule",
+          "Sign the new line with housing funded by the pending grant application"
         ],
-        "correctChoice": "Sign the access retrofit with funded housing support and the water-cost rule"
+        "correctChoice": "Sign the retrofit with funded housing and the water-cost rule"
       },
       "concept": {
         "n": 21,
@@ -1369,12 +1369,12 @@ export const CURRICULUM = {
           "That discards the diner’s lower-cost meal production and leaves food unmade."
         ],
         "choices": [
-          "Trade two meal boxes for one repair hour",
-          "Pay four meal boxes for one repair hour",
-          "Reject trade because repair productivity is tied",
-          "Assign both teams only to diner repairs"
+          "Trade two boxes per repair hour, below the diner’s cost and above the crew’s cost",
+          "Trade at four boxes per hour, above both internal costs",
+          "Reject any trade, since both teams have equal repair productivity",
+          "Assign both teams to repairs, since the broken bench limits meals"
         ],
-        "correctChoice": "Trade two meal boxes for one repair hour"
+        "correctChoice": "Trade two boxes per repair hour, below the diner’s cost and above the crew’s cost"
       },
       "concept": {
         "n": 2,
@@ -1538,12 +1538,12 @@ export const CURRICULUM = {
           "Positive average output says nothing about the fifth worker’s marginal net gain."
         ],
         "choices": [
-          "Hire the fourth cook but not the fifth at the stated wage",
-          "Hire both because total output keeps rising",
-          "Hire neither because the lease is expensive",
-          "Hire the fifth because average output is positive"
+          "Hire the fourth cook only, since the fifth reduces profit",
+          "Hire both extra cooks, since each adds to total lunch output",
+          "Hire neither extra cook, since the fixed lease must be paid first",
+          "Hire the fifth cook too, since average output remains above zero"
         ],
-        "correctChoice": "Hire the fourth cook but not the fifth at the stated wage"
+        "correctChoice": "Hire the fourth cook only, since the fifth reduces profit"
       },
       "concept": {
         "n": 14,
@@ -1626,19 +1626,19 @@ export const CURRICULUM = {
         "task": "Select the one recommendation supported by the recorded evidence and the stated decision rule.",
         "question": "Select the one recommendation supported by the recorded evidence and the stated decision rule.",
         "answer": "Under the council's stated funding choice, $120 covers the measure. The adviser must also disclose $40 in lost gains and the buyer-heavy burden; those facts do not themselves establish whether redistribution is morally desirable.",
-        "why": "Under the council's stated funding choice, $120 covers the measure. The adviser must also disclose $40 in lost gains and the buyer-heavy burden; those facts do not themselves establish whether redistribution is morally desirable. The council owns the distribution choice while the player certifies the calculation. The post-tax quantity is 30, not 50. Buyers bear most of the measured burden despite seller remittance. Thirty deliveries remain and generate the stated receipts.",
+        "why": "Under the council's stated funding choice, $120 covers the measure. The adviser must also disclose $40 in lost gains and the buyer-heavy burden; those facts do not themselves establish whether redistribution is morally desirable. The council owns the distribution choice while the player certifies the calculation. The post-tax quantity is 30, not 50. Buyers bear most of the measured burden despite seller remittance. Tax receipts transfer money to the state; they are not an extra net social gain that erases the $40 deadweight loss.",
         "rebuttals": [
           "The post-tax quantity is 30, not 50.",
           "Buyers bear most of the measured burden despite seller remittance.",
-          "Thirty deliveries remain and generate the stated receipts."
+          "Tax receipts transfer money to the state; they are not an extra net social gain that erases the $40 deadweight loss."
         ],
         "choices": [
-          "Use the fee’s $120 revenue estimate and acknowledge its $40 efficiency cost",
-          "Budget $200 because pre-tax sales were higher",
-          "Claim the fee has no cost because sellers remit it",
-          "Reject the revenue estimate because every tax destroys all trade"
+          "Budget $200 in receipts and use the original volume of sales",
+          "Budget $120 in receipts and assign the whole burden to sellers",
+          "Budget $120 in receipts and count the receipts as net social gain",
+          "Budget $120 in receipts and report $40 in lost gains"
         ],
-        "correctChoice": "Use the fee’s $120 revenue estimate and acknowledge its $40 efficiency cost"
+        "correctChoice": "Budget $120 in receipts and report $40 in lost gains"
       },
       "concept": {
         "n": 9,
@@ -1872,17 +1872,17 @@ export const CURRICULUM = {
         "answer": "The specified wage floor raises pay and employment in this monopsony example by changing the marginal hiring-cost schedule. This is a model-dependent result, not a claim that every floor or every labor market behaves the same way.",
         "why": "The specified wage floor raises pay and employment in this monopsony example by changing the marginal hiring-cost schedule. This is a model-dependent result, not a claim that every floor or every labor market behaves the same way. The worker agreement gains support from evidence rather than a blanket claim about regulation. The trial and schedules show four jobs instead of three. A floor above enough workers' MRP can reduce hiring.",
         "rebuttals": [
-          "The trial and schedules show four jobs instead of three.",
           "A floor above enough workers’ MRP can reduce hiring.",
-          "One buyer faces rising supply and marginal hiring cost above wage."
+          "One buyer faces rising supply and marginal hiring cost above wage.",
+          "The trial and schedules show four jobs instead of three."
         ],
         "choices": [
-          "Support the $30 wage floor under the stated monopsony model",
-          "Reject it because wage floors always reduce employment",
-          "Claim any higher wage floor must also add jobs",
-          "Call the original labor market perfectly competitive"
+          "Support every higher floor using this rise in jobs",
+          "Treat the original wage as the competitive labor-market wage",
+          "Support the tested $30 wage floor, since this monopsony model predicts more jobs at that wage",
+          "Reject the $30 floor using the competitive labor-market prediction"
         ],
-        "correctChoice": "Support the $30 wage floor under the stated monopsony model"
+        "correctChoice": "Support the tested $30 wage floor, since this monopsony model predicts more jobs at that wage"
       },
       "concept": {
         "n": 15,
@@ -2171,11 +2171,11 @@ export const CURRICULUM = {
         "task": "Read every zone and select the one explanation consistent with all observations.",
         "question": "Read every zone and select the one explanation consistent with all observations.",
         "answer": "The ceiling is below the stated equilibrium, offers are below applications, and no destruction occurred. A shortage follows without any assumption that the policy immediately destroys homes; the separate long-run response remains conditional.",
-        "why": "The ceiling is below the stated equilibrium, offers are below applications, and no destruction occurred. A shortage follows without any assumption that the policy immediately destroys homes; the separate long-run response remains conditional. The housing office can separate rationing now from possible construction changes later. Price incentives help explain the immediate mismatch between demand and offers; this evidence does not measure how builders respond after several years. The destruction reading is zero.",
+        "why": "The ceiling is below the stated equilibrium, offers are below applications, and no destruction occurred. A shortage follows without any assumption that the policy immediately destroys homes; the separate long-run response remains conditional. The housing office can separate rationing now from possible construction changes later. Price incentives help explain the immediate mismatch between demand and offers; this evidence does not measure how builders respond after several years. The destruction reading is zero, so physical loss does not explain this shortage.",
         "rebuttals": [
-          "The destruction reading is zero.",
-          "The ceiling is $200 below the market figure.",
-          "There are 40 more applicants than offered homes."
+          "There are 120 applicants and 80 offered homes; a fall in demand does not explain the excess applications.",
+          "The destruction reading is zero, so physical loss does not explain this shortage.",
+          "The ceiling is $200 below the market figure, so it is binding rather than nonbinding."
         ],
         "headline": "Why the advertised rooms are gone",
         "readings": [
@@ -2205,12 +2205,12 @@ export const CURRICULUM = {
           }
         ],
         "choices": [
-          "A binding cap leaves excess demand",
-          "A fire removed offered housing",
-          "The ceiling is above market rent",
-          "Every applicant already has a home"
+          "A fall in housing demand leaves fewer applicants seeking homes",
+          "The binding rent cap leaves more applicants than offered homes",
+          "A loss of physical homes leaves fewer units available to offer",
+          "A nonbinding rent cap leaves the existing market rent unchanged"
         ],
-        "correctChoice": "A binding cap leaves excess demand"
+        "correctChoice": "The binding rent cap leaves more applicants than offered homes"
       },
       "concept": {
         "n": 8,
@@ -2238,17 +2238,17 @@ export const CURRICULUM = {
         "answer": "The stated goal concerns access, and 40 applicants remain unmatched under the cap. That disproves the claim that the ceiling alone meets the goal while leaving room for a normative choice to retain relief for existing tenants alongside additional measures.",
         "why": "The stated goal concerns access, and 40 applicants remain unmatched under the cap. That disproves the claim that the ceiling alone meets the goal while leaving room for a normative choice to retain relief for existing tenants alongside additional measures. The advice distinguishes a factual shortage from a value judgment about tenant protection. A lower legal rent does not fill the 40-unit quantity gap. Distributional benefits remain real even when a policy is incomplete.",
         "rebuttals": [
-          "A lower legal rent does not fill the 40-unit quantity gap.",
           "Distributional benefits remain real even when a policy is incomplete.",
-          "No evidence or authorized input supports instant new supply."
+          "No evidence or authorized input supports instant new supply.",
+          "A lower legal rent does not fill the 40-unit quantity gap."
         ],
         "choices": [
-          "Reject the ceiling as a complete housing plan and retain a separate access measure",
-          "Certify the ceiling alone as housing every applicant",
-          "Reject all tenant relief because some people lose",
-          "Promise immediate construction without funds or permits"
+          "Remove all tenant relief, since any landlord loss makes relief inefficient",
+          "Count planned building as housing supply, before funding and permits arrive",
+          "Retain tenant relief, but add a separate housing access measure",
+          "Certify the rent cap, since lower rent gives every applicant access"
         ],
-        "correctChoice": "Reject the ceiling as a complete housing plan and retain a separate access measure"
+        "correctChoice": "Retain tenant relief, but add a separate housing access measure"
       },
       "concept": {
         "n": 8,
@@ -2320,17 +2320,17 @@ export const CURRICULUM = {
         "answer": "The evidence contains no violation of the entry rule. Competition may reduce incumbent economic profit and give buyers more options, while product differences mean the perfect-competition price-taking model is not exact for every café.",
         "why": "The evidence contains no violation of the entry rule. Competition may reduce incumbent economic profit and give buyers more options, while product differences mean the perfect-competition price-taking model is not exact for every café. The diner owner accepts new sellers after seeing that earlier calls for cheaper inputs used the same competition argument. Protecting incumbent profit alone is not the adopted external-harm test. Entry can erode economic profit and does not guarantee returns.",
         "rebuttals": [
+          "Differentiated menus can give individual firms price discretion.",
           "Protecting incumbent profit alone is not the adopted external-harm test.",
-          "Entry can erode economic profit and does not guarantee returns.",
-          "Differentiated menus can give individual firms price discretion."
+          "Entry can erode economic profit and does not guarantee returns."
         ],
         "choices": [
-          "Allow the proposed food sellers to enter and review service quality separately",
-          "Block entry solely to preserve incumbent economic profit",
-          "Promise every entrant permanent economic profit",
-          "Declare all cafés price takers despite differentiated menus"
+          "Allow entry and treat different menus as one identical market product",
+          "Allow entry and assess service quality under a separate rule",
+          "Block entry and protect the existing firms’ positive economic profit",
+          "Allow entry and forecast lasting economic profit for every new firm"
         ],
-        "correctChoice": "Allow the proposed food sellers to enter and review service quality separately"
+        "correctChoice": "Allow entry and assess service quality under a separate rule"
       },
       "concept": {
         "n": 12,

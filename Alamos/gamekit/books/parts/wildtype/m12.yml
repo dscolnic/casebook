@@ -6,10 +6,10 @@
     header: "DAY 12 OF 15 — SHIP DEPARTS AFTER DAY 15"
     title: "THE SMALL THINGS ON THE LIST"
     goNow: "Go to Marsh Research Bay and meet Tess Rowan, field ecologist, at the Water Rack."
-    body: "The seed list is set, but it leaves out living partners. Plants can need other life to get food or nutrients. Trace the links with Tess, then take the tests to Ada. By the end of the mission, you decide if the plants can travel alone."
+    body: "The seed list is set, but it leaves out living partners. Plants can need other life to get food or nutrients. Trace the links with Tess, then take the tests to Ada. Today you decide whether the pilot can use plants alone."
     objective: "Resolve whether the pilot can use plants alone; a healthy shipment could fail after planting."
   objective: "Resolve whether the pilot can use plants alone; a healthy shipment could fail after planting."
-  stake: "The seed list is set, but it leaves out living partners. Plants can need other life to get food or nutrients. Trace the links with Tess, then take the tests to Ada. By the end of the mission, you decide if the plants can travel alone."
+  stake: "The seed list is set, but it leaves out living partners. Plants can need other life to get food or nutrients. Trace the links with Tess, then take the tests to Ada. Today you decide whether the pilot can use plants alone."
   takeaway: "Prepare the tested plant-partner combination in containment. ---"
   segue: "Mission decision: Prepare the tested plant-partner combination in containment. The screened pair grows better in the contained test."
   # The mission card's own "Primer concepts", printed on the plan card.

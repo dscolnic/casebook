@@ -6,10 +6,10 @@
     header: "DAY 15 OF 15 — SHIP DEPARTS AFTER DAY 15"
     title: "WHAT GOES HOME"
     goNow: "Go to Seed Room and meet Nell Shah, conservation geneticist, at the Seed Table."
-    body: "The ship waits, but the plan must work at night too. Each living group needs its tested care and links. Check the seed list with Nell, then take the final plan to Ada. By the end of the mission, you decide which plan the ship can take."
+    body: "The ship waits, but the plan must work at night too. Each living group needs its tested care and links. Check the seed list with Nell, then take the final plan to Ada. Today you decide which release plan the evidence now supports."
     objective: "Resolve which release plan the evidence now supports; an unchecked move could lose both the stock and its habitat."
   objective: "Resolve which release plan the evidence now supports; an unchecked move could lose both the stock and its habitat."
-  stake: "The ship waits, but the plan must work at night too. Each living group needs its tested care and links. Check the seed list with Nell, then take the final plan to Ada. By the end of the mission, you decide which plan the ship can take."
+  stake: "The ship waits, but the plan must work at night too. Each living group needs its tested care and links. Check the seed list with Nell, then take the final plan to Ada. Today you decide which release plan the evidence now supports."
   takeaway: "Authorize only the corrected monitored pilot, with a pause and return path. ---"
   segue: "Mission decision: The small test is cleared. The night result meets the limit, and the plan says when to stop. Ada keeps seed families on the island as a reserve."
   # The mission card's own "Primer concepts", printed on the plan card.

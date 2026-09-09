@@ -6,10 +6,10 @@
     header: "DAY 2 OF 15 — SHIP DEPARTS AFTER DAY 15"
     title: "THE RINSE THAT HURTS"
     goNow: "Go to Field Clinic and meet Mara Vale, veterinary biologist, at the Sample Bench."
-    body: "The new feed works, but the rinsed roots lose live cells. Water can cross a cell wall and its thin membrane. Test the rinse with Mara in the Field Clinic. By the end of the mission, you decide which rinse the shore plants need."
+    body: "The new feed works, but the rinsed roots lose live cells. Water can cross a cell wall and its thin membrane. Test the rinse with Mara in the Field Clinic. Today you decide whether the shore seedlings need fresh water or a matched salt rinse."
     objective: "Resolve whether the shore seedlings need fresh water or a matched salt rinse; more roots could be damaged during packing."
   objective: "Resolve whether the shore seedlings need fresh water or a matched salt rinse; more roots could be damaged during packing."
-  stake: "The new feed works, but the rinsed roots lose live cells. Water can cross a cell wall and its thin membrane. Test the rinse with Mara in the Field Clinic. By the end of the mission, you decide which rinse the shore plants need."
+  stake: "The new feed works, but the rinsed roots lose live cells. Water can cross a cell wall and its thin membrane. Test the rinse with Mara in the Field Clinic. Today you decide whether the shore seedlings need fresh water or a matched salt rinse."
   takeaway: "Use the rinse that matches the root cells. ---"
   segue: "Mission decision: Use the rinse that matches the root cells. The matched rinse keeps root cells alive."
   # The mission card's own "Primer concepts", printed on the plan card.

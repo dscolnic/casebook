@@ -326,11 +326,11 @@
     format: CHOICE
     question: "Select the one recommendation supported by the recorded evidence and the stated decision rule."
     choices:
-      - Support the $30 wage floor under the stated monopsony model
-      - Reject it because wage floors always reduce employment
-      - Claim any higher wage floor must also add jobs
-      - Call the original labor market perfectly competitive
-    answer: Support the $30 wage floor under the stated monopsony model
+      - Support every higher floor using this rise in jobs
+      - Treat the original wage as the competitive labor-market wage
+      - Support the tested $30 wage floor, since this monopsony model predicts more jobs at that wage
+      - Reject the $30 floor using the competitive labor-market prediction
+    answer: Support the tested $30 wage floor, since this monopsony model predicts more jobs at that wage
     answerText: "The specified wage floor raises pay and employment in this monopsony example by changing the marginal hiring-cost schedule. This is a model-dependent result, not a claim that every floor or every labor market behaves the same way."
     why: "The specified wage floor raises pay and employment in this monopsony example by changing the marginal hiring-cost schedule. This is a model-dependent result, not a claim that every floor or every labor market behaves the same way. The worker agreement gains support from evidence rather than a blanket claim about regulation. The trial and schedules show four jobs instead of three. A floor above enough workers' MRP can reduce hiring."
     # wrong-path feedback, one rebuttal per wrong option:
@@ -359,7 +359,7 @@
     #     "answerText": "The specified wage floor raises pay and employment in this monopsony example by changing the marginal hiring-cost schedule. This is a model-dependent result, not a claim that every floor or every labor market behaves the same way."
     #   }
     rebuttals:
-      - The trial and schedules show four jobs instead of three.
       - A floor above enough workers’ MRP can reduce hiring.
       - One buyer faces rising supply and marginal hiring cost above wage.
+      - The trial and schedules show four jobs instead of three.
 

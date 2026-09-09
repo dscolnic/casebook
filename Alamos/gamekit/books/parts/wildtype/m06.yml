@@ -6,10 +6,10 @@
     header: "DAY 6 OF 15 — SHIP DEPARTS AFTER DAY 15"
     title: "THE TRAY THAT WILL NOT STOP"
     goNow: "Go to Field Clinic and meet Mara Vale, veterinary biologist, at the Sample Bench."
-    body: "One tray keeps growing when the trays next to it stop. Cells use signals to control when they split. Check cell counts with Mara, then meet Nell at the Genetics Trailer. By the end of the mission, you decide if this tissue line can join the stock for the trip."
+    body: "One tray keeps growing when the trays next to it stop. Cells use signals to control when they split. Check cell counts with Mara, then meet Nell at the Genetics Trailer. Today you decide whether the unusual tissue tray can join the release stock."
     objective: "Resolve whether the unusual tissue tray can join the release stock; unexplained growth could enter release stock."
   objective: "Resolve whether the unusual tissue tray can join the release stock; unexplained growth could enter release stock."
-  stake: "One tray keeps growing when the trays next to it stop. Cells use signals to control when they split. Check cell counts with Mara, then meet Nell at the Genetics Trailer. By the end of the mission, you decide if this tissue line can join the stock for the trip."
+  stake: "One tray keeps growing when the trays next to it stop. Cells use signals to control when they split. Check cell counts with Mara, then meet Nell at the Genetics Trailer. Today you decide whether the unusual tissue tray can join the release stock."
   takeaway: "Hold the unusual tissue tray for further tests. ---"
   segue: "Mission decision: Hold the unusual tissue tray for further tests. The held line keeps dividing when the signal is removed."
   # The mission card's own "Primer concepts", printed on the plan card.

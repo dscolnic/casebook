@@ -4,27 +4,21 @@
 
 export const INTERIORS = {
   "CLINIC": {
-    "caption": "Field Clinic.",
-    "standLine": "Sealed samples wait beside a microscope."
+    "caption": "Field Clinic."
   },
   "GROW": {
-    "caption": "Growth Hall.",
-    "standLine": "Potted dune plants sit beneath timed lamps."
+    "caption": "Growth Hall."
   },
   "SEED": {
-    "caption": "Seed Room.",
-    "standLine": "Seed packets lie beside their family records."
+    "caption": "Seed Room."
   },
   "PLAN": {
-    "caption": "Field Planning Room.",
-    "standLine": "A map holds the proposed mainland planting sites."
+    "caption": "Field Planning Room."
   },
   "GENE": {
-    "caption": "Genetics Trailer.",
-    "standLine": "Sample tubes stand beside a printed sequence reader."
+    "caption": "Genetics Trailer."
   },
   "MARSH": {
-    "caption": "Marsh Research Bay.",
-    "standLine": "Water bottles hold samples from the shore pools."
+    "caption": "Marsh Research Bay."
   }
 };

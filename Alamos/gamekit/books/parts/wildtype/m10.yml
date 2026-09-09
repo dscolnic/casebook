@@ -6,10 +6,10 @@
     header: "DAY 10 OF 15 — SHIP DEPARTS AFTER DAY 15"
     title: "THE INSECTS THAT STAYED"
     goNow: "Go to Marsh Research Bay and meet Tess Rowan, field ecologist, at the Water Rack."
-    body: "Leaf shape can change, but the bug records span many generations. A trait can spread when those that carry it leave more young. Check the old field logs with Tess, then meet Ada. By the end of the mission, you decide what changed in the insect group."
+    body: "Leaf shape can change, but the bug records span many generations. A trait can spread when those that carry it leave more young. Check the old field logs with Tess, then meet Ada. Today you decide whether the insect change reflects selection or individual adjustment."
     objective: "Resolve whether the insect change reflects selection or individual adjustment; a false explanation could guide the wrong release stock."
   objective: "Resolve whether the insect change reflects selection or individual adjustment; a false explanation could guide the wrong release stock."
-  stake: "Leaf shape can change, but the bug records span many generations. A trait can spread when those that carry it leave more young. Check the old field logs with Tess, then meet Ada. By the end of the mission, you decide what changed in the insect group."
+  stake: "Leaf shape can change, but the bug records span many generations. A trait can spread when those that carry it leave more young. Check the old field logs with Tess, then meet Ada. Today you decide whether the insect change reflects selection or individual adjustment."
   takeaway: "Record population selection and protect the surviving variation. ---"
   segue: "Mission decision: The old logs show a change across generations. Early types left more young in those conditions. Ada keeps the other forms too; a new coast may favor them."
   # The mission card's own "Primer concepts", printed on the plan card.

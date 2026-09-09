@@ -47,60 +47,44 @@ export const ROSTER = [
 
 export const LEADERS = [
   {
-    "id": "bethe",
-    "name": "Hans Bethe",
-    "role": "Theoretical physicist and division organizer",
-    "science": 5,
-    "management": 4,
-    "trait": "Turns many calculations into one coordinated theory program."
-  },
-  {
-    "id": "bacher",
-    "name": "Robert Bacher",
-    "role": "Experimental physicist and laboratory leader",
-    "science": 4,
-    "management": 5,
-    "trait": "Strong at organizing independent measurements and technical teams."
-  },
-  {
-    "id": "kennedy",
-    "name": "Joseph Kennedy",
-    "role": "Chemist and division leader",
+    "id": "velez",
+    "name": "Mara Velez",
+    "role": "state economic adviser",
     "science": 4,
     "management": 4,
-    "trait": "Balances chemical evidence, materials work, and laboratory discipline."
+    "trait": "Asks what claim would change the choice before recommending anything."
   },
   {
-    "id": "parsons",
-    "name": "Deke Parsons",
-    "role": "Naval ordnance officer and engineer",
+    "id": "bell",
+    "name": "Nico Bell",
+    "role": "diner owner",
     "science": 3,
-    "management": 5,
-    "trait": "Excels at schedules, interfaces, qualification, and delivery constraints."
+    "management": 4,
+    "trait": "Runs the diner on the numbers and knows when a hire stops paying."
   },
   {
-    "id": "kistiakowsky",
-    "name": "George Kistiakowsky",
-    "role": "Physical chemist and explosives-program leader",
+    "id": "sen",
+    "name": "Ruth Sen",
+    "role": "terminal manager",
     "science": 4,
     "management": 4,
-    "trait": "Connects difficult physical science to a focused engineering campaign."
+    "trait": "Keeps the dispatch books and the capacity records straight."
   },
   {
-    "id": "fermi",
-    "name": "Enrico Fermi",
-    "role": "Experimental and theoretical physicist",
-    "science": 5,
-    "management": 3,
-    "trait": "Rapidly identifies the simplest decisive calculation or experiment."
+    "id": "moss",
+    "name": "Leila Moss",
+    "role": "housing cooperative organizer",
+    "science": 3,
+    "management": 4,
+    "trait": "Counts the applicants the cap cannot promise a home to."
   },
   {
-    "id": "vonneumann",
-    "name": "John von Neumann",
-    "role": "Mathematician and scientific consultant",
-    "science": 5,
+    "id": "price",
+    "name": "Owen Price",
+    "role": "watershed engineer",
+    "science": 4,
     "management": 3,
-    "trait": "Exceptional at mathematical structure, modeling, and hard tradeoffs."
+    "trait": "Asks where the cost went when a plan looks cheap."
   }
 ];
 

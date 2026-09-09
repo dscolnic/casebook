@@ -9,7 +9,7 @@ export const ROSTER = [
     "role": "cage operator",
     "division": "BANK",
     "color": "#2f6f9f",
-    "bio": "<p>Ruth Bell is cage operator. Wants keep the shift moving without another landing overrun. The drum record has usually been a sufficient proxy for cage motion. The independent cage record makes her require two motion histories. Says, \"Which part is still moving?\"</p>"
+    "bio": "<p>Ruth Bell is cage operator. Wants her brother Finn rode the March cage and was unhurt. She wants his next shift to run, but she will not use the drum lamp as his safety check again. The drum record has usually been a sufficient proxy for cage motion. She moves from privately asking for reassurance to publicly refusing to post a faster schedule without a cage trace. Says, \"Which part is still moving?\"</p>"
   },
   {
     "id": "price",
@@ -17,7 +17,7 @@ export const ROSTER = [
     "role": "winding engineer",
     "division": "WIND",
     "color": "#7a5aa8",
-    "bio": "<p>Ewan Price is winding engineer. Wants keep a usable winding service rather than shut the mine indefinitely. The old inertia drawing and a good empty test initially look adequate. He accepts a slower tested range instead of the largest motor-feasible speed. Says, \"What else must this shaft turn?\"</p>"
+    "bio": "<p>Ewan Price is winding engineer. Wants he promised management a faster timetable before the inspection. A longer access closure means suspended underground shifts for the crew he works beside. The old inertia drawing and a good empty test initially look adequate. He first argues that each passed limit brings his promise within reach. At the warm-pad reversal he crosses out his own faster timetable and signs the slower supported range. Says, \"What else must this shaft turn?\"</p>"
   },
   {
     "id": "shaw",
@@ -25,7 +25,7 @@ export const ROSTER = [
     "role": "rope technician",
     "division": "ROPE",
     "color": "#c2704a",
-    "bio": "<p>Mara Shaw is rope technician. Wants protect sound rope from replacement while identifying real motion limits. A passed mean-pull test can distract from rapidly changing stretch. She makes rope length and residual state explicit in each accepted profile. Says, \"What length was hanging?\"</p>"
+    "bio": "<p>Mara Shaw is rope technician. Wants management wants a quick rope-replacement answer. She needs to show whether replacing sound steel would solve the motion problem or merely spend the remaining workshop reserve. A passed mean-pull test can distract from rapidly changing stretch. She defends measured rope condition without defending the old model, then insists that length and rebound limits appear on the signed plan. Says, \"What length was hanging?\"</p>"
   },
   {
     "id": "kerr",
@@ -33,7 +33,7 @@ export const ROSTER = [
     "role": "mine safety engineer",
     "division": "CAGE",
     "color": "#3f8d6e",
-    "bio": "<p>Ada Kerr is mine safety engineer. Wants explain March and protect the people who ride the cage. An empty success initially seems close to full acceptance. She narrows the approved test scope after the warm-pad contradiction. Says, \"What did this test actually prove?\"</p>"
+    "bio": "<p>Ada Kerr is mine safety engineer. Wants her signature is on the March drum-stop check. She gives you that page at arrival, with no attempt to hide it, but still hopes the new empty test will settle the inquiry. An empty success initially seems close to full acceptance. She explains her own mistaken inference in front of Ruth, then limits the empty-test claim even though the correction weakens the case for quick reopening. Says, \"What did this test actually prove?\"</p>"
   },
   {
     "id": "reed",
@@ -41,7 +41,7 @@ export const ROSTER = [
     "role": "conveyor foreman",
     "division": "TIP",
     "color": "#8a7a3f",
-    "bio": "<p>Ivo Reed is conveyor foreman. Wants restore steady ore delivery without breaking the bin again. Standing belt mass has been his familiar overload measure. He separates stored load, arrival rate and impact duration. Says, \"How much arrives each second?\"</p>"
+    "bio": "<p>Ivo Reed is conveyor foreman. Wants his broken bin has cut ore flow just as the lift is losing time. He fears that a feed cut will be treated as the crew failing to keep up. Standing belt mass has been his familiar overload measure. He uses the staged chute to keep daily delivery while reducing impact, giving the crew a practical gain that does not require a faster passenger cage. Says, \"How much arrives each second?\"</p>"
   },
   {
     "id": "cole",
@@ -49,7 +49,7 @@ export const ROSTER = [
     "role": "survey engineer",
     "division": "GRAV",
     "color": "#4f6f8f",
-    "bio": "<p>Nia Cole is survey engineer. Wants maintain a defensible survey tied to reference readings. A tidy spherical model can be easier to discuss than messy local evidence. She records local measurements separately from ideal depth predictions. Says, \"What did the reference do?\"</p>"
+    "bio": "<p>Nia Cole is survey engineer. Wants the repeated gravity readings were taken on her watch. She must own the drift correction without letting it become a convenient explanation for March. A tidy spherical model can be easier to discuss than messy local evidence. She signs the corrected survey and refuses to let a small weight change stand in for the missing account of delayed motion. Says, \"What did the reference do?\"</p>"
   }
 ];
 

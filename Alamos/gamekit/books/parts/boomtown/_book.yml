@@ -164,48 +164,42 @@ roster:
     Owen Price is watershed engineer. Wants keep downstream water costs visible and protection funded. Initially treats a technically effective filter as affordable without checking trade policy. After M13 he carries resource and payment accounts together. Says, "Where did the cost go?"
 
 leaders:
-- id: bethe
-  name: Hans Bethe
-  role: Theoretical physicist and division organizer
-  science: 5
-  management: 4
-  trait: Turns many calculations into one coordinated theory program.
-- id: bacher
-  name: Robert Bacher
-  role: Experimental physicist and laboratory leader
-  science: 4
-  management: 5
-  trait: Strong at organizing independent measurements and technical teams.
-- id: kennedy
-  name: Joseph Kennedy
-  role: Chemist and division leader
+# The five owners the bible names in §4, one per office. `science` and
+# `management` are the engine's two dials and this campaign runs with
+# `economy: false`, so they are neutral; what matters is that every group's
+# defaultLeader resolves — with Project Y's cast here, completing mission 1
+# threw on `leader(gs.leaderId).management`.
+- id: velez
+  name: Mara Velez
+  role: state economic adviser
   science: 4
   management: 4
-  trait: Balances chemical evidence, materials work, and laboratory discipline.
-- id: parsons
-  name: Deke Parsons
-  role: Naval ordnance officer and engineer
+  trait: Asks what claim would change the choice before recommending anything.
+- id: bell
+  name: Nico Bell
+  role: diner owner
   science: 3
-  management: 5
-  trait: Excels at schedules, interfaces, qualification, and delivery constraints.
-- id: kistiakowsky
-  name: George Kistiakowsky
-  role: Physical chemist and explosives-program leader
+  management: 4
+  trait: Runs the diner on the numbers and knows when a hire stops paying.
+- id: sen
+  name: Ruth Sen
+  role: terminal manager
   science: 4
   management: 4
-  trait: Connects difficult physical science to a focused engineering campaign.
-- id: fermi
-  name: Enrico Fermi
-  role: Experimental and theoretical physicist
-  science: 5
+  trait: Keeps the dispatch books and the capacity records straight.
+- id: moss
+  name: Leila Moss
+  role: housing cooperative organizer
+  science: 3
+  management: 4
+  trait: Counts the applicants the cap cannot promise a home to.
+- id: price
+  name: Owen Price
+  role: watershed engineer
+  science: 4
   management: 3
-  trait: Rapidly identifies the simplest decisive calculation or experiment.
-- id: vonneumann
-  name: John von Neumann
-  role: Mathematician and scientific consultant
-  science: 5
-  management: 3
-  trait: Exceptional at mathematical structure, modeling, and hard tradeoffs.
+  trait: Asks where the cost went when a plan looks cheap.
+
 avatars:
   bethe:
     skin: "#f0c8a0"
@@ -1219,4 +1213,3 @@ interiors:
         status: alarm
 
 # --------------------------------------------------------------- the warm-ups
-

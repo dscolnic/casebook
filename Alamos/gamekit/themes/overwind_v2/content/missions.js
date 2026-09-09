@@ -523,6 +523,10 @@ export const MISSIONS = [
     ],
     "primerTerms": [
       {
+        "name": "MJ (megajoule)",
+        "def": "one million joules of energy; kJ (kilojoule) means one thousand joules."
+      },
+      {
         "name": "Work",
         "def": "energy transferred by a force through a displacement."
       },
@@ -669,12 +673,12 @@ export const MISSIONS = [
     ],
     "equations": [
       {
-        "e": "F = ṁ(vout−vin); J = ∫F dt = Δp",
+        "e": "F = ṁ(vout−vin); Favg = Δp/Δt",
         "c": "momentum, impulse and open systems in the measured system.",
         "v": [
           [
             "F",
-            "force on the stream in newtons"
+            "steady force in newtons"
           ],
           [
             "ṁ",
@@ -682,15 +686,19 @@ export const MISSIONS = [
           ],
           [
             "vout",
-            "and vin exit and entry velocities"
+            "and vin exit and entry velocities in metres per second"
           ],
           [
-            "J",
-            "impulse in newton seconds"
+            "Favg",
+            "mean force in newtons"
           ],
           [
-            "p",
-            "momentum in kilogram metres per second"
+            "Δp",
+            "momentum change in kilogram metres per second"
+          ],
+          [
+            "Δt",
+            "elapsed time in seconds"
           ]
         ],
         "s": "Which feed change protects the conveyor and bin?"
@@ -793,32 +801,24 @@ export const MISSIONS = [
     ],
     "equations": [
       {
-        "e": "g(r)=GM(r)/r²; M(r)=Mtotal(r/R)³ for a uniform sphere",
+        "e": "gdepth = g0(1−d/R)",
         "c": "gravitation and measurement models in the measured system.",
         "v": [
           [
-            "g",
-            "gravitational acceleration"
+            "gdepth",
+            "gravity at depth in metres per second squared"
           ],
           [
-            "G",
-            "gravitational constant"
+            "g0",
+            "surface gravity in the same units"
           ],
           [
-            "M(r)",
-            "mass inside radius r"
-          ],
-          [
-            "Mtotal",
-            "full sphere mass"
+            "d",
+            "depth in metres"
           ],
           [
             "R",
-            "sphere radius"
-          ],
-          [
-            "r",
-            "distance from the sphere center"
+            "radius of the stipulated uniform sphere in metres"
           ]
         ],
         "s": "Can the local gravity correction explain the March overrun?"
@@ -921,40 +921,28 @@ export const MISSIONS = [
     ],
     "equations": [
       {
-        "e": "P = Fv = τω; Pin = Pout/η",
+        "e": "P = dW/dt = Fv",
         "c": "power and efficiency in the measured system.",
         "v": [
           [
-            "P",
-            "power in watts"
+            "P useful shaft power",
+            "in watts"
           ],
           [
-            "F",
-            "force in newtons"
+            "W work",
+            "in joules"
           ],
           [
-            "v",
-            "speed in metres per second"
+            "t time",
+            "in seconds"
           ],
           [
-            "τ",
-            "torque"
+            "F lifting force",
+            "in newtons"
           ],
           [
-            "ω",
-            "angular speed"
-          ],
-          [
-            "Pin",
-            "input power"
-          ],
-          [
-            "Pout",
-            "useful output power"
-          ],
-          [
-            "η",
-            "efficiency"
+            "v lifting speed",
+            "in metres per second"
           ]
         ],
         "s": "Which cruise speed fits the motor power limit?"
@@ -1061,7 +1049,7 @@ export const MISSIONS = [
     ],
     "equations": [
       {
-        "e": "m_eff x″ + kx = 0; ω = √(k/m_eff); Tperiod = 2π/ω",
+        "e": "ω = √(k/m_eff); Tperiod = 2π/ω",
         "c": "elasticity and simple harmonic motion in the measured system.",
         "v": [
           [
@@ -1069,24 +1057,20 @@ export const MISSIONS = [
             "effective moving mass in kilograms"
           ],
           [
-            "x",
-            "upward displacement from the fixed-support equilibrium in metres"
-          ],
-          [
-            "x″",
-            "second time derivative"
-          ],
-          [
             "k",
             "restoring stiffness in newtons per metre"
           ],
           [
             "ω",
-            "angular frequency"
+            "angular frequency in radians per second"
           ],
           [
             "Tperiod",
             "oscillation period in seconds"
+          ],
+          [
+            "π",
+            "the circle constant"
           ]
         ],
         "s": "Can a drum stop time alone predict when the cage stops?"
@@ -1189,28 +1173,32 @@ export const MISSIONS = [
     ],
     "equations": [
       {
-        "e": "x(t)=x0 cos(ωt)+(v0/ω)sin(ωt)",
+        "e": "xmax = v0/ω; tpeak = π/(2ω), for x0=0 and v0>0",
         "c": "elasticity and simple harmonic motion in the measured system.",
         "v": [
           [
-            "x",
-            "upward displacement from fixed-support equilibrium"
-          ],
-          [
-            "x0",
-            "initial displacement"
+            "xmax",
+            "first upward excursion in metres"
           ],
           [
             "v0",
-            "initial upward velocity"
+            "initial upward velocity in metres per second"
           ],
           [
             "ω",
-            "angular frequency"
+            "angular frequency in radians per second"
           ],
           [
-            "t",
-            "time since drum reached rest"
+            "tpeak",
+            "time to that peak in seconds"
+          ],
+          [
+            "x0",
+            "initial displacement from equilibrium in metres"
+          ],
+          [
+            "π",
+            "the circle constant"
           ]
         ],
         "s": "What caused the cage to overrun its March landing?"
@@ -1383,7 +1371,7 @@ export const MISSIONS = [
       "body": "March is explained, and the empty cage stops within the marked space. Warm brake pads and more load can change that distance. At the brake house, Bank and Winder House, check those limits before the shift rides. By the end of the mission, you decide if the empty test earns a faster passenger run.",
       "objective": "Does the empty test authorize the faster passenger profile?"
     },
-    "segue": "Mission decision: The empty test does not clear the faster passenger trip. The loaded warm case needs more space. Keep the two-metre-per-second choice for final review. The last empty test is ready. Ewan crosses out the faster passenger timetable in front of Ruth and cancels the overtime it was meant to support. Ada marks the empty pass with its load and pad state, then carries only the slower candidate into final review.",
+    "segue": "Mission decision: The empty test does not clear the faster passenger trip. The loaded warm case needs more space. Keep the two-metre-per-second choice for final review. The last empty test is ready. Ewan crosses out the fast shift sheet. The extra pay he promised is gone. Ada writes the load and pad state on the empty-test pass. Only the slow choice goes to the last check.",
     "stops": [
       {
         "group": "CAGE",
@@ -1472,13 +1460,13 @@ export const MISSIONS = [
     },
     "takeaway": "A signed profile must keep every constraint and its tested range. ---",
     "card": {
-      "header": "DAY 12 OF 12 — INSPECTION IN 1 DAYS",
+      "header": "DAY 12 OF 12 — INSPECTION TODAY",
       "title": "FORTY-ONE TALLIES",
       "goNow": "Go to The Bank and meet Ruth Bell, cage operator, at The depth indicator.",
       "body": "The slower speed fits the worst stop, and the last test is ready. The plan must meet each limit for the loads it covers. At the Bank, Rope Shop and Winder House, check the final record. By the end of the mission, you choose the full profile that can open passenger access.",
       "objective": "Which complete profile can be signed for the defined operating range?"
     },
-    "segue": "Mission decision: Sign the two-metre-per-second plan within its tested range. The slower start and all limits stay attached. The empty test agrees with its prediction. Once the four bars are full, the passenger gate opens. Ruth opens the passenger gate for the signed range. Ewan posts the slower timetable above his crossed-out promise. The crew regains regular access but loses the planned overtime; Ruth's ending account says Finn takes his tally only after the final checks are complete.",
+    "segue": "Mission decision: Sign the two-metre-per-second plan within its tested range. The slower start and all limits stay attached. The empty test agrees with its prediction. Once the four bars are full, the passenger gate opens. Ruth opens the passenger gate for the signed range. Ewan posts the slower timetable above his crossed-out promise. The crew can reach work again once all checks pass. The extra shifts are gone. Finn takes his tally only after the last gates clear.",
     "stops": [
       {
         "group": "BANK",

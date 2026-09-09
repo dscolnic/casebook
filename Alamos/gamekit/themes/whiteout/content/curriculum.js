@@ -608,9 +608,9 @@ export const CURRICULUM = {
         "type": "DERIVE",
         "title": "Check initialization",
         "setup": "",
-        "play": "Choose the constructor assignments and the call that create P02 with identifier P02 and limit 70.",
-        "task": "Choose the constructor assignments and the call that create P02 with identifier P02 and limit 70.",
-        "question": "Choose the constructor assignments and the call that create P02 with identifier P02 and limit 70.",
+        "play": "Choose the constructor assignments and the call that create P02 with identifier P02 and limit 70. Then select the replay result from the local givens.",
+        "task": "Choose the constructor assignments and the call that create P02 with identifier P02 and limit 70. Then select the replay result from the local givens.",
+        "question": "Choose the constructor assignments and the call that create P02 with identifier P02 and limit 70. Then select the replay result from the local givens.",
         "answer": "The constructor copies each parameter into the corresponding instance field, producing the intended live state.",
         "why": "Constructors establish initial object state; this distinguishes the object's field from a parameter with the same name.",
         "derive": {
@@ -641,6 +641,20 @@ export const CURRICULUM = {
                 {
                   "text": "new PowerController(\"70\", 70 + 0);",
                   "why": "The first argument is the object ID, so passing \"70\" creates the wrong identity even though the numeric limit is 70.",
+                  "survives": true
+                }
+              ]
+            },
+            {
+              "ask": "Apply the selected rule to the given replay. Choose its evaluated result.",
+              "answer": 0,
+              "candidates": [
+                {
+                  "text": "new PowerController(\"P02\", 70) stores id=\"P02\" and limit=70"
+                },
+                {
+                  "text": "new PowerController(\"P02\", 70) stores id=\"P02\" and limit=90",
+                  "why": "The constructor must use the supplied limit 70, not the tempting hard-coded 90.",
                   "survives": true
                 }
               ]
@@ -1107,7 +1121,7 @@ export const CURRICULUM = {
               "answer": 0,
               "candidates": [
                 {
-                  "text": "low = mid + 1;"
+                  "text": "mid=(0+7)/2=3; low=3+1=4;"
                 },
                 {
                   "text": "high = mid - 1;",
@@ -1121,7 +1135,7 @@ export const CURRICULUM = {
               "answer": 0,
               "candidates": [
                 {
-                  "text": "high = mid - 1;"
+                  "text": "mid=(4+7)/2=5; high=5-1=4;"
                 },
                 {
                   "text": "low = mid + 1; // move lower bound upward",
@@ -1135,7 +1149,7 @@ export const CURRICULUM = {
               "answer": 0,
               "candidates": [
                 {
-                  "text": "mid=4 and value=122.3: found"
+                  "text": "mid=(4+4)/2=4; value=122.3: found"
                 },
                 {
                   "text": "mid=5 and value=123.1: not found",
@@ -1206,9 +1220,9 @@ export const CURRICULUM = {
         "type": "DERIVE",
         "title": "Inspect the static field",
         "setup": "",
-        "play": "Choose the field declaration and assignment that store warning state separately in each controller object.",
-        "task": "Choose the field declaration and assignment that store warning state separately in each controller object.",
-        "question": "Choose the field declaration and assignment that store warning state separately in each controller object.",
+        "play": "Choose the field declaration and assignment that store warning state separately in each controller object. Then select the replay result from the local givens.",
+        "task": "Choose the field declaration and assignment that store warning state separately in each controller object. Then select the replay result from the local givens.",
+        "question": "Choose the field declaration and assignment that store warning state separately in each controller object. Then select the replay result from the local givens.",
         "answer": "Removing static gives every instance its own field, and this writes the receiver's copy.",
         "why": "Static fields belong to the class; instance fields belong to individual objects.",
         "derive": {
@@ -1239,6 +1253,20 @@ export const CURRICULUM = {
                 {
                   "text": "Controller.lastWarning = value;",
                   "why": "Writing through the class name targets shared class state instead of the receiving object's own field.",
+                  "survives": true
+                }
+              ]
+            },
+            {
+              "ask": "Apply the selected rule to the given replay. Choose its evaluated result.",
+              "answer": 0,
+              "candidates": [
+                {
+                  "text": "H04.setWarning(7): P02 stays 3 and H04 becomes 7 with instance fields"
+                },
+                {
+                  "text": "H04.setWarning(7): P02 becomes 7 and H04 becomes 7 with instance fields",
+                  "why": "Writing an instance field in H04 does not change the distinct P02 object.",
                   "survives": true
                 }
               ]
@@ -1299,13 +1327,13 @@ export const CURRICULUM = {
         "type": "DERIVE",
         "title": "Preserve equal-priority order",
         "setup": "",
-        "play": "Choose the insertion-sort comparison and the resulting order for the equal-priority pair.",
-        "task": "Choose the insertion-sort comparison and the resulting order for the equal-priority pair.",
-        "question": "Choose the insertion-sort comparison and the resulting order for the equal-priority pair.",
+        "play": "Choose the insertion-sort comparison and the resulting order for the equal-priority pair. Then select the replay result from the local givens.",
+        "task": "Choose the insertion-sort comparison and the resulting order for the equal-priority pair. Then select the replay result from the local givens.",
+        "question": "Choose the insertion-sort comparison and the resulting order for the equal-priority pair. Then select the replay result from the local givens.",
         "answer": "Strict > shifts only worse priorities, so an equal-priority earlier item is not moved behind the later one.",
         "why": "Sorting correctness can include a stability requirement in addition to numeric order.",
         "derive": {
-          "start": "POWER precedes RUNWAY in the input; both have priority 2. Smaller numbers go first. j indexes an earlier item; valid indexes start at 0. A stable sort keeps ties in input order. Source: The list already contains POWER before RUNWAY, and the current item has the same priority.",
+          "start": "POWER precedes RUNWAY in the input; both have priority 2. Smaller numbers go first. j indexes an earlier item; valid indexes start at 0. A stable sort keeps ties in input order. Source: The list already contains POWER before RUNWAY, and the current item has the same priority. In this replay j = 0, queue[0] is POWER and current is RUNWAY.",
           "goal": "insert an item without reversing earlier equal-priority items",
           "steps": [
             {
@@ -1332,6 +1360,20 @@ export const CURRICULUM = {
                 {
                   "text": "RUNWAY may move ahead of POWER solely because priorities tie",
                   "why": "A stable insertion preserves the original order of equal keys; equality alone is not a reason to reverse them.",
+                  "survives": true
+                }
+              ]
+            },
+            {
+              "ask": "Apply the selected rule to the given replay. Choose its evaluated result.",
+              "answer": 0,
+              "candidates": [
+                {
+                  "text": "j=0; 2 > 2 is false, so POWER is not shifted behind RUNWAY"
+                },
+                {
+                  "text": "j=0; 2 >= 2 is true, so POWER is shifted behind RUNWAY",
+                  "why": "Shifting on equality moves the earlier tied item behind the later one and breaks stability.",
                   "survives": true
                 }
               ]
@@ -1392,13 +1434,13 @@ export const CURRICULUM = {
         "type": "DERIVE",
         "title": "Repair the base case",
         "setup": "",
-        "play": "Choose the base case and recursive call that guarantee termination.",
-        "task": "Choose the base case and recursive call that guarantee termination.",
-        "question": "Choose the base case and recursive call that guarantee termination.",
+        "play": "Choose the base case and recursive call that guarantee termination. Then select the replay result from the local givens.",
+        "task": "Choose the base case and recursive call that guarantee termination. Then select the replay result from the local givens.",
+        "question": "Choose the base case and recursive call that guarantee termination. Then select the replay result from the local givens.",
         "answer": "Zero is the first input with no waypoints left to add, and subtracting one moves every positive input toward that case.",
         "why": "Recursive methods need a directly solvable base case and guaranteed progress toward it.",
         "derive": {
-          "start": "n is a nonnegative whole-number count. At 0 there is no waypoint to add, so return at once. Each nonempty call consumes exactly 1 waypoint; negative counts are invalid. Source: build(n) is called with a nonnegative count; each recursive call must move n toward its stopping case.",
+          "start": "n is a nonnegative whole-number count. At 0 there is no waypoint to add, so return at once. Each nonempty call consumes exactly 1 waypoint; negative counts are invalid. Source: build(n) is called with a nonnegative count; each recursive call must move n toward its stopping case. Replay build(3); an empty call adds no waypoint.",
           "goal": "reach a terminating base case by reducing the remaining count",
           "steps": [
             {
@@ -1425,6 +1467,20 @@ export const CURRICULUM = {
                 {
                   "text": "build(n + 1);",
                   "why": "Increasing n moves the argument away from the zero base case, so the recursion cannot terminate through the intended countdown.",
+                  "survives": true
+                }
+              ]
+            },
+            {
+              "ask": "Apply the selected rule to the given replay. Choose its evaluated result.",
+              "answer": 0,
+              "candidates": [
+                {
+                  "text": "build(3) → build(2) → build(1) → build(0), which returns without another call"
+                },
+                {
+                  "text": "build(3) → build(2) → build(1) → build(0) → build(-1), which returns next",
+                  "why": "The base case returns at zero. Calling build(-1) crosses into an explicitly invalid count.",
                   "survives": true
                 }
               ]
@@ -1502,13 +1558,13 @@ export const CURRICULUM = {
         "type": "DERIVE",
         "title": "Prove the rollback traversal",
         "setup": "",
-        "play": "Build the rollback loop line by line and choose the explanation that proves descending traversal does not skip records.",
-        "task": "Build the rollback loop line by line and choose the explanation that proves descending traversal does not skip records.",
-        "question": "Build the rollback loop line by line and choose the explanation that proves descending traversal does not skip records.",
+        "play": "Build the rollback loop line by line and choose the explanation that proves descending traversal does not skip records. Then select the replay result from the local givens.",
+        "task": "Build the rollback loop line by line and choose the explanation that proves descending traversal does not skip records. Then select the replay result from the local givens.",
+        "question": "Build the rollback loop line by line and choose the explanation that proves descending traversal does not skip records. Then select the replay result from the local givens.",
         "answer": "Removal can shift higher positions, but those positions have already been processed; lower indexes still refer to the same unvisited records.",
         "why": "This is an algorithm proof over a class of list states rather than a memorized fix for one example.",
         "derive": {
-          "start": "records is an ArrayList of open and resolved records. Its first index is 0 and last is size minus 1. Removing index i shifts only higher items left by 1; visit each record once. Source: records contains open and resolved entries; remove each resolved entry while traversing the ArrayList by index.",
+          "start": "records is an ArrayList of open and resolved records. Its first index is 0 and last is size minus 1. Removing index i shifts only higher items left by 1; visit each record once. Source: records contains open and resolved entries; remove each resolved entry while traversing the ArrayList by index. Replay records = [A open, B resolved, C resolved].",
           "goal": "remove every resolved record without skipping a neighbor that shifts after deletion",
           "steps": [
             {
@@ -1549,6 +1605,20 @@ export const CURRICULUM = {
                 {
                   "text": "removing i preserves every higher index that has not been visited yet",
                   "why": "In a descending traversal the higher indexes have already been visited; lower unvisited indexes stay unchanged.",
+                  "survives": true
+                }
+              ]
+            },
+            {
+              "ask": "Apply the selected rule to the given replay. Choose its evaluated result.",
+              "answer": 0,
+              "candidates": [
+                {
+                  "text": "i=3-1=2 removes C; i=1 removes B; i=0 keeps A; i=-1 ends: [A]"
+                },
+                {
+                  "text": "i=3-1=2 removes C; i=1 keeps B; i=0 keeps A; i=-1 ends: [A, B]",
+                  "why": "Removing C at index two cannot change B at the lower index one. The next visit must remove resolved B.",
                   "survives": true
                 }
               ]
@@ -1612,9 +1682,9 @@ export const CURRICULUM = {
         "type": "DERIVE",
         "title": "Preserve the fraction",
         "setup": "",
-        "play": "Build the repaired calculation one line at a time; choose exactly one line at each step.",
-        "task": "Build the repaired calculation one line at a time; choose exactly one line at each step.",
-        "question": "Build the repaired calculation one line at a time; choose exactly one line at each step.",
+        "play": "Build the repaired calculation one line at a time; choose exactly one line at each step. Then select the replay result from the local givens.",
+        "task": "Build the repaired calculation one line at a time; choose exactly one line at each step. Then select the replay result from the local givens.",
+        "question": "Build the repaired calculation one line at a time; choose exactly one line at each step. Then select the replay result from the local givens.",
         "answer": "Casting one operand before division changes the operation to floating-point division, so 83/100 becomes 0.83 and then 83.0 percent.",
         "why": "The cast must occur before the division; casting the already-truncated result cannot recover discarded information.",
         "derive": {
@@ -1645,6 +1715,20 @@ export const CURRICULUM = {
                 {
                   "text": "double percent = (int) fraction * 100.0;",
                   "why": "Casting fraction back to int discards its fractional part before multiplying and recreates the whole-number loss.",
+                  "survives": true
+                }
+              ]
+            },
+            {
+              "ask": "Apply the selected rule to the given replay. Choose its evaluated result.",
+              "answer": 0,
+              "candidates": [
+                {
+                  "text": "(double) 83 / 100 = 0.83; 0.83 * 100.0 = 83.0 percent"
+                },
+                {
+                  "text": "(double) (83 / 100) = 0.0; 0.0 * 100.0 = 0.0 percent",
+                  "why": "Casting after integer division preserves the already-truncated zero; cast an operand before division.",
                   "survives": true
                 }
               ]
@@ -2112,9 +2196,9 @@ export const CURRICULUM = {
         "type": "DERIVE",
         "title": "Separate the branches",
         "setup": "",
-        "play": "Choose the emergency branch and then the mutually exclusive lower-level branch.",
-        "task": "Choose the emergency branch and then the mutually exclusive lower-level branch.",
-        "question": "Choose the emergency branch and then the mutually exclusive lower-level branch.",
+        "play": "Choose the emergency branch and then the mutually exclusive lower-level branch. Then select the replay result from the local givens.",
+        "task": "Choose the emergency branch and then the mutually exclusive lower-level branch. Then select the replay result from the local givens.",
+        "question": "Choose the emergency branch and then the mutually exclusive lower-level branch. Then select the replay result from the local givens.",
         "answer": "Once the first condition is true, else if prevents the second branch from running for the same reading.",
         "why": "Selection structure, not sensor count, determines whether multiple true conditions can produce multiple actions.",
         "derive": {
@@ -2145,6 +2229,20 @@ export const CURRICULUM = {
                 {
                   "text": "if (co2 > 900 && co2 <= 1100) highVent(); // second check",
                   "why": "A second independent if is checked even after shutdown runs, so one reading can still issue two commands.",
+                  "survives": true
+                }
+              ]
+            },
+            {
+              "ask": "Apply the selected rule to the given replay. Choose its evaluated result.",
+              "answer": 0,
+              "candidates": [
+                {
+                  "text": "1050 > 1000 is true: shutdown runs; the else-if is skipped"
+                },
+                {
+                  "text": "1050 > 1000 is true: shutdown runs; the else-if runs too",
+                  "why": "An else-if is considered only when the earlier if condition is false.",
                   "survives": true
                 }
               ]
@@ -2343,13 +2441,13 @@ export const CURRICULUM = {
         "type": "DERIVE",
         "title": "Trace the sensor loop",
         "setup": "",
-        "play": "Choose the loop header and element pairing that display every valid sensor once without shifting indexes.",
-        "task": "Choose the loop header and element pairing that display every valid sensor once without shifting indexes.",
-        "question": "Choose the loop header and element pairing that display every valid sensor once without shifting indexes.",
+        "play": "Choose the loop header and element pairing that display every valid sensor once without shifting indexes. Then select the replay result from the local givens.",
+        "task": "Choose the loop header and element pairing that display every valid sensor once without shifting indexes. Then select the replay result from the local givens.",
+        "question": "Choose the loop header and element pairing that display every valid sensor once without shifting indexes. Then select the replay result from the local givens.",
         "answer": "Valid array indexes are zero through length minus one, and the same i must select the corresponding label and temperature.",
         "why": "Array traversal uses a loop variable as an index; bounds and same-index relationships are part of algorithm correctness.",
         "derive": {
-          "start": "labels and temps have equal length, with matching indexes. Java starts array indexes at 0 and increases each successive index by 1; length is the number of items, not the final valid index. Source: String[] labels = {...}; double[] temps = {...}; both arrays have matching indexes and the same length.",
+          "start": "labels and temps have equal length, with matching indexes. Java starts array indexes at 0 and increases each successive index by 1; length is the number of items, not the final valid index. Source: String[] labels = {\"Room 1\", \"Room 2\"}; double[] temps = {20.0, 21.0}; both arrays have matching indexes and the same length. Replay arrays: labels = [\"Room 1\", \"Room 2\"]; temps = [20.0, 21.0] degrees C.",
           "goal": "visit every legal index once and pair each label with the value at that same index",
           "steps": [
             {
@@ -2376,6 +2474,20 @@ export const CURRICULUM = {
                 {
                   "text": "show(labels[i], temps[i+1]);",
                   "why": "Using i+1 shifts every value one label forward and eventually reads past the array instead of preserving same-index correspondence.",
+                  "survives": true
+                }
+              ]
+            },
+            {
+              "ask": "Apply the selected rule to the given replay. Choose its evaluated result.",
+              "answer": 0,
+              "candidates": [
+                {
+                  "text": "i=0 pairs Room 1 with 20.0; i=1 pairs Room 2 with 21.0; 2 < 2 is false"
+                },
+                {
+                  "text": "i=0 pairs Room 1 with 21.0; i=1 pairs Room 2 with 20.0; 2 < 2 is false",
+                  "why": "Both arrays use the same index. Swapping the temperatures breaks the stated label-to-reading correspondence.",
                   "survives": true
                 }
               ]
@@ -2525,9 +2637,9 @@ export const CURRICULUM = {
         "type": "DERIVE",
         "title": "Find the endless condition",
         "setup": "",
-        "play": "Choose the missing progress statement and the explanation that proves the loop can terminate.",
-        "task": "Choose the missing progress statement and the explanation that proves the loop can terminate.",
-        "question": "Choose the missing progress statement and the explanation that proves the loop can terminate.",
+        "play": "Choose the missing progress statement and the explanation that proves the loop can terminate. Then select the replay result from the local givens.",
+        "task": "Choose the missing progress statement and the explanation that proves the loop can terminate. Then select the replay result from the local givens.",
+        "question": "Choose the missing progress statement and the explanation that proves the loop can terminate. Then select the replay result from the local givens.",
         "answer": "Without changing index, the condition index < length remains true for the same stored value.",
         "why": "A while loop does not know that a physical action finished unless program state is updated explicitly.",
         "derive": {
@@ -2558,6 +2670,20 @@ export const CURRICULUM = {
                 {
                   "text": "steering changes, so the Java condition becomes false automatically",
                   "why": "The while condition reads index and the array length; changing unrelated state cannot make that Boolean expression false.",
+                  "survives": true
+                }
+              ]
+            },
+            {
+              "ask": "Apply the selected rule to the given replay. Choose its evaluated result.",
+              "answer": 0,
+              "candidates": [
+                {
+                  "text": "index: 0 → 1 → 2 → 3 → 4; 4 < 4 is false, so four arrivals finish"
+                },
+                {
+                  "text": "index: 0 → 1 → 2 → 3; 3 < 4 is false, so three arrivals finish",
+                  "why": "Three is still less than four. The index advances to four after arrival at index three.",
                   "survives": true
                 }
               ]

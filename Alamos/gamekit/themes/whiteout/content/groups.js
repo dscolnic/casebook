@@ -10,33 +10,33 @@ export const GROUPS = [
     "color": "#2f6f9f",
     "difficulty": 2,
     "type": "protocol",
-    "desc": "Station command, incident coordination and the wall-size systems map.",
+    "desc": "Station command, incident coordination, rescue decisions, and the wall-size systems map live here.",
     "defaultLeader": "park",
     "budget": 70,
     "milestones": [
       {
-        "name": "Read what it actually does",
+        "name": "Open the room",
         "cost": 12,
         "work": 9,
-        "brief": "Read what it actually does"
+        "brief": "Open the room"
       },
       {
-        "name": "Test the behaviour",
+        "name": "Read what it holds",
         "cost": 16,
         "work": 12,
-        "brief": "Test the behaviour"
+        "brief": "Read what it holds"
       },
       {
-        "name": "Fix it behind a gate",
+        "name": "Settle the question",
         "cost": 20,
         "work": 15,
-        "brief": "Fix it behind a gate"
+        "brief": "Settle the question"
       },
       {
-        "name": "Sign it off",
+        "name": "Hand it on",
         "cost": 24,
         "work": 18,
-        "brief": "Sign it off"
+        "brief": "Hand it on"
       }
     ],
     "issuePool": [
@@ -51,33 +51,33 @@ export const GROUPS = [
     "color": "#7a5aa8",
     "difficulty": 3,
     "type": "protocol",
-    "desc": "The source mirror, the test harnesses and the safe simulations.",
-    "defaultLeader": "nair",
+    "desc": "The station's source mirror, test harnesses, build tools, and safe simulations live here.",
+    "defaultLeader": "park",
     "budget": 70,
     "milestones": [
       {
-        "name": "Read what it actually does",
+        "name": "Open the room",
         "cost": 12,
         "work": 9,
-        "brief": "Read what it actually does"
+        "brief": "Open the room"
       },
       {
-        "name": "Test the behaviour",
+        "name": "Read what it holds",
         "cost": 16,
         "work": 12,
-        "brief": "Test the behaviour"
+        "brief": "Read what it holds"
       },
       {
-        "name": "Fix it behind a gate",
+        "name": "Settle the question",
         "cost": 20,
         "work": 15,
-        "brief": "Fix it behind a gate"
+        "brief": "Settle the question"
       },
       {
-        "name": "Sign it off",
+        "name": "Hand it on",
         "cost": 24,
         "work": 18,
-        "brief": "Sign it off"
+        "brief": "Hand it on"
       }
     ],
     "issuePool": [
@@ -92,33 +92,33 @@ export const GROUPS = [
     "color": "#c2704a",
     "difficulty": 4,
     "type": "protocol",
-    "desc": "Generators, batteries, heat loops and the controllers that keep the station warm.",
-    "defaultLeader": "okafor",
+    "desc": "Generators, batteries, heat loops, and the controllers that keep the station warm live here.",
+    "defaultLeader": "park",
     "budget": 70,
     "milestones": [
       {
-        "name": "Read what it actually does",
+        "name": "Open the room",
         "cost": 12,
         "work": 9,
-        "brief": "Read what it actually does"
+        "brief": "Open the room"
       },
       {
-        "name": "Test the behaviour",
+        "name": "Read what it holds",
         "cost": 16,
         "work": 12,
-        "brief": "Test the behaviour"
+        "brief": "Read what it holds"
       },
       {
-        "name": "Fix it behind a gate",
+        "name": "Settle the question",
         "cost": 20,
         "work": 15,
-        "brief": "Fix it behind a gate"
+        "brief": "Settle the question"
       },
       {
-        "name": "Sign it off",
+        "name": "Hand it on",
         "cost": 24,
         "work": 18,
-        "brief": "Sign it off"
+        "brief": "Hand it on"
       }
     ],
     "issuePool": [
@@ -133,33 +133,33 @@ export const GROUPS = [
     "color": "#3f8d6e",
     "difficulty": 2,
     "type": "protocol",
-    "desc": "Air handling, scrubbers, room sensors and life-support automation.",
-    "defaultLeader": "alvarez",
+    "desc": "Air handling, scrubbers, room sensors, water, and life-support automation live here.",
+    "defaultLeader": "park",
     "budget": 70,
     "milestones": [
       {
-        "name": "Read what it actually does",
+        "name": "Open the room",
         "cost": 12,
         "work": 9,
-        "brief": "Read what it actually does"
+        "brief": "Open the room"
       },
       {
-        "name": "Test the behaviour",
+        "name": "Read what it holds",
         "cost": 16,
         "work": 12,
-        "brief": "Test the behaviour"
+        "brief": "Read what it holds"
       },
       {
-        "name": "Fix it behind a gate",
+        "name": "Settle the question",
         "cost": 20,
         "work": 15,
-        "brief": "Fix it behind a gate"
+        "brief": "Settle the question"
       },
       {
-        "name": "Sign it off",
+        "name": "Hand it on",
         "cost": 24,
         "work": 18,
-        "brief": "Sign it off"
+        "brief": "Hand it on"
       }
     ],
     "issuePool": [
@@ -174,33 +174,33 @@ export const GROUPS = [
     "color": "#8a7a3f",
     "difficulty": 3,
     "type": "protocol",
-    "desc": "Rovers, drones, chargers and the software that moves field machines.",
-    "defaultLeader": "reyes",
+    "desc": "Rovers, drones, chargers, route maps, and the software that moves field machines live here.",
+    "defaultLeader": "park",
     "budget": 70,
     "milestones": [
       {
-        "name": "Read what it actually does",
+        "name": "Open the room",
         "cost": 12,
         "work": 9,
-        "brief": "Read what it actually does"
+        "brief": "Open the room"
       },
       {
-        "name": "Test the behaviour",
+        "name": "Read what it holds",
         "cost": 16,
         "work": 12,
-        "brief": "Test the behaviour"
+        "brief": "Read what it holds"
       },
       {
-        "name": "Fix it behind a gate",
+        "name": "Settle the question",
         "cost": 20,
         "work": 15,
-        "brief": "Fix it behind a gate"
+        "brief": "Settle the question"
       },
       {
-        "name": "Sign it off",
+        "name": "Hand it on",
         "cost": 24,
         "work": 18,
-        "brief": "Sign it off"
+        "brief": "Hand it on"
       }
     ],
     "issuePool": [
@@ -215,33 +215,33 @@ export const GROUPS = [
     "color": "#4f6f8f",
     "difficulty": 4,
     "type": "protocol",
-    "desc": "Satellite links, packet routing and the rescue-window traffic.",
-    "defaultLeader": "andersen",
+    "desc": "Satellite links, packet routing, weather instruments, and rescue-window traffic live here.",
+    "defaultLeader": "park",
     "budget": 70,
     "milestones": [
       {
-        "name": "Read what it actually does",
+        "name": "Open the room",
         "cost": 12,
         "work": 9,
-        "brief": "Read what it actually does"
+        "brief": "Open the room"
       },
       {
-        "name": "Test the behaviour",
+        "name": "Read what it holds",
         "cost": 16,
         "work": 12,
-        "brief": "Test the behaviour"
+        "brief": "Read what it holds"
       },
       {
-        "name": "Fix it behind a gate",
+        "name": "Settle the question",
         "cost": 20,
         "work": 15,
-        "brief": "Fix it behind a gate"
+        "brief": "Settle the question"
       },
       {
-        "name": "Sign it off",
+        "name": "Hand it on",
         "cost": 24,
         "work": 18,
-        "brief": "Sign it off"
+        "brief": "Hand it on"
       }
     ],
     "issuePool": [

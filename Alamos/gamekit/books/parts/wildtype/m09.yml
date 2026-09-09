@@ -6,10 +6,10 @@
     header: "DAY 9 OF 15 — SHIP DEPARTS AFTER DAY 15"
     title: "THE SAME SEED IN TWO ROOMS"
     goNow: "Go to Growth Hall and meet Ivo Reed, plant physiologist, at the Growth Bench."
-    body: "The enzyme lead is saved, but leaf shapes give mixed family labels. The same genes can yield new shapes when the light changes. Check the plants with Ivo, then read the seed records with Nell. By the end of the mission, you decide if leaf shape is a sound family label."
+    body: "The enzyme lead is saved, but leaf shapes give mixed family labels. The same genes can yield new shapes when the light changes. Check the plants with Ivo, then read the seed records with Nell. Today you decide whether leaf shape alone is a reliable breeding label."
     objective: "Resolve whether leaf shape alone is a reliable breeding label; a misleading label could remove useful seed families."
   objective: "Resolve whether leaf shape alone is a reliable breeding label; a misleading label could remove useful seed families."
-  stake: "The enzyme lead is saved, but leaf shapes give mixed family labels. The same genes can yield new shapes when the light changes. Check the plants with Ivo, then read the seed records with Nell. By the end of the mission, you decide if leaf shape is a sound family label."
+  stake: "The enzyme lead is saved, but leaf shapes give mixed family labels. The same genes can yield new shapes when the light changes. Check the plants with Ivo, then read the seed records with Nell. Today you decide whether leaf shape alone is a reliable breeding label."
   takeaway: "Keep ancestry records and test leaf shape under matched conditions. ---"
   segue: "Mission decision: Keep ancestry records and test leaf shape under matched conditions. The same clone changes leaf shape with light."
   # The mission card's own "Primer concepts", printed on the plan card.

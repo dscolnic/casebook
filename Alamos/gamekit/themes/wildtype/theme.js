@@ -22,6 +22,7 @@ import { ROSTER, LEADERS, AVATARS } from './content/roster.js';
 import { COPY } from './content/copy.js';
 import { INTERIORS } from './interiors.js';
 import { MINOR_INTERIORS } from './minors.js';
+import { dressRoom } from './story.js';
 import { FIXTURES } from './fixtures.js';
 import { decorate, fitOutRoom, fitOutSpine } from './props.js';
 import { OPENING, ENDING } from './cards.js';
@@ -182,6 +183,8 @@ export default {
   // Theme hooks. `decorate` is called by the outdoor world, the two fit-out
   // hooks by the interior one; the unused ones are ignored.
   decorate,
+  // The nine alive-world states and fifteen prop states, on their fixtures. See story.js.
+  dressRoom,
   fitOutRoom,
   fitOutSpine,
 };

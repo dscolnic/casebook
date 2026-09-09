@@ -6,10 +6,10 @@
     header: "DAY 1 OF 15 — SHIP DEPARTS AFTER DAY 15"
     title: "THE FOOD THAT IS NOT ENOUGH"
     goNow: "Go to Field Clinic and meet Mara Vale, veterinary biologist, at the Sample Bench."
-    body: "The first trays have pale new leaves, but the ship is booked. Plants need the right mix of matter as well as fuel. Check the feed with Mara at the Sample Bench. By the end of the mission, you decide whether to change the feed."
+    body: "The first trays have pale new leaves, but the ship is booked. Plants need the right mix of matter as well as fuel. Check the feed with Mara at the Sample Bench. Today you decide whether to replace the failing seedling feed."
     objective: "Resolve whether to replace the failing seedling feed; the young plants may die before planting."
   objective: "Resolve whether to replace the failing seedling feed; the young plants may die before planting."
-  stake: "The first trays have pale new leaves, but the ship is booked. Plants need the right mix of matter as well as fuel. Check the feed with Mara at the Sample Bench. By the end of the mission, you decide whether to change the feed."
+  stake: "The first trays have pale new leaves, but the ship is booked. Plants need the right mix of matter as well as fuel. Check the feed with Mara at the Sample Bench. Today you decide whether to replace the failing seedling feed."
   takeaway: "Replace the feed with a complete nutrient mix. ---"
   segue: "Mission decision: Replace the feed with a complete nutrient mix. The nitrogen test restores growth."
   # The mission card's own "Primer concepts", printed on the plan card.
@@ -17,7 +17,7 @@
   - {name: "Element", def: "A substance made of one kind of atom."}
   - {name: "Monomer", def: "A small building unit that can join others."}
   - {name: "Protein", def: "A chain of amino acids folded into a working shape."}
-  - {name: "Enzyme", def: "A protein or RNA catalyst that speeds a reaction without being consumed."}
+  - {name: "Enzyme", def: "A protein or RNA catalyst: a substance that speeds a reaction without being consumed."}
   - {name: "Control", def: "A comparison treated the same way except for the tested factor."}
   - {name: "Atom", def: "A small unit of an element."}
   - {name: "Molecule", def: "Two or more atoms bonded together."}
@@ -205,7 +205,7 @@
     scene: "The feed calculation identifies a nitrogen shortfall, but a label alone cannot prove why the seedlings grow poorly in these trays. Mara Vale asks: \"Compare the matched cultures and assay standard before the clinic replaces the stored mix.\""
     motivation: "A station-specific failure identifies the comparison that must govern the next handling decision."
     format: PROBE
-    question: "Take and record all four station readings with the sample selector, holding the assay method fixed; compare each with its own expected value and submit the one station ID outside its stated range; no restoration is needed."
+    question: "Take and record all four station readings with the sample selector, holding the assay method fixed; compare each with its own expected value and submit the one station ID (identifier, the station's short label) outside its stated range; no restoration is needed."
     answerText: "Only the stored-feed tray lies outside its own expected range. This result is now recorded for the next comparison."
     why: "Only the stored-feed tray lies outside its own expected range. Restoring nitrogen brings growth back into the complete-feed range, while the assay standard stays normal. The matched trays share seed line, light and water, so the comparison supports a nitrogen limitation under these conditions. It does not show that all pale plants everywhere need this treatment. The result gives the clinic a specific replacement decision and keeps the original feed label as a clue about outdated instructions."
     # wrong-path feedback, one rebuttal per wrong option:
@@ -268,7 +268,7 @@
           load: known solution
       target: t2
       correctChoice: t2
-      quantityAndUnits: Take and record all four station readings with the sample selector, holding the assay method fixed; compare each with its own expected value and submit the one station ID outside its stated range; no restoration is needed.
+      quantityAndUnits: Take and record all four station readings with the sample selector, holding the assay method fixed; compare each with its own expected value and submit the one station ID (identifier, the station’s short label) outside its stated range; no restoration is needed.
       correctConclusion: Only the stored-feed tray lies outside its own expected range. This result is now recorded for the next comparison.
       answerText: Only the stored-feed tray lies outside its own expected range. This result is now recorded for the next comparison.
 

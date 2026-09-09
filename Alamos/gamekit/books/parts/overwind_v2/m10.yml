@@ -18,7 +18,7 @@
   - {name: "Amplitude", def: "the largest displacement from equilibrium in an oscillation."}
   - {name: "Phase", def: "the part of an oscillation's cycle at a chosen time."}
   equations:
-  - {"e":"x(t)=x0 cos(ωt)+(v0/ω)sin(ωt)","c":"elasticity and simple harmonic motion in the measured system.","v":[["x","upward displacement from fixed-support equilibrium"],["x0","initial displacement"],["v0","initial upward velocity"],["ω","angular frequency"],["t","time since drum reached rest"]],"s":"What caused the cage to overrun its March landing?"}
+  - {"e":"xmax = v0/ω; tpeak = π/(2ω), for x0=0 and v0>0","c":"elasticity and simple harmonic motion in the measured system.","v":[["xmax","first upward excursion in metres"],["v0","initial upward velocity in metres per second"],["ω","angular frequency in radians per second"],["tpeak","time to that peak in seconds"],["x0","initial displacement from equilibrium in metres"],["π","the circle constant"]],"s":"What caused the cage to overrun its March landing?"}
   primer:
   - "Name the body, positive direction and quantity before using a relation."
   - "Compare a result only with the condition and range that its record actually covers."

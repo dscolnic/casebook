@@ -1442,9 +1442,26 @@ export function buildInteriorBuilding(scene, spec){
     faceYaw: laneX < 0 ? Math.PI / 2 : -Math.PI / 2,
   };
 
-  return {
+  // ---------------------------------------------------------- the story
+  //
+  // Props that want to know what the campaign is doing, indoors. The outdoor
+  // world has had `stateHooks` for a year; a room had nothing, and every one of
+  // the bibles' visible consequences — a tag tied to a drawing, a board that
+  // changes from ALL GREEN to something worse — happens at a fixture in a room.
+  // `spec.dress(room, ctx)` is the theme's hook; anything it pushes into
+  // `ctx.stateHooks` runs on entry and on the room's own tick, with the state.
+  const stateHooks = [];
+  const applyState = (state) => {
+    if(!state) return;
+    for(const hook of stateHooks){
+      try{ hook(state); }catch(err){ console.warn('[interior] a state hook failed', err); }
+    }
+  };
+
+  const room = {
     id: spec.id,
     group, colliders, interactables, light, screen, plate, chart, beacon, stationLane,
+    stateHooks, applyState,
     /**
      * The room's own dimensions, for anything built into it after the fact.
      *
@@ -1480,4 +1497,24 @@ export function buildInteriorBuilding(scene, spec){
     },
     update(delta, camera){ screen.update(delta); beacon.update(delta, camera); },
   };
+
+  if(typeof spec.dress === 'function'){
+    try{
+      spec.dress(room, {
+        // Room space: everything added to `group` is positioned relative to
+        // the room's own origin, floor at y = 0.
+        group, add, box: kitBox, onWall, wallSpan, mx, side, flip,
+        bounds: room.bounds, style: S, isChalk, accent,
+        // World-space collision for anything a player could walk into.
+        solid,
+        // Keep off these: the instrument, the authored fixtures, the delivery
+        // board, the stand and the doorway.
+        keepClear: [instrumentWall, ...fixtureWalls, ...deliveryClear,
+          { x: standX, z: standZ, r: 2.2 }, { x: 0, z: z0 + 1.2, r: 2.4 }],
+        stateHooks,
+        origin: { x: ox, z: oz },
+      });
+    }catch(err){ console.warn('[interior] dress failed for', spec.id, err); }
+  }
+  return room;
 }

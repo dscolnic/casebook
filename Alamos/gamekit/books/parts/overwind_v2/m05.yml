@@ -14,6 +14,7 @@
   segue: "Mission decision: The lift has enough energy, but the stop is not cleared. The drum stores motion energy too. The brake page stays open. Two trip tags now hang on the feed belt. Ada signs the energy page but leaves her brake page open. She places the March check beside it so the crew can see that enough lift energy has answered a different question."
   # The mission card's own "Primer concepts", printed on the plan card.
   terms:
+  - {name: "MJ (megajoule)", def: "one million joules of energy; kJ (kilojoule) means one thousand joules."}
   - {name: "Work", def: "energy transferred by a force through a displacement."}
   - {name: "Potential energy", def: "energy associated with a system's position or arrangement."}
   - {name: "Kinetic energy", def: "energy of motion."}

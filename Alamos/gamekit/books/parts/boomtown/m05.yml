@@ -221,13 +221,13 @@
     format: DIAGNOSIS
     question: "Read every zone and select the one explanation consistent with all observations."
     choices:
-      - A binding cap leaves excess demand
-      - A fire removed offered housing
-      - The ceiling is above market rent
-      - Every applicant already has a home
-    answer: A binding cap leaves excess demand
+      - A fall in housing demand leaves fewer applicants seeking homes
+      - The binding rent cap leaves more applicants than offered homes
+      - A loss of physical homes leaves fewer units available to offer
+      - A nonbinding rent cap leaves the existing market rent unchanged
+    answer: The binding rent cap leaves more applicants than offered homes
     answerText: "The ceiling is below the stated equilibrium, offers are below applications, and no destruction occurred. A shortage follows without any assumption that the policy immediately destroys homes; the separate long-run response remains conditional."
-    why: "The ceiling is below the stated equilibrium, offers are below applications, and no destruction occurred. A shortage follows without any assumption that the policy immediately destroys homes; the separate long-run response remains conditional. The housing office can separate rationing now from possible construction changes later. Price incentives help explain the immediate mismatch between demand and offers; this evidence does not measure how builders respond after several years. The destruction reading is zero."
+    why: "The ceiling is below the stated equilibrium, offers are below applications, and no destruction occurred. A shortage follows without any assumption that the policy immediately destroys homes; the separate long-run response remains conditional. The housing office can separate rationing now from possible construction changes later. Price incentives help explain the immediate mismatch between demand and offers; this evidence does not measure how builders respond after several years. The destruction reading is zero, so physical loss does not explain this shortage."
     # wrong-path feedback, one rebuttal per wrong option:
     #   in the interaction block, keyed per option
     # data: Compare all readings; alarm, watch, and normal are text labels, not verdicts.
@@ -309,9 +309,9 @@
         status: normal
     headline: Why the advertised rooms are gone
     rebuttals:
-      - The destruction reading is zero.
-      - The ceiling is $200 below the market figure.
-      - There are 40 more applicants than offered homes.
+      - There are 120 applicants and 80 offered homes; a fall in demand does not explain the excess applications.
+      - The destruction reading is zero, so physical loss does not explain this shortage.
+      - The ceiling is $200 below the market figure, so it is binding rather than nonbinding.
 
   # --- Stop 20: Keep the promise honest
   #     Concept: 8 — Price controls and allocation; Narrow concept: Keep the promise honest; Keystone: Equilibrium, Price incentives, Surplus; Area: P; Prerequisites: 4; Learning role: COMBINE; Difficulty: L3; Story role: decision.
@@ -326,11 +326,11 @@
     format: CHOICE
     question: "Select the one recommendation supported by the recorded evidence and the stated decision rule."
     choices:
-      - Reject the ceiling as a complete housing plan and retain a separate access measure
-      - Certify the ceiling alone as housing every applicant
-      - Reject all tenant relief because some people lose
-      - Promise immediate construction without funds or permits
-    answer: Reject the ceiling as a complete housing plan and retain a separate access measure
+      - Remove all tenant relief, since any landlord loss makes relief inefficient
+      - Count planned building as housing supply, before funding and permits arrive
+      - Retain tenant relief, but add a separate housing access measure
+      - Certify the rent cap, since lower rent gives every applicant access
+    answer: Retain tenant relief, but add a separate housing access measure
     answerText: "The stated goal concerns access, and 40 applicants remain unmatched under the cap. That disproves the claim that the ceiling alone meets the goal while leaving room for a normative choice to retain relief for existing tenants alongside additional measures."
     why: "The stated goal concerns access, and 40 applicants remain unmatched under the cap. That disproves the claim that the ceiling alone meets the goal while leaving room for a normative choice to retain relief for existing tenants alongside additional measures. The advice distinguishes a factual shortage from a value judgment about tenant protection. A lower legal rent does not fill the 40-unit quantity gap. Distributional benefits remain real even when a policy is incomplete."
     # wrong-path feedback, one rebuttal per wrong option:
@@ -359,7 +359,7 @@
     #     "answerText": "The stated goal concerns access, and 40 applicants remain unmatched under the cap. That disproves the claim that the ceiling alone meets the goal while leaving room for a normative choice to retain relief for existing tenants alongside additional measures."
     #   }
     rebuttals:
-      - A lower legal rent does not fill the 40-unit quantity gap.
       - Distributional benefits remain real even when a policy is incomplete.
       - No evidence or authorized input supports instant new supply.
+      - A lower legal rent does not fill the 40-unit quantity gap.
 

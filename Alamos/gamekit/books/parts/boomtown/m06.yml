@@ -320,13 +320,13 @@
     format: CHOICE
     question: "Select the one recommendation supported by the recorded evidence and the stated decision rule."
     choices:
-      - Use the fee’s $120 revenue estimate and acknowledge its $40 efficiency cost
-      - Budget $200 because pre-tax sales were higher
-      - Claim the fee has no cost because sellers remit it
-      - Reject the revenue estimate because every tax destroys all trade
-    answer: Use the fee’s $120 revenue estimate and acknowledge its $40 efficiency cost
+      - Budget $200 in receipts and use the original volume of sales
+      - Budget $120 in receipts and assign the whole burden to sellers
+      - Budget $120 in receipts and count the receipts as net social gain
+      - Budget $120 in receipts and report $40 in lost gains
+    answer: Budget $120 in receipts and report $40 in lost gains
     answerText: "Under the council's stated funding choice, $120 covers the measure. The adviser must also disclose $40 in lost gains and the buyer-heavy burden; those facts do not themselves establish whether redistribution is morally desirable."
-    why: "Under the council's stated funding choice, $120 covers the measure. The adviser must also disclose $40 in lost gains and the buyer-heavy burden; those facts do not themselves establish whether redistribution is morally desirable. The council owns the distribution choice while the player certifies the calculation. The post-tax quantity is 30, not 50. Buyers bear most of the measured burden despite seller remittance. Thirty deliveries remain and generate the stated receipts."
+    why: "Under the council's stated funding choice, $120 covers the measure. The adviser must also disclose $40 in lost gains and the buyer-heavy burden; those facts do not themselves establish whether redistribution is morally desirable. The council owns the distribution choice while the player certifies the calculation. The post-tax quantity is 30, not 50. Buyers bear most of the measured burden despite seller remittance. Tax receipts transfer money to the state; they are not an extra net social gain that erases the $40 deadweight loss."
     # wrong-path feedback, one rebuttal per wrong option:
     #   in the interaction block, keyed per option
     # data: The housing measure costs $120 daily; fee receipts are $120, buyers bear $3 and sellers $1 per remaining delivery, and the undistorted linear-market deadweight loss is $40 daily. The council has explicitly chosen to fund this measure if receipts cover it.
@@ -355,5 +355,5 @@
     rebuttals:
       - The post-tax quantity is 30, not 50.
       - Buyers bear most of the measured burden despite seller remittance.
-      - Thirty deliveries remain and generate the stated receipts.
+      - Tax receipts transfer money to the state; they are not an extra net social gain that erases the $40 deadweight loss.
 

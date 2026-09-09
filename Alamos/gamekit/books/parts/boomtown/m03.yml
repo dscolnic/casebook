@@ -327,13 +327,13 @@
     format: CHOICE
     question: "Select the one recommendation supported by the recorded evidence and the stated decision rule."
     choices:
-      - Reject the tested rent increase because room revenue falls
-      - Keep the increase because each occupied room pays more
-      - Keep the increase because demand must be inelastic
-      - Reject the increase because every high price is illegal
-    answer: Reject the tested rent increase because room revenue falls
+      - Retain the rent rise, since each occupied room pays more
+      - Retain the rent rise, since room demand is price inelastic
+      - Reverse the rent rise, since fewer bookings imply falling demand
+      - Reverse the tested rent rise, since lost bookings outweigh the higher payment per occupied room
+    answer: Reverse the tested rent rise, since lost bookings outweigh the higher payment per occupied room
     answerText: "The higher payment per occupied room is outweighed by fewer occupied rooms. The archive gives an elastic response and a $100 revenue loss, supporting reversal of this particular price experiment without asserting anything about legality."
-    why: "The higher payment per occupied room is outweighed by fewer occupied rooms. The archive gives an elastic response and a $100 revenue loss, supporting reversal of this particular price experiment without asserting anything about legality. Vacant beds can reopen without pretending every landlord faces identical demand. Per-room receipts ignore the four lost bookings. The measured elasticity exceeds one, contradicting inelastic demand. No legal rule is given; the economic comparison alone supports the decision."
+    why: "The higher payment per occupied room is outweighed by fewer occupied rooms. The archive gives an elastic response and a $100 revenue loss, supporting reversal of this particular price experiment without asserting anything about legality. Vacant beds can reopen without pretending every landlord faces identical demand. Per-room receipts ignore the four lost bookings. The measured elasticity exceeds one, contradicting inelastic demand. Fewer bookings after the room's own price rises can be movement along demand; no separate demand shift is shown."
     # wrong-path feedback, one rebuttal per wrong option:
     #   in the interaction block, keyed per option
     # data: The same-quality rooms yielded $400 before and $300 after the rise; demand elasticity over that comparison is 2.25. No other demand determinant changed.
@@ -362,5 +362,5 @@
     rebuttals:
       - Per-room receipts ignore the four lost bookings.
       - The measured elasticity exceeds one, contradicting inelastic demand.
-      - No legal rule is given; the economic comparison alone supports the decision.
+      - Fewer bookings after the room’s own price rises can be movement along demand; no separate demand shift is shown.
 

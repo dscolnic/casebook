@@ -52,7 +52,7 @@ export const GROUPS = [
     "difficulty": 4,
     "type": "protocol",
     "desc": "",
-    "defaultLeader": "bell",
+    "defaultLeader": "velez",
     "budget": 80,
     "milestones": [
       {
@@ -93,7 +93,7 @@ export const GROUPS = [
     "difficulty": 3,
     "type": "sequence",
     "desc": "",
-    "defaultLeader": "sen",
+    "defaultLeader": "velez",
     "budget": 88,
     "milestones": [
       {
@@ -134,7 +134,7 @@ export const GROUPS = [
     "difficulty": 4,
     "type": "diagnosis",
     "desc": "",
-    "defaultLeader": "moss",
+    "defaultLeader": "velez",
     "budget": 72,
     "milestones": [
       {
@@ -175,7 +175,7 @@ export const GROUPS = [
     "difficulty": 5,
     "type": "sciencetank",
     "desc": "",
-    "defaultLeader": "price",
+    "defaultLeader": "velez",
     "budget": 96,
     "milestones": [
       {

@@ -104,7 +104,7 @@
     scene: "Priya Nair checks the evidence: the class currently declares static int lastWarning;, and H04 writes 7 immediately before P02 reads the same value. Build the declaration and access pattern that give each controller its own warning state instead of one class-wide slot."
     motivation: "Moving warning state into each object should let H04 change without overwriting P02's previously stored warning."
     format: DERIVE
-    question: "Choose the field declaration and assignment that store warning state separately in each controller object."
+    question: "Choose the field declaration and assignment that store warning state separately in each controller object. Then select the replay result from the local givens."
     answerText: "Removing static gives every instance its own field, and this writes the receiver's copy."
     why: "Static fields belong to the class; instance fields belong to individual objects."
     # wrong-path feedback, one rebuttal per wrong option:
@@ -145,6 +145,13 @@
             - text: this.lastWarning = value;
             - text: Controller.lastWarning = value;
               why: Writing through the class name targets shared class state instead of the receiving object's own field.
+              survives: true
+        - ask: Apply the selected rule to the given replay. Choose its evaluated result.
+          answer: 0
+          candidates:
+            - text: "H04.setWarning(7): P02 stays 3 and H04 becomes 7 with instance fields"
+            - text: "H04.setWarning(7): P02 becomes 7 and H04 becomes 7 with instance fields"
+              why: Writing an instance field in H04 does not change the distinct P02 object.
               survives: true
 
   # --- Stop 43: Probe independent warning state

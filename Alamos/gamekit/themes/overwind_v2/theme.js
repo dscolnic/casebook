@@ -23,6 +23,8 @@ import { COPY } from './content/copy.js';
 import { INTERIORS } from './interiors.js';
 import { FIXTURES } from './fixtures.js';
 import { decorate, fitOutRoom, fitOutSpine } from './props.js';
+import { dressRoom } from './story.js';
+import { MINOR_INTERIORS } from './minors.js';
 import { OPENING, ENDING } from './cards.js';
 
 export default {
@@ -94,7 +96,7 @@ export default {
   // What is inside each room the player walks into, from book.yml. Rooms are
   // built by engine/world/interiorBuilding.js on first entry, in a district
   // four kilometres from the town.
-  interiors: INTERIORS,
+  interiors: { ...INTERIORS, ...MINOR_INTERIORS },
   // The objects the questions are asked AT, built into each room by
   // engine/world/interiorFixtures.js; catalogue in ./fixtures.js. Four of them
   // carry `from:`/`until:`, so the tip bench, the inquiry drawer and the winder
@@ -184,4 +186,6 @@ export default {
   decorate,
   fitOutRoom,
   fitOutSpine,
+  // The bible's twelve physical aftermaths, on their fixtures. See story.js.
+  dressRoom,
 };

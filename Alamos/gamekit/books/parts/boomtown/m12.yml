@@ -320,11 +320,11 @@
     format: CHOICE
     question: "Select the one recommendation supported by the recorded evidence and the stated decision rule."
     choices:
-      - Use 30 freight units as the corrected efficiency target in the stated model
-      - Use 40 because competition always removes every inefficiency
-      - Use 20 because any pollution means monopoly is efficient
-      - Reject all public-good provision because some users free ride
-    answer: Use 30 freight units as the corrected efficiency target in the stated model
+      - Target 20 units, where marginal revenue equals private marginal cost
+      - Target zero units, because each shipment imposes some external harm
+      - Target 30 units, where social benefit equals social cost
+      - Target 40 units, where social benefit equals private marginal cost
+    answer: Target 30 units, where social benefit equals social cost
     answerText: "The efficient quantity equates social benefit and social cost at 30. Competition can remove a markup while leaving an external cost, so replacing market power does not by itself settle the environmental problem or how to provide shared services."
     why: "The efficient quantity equates social benefit and social cost at 30. Competition can remove a markup while leaving an external cost, so replacing market power does not by itself settle the environmental problem or how to provide shared services. The freight agreement now needs both access and a water-cost rule. The 40-unit benchmark omitted $20 marginal external harm. The coincidence of lower output does not prove the monopoly selects the social optimum."
     # wrong-path feedback, one rebuttal per wrong option:
@@ -353,7 +353,7 @@
     #     "answerText": "The efficient quantity equates social benefit and social cost at 30. Competition can remove a markup while leaving an external cost, so replacing market power does not by itself settle the environmental problem or how to provide shared services."
     #   }
     rebuttals:
-      - The 40-unit benchmark omitted $20 marginal external harm.
       - The coincidence of lower output does not prove the monopoly selects the social optimum.
-      - Free riding explains underfunding pressure; it does not prove provision should be zero or that only government can provide.
+      - Some harm does not justify zero output when marginal benefit exceeds social cost below 30 units.
+      - The 40-unit benchmark omitted $20 marginal external harm.
 

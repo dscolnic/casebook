@@ -128,7 +128,7 @@
     scene: "Priya Nair checks the evidence: the rollback must inspect controller records from the final valid index down to zero and remove a record only when it is resolved. Build the loop and choose the statement explaining why removal cannot skip a lower unvisited index."
     motivation: "The final code must express the proven mechanism, not merely carry a label saying backward traversal is safer."
     format: DERIVE
-    question: "Build the rollback loop line by line and choose the explanation that proves descending traversal does not skip records."
+    question: "Build the rollback loop line by line and choose the explanation that proves descending traversal does not skip records. Then select the replay result from the local givens."
     answerText: "Removal can shift higher positions, but those positions have already been processed; lower indexes still refer to the same unvisited records."
     why: "This is an algorithm proof over a class of list states rather than a memorized fix for one example."
     # wrong-path feedback, one rebuttal per wrong option:
@@ -158,7 +158,7 @@
     #           - {line: "removing i cannot change any lower index still to be visited", correct: true}
     #           - {line: "removing i preserves every higher index that has not been visited yet", correct: false, survives: true, why: "In a descending traversal the higher indexes have already been visited; lower unvisited indexes stay unchanged."}
     derive:
-      start: "records is an ArrayList of open and resolved records. Its first index is 0 and last is size minus 1. Removing index i shifts only higher items left by 1; visit each record once. Source: records contains open and resolved entries; remove each resolved entry while traversing the ArrayList by index."
+      start: "records is an ArrayList of open and resolved records. Its first index is 0 and last is size minus 1. Removing index i shifts only higher items left by 1; visit each record once. Source: records contains open and resolved entries; remove each resolved entry while traversing the ArrayList by index. Replay records = [A open, B resolved, C resolved]."
       goal: remove every resolved record without skipping a neighbor that shifts after deletion
       steps:
         - ask: Choose the loop header.
@@ -181,6 +181,13 @@
             - text: removing i cannot change any lower index still to be visited
             - text: removing i preserves every higher index that has not been visited yet
               why: In a descending traversal the higher indexes have already been visited; lower unvisited indexes stay unchanged.
+              survives: true
+        - ask: Apply the selected rule to the given replay. Choose its evaluated result.
+          answer: 0
+          candidates:
+            - text: "i=3-1=2 removes C; i=1 removes B; i=0 keeps A; i=-1 ends: [A]"
+            - text: "i=3-1=2 removes C; i=1 keeps B; i=0 keeps A; i=-1 ends: [A, B]"
+              why: Removing C at index two cannot change B at the lower index one. The next visit must remove resolved B.
               survives: true
 
   # --- Stop 59: Protect the rescue link

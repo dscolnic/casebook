@@ -18,7 +18,7 @@
   - {name: "Efficiency", def: "useful output energy divided by input energy over the same interval."}
   - {name: "Cruise", def: "motion at a steady planned speed."}
   equations:
-  - {"e":"P = Fv = τω; Pin = Pout/η","c":"power and efficiency in the measured system.","v":[["P","power in watts"],["F","force in newtons"],["v","speed in metres per second"],["τ","torque"],["ω","angular speed"],["Pin","input power"],["Pout","useful output power"],["η","efficiency"]],"s":"Which cruise speed fits the motor power limit?"}
+  - {"e":"P = dW/dt = Fv","c":"power and efficiency in the measured system.","v":[["P useful shaft power","in watts"],["W work","in joules"],["t time","in seconds"],["F lifting force","in newtons"],["v lifting speed","in metres per second"]],"s":"Which cruise speed fits the motor power limit?"}
   primer:
   - "Name the body, positive direction and quantity before using a relation."
   - "Compare a result only with the condition and range that its record actually covers."

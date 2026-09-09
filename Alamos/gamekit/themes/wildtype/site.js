@@ -129,7 +129,10 @@ export const site = {
   // The map should show the compound and the dune track, not 400 m of sea.
   mapBounds: { x0: -100, x1: 100, z0: -215, z1: 95 },
 
-  board: { x: 10, z: 54, facing: PI, title: 'Station board' },
+  // Sea haze and a little drizzle; story.js clears it for the ship.
+  weather: { kind: 'drizzle', density: 0.08, wind: { x: 1.4, z: 2.0 } },
+
+  board: { x: 10, z: 54, facing: PI, title: 'Field Notice Board' },
 
   furniture: [
     { kind: 'bench', x: -4, z: 48, facing: PI },

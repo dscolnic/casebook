@@ -27,6 +27,7 @@ import {
 import { mat } from '../../engine/world/materials.js';
 import { spin, sway, bob, wander } from '../../engine/world/animators.js';
 import { driveable } from '../../engine/world/driving.js';
+import { storyOutdoors } from './story.js';
 
 const CONCRETE = () => MATERIALS.concrete();
 const PAINT = (c) => MATERIALS.paintedSteel(c);
@@ -157,6 +158,10 @@ export function decorate(scene, ctx){
   stationYard(scene, ctx);             // 9–13
   shipAndCart(scene, ctx);             // 14, 16
   growingState(scene, ctx, trays);     // 15, 17, 18
+  // The island alive and the fifteen days visible: birds that land, the ship
+  // that arrives on day 14, the cart that goes to it. See story.js and
+  // gamekit/STORY_DRESSING_PASS.md §4.
+  storyOutdoors(scene, ctx);
 
   // The duct trench, left open for twelve metres where the splice trailer is
   // parked against it — which is why the trailer is where it is.
@@ -576,9 +581,11 @@ function shipAndCart(scene, ctx){
   for(let i = 0; i < 4; i++){
     cyl(ship, 0.2, 5.5, -1.5 + i, 6.0, 6 + i * 0.2, MATERIALS.paintedSteel(0x9a9488));
   }
+  // Hidden: the bible has the ship APPEAR offshore on mission 14 ("the dawn pond
+  // panel reads LOW OXYGEN and the ship appears offshore"), and story.js owns
+  // that arrival. A coaster alongside from day 1 argued against the countdown.
+  ship.visible = false;
   scene.add(ship);
-  animate?.(bob(ship, 0.09, 0.35));
-  animate?.(sway(ship, 'z', 0.012, 0.3));
   // The gangway down to the jetty.
   const gang = box(scene, 1.2, 0.1, 8, jx + 5, jy + 1.4, jz - 6, TIMBERW());
   gang.rotation.z = 0.1;
@@ -608,11 +615,8 @@ function shipAndCart(scene, ctx){
   stateHooks?.push((state) => {
     const day = Math.max(1, state?.week ?? 1);
     boxes.forEach((b, i) => { b.visible = i < day; });
-    // On the last day it is at the ship rather than at the clinic.
-    const done = day >= 15;
-    const x = done ? jx : startX, z = done ? jz + 8 : startZ;
-    cart.position.set(x, groundHeight(x, z) + (done ? 0.66 : 0), z);
-    cart.rotation.y = done ? Math.PI / 2 : 0;
+    // The covered pilot cart in story.js is the one that goes down to the ship
+    // on day 15; this one is the clinic's sample cart and stays where it works.
   });
   return null;
 }

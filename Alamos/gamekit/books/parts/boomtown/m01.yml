@@ -319,11 +319,11 @@
     format: CHOICE
     question: "Select the one recommendation supported by the recorded evidence and the stated decision rule."
     choices:
-      - Trade two meal boxes for one repair hour
-      - Pay four meal boxes for one repair hour
-      - Reject trade because repair productivity is tied
-      - Assign both teams only to diner repairs
-    answer: Trade two meal boxes for one repair hour
+      - Trade two boxes per repair hour, below the diner’s cost and above the crew’s cost
+      - Trade at four boxes per hour, above both internal costs
+      - Reject any trade, since both teams have equal repair productivity
+      - Assign both teams to repairs, since the broken bench limits meals
+    answer: Trade two boxes per repair hour, below the diner’s cost and above the crew’s cost
     answerText: "At two boxes per hour, the diner gives up fewer boxes than its internal cost of three, while the crew receives more than its internal cost of one. Both gain on their own terms; tied absolute repair productivity does not erase different opportunity costs."
     why: "At two boxes per hour, the diner gives up fewer boxes than its internal cost of three, while the crew receives more than its internal cost of one. Both gain on their own terms; tied absolute repair productivity does not erase different opportunity costs. The adviser can recommend the agreement without ordering either business to accept it. Four boxes exceeds the diner's three-box internal cost. Comparative advantage depends on opportunity cost, not whether absolute productivity ties."
     # wrong-path feedback, one rebuttal per wrong option:

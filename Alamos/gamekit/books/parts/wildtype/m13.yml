@@ -6,10 +6,10 @@
     header: "DAY 13 OF 15 — SHIP DEPARTS AFTER DAY 15"
     title: "THE SOIL ON THE OTHER SHORE"
     goNow: "Go to Marsh Research Bay and meet Tess Rowan, field ecologist, at the Water Rack."
-    body: "The partners are chosen, but the new soil lacks usable nitrogen. Roots need water and a form of nutrients they can take up. Test the soil with Tess, then take the plan to Ada. By the end of the mission, you decide if the plot is ready to plant."
+    body: "The partners are chosen, but the new soil lacks usable nitrogen. Roots need water and a form of nutrients they can take up. Test the soil with Tess, then take the plan to Ada. Today you decide whether the receiving plot is ready for the pilot."
     objective: "Resolve whether the receiving plot is ready for the pilot; the new plants could starve in suitable-looking ground."
   objective: "Resolve whether the receiving plot is ready for the pilot; the new plants could starve in suitable-looking ground."
-  stake: "The partners are chosen, but the new soil lacks usable nitrogen. Roots need water and a form of nutrients they can take up. Test the soil with Tess, then take the plan to Ada. By the end of the mission, you decide if the plot is ready to plant."
+  stake: "The partners are chosen, but the new soil lacks usable nitrogen. Roots need water and a form of nutrients they can take up. Test the soil with Tess, then take the plan to Ada. Today you decide whether the receiving plot is ready for the pilot."
   takeaway: "Prepare the receiving soil and water before planting. ---"
   segue: "Mission decision: Prepare the receiving soil and water before planting. The dry soil fails the plant test."
   # The mission card's own "Primer concepts", printed on the plan card.

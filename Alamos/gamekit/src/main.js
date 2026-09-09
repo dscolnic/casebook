@@ -181,6 +181,8 @@ initCrowd({
   stations: world.getPeopleStations?.() ?? [],
   extraSpots: world.getExtraSpots?.() ?? [],
   extras: theme.people.extras ?? 0,
+  // How fast the town walks. 1 is a stroll; a boom town or a rescue is quicker.
+  pace: theme.people.pace ?? 1,
   // Where somebody can sit down — bench seats outdoors, `plan.seats` indoors.
   // A share of the extras sit; the rest walk. See `seats` in crowd.js.
   seats: world.getSeats?.() ?? [],

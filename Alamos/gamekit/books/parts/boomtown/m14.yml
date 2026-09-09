@@ -335,13 +335,13 @@
     format: CHOICE
     question: "Select the one recommendation supported by the recorded evidence and the stated decision rule."
     choices:
-      - Reject the second line’s claimed dominance and retain the access retrofit
-      - Approve the new line because its banner is already printed
-      - Discard both plans because transfers never matter
-      - Keep status quo because it avoids every possible risk
-    answer: Reject the second line’s claimed dominance and retain the access retrofit
+      - Retain the status quo because its feasible plan must beat any investment
+      - Retain the retrofit after correcting transfers and testing cost overruns
+      - Approve the new line after adding lower fees to its resource savings
+      - Reject the retrofit because transfers change who receives the freight fees
+    answer: Retain the retrofit after correcting transfers and testing cost overruns
     answerText: "Correcting the resource ledger and applying the previously adopted stress rule removes the new line's claimed dominance. Transfers still matter to affected people and must receive a distribution plan, but they cannot rescue an infeasible design by being counted twice."
-    why: "Correcting the resource ledger and applying the previously adopted stress rule removes the new line's claimed dominance. Transfers still matter to affected people and must receive a distribution plan, but they cannot rescue an infeasible design by being counted twice. The final hearing can now choose an agreement whose claims use one consistent accounting boundary. A printed banner is not evidence about resource use or feasibility. Transfers matter to distribution even when excluded from net-resource totals."
+    why: "Correcting the resource ledger and applying the previously adopted stress rule removes the new line's claimed dominance. Transfers still matter to affected people and must receive a distribution plan, but they cannot rescue an infeasible design by being counted twice. The final hearing can now choose an agreement whose claims use one consistent accounting boundary. Lower local fees are transfers, already separated from the $60 resource saving; adding them counts a gain twice. Transfers matter to distribution even when excluded from net-resource totals."
     # wrong-path feedback, one rebuttal per wrong option:
     #   in the interaction block, keyed per option
     # data: The initial new-line claim double-counted an internal $40 transfer; the independent stress table rejects it above 10% overrun. The retrofit meets the whole 0–40% range and outperforms status quo under the adopted net-resource rule.
@@ -368,7 +368,7 @@
     #     "answerText": "Correcting the resource ledger and applying the previously adopted stress rule removes the new line’s claimed dominance. Transfers still matter to affected people and must receive a distribution plan, but they cannot rescue an infeasible design by being counted twice."
     #   }
     rebuttals:
-      - A printed banner is not evidence about resource use or feasibility.
-      - Transfers matter to distribution even when excluded from net-resource totals.
       - The retrofit survives the stated range and offers a larger benefit.
+      - Lower local fees are transfers, already separated from the $60 resource saving; adding them counts a gain twice.
+      - Transfers matter to distribution even when excluded from net-resource totals.
 

@@ -6,10 +6,10 @@
     header: "DAY 14 OF 15 — SHIP DEPARTS AFTER DAY 15"
     title: "GREEN UNTIL MORNING"
     goNow: "Go to Growth Hall and meet Ivo Reed, plant physiologist, at the Growth Bench."
-    body: "The test looks good by day, but the animals rise to the surface at dawn. Life in the tanks uses oxygen all night. Check the full day with Ivo, then take the facts to Ada. By the end of the mission, you decide if the test is ready to grow."
+    body: "The test looks good by day, but the animals rise to the surface at dawn. Life in the tanks uses oxygen all night. Check the full day with Ivo, then take the facts to Ada. Today you decide whether the full-day pilot clears expansion."
     objective: "Resolve whether the full-day pilot clears expansion; a daytime pass could hide a night-time failure."
   objective: "Resolve whether the full-day pilot clears expansion; a daytime pass could hide a night-time failure."
-  stake: "The test looks good by day, but the animals rise to the surface at dawn. Life in the tanks uses oxygen all night. Check the full day with Ivo, then take the facts to Ada. By the end of the mission, you decide if the test is ready to grow."
+  stake: "The test looks good by day, but the animals rise to the surface at dawn. Life in the tanks uses oxygen all night. Check the full day with Ivo, then take the facts to Ada. Today you decide whether the full-day pilot clears expansion."
   takeaway: "Hold expansion until the night oxygen problem is corrected. ---"
   segue: "Mission decision: Hold expansion until the night oxygen problem is corrected. The dawn test falls below the oxygen limit."
   # The mission card's own "Primer concepts", printed on the plan card.
@@ -119,7 +119,7 @@
     scene: "The dark-interval calculation predicts a risk that the noon inspection could miss, and the field team has now collected the complete-cycle comparison samples. Ivo Reed asks: \"Read every station before deciding whether the pilot design or the receiving water explains the failure.\""
     motivation: "A station-specific failure identifies the comparison that must govern the next handling decision."
     format: PROBE
-    question: "Take and record all four station readings with the sample selector, holding the assay method fixed; compare each with its own expected value and submit the one station ID outside its stated range; no restoration is needed."
+    question: "Take and record all four station readings with the sample selector, holding the assay method fixed; compare each with its own expected value and submit the one station ID (identifier, the station's short label) outside its stated range; no restoration is needed."
     answerText: "Only the dawn reading from the standard pilot falls outside its expected range. This result is now recorded for the next comparison."
     why: "Only the dawn reading from the standard pilot falls outside its expected range. The air-supply comparison remains within range, as does the independent receiving-water sample. The contrast supports insufficient oxygen replacement relative to community demand during the night in this design. It does not blame every receiving-site water source or invalidate the measured daylight success. The old sealed-pot clue now pays off at a larger scale: a community can pass a daytime inspection and still fail over its actual operating cycle."
     # wrong-path feedback, one rebuttal per wrong option:
@@ -182,7 +182,7 @@
           load: independent field bottle
       target: t2
       correctChoice: t2
-      quantityAndUnits: Take and record all four station readings with the sample selector, holding the assay method fixed; compare each with its own expected value and submit the one station ID outside its stated range; no restoration is needed.
+      quantityAndUnits: Take and record all four station readings with the sample selector, holding the assay method fixed; compare each with its own expected value and submit the one station ID (identifier, the station’s short label) outside its stated range; no restoration is needed.
       correctConclusion: Only the dawn reading from the standard pilot falls outside its expected range. This result is now recorded for the next comparison.
       answerText: Only the dawn reading from the standard pilot falls outside its expected range. This result is now recorded for the next comparison.
 

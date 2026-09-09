@@ -24,6 +24,7 @@ import { driveable } from '../../engine/world/driving.js';
 // The world's decorate context does not carry the site, and the piles and
 // drifts are placed off the same numbers the buildings are.
 import { site } from './site.js';
+import { storyOutdoors } from './story.js';
 
 /** Snow: bright, matt, and dark enough on paper to survive a sky IBL. */
 const SNOW = () => MATERIALS.paintedSteel(0xd9e2ec);
@@ -411,7 +412,9 @@ export function decorate(scene, ctx){
 
   // The mast, at the far end of the route — the External Mast Walk of §3, and
   // the only thing on this plateau above nine metres.
-  hard(tower(scene, -4, -68, at(-4, -68), 22));
+  // Beside the Communications & Weather module, where the External Mast Walk
+  // of §3 goes — it stood inside the Vehicle Bay's footprint before this.
+  hard(tower(scene, 94, 38, at(94, 38), 22));
 
   // Fuel: the year's supply, cached upwind of the generators where a spill
   // runs away from the camp rather than through it.
@@ -453,6 +456,10 @@ export function decorate(scene, ctx){
   // The mast, at the head of the array, and a second one by the hut.
   metMast(scene, 96, 20, at(96, 20), 10);
   metMast(scene, 4, 52, at(4, 52), 6);
+
+  // The campaign in the world — the storm, the clock, the rover, the runway.
+  // See story.js and gamekit/STORY_DRESSING_PASS.md §1.
+  storyOutdoors(scene, ctx);
 
   // Sastrugi: the wind-carved ridges that cover an entire plateau, all lying
   // along the wind. Instanced, because there are eight hundred of them and they

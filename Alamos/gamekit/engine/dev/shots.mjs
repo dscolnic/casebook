@@ -325,6 +325,17 @@ try{
   })()`;
   if(!has('hud')) await cdp.eval(hideChrome);
 
+  // `--eval <js>`: run an expression in the loaded page and print its JSON, then
+  // stop. For asking the scene a question a screenshot cannot answer — "what is
+  // the pale box at the pond?" is `--eval` with a traverse over
+  // `window.gamekit.scene` filtered by bounding box. No shots are taken.
+  if(flag('eval')){
+    const out = await cdp.eval(`(() => { try { return JSON.stringify((() => { return (${flag('eval')}); })()); } catch(e){ return 'ERROR ' + e.message; } })()`);
+    console.log(out);
+    stop();
+    process.exit(0);
+  }
+
   // ---------------------------------------------------------------- the day
   //
   // HOISTED ABOVE THE VIEW LOOP, and it used to sit inside the `--room` branch.

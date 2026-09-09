@@ -182,7 +182,7 @@ export function initCrowd(opts){
       home: new THREE.Vector3(x, y, z),
       target: new THREE.Vector3(x, y, z),
       facing: body.rotation.y,
-      speed: srandRange(0.75, 1.15),
+      speed: srandRange(0.75, 1.15) * (opts.pace ?? 1),
       phase: srand() * 6.28,
       pause: srandRange(0.5, 4),
       // Off the street until their room is opened, where the theme asks for it.
@@ -231,7 +231,7 @@ export function initCrowd(opts){
       home: new THREE.Vector3(x, y, z),
       target: new THREE.Vector3(x, y, z),
       facing: body.rotation.y,
-      speed: srandRange(0.7, 1.2),
+      speed: srandRange(0.7, 1.2) * (opts.pace ?? 1),
       pause: srandRange(0.5, 6),
     };
     e.soft = { x, z, r: BODY_RADIUS };

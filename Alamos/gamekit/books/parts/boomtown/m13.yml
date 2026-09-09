@@ -222,11 +222,11 @@
     format: DIAGNOSIS
     question: "Read every zone and select the one explanation consistent with all observations."
     choices:
-      - A larger share need not mean more income
-      - The bottom half’s cash income rose
-      - All households have equal incomes
-      - The filter price fell after the tariff
-    answer: A larger share need not mean more income
+      - The bottom half’s cash income rises as its share of income increases
+      - The bottom half receives half of total income after the share change
+      - The bottom half buys cheaper filters after the tariff raises domestic output
+      - The bottom half’s share rises, but its unchanged $200 cash total does not establish an income gain
+    answer: The bottom half’s share rises, but its unchanged $200 cash total does not establish an income gain
     answerText: "The bottom half receives 20% of $1000 = $200 before and 25% of $800 = $200 after. Its share rises while its nominal amount stays unchanged; this distribution record alone cannot establish a welfare gain, especially with dearer filters."
     why: "The bottom half receives 20% of $1000 = $200 before and 25% of $800 = $200 after. Its share rises while its nominal amount stays unchanged; this distribution record alone cannot establish a welfare gain, especially with dearer filters. The hearing cannot sell a relative share change as a universal gain. Distribution must be read together with levels and prices; the same nominal income buys fewer of a product whose price rises, even when its income share improves."
     # wrong-path feedback, one rebuttal per wrong option:
@@ -327,11 +327,11 @@
     format: CHOICE
     question: "Select the one recommendation supported by the recorded evidence and the stated decision rule."
     choices:
-      - Keep the untaxed filter option in the comparison and disclose the tariff’s transfers
-      - Declare the tariff free because government gets revenue
-      - Award the tariff to domestic sellers without counting buyer losses
-      - Treat quota receipts as public revenue without an auction rule
-    answer: Keep the untaxed filter option in the comparison and disclose the tariff’s transfers
+      - Retain the untaxed option and disclose who gains from the tariff
+      - Prefer the tariff option and count public receipts as a net social gain
+      - Prefer the tariff option and count producer gains without buyer losses
+      - Replace the tariff with a quota and assume the state receives the rents
+    answer: Retain the untaxed option and disclose who gains from the tariff
     answerText: "The tariff raises buyers' cost and changes production and consumption while transferring some surplus to producers and government. Under the stated least-resource-cost comparison, the cheaper option remains relevant; distributional preferences must be recorded separately rather than hidden inside the cost total."
     why: "The tariff raises buyers' cost and changes production and consumption while transferring some surplus to producers and government. Under the stated least-resource-cost comparison, the cheaper option remains relevant; distributional preferences must be recorded separately rather than hidden inside the cost total. The town keeps both fiscal and resource accounts visible for the final agreement. Revenue is a transfer and does not cancel every resource loss. Producer gains alone do not establish aggregate improvement."
     # wrong-path feedback, one rebuttal per wrong option:

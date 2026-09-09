@@ -2,7 +2,7 @@
 
 ## AP Physics C: Mechanics Campaign Implementation Bible
 
-**Version:** 1.2 — Ensemble and optional-depth expansion, source-reviewed edition
+**Version:** 1.3 — Handback 2: operational equations, explicit decisions and teaching order
 
 **Campaign length:** 12 days, 48 graded stops, 12 DERIVE stops, 60 optional worked examples, 72 optional GO DEEPER questions
 
@@ -12,20 +12,33 @@
 
 ## 0. Readiness boundary
 
-Canonical artifact: `OVERWIND_AP_Physics_C_Mechanics_Campaign_Implementation_Bible_v1.1.md`. This revision follows Whiteout’s section order and A–K mission format. OVERWIND_HANDBACK_CHECK.md records the current handback source checks and limitations. The v1.0 Giant Gate assessment and ledgers are historical, not a fresh full-gate assessment of v1.1. The handback reports that the original build played; current importer, runtime and project readability checker were not supplied for this revision. No release-readiness claim is made.
+Canonical artifact: `OVERWIND_AP_Physics_C_Mechanics_Campaign_Implementation_Bible_v1.3.md`. This revision follows Whiteout’s section order and A–K mission format. OVERWIND_ROUND_CHECK.md records this round’s source checks and limitations. The v1.0 Giant Gate assessment and ledgers are historical, not a fresh full-gate assessment of v1.1. The handback reports that the original build played; current importer, runtime and project readability checker were not supplied for this revision. No release-readiness claim is made.
 
 | Source category | Expected | Supplied | Status | Authority/action |
 |---|---|---|---|---|
 | Course | AP Physics C: Mechanics | The-Simple-AP-Physics-C_-Mechanics-Cheat-Sheet (1).pdf | MATCH | Seven-unit concept reference; specific peripheral bullets mapped below |
 | Place | Kerrow Mine No. 3 | overwind.txt | MATCH | Preserve six groups, coordinates, silhouette and persistent fixture IDs |
 | Format | Canonical interactions | QUESTION_TYPES(1).md | MATCH | Provisional supplied format and stopKind authority |
-| Master | Current campaign design | Campaign_Design_and_Implementation_Master_Brief_v3.5.md | MATCH | Authoring and copy authority |
-| Ledger | Current authoring ledger | FIRST_PERSON_LEARNING_AUTHORING_LEDGER_TEMPLATE_v1.5.md | MATCH | Original filled companion and machine ledger are historical; regenerate from v1.1 before import |
-| Gate | Current static gate | FIRST_PERSON_LEARNING_GIANT_CAMPAIGN_GATE_CHECK_v2.5.md | MATCH | Original exact-ID gate report is historical; current check covers the handback revision |
+| Master | Current campaign design | Campaign_Design_and_Implementation_Master_Brief_v3.6.md | MATCH | Authoring and copy authority |
+| Ledger | Current authoring ledger | FIRST_PERSON_LEARNING_AUTHORING_LEDGER_TEMPLATE_v1.6.md | MATCH | Original filled companion and machine ledger are historical; regenerate from v1.3 before import |
+| Gate | Current static gate | FIRST_PERSON_LEARNING_GIANT_CAMPAIGN_GATE_CHECK_v2.6.md | MATCH | Original exact-ID gate report is historical; current check covers the handback revision |
 | Format exemplar | Whiteout bible | WHITEOUT_AP_Computer_Science_A_Campaign_Implementation_Bible_v2.11_HAND_BACK_4(1).md | MATCH | Numbered front matter and mission A–K shape; no inherited handback claims |
 | Schema/importer | Current repository | Not supplied | MISSING | Importer/schema/render/runtime gates NOT TESTED |
 | World implementation | Referenced source modules | Place export only | PARTIAL | Source geometry preserved; runtime reachability NOT TESTED |
 | Prior campaign implementation | Existing full Overwind lessons | No lesson book supplied | MISSING | New authored stop numbering; existing place IDs preserved |
+## 0.2 Source-to-display contract for Handback 2
+
+| Source | Intended existing display | Trigger and limits |
+|---|---|---|
+| Mission A Stake — exact player copy | Mission card stakes | Required card opening; use this exact field rather than deriving stakes from designer summary. |
+| Mission A Segue — exact player copy | Existing mission-END panel | Append once to aftermath; the identical occurrence in the beat is its placement, not a second panel. |
+| Mission A Worth knowing first | Mission card/log primer | Available before first required stop; equation application map is authoring-only. |
+| H2 derive.start / steps | DERIVE board | Givens visible before selecting lines; retain numeric keyed line and wrong-line explanation. |
+| M11/M12 END Panel text | Closing aftermath panel | Exact short sentences below; do not substitute the longer designer outcome. |
+| Six roster bioCheck blocks | Optional roster reading check | Show question with bio; answer and feedback appear only on response, with retry. No bars, RP, timer, mastery, travel or unlock effects. |
+
+The supplied handback says v1.2 plays. Several reported missing fields are already present in the available v1.2 Markdown, including twelve decision stakes, twelve numeric DERIVE rails and six bio checks. This revision makes their mapping explicit and audits their content; it does not claim that an unavailable importer now renders them. No builder-side geometry or PROTOCOL-reader change is requested.
+
 ## 0.1 Physical model and limits of inference
 
 The March cage was moving **upward** toward a deep landing with about 1200 m of rope hanging. It passed that landing by 1.6 m; it did not strike the top steel. The concern at the surface is whether any permitted approach can consume the available overhead space. A deep-landing amplitude is not copied unchanged to the surface.
@@ -69,7 +82,7 @@ You are the lift safety engineer who must write the twelve-part Safe Winding Pla
 
 ## Opening card — exact player copy
 
-Forty-one miners wait at Kerrow No. 3, and Ruth Bell’s brother rode the cage that would not stop. The drum was still, but the cage passed its March landing. You have twelve days to write a Safe Winding Plan, or passenger access stays shut for a longer review. Ada Kerr puts her signed check beside you and says, “I trusted the drum lamp, so show me what I missed.”
+Forty-one miners wait at Kerrow No. 3, and Ruth Bell’s brother rode the cage that would not stop. The drum was still, but the cage passed its March landing. You are the lift safety engineer who must write the Safe Winding Plan before passenger access can reopen. Ada Kerr puts her signed check beside you and says, “Show me what I missed before the inspector arrives in twelve days.”
 
 ### Opening implementation state
 
@@ -232,6 +245,8 @@ bioCheck:
       feedback: "The cage record showed motion that the drum record missed."
 ```
 
+**Bio check answer — reveal after response:** The cage can keep moving after the drum stops.
+
 **Bio check behavior:** Show with this roster passage when opened; one answer reveals feedback, with retry available. This is an optional, state-neutral reading check: no stop number, RP, timer cost, mission prerequisite or mastery credit.
 
 ### Ewan Price
@@ -265,6 +280,8 @@ bioCheck:
       correct: false
       feedback: "A pass supports the conditions tested, not every load and brake state."
 ```
+
+**Bio check answer — reveal after response:** The tested load and pad state.
 
 **Bio check behavior:** Show with this roster passage when opened; one answer reveals feedback, with retry available. This is an optional, state-neutral reading check: no stop number, RP, timer cost, mission prerequisite or mastery credit.
 
@@ -300,6 +317,8 @@ bioCheck:
       feedback: "More hanging rope adds mass and changes the fitted stiffness."
 ```
 
+**Bio check answer — reveal after response:** Length changes both moving mass and stretch response.
+
 **Bio check behavior:** Show with this roster passage when opened; one answer reveals feedback, with retry available. This is an optional, state-neutral reading check: no stop number, RP, timer cost, mission prerequisite or mastery credit.
 
 ### Ada Kerr
@@ -333,6 +352,8 @@ bioCheck:
       correct: false
       feedback: "Approval must stay within the evidence from the stated conditions."
 ```
+
+**Bio check answer — reveal after response:** Which conditions the test actually proved.
 
 **Bio check behavior:** Show with this roster passage when opened; one answer reveals feedback, with retry available. This is an optional, state-neutral reading check: no stop number, RP, timer cost, mission prerequisite or mastery credit.
 
@@ -368,6 +389,8 @@ bioCheck:
       feedback: "A stream needs force to gain speed even when little mass sits on the belt."
 ```
 
+**Bio check answer — reveal after response:** Incoming ore must gain horizontal momentum each second.
+
 **Bio check behavior:** Show with this roster passage when opened; one answer reveals feedback, with retry available. This is an optional, state-neutral reading check: no stop number, RP, timer cost, mission prerequisite or mastery credit.
 
 ### Nia Cole
@@ -401,6 +424,8 @@ bioCheck:
       correct: false
       feedback: "A repeat reference can reveal a time-dependent instrument offset."
 ```
+
+**Bio check answer — reveal after response:** To separate meter drift from a change with depth.
 
 **Bio check behavior:** Show with this roster passage when opened; one answer reveals feedback, with retry available. This is an optional, state-neutral reading check: no stop number, RP, timer cost, mission prerequisite or mastery credit.
 
@@ -477,7 +502,7 @@ Each mission's section K now includes GO DEEPER in addition to its unchanged qui
 | 7 | Gravitation and measurement models (setting supplement) | 2,3; stated spherical assumption | Models and evidence must preserve the distinction between a measurement and a result obtained under ideal assumptions; used by the associated stops in the encounter matrix |
 | 8 | Power and efficiency | 1,4,5 | Power and rate describe how quickly energy must move through the machine; used by the associated stops in the encounter matrix |
 | 9 | Elasticity and simple harmonic motion | 1,2,3,5 | Oscillations are motion about a loaded equilibrium, with restoring force and inertia both present; used by the associated stops in the encounter matrix |
-| 10 | Energy and momentum in rotating systems | 3,4,5 | Energy accounting includes rotational motion whenever a real body turns; used by the associated stops in the encounter matrix |
+| 10 | Rotational kinetic energy | 3; work/energy boundary from 5 at Stops 17–18; Day 5 required primer teaches Krot before Stop 19 | Energy accounting includes rotational motion whenever a real body turns; used by the associated stops in the encounter matrix |
 | 11 | Stopping, friction and conservative limits | 1,2,5,9 | Constraints and uncertainty require the least favorable conditions inside the stated operating range; used by the associated stops in the encounter matrix |
 | 12 | Integrated model verification | All needed earlier concepts; no new law | Models and evidence support a signed plan only over the conditions used to obtain its limits; used by the associated stops in the encounter matrix |
 
@@ -487,7 +512,7 @@ Motion and derivatives, Forces and boundaries, Mass distribution, Torque and rot
 
 ## 5.2 Dependency graph
 
-1→2; 1→3; (1,2,3)→4; (1,2,3)→5; (1,2)→6; (2,3)→7 supplement; (1,4,5)→8; (1,2,3,5)→9; (3,4,5)→10; (1,2,5,9)→11; tested constraints→12. Primers supply a local relation before its first graded use; an earlier ungraded mention is not counted as graded mastery.
+1→2; 1→3; (1,2,3)→4; (1,2,3)→5; (1,2)→6; (2,3)→7 supplement; (1,4,5)→8; (1,2,3,5)→9; (3,5 taught at Stops 17–18)→10 at Stop 19; (1,2,5,9)→11; tested constraints→12. Primers supply a local relation before its first graded use; an earlier ungraded mention is not counted as graded mastery.
 
 ## 5.3 Keystone utility and honest recurrence limits
 
@@ -498,8 +523,8 @@ The twelve-day source is kept intact rather than lengthened into a survey course
 | Motion and derivatives | Which complete profile can be signed for the defined operating range? | e1 | D1 Stop 1 INTRODUCE; D1 Stop 2 PRACTICE; D1 Stop 3 COMBINE; D1 Stop 4 COMBINE; D2 Stop 5 PRACTICE; D4 Stop 13 RETRIEVE; D8 Stop 30 PRACTICE; D9 Stop 35 COMBINE; D9 Stop 36 COMBINE; D10 Stop 37 RETRIEVE; D10 Stop 38 PRACTICE; D10 Stop 40 COMBINE; D11 Stop 42 PRACTICE; D11 Stop 43 COMBINE; D11 Stop 44 COMBINE; D12 Stop 45 COMBINE |
 | Forces and boundaries | Which complete profile can be signed for the defined operating range? | e1 | D3 Stop 9 INTRODUCE; D3 Stop 10 PRACTICE; D3 Stop 11 COMBINE; D3 Stop 12 COMBINE; D4 Stop 14 PRACTICE; D4 Stop 15 COMBINE; D4 Stop 16 COMBINE; D5 Stop 17 INTRODUCE; D5 Stop 20 COMBINE; D6 Stop 21 COMBINE; D6 Stop 22 PRACTICE; D6 Stop 24 COMBINE; D7 Stop 27 PRACTICE; D7 Stop 28 COMBINE; D8 Stop 29 RETRIEVE; D9 Stop 34 PRACTICE; D9 Stop 36 COMBINE; D10 Stop 40 COMBINE; D11 Stop 41 RETRIEVE; D12 Stop 46 COMBINE; D12 Stop 48 COMBINE |
 | Mass distribution | Can a drum stop time alone predict when the cage stops? | 1 | D2 Stop 6 PRACTICE; D2 Stop 7 PRACTICE; D2 Stop 8 COMBINE; D3 Stop 9 INTRODUCE; D3 Stop 10 PRACTICE; D3 Stop 12 COMBINE; D5 Stop 18 PRACTICE; D7 Stop 26 PRACTICE; D8 Stop 29 RETRIEVE; D9 Stop 33 INTRODUCE; D9 Stop 34 PRACTICE |
-| Torque and rotation | Which complete profile can be signed for the defined operating range? | 4 m | D2 Stop 5 PRACTICE; D2 Stop 6 PRACTICE; D2 Stop 8 COMBINE; D4 Stop 13 RETRIEVE; D4 Stop 14 PRACTICE; D4 Stop 15 COMBINE; D4 Stop 16 COMBINE; D5 Stop 19 COMBINE; D5 Stop 20 COMBINE; D12 Stop 46 COMBINE; D12 Stop 48 COMBINE |
-| Energy accounting | Which complete profile can be signed for the defined operating range? | e1 | D5 Stop 17 INTRODUCE; D5 Stop 18 PRACTICE; D5 Stop 19 COMBINE; D5 Stop 20 COMBINE; D8 Stop 30 PRACTICE; D8 Stop 32 COMBINE; D9 Stop 33 INTRODUCE; D10 Stop 37 RETRIEVE; D10 Stop 38 PRACTICE; D10 Stop 40 COMBINE; D11 Stop 42 PRACTICE; D11 Stop 44 COMBINE; D12 Stop 46 COMBINE; D12 Stop 47 COMBINE; D12 Stop 48 COMBINE |
+| Torque and rotation | Which complete profile can be signed for the defined operating range? | 4 m | D2 Stop 5 PRACTICE; D2 Stop 6 PRACTICE; D2 Stop 8 COMBINE; D4 Stop 13 RETRIEVE; D4 Stop 14 PRACTICE; D4 Stop 15 COMBINE; D4 Stop 16 COMBINE; D5 Stop 19 INTRODUCE; D5 Stop 20 COMBINE; D12 Stop 46 COMBINE; D12 Stop 48 COMBINE |
+| Energy accounting | Which complete profile can be signed for the defined operating range? | e1 | D5 Stop 17 INTRODUCE; D5 Stop 18 PRACTICE; D5 Stop 19 INTRODUCE; D5 Stop 20 COMBINE; D8 Stop 30 PRACTICE; D8 Stop 32 COMBINE; D9 Stop 33 INTRODUCE; D10 Stop 37 RETRIEVE; D10 Stop 38 PRACTICE; D10 Stop 40 COMBINE; D11 Stop 42 PRACTICE; D11 Stop 44 COMBINE; D12 Stop 46 COMBINE; D12 Stop 47 COMBINE; D12 Stop 48 COMBINE |
 | Momentum and impulse | Does the empty test authorize the faster passenger profile? | The supported ore exceeds the belt mass limit. | D6 Stop 21 COMBINE; D6 Stop 22 PRACTICE; D6 Stop 23 PRACTICE; D6 Stop 24 COMBINE; D8 Stop 31 COMBINE; D11 Stop 41 RETRIEVE |
 | Models and evidence | Which complete profile can be signed for the defined operating range? | e1 | D1 Stop 1 INTRODUCE; D1 Stop 3 COMBINE; D2 Stop 7 PRACTICE; D2 Stop 8 COMBINE; D3 Stop 11 COMBINE; D4 Stop 15 COMBINE; D7 Stop 25 RETRIEVE; D7 Stop 26 PRACTICE; D7 Stop 27 PRACTICE; D7 Stop 28 COMBINE; D8 Stop 31 COMBINE; D9 Stop 35 COMBINE; D9 Stop 36 COMBINE; D10 Stop 37 RETRIEVE; D10 Stop 39 COMBINE; D10 Stop 40 COMBINE; D11 Stop 41 RETRIEVE; D11 Stop 43 COMBINE; D11 Stop 44 COMBINE; D12 Stop 45 COMBINE; D12 Stop 47 COMBINE; D12 Stop 48 COMBINE |
 | Power and rate | Which complete profile can be signed for the defined operating range? | 1 | D8 Stop 30 PRACTICE; D8 Stop 31 COMBINE; D8 Stop 32 COMBINE; D11 Stop 41 RETRIEVE; D12 Stop 46 COMBINE; D12 Stop 48 COMBINE |
@@ -519,9 +544,30 @@ The twelve-day source is kept intact rather than lengthened into a survey course
 | 7 | D7 Stop 25 RETRIEVE; D7 Stop 26 PRACTICE; D7 Stop 27 PRACTICE; D7 Stop 28 COMBINE |
 | 8 | D8 Stop 30 PRACTICE; D8 Stop 31 COMBINE; D8 Stop 32 COMBINE |
 | 9 | D9 Stop 33 INTRODUCE; D9 Stop 34 PRACTICE; D9 Stop 35 COMBINE; D9 Stop 36 COMBINE; D10 Stop 37 RETRIEVE; D10 Stop 38 PRACTICE; D10 Stop 40 COMBINE |
-| 10 | D5 Stop 19 COMBINE |
+| 10 | D5 required primer teaches Krot; Stop 19 INTRODUCE (first graded rotational-energy calculation) |
 | 11 | D11 Stop 41 RETRIEVE; D11 Stop 42 PRACTICE; D11 Stop 43 COMBINE; D11 Stop 44 COMBINE |
 | 12 | D10 Stop 39 COMBINE; D12 Stop 45 COMBINE; D12 Stop 46 COMBINE; D12 Stop 47 COMBINE; D12 Stop 48 COMBINE |
+
+## 5.4a Required equation applications and Stop 19 teaching order
+
+This authoring map points to required graded work, not worked examples or GO DEEPER. Equivalent rearrangements and derived applications are identified explicitly.
+
+| Day | Card relation | Required stop computation |
+|---|---|---|
+| 1 | v=dy/dt; a=dv/dt; Δy=∫v dt | 2: v(4)=8 m/s and a=2 m/s²; 3: ∫₀⁴2t dt=16 m |
+| 2 | I=∫r²dm; v=Rω | 6: 45000 kg m²; 5: R=6/3=2 m |
+| 3 | T=(M+λs)(g+a) | 10: 176000 N; 11 independently tests 220 N |
+| 4 | τmotor−TR=Iα; α=a/R | 13: 0.5 rad/s²; 14: 374500 N m |
+| 5 | W=∫Fdy; Krot=Iω²/2 | 18: 120000000 J; 19: 90000 J |
+| 6 | F=ṁ(vout−vin); Favg=Δp/Δt | 22: 1000 N; 23: 3000 N |
+| 7 | gdepth=g0(1−d/R) | 26: 9.998 m/s² under stated ideal sphere |
+| 8 | P=dW/dt=Fv | 30: 560000 W; 31: 1600 W |
+| 9 | ω=√(k/m_eff); Tperiod=2π/ω | 34: 1.25 rad/s and 5.03 s; 35: 3.14 s |
+| 10 | xmax=v0/ω; tpeak=π/(2ω) | 38: 1.60 m at 1.26 s |
+| 11 | d=v²/(2b); d_bound=v²/(2bmin)+v/ωmin | 42: 3.6 m; 43 independently computes braking portion 2 m |
+| 12 | Retrieve recorded relations; no new equation | 45: 0.25 m; 46: 320 kW and 3.6 m; 47: 1.4 m margin |
+
+Stop 19 does not require momentum conservation or a future work lesson. Stop 6 first computes inertia. The required Day 5 primer introduces work, gravitational energy and the rotational-energy relation. Stop 17 grades the energy boundary; Stop 18 computes work before Stop 19 uses that result and computes rotational kinetic energy for the first time. The narrower concept 10 therefore has INTRODUCE as its first graded role. Torque is supporting context, not a missing prerequisite for substituting in Krot. No optional example is used to claim prior teaching.
 
 ## 5.5 Cheat-sheet coverage and limitations
 
@@ -694,9 +740,9 @@ These contracts use supplied QUESTION_TYPES and Master Brief v3.3 provisionally;
 
 **Objective:** Can the proposed start be used for passenger trips?
 
-**Stake — exact player copy:** Today you decide if Ruth can put the fast start on the shift sheet that includes her brother.
+**Stake — exact player copy:** Today you decide whether Ruth can post the fast start for passenger trips. Her brother Finn is on the shift sheet.
 
-**Segue — exact player copy:** But Ewan Price’s faster timetable also rests on a drum drawing that leaves out a hole in the steel.
+**Segue — exact player copy:** But Ewan’s fast timetable rests on a drum drawing that shows steel where the hub has a hole.
 
 ### Worth knowing first — exact player copy
 
@@ -828,7 +874,7 @@ Reject the proposed start; its acceleration exceeds the trial limit. The four st
 
 **World state:** The fast start is removed from the passenger schedule. The drum record lists a shape that no longer matches the drum.
 
-**Panel text:** “Ruth takes the fast-start sheet off the shift board. Her brother Finn’s tally stays on the hook with the other forty; no one boards for a test. But Ewan Price’s faster timetable also rests on a drum drawing that leaves out a hole in the steel.”
+**Panel text:** “Ruth takes the fast-start sheet off the shift board. Her brother Finn’s tally stays on the hook with the other forty; no one boards for a test. But Ewan’s fast timetable rests on a drum drawing that shows steel where the hub has a hole.”
 
 **Dialogue bubble — Finn Bell, by radio:** “My tally can stay on that hook. Tell me what will be different before I take it.”
 
@@ -1368,9 +1414,9 @@ Mission decision: Reject the fast start. Its speed grows too fast for the stated
 
 **Objective:** Which drum inertia belongs in the winding model?
 
-**Stake — exact player copy:** Today you decide which drum record Ewan must use, even if it breaks the timetable he promised.
+**Stake — exact player copy:** Today you decide which drum record Ewan must use. The old drawing backs the fast timetable he promised.
 
-**Segue — exact player copy:** Now Mara Shaw must defend the next load record: 12,000 kg of rope hangs above the cage.
+**Segue — exact player copy:** The drum record is fixed, but Mara still has 12,000 kg of hanging rope missing from the load tally.
 
 ### Worth knowing first — exact player copy
 
@@ -1500,7 +1546,7 @@ Use 45,000 kg m² and retire the old solid-disk value. The four stops produce ev
 
 **World state:** The old drum drawing receives a superseded tag. The rope record lists more hanging steel than the cage and its load.
 
-**Panel text:** “Ewan marks the old drum drawing superseded in his own hand. The first record behind his promised timetable has failed a physical check. Now Mara Shaw must defend the next load record: 12,000 kg of rope hangs above the cage.”
+**Panel text:** “Ewan marks the old drum drawing superseded in his own hand. The first record behind his promised timetable has failed a physical check. The drum record is fixed, but Mara still has 12,000 kg of hanging rope missing from the load tally.”
 
 **Dialogue bubble — Ewan Price, by radio:** “The obsolete drawing is tagged. I have to revise my promise before someone builds a shift around it.”
 
@@ -2038,9 +2084,9 @@ Mission decision: Use the ring-shaped drum model. The measured hole changes how 
 
 **Objective:** Does the proposed one-unit acceleration pass the rope pull limit?
 
-**Stake — exact player copy:** Today you decide what the rope test proves before Mara spends reserve on a fix that may miss the cause.
+**Stake — exact player copy:** Today you decide whether the rope passes the mean-pull limit. Mara needs that answer before spending reserve on new steel.
 
-**Segue — exact player copy:** Yet Ewan Price still needs the motor to pull that steel and speed up the drum before he can keep his promise.
+**Segue — exact player copy:** The rope passes the mean pull, yet Ewan’s motor must also speed up the drum. That extra demand may rule out his fast start.
 
 ### Worth knowing first — exact player copy
 
@@ -2170,7 +2216,7 @@ The one-unit acceleration passes the stated pull limit, with a massive-rope mode
 
 **World state:** The rope limit is written beside the measured length. The motor must pull the rope and speed up the heavy drum together.
 
-**Panel text:** “Mara keeps the sound rope in the plan and pins its measured mass beside the pull limit. She refuses a replacement order that would leave the missing dynamics unexplained. Yet Ewan Price still needs the motor to pull that steel and speed up the drum before he can keep his promise.”
+**Panel text:** “Mara keeps the sound rope in the plan and pins its measured mass beside the pull limit. She refuses a replacement order that would leave the missing dynamics unexplained. The rope passes the mean pull, yet Ewan’s motor must also speed up the drum. That extra demand may rule out his fast start.”
 
 **Dialogue bubble — Mara Shaw, by radio:** “The length tags stay on. Tomorrow's load calculation must carry this rope with it.”
 
@@ -2698,9 +2744,9 @@ Mission decision: The slower rise passes the mean rope-pull limit. The rope’s 
 
 **Objective:** Which starting acceleration can the motor supply?
 
-**Stake — exact player copy:** Today you decide which start Ewan can defend to the crew who need their shifts back.
+**Stake — exact player copy:** Today you decide which start fits the motor limit. Ewan must explain the slower choice to the waiting crew.
 
-**Segue — exact player copy:** Now Ada Kerr has enough torque for a start, but the full 1,200 m lift still needs an energy page.
+**Segue — exact player copy:** The slower start fits the motor, but Ada still has no energy total for the full 1,200 m lift.
 
 ### Worth knowing first — exact player copy
 
@@ -2830,7 +2876,7 @@ Use 1 m/s²; the 2 m/s² start exceeds the motor torque limit. The four stops pr
 
 **World state:** The start control gains a tested acceleration stop. The energy budget says a complete lift should still be possible.
 
-**Panel text:** “Ewan locks the start to 1 m/s². He must now tell management why a rope that passes cannot make the motor deliver the faster start. Now Ada Kerr has enough torque for a start, but the full 1,200 m lift still needs an energy page.”
+**Panel text:** “Ewan locks the start to 1 m/s². He must now tell management why a rope that passes cannot make the motor deliver the faster start. The slower start fits the motor, but Ada still has no energy total for the full 1,200 m lift.”
 
 **Dialogue bubble — Ivo Reed, by radio:** “Now the passenger start has a limit of its own. I will look for the ore gain at the chute.”
 
@@ -3356,13 +3402,15 @@ Mission decision: Use the slower start. The faster start asks too much of the mo
 
 **Objective:** Does the lift energy budget clear the emergency stop?
 
-**Stake — exact player copy:** Today you decide if Ada can close her brake page just because the lift has enough energy.
+**Stake — exact player copy:** Today you decide whether enough lift energy clears the brake check. Ada cannot open the passenger gate on that fact alone.
 
-**Segue — exact player copy:** But Ivo Reed has broken bin bolts and a tripping belt, so lost ore time adds pressure to Ewan’s schedule.
+**Segue — exact player copy:** But Ivo’s bin bolts have broken. Each lost ore trip adds to the pressure on Ewan to win back time.
 
 ### Worth knowing first — exact player copy
 
 #### Glossary terms
+
+MJ (megajoule): one million joules of energy; kJ (kilojoule) means one thousand joules.
 
 Work: energy transferred by a force through a displacement.
 
@@ -3374,7 +3422,8 @@ Conservative force: a force whose work depends only on start and end positions.
 
 #### Primer concepts
 
-- Name the body, positive direction and quantity before using a relation.
+- Work transfers energy when a force acts through a distance. For an upward lift with no change in speed and no friction, this work becomes gravitational potential energy.
+- A turning body stores rotational kinetic energy. Use the measured inertia and angular speed in Krot=Iω²/2 to find that store.
 - Compare a result only with the condition and range that its record actually covers.
 - Energy inside the chosen system must not be counted again as outside work.
 
@@ -3490,7 +3539,7 @@ The full lift energy budget passes, but it does not certify an emergency stop. T
 
 **World state:** The energy page is accepted while the brake page stays open. The conveyor trips even when the load on its belt is small.
 
-**Panel text:** “Ada signs the energy page but leaves her brake page open. She places the March check beside it so the crew can see that enough lift energy has answered a different question. But Ivo Reed has broken bin bolts and a tripping belt, so lost ore time adds pressure to Ewan’s schedule.”
+**Panel text:** “Ada signs the energy page but leaves her brake page open. She places the March check beside it so the crew can see that enough lift energy has answered a different question. But Ivo’s bin bolts have broken. Each lost ore trip adds to the pressure on Ewan to win back time.”
 
 **Dialogue bubble — Ada Kerr, by radio:** “The pad tray keeps its slip. A total energy number will not conceal a peak-force limit.”
 
@@ -3681,7 +3730,7 @@ Retry: dismiss feedback, review the unchanged data, reset the unsolved board and
 
 **Required stop kind:** calculation. **Player verb:** Choose the quantity tiles for the displayed formula a*b*c*c
 
-**Metadata:** Concept: 10 — Drum motion energy; Keystone: Torque and rotation, Energy accounting; Area: WIND; Prerequisites: Stop 18 result in the mission log; current mission primer; preceding numbered spine relationships used in the visible data; Learning role: COMBINE; Difficulty: L3; Story role: clue.
+**Metadata:** Concept: 10 — Drum motion energy; Keystone: Torque and rotation, Energy accounting; Area: WIND; Prerequisites: Stop 6 rotational inertia; Stop 17 energy boundaries; Stop 18 work and potential energy; required Day 5 primer teaches Krot=Iω²/2 before this first graded use; Learning role: INTRODUCE; Difficulty: L3; Story role: clue.
 
 **Briefing decision advanced:** Does the lift energy budget clear the emergency stop?
 
@@ -3746,7 +3795,7 @@ Retry: dismiss feedback, review the unchanged data, reset the unsolved board and
 
 **Retrieval:** Stop 18 result in the mission log; current mission primer; preceding numbered spine relationships used in the visible data; an adjacent reuse is practice, not a delayed encounter.
 
-**Later payoff:** Which feed change protects the conveyor and bin?
+**Later payoff:** Stop 20 separates lift-energy sufficiency from brake certification; Stop 41 later checks whether the motor supplies power during braking.
 
 **Stop kernel and numerical/data consistency bundle:** Canonical v1.1 source data, exact key, feedback and follow-on references are the fields immediately above. Rebuild companion ledger row 19 from these fields before import; a v1.0 ledger is historical and must not override this revision.
 
@@ -4027,9 +4076,9 @@ Mission decision: The lift has enough energy, but the stop is not cleared. The d
 
 **Objective:** Which feed change protects the conveyor and bin?
 
-**Stake — exact player copy:** Today you choose how Ivo can protect the bin and keep ore moving without a faster passenger cage.
+**Stake — exact player copy:** Today you choose the feed change that protects Ivo’s bin. Keeping ore moving could ease the push for faster passenger trips.
 
-**Segue — exact player copy:** Now Nia Cole must explain two readings that do not match, before a small gravity change is blamed for March.
+**Segue — exact player copy:** The new chute saves the feed target, but Nia has two gravity readings that clash. The crew wants to know if they explain March.
 
 ### Worth knowing first — exact player copy
 
@@ -4049,11 +4098,11 @@ Mass flow: the mass passing a point each second.
 
 #### Equations first needed today
 
-**Equation:** F = ṁ(vout−vin); J = ∫F dt = Δp
+**Equation:** F = ṁ(vout−vin); Favg = Δp/Δt
 
 **What it is for:** momentum, impulse and open systems in the measured system.
 
-**Symbols:** F force on the stream in newtons; ṁ mass flow in kilograms per second; vout and vin exit and entry velocities; J impulse in newton seconds; p momentum in kilogram metres per second.
+**Symbols:** F steady force in newtons; ṁ mass flow in kilograms per second; vout and vin exit and entry velocities in metres per second; Favg mean force in newtons; Δp momentum change in kilogram metres per second; Δt elapsed time in seconds.
 
 **Why this campaign needs it:** Which feed change protects the conveyor and bin?
 
@@ -4159,7 +4208,7 @@ Spread the incoming momentum change over more time with the staged chute. The fo
 
 **World state:** A staged chute is marked for installation beside the bin. The survey book carries an unexplained change between repeated gravity readings.
 
-**Panel text:** “Ivo marks the staged chute for installation. It preserves daily delivery in the stated model, removing one reason to demand that the passenger cage make up lost ore time. Now Nia Cole must explain two readings that do not match, before a small gravity change is blamed for March.”
+**Panel text:** “Ivo marks the staged chute for installation. It preserves daily delivery in the stated model, removing one reason to demand that the passenger cage make up lost ore time. The new chute saves the feed target, but Nia has two gravity readings that clash. The crew wants to know if they explain March.”
 
 **Dialogue bubble — Jon Pike, by radio:** “I have labeled the staged ore feed. The passenger timetable is still the old restricted sheet.”
 
@@ -4704,9 +4753,9 @@ Mission decision: Fit the staged chute. The longer stop lowers the force on the 
 
 **Objective:** Can the local gravity correction explain the March overrun?
 
-**Stake — exact player copy:** Today you decide if Nia’s corrected reading explains March or leaves Ada’s old check unanswered.
+**Stake — exact player copy:** Today you decide whether the gravity change explains March. If it does not, Ada’s old check still needs an answer.
 
-**Segue — exact player copy:** Yet Ewan Price’s timetable still asks the motor to supply energy faster than it may be able to.
+**Segue — exact player copy:** The gravity claim fails, yet Ewan still needs a speed his motor can sustain. The shaft-power ceiling is 600 kW.
 
 ### Worth knowing first — exact player copy
 
@@ -4726,11 +4775,11 @@ Spherical symmetry: mass distributed equally in every direction from a center.
 
 #### Equations first needed today
 
-**Equation:** g(r)=GM(r)/r²; M(r)=Mtotal(r/R)³ for a uniform sphere
+**Equation:** gdepth = g0(1−d/R)
 
 **What it is for:** gravitation and measurement models in the measured system.
 
-**Symbols:** g gravitational acceleration; G gravitational constant; M(r) mass inside radius r; Mtotal full sphere mass; R sphere radius; r distance from the sphere center.
+**Symbols:** gdepth gravity at depth in metres per second squared; g0 surface gravity in the same units; d depth in metres; R radius of the stipulated uniform sphere in metres.
 
 **Why this campaign needs it:** Can the local gravity correction explain the March overrun?
 
@@ -4836,7 +4885,7 @@ Use the corrected survey value, but reject gravity as the explanation of the del
 
 **World state:** The drift correction is attached to the load table. The fastest requested lift still exceeds the motor power budget.
 
-**Panel text:** “Nia signs the drift correction and keeps the March inquiry open. A fault in her reading does not erase the separate evidence of the moving cage. Yet Ewan Price’s timetable still asks the motor to supply energy faster than it may be able to.”
+**Panel text:** “Nia signs the drift correction and keeps the March inquiry open. A fault in her reading does not erase the separate evidence of the moving cage. The gravity claim fails, yet Ewan still needs a speed his motor can sustain. The shaft-power ceiling is 600 kW.”
 
 **Dialogue bubble — Nia Cole, by radio:** “The corrected survey is filed. Ada still deserves an answer about the delay in March.”
 
@@ -5378,9 +5427,9 @@ Mission decision: Correct the survey, but do not blame gravity for March. The we
 
 **Objective:** Which cruise speed fits the motor power limit?
 
-**Stake — exact player copy:** Today you choose what speed Ewan may list as a power-only proposal while Ruth keeps the gate shut.
+**Stake — exact player copy:** Today you choose the speed Ewan may propose based on power. Ruth keeps the gate shut until the brakes are checked.
 
-**Segue — exact player copy:** But Mara Shaw’s test mass keeps bouncing after its support stops, just as Finn’s cage did in March.
+**Segue — exact player copy:** The power page allows a proposal, but Mara’s test mass still moves after its support stops. Finn’s cage did that in March.
 
 ### Worth knowing first — exact player copy
 
@@ -5400,11 +5449,11 @@ Cruise: motion at a steady planned speed.
 
 #### Equations first needed today
 
-**Equation:** P = Fv = τω; Pin = Pout/η
+**Equation:** P = dW/dt = Fv
 
 **What it is for:** power and efficiency in the measured system.
 
-**Symbols:** P power in watts; F force in newtons; v speed in metres per second; τ torque; ω angular speed; Pin input power; Pout useful output power; η efficiency.
+**Symbols:** P useful shaft power in watts; W work in joules; t time in seconds; F lifting force in newtons; v lifting speed in metres per second.
 
 **Why this campaign needs it:** Which cruise speed fits the motor power limit?
 
@@ -5510,7 +5559,7 @@ Cap cruise at 3.5 m/s pending the emergency-stop test. The four stops produce ev
 
 **World state:** The cruise proposal is reduced while the brake restriction remains. A hanging test mass keeps bouncing after the support is still.
 
-**Panel text:** “Ewan pins up 3.5 m/s as a power-only proposal. Ruth adds BRAKE PAGE OPEN across it before anyone can mistake that limited pass for passenger approval. But Mara Shaw’s test mass keeps bouncing after its support stops, just as Finn’s cage did in March.”
+**Panel text:** “Ewan pins up 3.5 m/s as a power-only proposal. Ruth adds BRAKE PAGE OPEN across it before anyone can mistake that limited pass for passenger approval. The power page allows a proposal, but Mara’s test mass still moves after its support stops. Finn’s cage did that in March.”
 
 **Dialogue bubble — Ewan Price, by radio:** “POWER ONLY is across the proposal. Ivo was right to ask what dispatch would read first.”
 
@@ -6038,9 +6087,9 @@ Mission decision: Cap cruise at three and a half metres per second for now. The 
 
 **Objective:** Can a drum stop time alone predict when the cage stops?
 
-**Stake — exact player copy:** Today you decide if Ruth can trust the lamp that was lit while her brother was still moving.
+**Stake — exact player copy:** Today you decide whether a stopped drum proves the cage is still. Finn rode the cage when those two events did not match.
 
-**Segue — exact player copy:** Now Ada Kerr must unseal the March tape and test the model against the delay her old check missed.
+**Segue — exact player copy:** The rope has its own clock, but Ada must show it fits March. The exact peak time is still sealed in her file.
 
 ### Worth knowing first — exact player copy
 
@@ -6062,11 +6111,11 @@ Effective mass: the mass assigned to a simplified motion model to represent dist
 
 #### Equations first needed today
 
-**Equation:** m_eff x″ + kx = 0; ω = √(k/m_eff); Tperiod = 2π/ω
+**Equation:** ω = √(k/m_eff); Tperiod = 2π/ω
 
 **What it is for:** elasticity and simple harmonic motion in the measured system.
 
-**Symbols:** m_eff effective moving mass in kilograms; x upward displacement from the fixed-support equilibrium in metres; x″ second time derivative; k restoring stiffness in newtons per metre; ω angular frequency; Tperiod oscillation period in seconds.
+**Symbols:** m_eff effective moving mass in kilograms; k restoring stiffness in newtons per metre; ω angular frequency in radians per second; Tperiod oscillation period in seconds; π the circle constant.
 
 **Why this campaign needs it:** Can a drum stop time alone predict when the cage stops?
 
@@ -6172,7 +6221,7 @@ No; the rope and cage have their own oscillation period. The four stops produce 
 
 **World state:** The drum-only stop prediction receives an incomplete-model tag. The March tape is unsealed for comparison with the measured period.
 
-**Panel text:** “Ruth puts a second space on the shift check for the cage trace. The drum-stop lamp that was lit while Finn was still moving can no longer close that check alone. Now Ada Kerr must unseal the March tape and test the model against the delay her old check missed.”
+**Panel text:** “Ruth puts a second space on the shift check for the cage trace. The drum-stop lamp that was lit while Finn was still moving can no longer close that check alone. The rope has its own clock, but Ada must show it fits March. The exact peak time is still sealed in her file.”
 
 **Dialogue bubble — Ruth Bell, by radio:** “There are two boxes on the shift check now. Ada can open March knowing what we need to compare.”
 
@@ -6702,9 +6751,9 @@ Mission decision: Keep separate records for drum and cage. The rope gives the ca
 
 **Objective:** What caused the cage to overrun its March landing?
 
-**Stake — exact player copy:** Today you decide what Ada must put beside her signed March check when Ruth reads the inquiry.
+**Stake — exact player copy:** Today you decide what caused the March overrun. Ada must put that finding beside her signed check for Ruth to read.
 
-**Segue — exact player copy:** Yet Ada Kerr’s new empty pass faces a lower warm-pad brake limit, so explaining March has not cleared Ewan’s schedule.
+**Segue — exact player copy:** The March delay now fits, yet Ada’s new empty pass uses cold pads. A weaker warm-pad limit could still defeat Ewan’s fast plan.
 
 ### Worth knowing first — exact player copy
 
@@ -6720,15 +6769,15 @@ Phase: the part of an oscillation’s cycle at a chosen time.
 
 - Name the body, positive direction and quantity before using a relation.
 - Compare a result only with the condition and range that its record actually covers.
-- Initial position and velocity determine the phase and size of the later motion.
+- Initial position and velocity set the later motion. Stop 38 applies the measured state to x(t)=x0 cos(ωt)+(v0/ω)sin(ωt), with upward x and time t since drum rest.
 
 #### Equations first needed today
 
-**Equation:** x(t)=x0 cos(ωt)+(v0/ω)sin(ωt)
+**Equation:** xmax = v0/ω; tpeak = π/(2ω), for x0=0 and v0>0
 
 **What it is for:** elasticity and simple harmonic motion in the measured system.
 
-**Symbols:** x upward displacement from fixed-support equilibrium; x0 initial displacement; v0 initial upward velocity; ω angular frequency; t time since drum reached rest.
+**Symbols:** xmax first upward excursion in metres; v0 initial upward velocity in metres per second; ω angular frequency in radians per second; tpeak time to that peak in seconds; x0 initial displacement from equilibrium in metres; π the circle constant.
 
 **Why this campaign needs it:** What caused the cage to overrun its March landing?
 
@@ -6834,7 +6883,7 @@ The moving cage continued into an elastic oscillation after the drum stopped. Th
 
 **World state:** The March board replaces the sealed inquiry drawer. The empty test looks safe, but the warm-pad certificate carries a lower braking limit.
 
-**Panel text:** “Ada places her signed March check below the two traces. She tells Ruth why its inference failed; the measured delayed peak supports the account without turning it into permission for the next trip. Yet Ada Kerr’s new empty pass faces a lower warm-pad brake limit, so explaining March has not cleared Ewan’s schedule.”
+**Panel text:** “Ada places her signed March check below the two traces. She tells Ruth why its inference failed; the measured delayed peak supports the account without turning it into permission for the next trip. The March delay now fits, yet Ada’s new empty pass uses cold pads. A weaker warm-pad limit could still defeat Ewan’s fast plan.”
 
 **Dialogue bubble — Ada Kerr, by radio:** “I pinned my old check beside the reconstruction. The next inspector will see the mistake and the repair.”
 
@@ -7385,9 +7434,9 @@ Mission decision: The cage kept moving as the rope changed stretch. The model pr
 
 **Objective:** Does the empty test authorize the faster passenger profile?
 
-**Stake — exact player copy:** Today you decide if a clean empty run lets Ewan keep his faster promise to the waiting shift.
+**Stake — exact player copy:** Today you decide whether the empty test clears a faster passenger run. Ewan’s promise to the waiting shift rests on that choice.
 
-**Segue — exact player copy:** Now Ruth Bell needs the last unoccupied wind and a signed range before the inspector can clear passenger access.
+**Segue — exact player copy:** The fast plan fails, so Ruth needs one last empty wind and a signed range. The inspector arrives tomorrow.
 
 ### Worth knowing first — exact player copy
 
@@ -7435,7 +7484,7 @@ Envelope: a bound that covers every case in a stated range.
 
 ## B. Main story happening — designer summary
 
-The empty-test approval is narrowed to its tested load. The day moves from read the certificate conditions through bound the stopping travel and test a warm loaded surrogate to the owner’s signed decision. The final plan now has a tested speed choice and a clear limit on what was proved. Ewan crosses out the faster passenger timetable in front of Ruth and cancels the overtime it was meant to support. Ada marks the empty pass with its load and pad state, then carries only the slower candidate into final review.
+The empty-test approval is narrowed to its tested load. The day moves from read the certificate conditions through bound the stopping travel and test a warm loaded surrogate to the owner’s signed decision. The final plan now has a tested speed choice and a clear limit on what was proved. Ewan crosses out the fast shift sheet. The extra pay he promised is gone. Ada writes the load and pad state on the empty-test pass. Only the slow choice goes to the last check.
 
 ## C. Designer intent — not shown to player
 
@@ -7531,7 +7580,7 @@ Reject that authorization; loaded warm-pad stopping needs the slower candidate. 
 
 **World state:** The empty-test approval is narrowed to its tested load. The final plan now has a tested speed choice and a clear limit on what was proved.
 
-**Panel text:** “Ewan crosses out the faster passenger timetable in front of Ruth and cancels the overtime it was meant to support. Ada marks the empty pass with its load and pad state, then carries only the slower candidate into final review. Now Ruth Bell needs the last unoccupied wind and a signed range before the inspector can clear passenger access.”
+**Panel text:** “Ewan crosses out the fast shift sheet. The extra pay he promised is gone. Ada writes the load and pad state on the empty-test pass. Only the slow choice goes to the last check. The fast plan fails, so Ruth needs one last empty wind and a signed range. The inspector arrives tomorrow.”
 
 **Dialogue bubble — Ewan Price, by radio:** “I will take the slower supported proposal to the last check. The overtime promise is mine to withdraw.”
 
@@ -7869,7 +7918,7 @@ Retry: dismiss feedback, review the unchanged data, reset the unsolved board and
 
 ## I. Mission outcome
 
-Mission decision: The empty test does not clear the faster passenger trip. The loaded warm case needs more space. Keep the two-metre-per-second choice for final review. The last empty test is ready. Ewan crosses out the faster passenger timetable in front of Ruth and cancels the overtime it was meant to support. Ada marks the empty pass with its load and pad state, then carries only the slower candidate into final review.
+Mission decision: The empty test does not clear the faster passenger trip. The loaded warm case needs more space. Keep the two-metre-per-second choice for final review. The last empty test is ready. Ewan crosses out the fast shift sheet. The extra pay he promised is gone. Ada writes the load and pad state on the empty-test pass. Only the slow choice goes to the last check.
 
 ## J. Post-mission metric screen — exact player copy
 
@@ -8068,7 +8117,7 @@ Mission decision: The empty test does not clear the faster passenger trip. The l
 
 ## A. Mission briefing card — exact player copy
 
-**Header:** DAY 12 OF 12 — INSPECTION IN 1 DAYS
+**Header:** DAY 12 OF 12 — INSPECTION TODAY
 
 **Card title:** FORTY-ONE TALLIES
 
@@ -8078,9 +8127,9 @@ Mission decision: The empty test does not clear the faster passenger trip. The l
 
 **Objective:** Which complete profile can be signed for the defined operating range?
 
-**Stake — exact player copy:** Today you choose the full profile Ruth can use to open the gate for all forty-one miners.
+**Stake — exact player copy:** Today you choose the full profile Ruth can sign. All forty-one miners need the limits to hold after the gate opens.
 
-**Segue — exact player copy:** Now Ruth Bell can call the shift forward, but Ewan Price’s posted limits must hold even when production falls behind.
+**Segue — exact player copy:** Ruth can call the forty-one forward once the last gates clear. But Ewan must keep the posted limits when ore trips fall behind.
 
 ### Worth knowing first — exact player copy
 
@@ -8122,7 +8171,7 @@ No new equation is introduced today; retrieve the force, torque, power, stopping
 
 ## B. Main story happening — designer summary
 
-The signed range and unoccupied acceptance unlock the passenger gate. The day moves from commit the empty acceptance prediction through combine the signed limits and check the independent safety margin to the owner’s signed decision. The passenger gate opens and the completed plan remains available for review. Ruth opens the passenger gate for the signed range. Ewan posts the slower timetable above his crossed-out promise. The crew regains regular access but loses the planned overtime; Ruth’s ending account says Finn takes his tally only after the final checks are complete.
+The signed range and unoccupied acceptance unlock the passenger gate. The day moves from commit the empty acceptance prediction through combine the signed limits and check the independent safety margin to the owner’s signed decision. The passenger gate opens and the completed plan remains available for review. Ruth opens the passenger gate for the signed range. Ewan posts the slower timetable above his crossed-out promise. The crew can reach work again once all checks pass. The extra shifts are gone. Finn takes his tally only after the last gates clear.
 
 ## C. Designer intent — not shown to player
 
@@ -8218,7 +8267,7 @@ Sign the 2 m/s profile with a 1 m/s² start, tested range limits and unoccupied 
 
 **World state:** The signed range and unoccupied acceptance unlock the passenger gate. The passenger gate opens and the completed plan remains available for review.
 
-**Panel text:** “Ruth opens the passenger gate for the signed range. Ewan posts the slower timetable above his crossed-out promise. The crew regains regular access but loses the planned overtime; Ruth’s ending account says Finn takes his tally only after the final checks are complete. Now Ruth Bell can call the shift forward, but Ewan Price’s posted limits must hold even when production falls behind.”
+**Panel text:** “Ruth opens the passenger gate for the signed range. Ewan posts the slower timetable above his crossed-out promise. The crew can reach work again once all checks pass. The extra shifts are gone. Finn takes his tally only after the last gates clear. Ruth can call the forty-one forward once the last gates clear. But Ewan must keep the posted limits when ore trips fall behind.”
 
 **Dialogue bubble — Ruth Bell, by radio:** “The signed limits stay here when this shift leaves. Ada, they belong to the next operator too.”
 
@@ -8535,7 +8584,7 @@ Retry: dismiss feedback, review the unchanged data, reset the unsolved board and
 
 ## I. Mission outcome
 
-Mission decision: Sign the two-metre-per-second plan within its tested range. The slower start and all limits stay attached. The empty test agrees with its prediction. Once the four bars are full, the passenger gate opens. Ruth opens the passenger gate for the signed range. Ewan posts the slower timetable above his crossed-out promise. The crew regains regular access but loses the planned overtime; Ruth’s ending account says Finn takes his tally only after the final checks are complete.
+Mission decision: Sign the two-metre-per-second plan within its tested range. The slower start and all limits stay attached. The empty test agrees with its prediction. Once the four bars are full, the passenger gate opens. Ruth opens the passenger gate for the signed range. Ewan posts the slower timetable above his crossed-out promise. The crew can reach work again once all checks pass. The extra shifts are gone. Finn takes his tally only after the last gates clear.
 
 ## J. Post-mission metric screen — exact player copy
 

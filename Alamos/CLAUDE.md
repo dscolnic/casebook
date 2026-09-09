@@ -191,6 +191,11 @@ are in.
 - **Anything in the sky must be unlit.** A lit cloud under a storm rig renders black
   with a specular highlight on it. The horizon ranks and the star field were already
   `MeshBasicMaterial`; so is the cloud deck now → `alamos-world`.
+- **`kit.box()` and `kit.cyl()` share one unit geometry each, scaled per mesh.**
+  `mesh.geometry.translate(...)` on one moves every box in the world by that much
+  times its own scale: a 3 m shift on a barrier arm put Boomtown's icehouse
+  nineteen metres east, into the pond, and the render looked like a stray
+  building. `m.geometry = m.geometry.clone().translate(...)` first → `alamos-world`.
 - **Do not edit a served file while `npm run shots` is rendering.** Vite reloads the
   page, the harness's `window.gamekit` vanishes, and the run dies with `Cannot read
   properties of undefined (reading 'teleport')` — which reads as a crash in the game

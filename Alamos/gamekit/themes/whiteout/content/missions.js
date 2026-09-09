@@ -827,15 +827,23 @@ export const MISSIONS = [
     ],
     "equations": [
       {
-        "e": "binary-search work ≈ log₂(n)",
-        "c": "estimate how many halvings are needed for a sorted table.",
+        "e": "mid = (low + high) / 2, using Java integer division",
+        "c": "find the middle index of the remaining search interval.",
         "v": [
           [
-            "n",
-            "number of sorted records"
+            "low",
+            "first candidate index"
+          ],
+          [
+            "high",
+            "last candidate index"
+          ],
+          [
+            "mid",
+            "index to compare"
           ]
         ],
-        "s": "the rescue link has a short time window."
+        "s": "Stop 39 computes each midpoint before narrowing the rescue-frequency search."
       }
     ],
     "worked": {

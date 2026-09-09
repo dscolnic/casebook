@@ -3,14 +3,10 @@
 // Hand edits are lost on the next import. Change the book.
 
 export const COPY = {
-  "BANK": "<p>The bank. A signal board, a gate, and a chalk mark on the guide where the cage should stop, which the cage has been stopping a little past for eight months.</p>",
-  "WIND": "<p>The winder house. A drum two metres to the rope, a motor rated at 480 kilonewton metres, and a brake that is held on by weights so that losing the oil applies it rather than releasing it.</p>",
-  "ROPE": "<p>The rope shop. Splicing gear, four re-cap records in two years, and a length of locked coil clamped between two anchors with a dial gauge on it.</p>",
-  "CAGE": "<p>The brake house, at the foot of the headframe. Pad certificates on the wall, a crush-tested arrestor in the corner, and the position tape from March in a drawer nobody has opened since the inquiry.</p>",
-  "TIP": "<p>The tip. Bins, a chute and a belt that carries nine hundred tonnes a shift up to the plant, with two of its mounting bolts sheared and on the bench.</p>",
-  "GRAV": "<p>The gravity station, three hundred metres out on the bench. A concrete pillar, a hut, and an instrument that reads where it is standing to a millionth.</p>",
-  "HEAD": "<p>The headframe. Thirty-two metres of steel over the shaft, two sheave wheels at the top of it, and the arrestors above the bank that have never been used.</p>",
-  "COMPRESSOR": "<p>The compressor house. Air for the drills below, and the loudest building on the site by a long way.</p>",
-  "LAMP": "<p>The lamp room. Forty-one lamps on charge, forty-one tallies on the board, and the count that says who is underground.</p>",
-  "CHANGE": "<p>The change house. Where a shift starts and ends, and where the men read whatever the winder house has decided about the cycle they ride.</p>"
+  "BANK": "<p>Source position (-9, -4); canonical named owner Ruth Bell, cage operator.</p>",
+  "WIND": "<p>Source position (-30, 6); canonical named owner Ewan Price, winding engineer.</p>",
+  "ROPE": "<p>Source position (-34, 34); canonical named owner Mara Shaw, rope technician.</p>",
+  "CAGE": "<p>Source position (20, -4); canonical named owner Ada Kerr, mine safety engineer.</p>",
+  "TIP": "<p>Source position (34, -30); canonical named owner Ivo Reed, conveyor foreman.</p>",
+  "GRAV": "<p>Source position (-70, -290); canonical named owner Nia Cole, survey engineer.</p>"
 };

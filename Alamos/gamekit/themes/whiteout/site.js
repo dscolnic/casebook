@@ -52,7 +52,14 @@ export const site = {
 
   // Thin, dry, very clear air. Low turbidity and high rayleigh give the deep
   // blue zenith and the pale band at the horizon that a plateau actually has.
-  atmosphere: { turbidity: 2.1, rayleigh: 3.1, mie: 0.002, mieG: 0.72, scale: 900, stars: 1400 },
+  // Polar night. The bible's setting line is "Aster Station, Antarctica, during
+  // polar night": five hours of low sun (theme.js `dayWindow`) and a long dark
+  // with the station's own lights, the runway lights and the aurora in it.
+  atmosphere: {
+    turbidity: 2.1, rayleigh: 3.1, mie: 0.002, mieG: 0.72, scale: 900, stars: 2400,
+    nightTurbidity: 0.3, nightRayleigh: 0.22,
+    nightSky: 0x070a14,
+  },
 
   // Groomed snow, not road. `tone` is the per-channel offset the path texture
   // is drawn with — the default is warm grit, which reads as a brown road
@@ -98,13 +105,21 @@ export const site = {
     // ---- landmark only. The bible names these four and attaches no graded stop
     // to any of them: "human consequences of cold or poor air are visible here
     // without turning the room into a quiz station".
-    { id: 'MESS', name: 'Mess & Bunks', sub: 'Where twenty-eight people wait it out',
+    { id: 'MESS', enter: 'MESS', name: 'Mess & Bunks', sub: 'Where twenty-eight people wait it out',
       x: -26, z: 26, w: 26, d: 13, h: 5.0, facing: PI, colour: 0xb8452c },
-    { id: 'MED', name: 'Medical Bay', sub: 'What cold and bad air actually do',
+    { id: 'MED', enter: 'MED', name: 'Medical Bay', sub: 'What cold and bad air actually do',
       x: 24, z: 26, w: 14, d: 10, h: 4.6, facing: PI, colour: 0xd8d2c4 },
+    // The extra pass: a hut by the runway gate, with the beacon a pilot looks for
+    // on its roof (story.js). Landmark only.
+    { id: 'RWYCTL', name: 'Runway Control', sub: 'The lights, and the aircraft\'s last mile',
+      x: -72, z: 40, w: 8, d: 6, h: 4.2, facing: -PI / 2, colour: 0x4f6f8f },
     { id: 'RUNWAY', name: 'Runway Door', sub: 'Shut until the canary gate passes',
       x: 46, z: -14, w: 14, d: 10, h: 6.4, facing: -PI / 2, colour: 0x5c6670 },
   ],
+
+  // The storm the campaign is named for. Heavy, wind-driven, and story.js
+  // thins it only on the last mission — to runway visibility, no further.
+  weather: { kind: 'snow', density: 1.0, wind: { x: 3.2, z: 2.4 } },
 
   board: { x: 8, z: 34, facing: PI, title: 'Station board' },
 

@@ -8,11 +8,11 @@
 // here was written down to that bar in this repo, which put the game and the
 // bible in disagreement about what the player is told on the first screen.
 export const OPENING = [
-  "You have come to a town on a mesa where a mine has brought a rush of new people. Shops "
-    +   "need staff, homes cost more, and the taps serve long queues. You will build The Town and "
-    +   "Freight Agreement, one piece each day, so the town can see who gains and who pays. Mara "
-    +   "Velez gives you six weeks to check the plan before the firms sign their terms. First, "
-    +   "the diner has run out of food.",
+  "As a junior state economic adviser, you arrive in a mesa town where a mine has drawn a "
+    +   "rush of people. Shops need staff, homes cost more, and the taps serve long queues. You "
+    +   "will build The Town and Freight Agreement so the town can see who gains and who pays. "
+    +   "Mara Velez hands you the firms’ proposed terms to check. You have six weeks before they "
+    +   "sign, and your first case is a diner that has run out of food.",
 ];
 
 export const ENDING = [

@@ -18,7 +18,7 @@
   - {name: "Drift", def: "a measuring instrument's gradual change over time."}
   - {name: "Spherical symmetry", def: "mass distributed equally in every direction from a center."}
   equations:
-  - {"e":"g(r)=GM(r)/r²; M(r)=Mtotal(r/R)³ for a uniform sphere","c":"gravitation and measurement models in the measured system.","v":[["g","gravitational acceleration"],["G","gravitational constant"],["M(r)","mass inside radius r"],["Mtotal","full sphere mass"],["R","sphere radius"],["r","distance from the sphere center"]],"s":"Can the local gravity correction explain the March overrun?"}
+  - {"e":"gdepth = g0(1−d/R)","c":"gravitation and measurement models in the measured system.","v":[["gdepth","gravity at depth in metres per second squared"],["g0","surface gravity in the same units"],["d","depth in metres"],["R","radius of the stipulated uniform sphere in metres"]],"s":"Can the local gravity correction explain the March overrun?"}
   primer:
   - "Name the body, positive direction and quantity before using a relation."
   - "Compare a result only with the condition and range that its record actually covers."

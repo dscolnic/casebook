@@ -12,156 +12,150 @@ groups:
     color: "#2f6f9f"
     difficulty: 2
     type: protocol
-    desc: Station command, incident coordination and the wall-size systems map.
-    defaultLeader: park
+    desc: "Station command, incident coordination, rescue decisions, and the wall-size systems map live here."
     budget: 70
     milestones:
-      - name: Read what it actually does
+      - name: Open the room
         cost: 12
         work: 9
-        brief: Read what it actually does
-      - name: Test the behaviour
+        brief: Open the room
+      - name: Read what it holds
         cost: 16
         work: 12
-        brief: Test the behaviour
-      - name: Fix it behind a gate
+        brief: Read what it holds
+      - name: Settle the question
         cost: 20
         work: 15
-        brief: Fix it behind a gate
-      - name: Sign it off
+        brief: Settle the question
+      - name: Hand it on
         cost: 24
         work: 18
-        brief: Sign it off
+        brief: Hand it on
   - id: CODE
     code: CODE
     name: Software Lab
     color: "#7a5aa8"
     difficulty: 3
     type: protocol
-    desc: The source mirror, the test harnesses and the safe simulations.
-    defaultLeader: nair
+    desc: "The station's source mirror, test harnesses, build tools, and safe simulations live here."
     budget: 70
     milestones:
-      - name: Read what it actually does
+      - name: Open the room
         cost: 12
         work: 9
-        brief: Read what it actually does
-      - name: Test the behaviour
+        brief: Open the room
+      - name: Read what it holds
         cost: 16
         work: 12
-        brief: Test the behaviour
-      - name: Fix it behind a gate
+        brief: Read what it holds
+      - name: Settle the question
         cost: 20
         work: 15
-        brief: Fix it behind a gate
-      - name: Sign it off
+        brief: Settle the question
+      - name: Hand it on
         cost: 24
         work: 18
-        brief: Sign it off
+        brief: Hand it on
   - id: POWER
     code: POWER
     name: Power & Thermal Plant
     color: "#c2704a"
     difficulty: 4
     type: protocol
-    desc: Generators, batteries, heat loops and the controllers that keep the station warm.
-    defaultLeader: okafor
+    desc: "Generators, batteries, heat loops, and the controllers that keep the station warm live here."
     budget: 70
     milestones:
-      - name: Read what it actually does
+      - name: Open the room
         cost: 12
         work: 9
-        brief: Read what it actually does
-      - name: Test the behaviour
+        brief: Open the room
+      - name: Read what it holds
         cost: 16
         work: 12
-        brief: Test the behaviour
-      - name: Fix it behind a gate
+        brief: Read what it holds
+      - name: Settle the question
         cost: 20
         work: 15
-        brief: Fix it behind a gate
-      - name: Sign it off
+        brief: Settle the question
+      - name: Hand it on
         cost: 24
         work: 18
-        brief: Sign it off
+        brief: Hand it on
   - id: HAB
     code: HAB
     name: Habitat Control
     color: "#3f8d6e"
     difficulty: 2
     type: protocol
-    desc: Air handling, scrubbers, room sensors and life-support automation.
-    defaultLeader: alvarez
+    desc: "Air handling, scrubbers, room sensors, water, and life-support automation live here."
     budget: 70
     milestones:
-      - name: Read what it actually does
+      - name: Open the room
         cost: 12
         work: 9
-        brief: Read what it actually does
-      - name: Test the behaviour
+        brief: Open the room
+      - name: Read what it holds
         cost: 16
         work: 12
-        brief: Test the behaviour
-      - name: Fix it behind a gate
+        brief: Read what it holds
+      - name: Settle the question
         cost: 20
         work: 15
-        brief: Fix it behind a gate
-      - name: Sign it off
+        brief: Settle the question
+      - name: Hand it on
         cost: 24
         work: 18
-        brief: Sign it off
+        brief: Hand it on
   - id: VEH
     code: VEH
     name: Vehicle Bay
     color: "#8a7a3f"
     difficulty: 3
     type: protocol
-    desc: Rovers, drones, chargers and the software that moves field machines.
-    defaultLeader: reyes
+    desc: "Rovers, drones, chargers, route maps, and the software that moves field machines live here."
     budget: 70
     milestones:
-      - name: Read what it actually does
+      - name: Open the room
         cost: 12
         work: 9
-        brief: Read what it actually does
-      - name: Test the behaviour
+        brief: Open the room
+      - name: Read what it holds
         cost: 16
         work: 12
-        brief: Test the behaviour
-      - name: Fix it behind a gate
+        brief: Read what it holds
+      - name: Settle the question
         cost: 20
         work: 15
-        brief: Fix it behind a gate
-      - name: Sign it off
+        brief: Settle the question
+      - name: Hand it on
         cost: 24
         work: 18
-        brief: Sign it off
+        brief: Hand it on
   - id: COMMS
     code: COMMS
     name: Communications & Weather
     color: "#4f6f8f"
     difficulty: 4
     type: protocol
-    desc: Satellite links, packet routing and the rescue-window traffic.
-    defaultLeader: andersen
+    desc: "Satellite links, packet routing, weather instruments, and rescue-window traffic live here."
     budget: 70
     milestones:
-      - name: Read what it actually does
+      - name: Open the room
         cost: 12
         work: 9
-        brief: Read what it actually does
-      - name: Test the behaviour
+        brief: Open the room
+      - name: Read what it holds
         cost: 16
         work: 12
-        brief: Test the behaviour
-      - name: Fix it behind a gate
+        brief: Read what it holds
+      - name: Settle the question
         cost: 20
         work: 15
-        brief: Fix it behind a gate
-      - name: Sign it off
+        brief: Settle the question
+      - name: Hand it on
         cost: 24
         work: 18
-        brief: Sign it off
+        brief: Hand it on
 roster:
 - id: park
   name: "Elena Park"
@@ -458,7 +452,7 @@ missions:
     scene: "Malik Okafor checks the evidence: Stop 1 produced 0 even though 83 of 100 kilowatts are being delivered, proving the fraction disappears before the percentage is formed. Build the corrected expression so Java performs real-number division before the result is multiplied by 100."
     motivation: "A correct cast should predict 83.0 percent without changing any physical generator setting."
     format: DERIVE
-    question: "Build the repaired calculation one line at a time; choose exactly one line at each step."
+    question: "Build the repaired calculation one line at a time; choose exactly one line at each step. Then select the replay result from the local givens."
     answerText: "Casting one operand before division changes the operation to floating-point division, so 83/100 becomes 0.83 and then 83.0 percent."
     why: "The cast must occur before the division; casting the already-truncated result cannot recover discarded information."
     # wrong-path feedback, one rebuttal per wrong option:
@@ -499,6 +493,13 @@ missions:
             - text: double percent = fraction * 100.0;
             - text: double percent = (int) fraction * 100.0;
               why: Casting fraction back to int discards its fractional part before multiplying and recreates the whole-number loss.
+              survives: true
+        - ask: Apply the selected rule to the given replay. Choose its evaluated result.
+          answer: 0
+          candidates:
+            - text: (double) 83 / 100 = 0.83; 0.83 * 100.0 = 83.0 percent
+            - text: (double) (83 / 100) = 0.0; 0.0 * 100.0 = 0.0 percent
+              why: Casting after integer division preserves the already-truncated zero; cast an operand before division.
               survives: true
 
   # --- Stop 3: Store the repaired value
@@ -681,7 +682,7 @@ missions:
     scene: "Mei Alvarez checks the evidence: the current controller uses two independent if statements, so 1050 ppm can issue both SHUTDOWN and HIGH VENT commands in sequence. Build an exclusive branch structure that chooses the emergency action first and otherwise chooses the lower-level response."
     motivation: "An exclusive structure should preserve the emergency response while preventing a second conflicting command from the same reading."
     format: DERIVE
-    question: "Choose the emergency branch and then the mutually exclusive lower-level branch."
+    question: "Choose the emergency branch and then the mutually exclusive lower-level branch. Then select the replay result from the local givens."
     answerText: "Once the first condition is true, else if prevents the second branch from running for the same reading."
     why: "Selection structure, not sensor count, determines whether multiple true conditions can produce multiple actions."
     # wrong-path feedback, one rebuttal per wrong option:
@@ -722,6 +723,13 @@ missions:
             - text: else if (co2 > 900 && co2 <= 1100) highVent();
             - text: if (co2 > 900 && co2 <= 1100) highVent(); // second check
               why: A second independent if is checked even after shutdown runs, so one reading can still issue two commands.
+              survives: true
+        - ask: Apply the selected rule to the given replay. Choose its evaluated result.
+          answer: 0
+          candidates:
+            - text: "1050 > 1000 is true: shutdown runs; the else-if is skipped"
+            - text: "1050 > 1000 is true: shutdown runs; the else-if runs too"
+              why: An else-if is considered only when the earlier if condition is false.
               survives: true
 
   # --- Stop 7: Trace the nested lockout
@@ -940,7 +948,7 @@ missions:
     scene: "Jonah Reyes checks the evidence: the current while loop checks index < waypoints.length, reads waypoints[index], and steers correctly, but its body never changes index. Choose the progress statement and explain why the condition can otherwise remain true forever."
     motivation: "A loop terminates only if repeated work changes state in a way that can eventually make its condition false."
     format: DERIVE
-    question: "Choose the missing progress statement and the explanation that proves the loop can terminate."
+    question: "Choose the missing progress statement and the explanation that proves the loop can terminate. Then select the replay result from the local givens."
     answerText: "Without changing index, the condition index < length remains true for the same stored value."
     why: "A while loop does not know that a physical action finished unless program state is updated explicitly."
     # wrong-path feedback, one rebuttal per wrong option:
@@ -981,6 +989,13 @@ missions:
             - text: index eventually reaches waypoints.length, making index < length false
             - text: steering changes, so the Java condition becomes false automatically
               why: The while condition reads index and the array length; changing unrelated state cannot make that Boolean expression false.
+              survives: true
+        - ask: Apply the selected rule to the given replay. Choose its evaluated result.
+          answer: 0
+          candidates:
+            - text: "index: 0 → 1 → 2 → 3 → 4; 4 < 4 is false, so four arrivals finish"
+            - text: "index: 0 → 1 → 2 → 3; 3 < 4 is false, so three arrivals finish"
+              why: Three is still less than four. The index advances to four after arrival at index three.
               survives: true
 
   # --- Stop 11: Advance the route index
@@ -1451,7 +1466,7 @@ missions:
     scene: "Priya Nair checks the evidence: P02 should start with identifier P02 and a 70 percent safety limit, but one constructor call swaps the arguments. Build the constructor and call that produce the displayed live state without silently changing which value belongs to which field."
     motivation: "A reference trace is only useful after the object itself has been initialized with the state the crew thinks it has."
     format: DERIVE
-    question: "Choose the constructor assignments and the call that create P02 with identifier P02 and limit 70."
+    question: "Choose the constructor assignments and the call that create P02 with identifier P02 and limit 70. Then select the replay result from the local givens."
     answerText: "The constructor copies each parameter into the corresponding instance field, producing the intended live state."
     why: "Constructors establish initial object state; this distinguishes the object's field from a parameter with the same name."
     # wrong-path feedback, one rebuttal per wrong option:
@@ -1492,6 +1507,13 @@ missions:
             - text: new PowerController("P02", 70);
             - text: new PowerController("70", 70 + 0);
               why: The first argument is the object ID, so passing "70" creates the wrong identity even though the numeric limit is 70.
+              survives: true
+        - ask: Apply the selected rule to the given replay. Choose its evaluated result.
+          answer: 0
+          candidates:
+            - text: new PowerController("P02", 70) stores id="P02" and limit=70
+            - text: new PowerController("P02", 70) stores id="P02" and limit=90
+              why: The constructor must use the supplied limit 70, not the tempting hard-coded 90.
               survives: true
 
   # --- Stop 19: Follow the live reference
@@ -1988,7 +2010,7 @@ missions:
     scene: "Mei Alvarez checks the evidence: the display loop should pair labels[i] with temps[i] for indexes zero through three, but one candidate increments the temperature index twice. Build the traversal that visits every element once and preserves same-index pairing."
     motivation: "A correct traversal should keep Room 6's 4.1°C value at the same index as the Room 6 label."
     format: DERIVE
-    question: "Choose the loop header and element pairing that display every valid sensor once without shifting indexes."
+    question: "Choose the loop header and element pairing that display every valid sensor once without shifting indexes. Then select the replay result from the local givens."
     answerText: "Valid array indexes are zero through length minus one, and the same i must select the corresponding label and temperature."
     why: "Array traversal uses a loop variable as an index; bounds and same-index relationships are part of algorithm correctness."
     # wrong-path feedback, one rebuttal per wrong option:
@@ -2013,7 +2035,7 @@ missions:
     #           - {line: "show(labels[i], temps[i]);", correct: true}
     #           - {line: "show(labels[i], temps[i+1]);", correct: false, survives: true, why: "Using i+1 shifts every value one label forward and eventually reads past the array instead of preserving same-index correspondence."}
     derive:
-      start: "labels and temps have equal length, with matching indexes. Java starts array indexes at 0 and increases each successive index by 1; length is the number of items, not the final valid index. Source: String[] labels = {...}; double[] temps = {...}; both arrays have matching indexes and the same length."
+      start: "labels and temps have equal length, with matching indexes. Java starts array indexes at 0 and increases each successive index by 1; length is the number of items, not the final valid index. Source: String[] labels = {\"Room 1\", \"Room 2\"}; double[] temps = {20.0, 21.0}; both arrays have matching indexes and the same length. Replay arrays: labels = [\"Room 1\", \"Room 2\"]; temps = [20.0, 21.0] degrees C."
       goal: visit every legal index once and pair each label with the value at that same index
       steps:
         - ask: Choose the traversal header.
@@ -2029,6 +2051,13 @@ missions:
             - text: show(labels[i], temps[i]);
             - text: show(labels[i], temps[i+1]);
               why: Using i+1 shifts every value one label forward and eventually reads past the array instead of preserving same-index correspondence.
+              survives: true
+        - ask: Apply the selected rule to the given replay. Choose its evaluated result.
+          answer: 0
+          candidates:
+            - text: i=0 pairs Room 1 with 20.0; i=1 pairs Room 2 with 21.0; 2 < 2 is false
+            - text: i=0 pairs Room 1 with 21.0; i=1 pairs Room 2 with 20.0; 2 < 2 is false
+              why: Both arrays use the same index. Swapping the temperatures breaks the stated label-to-reading correspondence.
               survives: true
 
   # --- Stop 27: Catch the shifted index
@@ -2652,7 +2681,7 @@ missions:
   terms:
   - {name: "binary search", def: "a search on sorted data that repeatedly discards half of the remaining range. loop: code that repeats while a condition or counter says more work remains."}
   equations:
-  - {"e":"binary-search work ≈ log₂(n)","c":"estimate how many halvings are needed for a sorted table.","v":[["n","number of sorted records"]],"s":"the rescue link has a short time window."}
+  - {"e":"mid = (low + high) / 2, using Java integer division","c":"find the middle index of the remaining search interval.","v":[["low","first candidate index"],["high","last candidate index"],["mid","index to compare"]],"s":"Stop 39 computes each midpoint before narrowing the rescue-frequency search."}
   primer:
   - "Binary search requires sorted data."
   - "After each midpoint comparison, discard only the half that cannot contain the target."
@@ -2810,21 +2839,21 @@ missions:
         - ask: At mid=3, value 121.6 < 122.3. Choose the update.
           answer: 0
           candidates:
-            - text: low = mid + 1;
+            - text: mid=(0+7)/2=3; low=3+1=4;
             - text: high = mid - 1;
               why: The midpoint is below the target in a sorted array, so lowering high discards the half that can still contain the target.
               survives: true
         - ask: Now low=4, high=7, mid=5, value 123.1 > 122.3. Choose the update.
           answer: 0
           candidates:
-            - text: high = mid - 1;
+            - text: mid=(4+7)/2=5; high=5-1=4;
             - text: low = mid + 1; // move lower bound upward
               why: The midpoint is above the target, so raising low would discard index 4, the remaining location that contains 122.3.
               survives: true
         - ask: Now low=4, high=4. Choose the result.
           answer: 0
           candidates:
-            - text: "mid=4 and value=122.3: found"
+            - text: "mid=(4+4)/2=4; value=122.3: found"
             - text: "mid=5 and value=123.1: not found"
               why: After the bounds change, the midpoint must be recomputed as 4; reusing the prior midpoint ignores the current interval.
               survives: true
@@ -2981,7 +3010,7 @@ missions:
     scene: "Priya Nair checks the evidence: the class currently declares static int lastWarning;, and H04 writes 7 immediately before P02 reads the same value. Build the declaration and access pattern that give each controller its own warning state instead of one class-wide slot."
     motivation: "Moving warning state into each object should let H04 change without overwriting P02's previously stored warning."
     format: DERIVE
-    question: "Choose the field declaration and assignment that store warning state separately in each controller object."
+    question: "Choose the field declaration and assignment that store warning state separately in each controller object. Then select the replay result from the local givens."
     answerText: "Removing static gives every instance its own field, and this writes the receiver's copy."
     why: "Static fields belong to the class; instance fields belong to individual objects."
     # wrong-path feedback, one rebuttal per wrong option:
@@ -3022,6 +3051,13 @@ missions:
             - text: this.lastWarning = value;
             - text: Controller.lastWarning = value;
               why: Writing through the class name targets shared class state instead of the receiving object's own field.
+              survives: true
+        - ask: Apply the selected rule to the given replay. Choose its evaluated result.
+          answer: 0
+          candidates:
+            - text: "H04.setWarning(7): P02 stays 3 and H04 becomes 7 with instance fields"
+            - text: "H04.setWarning(7): P02 becomes 7 and H04 becomes 7 with instance fields"
+              why: Writing an instance field in H04 does not change the distinct P02 object.
               survives: true
 
   # --- Stop 43: Probe independent warning state
@@ -3304,7 +3340,7 @@ missions:
     scene: "Priya Nair checks the evidence: Insertion sort shifts prior items while their priority is worse than the current item. Choose the comparison that shifts only strictly larger priority numbers and therefore preserves POWER before RUNWAY when both have priority 2."
     motivation: "A one-character comparison choice can change whether equal-priority rescue actions retain their original operational order."
     format: DERIVE
-    question: "Choose the insertion-sort comparison and the resulting order for the equal-priority pair."
+    question: "Choose the insertion-sort comparison and the resulting order for the equal-priority pair. Then select the replay result from the local givens."
     answerText: "Strict > shifts only worse priorities, so an equal-priority earlier item is not moved behind the later one."
     why: "Sorting correctness can include a stability requirement in addition to numeric order."
     # wrong-path feedback, one rebuttal per wrong option:
@@ -3329,7 +3365,7 @@ missions:
     #           - {line: "POWER stays before RUNWAY", correct: true}
     #           - {line: "RUNWAY may move ahead of POWER solely because priorities tie", correct: false, survives: true, why: "A stable insertion preserves the original order of equal keys; equality alone is not a reason to reverse them."}
     derive:
-      start: "POWER precedes RUNWAY in the input; both have priority 2. Smaller numbers go first. j indexes an earlier item; valid indexes start at 0. A stable sort keeps ties in input order. Source: The list already contains POWER before RUNWAY, and the current item has the same priority."
+      start: "POWER precedes RUNWAY in the input; both have priority 2. Smaller numbers go first. j indexes an earlier item; valid indexes start at 0. A stable sort keeps ties in input order. Source: The list already contains POWER before RUNWAY, and the current item has the same priority. In this replay j = 0, queue[0] is POWER and current is RUNWAY."
       goal: insert an item without reversing earlier equal-priority items
       steps:
         - ask: Choose the stable shift condition.
@@ -3345,6 +3381,13 @@ missions:
             - text: POWER stays before RUNWAY
             - text: RUNWAY may move ahead of POWER solely because priorities tie
               why: A stable insertion preserves the original order of equal keys; equality alone is not a reason to reverse them.
+              survives: true
+        - ask: Apply the selected rule to the given replay. Choose its evaluated result.
+          answer: 0
+          candidates:
+            - text: j=0; 2 > 2 is false, so POWER is not shifted behind RUNWAY
+            - text: j=0; 2 >= 2 is true, so POWER is shifted behind RUNWAY
+              why: Shifting on equality moves the earlier tied item behind the later one and breaks stability.
               survives: true
 
   # --- Stop 48: Transmit the ordered plan
@@ -3485,7 +3528,7 @@ missions:
     scene: "Priya Nair checks the evidence: the empty-route case should return before another call, while every nonzero call must reduce n. Choose the base condition and recursive progress line that guarantee the method reaches a solved smaller problem instead of stepping past the route start."
     motivation: "A correct base case is both a stopping rule and part of the method's promised behavior for empty input."
     format: DERIVE
-    question: "Choose the base case and recursive call that guarantee termination."
+    question: "Choose the base case and recursive call that guarantee termination. Then select the replay result from the local givens."
     answerText: "Zero is the first input with no waypoints left to add, and subtracting one moves every positive input toward that case."
     why: "Recursive methods need a directly solvable base case and guaranteed progress toward it."
     # wrong-path feedback, one rebuttal per wrong option:
@@ -3510,7 +3553,7 @@ missions:
     #           - {line: "build(n - 1);", correct: true}
     #           - {line: "build(n + 1);", correct: false, survives: true, why: "Increasing n moves the argument away from the zero base case, so the recursion cannot terminate through the intended countdown."}
     derive:
-      start: "n is a nonnegative whole-number count. At 0 there is no waypoint to add, so return at once. Each nonempty call consumes exactly 1 waypoint; negative counts are invalid. Source: build(n) is called with a nonnegative count; each recursive call must move n toward its stopping case."
+      start: "n is a nonnegative whole-number count. At 0 there is no waypoint to add, so return at once. Each nonempty call consumes exactly 1 waypoint; negative counts are invalid. Source: build(n) is called with a nonnegative count; each recursive call must move n toward its stopping case. Replay build(3); an empty call adds no waypoint."
       goal: reach a terminating base case by reducing the remaining count
       steps:
         - ask: Choose the base case.
@@ -3526,6 +3569,13 @@ missions:
             - text: build(n - 1);
             - text: build(n + 1);
               why: Increasing n moves the argument away from the zero base case, so the recursion cannot terminate through the intended countdown.
+              survives: true
+        - ask: Apply the selected rule to the given replay. Choose its evaluated result.
+          answer: 0
+          candidates:
+            - text: build(3) → build(2) → build(1) → build(0), which returns without another call
+            - text: build(3) → build(2) → build(1) → build(0) → build(-1), which returns next
+              why: The base case returns at zero. Calling build(-1) crosses into an explicitly invalid count.
               survives: true
 
   # --- Stop 51: Test the recursive contract
@@ -4131,7 +4181,7 @@ missions:
     scene: "Priya Nair checks the evidence: the rollback must inspect controller records from the final valid index down to zero and remove a record only when it is resolved. Build the loop and choose the statement explaining why removal cannot skip a lower unvisited index."
     motivation: "The final code must express the proven mechanism, not merely carry a label saying backward traversal is safer."
     format: DERIVE
-    question: "Build the rollback loop line by line and choose the explanation that proves descending traversal does not skip records."
+    question: "Build the rollback loop line by line and choose the explanation that proves descending traversal does not skip records. Then select the replay result from the local givens."
     answerText: "Removal can shift higher positions, but those positions have already been processed; lower indexes still refer to the same unvisited records."
     why: "This is an algorithm proof over a class of list states rather than a memorized fix for one example."
     # wrong-path feedback, one rebuttal per wrong option:
@@ -4161,7 +4211,7 @@ missions:
     #           - {line: "removing i cannot change any lower index still to be visited", correct: true}
     #           - {line: "removing i preserves every higher index that has not been visited yet", correct: false, survives: true, why: "In a descending traversal the higher indexes have already been visited; lower unvisited indexes stay unchanged."}
     derive:
-      start: "records is an ArrayList of open and resolved records. Its first index is 0 and last is size minus 1. Removing index i shifts only higher items left by 1; visit each record once. Source: records contains open and resolved entries; remove each resolved entry while traversing the ArrayList by index."
+      start: "records is an ArrayList of open and resolved records. Its first index is 0 and last is size minus 1. Removing index i shifts only higher items left by 1; visit each record once. Source: records contains open and resolved entries; remove each resolved entry while traversing the ArrayList by index. Replay records = [A open, B resolved, C resolved]."
       goal: remove every resolved record without skipping a neighbor that shifts after deletion
       steps:
         - ask: Choose the loop header.
@@ -4184,6 +4234,13 @@ missions:
             - text: removing i cannot change any lower index still to be visited
             - text: removing i preserves every higher index that has not been visited yet
               why: In a descending traversal the higher indexes have already been visited; lower unvisited indexes stay unchanged.
+              survives: true
+        - ask: Apply the selected rule to the given replay. Choose its evaluated result.
+          answer: 0
+          candidates:
+            - text: "i=3-1=2 removes C; i=1 removes B; i=0 keeps A; i=-1 ends: [A]"
+            - text: "i=3-1=2 removes C; i=1 keeps B; i=0 keeps A; i=-1 ends: [A, B]"
+              why: Removing C at index two cannot change B at the lower index one. The next visit must remove resolved B.
               survives: true
 
   # --- Stop 59: Protect the rescue link
@@ -4337,124 +4394,22 @@ missions:
 
 interiors:
   OPS:
-    caption: Station command, incident coordination, rescue decisions, and the wall-size systems map live here.
-    standLine: Six incidents open, none closed. Rescue window in 36 hours, aircraft not yet committed.
-    station:
-      kind: panel
-      title: Station status
-      rows:
-        - label: People on station
-          value: "28"
-          status: normal
-        - label: Rescue window
-          value: "36 h"
-          status: normal
-        - label: Open incidents
-          value: "6"
-          status: alarm
-        - label: Verified control paths
-          value: "0 of 6"
-          status: alarm
+    caption: "Station command, incident coordination, rescue decisions, and the wall-size systems map live here."
   CODE:
-    caption: The station's source mirror, test harnesses, build tools, and safe simulations live here.
-    standLine: Live patching frozen. Nothing goes to a controller that has not been run against the mirror first.
-    station:
-      kind: panel
-      title: Build and mirror
-      rows:
-        - label: Mirror in step with live
-          value: "yes"
-          status: normal
-        - label: Builds since the storm
-          value: "4"
-          status: normal
-        - label: Tests run against them
-          value: "0"
-          status: alarm
-        - label: Patches applied live
-          value: "3"
-          status: alarm
+    caption: "The station's source mirror, test harnesses, build tools, and safe simulations live here."
   POWER:
-    caption: Generators, batteries, heat loops, and the controllers that keep the station warm live here.
-    standLine: The generator is running and the board says it is not. Nobody has shut it down yet.
-    station:
-      kind: panel
-      title: Generator and load
-      rows:
-        - label: Delivered power
-          value: "83 kW"
-          status: normal
-        - label: Requested power
-          value: "100 kW"
-          status: normal
-        - label: Controller reports
-          value: "0 %"
-          status: alarm
-        - label: Battery reserve
-          value: "68 %"
-          status: normal
+    caption: "Generators, batteries, heat loops, and the controllers that keep the station warm live here."
   HAB:
-    caption: Air handling, scrubbers, room sensors, water, and life-support automation live here.
-    standLine: One sensor reading, two shutdown orders. The scrubber is off and the air is still good.
-    station:
-      kind: panel
-      title: Habitat and air
-      rows:
-        - label: Occupied rooms
-          value: "11"
-          status: normal
-        - label: Scrubbers running
-          value: "1 of 2"
-          status: alarm
-        - label: Shutdown orders today
-          value: "2"
-          status: alarm
-        - label: Habitat stability
-          value: "72 %"
-          status: normal
+    caption: "Air handling, scrubbers, room sensors, water, and life-support automation live here."
   VEH:
-    caption: Rovers, drones, chargers, route maps, and the software that moves field machines live here.
-    standLine: Rover Three has driven the same lap eleven times. The wheels are fine.
-    station:
-      kind: panel
-      title: Vehicles and routes
-      rows:
-        - label: Rovers available
-          value: "2 of 3"
-          status: normal
-        - label: Laps completed
-          value: "0"
-          status: alarm
-        - label: Same lap repeated
-          value: "11"
-          status: alarm
-        - label: Charge on the bay
-          value: "4 of 6"
-          status: normal
+    caption: "Rovers, drones, chargers, route maps, and the software that moves field machines live here."
   COMMS:
-    caption: Satellite links, packet routing, weather instruments, and rescue-window traffic live here.
-    standLine: The packet says 08:07 and the wall display says 08:0. One of them is missing a character.
-    station:
-      kind: panel
-      title: Link and weather
-      rows:
-        - label: Next satellite pass
-          value: "00:41"
-          status: normal
-        - label: Burst length
-          value: "10 s"
-          status: normal
-        - label: Visibility
-          value: "under 20 m"
-          status: alarm
-        - label: Rescue readiness
-          value: "48 %"
-          status: alarm
+    caption: "Satellite links, packet routing, weather instruments, and rescue-window traffic live here."
 copy:
-  OPS: "<p>The operations module: the systems map across the end wall, the incident console under it, and the rescue board nobody has been able to fill in yet.</p>"
-  CODE: "<p>The software lab. The station’s source on glass, a bench to run a suite on, and a rack of every build the station has ever run.</p>"
-  POWER: "<p>The power and thermal plant: generators behind the wall, batteries along it, and a load board saying what is being asked for and what is arriving.</p>"
-  HAB: "<p>Habitat control, where the air is. A tile per occupied room, two scrubbers, and a cabinet of every alarm the habitat is allowed to raise.</p>"
-  VEH: "<p>The vehicle bay, big enough to drive out of. Rovers on the floor, drones on their sides, and the route the software thinks it is driving on the board.</p>"
-  COMMS: "<p>Communications and weather, out under the mast. The pass counted down to the second, the raw traffic before anything has formatted it, and the wind.</p>"
+  OPS: "<p>Station command, incident coordination, rescue decisions, and the wall-size systems map live here.</p>"
+  CODE: "<p>The station's source mirror, test harnesses, build tools, and safe simulations live here.</p>"
+  POWER: "<p>Generators, batteries, heat loops, and the controllers that keep the station warm live here.</p>"
+  HAB: "<p>Air handling, scrubbers, room sensors, water, and life-support automation live here.</p>"
+  VEH: "<p>Rovers, drones, chargers, route maps, and the software that moves field machines live here.</p>"
+  COMMS: "<p>Satellite links, packet routing, weather instruments, and rescue-window traffic live here.</p>"
 

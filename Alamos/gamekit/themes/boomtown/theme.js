@@ -23,6 +23,7 @@ import { FIXTURES } from './fixtures.js';
 import { site } from './site.js';
 import { OUTFITS, roleToOutfit } from './outfits.js';
 import { decorate } from './props.js';
+import { dressRoom } from './story.js';
 import { OPENING, ENDING } from './cards.js';
 
 
@@ -44,6 +45,8 @@ export default {
   // the duckboards, the forest — are in props.js beside this file.
   site,
   decorate,
+  // The fifteen world-state lines, on the offices' fixtures. See story.js.
+  dressRoom,
   start: site.spawn,
   // How it ends.
   //
@@ -91,7 +94,8 @@ export default {
   // own people, built and dressed here rather than by `engine/people/crowd.js` —
   // which is where the "people stand aside" fix and every crowd bug fix since
   // had to be written twice.
-  people: { OUTFITS, roleToOutfit, spawn: HISTORIC_CHARACTERS.length, extras: 22 },
+  // `pace`: a boom town walks quicker than the Hill strolled.
+  people: { OUTFITS, roleToOutfit, spawn: HISTORIC_CHARACTERS.length, extras: 26, pace: 1.3 },
 
   // The title card: ONE paragraph of situation. What the player is, where
   // they are, and what it costs if the work is not done — no mechanics, no

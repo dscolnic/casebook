@@ -1,22 +1,22 @@
-// shots.js — the viewpoints `npm run shots icecore` renders.
+// shots.js — the viewpoints `npm run shots whiteout` renders.
 //
-// A hand-placed list because the interesting things here are not the rooms:
-// the place is a flat plain with a camp on it, and what has to be checked is
-// the horizon, the flag line, and whether the trench reads as dug in rather
-// than raised. `engine/dev/shots.mjs` drives the game's own teleport to each.
+// Aster Station in a storm: what has to be checked is whether the modules loom
+// out of the white, whether the clock and the flags read, whether the rover is
+// where the campaign put it, and — with `--sol 15` — whether the runway door
+// stands open with a plane at the end of the runway. `engine/dev/shots.mjs`
+// drives the game's own teleport to each.
 export const shots = [
   { name: 'spawn-into-camp', at: { x: 0, z: 44 }, yaw: 0 },
-  { name: 'camp-street', at: { x: 0, z: 6 }, yaw: 0 },
-  { name: 'trench-from-the-route', at: { x: -2, z: -44 }, yaw: 0 },
-  { name: 'trench-close', at: { x: -4, z: -52 }, yaw: 0 },
-  { name: 'science-module', at: { x: -22, z: 14 }, yaw: 0 },
-  { name: 'core-line', at: { x: 20, z: 13 }, yaw: 0 },
-  { name: 'cold-and-gas', at: { x: 0, z: -22 }, yaw: 0 },
-  // The two that carry the place: the walk out to the stake array, and the
-  // empty plain behind camp with nothing on the skyline at all.
-  { name: 'out-to-the-stakes', at: { x: 40, z: 26 }, yaw: 90 },
-  { name: 'the-empty-side', at: { x: 0, z: 60 }, yaw: 180 },
-  { name: 'skiway', at: { x: -96, z: 60 }, yaw: 180 },
+  { name: 'clock-and-board', at: { x: 2, z: 46 }, yaw: 296 },
+  { name: 'camp-ring', at: { x: 0, z: 14 }, yaw: 0 },
+  { name: 'power-and-hab', at: { x: 0, z: -14 }, yaw: 0 },
+  { name: 'vehicle-bay-and-rover', at: { x: -8, z: -44 }, yaw: 0 },
+  { name: 'mess-and-med', at: { x: 0, z: 48 }, yaw: 0 },
+  { name: 'out-to-comms', at: { x: 40, z: 26 }, yaw: 270 },
+  { name: 'comms-and-mast', at: { x: 76, z: 40 }, yaw: 276 },
+  { name: 'runway-door', at: { x: -52, z: 40 }, yaw: 0 },
+  { name: 'runway', at: { x: -96, z: 80 }, yaw: 0 },
+  { name: 'runway-threshold', at: { x: -80, z: 100 }, yaw: 76 },
 ];
 
 export default shots;

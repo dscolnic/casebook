@@ -8,16 +8,19 @@
 // here was written down to that bar in this repo, which put the game and the
 // bible in disagreement about what the player is told on the first screen.
 export const OPENING = [
-  "You are at Aster Station, cut off by snow with 28 people. A rescue plane may reach you "
-    +   "in 36 hours. The heat alarm is red, but the code may be wrong. Elena Park asks you to "
-    +   "build The Recovery Record: fifteen tested findings that tell the next crew which faults "
-    +   "were code and which fixes held. Prove each change before it goes live.",
+  "At Aster Station, Elena Park holds the live controls while Mei Alvarez checks the red "
+    +   "heat alarm. Snow has cut off all 28 of you, and lost heat would make the station unsafe. "
+    +   "As the station’s software troubleshooter, use Java computer science to test the code and "
+    +   "build The Recovery Record: fifteen findings the next crew can check. Prove each change "
+    +   "before it goes live. The rescue plane may reach you in 36 hours; keep the station "
+    +   "running until then.",
 ];
 
 export const ENDING = [
-  "The plane lands. Its lights cross the snow, and the Runway Door opens. You step out "
-    +   "while the crew keeps the heat on and the rover link clear. Park takes The Recovery "
-    +   "Record with her: fifteen parts, each tied to a test the next crew can repeat.",
+  "The plane lands. Its lights cross the snow, and the Runway Door opens. Mei Alvarez "
+    +   "checks the room air one last time as you step out, while the crew keeps the heat on and "
+    +   "the rover link clear. Elena Park takes The Recovery Record with her: fifteen parts, each "
+    +   "tied to a test the next crew can repeat.",
   "The record shows why the first alarms lied. It shows how a loop, a shared field, and a "
     +   "list that shifted could put lives at risk. The last page holds the small first release, "
     +   "the checks it passed, and the path used to undo a change. No one had to bet the whole "

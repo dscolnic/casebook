@@ -223,13 +223,13 @@
     format: DIAGNOSIS
     question: "Read every zone and select the one explanation consistent with all observations."
     choices:
-      - Pricing restricts the booked quantity
-      - A fifty-slot mechanical breakdown
-      - Marginal cost rose above price
-      - Demand requires every slot at $60
-    answer: Pricing restricts the booked quantity
+      - Mechanical slot failures limit supply below the terminal’s design capacity
+      - Marginal operating cost exceeds price and prevents profitable slot use
+      - Demand at the charged price requires all fifty usable slots
+      - The charged price limits demand below the usable slot capacity
+    answer: The charged price limits demand below the usable slot capacity
     answerText: "The dispatch count agrees with demand at the charged price, and usable capacity exceeds it. With unchanged marginal cost, the supplied monopoly model explains the low output without a breakdown; this does not claim every unused slot in reality proves monopoly abuse."
-    why: "The dispatch count agrees with demand at the charged price, and usable capacity exceeds it. With unchanged marginal cost, the supplied monopoly model explains the low output without a breakdown; this does not claim every unused slot in reality proves monopoly abuse. The capacity reading changes the meaning of the queue photographs planted earlier. All 50 slots are reported usable. Marginal cost is $20, below $60. Demand at $60 is 20, not 50."
+    why: "The dispatch count agrees with demand at the charged price, and usable capacity exceeds it. With unchanged marginal cost, the supplied monopoly model explains the low output without a breakdown; this does not claim every unused slot in reality proves monopoly abuse. The capacity reading changes the meaning of the queue photographs planted earlier. All 50 slots are reported usable, so mechanical loss does not explain the booking limit. Marginal cost is $20, below $60. Demand at $60 is 20, not 50."
     # wrong-path feedback, one rebuttal per wrong option:
     #   in the interaction block, keyed per option
     # data: Compare all readings; alarm, watch, and normal are text labels, not verdicts.
@@ -311,7 +311,7 @@
         status: alarm
     headline: Why space remains empty
     rebuttals:
-      - All 50 slots are reported usable.
+      - All 50 slots are reported usable, so mechanical loss does not explain the booking limit.
       - Marginal cost is $20, below $60.
       - Demand at $60 is 20, not 50.
 
@@ -328,11 +328,11 @@
     format: CHOICE
     question: "Select the one recommendation supported by the recorded evidence and the stated decision rule."
     choices:
-      - Record market power as part of the freight shortage
-      - Certify that all 50 slots are physically full
-      - Demand a $20 price without examining fixed costs
-      - Say monopoly price equals marginal revenue
-    answer: Record market power as part of the freight shortage
+      - Record market power as a cause of restricted freight bookings
+      - Record full physical capacity as the cause of restricted freight bookings
+      - Require marginal-cost pricing without identifying funds for the fixed bill
+      - Use marginal revenue as the price that terminal customers should pay
+    answer: Record market power as a cause of restricted freight bookings
     answerText: "Pricing incentives and an entry barrier explain restricted output in the stated model. That makes access rules worth comparing with a new line; it does not yet establish how to cover fixed costs or external harms."
     why: "Pricing incentives and an entry barrier explain restricted output in the stated model. That makes access rules worth comparing with a new line; it does not yet establish how to cover fixed costs or external harms. The town can ask whether competition requires duplicate infrastructure or better access. Dispatch uses only 20 of 50 usable slots. Marginal-cost pricing may leave fixed costs uncovered. At the chosen output, price is 60 while marginal revenue is 20."
     # wrong-path feedback, one rebuttal per wrong option:

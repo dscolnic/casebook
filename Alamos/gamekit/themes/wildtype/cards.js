@@ -8,10 +8,11 @@
 // here was written down to that bar in this repo, which put the game and the
 // bible in disagreement about what the player is told on the first screen.
 export const OPENING = [
-  "You reach Pellow Head as a bird picks bugs from a cart of pale plants. Ada Penn asks you "
-    +   "to build The Contained Pilot, a plan to test a small group of plants and their partners "
-    +   "on the coast. Each day adds one piece to the Release Board. The ship leaves in fifteen "
-    +   "days. You must learn what can go, what must stay, and when to stop the test.",
+  "You are the junior biologist on Pellow Head. A bird picks bugs from a cart of pale "
+    +   "plants. Ada Penn asks you to build The Contained Pilot, a plan to test a small group of "
+    +   "plants and their partners on the coast. Each day adds one piece to the Release Board. "
+    +   "Before the ship leaves in fifteen days, decide what can go, what stays, and when to stop "
+    +   "the test.",
 ];
 
 export const ENDING = [

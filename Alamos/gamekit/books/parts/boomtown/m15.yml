@@ -314,11 +314,11 @@
     format: CHOICE
     question: "Select the one recommendation supported by the recorded evidence and the stated decision rule."
     choices:
-      - Sign the access retrofit with funded housing support and the water-cost rule
-      - Sign the new line while relying on an unconfirmed grant
-      - Sign access only and drop the water-cost rule
-      - Keep the current monopoly and call the housing cap sufficient
-    answer: Sign the access retrofit with funded housing support and the water-cost rule
+      - Sign the retrofit with housing but omit the measured water-cost charge
+      - Retain the monopoly with the rent cap as the entire housing access plan
+      - Sign the retrofit with funded housing and the water-cost rule
+      - Sign the new line with housing funded by the pending grant application
+    answer: Sign the retrofit with funded housing and the water-cost rule
     answerText: "The retrofit bundle meets the adopted feasibility, funding, access, environmental and accountability conditions together. Its superiority is conditional on those explicit rules and evidence; the decision does not claim every resident gains or that the same intervention fits every town."
     why: "The retrofit bundle meets the adopted feasibility, funding, access, environmental and accountability conditions together. Its superiority is conditional on those explicit rules and evidence; the decision does not claim every resident gains or that the same intervention fits every town. The council can sign a complete agreement while publishing who pays, who benefits and what would trigger review. The new line fails the stress condition and its grant is unconfirmed."
     # wrong-path feedback, one rebuttal per wrong option:
@@ -347,7 +347,7 @@
     #     "answerText": "The retrofit bundle meets the adopted feasibility, funding, access, environmental and accountability conditions together. Its superiority is conditional on those explicit rules and evidence; the decision does not claim every resident gains or that the same intervention fits every town."
     #   }
     rebuttals:
-      - The new line fails the stress condition and its grant is unconfirmed.
       - Removing the water rule recreates the unpriced external cost.
       - The cap leaves applicants unmatched and monopoly access remains unresolved.
+      - The new line fails the stress condition and its grant is unconfirmed.
 

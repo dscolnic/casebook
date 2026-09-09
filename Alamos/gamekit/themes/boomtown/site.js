@@ -123,6 +123,9 @@ export const site = {
 
   // A mesa: flat on top with a hard rim, which is the profile outdoorSite was
   // generalised from in the first place.
+  // Mesa dust on the afternoon wind. story.js drops it on the last day.
+  weather: { kind: 'dust', density: 0.3, wind: { x: 2.8, z: 1.2 } },
+
   terrain: {
     size: 760, segments: 300, playerLimit: 105,
     profile: 'mesa', relief: 1.0,

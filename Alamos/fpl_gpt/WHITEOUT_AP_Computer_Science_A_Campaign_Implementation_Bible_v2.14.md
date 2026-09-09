@@ -2,7 +2,7 @@
 
 ## AP Computer Science A Campaign Implementation Bible
 
-**Version:** 2.13 — Ensemble story, physical evidence and optional depth  
+**Version:** 2.14 — Handback 7: visible language support and evaluated derivations  
 **Campaign length:** 15 missions, 60 graded stops  
 **Setting:** Aster Station, Antarctica, during polar night  
 **Primary subject:** AP Computer Science A (Java)
@@ -11,10 +11,12 @@
 
 ## 0. Readiness boundary
 
+**Handback 7 resolution:** Applies Master Brief v3.6, Gate v2.6 and Ledger v1.6. names act in the opening and ending prose; the opening lands on the 36-hour clock. Canonical segues, short primer bullets, first-use label glosses and six roster reflections have explicit rendering contracts. DERIVE rails now include evaluated local applications; the unused logarithm card formula is replaced by the midpoint rule actually used at Stop 39. Handback 7 reports v2.13 builds, imports and plays. This v2.14 source revision has not been imported or played here.
+
 **v2.13 ensemble expansion:** Applies Master Brief v3.5, Ledger v1.5 and Giant Gate v2.5. Adds exact intermediate exchanges, evidence-dependent greetings, three supporting residents, physical actions, the fixture register and 90 optional review questions. Graded boards, original Java source, four-bar economy, delivery pieces, five worked examples per mission and the handback ending remain intact. Runtime behavior of these additions is not tested in a revised build.
 
 
-This bible is authored to the supplied Master Campaign Brief, `QUESTION_TYPES.md`, and Giant Campaign Gate Check. It contains concrete stop-specific boards rather than payload placeholders. **Build evidence:** Handback 6 reports that v2.11 imports and plays. **This v2.12 revision has not been re-imported or played here** because `engine/content/normalize.js`, the importer/schema, validators, and a playable repository were not supplied; `QUESTION_TYPES.md` itself says those code sources are authoritative over the markdown description.
+This bible is authored to the supplied Master Campaign Brief, `QUESTION_TYPES.md`, and Giant Campaign Gate Check. It contains concrete stop-specific boards rather than payload placeholders. **Build evidence:** Handback 6 reports that v2.11 imports and plays. **This v2.14 revision has not been re-imported or played here** because `engine/content/normalize.js`, the importer/schema, validators, and a playable repository were not supplied; `QUESTION_TYPES.md` itself says those code sources are authoritative over the markdown description.
 
 **Handback 1 resolution:** the twelve standard VERIFY stops identified by the build handback now use `predictionRange`, one numeric `truth`, and a costed `measurement` instead of a `readings` table. The Stop 11 CHOICE has one unambiguous key, the two equation-symbol lines use parser-safe symbol glosses, Mission 1's closing card is simplified, and Mission 15 explicitly opens the Runway Door and lands the rescue aircraft in the playable world.
 
@@ -38,7 +40,7 @@ The story begins with apparently unrelated hardware failures. The first major re
 
 ## Opening card — exact player copy
 
-You are at Aster Station, cut off by snow with 28 people. A rescue plane may reach you in 36 hours. The heat alarm is red, but the code may be wrong. Elena Park asks you to build The Recovery Record: fifteen tested findings that tell the next crew which faults were code and which fixes held. Prove each change before it goes live.
+At Aster Station, Elena Park holds the live controls while Mei Alvarez checks the red heat alarm. Snow has cut off all 28 of you, and lost heat would make the station unsafe. As the station’s software troubleshooter, use Java computer science to test the code and build The Recovery Record: fifteen findings the next crew can check. Prove each change before it goes live. The rescue plane may reach you in 36 hours; keep the station running until then.
 
 ### Station words — exact player copy
 
@@ -53,9 +55,29 @@ You are at Aster Station, cut off by snow with 28 people. A rescue plane may rea
 - **ABORT (abort):** stop the current attempt and follow its stated recovery path.
 - **GO (go):** the stated checks pass, so the named action may start; it is not a claim that all faults are fixed.
 
+### First-use language and passage rendering contract
+
+`Station words` is a glossary source, not proof that a definition reached the player. Render its matching gloss inline at the first visible occurrence of each label below, before the control can be used; retain the explanation in the mission log. Match standalone command labels case-insensitively, including SHUTDOWN and HIGH VENT; the title GO DEEPER is not a GO authorization. Use the normal panel caption/help line, not a new modal, stop, button, or unlock. If an earlier HUD or incidental panel uses the label, its first appearance owns the same gloss.
+
+| First planned surface | Label | Exact first-use caption |
+|---|---|---|
+| Mission 1 controller command | SHUT / SHUTDOWN | SHUT means shut this device down. |
+| Mission 2 first air-control card | scrubber | A scrubber cleans carbon dioxide out of room air. |
+| Mission 2 first air reading | ppm | ppm means parts per million: gas parts in one million parts of air. |
+| Mission 2 air-control command | VENT / HIGH VENT | VENT moves air through the room; HIGH VENT increases that airflow. |
+| First locked control, including Mission 2 | LOCK | LOCK blocks this control until its stated test passes. |
+| First campaign HUD display | HAB / HABITAT | HAB means habitat: the rooms where the crew lives. |
+| First ABORT action | ABORT | ABORT stops this attempt and follows the shown recovery steps. |
+| Mission 14 residual score | rms / RMS | RMS measures error size: square each error, average the squares, then take the square root. |
+| First GO authorization | GO | GO means this action's stated checks pass and it may start. |
+
+Mission cards render `Stakes — exact player copy` in the single objective/stakes block. Its first sentence owns the player decision and its second owns the named consequence; suppress the separate `Objective` display because that field is retained only as a compatibility summary. Do not merge or duplicate those two fields into a longer block.
+
+Render each mission's `Primer concepts` bullets separately under `Worth knowing first`, exactly as authored; do not substitute longer designer concept paragraphs or merge bullets into one line. Render `Segue — exact player copy` once as the post-outcome transition. Never fill it from the takeaway or the next mission objective. Each roster passage renders its existing passage question, Reveal answer and feedback immediately below that person's passage; these optional reflections pause the timer, award no points, change no flags, and add no graded stops. These mappings require a rendered-card check in the next build; markdown presence alone is insufficient.
+
 ### Opening implementation state
 
-The opening card appears over the normal playable spawn in the Operations Module, with all five sentences visible together and one Continue action. On Continue, the four campaign bars appear, the Mission 1 briefing activates, and normal first-person control returns immediately. WHITEOUT authors no pre-day sightseeing, greeting, or race warm-up; movement is learned inside Mission 1 while the player is already solving the heat alarm.
+The opening card appears over the normal playable spawn in the Operations Module, with all five sentences visible together and one Continue action. On Continue, the four campaign bars appear with HAB captioned “Habitat: the rooms where the crew lives”, the Mission 1 briefing activates, and normal first-person control returns immediately. WHITEOUT authors no pre-day sightseeing, greeting, or race warm-up; movement is learned inside Mission 1 while the player is already solving the heat alarm.
 
 ---
 ## 1.1 Delivery — canonical build fields
@@ -249,7 +271,7 @@ These 33 IDs are newly assigned authoring identifiers for the existing named fix
 ---
 # 4. Canonical roster
 
-Each roster passage ends with a short recall question. The player answers aloud or thinks of an answer, then selects Reveal answer for feedback. This check is ungraded, costs no time or points, and changes no story state; it is not an added mission stop.
+Each roster passage ends with a short recall question. The player may answer aloud or think of an answer, then select Reveal answer for feedback; skipping it leaves all routes open. This check is ungraded, costs no time or points, and changes no story state; it is not an added mission stop.
 
 ### Dr. Elena Park
 
@@ -834,6 +856,8 @@ Between the three major twists, the campaign deliberately changes the player's w
 
 **Objective:** Today you decide whether the heat alarm calls for an engine shutdown or a code fix.
 
+**Stakes — exact player copy:** Decide whether to stop the generator or fix its code. Malik could cut the station's heat if the alarm is wrong.
+
 **Optional help button:** `WORKED EXAMPLES (5)` — opens five generic, ungraded examples of this mission's equations, numbers, code, or concepts. Opening the panel pauses the timer, changes no story state, and the panel can be closed and reopened.
 
 
@@ -1066,11 +1090,16 @@ derive:
       choices:
         - {line: "double percent = fraction * 100.0;", correct: true}
         - {line: "double percent = (int) fraction * 100.0;", correct: false, survives: true, why: "Casting fraction back to int discards its fractional part before multiplying and recreates the whole-number loss."}
+    - id: apply_local
+      prompt: "Apply the selected rule to the given replay. Choose its evaluated result."
+      choices:
+        - {line: "(double) 83 / 100 = 0.83; 0.83 * 100.0 = 83.0 percent", correct: true}
+        - {line: "(double) (83 / 100) = 0.0; 0.0 * 100.0 = 0.0 percent", correct: false, survives: true, why: "Casting after integer division preserves the already-truncated zero; cast an operand before division."}
 ```
 
-**Question card prompt — exact player copy:** Build the repaired calculation one line at a time; choose exactly one line at each step.
+**Question card prompt — exact player copy:** Build the repaired calculation one line at a time; choose exactly one line at each step. Then select the replay result from the local givens.
 
-**Correct result:** `double fraction = (double) delivered / requested;` then `double percent = fraction * 100.0;`, producing `83.0`.
+**Correct result:** `double fraction = (double) delivered / requested;` then `double percent = fraction * 100.0;`, producing `83.0`. Replay: (double) 83 / 100 = 0.83; 0.83 * 100.0 = 83.0 percent.
 
 **Answer text:** Casting one operand before division changes the operation to floating-point division, so 83/100 becomes 0.83 and then 83.0 percent.
 
@@ -1150,6 +1179,10 @@ rebuttals:
 
 ## H4. Stop 4 — Authorize the generator
 
+**First-use help — exact player copy:** SHUT DOWN means stop this generator.
+
+**Help display:** Show with this stop’s first question card, before its prompt and controls; retain in the mission log. If already explained on an earlier panel, suppress only the duplicate help.
+
 **Format/placement:** VERIFY, Generator Controller.
 
 **Metadata:** Concept: 11 — Boolean expressions and relational operators; Keystone: Boolean logic, Debugging & tests; Area: POWER; Prerequisites: Combines the arithmetic, type, and assignment work of Stops 1–3.; Learning role: COMBINE; Difficulty: L3; Story role: decision.
@@ -1227,7 +1260,7 @@ verify:
 **Lock result:** No permanent metric lock is earned in this mission.
 
 
-**Segue — exact player copy:** But Mei now has two commands from one air reading.
+**Segue — exact player copy:** But Mei stops a second air command before it reaches the same room.
 
 ## K. Quick concept review
 
@@ -1414,6 +1447,8 @@ D. double value = 15 / 4;
 
 **Objective:** Today you decide whether one sensor reading can make both branches fire.
 
+**Stakes — exact player copy:** Decide whether one reading can make both branches fire. Mei could lose a working air cleaner if the fault is blamed on hardware.
+
 **Optional help button:** `WORKED EXAMPLES (5)` — opens five generic, ungraded examples of this mission's equations, numbers, code, or concepts. Opening the panel pauses the timer, changes no story state, and the panel can be closed and reopened.
 
 
@@ -1475,7 +1510,7 @@ The mission is one causal investigation rather than four topic-matched questions
 **Presentation:** nearby_character_bubble.  
 **Player control:** One Continue; the mission timer starts only after the bubble closes.  
 **World state:** Alarm Cabinet shows the unresolved incident.  
-**Dialogue bubble — Mei Alvarez, habitat systems lead:** “One sensor event should not order two different scrubber actions. Trace the branch before I lock anything out.”  
+**Dialogue bubble — Mei Alvarez, habitat systems lead:** “This scrubber cleans carbon dioxide from our air. One reading should not give it two orders; trace the branch before I block a control.”  
 **Unlocks:** Stop 5.
 
 
@@ -1546,6 +1581,10 @@ All four stops stay local so the early campaign teaches one subsystem without si
 
 ## H1. Stop 5 — Read the alarm condition
 
+**First-use help — exact player copy:** A scrubber removes carbon dioxide from room air. ppm means gas parts in one million parts of air. VENT means move air through the room.
+
+**Help display:** Show with this stop’s first question card, before its prompt and controls; retain in the mission log. If already explained on an earlier panel, suppress only the duplicate help.
+
 **Format/placement:** CHOICE, Mei Alvarez at the Alarm Cabinet.
 
 **Metadata:** Concept: 11 — Boolean expressions and relational operators; Keystone: Boolean logic; Area: HAB; Prerequisites: Delayed retrieval of Boolean comparison from Mission 1 after the mission boundary.; Learning role: INTRODUCE; Difficulty: L2; Story role: clue.
@@ -1603,6 +1642,10 @@ rebuttals:
 
 ## H2. Stop 6 — Separate the branches
 
+**First-use help — exact player copy:** SHUTDOWN stops the device. HIGH VENT increases room airflow.
+
+**Help display:** Show with this stop’s first question card, before its prompt and controls; retain in the mission log. If already explained on an earlier panel, suppress only the duplicate help.
+
 **Format/placement:** DERIVE, Habitat Control — Sensor Wall.
 
 **Metadata:** Concept: 12 — if / if-else selection; Keystone: Boolean logic; Area: HAB; Prerequisites: Uses Stop 5's truth-value pair.; Learning role: PRACTICE; Difficulty: L2; Story role: obstacle.
@@ -1635,11 +1678,16 @@ derive:
       choices:
         - {line: "else if (co2 > 900 && co2 <= 1100) highVent();", correct: true}
         - {line: "if (co2 > 900 && co2 <= 1100) highVent(); // second check", correct: false, survives: true, why: "A second independent if is checked even after shutdown runs, so one reading can still issue two commands."}
+    - id: apply_local
+      prompt: "Apply the selected rule to the given replay. Choose its evaluated result."
+      choices:
+        - {line: "1050 > 1000 is true: shutdown runs; the else-if is skipped", correct: true}
+        - {line: "1050 > 1000 is true: shutdown runs; the else-if runs too", correct: false, survives: true, why: "An else-if is considered only when the earlier if condition is false."}
 ```
 
-**Question card prompt — exact player copy:** Choose the emergency branch and then the mutually exclusive lower-level branch.
+**Question card prompt — exact player copy:** Choose the emergency branch and then the mutually exclusive lower-level branch. Then select the replay result from the local givens.
 
-**Correct result:** `if (co2 > 1000) shutdown(); else if (co2 > 900) highVent();`.
+**Correct result:** `if (co2 > 1000) shutdown(); else if (co2 > 900) highVent();`. Replay: 1050 > 1000 is true: shutdown runs; the else-if is skipped.
 
 **Answer text:** Once the first condition is true, `else if` prevents the second branch from running for the same reading.
 
@@ -1661,6 +1709,10 @@ derive:
 
 
 ## H3. Stop 7 — Trace the nested lockout
+
+**First-use help — exact player copy:** LOCK blocks a control until its stated test passes.
+
+**Help display:** Show with this stop’s first question card, before its prompt and controls; retain in the mission log. If already explained on an earlier panel, suppress only the duplicate help.
 
 **Format/placement:** DIAGNOSIS, Habitat Control — Habitat Analysis Board.
 
@@ -1800,7 +1852,7 @@ verify:
 **Lock result:** No permanent metric lock is earned in this mission.
 
 
-**Segue — exact player copy:** Yet Jonah sees Rover Three circle the same snow marker again.
+**Segue — exact player copy:** Yet Jonah holds Rover Three in the bay after it circles the same marker twice.
 
 ## K. Quick concept review
 
@@ -1986,6 +2038,8 @@ D. Test 4 twice
 **Card body (49 words; 4 sentences):** The air cleaner works, but Jonah sees Rover Three circle one marker. A loop needs a change that takes it toward its end. Trace each lap before the rover wastes more time. By the end of the mission, decide if the wheels are stuck or the code cannot stop.
 
 **Objective:** Today you decide whether to repair the rover wheels or the loop that drives them.
+
+**Stakes — exact player copy:** Decide whether to repair the wheels or the route loop. Jonah loses rescue time if he replaces healthy parts.
 
 **Optional help button:** `WORKED EXAMPLES (5)` — opens five generic, ungraded examples of this mission's equations, numbers, code, or concepts. Opening the panel pauses the timer, changes no story state, and the panel can be closed and reopened.
 
@@ -2212,11 +2266,16 @@ derive:
       choices:
         - {line: "index eventually reaches waypoints.length, making index < length false", correct: true}
         - {line: "steering changes, so the Java condition becomes false automatically", correct: false, survives: true, why: "The while condition reads index and the array length; changing unrelated state cannot make that Boolean expression false."}
+    - id: apply_local
+      prompt: "Apply the selected rule to the given replay. Choose its evaluated result."
+      choices:
+        - {line: "index: 0 → 1 → 2 → 3 → 4; 4 < 4 is false, so four arrivals finish", correct: true}
+        - {line: "index: 0 → 1 → 2 → 3; 3 < 4 is false, so three arrivals finish", correct: false, survives: true, why: "Three is still less than four. The index advances to four after arrival at index three."}
 ```
 
-**Question card prompt — exact player copy:** Choose the missing progress statement and the explanation that proves the loop can terminate.
+**Question card prompt — exact player copy:** Choose the missing progress statement and the explanation that proves the loop can terminate. Then select the replay result from the local givens.
 
-**Correct result:** `index++;`; the loop ends when index reaches `waypoints.length`.
+**Correct result:** `index++;`; the loop ends when index reaches `waypoints.length`. Replay: index: 0 → 1 → 2 → 3 → 4; 4 < 4 is false, so four arrivals finish.
 
 **Answer text:** Without changing index, the condition `index < length` remains true for the same stored value.
 
@@ -2373,7 +2432,7 @@ verify:
 **Lock result:** No permanent metric lock is earned in this mission.
 
 
-**Segue — exact player copy:** Now Priya finds the same code tool in all three fault traces.
+**Segue — exact player copy:** Now Priya lays the three fault traces side by side; one code tool appears in all of them.
 
 ## K. Quick concept review
 
@@ -2559,6 +2618,8 @@ D. 3
 **Card body (48 words; 4 sentences):** Three faults now point to code, and Priya needs a safe way to test them. The lab can replay old inputs with no change to live gear. Find what the three paths share. By the end of the mission, decide if the crew should trace one shared fault.
 
 **Objective:** Today you decide whether the three faults need one shared code test.
+
+**Stakes — exact player copy:** Decide whether one shared code fault explains all three failures. Priya could send three needless patches into live controls.
 
 **Optional help button:** `WORKED EXAMPLES (5)` — opens five generic, ungraded examples of this mission's equations, numbers, code, or concepts. Opening the panel pauses the timer, changes no story state, and the panel can be closed and reopened.
 
@@ -2955,7 +3016,7 @@ rebuttals:
 **Lock result:** No permanent metric lock is earned in this mission.
 
 
-**Segue — exact player copy:** But Malik sees the patch change C17 while P02 stays the same.
+**Segue — exact player copy:** But Malik keeps the live controller untouched: the patch changed only its test copy.
 
 ## K. Quick concept review
 
@@ -3141,6 +3202,8 @@ D. -8
 **Card body (48 words; 4 sentences):** The first fix works in the lab, but Malik sees no change at P02. Two objects can look alike and still hold their own state. Follow the names to the objects they point to. By the end of the mission, decide if the patch reached the live unit.
 
 **Objective:** Today you decide whether the patch reaches live object P02.
+
+**Stakes — exact player copy:** Decide whether the patch reaches live object P02. Malik's power controller stays broken if only its test copy changes.
 
 **Optional help button:** `WORKED EXAMPLES (5)` — opens five generic, ungraded examples of this mission's equations, numbers, code, or concepts. Opening the panel pauses the timer, changes no story state, and the panel can be closed and reopened.
 
@@ -3360,11 +3423,16 @@ derive:
       choices:
         - {line: "new PowerController(\"P02\", 70);", correct: true}
         - {line: "new PowerController(\"70\", 70 + 0);", correct: false, survives: true, why: "The first argument is the object ID, so passing \"70\" creates the wrong identity even though the numeric limit is 70."}
+    - id: apply_local
+      prompt: "Apply the selected rule to the given replay. Choose its evaluated result."
+      choices:
+        - {line: "new PowerController(\"P02\", 70) stores id=\"P02\" and limit=70", correct: true}
+        - {line: "new PowerController(\"P02\", 70) stores id=\"P02\" and limit=90", correct: false, survives: true, why: "The constructor must use the supplied limit 70, not the tempting hard-coded 90."}
 ```
 
-**Question card prompt — exact player copy:** Choose the constructor assignments and the call that create P02 with identifier P02 and limit 70.
+**Question card prompt — exact player copy:** Choose the constructor assignments and the call that create P02 with identifier P02 and limit 70. Then select the replay result from the local givens.
 
-**Correct result:** `this.id = id; this.limit = limit;` and `new PowerController("P02", 70);`.
+**Correct result:** `this.id = id; this.limit = limit;` and `new PowerController("P02", 70);`. Replay: new PowerController("P02", 70) stores id="P02" and limit=70.
 
 **Answer text:** The constructor copies each parameter into the corresponding instance field, producing the intended live state.
 
@@ -3522,7 +3590,7 @@ verify:
 **Lock result:** No permanent metric lock is earned in this mission.
 
 
-**Segue — exact player copy:** Yet Liv sees 08:0 on screen and 08:07 in the raw note.
+**Segue — exact player copy:** Yet Liv holds a message for review; its final minute digit has vanished from the screen.
 
 ## K. Quick concept review
 
@@ -3708,6 +3776,8 @@ D. 0
 **Card body (52 words; 4 sentences):** The power fix works, but Liv sees the wrong time on a rescue note. A String cut can lose a digit. Check the raw note and the code before the crew drops the link. By the end of the mission, decide if the note is late or its shown time is wrong.
 
 **Objective:** Today you decide whether to keep the rescue link and fix the time parser.
+
+**Stakes — exact player copy:** Decide whether to keep the rescue link and fix the time parser. Liv could lose a working path to the plane.
 
 **Optional help button:** `WORKED EXAMPLES (5)` — opens five generic, ungraded examples of this mission's equations, numbers, code, or concepts. Opening the panel pauses the timer, changes no story state, and the panel can be closed and reopened.
 
@@ -4086,7 +4156,7 @@ verify:
 **Lock result:** No permanent metric lock is earned in this mission.
 
 
-**Segue — exact player copy:** But Mei sees Room 7 marked 4.1°C beside a local reading of 20.9°C.
+**Segue — exact player copy:** But Mei puts two temperature readings beside Room 7, and they disagree by 16.8 degrees.
 
 ## K. Quick concept review
 
@@ -4273,6 +4343,8 @@ D. 4
 **Card body (52 words; 4 sentences):** The link works, but Mei has a cold alarm for Room 7. An array index picks one item from a list. Match each room to its own reading before the crew moves out. By the end of the mission, decide if the room is cold or the code picked the wrong item.
 
 **Objective:** Today you decide whether Room 7 needs to be cleared or its index needs a fix.
+
+**Stakes — exact player copy:** Decide whether to clear Room 7 or fix its sensor index. Mei could move people from a safe room or leave them in dangerous cold.
 
 **Optional help button:** `WORKED EXAMPLES (5)` — opens five generic, ungraded examples of this mission's equations, numbers, code, or concepts. Opening the panel pauses the timer, changes no story state, and the panel can be closed and reopened.
 
@@ -4472,12 +4544,12 @@ probe:
 
 **Question card story-science connection — exact player copy:** A correct traversal should keep Room 6's 4.1°C value at the same index as the Room 6 label.
 
-**DERIVE givens — exact player copy:** labels and temps have equal length, with matching indexes. Java starts array indexes at 0 and increases each successive index by 1; length is the number of items, not the final valid index.
+**DERIVE givens — exact player copy:** labels and temps have equal length, with matching indexes. Java starts array indexes at 0 and increases each successive index by 1; length is the number of items, not the final valid index. Replay arrays: labels = ["Room 1", "Room 2"]; temps = [20.0, 21.0] degrees C.
 
 **Format-specific interaction block:**
 ```yaml
 derive:
-  start: "labels and temps have equal length, with matching indexes. Java starts array indexes at 0 and increases each successive index by 1; length is the number of items, not the final valid index. Source: String[] labels = {...}; double[] temps = {...}; both arrays have matching indexes and the same length."
+  start: "labels and temps have equal length, with matching indexes. Java starts array indexes at 0 and increases each successive index by 1; length is the number of items, not the final valid index. Source: String[] labels = {\"Room 1\", \"Room 2\"}; double[] temps = {20.0, 21.0}; both arrays have matching indexes and the same length. Replay arrays: labels = [\"Room 1\", \"Room 2\"]; temps = [20.0, 21.0] degrees C."
   goal: "visit every legal index once and pair each label with the value at that same index"
   steps:
     - id: header
@@ -4490,11 +4562,16 @@ derive:
       choices:
         - {line: "show(labels[i], temps[i]);", correct: true}
         - {line: "show(labels[i], temps[i+1]);", correct: false, survives: true, why: "Using i+1 shifts every value one label forward and eventually reads past the array instead of preserving same-index correspondence."}
+    - id: apply_local
+      prompt: "Apply the selected rule to the given replay. Choose its evaluated result."
+      choices:
+        - {line: "i=0 pairs Room 1 with 20.0; i=1 pairs Room 2 with 21.0; 2 < 2 is false", correct: true}
+        - {line: "i=0 pairs Room 1 with 21.0; i=1 pairs Room 2 with 20.0; 2 < 2 is false", correct: false, survives: true, why: "Both arrays use the same index. Swapping the temperatures breaks the stated label-to-reading correspondence."}
 ```
 
-**Question card prompt — exact player copy:** Choose the loop header and element pairing that display every valid sensor once without shifting indexes.
+**Question card prompt — exact player copy:** Choose the loop header and element pairing that display every valid sensor once without shifting indexes. Then select the replay result from the local givens.
 
-**Correct result:** `i < temps.length` and `show(labels[i], temps[i]);`.
+**Correct result:** `i < temps.length` and `show(labels[i], temps[i]);`. Replay: i=0 pairs Room 1 with 20.0; i=1 pairs Room 2 with 21.0; 2 < 2 is false.
 
 **Answer text:** Valid array indexes are zero through length minus one, and the same `i` must select the corresponding label and temperature.
 
@@ -4651,7 +4728,7 @@ verify:
 **Lock result:** No permanent metric lock is earned in this mission.
 
 
-**Segue — exact player copy:** Now Park finds every second record gone from the incident view.
+**Segue — exact player copy:** Now Park asks for the missing incident lines before she signs the recovery record.
 
 ## K. Quick concept review
 
@@ -4837,6 +4914,8 @@ D. Compare each physical sensor ID with its array index and displayed label
 **Card body (45 words; 4 sentences):** Room 7 is safe, but Park sees gaps in the log. List items shift left when code removes one. Trace the cleanup code and check the raw file. By the end of the mission, decide if the notes were lost or the loop skipped them.
 
 **Objective:** Today you decide whether the raw log is lost or list cleanup skips its records.
+
+**Stakes — exact player copy:** Decide whether the raw log is lost or list cleanup skips records. Park could lose the evidence needed to explain the failures.
 
 **Optional help button:** `WORKED EXAMPLES (5)` — opens five generic, ungraded examples of this mission's equations, numbers, code, or concepts. Opening the panel pauses the timer, changes no story state, and the panel can be closed and reopened.
 
@@ -5217,7 +5296,7 @@ verify:
 **Lock result:** No permanent metric lock is earned in this mission.
 
 
-**Segue — exact player copy:** But Jonah finds the known crack in the next map cell.
+**Segue — exact player copy:** But Jonah halts the rover at a crack that the map puts one cell away.
 
 ## K. Quick concept review
 
@@ -5403,6 +5482,8 @@ D. 4
 **Card body (47 words; 4 sentences):** The log is back, but Jonah sees a crack in the wrong map cell. A grid uses a row and a column in a fixed order. Trace the write before the rover moves. By the end of the mission, decide if the map code swaps the two.
 
 **Objective:** Today you decide whether to trust the survey and fix the map write.
+
+**Stakes — exact player copy:** Decide whether to trust the survey and fix the map write. Jonah's rover could reach a crack shown in the wrong cell.
 
 **Optional help button:** `WORKED EXAMPLES (5)` — opens five generic, ungraded examples of this mission's equations, numbers, code, or concepts. Opening the panel pauses the timer, changes no story state, and the panel can be closed and reopened.
 
@@ -5783,7 +5864,7 @@ verify:
 **Lock result:** No permanent metric lock is earned in this mission.
 
 
-**Segue — exact player copy:** Now Liv needs the right radio record before the next short pass ends.
+**Segue — exact player copy:** Now Liv holds the transmitter open while the next satellite pass slips away.
 
 ## K. Quick concept review
 
@@ -5971,6 +6052,8 @@ D. Yes, if the grid is square
 
 **Objective:** Today you decide which search can reach the radio record before the link closes.
 
+**Stakes — exact player copy:** Decide which search can find the radio record before the link closes. Liv could miss the satellite pass while the search runs.
+
 **Optional help button:** `WORKED EXAMPLES (5)` — opens five generic, ungraded examples of this mission's equations, numbers, code, or concepts. Opening the panel pauses the timer, changes no story state, and the panel can be closed and reopened.
 
 
@@ -5992,10 +6075,10 @@ D. Yes, if the grid is square
 
 #### Equations first needed today
 
-**Equation:** binary-search work ≈ log₂(n)  
-**What it is for:** estimate how many halvings are needed for a sorted table.  
-**Symbols:** `n` number of sorted records.  
-**Why this campaign needs it:** the rescue link has a short time window.
+**Equation:** mid = (low + high) / 2, using Java integer division  
+**What it is for:** find the middle index of the remaining search interval.  
+**Symbols:** `low` first candidate index; `high` last candidate index; `mid` index to compare.  
+**Why this campaign needs it:** Stop 39 computes each midpoint before narrowing the rescue-frequency search.
 
 
 ### Optional worked examples — exact player copy
@@ -6240,17 +6323,17 @@ derive:
     - id: first
       prompt: "At mid=3, value 121.6 < 122.3. Choose the update."
       choices:
-        - {line: "low = mid + 1;", correct: true}
+        - {line: "mid=(0+7)/2=3; low=3+1=4;", correct: true}
         - {line: "high = mid - 1;", correct: false, survives: true, why: "The midpoint is below the target in a sorted array, so lowering high discards the half that can still contain the target."}
     - id: second
       prompt: "Now low=4, high=7, mid=5, value 123.1 > 122.3. Choose the update."
       choices:
-        - {line: "high = mid - 1;", correct: true}
+        - {line: "mid=(4+7)/2=5; high=5-1=4;", correct: true}
         - {line: "low = mid + 1; // move lower bound upward", correct: false, survives: true, why: "The midpoint is above the target, so raising low would discard index 4, the remaining location that contains 122.3."}
     - id: found
       prompt: "Now low=4, high=4. Choose the result."
       choices:
-        - {line: "mid=4 and value=122.3: found", correct: true}
+        - {line: "mid=(4+4)/2=4; value=122.3: found", correct: true}
         - {line: "mid=5 and value=123.1: not found", correct: false, survives: true, why: "After the bounds change, the midpoint must be recomputed as 4; reusing the prior midpoint ignores the current interval."}
 ```
 
@@ -6354,7 +6437,7 @@ verify:
 **Lock result:** No permanent metric lock is earned in this mission.
 
 
-**Segue — exact player copy:** Yet Mei sees two separate units report the same last warning.
+**Segue — exact player copy:** Yet Mei separates two units on the bench, and their warning numbers still move together.
 
 ## K. Quick concept review
 
@@ -6540,6 +6623,8 @@ D. Assume old order survives all appends
 **Card body (45 words; 4 sentences):** The radio is set, but Mei sees two units share one warning. A static field holds one value for the whole class. Test which writes can change the other unit. By the end of the mission, decide if each object needs its own warning field.
 
 **Objective:** Today you decide whether each unit needs its own warning field.
+
+**Stakes — exact player copy:** Decide whether each unit needs its own warning field. Mei could act on another controller's warning instead of her own.
 
 **Optional help button:** `WORKED EXAMPLES (5)` — opens five generic, ungraded examples of this mission's equations, numbers, code, or concepts. Opening the panel pauses the timer, changes no story state, and the panel can be closed and reopened.
 
@@ -6779,11 +6864,16 @@ derive:
       choices:
         - {line: "this.lastWarning = value;", correct: true}
         - {line: "Controller.lastWarning = value;", correct: false, survives: true, why: "Writing through the class name targets shared class state instead of the receiving object's own field."}
+    - id: apply_local
+      prompt: "Apply the selected rule to the given replay. Choose its evaluated result."
+      choices:
+        - {line: "H04.setWarning(7): P02 stays 3 and H04 becomes 7 with instance fields", correct: true}
+        - {line: "H04.setWarning(7): P02 becomes 7 and H04 becomes 7 with instance fields", correct: false, survives: true, why: "Writing an instance field in H04 does not change the distinct P02 object."}
 ```
 
-**Question card prompt — exact player copy:** Choose the field declaration and assignment that store warning state separately in each controller object.
+**Question card prompt — exact player copy:** Choose the field declaration and assignment that store warning state separately in each controller object. Then select the replay result from the local givens.
 
-**Correct result:** `private int lastWarning;` and `this.lastWarning = value;`.
+**Correct result:** `private int lastWarning;` and `this.lastWarning = value;`. Replay: H04.setWarning(7): P02 stays 3 and H04 becomes 7 with instance fields.
 
 **Answer text:** Removing `static` gives every instance its own field, and `this` writes the receiver's copy.
 
@@ -6935,7 +7025,7 @@ verify:
 **Lock result:** No permanent metric lock is earned in this mission.
 
 
-**Segue — exact player copy:** Now Liv has just ten seconds to send the plane what it needs.
+**Segue — exact player copy:** Now Liv clears the radio desk: the plane can hear only ten seconds of the waiting messages.
 
 ## K. Quick concept review
 
@@ -7121,6 +7211,8 @@ D. There is no particular instance whose field it can read
 **Card body (45 words; 4 sentences):** The warnings are fixed, but Liv has ten seconds to send the next note. A sort can keep tied items in their old order. Choose what the plane needs and leave out private names. By the end of the mission, decide which queue to send.
 
 **Objective:** Today you decide which facts the plane needs in its ten-second message.
+
+**Stakes — exact player copy:** Decide which facts the plane needs in its ten-second message. Liv could run out of airtime before the rescue details arrive.
 
 **Optional help button:** `WORKED EXAMPLES (5)` — opens five generic, ungraded examples of this mission's equations, numbers, code, or concepts. Opening the panel pauses the timer, changes no story state, and the panel can be closed and reopened.
 
@@ -7390,12 +7482,12 @@ order:
 
 **Question card story-science connection — exact player copy:** A one-character comparison choice can change whether equal-priority rescue actions retain their original operational order.
 
-**DERIVE givens — exact player copy:** POWER precedes RUNWAY in the input; both have priority 2. Smaller numbers go first. j indexes an earlier item; valid indexes start at 0. A stable sort keeps ties in input order.
+**DERIVE givens — exact player copy:** POWER precedes RUNWAY in the input; both have priority 2. Smaller numbers go first. j indexes an earlier item; valid indexes start at 0. A stable sort keeps ties in input order. In this replay j = 0, queue[0] is POWER and current is RUNWAY.
 
 **Format-specific interaction block:**
 ```yaml
 derive:
-  start: "POWER precedes RUNWAY in the input; both have priority 2. Smaller numbers go first. j indexes an earlier item; valid indexes start at 0. A stable sort keeps ties in input order. Source: The list already contains POWER before RUNWAY, and the current item has the same priority."
+  start: "POWER precedes RUNWAY in the input; both have priority 2. Smaller numbers go first. j indexes an earlier item; valid indexes start at 0. A stable sort keeps ties in input order. Source: The list already contains POWER before RUNWAY, and the current item has the same priority. In this replay j = 0, queue[0] is POWER and current is RUNWAY."
   goal: "insert an item without reversing earlier equal-priority items"
   steps:
     - id: condition
@@ -7408,11 +7500,16 @@ derive:
       choices:
         - {line: "POWER stays before RUNWAY", correct: true}
         - {line: "RUNWAY may move ahead of POWER solely because priorities tie", correct: false, survives: true, why: "A stable insertion preserves the original order of equal keys; equality alone is not a reason to reverse them."}
+    - id: apply_local
+      prompt: "Apply the selected rule to the given replay. Choose its evaluated result."
+      choices:
+        - {line: "j=0; 2 > 2 is false, so POWER is not shifted behind RUNWAY", correct: true}
+        - {line: "j=0; 2 >= 2 is true, so POWER is shifted behind RUNWAY", correct: false, survives: true, why: "Shifting on equality moves the earlier tied item behind the later one and breaks stability."}
 ```
 
-**Question card prompt — exact player copy:** Choose the insertion-sort comparison and the resulting order for the equal-priority pair.
+**Question card prompt — exact player copy:** Choose the insertion-sort comparison and the resulting order for the equal-priority pair. Then select the replay result from the local givens.
 
-**Correct result:** Use `>` rather than `>=`; POWER remains before RUNWAY.
+**Correct result:** Use `>` rather than `>=`; POWER remains before RUNWAY. Replay: j=0; 2 > 2 is false, so POWER is not shifted behind RUNWAY.
 
 **Answer text:** Strict `>` shifts only worse priorities, so an equal-priority earlier item is not moved behind the later one.
 
@@ -7512,7 +7609,7 @@ verify:
 **Lock result:** No permanent metric lock is earned in this mission.
 
 
-**Segue — exact player copy:** But Liv sees ice spread across the main antenna.
+**Segue — exact player copy:** But Liv watches ice cover the main antenna; the ordered message still needs a path out.
 
 ## K. Quick concept review
 
@@ -7699,6 +7796,8 @@ D. Yes; the only contract of sorting is increasing order
 **Card body (50 words; 4 sentences):** The note got through, but ice may cut Liv off from the plane. Each call in a route builder must shrink the task until it can stop. Test the code before Jonah sends the rover out. By the end of the mission, decide if it can place the backup relay.
 
 **Objective:** Today you decide whether the route code can send Rover Three out and bring its calls to an end.
+
+**Stakes — exact player copy:** Decide whether the route code can finish before sending Rover Three outside. Jonah could lose the rover to a route that never ends.
 
 **Optional help button:** `WORKED EXAMPLES (5)` — opens five generic, ungraded examples of this mission's equations, numbers, code, or concepts. Opening the panel pauses the timer, changes no story state, and the panel can be closed and reopened.
 
@@ -7911,12 +8010,12 @@ order:
 
 **Question card story-science connection — exact player copy:** A correct base case is both a stopping rule and part of the method's promised behavior for empty input.
 
-**DERIVE givens — exact player copy:** n is a nonnegative whole-number count. At 0 there is no waypoint to add, so return at once. Each nonempty call consumes exactly 1 waypoint; negative counts are invalid.
+**DERIVE givens — exact player copy:** n is a nonnegative whole-number count. At 0 there is no waypoint to add, so return at once. Each nonempty call consumes exactly 1 waypoint; negative counts are invalid. Replay build(3); an empty call adds no waypoint.
 
 **Format-specific interaction block:**
 ```yaml
 derive:
-  start: "n is a nonnegative whole-number count. At 0 there is no waypoint to add, so return at once. Each nonempty call consumes exactly 1 waypoint; negative counts are invalid. Source: build(n) is called with a nonnegative count; each recursive call must move n toward its stopping case."
+  start: "n is a nonnegative whole-number count. At 0 there is no waypoint to add, so return at once. Each nonempty call consumes exactly 1 waypoint; negative counts are invalid. Source: build(n) is called with a nonnegative count; each recursive call must move n toward its stopping case. Replay build(3); an empty call adds no waypoint."
   goal: "reach a terminating base case by reducing the remaining count"
   steps:
     - id: base
@@ -7929,11 +8028,16 @@ derive:
       choices:
         - {line: "build(n - 1);", correct: true}
         - {line: "build(n + 1);", correct: false, survives: true, why: "Increasing n moves the argument away from the zero base case, so the recursion cannot terminate through the intended countdown."}
+    - id: apply_local
+      prompt: "Apply the selected rule to the given replay. Choose its evaluated result."
+      choices:
+        - {line: "build(3) → build(2) → build(1) → build(0), which returns without another call", correct: true}
+        - {line: "build(3) → build(2) → build(1) → build(0) → build(-1), which returns next", correct: false, survives: true, why: "The base case returns at zero. Calling build(-1) crosses into an explicitly invalid count."}
 ```
 
-**Question card prompt — exact player copy:** Choose the base case and recursive call that guarantee termination.
+**Question card prompt — exact player copy:** Choose the base case and recursive call that guarantee termination. Then select the replay result from the local givens.
 
-**Correct result:** `if (n == 0) return;` and `build(n - 1);`.
+**Correct result:** `if (n == 0) return;` and `build(n - 1);`. Replay: build(3) → build(2) → build(1) → build(0), which returns without another call.
 
 **Answer text:** Zero is the first input with no waypoints left to add, and subtracting one moves every positive input toward that case.
 
@@ -8094,7 +8198,7 @@ verify:
 **Lock result:** No permanent metric lock is earned in this mission.
 
 
-**Segue — exact player copy:** Yet Priya has no test of two resolved records side by side.
+**Segue — exact player copy:** Yet Priya holds the release after finding a gap in the tests: no adjacent resolved records.
 
 ## K. Quick concept review
 
@@ -8281,6 +8385,8 @@ D. 1
 **Card body (50 words; 4 sentences):** The relay works, but Priya has one test the green lights cannot answer. The code has not faced two closed records side by side. Test that case before the crew trusts its way back. By the end of the mission, decide if green means safe or just safe for now.
 
 **Objective:** Today you decide whether the green lights prove a safe recovery path.
+
+**Stakes — exact player copy:** Decide whether the green lights prove a safe recovery path. Priya could approve code that fails when the crew tries to undo it.
 
 **Optional help button:** `WORKED EXAMPLES (5)` — opens five generic, ungraded examples of this mission's equations, numbers, code, or concepts. Opening the panel pauses the timer, changes no story state, and the panel can be closed and reopened.
 
@@ -8537,6 +8643,10 @@ stress:
 
 ## H3. Stop 55 — Audit the rollback pattern
 
+**First-use help — exact player copy:** RMS measures error size: square each error, average the squares, then take the square root.
+
+**Help display:** Show with this stop’s first question card, before its prompt and controls; retain in the mission log. If already explained on an earlier panel, suppress only the duplicate help.
+
 **Format/placement:** RESIDUAL, Generator Controller.
 
 **Metadata:** Concept: 29 — ArrayList methods, traversals, mutation, and algorithms; Keystone: Collections & indexing, Debugging & tests; Area: POWER; Prerequisites: Transfers ArrayList mutation reasoning from Mission 8 after six intervening missions.; Learning role: TRANSFER; Difficulty: L5; Story role: reveal.
@@ -8696,7 +8806,7 @@ rebuttals:
 **Lock result:** No permanent metric lock is earned in this mission.
 
 
-**Segue — exact player copy:** Now Park must choose a release plan as the plane enters its last weather window.
+**Segue — exact player copy:** Now Park keeps her hand off the restart switch as the plane enters its last weather window.
 
 ## K. Quick concept review
 
@@ -8883,6 +8993,8 @@ D. 0 of 3
 
 **Objective:** Today you decide which tested release plan can keep the rescue path open.
 
+**Stakes — exact player copy:** Decide which tested release plan keeps the rescue path open. Park could lose the crew's last route to the plane if the final change fails.
+
 **Optional help button:** `WORKED EXAMPLES (5)` — opens five generic, ungraded examples of this mission's equations, numbers, code, or concepts. Opening the panel pauses the timer, changes no story state, and the panel can be closed and reopened.
 
 
@@ -9023,6 +9135,10 @@ The mission is one causal investigation rather than four topic-matched questions
 
 ## H1. Stop 57 — Choose the staged release
 
+**First-use help — exact player copy:** GO means the stated checks pass and this action may start. ABORT stops this attempt and follows the shown recovery steps.
+
+**Help display:** Show with this stop’s first question card, before its prompt and controls; retain in the mission log. If already explained on an earlier panel, suppress only the duplicate help.
+
 **Format/placement:** SCIENCETANK, Dr. Elena Park at the Rescue Board.
 
 **Metadata:** Concept: 20 — Abstraction and program design; Keystone: Methods & abstraction, Search & efficiency; Area: OPS; Prerequisites: Transfers abstraction and delayed efficiency reasoning into whole-system design.; Learning role: TRANSFER; Difficulty: L5; Story role: decision.
@@ -9105,12 +9221,12 @@ answerText: "Fund regression, backward rollback, relay, and canary monitoring; s
 
 **Question card story-science connection — exact player copy:** The final code must express the proven mechanism, not merely carry a label saying backward traversal is safer.
 
-**DERIVE givens — exact player copy:** records is an ArrayList of open and resolved records. Its first index is 0 and last is size minus 1. Removing index i shifts only higher items left by 1; visit each record once.
+**DERIVE givens — exact player copy:** records is an ArrayList of open and resolved records. Its first index is 0 and last is size minus 1. Removing index i shifts only higher items left by 1; visit each record once. Replay records = [A open, B resolved, C resolved].
 
 **Format-specific interaction block:**
 ```yaml
 derive:
-  start: "records is an ArrayList of open and resolved records. Its first index is 0 and last is size minus 1. Removing index i shifts only higher items left by 1; visit each record once. Source: records contains open and resolved entries; remove each resolved entry while traversing the ArrayList by index."
+  start: "records is an ArrayList of open and resolved records. Its first index is 0 and last is size minus 1. Removing index i shifts only higher items left by 1; visit each record once. Source: records contains open and resolved entries; remove each resolved entry while traversing the ArrayList by index. Replay records = [A open, B resolved, C resolved]."
   goal: "remove every resolved record without skipping a neighbor that shifts after deletion"
   steps:
     - id: header
@@ -9128,11 +9244,16 @@ derive:
       choices:
         - {line: "removing i cannot change any lower index still to be visited", correct: true}
         - {line: "removing i preserves every higher index that has not been visited yet", correct: false, survives: true, why: "In a descending traversal the higher indexes have already been visited; lower unvisited indexes stay unchanged."}
+    - id: apply_local
+      prompt: "Apply the selected rule to the given replay. Choose its evaluated result."
+      choices:
+        - {line: "i=3-1=2 removes C; i=1 removes B; i=0 keeps A; i=-1 ends: [A]", correct: true}
+        - {line: "i=3-1=2 removes C; i=1 keeps B; i=0 keeps A; i=-1 ends: [A, B]", correct: false, survives: true, why: "Removing C at index two cannot change B at the lower index one. The next visit must remove resolved B."}
 ```
 
-**Question card prompt — exact player copy:** Build the rollback loop line by line and choose the explanation that proves descending traversal does not skip records.
+**Question card prompt — exact player copy:** Build the rollback loop line by line and choose the explanation that proves descending traversal does not skip records. Then select the replay result from the local givens.
 
-**Correct result:** Descending loop; remove(i); lower unvisited indexes remain valid.
+**Correct result:** Descending loop; remove(i); lower unvisited indexes remain valid. Replay: i=3-1=2 removes C; i=1 removes B; i=0 keeps A; i=-1 ends: [A].
 
 **Answer text:** Removal can shift higher positions, but those positions have already been processed; lower indexes still refer to the same unvisited records.
 
@@ -9296,7 +9417,7 @@ verify:
 **Lock result:** All four bars lock only after Stop 60's five canary measurements match their committed predictions.
 
 
-**Segue — exact player copy:** Now Park hands the fifteen-part record to the next crew as you walk through the Runway Door.
+**Segue — exact player copy:** Now Elena Park carries the fifteen-part record through the Runway Door while Mei watches the station lights.
 
 ## K. Quick concept review
 
@@ -9472,7 +9593,7 @@ D. Test the new layout before expanding to that unit
 
 ## Ending card — exact player copy
 
-The plane lands. Its lights cross the snow, and the Runway Door opens. You step out while the crew keeps the heat on and the rover link clear. Park takes The Recovery Record with her: fifteen parts, each tied to a test the next crew can repeat.
+The plane lands. Its lights cross the snow, and the Runway Door opens. Mei Alvarez checks the room air one last time as you step out, while the crew keeps the heat on and the rover link clear. Elena Park takes The Recovery Record with her: fifteen parts, each tied to a test the next crew can repeat.
 
 The record shows why the first alarms lied. It shows how a loop, a shared field, and a list that shifted could put lives at risk. The last page holds the small first release, the checks it passed, and the path used to undo a change. No one had to bet the whole station on one restart.
 
@@ -9487,6 +9608,8 @@ Use this card only for WHITEOUT. Show it once after Mission 15's canary gate and
 Every stop above has one canonical format named in `QUESTION_TYPES.md`, one stop-specific payload, exact player-facing prompt, exact grading truth, answer text distinct from the key, mechanism-specific wrong feedback, a visible state change, and an explicit unlock. DERIVE uses exactly two choices per step. The twelve standard VERIFY stops identified in Handback 1 use a visible numeric `predictionRange`, one hidden numeric `truth`, and a costed `measurement`; the player commits before the measurement is revealed. Every DERIVE has `start`, a non-answer-revealing `goal`, and a specific `why` for every wrong line. Every TRACE target resolves to a declared resource with at least two build-recognized target-dependent channels and an independent channel; every PROBE target resolves to a declared station. VALUE options carry label/axis/cost fields with multiple evidence axes; ATTEST has a numeric checks budget; CASEBOOK mappings cover every clue; STRESS criteria have score keys and a valid robust candidate; every VERIFY truth lies inside its prediction range and retains a genuine fail region. Every mission card exposes exactly five optional generic worked examples that are ungraded, story-neutral, and timer-pausing. The final graded stop is followed by a walkable runway-and-aircraft payoff, not another quiz.
 
 **Pre-answer visibility rule:** hidden keys never render as player-facing goals. In the standard VERIFY panel, the prediction range is visible but `truth` stays hidden until the player commits; the costed `measurement` then reveals the measured number. Stop 60 remains the authored integrated five-check canary pending importer/schema resolution. In HOLDOUT, held-out test points stay hidden until the fit is frozen. Recommended SCIENCETANK allocations, VALUE keys, diagnosis answers, and other grading truths remain grader-only until submission.
+
+**DERIVE evaluated-line display:** arithmetic and trace annotations on the rail are explanatory text, not executable Java. Keep `start` source visible above the choices. Evaluate each new application inside its existing stop; no additional graded stop or metric event is created.
 
 **DERIVE presentation rule:** each authored step contains exactly one correct line and one plausible reviewed mistake; the renderer must randomize their left/right order, so source-list order is not player-facing placement.
 

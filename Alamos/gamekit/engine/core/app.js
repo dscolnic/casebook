@@ -264,6 +264,11 @@ export function createInteriors({
       // the view out of a salt-flat hut is storm grey over crust.
       outside: outsideOf(theme),
       ...spec,
+      // The theme's own dressing for this room, if it has any — the objects the
+      // bible says change when a decision is accepted. See interiorBuilding.js.
+      dress: typeof theme.dressRoom === 'function'
+        ? (room, ctx) => theme.dressRoom(id, room, { ...ctx, theme })
+        : undefined,
       caseName: who.name, caseLine: who.line,
       // The campaign's product, in the one room the manifest names. Every other
       // room gets `undefined` and builds exactly what it built before.
@@ -362,6 +367,8 @@ export function createInteriors({
       // from wherever the player was standing and this room may be four
       // kilometres away and not yet built.
       room.delivery?.setPieces(deliveryPieces(theme, getState()));
+      // And the room's own story props read the campaign.
+      room.applyState?.(getState());
       // And the door shows the time of day the town is having.
       room.setOutsideNight?.(1 - dayBlendAt(getState()?.timeHours ?? 12));
       // The screen on the wall shows the instrument this call is actually about.
@@ -515,6 +522,7 @@ export function createInteriors({
       if(sinceCheck > 0.4){
         sinceCheck = 0;
         inside.room.setCaseOpen(openCaseGroups().has(inside.id));
+        inside.room.applyState?.(getState());
         // AND THE OBJECTS. Same reason as the line above, one level out: a call
         // can close while the player is standing in the room, and with the
         // calls opening one at a time that opens the next one. Without this the
