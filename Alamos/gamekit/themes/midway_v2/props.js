@@ -425,6 +425,29 @@ function ferrisWheel(scene, x, z, y, colliders){
     }
   }
   cyl(scene, 0.34, 12, x, y + R + 3.4, z, STEEL()).rotation.x = Math.PI / 2;
+
+  // ---- the boarding platform
+  //
+  // A wheel's rim comes down to a deck people step off; without one the lowest
+  // gondola hangs two metres over open tarmac and the whole ride reads as
+  // floating. Six metres of deck under the bottom of the circle, a rail down
+  // the back of it, a step at each end, and the queue rail in front.
+  {
+    const DY = 0.85;
+    box(scene, 11.0, DY, 5.2, x, y + DY / 2, z, PAINT(0x6f6a74));
+    box(scene, 11.4, 0.12, 5.6, x, y + DY, z, PAINT(0x8a8577));
+    for(const s of [-1, 1]){
+      box(scene, 1.2, 0.42, 5.2, x + s * 6.1, y + 0.21, z, PAINT(0x6f6a74));   // the step
+      box(scene, 0.1, 1.0, 5.2, x + s * 5.6, y + DY + 0.5, z, STEEL());        // the end rail
+    }
+    // The back rail, in two runs with the gap the cars swing through.
+    for(const s of [-1, 1]){
+      box(scene, 4.4, 0.1, 0.1, x + s * 3.3, y + DY + 0.95, z - 2.5, STEEL());
+      for(const dx of [-2.0, 0, 2.0]) box(scene, 0.08, 0.95, 0.08, x + s * 3.3 + dx, y + DY + 0.48, z - 2.5, STEEL());
+    }
+    colliders?.push(new THREE.Box3(
+      new THREE.Vector3(x - 5.7, y, z - 2.8), new THREE.Vector3(x + 5.7, y + DY + 1.0, z + 2.8)));
+  }
   return { group: g, cars };
 }
 
@@ -1101,7 +1124,12 @@ export function decorate(scene, ctx){
   // --------------------------------------------------------- the midway
   // Boarded stalls down both sides of the avenue, and the dead fountain.
   const stalls = [
-    [-14, 48, 0.2, 0x96513f], [-14, 36, 0.1, 0x466f7e], [-14, 4, -0.1, 0xa2853f],
+    // (-14, 36) is missing on purpose: the wheel stands at (-18, 34) with a
+    // fourteen-metre radius, so that plot is inside its arc — the stall was
+    // under the rim with gondolas passing through its canopy, which is what the
+    // bottom of the wheel looked wrong about. It is at 42 now, still on the
+    // avenue line and two metres clear of the frames at z = 39.5.
+    [-14, 48, 0.2, 0x96513f], [-14, 42, 0.1, 0x466f7e], [-14, 4, -0.1, 0xa2853f],
     [-14, -8, 0.0, 0x96513f], [14, 48, 3.3, 0x466f7e], [14, 34, 3.2, 0x96513f],
     [14, 20, 3.1, 0x6b5a80], [14, -6, 3.2, 0xa2853f], [-14, -34, 0.1, 0x466f7e],
     [14, -40, 3.1, 0x96513f], [-14, -62, 0.0, 0xa2853f], [14, -84, 3.2, 0x466f7e],

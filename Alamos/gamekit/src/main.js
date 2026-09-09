@@ -208,6 +208,10 @@ initCrowd({
   blocked: (x, z, pad = 1) => world.colliders.some(c =>
     x > c.min.x - pad && x < c.max.x + pad && z > c.min.z - pad && z < c.max.z + pad)
     || (world.softColliders ?? []).some(c => {
+      // …but not the people. `crowd.js` puts a travelling collider in this same
+      // array for every walker, so counting them here blocks each person with
+      // their own body.
+      if(c.person) return false;
       const dx = x - c.x, dz = z - c.z, rr = c.r + pad;
       return dx * dx + dz * dz < rr * rr;
     }),

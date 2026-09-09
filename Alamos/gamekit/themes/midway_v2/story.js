@@ -694,13 +694,31 @@ export function storyExtras(scene, ctx){
      * geometry translated so the pivot is its luff rather than its middle.
      */
     const flag = (x, y, z, colour) => {
-      cyl(scene, 0.06, 2.4, x, y + 1.2, z, STEEL());
-      const f = box(scene, 0.9, 0.5, 0.02, x, y + 1.9, z, PAINT(colour));
-      f.geometry = f.geometry.clone().translate(0.45, 0, 0);   // pivot at the luff
-      animate?.(sway(f, 'y', 0.14, 0.55, x));
+      // THE STAFF IS THE POINT. Nine metres up, a three-centimetre pole is under
+      // a pixel and the cloth reads as hanging in mid-air; twelve was no better.
+      // It is 16 cm across and four metres tall now, which is what a roof flag's
+      // staff actually looks like from the ground, and the cloth is up at the
+      // top of it rather than floating beside its middle.
+      cyl(scene, 0.08, 4.0, x, y + 2.0, z, STEEL());
+      cyl(scene, 0.16, 0.24, x, y + 4.05, z, PAINT(0xc9962a));            // the truck
+      // A PENNANT, HANGING, not a rectangle rotating about the pole. `sway` on
+      // the y axis turns a flag round its staff like a weathervane, which from
+      // the ground is a rectangle going back and forth — the thing that was
+      // reported twice. A triangle on the halyard, leaning a few degrees in the
+      // lake wind and no more, is a flag; nothing about it travels.
+      const f = new THREE.Mesh(new THREE.ConeGeometry(0.34, 1.5, 3),
+        new THREE.MeshStandardMaterial({ color: colour, roughness: 0.9, side: THREE.DoubleSide }));
+      f.geometry.rotateZ(Math.PI / 2);          // point it along +x, away from the staff
+      f.geometry.translate(0.75, 0, 0);         // and pivot it at the staff
+      f.position.set(x, y + 3.5, z);
+      f.rotation.y = 0.6;
+      scene.add(f);
+      animate?.(sway(f, 'z', 0.05, 0.5, x));
     };
+    // Two, on the two roofs a player walks past. The third was on the drop
+    // tower's head at forty-six metres, where a flag is four pixels and its
+    // staff is none — which is most of why this read as cloth in the sky.
     flag(-44, at(-44, -16) + 9.5, -16, 0xc4342a);
-    flag(44, at(44, -74) + 45.7, -74, 0xe6e0d0);
     flag(-44, at(-44, 8) + 10.3, 8, 0xc9962a);
     const colours = [0xc4342a, 0xe6e0d0, 0xc9962a, 0x466f7e];
     for(const [x0, z0, x1, z1] of [[-14, 48, 14, 48], [-14, 36, 14, 34], [-14, 4, 14, -6], [-14, -34, 14, -40]]){
@@ -732,7 +750,13 @@ export function storyExtras(scene, ctx){
 
   // Puddles: dark glossy discs on the asphalt off the avenue.
   {
-    const wet = mat('corbin.puddle', () => new THREE.MeshStandardMaterial({ color: 0x2a3036, roughness: 0.08, metalness: 0.2 }));
+    // DAMP ASPHALT, NOT A MIRROR. At roughness 0.08 with a little metalness a
+    // puddle reflects the sky dome almost perfectly, so under a bright sky each
+    // one rendered as a flat pale-blue ellipse on black tarmac — a paint spill,
+    // and one of them sat right under the wheel. House rule 6 in a different
+    // dress: the fix is to stop it mirroring rather than to darken it further.
+    const wet = mat('corbin.puddle', () => new THREE.MeshStandardMaterial({
+      color: 0x2a3036, roughness: 0.34, metalness: 0.0, envMapIntensity: 0.12 }));
     for(const [x, z, r] of [[-20, 40, 1.4], [18, 14, 1.1], [-24, -30, 1.8], [20, -44, 1.2], [-10, -80, 1.5], [26, 60, 1.3], [-36, 30, 1.0], [12, 72, 1.6]]){
       const p = new THREE.Mesh(new THREE.CircleGeometry(r, 18), wet);
       p.rotation.x = -PI / 2; p.position.set(x, at(x, z) + 0.015, z); p.scale.set(1, 0.7, 1); p.userData.ignoreAudit = true;

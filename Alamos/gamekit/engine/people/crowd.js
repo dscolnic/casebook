@@ -199,7 +199,14 @@ export function initCrowd(opts){
     // stood at the start — and since the pillar was wider than the distance at
     // which a person steps aside, walking into anybody stopped you just outside
     // the range where they would have moved. Nothing ever yielded.
-    npc.soft = { x, z, r: BODY_RADIUS };
+    // `person: true` — A PERSON IS NOT A PROP. These go into the world's own
+    // soft-collider array so the PLAYER walks round somebody, and the crowd's
+    // `blocked` predicate reads that same array. Untagged, every walker was
+    // blocked by their own collider and by everybody else's: they fought
+    // `settle`, which pushed them a metre, which moved the collider after them,
+    // and Corbin Park filled with pairs of people vibrating against each other.
+    // Standing apart is `stand aside` and the separation pass, not collision.
+    npc.soft = { x, z, r: BODY_RADIUS, person: true };
     opts.softColliders.push(npc.soft);
     opts.interactables.push({
       mesh: hit, type: 'npc', id: person.id,
@@ -234,7 +241,7 @@ export function initCrowd(opts){
       speed: srandRange(0.7, 1.2) * (opts.pace ?? 1),
       pause: srandRange(0.5, 6),
     };
-    e.soft = { x, z, r: BODY_RADIUS };
+    e.soft = { x, z, r: BODY_RADIUS, person: true };   // see the note above
     opts.softColliders.push(e.soft);
     extras.push(e);
     return e;
