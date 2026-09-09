@@ -128,6 +128,11 @@ export const site = {
 
   // The map should show the compound and the dune track, not 400 m of sea.
   mapBounds: { x0: -100, x1: 100, z0: -215, z1: 95 },
+  // A window on the player rather than the whole site: the far station is
+  // 300 m out and the whole-site map drew the yard as a blob. Everything past
+  // the window is an arrow on the edge with its distance, as Planetary Defense
+  // does it. See `focusBounds` in engine/core/map.js.
+  mapRadius: 90,
 
   // Sea haze and a little drizzle; story.js clears it for the ship.
   weather: { kind: 'drizzle', density: 0.08, wind: { x: 1.4, z: 2.0 } },

@@ -121,6 +121,11 @@ export const site = {
   // thins it only on the last mission — to runway visibility, no further.
   weather: { kind: 'snow', density: 1.0, wind: { x: 3.2, z: 2.4 } },
 
+  // A window on the player: the runway is a hundred metres west of camp and the
+  // whole-site map made the six modules a cluster. Past the window, an arrow
+  // with its distance — see `focusBounds` in engine/core/map.js.
+  mapRadius: 90,
+
   board: { x: 8, z: 34, facing: PI, title: 'Station board' },
 
   // Kept clear of the route (|x| < 7) so nothing narrows it. Everything on a

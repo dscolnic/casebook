@@ -115,6 +115,11 @@ export const site = {
 
   // The map should show the ground people stand on rather than 300 m of moor.
   mapBounds: { x0: -100, x1: 100, z0: -310, z1: 100 },
+  // A window on the player rather than the whole site: the far station is
+  // 300 m out and the whole-site map drew the yard as a blob. Everything past
+  // the window is an arrow on the edge with its distance, as Planetary Defense
+  // does it. See `focusBounds` in engine/core/map.js.
+  mapRadius: 90,
 
   // Moor weather. story.js thins it by the day and clears it for the inspector.
   weather: { kind: 'drizzle', density: 0.45, wind: { x: 2.2, z: -1.4 } },
