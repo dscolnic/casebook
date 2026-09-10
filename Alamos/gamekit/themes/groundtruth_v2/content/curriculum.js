@@ -2093,47 +2093,78 @@ export const CURRICULUM = {
             "unit": "setup-hours"
           },
           "decision": "",
+          "requirements": [
+            {
+              "id": "r1",
+              "text": "determine represented voltage"
+            },
+            {
+              "id": "r2",
+              "text": "determine represented charge"
+            },
+            {
+              "id": "r3",
+              "text": "determine pulse timing"
+            }
+          ],
+          "rule": "Cover every required outcome at the lowest total cost within the budget; keep all unused capacity in reserve.",
+          "plans": [
+            [
+              "stage_voltage",
+              "stage_capacitance",
+              "gap_timing"
+            ]
+          ],
           "options": [
             {
               "id": "stage_voltage",
-              "label": "Stage voltage",
+              "label": "Stage-voltage measurement",
               "cost": 2,
-              "axis": "voltage scale",
-              "reveals": "",
+              "axis": "",
+              "reveals": "Measures V for the stage and supplies the voltage needed in Q=CV.",
+              "covers": [
+                "r1"
+              ],
               "decisive": true
             },
             {
               "id": "stage_capacitance",
-              "label": "Stage capacitance",
+              "label": "Stage-capacitance measurement",
               "cost": 1,
-              "axis": "stored charge and energy",
-              "reveals": "",
+              "axis": "",
+              "reveals": "Measures C; together with the voltage test this determines Q=CV.",
+              "covers": [
+                "r2"
+              ],
               "decisive": true
             },
             {
               "id": "gap_timing",
-              "label": "Gap timing",
+              "label": "Gap timing record",
               "cost": 2,
-              "axis": "pulse timing",
-              "reveals": "",
+              "axis": "",
+              "reveals": "Measures the discharge sequence and pulse timing.",
+              "covers": [
+                "r3"
+              ],
               "decisive": true
             },
             {
               "id": "hall_temperature",
-              "label": "Hall temperature",
+              "label": "Hall temperature log",
               "cost": 2,
-              "axis": "ambient condition",
-              "reveals": ""
+              "axis": "",
+              "reveals": "Measures room temperature, not bank voltage, charge or pulse timing."
             },
             {
               "id": "paint_color",
-              "label": "Paint colour",
+              "label": "Paint-colour check",
               "cost": 1,
-              "axis": "cosmetic condition",
-              "reveals": ""
+              "axis": "",
+              "reveals": "Checks appearance without an electrical measurement."
             }
           ],
-          "commit": "Commit the evidence set"
+          "commit": "Commit the decision"
         }
       },
       "concept": {

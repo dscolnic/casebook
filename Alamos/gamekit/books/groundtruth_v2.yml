@@ -1950,14 +1950,56 @@ missions:
     # budget of 6 is the trade; the three decisive ones cost 5 and fit, which is
     # the bible's `reserve: 1`.
     value:
-      budget: { amount: 6, unit: "setup-hours" }
+      budget:
+        amount: 6
+        unit: setup-hours
+      decision: ""
+      requirements:
+        - id: r1
+          text: determine represented voltage
+        - id: r2
+          text: determine represented charge
+        - id: r3
+          text: determine pulse timing
+      rule: Cover every required outcome at the lowest total cost within the budget; keep all unused capacity in reserve.
+      plans:
+        - stage_voltage,stage_capacitance,gap_timing
       options:
-      - { id: stage_voltage, label: "Stage voltage", axis: "voltage scale", cost: 2, decisive: true }
-      - { id: stage_capacitance, label: "Stage capacitance", axis: "stored charge and energy", cost: 1, decisive: true }
-      - { id: gap_timing, label: "Gap timing", axis: "pulse timing", cost: 2, decisive: true }
-      - { id: hall_temperature, label: "Hall temperature", axis: "ambient condition", cost: 2 }
-      - { id: paint_color, label: "Paint colour", axis: "cosmetic condition", cost: 1 }
-      commit: "Commit the evidence set"
+        - id: stage_voltage
+          label: Stage-voltage measurement
+          cost: 2
+          axis: ""
+          reveals: Measures V for the stage and supplies the voltage needed in Q=CV.
+          covers:
+            - r1
+          decisive: true
+        - id: stage_capacitance
+          label: Stage-capacitance measurement
+          cost: 1
+          axis: ""
+          reveals: Measures C; together with the voltage test this determines Q=CV.
+          covers:
+            - r2
+          decisive: true
+        - id: gap_timing
+          label: Gap timing record
+          cost: 2
+          axis: ""
+          reveals: Measures the discharge sequence and pulse timing.
+          covers:
+            - r3
+          decisive: true
+        - id: hall_temperature
+          label: Hall temperature log
+          cost: 2
+          axis: ""
+          reveals: Measures room temperature, not bank voltage, charge or pulse timing.
+        - id: paint_color
+          label: Paint-colour check
+          cost: 1
+          axis: ""
+          reveals: Checks appearance without an electrical measurement.
+      commit: Commit the decision
 # ============================================================ MISSION 6
 # Lifted from ../fpl_gpt/GROUND_TRUTH_AP_PHYSICS_C_EM_Campaign_Implementation_Bible(1).md by tools/v10extract.mjs. Every quoted string below is
 # the bible's, verbatim; engine/dev/bibleParity.mjs holds it to that.

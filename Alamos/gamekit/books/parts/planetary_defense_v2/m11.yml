@@ -357,13 +357,46 @@
     # keyed `correct` pair — corridor observations and civil defense, 100
     # credits together — is what the engine calls `decisive`.
     value:
-      budget: { amount: 100, unit: response credits }
-      decision: "Refines who is at risk while funding actions that can still reduce harm."
+      budget:
+        amount: 100
+        unit: response credits
+      decision: ""
+      requirements:
+        - id: r1
+          text: refine who is exposed
+        - id: r2
+          text: prepare reversible protective capacity
+      rule: Cover every required outcome at the lowest total cost within the budget; keep all unused capacity in reserve.
+      plans:
+        - corridor_observations,civil_defense
       options:
-      - { id: symbolic_impactor, label: Launch symbolic impactor, cost: 80, axis: prevention, reveals: negligible decision value }
-      - { id: corridor_observations, label: Fund corridor-refining observations, cost: 45, axis: location, reveals: high decision value, decisive: true }
-      - { id: civil_defense, label: Begin reversible civil-defense preparation, cost: 55, axis: exposure, reveals: high decision value, decisive: true }
-      - { id: public_demo, label: Fund a public technology demonstration, cost: 25, axis: communication, reveals: low decision value }
+        - id: symbolic_impactor
+          label: Launch the proposed impactor
+          cost: 80
+          axis: ""
+          reveals: At best delivers 3×10⁷ N·s against at least 10¹¹ N·s required; it cannot meet this deflection demand.
+        - id: corridor_observations
+          label: Corridor-refining observations
+          cost: 45
+          axis: ""
+          reveals: Narrows the area that needs protection.
+          covers:
+            - r1
+          decisive: true
+        - id: civil_defense
+          label: Reversible civil-defense preparation
+          cost: 55
+          axis: ""
+          reveals: Stages transport, shelters and alerts before an order.
+          covers:
+            - r2
+          decisive: true
+        - id: public_demo
+          label: Public technology demonstration
+          cost: 25
+          axis: ""
+          reveals: Demonstrates equipment without changing the predicted corridor or providing protective capacity.
+      commit: Commit the decision
     answerText: "Each funded package supplies a required outcome; an affordable package that leaves one unresolved is insufficient."
     why: "VALUE compares expected decision benefit and opportunity cost."
     # wrong-path feedback, one rebuttal per wrong option:

@@ -343,13 +343,41 @@
     # `decision_change` line becomes what the option `reveals`. The payload's
     # keyed `correct` — corridor timing — is what the engine calls `decisive`.
     value:
-      budget: { amount: 10, unit: observing hours }
-      decision: "Determines whether populated land remains inside tomorrow's action envelope."
+      budget:
+        amount: 10
+        unit: observing hours
+      decision: ""
+      requirements:
+        - id: r1
+          text: resolve whether populated land remains within the action corridor
+      rule: Cover every required outcome at the lowest total cost within the budget; keep all unused capacity in reserve.
+      plans:
+        - corridor
       options:
-      - { id: diameter, label: Improve diameter by 10 percent, cost: 4, axis: size, reveals: small decision change }
-      - { id: composition, label: Refine composition class, cost: 4, axis: material, reveals: moderate decision change }
-      - { id: corridor, label: Separate ocean from populated-land timing, cost: 10, axis: exposure, reveals: large decision change, decisive: true }
-      - { id: brightness, label: Repeat the brightness curve, cost: 3, axis: reflected_light, reveals: small decision change }
+        - id: diameter
+          label: Improve diameter by ten percent
+          cost: 4
+          axis: ""
+          reveals: Tightens size; throughout this smaller range a populated-land strike still requires the same protective action.
+        - id: composition
+          label: Refine composition class
+          cost: 4
+          axis: ""
+          reveals: Refines material behavior but does not distinguish the remaining ocean and land trajectories.
+        - id: corridor
+          label: Separate ocean and land arrival solutions
+          cost: 10
+          axis: ""
+          reveals: Adds timing evidence that distinguishes the remaining land-intersecting and ocean-only trajectories.
+          covers:
+            - r1
+          decisive: true
+        - id: brightness
+          label: Repeat brightness curve
+          cost: 3
+          axis: ""
+          reveals: Refines reflected light without separating the remaining trajectory solutions.
+      commit: Commit the decision
     answerText: "Each funded package supplies a required outcome; an affordable package that leaves one unresolved is insufficient."
     why: "VALUE ranks observations by expected decision improvement under scarcity."
     # wrong-path feedback, one rebuttal per wrong option:

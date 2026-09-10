@@ -14,7 +14,16 @@
 // both boards say it twice, once as `required: true` on the option and once as
 // the `correct`/`required` id list, which is a free cross-check and is taken.
 //
-// The gaps are `axis` and `decision`, and neither can be guessed. `axis` is what
+// SINCE THE CANONICAL BLOCKS ARRIVED, most of that is no longer true. The
+// September bibles write VALUE as a fenced JSON block with the two things this
+// converter used to have to owe: `requirements`, the outcomes a plan has to
+// cover, and per option `covers` and `information` — what it buys and what it
+// tells you. A board written that way is graded by coverage rather than by a
+// keyed set, which is what the format was always about; `accepted_plans` carries
+// the authored answer beside it. The older shape still converts exactly as it
+// did, and everything below that reads `axis`/`decisive` is untouched.
+//
+// The gaps — in the OLDER shape — are `axis` and `decision`, and neither can be guessed. `axis` is what
 // an option buys you MORE OF, and the importer refuses a board whose options all
 // sit on one axis, because buying more of the same is the trap the format is
 // built around. Naming the axes here would be authoring the trap rather than
@@ -40,20 +49,44 @@ export function convertPayload(board, stop){
   // and the unit it is counted in. Neither board names the unit — carrying's
   // "credits" and headwater's "inspection points" are in the question, which is
   // not the board.
-  const amount = num(pick(b, 'budget', 'amount', 'cap'));
+  // `budget` is a bare number in the older boards and `{ value, unit }` in the
+  // canonical block.
+  const budgetBlock = b?.budget && typeof b.budget === 'object' && !Array.isArray(b.budget) ? b.budget : null;
+  const amount = num(budgetBlock ? pick(budgetBlock, 'value', 'amount') : pick(b, 'budget', 'amount', 'cap'));
   if(amount !== undefined && amount > 0){
     value.budget = { amount };
   } else {
     owes.push('the board has no positive `budget` — the number the plan has to fit inside');
   }
-  const unit = str(pick(b, 'unit', 'budget_unit', 'currency'));
+  const unit = str(budgetBlock ? pick(budgetBlock, 'unit') : pick(b, 'unit', 'budget_unit', 'currency'));
   if(unit && value.budget) value.budget.unit = unit;
   else if(!unit) owes.push('the budget has no unit — the panel prints a bare number beside the'
     + ' money, and what it counts is written in the question rather than the board');
 
+  // ---- WHAT THE PLAN HAS TO COVER.
+  //
+  // The bible's own list of outcomes, each with an id the options refer to. This
+  // is the half of the format that never reached a screen: the prompt said
+  // "cover every required outcome" and the board printed five packages and no
+  // outcomes, so the sentence named a list the player could not read.
+  const reqs = list(pick(b, 'requirements', 'outcomes', 'required_outcomes'))
+    .map((r, i) => ({ id: idOf(r) || `r${i + 1}`, text: str(pick(r ?? {}, 'text', 'label', 'name')) }))
+    .filter(r => r.text);
+  if(reqs.length) value.requirements = reqs;
+  const reqIds = new Set(reqs.map(r => r.id));
+  const rule = str(pick(b, 'selection_rule', 'rule'));
+  if(rule) value.rule = rule;
+  // The authored answer, as one or more acceptable plans.
+  const plans = list(pick(b, 'accepted_plans', 'acceptedPlans'))
+    .map(pl => list(pl).map(idOf).filter(Boolean)).filter(pl => pl.length);
+  if(plans.length) value.plans = plans;
+
   // ---- what may be bought.
   const opts = list(pick(b, 'options', 'items', 'choices'));
   const keyed = list(pick(b, 'correct', 'required', 'keyed', 'answer')).map(idOf).filter(Boolean);
+  // Every option named by an accepted plan is decisive by construction: without
+  // it that plan does not cover what it covers.
+  const planned = new Set(plans.flat());
   const ids = opts.map(o => idOf(o)).filter(Boolean);
 
   const options = opts.map((o, i) => {
@@ -72,9 +105,21 @@ export function convertPayload(board, stop){
     // `required` on the option and membership of the keyed list are the same
     // claim written twice. Both are read, and a disagreement between them is
     // owed rather than resolved — the board would be keying two different plans.
+    // `covers` names the requirements this package supplies, and `information`
+    // is the sentence the panel prints when it is bought — both straight from
+    // the canonical block, both previously dropped.
+    const covers = list(pick(o ?? {}, 'covers', 'supplies')).map(idOf).filter(Boolean);
+    if(covers.length) out.covers = covers;
+    for(const c of covers){
+      if(reqIds.size && !reqIds.has(c)) owes.push(`${at} ("${id || '?'}") covers "${c}", which is not one of the board's requirements`);
+    }
+    const info = str(pick(o ?? {}, 'information', 'reveals', 'tells'));
+    if(info) out.reveals = info;
+    const axis = str(pick(o ?? {}, 'axis'));
+    if(axis) out.axis = axis;
     const flagged = o?.required === true || o?.decisive === true;
     const listed = id && keyed.includes(id);
-    if(flagged || listed) out.decisive = true;
+    if(flagged || listed || (id && planned.has(id))) out.decisive = true;
     if(keyed.length && id && flagged !== listed){
       owes.push(`${at} ("${id}") is marked \`required: ${!!flagged}\` on the option and`
         + `${listed ? '' : ' not'} named in the board's keyed list — the board keys two`
@@ -91,19 +136,48 @@ export function convertPayload(board, stop){
     if(ids.length && !ids.includes(id)) owes.push(`the keyed plan names "${id}", which is not one of the options`);
   }
 
-  // ---- the two fields nothing on the board carries.
+  // ---- the two fields the older boards do not carry.
+  //
+  // A board with requirements answers both without being asked. `covers` says
+  // what an option buys — which is what `axis` was standing in for — and the
+  // "buying more of the same is the trap" rule becomes "the plan has to cover
+  // more than one outcome", which the requirement list states outright.
   const mute = options.filter(o => o.id);
-  if(mute.length){
-    owes.push(`none of the ${mute.length} options names an \`axis\` — the importer refuses a board`
-      + ' whose options all sit on one axis, because buying more of the same is the trap this'
-      + ' format is built around, and naming the axes here would be authoring the trap');
-    owes.push(`none of the ${mute.length} options names what it \`reveals\` — buying one changes`
-      + ' nothing on the card');
+  if(mute.length && !reqs.length){
+    if(!options.some(o => o.axis)){
+      owes.push(`none of the ${mute.length} options names an \`axis\` — the importer refuses a board`
+        + ' whose options all sit on one axis, because buying more of the same is the trap this'
+        + ' format is built around, and naming the axes here would be authoring the trap');
+    }
+    if(!options.some(o => o.reveals)){
+      owes.push(`none of the ${mute.length} options names what it \`reveals\` — buying one changes`
+        + ' nothing on the card');
+    }
+  }
+  if(reqs.length){
+    // What a requirement-shaped board owes instead.
+    if(!rule) owes.push('the board has `requirements` and no `selection_rule` — the line that says'
+      + ' how the plan is judged');
+    const covered = new Set(options.flatMap(o => o.covers ?? []));
+    for(const r of reqs){
+      if(!covered.has(r.id)) owes.push(`no option covers the requirement "${r.id}" — it cannot be met`);
+    }
+    if(!options.some(o => (o.covers ?? []).length === 0)){
+      owes.push('every option covers a requirement — with nothing on the board that buys the wrong'
+        + ' thing there is no decision, only addition');
+    }
+    for(const pl of plans){
+      const got = new Set(pl.flatMap(id => options.find(o => o.id === id)?.covers ?? []));
+      const missing = reqs.filter(r => !got.has(r.id)).map(r => r.id);
+      if(missing.length) owes.push(`the accepted plan ${pl.join(' + ')} leaves ${missing.join(', ')} uncovered`);
+      const cost = pl.reduce((n, id) => n + (options.find(o => o.id === id)?.cost ?? 0), 0);
+      if(amount !== undefined && cost > amount) owes.push(`the accepted plan ${pl.join(' + ')} costs ${cost} against a budget of ${amount}`);
+    }
   }
   const decision = str(pick(b, 'decision'));
   if(decision) value.decision = decision;
-  else owes.push('the board has no `decision` — the line the panel prints above the money; the'
-    + ' stop\'s question asks for a plan and does not say what the plan is for');
+  else if(!rule) owes.push('the board has no `decision` — the line the panel prints above the money;'
+    + ' the stop\'s question asks for a plan and does not say what the plan is for');
 
   // ---- the arithmetic, which is a free check and is worth making.
   const costs = options.map(o => o.cost).filter(c => c !== undefined);
@@ -130,7 +204,12 @@ export function convertPayload(board, stop){
     }
   }
 
-  owes.push(str(pick(b, 'answerText', 'correct_conclusion', 'correctConclusion'))
+  const example = num(pick(b, 'example_total'));
+  if(example !== undefined && plans.length){
+    const cost = plans[0].reduce((n, id) => n + (options.find(o => o.id === id)?.cost ?? 0), 0);
+    if(Math.abs(cost - example) > 1e-9) owes.push(`the board states an example total of ${example} and its first accepted plan costs ${cost}`);
+  }
+  if(!plans.length) owes.push(str(pick(b, 'answerText', 'correct_conclusion', 'correctConclusion'))
     ? 'the board\'s conclusion is the stop\'s `answerText`, a top-level key this converter cannot'
       + ' write — the contract returns one key'
     : 'the board authors no conclusion, so the stop has no `answerText` — the player commits a'
@@ -194,9 +273,26 @@ export function convertCanonical(b, stop = {}){
   const direct = list(board.options).length && board.authoredPayload === undefined
     && board.authored_payload === undefined;
   if(direct){
+    // THE REQUIREMENT-SHAPED BOARD, which is what the September blocks write:
+    // the outcomes a plan has to cover, the rule it is judged by, and one or
+    // more `accepted_plans` in place of a keyed list. Every option that appears
+    // in an accepted plan is decisive by construction, so `keyedChoice` is not
+    // owed on a board that states its plans.
+    const reqs = list(pick(board, 'requirements', 'outcomes', 'required_outcomes'))
+      .map((r, i) => ({ id: str(pick(r ?? {}, 'id')) || `r${i + 1}`,
+        text: str(pick(r ?? {}, 'text', 'label', 'name')) }))
+      .filter(r => r.text);
+    const reqIds = new Set(reqs.map(r => r.id));
+    const rule = str(pick(board, 'selection_rule', 'selectionRule', 'rule'));
+    const plans = list(pick(board, 'accepted_plans', 'acceptedPlans'))
+      .map(pl => list(pl).map(x => str(typeof x === 'object' ? pick(x, 'id') : x)).filter(Boolean))
+      .filter(pl => pl.length);
     const opts = list(board.options);
-    const keyed = list(pick(board, 'keyedChoice', 'keyed_choice', 'correct', 'required'))
-      .map(x => str(typeof x === 'object' ? pick(x, 'id') : x)).filter(Boolean);
+    const keyed = [...new Set([
+      ...list(pick(board, 'keyedChoice', 'keyed_choice', 'correct', 'required'))
+        .map(x => str(typeof x === 'object' ? pick(x, 'id') : x)).filter(Boolean),
+      ...plans.flat(),
+    ])];
     const ids = new Set(opts.map(o => str(pick(o, 'id')) || str(pick(o, 'label'))));
     const stray = keyed.filter(k => !ids.has(k));
     if(stray.length){
@@ -205,22 +301,69 @@ export function convertCanonical(b, stop = {}){
         + ' plan graded against a member that is not there cannot be submitted');
     }
     if(!keyed.length){
-      owes.push('the block authors no `keyedChoice`, so no option is decisive and every plan is as'
-        + ' good as every other');
+      owes.push('the block authors no `keyedChoice` and no `accepted_plans`, so no option is'
+        + ' decisive and every plan is as good as every other');
     }
-    const amount = num(pick(board, 'budget', 'pool', 'amount'));
+    // `budget` is a bare number in the fourth-round blocks and `{ value, unit }`
+    // in the September ones.
+    const budgetBlock = board.budget && typeof board.budget === 'object' && !Array.isArray(board.budget)
+      ? board.budget : null;
+    const amount = num(budgetBlock ? pick(budgetBlock, 'value', 'amount')
+      : pick(board, 'budget', 'pool', 'amount'));
     const value = {
-      budget: { amount, unit: str(pick(board, 'costUnit', 'cost_unit', 'unit')) },
+      budget: { amount, unit: str(budgetBlock ? pick(budgetBlock, 'unit')
+        : pick(board, 'costUnit', 'cost_unit', 'unit')) },
       decision: str(pick(board, 'decision')),
+      ...(reqs.length ? { requirements: reqs } : {}),
+      ...(rule ? { rule } : {}),
+      ...(plans.length ? { plans } : {}),
       options: opts.map(o => {
         const id = str(pick(o, 'id')) || str(pick(o, 'label'));
+        const covers = list(pick(o, 'covers', 'supplies'))
+          .map(x => str(typeof x === 'object' ? pick(x, 'id') : x)).filter(Boolean);
+        for(const c of covers){
+          if(reqIds.size && !reqIds.has(c)){
+            owes.push(`option \`${id}\` covers \`${c}\`, which is not one of the board's requirements`);
+          }
+        }
         return { id, label: str(pick(o, 'label')), cost: num(pick(o, 'cost')),
-          axis: str(pick(o, 'axis')), reveals: str(pick(o, 'reveals')),
+          axis: str(pick(o, 'axis')),
+          reveals: str(pick(o, 'information', 'reveals')),
+          ...(covers.length ? { covers } : {}),
           ...(keyed.includes(id) ? { decisive: true } : {}),
           ...(pick(o, 'irreversible') ? { irreversible: true } : {}) };
       }),
       commit: str(pick(board, 'commit')) || 'Commit the decision',
     };
+    // What a requirement-shaped board owes instead of an axis on every option.
+    if(reqs.length){
+      if(!rule) owes.push('the block has `requirements` and no `selection_rule` — the line that'
+        + ' says how the plan is judged');
+      const covered = new Set(value.options.flatMap(o => o.covers ?? []));
+      for(const r of reqs){
+        if(!covered.has(r.id)) owes.push(`no option covers the requirement \`${r.id}\` — it cannot be met`);
+      }
+      if(!value.options.some(o => !(o.covers ?? []).length)){
+        owes.push('every option covers a requirement — with nothing on the board that buys the'
+          + ' wrong thing there is no decision, only addition');
+      }
+      for(const pl of plans){
+        const got = new Set(pl.flatMap(id => value.options.find(o => o.id === id)?.covers ?? []));
+        const missing = reqs.filter(r => !got.has(r.id)).map(r => r.id);
+        if(missing.length) owes.push(`the accepted plan ${pl.join(' + ')} leaves ${missing.join(', ')} uncovered`);
+        const cost = pl.reduce((n, id) => n + (value.options.find(o => o.id === id)?.cost ?? 0), 0);
+        if(amount !== undefined && cost > amount){
+          owes.push(`the accepted plan ${pl.join(' + ')} costs ${cost} against a budget of ${amount}`);
+        }
+      }
+      const example = num(pick(board, 'example_total', 'exampleTotal'));
+      if(example !== undefined && plans.length){
+        const cost = plans[0].reduce((n, id) => n + (value.options.find(o => o.id === id)?.cost ?? 0), 0);
+        if(Math.abs(cost - example) > 1e-9){
+          owes.push(`the block states an example total of ${example} and its first accepted plan costs ${cost}`);
+        }
+      }
+    }
     const said = str(pick(board, 'answerText', 'correctResult', 'correctConclusion'));
     const extra = (said && !String(stop.answerText ?? '').trim()) ? { answerText: said } : {};
     return { key: 'value', value, owes, extra };

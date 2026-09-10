@@ -4774,14 +4774,51 @@ missions:
     # audit"). That is a rename, not new copy. The payload supplies no `reveals`
     # line for any option, so none is written; the importer warns and imports.
     value:
-      budget: { amount: 60, unit: "staff-hours" }
+      budget:
+        amount: 60
+        unit: staff-hours
+      decision: ""
+      requirements:
+        - id: r1
+          text: verify late-event outcomes
+        - id: r2
+          text: verify exposure independently
+      rule: Cover every required outcome at the lowest total cost within the budget; keep all unused capacity in reserve.
+      plans:
+        - source_calls,kit_audit
       options:
-      - { id: source_calls, label: "Source calls", axis: "late-event outcome verification", cost: 30, decisive: true }
-      - { id: kit_audit, label: "Independent kit audit", axis: "independent exposure verification", cost: 20, decisive: true }
-      - { id: efficacy_rerun, label: "Efficacy rerun", axis: "settled efficacy estimate", cost: 25 }
-      - { id: staff_survey, label: "Staff survey", axis: "workflow opinion", cost: 15 }
-      - { id: biomarker, label: "Biomarker", axis: "new exploratory mechanism", cost: 25 }
-      commit: "Order the evidence"
+        - id: source_calls
+          label: Late-event source calls
+          cost: 30
+          axis: ""
+          reveals: Checks the clinical source records for late outcomes.
+          covers:
+            - r1
+          decisive: true
+        - id: kit_audit
+          label: Independent kit audit
+          cost: 20
+          axis: ""
+          reveals: Checks which treatment exposure each record actually represents.
+          covers:
+            - r2
+          decisive: true
+        - id: efficacy_rerun
+          label: Rerun the efficacy analysis
+          cost: 25
+          axis: ""
+          reveals: Repeats the locked benefit analysis rather than checking late harm.
+        - id: staff_survey
+          label: Staff workflow survey
+          cost: 15
+          axis: ""
+          reveals: Collects opinions about workflow, not verified outcomes or exposure.
+        - id: biomarker
+          label: Exploratory biomarker study
+          cost: 25
+          axis: ""
+          reveals: Explores a mechanism without resolving the current late-event and exposure records.
+      commit: Commit the decision
     answerText: "Each funded package supplies a required outcome; an affordable package that leaves one unresolved is insufficient."
     why: "More data are not automatically valuable; useful evidence must alter the stop-or-continue decision."
     # wrong-path feedback, one rebuttal per wrong option:

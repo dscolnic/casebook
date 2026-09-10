@@ -192,38 +192,53 @@ export const CURRICULUM = {
         "value": {
           "budget": {
             "amount": 10,
-            "unit": "test_points"
+            "unit": "test points"
           },
           "decision": "",
+          "requirements": [
+            {
+              "id": "r1",
+              "text": "test the motion through a separate measurement chain"
+            }
+          ],
+          "rule": "Cover every required outcome at the lowest total cost within the budget; keep all unused capacity in reserve.",
+          "plans": [
+            [
+              "accel"
+            ]
+          ],
           "options": [
             {
               "id": "accel",
               "label": "Independent seat and floor accelerometers",
               "cost": 10,
-              "axis": "acceleration",
-              "reveals": "",
+              "axis": "",
+              "reveals": "Records acceleration through sensors and calibration separate from the portable speed kit.",
+              "covers": [
+                "r1"
+              ],
               "decisive": true
             },
             {
               "id": "wheel",
               "label": "Repeat portable speed-wheel reading",
               "cost": 6,
-              "axis": "shared_speed",
-              "reveals": ""
+              "axis": "",
+              "reveals": "Repeats the same calibration dependency."
             },
             {
               "id": "paint",
-              "label": "Measure paint thickness",
+              "label": "Paint-thickness measurement",
               "cost": 4,
-              "axis": "cosmetic",
-              "reveals": ""
+              "axis": "",
+              "reveals": "Measures coating thickness, not motion."
             },
             {
               "id": "mass",
-              "label": "Reweigh same car",
+              "label": "Reweigh the same car",
               "cost": 7,
-              "axis": "mass",
-              "reveals": ""
+              "axis": "",
+              "reveals": "Checks mass without independently testing its motion."
             }
           ],
           "commit": "Commit the decision"

@@ -566,47 +566,70 @@ export const CURRICULUM = {
             "amount": 40,
             "unit": "monitoring credits"
           },
-          "decision": "Which records can prove both how much is taken and where it was taken from?",
+          "decision": "",
+          "requirements": [
+            {
+              "id": "r1",
+              "text": "record total extraction"
+            },
+            {
+              "id": "r2",
+              "text": "observe nursery-zone activity"
+            }
+          ],
+          "rule": "Cover every required outcome at the lowest total cost within the budget; keep all unused capacity in reserve.",
+          "plans": [
+            [
+              "landing_tags",
+              "nursery_camera"
+            ]
+          ],
           "options": [
             {
               "id": "landing_tags",
               "label": "Electronic landing tags",
               "cost": 20,
-              "axis": "total extraction",
-              "reveals": "",
+              "axis": "",
+              "reveals": "Records the amount landed; does not establish where the fish were caught.",
+              "covers": [
+                "r1"
+              ],
               "decisive": true
             },
             {
               "id": "dock_checks",
               "label": "Random dock checks",
               "cost": 15,
-              "axis": "identity and mass verification",
-              "reveals": "",
-              "decisive": true
+              "axis": "",
+              "reveals": "Checks identity and mass on arrival but cannot reconstruct catch location."
             },
             {
               "id": "nursery_camera",
               "label": "Nursery-zone camera",
               "cost": 20,
-              "axis": "nursery-zone location",
-              "reveals": ""
+              "axis": "",
+              "reveals": "Records time-stamped activity inside the nursery zone.",
+              "covers": [
+                "r2"
+              ],
+              "decisive": true
             },
             {
               "id": "public_ad",
               "label": "Public advertisement",
               "cost": 10,
-              "axis": "awareness",
-              "reveals": ""
+              "axis": "",
+              "reveals": "Raises awareness without observing catch or location."
             },
             {
               "id": "seller_survey",
               "label": "Seller survey",
               "cost": 15,
-              "axis": "self-reported behavior",
-              "reveals": ""
+              "axis": "",
+              "reveals": "Collects self-reports rather than independently verified catch location."
             }
           ],
-          "commit": "Buy the records"
+          "commit": "Commit the decision"
         }
       },
       "concept": {
@@ -765,47 +788,78 @@ export const CURRICULUM = {
         "value": {
           "budget": {
             "amount": 60,
-            "unit": "credits"
+            "unit": "repair credits"
           },
           "decision": "",
+          "requirements": [
+            {
+              "id": "r1",
+              "text": "locate the main leak"
+            },
+            {
+              "id": "r2",
+              "text": "repair the located main"
+            },
+            {
+              "id": "r3",
+              "text": "test the leachate barrier"
+            }
+          ],
+          "rule": "Cover every required outcome at the lowest total cost within the budget; keep all unused capacity in reserve.",
+          "plans": [
+            [
+              "acoustic_location",
+              "main_repair",
+              "liner_test"
+            ]
+          ],
           "options": [
             {
               "id": "acoustic_location",
               "label": "Acoustic leak location",
               "cost": 15,
-              "axis": "leak evidence",
-              "reveals": "",
+              "axis": "",
+              "reveals": "Locates the leak so the crew can open the correct section.",
+              "covers": [
+                "r1"
+              ],
               "decisive": true
             },
             {
               "id": "main_repair",
               "label": "Main repair",
               "cost": 30,
-              "axis": "water loss",
-              "reveals": "",
+              "axis": "",
+              "reveals": "Repairs the located section; requires the location package.",
+              "covers": [
+                "r2"
+              ],
               "decisive": true
             },
             {
               "id": "liner_test",
               "label": "Leachate liner test",
               "cost": 15,
-              "axis": "groundwater protection",
-              "reveals": "",
+              "axis": "",
+              "reveals": "Tests whether the waste-cell barrier protects groundwater.",
+              "covers": [
+                "r3"
+              ],
               "decisive": true
             },
             {
               "id": "cosmetic_fence",
               "label": "Cosmetic fence",
               "cost": 12,
-              "axis": "appearance",
-              "reveals": ""
+              "axis": "",
+              "reveals": "Changes appearance without locating water loss or testing the barrier."
             },
             {
               "id": "gas_flare_study",
-              "label": "Gas flare study",
+              "label": "Gas-flare study",
               "cost": 10,
-              "axis": "air emissions",
-              "reveals": ""
+              "axis": "",
+              "reveals": "Studies air emissions rather than the current water-loss and leachate questions."
             }
           ],
           "commit": "Commit the decision"

@@ -5329,15 +5329,46 @@ missions:
     # its `correct` — is the engine's `decisive`, the buy that can change the
     # decision, and its `decision_changed` line is what that buy reveals.
     value:
-      budget: { amount: 10, unit: test_points }
+      budget:
+        amount: 10
+        unit: test points
+      decision: ""
+      requirements:
+        - id: r1
+          text: obtain an independent measurement of Batch C contaminants
+      rule: Cover every required outcome at the lowest total cost within the budget; keep all unused capacity in reserve.
+      plans:
+        - assay
       options:
-      - { id: pressure, label: "Repeat total-pressure reading", cost: 6, axis: amount }
-      - { id: mass, label: "Duplicate tank mass", cost: 7, axis: amount }
-      - { id: assay, label: "Independent Batch C contaminant assay", cost: 10, axis: composition,
-          decisive: true, reveals: "Confirms whether quarantine and reprocessing remain required." }
-      - { id: catalyst_temp, label: "Repeat average catalyst temperature", cost: 5, axis: thermal }
-      - { id: valve, label: "Visual valve inspection", cost: 4, axis: hardware }
-      commit: "Commit the decision"
+        - id: pressure
+          label: Repeat total-pressure reading
+          cost: 6
+          axis: ""
+          reveals: Improves an already precise amount-related measurement, not the gas mixture.
+        - id: mass
+          label: Duplicate tank mass
+          cost: 7
+          axis: ""
+          reveals: Rechecks total amount without separating contaminants.
+        - id: assay
+          label: Independent Batch C contaminant assay
+          cost: 10
+          axis: ""
+          reveals: Measures contaminants using a separately calibrated sample test.
+          covers:
+            - r1
+          decisive: true
+        - id: catalyst_temp
+          label: Repeat average catalyst temperature
+          cost: 5
+          axis: ""
+          reveals: Measures reactor temperature rather than tank composition.
+        - id: valve
+          label: Visual valve inspection
+          cost: 4
+          axis: ""
+          reveals: Checks visible hardware without measuring gas purity.
+      commit: Commit the decision
     question: "You have 10 test points. Cover every required outcome at the lowest total cost within the budget; keep all unused capacity in reserve. Select whole packages, then submit the plan; the board shows its total and remaining reserve for you to check."
     answerText: "Each funded package supplies a required outcome; an affordable package that leaves one unresolved is insufficient."
     why: "Pressure and mass are already precise and are not the disputed claim. Average temperature cannot certify tank contents. A second independent assay determines whether quarantine/reprocessing remains necessary and directly controls GO/NO-GO."

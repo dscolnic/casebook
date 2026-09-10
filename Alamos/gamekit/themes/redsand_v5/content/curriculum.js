@@ -3201,45 +3201,60 @@ export const CURRICULUM = {
         "value": {
           "budget": {
             "amount": 10,
-            "unit": "test_points"
+            "unit": "test points"
           },
           "decision": "",
+          "requirements": [
+            {
+              "id": "r1",
+              "text": "obtain an independent measurement of Batch C contaminants"
+            }
+          ],
+          "rule": "Cover every required outcome at the lowest total cost within the budget; keep all unused capacity in reserve.",
+          "plans": [
+            [
+              "assay"
+            ]
+          ],
           "options": [
             {
               "id": "pressure",
               "label": "Repeat total-pressure reading",
               "cost": 6,
-              "axis": "amount",
-              "reveals": ""
+              "axis": "",
+              "reveals": "Improves an already precise amount-related measurement, not the gas mixture."
             },
             {
               "id": "mass",
               "label": "Duplicate tank mass",
               "cost": 7,
-              "axis": "amount",
-              "reveals": ""
+              "axis": "",
+              "reveals": "Rechecks total amount without separating contaminants."
             },
             {
               "id": "assay",
               "label": "Independent Batch C contaminant assay",
               "cost": 10,
-              "axis": "composition",
-              "reveals": "Confirms whether quarantine and reprocessing remain required.",
+              "axis": "",
+              "reveals": "Measures contaminants using a separately calibrated sample test.",
+              "covers": [
+                "r1"
+              ],
               "decisive": true
             },
             {
               "id": "catalyst_temp",
               "label": "Repeat average catalyst temperature",
               "cost": 5,
-              "axis": "thermal",
-              "reveals": ""
+              "axis": "",
+              "reveals": "Measures reactor temperature rather than tank composition."
             },
             {
               "id": "valve",
               "label": "Visual valve inspection",
               "cost": 4,
-              "axis": "hardware",
-              "reveals": ""
+              "axis": "",
+              "reveals": "Checks visible hardware without measuring gas purity."
             }
           ],
           "commit": "Commit the decision"

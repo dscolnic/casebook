@@ -1336,12 +1336,46 @@ missions:
     # by its `axis`, so that phrase is the option's label as well; no wording of it
     # is changed. 45+15+30+25 = 115 against 60, and the two decisive ones cost 60.
     value:
-      budget: { amount: 60, unit: "evidence points" }
+      budget:
+        amount: 60
+        unit: evidence points
+      decision: ""
+      requirements:
+        - id: r1
+          text: retain the fixed historical index and publish a current-weight companion
+        - id: r2
+          text: verify and disclose the current weights
+      rule: Cover every required outcome at the lowest total cost within the budget; keep all unused capacity in reserve.
+      plans:
+        - parallel,audit
       options:
-      - { id: parallel, label: "fixed CPI plus current-weight companion", axis: "fixed CPI plus current-weight companion", cost: 45, decisive: true }
-      - { id: audit, label: "weight audit", axis: "weight audit", cost: 15, decisive: true }
-      - { id: ads, label: "publicity", axis: "publicity", cost: 30 }
-      - { id: erase, label: "replace history", axis: "replace history", cost: 25 }
+        - id: parallel
+          label: Parallel index publication
+          cost: 45
+          axis: ""
+          reveals: Keeps the historical series and adds a separately labelled current-weight series.
+          covers:
+            - r1
+          decisive: true
+        - id: audit
+          label: Household-weight audit
+          cost: 15
+          axis: ""
+          reveals: Checks the weights used in the new companion and publishes the method.
+          covers:
+            - r2
+          decisive: true
+        - id: ads
+          label: Publicity campaign
+          cost: 30
+          axis: ""
+          reveals: Increases awareness without checking weights or preserving comparability.
+        - id: erase
+          label: Replace the historical series
+          cost: 25
+          axis: ""
+          reveals: Substitutes new weights into history, losing the original comparable series.
+      commit: Commit the decision
 # ============================================================ MISSION 4
 # Split back out of books/changeover_v2.yml by tools/split-book.mjs; the book's text, verbatim.
 # Lifted from ../fpl_gpt/CHANGEOVER_AP_MACRO_Campaign_Implementation_Bible(1).md by tools/v10extract.mjs. Every quoted string below is
@@ -1956,13 +1990,53 @@ missions:
     # `axis`, so that phrase carries as the label too. 65+35+45+80+25 = 250 against
     # 100, and the two decisive ones cost exactly 100.
     value:
-      budget: { amount: 100, unit: "plan points" }
+      budget:
+        amount: 100
+        unit: plan points
+      decision: ""
+      requirements:
+        - id: r1
+          text: provide modeled demand support of at least 34.8 billion
+        - id: r2
+          text: retain an independent supply-shock review
+      rule: Cover every required outcome at the lowest total cost within the budget; keep all unused capacity in reserve.
+      plans:
+        - G8_7,supply_review
       options:
-      - { id: G8_7, label: "targeted purchases", axis: "targeted purchases", cost: 65, decisive: true }
-      - { id: supply_review, label: "independent shock test", axis: "independent shock test", cost: 35, decisive: true }
-      - { id: G6, label: "fast announcement", axis: "fast announcement", cost: 45 }
-      - { id: tax11_6, label: "tax alternative", axis: "tax alternative", cost: 80 }
-      - { id: publicity, label: "message", axis: "message", cost: 25 }
+        - id: G8_7
+          label: 8.7-billion purchase package
+          cost: 65
+          axis: ""
+          reveals: With a spending multiplier of 4, adds 4×8.7 billion to demand.
+          covers:
+            - r1
+          decisive: true
+        - id: supply_review
+          label: Independent supply-shock review
+          cost: 35
+          axis: ""
+          reveals: Tests oil-cost effects separately from demand support.
+          covers:
+            - r2
+          decisive: true
+        - id: G6
+          label: 6-billion purchase package
+          cost: 45
+          axis: ""
+          reveals: With the same multiplier, adds 24 billion to demand.
+        - id: tax11_6
+          label: 11.6-billion tax-cut package
+          cost: 80
+          axis: ""
+          reveals: With a tax-cut multiplier magnitude of 3, adds 34.8 billion to demand.
+          covers:
+            - r1
+        - id: publicity
+          label: Announcement campaign
+          cost: 25
+          axis: ""
+          reveals: Publishes the announcement without adding modeled demand or a supply test.
+      commit: Commit the decision
 # ============================================================ MISSION 6
 # Split back out of books/changeover_v2.yml by tools/split-book.mjs; the book's text, verbatim.
 # Lifted from ../fpl_gpt/CHANGEOVER_AP_MACRO_Campaign_Implementation_Bible(1).md by tools/v10extract.mjs. Every quoted string below is
@@ -3926,12 +4000,48 @@ missions:
     # by its `axis`, so that phrase carries as the label too. 50+30+80+0 = 160, the
     # bible's own `total_available_cost`, against 80; the two decisive ones cost 80.
     value:
-      budget: { amount: 80 }
+      budget:
+        amount: 80
+        unit: plan points
+      decision: ""
+      requirements:
+        - id: r1
+          text: provide support during the adjustment delay
+        - id: r2
+          text: set an enforceable end date and review
+      rule: Cover every required outcome at the lowest total cost within the budget; keep all unused capacity in reserve.
+      plans:
+        - temporary_bridge,sunset_review
       options:
-      - { id: temporary_bridge, label: "short-run demand support", axis: "short-run demand support", cost: 50, decisive: true }
-      - { id: sunset_review, label: "automatic exit discipline", axis: "automatic exit discipline", cost: 30, decisive: true }
-      - { id: permanent_stimulus, label: "permanent demand expansion", axis: "permanent demand expansion", cost: 80 }
-      - { id: wait, label: "no immediate support", axis: "no immediate support", cost: 0 }
+        - id: temporary_bridge
+          label: Temporary demand bridge
+          cost: 50
+          axis: ""
+          reveals: Provides support during the documented adjustment delay.
+          covers:
+            - r1
+          decisive: true
+        - id: sunset_review
+          label: Sunset and review clause
+          cost: 30
+          axis: ""
+          reveals: Sets an end date and requires evidence before renewal.
+          covers:
+            - r2
+          decisive: true
+        - id: permanent_stimulus
+          label: Permanent stimulus
+          cost: 80
+          axis: ""
+          reveals: Supports demand without an end date.
+          covers:
+            - r1
+        - id: wait
+          label: Wait without support
+          cost: 0
+          axis: ""
+          reveals: Commits no temporary support or exit review; this standalone alternative cannot be combined with purchases.
+      commit: Commit the decision
 # ============================================================ MISSION 12
 # Split back out of books/changeover_v2.yml by tools/split-book.mjs; the book's text, verbatim.
 # Lifted from ../fpl_gpt/CHANGEOVER_AP_MACRO_Campaign_Implementation_Bible(1).md by tools/v10extract.mjs. Every quoted string below is
@@ -4608,13 +4718,56 @@ missions:
     # the bible's own `total_available_cost`, against 100; the three decisive ones
     # cost exactly 100.
     value:
-      budget: { amount: 100 }
+      budget:
+        amount: 100
+        unit: plan points
+      decision: ""
+      requirements:
+        - id: r1
+          text: supply the narrowed temporary bridge
+        - id: r2
+          text: address worker mismatch
+        - id: r3
+          text: restore port supply capacity
+      rule: Cover every required outcome at the lowest total cost within the budget; keep all unused capacity in reserve.
+      plans:
+        - narrow_bridge,training,port
       options:
-      - { id: narrow_bridge, label: "temporary demand support", axis: "temporary demand support", cost: 45, decisive: true }
-      - { id: training, label: "worker matching", axis: "worker matching", cost: 25, decisive: true }
-      - { id: port, label: "supply capacity", axis: "supply capacity", cost: 30, decisive: true }
-      - { id: full_bridge, label: "large fiscal expansion", axis: "large fiscal expansion", cost: 80 }
-      - { id: publicity, label: "communications", axis: "communications", cost: 20 }
+        - id: narrow_bridge
+          label: Narrow temporary bridge
+          cost: 45
+          axis: ""
+          reveals: Targets the remaining demand gap after the measured offsets.
+          covers:
+            - r1
+          decisive: true
+        - id: training
+          label: Worker training
+          cost: 25
+          axis: ""
+          reveals: Addresses the documented mismatch between skills and jobs.
+          covers:
+            - r2
+          decisive: true
+        - id: port
+          label: Port repair
+          cost: 30
+          axis: ""
+          reveals: Restores the documented port capacity constraint.
+          covers:
+            - r3
+          decisive: true
+        - id: full_bridge
+          label: Full debt-financed bridge
+          cost: 80
+          axis: ""
+          reveals: Funds the original larger demand package, with no training or port work.
+        - id: publicity
+          label: Publicity campaign
+          cost: 20
+          axis: ""
+          reveals: Changes messaging without repairing the demand or capacity constraints.
+      commit: Commit the decision
 # ============================================================ MISSION 14
 # Split back out of books/changeover_v2.yml by tools/split-book.mjs; the book's text, verbatim.
 # Lifted from ../fpl_gpt/CHANGEOVER_AP_MACRO_Campaign_Implementation_Bible(1).md by tools/v10extract.mjs. Every quoted string below is

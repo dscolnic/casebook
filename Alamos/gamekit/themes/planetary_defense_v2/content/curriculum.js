@@ -25,37 +25,60 @@ export const CURRICULUM = {
             "amount": 100,
             "unit": "response credits"
           },
-          "decision": "Refines who is at risk while funding actions that can still reduce harm.",
+          "decision": "",
+          "requirements": [
+            {
+              "id": "r1",
+              "text": "refine who is exposed"
+            },
+            {
+              "id": "r2",
+              "text": "prepare reversible protective capacity"
+            }
+          ],
+          "rule": "Cover every required outcome at the lowest total cost within the budget; keep all unused capacity in reserve.",
+          "plans": [
+            [
+              "corridor_observations",
+              "civil_defense"
+            ]
+          ],
           "options": [
             {
               "id": "symbolic_impactor",
-              "label": "Launch symbolic impactor",
+              "label": "Launch the proposed impactor",
               "cost": 80,
-              "axis": "prevention",
-              "reveals": "negligible decision value"
+              "axis": "",
+              "reveals": "At best delivers 3×10⁷ N·s against at least 10¹¹ N·s required; it cannot meet this deflection demand."
             },
             {
               "id": "corridor_observations",
-              "label": "Fund corridor-refining observations",
+              "label": "Corridor-refining observations",
               "cost": 45,
-              "axis": "location",
-              "reveals": "high decision value",
+              "axis": "",
+              "reveals": "Narrows the area that needs protection.",
+              "covers": [
+                "r1"
+              ],
               "decisive": true
             },
             {
               "id": "civil_defense",
-              "label": "Begin reversible civil-defense preparation",
+              "label": "Reversible civil-defense preparation",
               "cost": 55,
-              "axis": "exposure",
-              "reveals": "high decision value",
+              "axis": "",
+              "reveals": "Stages transport, shelters and alerts before an order.",
+              "covers": [
+                "r2"
+              ],
               "decisive": true
             },
             {
               "id": "public_demo",
-              "label": "Fund a public technology demonstration",
+              "label": "Public technology demonstration",
               "cost": 25,
-              "axis": "communication",
-              "reveals": "low decision value"
+              "axis": "",
+              "reveals": "Demonstrates equipment without changing the predicted corridor or providing protective capacity."
             }
           ],
           "commit": "Commit the decision"
@@ -1472,44 +1495,75 @@ export const CURRICULUM = {
             "unit": "observing credits"
           },
           "decision": "",
-          "options": [
+          "requirements": [
             {
-              "id": "dense_optical",
-              "label": "60 same-night optical frames",
-              "cost": 45,
-              "axis": "precision",
-              "reveals": ""
+              "id": "r1",
+              "text": "measure motion over a longer time interval"
             },
+            {
+              "id": "r2",
+              "text": "constrain distance and motion along the line of sight"
+            },
+            {
+              "id": "r3",
+              "text": "constrain size"
+            }
+          ],
+          "rule": "Cover every required outcome at the lowest total cost within the budget; keep all unused capacity in reserve.",
+          "plans": [
+            [
+              "late_optical",
+              "radar_range",
+              "thermal_size"
+            ]
+          ],
+          "options": [
             {
               "id": "late_optical",
               "label": "12-frame recovery near dawn",
               "cost": 30,
-              "axis": "time_baseline",
-              "reveals": "",
+              "axis": "",
+              "reveals": "Observes the object later, extending the time interval used to fit its trajectory.",
+              "covers": [
+                "r1"
+              ],
               "decisive": true
             },
             {
-              "id": "radar",
+              "id": "radar_range",
               "label": "Range-Doppler block",
               "cost": 35,
-              "axis": "geometry",
-              "reveals": "",
+              "axis": "",
+              "reveals": "Measures distance and motion toward or away from Earth.",
+              "covers": [
+                "r2"
+              ],
               "decisive": true
             },
             {
-              "id": "thermal",
+              "id": "thermal_size",
               "label": "Thermal infrared block",
               "cost": 25,
-              "axis": "size",
-              "reveals": "",
+              "axis": "",
+              "reveals": "Measures emitted heat to constrain diameter and separate size from reflectivity.",
+              "covers": [
+                "r3"
+              ],
               "decisive": true
             },
             {
-              "id": "publicity",
+              "id": "same_night_stack",
+              "label": "60 same-night optical frames",
+              "cost": 45,
+              "axis": "",
+              "reveals": "Refines the already precise sky position without adding a long time interval."
+            },
+            {
+              "id": "publicity_image",
               "label": "Live public telescope feed",
               "cost": 20,
-              "axis": "communication",
-              "reveals": ""
+              "axis": "",
+              "reveals": "Shares the view with the public but adds no new trajectory or size measurement."
             }
           ],
           "commit": "Commit the decision"
@@ -3679,36 +3733,51 @@ export const CURRICULUM = {
             "amount": 10,
             "unit": "observing hours"
           },
-          "decision": "Determines whether populated land remains inside tomorrow's action envelope.",
+          "decision": "",
+          "requirements": [
+            {
+              "id": "r1",
+              "text": "resolve whether populated land remains within the action corridor"
+            }
+          ],
+          "rule": "Cover every required outcome at the lowest total cost within the budget; keep all unused capacity in reserve.",
+          "plans": [
+            [
+              "corridor"
+            ]
+          ],
           "options": [
             {
               "id": "diameter",
-              "label": "Improve diameter by 10 percent",
+              "label": "Improve diameter by ten percent",
               "cost": 4,
-              "axis": "size",
-              "reveals": "small decision change"
+              "axis": "",
+              "reveals": "Tightens size; throughout this smaller range a populated-land strike still requires the same protective action."
             },
             {
               "id": "composition",
               "label": "Refine composition class",
               "cost": 4,
-              "axis": "material",
-              "reveals": "moderate decision change"
+              "axis": "",
+              "reveals": "Refines material behavior but does not distinguish the remaining ocean and land trajectories."
             },
             {
               "id": "corridor",
-              "label": "Separate ocean from populated-land timing",
+              "label": "Separate ocean and land arrival solutions",
               "cost": 10,
-              "axis": "exposure",
-              "reveals": "large decision change",
+              "axis": "",
+              "reveals": "Adds timing evidence that distinguishes the remaining land-intersecting and ocean-only trajectories.",
+              "covers": [
+                "r1"
+              ],
               "decisive": true
             },
             {
               "id": "brightness",
-              "label": "Repeat the brightness curve",
+              "label": "Repeat brightness curve",
               "cost": 3,
-              "axis": "reflected_light",
-              "reveals": "small decision change"
+              "axis": "",
+              "reveals": "Refines reflected light without separating the remaining trajectory solutions."
             }
           ],
           "commit": "Commit the decision"

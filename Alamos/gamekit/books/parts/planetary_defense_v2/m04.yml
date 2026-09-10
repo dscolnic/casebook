@@ -158,13 +158,56 @@
     # payload's `recommended` set — its keyed 90-credit plan — is what the engine
     # calls `decisive`: the options without which the decision does not change.
     value:
-      budget: { amount: 100, unit: observing credits }
+      budget:
+        amount: 100
+        unit: observing credits
+      decision: ""
+      requirements:
+        - id: r1
+          text: measure motion over a longer time interval
+        - id: r2
+          text: constrain distance and motion along the line of sight
+        - id: r3
+          text: constrain size
+      rule: Cover every required outcome at the lowest total cost within the budget; keep all unused capacity in reserve.
+      plans:
+        - late_optical,radar_range,thermal_size
       options:
-      - { id: dense_optical, label: 60 same-night optical frames, cost: 45, axis: precision }
-      - { id: late_optical, label: 12-frame recovery near dawn, cost: 30, axis: time_baseline, decisive: true }
-      - { id: radar, label: Range-Doppler block, cost: 35, axis: geometry, decisive: true }
-      - { id: thermal, label: Thermal infrared block, cost: 25, axis: size, decisive: true }
-      - { id: publicity, label: Live public telescope feed, cost: 20, axis: communication }
+        - id: late_optical
+          label: 12-frame recovery near dawn
+          cost: 30
+          axis: ""
+          reveals: Observes the object later, extending the time interval used to fit its trajectory.
+          covers:
+            - r1
+          decisive: true
+        - id: radar_range
+          label: Range-Doppler block
+          cost: 35
+          axis: ""
+          reveals: Measures distance and motion toward or away from Earth.
+          covers:
+            - r2
+          decisive: true
+        - id: thermal_size
+          label: Thermal infrared block
+          cost: 25
+          axis: ""
+          reveals: Measures emitted heat to constrain diameter and separate size from reflectivity.
+          covers:
+            - r3
+          decisive: true
+        - id: same_night_stack
+          label: 60 same-night optical frames
+          cost: 45
+          axis: ""
+          reveals: Refines the already precise sky position without adding a long time interval.
+        - id: publicity_image
+          label: Live public telescope feed
+          cost: 20
+          axis: ""
+          reveals: Shares the view with the public but adds no new trajectory or size measurement.
+      commit: Commit the decision
     answerText: "Each funded package supplies a required outcome; an affordable package that leaves one unresolved is insufficient."
     why: "Independent measurement axes reduce different uncertainties; repeated same-night frames mostly refine an already precise direction."
     # wrong-path feedback, one rebuttal per wrong option:

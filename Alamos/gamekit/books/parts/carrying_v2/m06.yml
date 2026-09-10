@@ -205,15 +205,51 @@
     # option as one that could change the decision. Costs and names are the
     # payload's, which is where this stop's board is specified.
     value:
-      budget: { amount: 40, unit: monitoring credits }
-      decision: Which records can prove both how much is taken and where it was taken from?
+      budget:
+        amount: 40
+        unit: monitoring credits
+      decision: ""
+      requirements:
+        - id: r1
+          text: record total extraction
+        - id: r2
+          text: observe nursery-zone activity
+      rule: Cover every required outcome at the lowest total cost within the budget; keep all unused capacity in reserve.
+      plans:
+        - landing_tags,nursery_camera
       options:
-      - { id: landing_tags, label: Electronic landing tags, cost: 20, axis: total extraction, decisive: true }
-      - { id: dock_checks, label: Random dock checks, cost: 15, axis: identity and mass verification, decisive: true }
-      - { id: nursery_camera, label: Nursery-zone camera, cost: 20, axis: nursery-zone location }
-      - { id: public_ad, label: Public advertisement, cost: 10, axis: awareness }
-      - { id: seller_survey, label: Seller survey, cost: 15, axis: self-reported behavior }
-      commit: Buy the records
+        - id: landing_tags
+          label: Electronic landing tags
+          cost: 20
+          axis: ""
+          reveals: Records the amount landed; does not establish where the fish were caught.
+          covers:
+            - r1
+          decisive: true
+        - id: dock_checks
+          label: Random dock checks
+          cost: 15
+          axis: ""
+          reveals: Checks identity and mass on arrival but cannot reconstruct catch location.
+        - id: nursery_camera
+          label: Nursery-zone camera
+          cost: 20
+          axis: ""
+          reveals: Records time-stamped activity inside the nursery zone.
+          covers:
+            - r2
+          decisive: true
+        - id: public_ad
+          label: Public advertisement
+          cost: 10
+          axis: ""
+          reveals: Raises awareness without observing catch or location.
+        - id: seller_survey
+          label: Seller survey
+          cost: 15
+          axis: ""
+          reveals: Collects self-reports rather than independently verified catch location.
+      commit: Commit the decision
     answerText: "Each funded package supplies a required outcome; an affordable package that leaves one unresolved is insufficient."
     why: "evidence has value only if it can change enforcement"
     # wrong-path feedback, one rebuttal per wrong option:

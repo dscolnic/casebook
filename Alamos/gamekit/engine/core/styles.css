@@ -1051,6 +1051,21 @@ h1,h2,h3,h4{font-family:var(--serif);line-height:1.15}
 .valTop{display:flex;justify-content:space-between;gap:8px;align-items:baseline}
 .valTop b{font:700 .8rem/1.3 Inter,system-ui;color:#2f4652;min-width:0;overflow-wrap:anywhere}
 .valCost{font:800 .72rem/1.1 ui-monospace,SFMono-Regular,Menlo,monospace;color:#b06a2a;white-space:nowrap}
+/* The outcomes a VALUE plan has to cover, with a tick that fills as each one is
+   met. `.met` is set by the panel, not by :has — the list is rebuilt on every
+   buy and a class is one write. */
+.valWants{margin:8px 0 10px;padding:9px 12px;border-left:3px solid #3f8f56;
+  background:#f2f7f3;border-radius:0 6px 6px 0}
+.valWants>span{display:block;font:800 .56rem/1.2 Inter,system-ui;letter-spacing:.07em;
+  text-transform:uppercase;color:#3f8f56;margin-bottom:5px}
+.valWants ul{margin:0;padding:0;list-style:none}
+.valWants li{display:flex;gap:7px;align-items:baseline;font:600 .74rem/1.5 Inter,system-ui;
+  color:#3a5844;margin:1px 0}
+.valWants li.met{color:#2f6b45}
+.valTick{flex:0 0 auto;width:11px;height:11px;margin-top:2px;border:1.5px solid #9fc4ad;
+  border-radius:3px;background:#fff}
+.valWants li.met .valTick{background:#3f8f56;border-color:#3f8f56;
+  box-shadow:inset 0 0 0 2px #fff}
 .valAxis{font:600 .66rem/1.35 Inter,system-ui;color:#8a97a0}
 .valIrrev{font:700 .62rem/1.3 Inter,system-ui;color:#c0392b}
 .valReveal em{font-style:normal;font:600 .7rem/1.4 Inter,system-ui;color:#4e4a43}

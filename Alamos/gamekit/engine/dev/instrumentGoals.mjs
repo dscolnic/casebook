@@ -66,6 +66,21 @@ const GOALS = {
     phrases: ['exactly one thing changed', 'put it back'],
     what: 'the isolate-and-reverse the commit button is gated on',
   }),
+  /**
+   * VALUE, but only the boards that carry requirements.
+   *
+   * The prompt on those says "cover every required outcome"; the outcomes are
+   * the criterion, and they lived in the bible's canonical block and reached no
+   * screen at all until they were rendered — the same defect as FLY's four
+   * numbers, in a different format. A board with no requirements is the older
+   * axis-and-decisive shape and has nothing here to plan against, which is why
+   * this returns null for it rather than failing it.
+   */
+  VALUE: (g) => ((g.value?.requirements ?? []).length ? {
+    numbers: [],
+    phrases: g.value.requirements.map(r => String(r.text)),
+    what: 'every required outcome the plan is judged on',
+  } : null),
 };
 
 const text = (html) => String(html ?? '')
@@ -117,12 +132,52 @@ function runSelftest(){
   for(const v of ['3', '1', '16']){
     if(!gapsStripped.includes(v)) bad.push(`a FLY panel with no goal block still passes on ${v}`);
   }
+  // ---- and the same trick for VALUE, whose criterion is a list of sentences.
+  //
+  // Put the bug back: strip the outcome list, and the panel has to fail on every
+  // requirement. This is the shape the defect actually had — the block existed
+  // in the bible, the field reached the game, and no screen printed it.
+  const vg = { question: 'You have 100 observing credits.', value: {
+    budget: { amount: 100, unit: 'observing credits' },
+    rule: 'Cover every required outcome at the lowest total cost within the budget.',
+    requirements: [
+      { id: 'r1', text: 'measure motion over a longer time interval' },
+      { id: 'r2', text: 'constrain distance and motion along the line of sight' },
+      { id: 'r3', text: 'constrain size' },
+    ],
+    plans: [['a', 'b', 'c']],
+    options: [
+      { id: 'a', label: 'Dawn recovery', cost: 30, covers: ['r1'], decisive: true },
+      { id: 'b', label: 'Range-Doppler', cost: 35, covers: ['r2'], decisive: true },
+      { id: 'c', label: 'Thermal block', cost: 25, covers: ['r3'], decisive: true },
+      { id: 'd', label: 'Same-night stack', cost: 45, covers: [] },
+      { id: 'e', label: 'Public feed', cost: 20, covers: [] },
+    ],
+  } };
+  const vwant = GOALS.VALUE(vg);
+  const vfull = INSTRUMENTS.VALUE.html(vg);
+  const vgapsFull = missing(vfull, vwant);
+  if(vgapsFull.length) bad.push(`a complete VALUE panel is reported as missing ${vgapsFull.join(', ')}`);
+  const vstripped = vfull.replace(/<div class="valWants">[\s\S]*?<\/ul><\/div>/, '')
+    .replace(/covers: [^<]*/g, '');
+  const vgapsStripped = missing(vstripped, vwant);
+  for(const r of vg.value.requirements){
+    if(!vgapsStripped.some(g2 => g2.includes(r.text.slice(0, 24)))){
+      bad.push(`a VALUE panel with no outcome list still passes on "${r.text}"`);
+    }
+  }
+  // And a board with no requirements is not a plan-against board at all.
+  if(GOALS.VALUE({ value: { budget: { amount: 10 }, options: [] } }) !== null){
+    bad.push('an axis-and-decisive VALUE board is being held to a criterion it does not have');
+  }
+
   if(bad.length){
     bad.forEach(b => console.error(`  ✗ ${b}`));
     console.error('instrumentGoals selftest FAILED');
     process.exit(1);
   }
-  console.log('instrumentGoals selftest: a panel that states its criterion is'
+  console.log("instrumentGoals selftest: FLY's numbers and VALUE's outcomes —"
+    + ' a panel that states its criterion is'
     + ' distinguishable from one that does not');
 }
 
@@ -152,6 +207,9 @@ for(const [group, lessons] of Object.entries(content.CURRICULUM ?? {})){
     const kind = kindOf(g);
     const spec = GOALS[kind];
     if(!spec || !INSTRUMENTS[kind]) return;
+    // A spec may decline a particular board — VALUE only has a criterion to
+    // plan against when the bible wrote its requirements.
+    if(spec(g) === null) return;
     checked++;
     let html = '';
     try{ html = INSTRUMENTS[kind].html(g); }

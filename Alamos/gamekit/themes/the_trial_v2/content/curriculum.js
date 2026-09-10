@@ -2916,46 +2916,69 @@ export const CURRICULUM = {
             "unit": "staff-hours"
           },
           "decision": "",
+          "requirements": [
+            {
+              "id": "r1",
+              "text": "verify late-event outcomes"
+            },
+            {
+              "id": "r2",
+              "text": "verify exposure independently"
+            }
+          ],
+          "rule": "Cover every required outcome at the lowest total cost within the budget; keep all unused capacity in reserve.",
+          "plans": [
+            [
+              "source_calls",
+              "kit_audit"
+            ]
+          ],
           "options": [
             {
               "id": "source_calls",
-              "label": "Source calls",
+              "label": "Late-event source calls",
               "cost": 30,
-              "axis": "late-event outcome verification",
-              "reveals": "",
+              "axis": "",
+              "reveals": "Checks the clinical source records for late outcomes.",
+              "covers": [
+                "r1"
+              ],
               "decisive": true
             },
             {
               "id": "kit_audit",
               "label": "Independent kit audit",
               "cost": 20,
-              "axis": "independent exposure verification",
-              "reveals": "",
+              "axis": "",
+              "reveals": "Checks which treatment exposure each record actually represents.",
+              "covers": [
+                "r2"
+              ],
               "decisive": true
             },
             {
               "id": "efficacy_rerun",
-              "label": "Efficacy rerun",
+              "label": "Rerun the efficacy analysis",
               "cost": 25,
-              "axis": "settled efficacy estimate",
-              "reveals": ""
+              "axis": "",
+              "reveals": "Repeats the locked benefit analysis rather than checking late harm."
             },
             {
               "id": "staff_survey",
-              "label": "Staff survey",
+              "label": "Staff workflow survey",
               "cost": 15,
-              "axis": "workflow opinion",
-              "reveals": ""
+              "axis": "",
+              "reveals": "Collects opinions about workflow, not verified outcomes or exposure."
             },
             {
               "id": "biomarker",
-              "label": "Biomarker",
+              "label": "Exploratory biomarker study",
               "cost": 25,
-              "axis": "new exploratory mechanism",
-              "reveals": ""
+              "axis": "",
+              "reveals": "Explores a mechanism without resolving the current late-event and exposure records."
             }
           ],
-          "commit": "Order the evidence"
+          "commit": "Commit the decision"
         }
       },
       "concept": {

@@ -837,10 +837,30 @@ const VALUE = {
   html(ch){
     const v = ch.value ?? {};
     const b = v.budget ?? {};
+    const reqs = v.requirements ?? [];
+    const reqText = (id) => reqs.find(r => r.id === id)?.text ?? id;
+    // WHAT THE PLAN HAS TO COVER, on the board.
+    //
+    // The prompt on a canonical VALUE stop says "cover every required outcome",
+    // and until this list was printed it named something the player could not
+    // read: five packages and no outcomes. Each row ticks as something bought
+    // covers it, so the budget meter is not the only feedback the panel gives.
+    const wants = reqs.length
+      ? `<div class="valWants"><span>${esc(v.rule ?? 'What the plan has to cover')}</span><ul>`
+        + reqs.map(r => `<li data-req="${esc(r.id)}"><i class="valTick"></i>${esc(r.text)}</li>`).join('')
+        + `</ul></div>`
+      : '';
     const cards = (v.options ?? []).map((o, i) => `<div class="valOpt" data-opt="${i}">`
       + `<div class="valTop"><b>${esc(o.label)}</b><span class="valCost">${esc(String(o.cost))}`
       + ` ${esc(b.unit ?? '')}</span></div>`
-      + `<div class="valAxis">asks about: ${esc(o.axis)}</div>`
+      // With requirements on the board an option says which of them it supplies,
+      // in the bible's own words. Without them it falls back to the axis, which
+      // is what the older boards carry.
+      + (reqs.length
+          ? `<div class="valAxis">${(o.covers ?? []).length
+              ? 'covers: ' + esc((o.covers ?? []).map(reqText).join('; '))
+              : 'covers none of the required outcomes'}</div>`
+          : `<div class="valAxis">asks about: ${esc(o.axis)}</div>`)
       + (o.irreversible ? `<div class="valIrrev">consumes the sample — cannot be undone</div>` : '')
       + `<div class="valReveal" data-reveal="${i}"></div>`
       + `<button class="btn valBuy" data-buy="${i}" type="button">Buy</button></div>`).join('');
@@ -851,7 +871,9 @@ const VALUE = {
       + (String(v.decision ?? '').trim()
           && String(v.decision).trim() !== String(ch.question ?? '').trim()
           ? `<div class="valDecision"><span>the decision</span><b>${esc(v.decision)}</b></div>` : '')
-      + `<div class="valSpend">Spent <b id="valSpent">0</b> of ${esc(String(b.amount))} ${esc(b.unit ?? '')}</div>`
+      + wants
+      + `<div class="valSpend">Spent <b id="valSpent">0</b> of ${esc(String(b.amount))} ${esc(b.unit ?? '')}`
+      + (reqs.length ? `, <b id="valLeft">${esc(String(b.amount))}</b> in reserve` : '') + `</div>`
       + `<div class="valGrid">${cards}</div>`
       + foot(btn('valCommit', v.commit ?? 'Commit the decision', { primary: true }))
       + `</div>`;
@@ -865,8 +887,18 @@ const VALUE = {
     const st = { bought: new Set(), spent: 0, done: false };
     const spentEl = panel.querySelector('#valSpent');
 
+    const reqs = v.requirements ?? [];
+    const leftEl = panel.querySelector('#valLeft');
     const refresh = () => {
       spentEl.textContent = String(st.spent);
+      if(leftEl) leftEl.textContent = String(Math.round((budget - st.spent) * 100) / 100);
+      // A requirement is met the moment something covering it is bought.
+      if(reqs.length){
+        const got = new Set([...st.bought].flatMap(i => opts[i].covers ?? []));
+        panel.querySelectorAll('[data-req]').forEach(li => {
+          li.classList.toggle('met', got.has(li.dataset.req));
+        });
+      }
       panel.querySelectorAll('.valBuy').forEach(b => {
         const i = +b.dataset.buy;
         if(st.bought.has(i)){ b.disabled = true; b.textContent = 'Bought'; return; }
@@ -896,7 +928,24 @@ const VALUE = {
       if(st.done) return;
       st.done = true;
       const decisive = opts.map((o, i) => o.decisive ? i : -1).filter(i => i >= 0);
-      const ok = decisive.every(i => st.bought.has(i));
+      // GRADED THE WAY THE RULE IS WRITTEN. A board with requirements is judged
+      // on covering every outcome inside the budget and spending no more than it
+      // has to — the bible states the accepted plans, and any plan that covers
+      // everything for no more than the cheapest of them is as good. A board
+      // without requirements keeps the older rule: buy the decisive set.
+      let ok;
+      if((v.requirements ?? []).length){
+        const got = new Set([...st.bought].flatMap(i => opts[i].covers ?? []));
+        const covers = (v.requirements ?? []).every(r => got.has(r.id));
+        const plans = v.plans ?? [];
+        const best = plans.length
+          ? Math.min(...plans.map(pl => pl.reduce((n, id) =>
+              n + (+(opts.find(o => o.id === id)?.cost) || 0), 0)))
+          : Infinity;
+        ok = covers && st.spent <= budget && st.spent <= best;
+      } else {
+        ok = decisive.every(i => st.bought.has(i));
+      }
       ctx.commit(ok,
         st.bought.size
           ? `bought ${[...st.bought].map(i => opts[i].label).join(', ')}`
@@ -906,21 +955,34 @@ const VALUE = {
   },
   verdict(ch, r){
     const v = ch.value ?? {};
+    const reqs = v.requirements ?? [];
+    const reqText = (id) => reqs.find(x => x.id === id)?.text ?? id;
     const boughtSet = new Set(r?.valueBought ?? []);
+    // With requirements, the first thing to report is which outcomes the plan
+    // actually covered — the money is the constraint, not the point.
+    const got = new Set([...boughtSet].flatMap(i => (v.options ?? [])[i]?.covers ?? []));
+    const reqRows = reqs.map(x => row([
+      tick(got.has(x.id)) + ` <b>${esc(x.text)}</b>`,
+      got.has(x.id) ? 'covered' : '<b>not covered</b>',
+      esc((v.options ?? []).filter(o => (o.covers ?? []).includes(x.id)).map(o => o.label).join(' or ')),
+      '',
+    ], got.has(x.id) ? '' : 'bad')).join('');
     const rows = (v.options ?? []).map((o, i) => row([
       tick(!!o.decisive === boughtSet.has(i) || (!o.decisive && !boughtSet.has(i)))
         + ` <b>${esc(o.label)}</b>`,
-      esc(o.axis),
+      esc(reqs.length ? (o.covers ?? []).map(reqText).join('; ') : o.axis),
       boughtSet.has(i) ? 'you bought it' : 'you left it',
       o.decisive ? '<b>would have changed the decision</b>' : 'improves a number beside the decision',
     ], o.decisive && !boughtSet.has(i) ? 'bad' : '')).join('');
     return board(v.moral ?? 'The budget was never enough for all of it. It was enough for the'
-      + ' evidence that changes what you do next', rows);
+      + ' evidence that changes what you do next', reqRows + rows);
   },
   facts: (g) => `${g.value.budget.amount} ${g.value.budget.unit} against`
     + ` ${g.value.options.reduce((n, o) => n + (+o.cost || 0), 0)} on the board`
     + ` · ${g.value.options.filter(o => o.decisive).length} decisive`
-    + ` · ${new Set(g.value.options.map(o => o.axis)).size} axes`,
+    + ((g.value.requirements ?? []).length
+        ? ` · ${g.value.requirements.length} outcome(s) to cover`
+        : ` · ${new Set(g.value.options.map(o => o.axis)).size} axes`),
   tag: () => 'value of information',
 };
 

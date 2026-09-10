@@ -539,36 +539,59 @@ export const CURRICULUM = {
             "unit": "evidence points"
           },
           "decision": "",
+          "requirements": [
+            {
+              "id": "r1",
+              "text": "retain the fixed historical index and publish a current-weight companion"
+            },
+            {
+              "id": "r2",
+              "text": "verify and disclose the current weights"
+            }
+          ],
+          "rule": "Cover every required outcome at the lowest total cost within the budget; keep all unused capacity in reserve.",
+          "plans": [
+            [
+              "parallel",
+              "audit"
+            ]
+          ],
           "options": [
             {
               "id": "parallel",
-              "label": "fixed CPI plus current-weight companion",
+              "label": "Parallel index publication",
               "cost": 45,
-              "axis": "fixed CPI plus current-weight companion",
-              "reveals": "",
+              "axis": "",
+              "reveals": "Keeps the historical series and adds a separately labelled current-weight series.",
+              "covers": [
+                "r1"
+              ],
               "decisive": true
             },
             {
               "id": "audit",
-              "label": "weight audit",
+              "label": "Household-weight audit",
               "cost": 15,
-              "axis": "weight audit",
-              "reveals": "",
+              "axis": "",
+              "reveals": "Checks the weights used in the new companion and publishes the method.",
+              "covers": [
+                "r2"
+              ],
               "decisive": true
             },
             {
               "id": "ads",
-              "label": "publicity",
+              "label": "Publicity campaign",
               "cost": 30,
-              "axis": "publicity",
-              "reveals": ""
+              "axis": "",
+              "reveals": "Increases awareness without checking weights or preserving comparability."
             },
             {
               "id": "erase",
-              "label": "replace history",
+              "label": "Replace the historical series",
               "cost": 25,
-              "axis": "replace history",
-              "reveals": ""
+              "axis": "",
+              "reveals": "Substitutes new weights into history, losing the original comparable series."
             }
           ],
           "commit": "Commit the decision"
@@ -1298,39 +1321,65 @@ export const CURRICULUM = {
         "value": {
           "budget": {
             "amount": 80,
-            "unit": ""
+            "unit": "plan points"
           },
           "decision": "",
+          "requirements": [
+            {
+              "id": "r1",
+              "text": "provide support during the adjustment delay"
+            },
+            {
+              "id": "r2",
+              "text": "set an enforceable end date and review"
+            }
+          ],
+          "rule": "Cover every required outcome at the lowest total cost within the budget; keep all unused capacity in reserve.",
+          "plans": [
+            [
+              "temporary_bridge",
+              "sunset_review"
+            ]
+          ],
           "options": [
             {
               "id": "temporary_bridge",
-              "label": "short-run demand support",
+              "label": "Temporary demand bridge",
               "cost": 50,
-              "axis": "short-run demand support",
-              "reveals": "",
+              "axis": "",
+              "reveals": "Provides support during the documented adjustment delay.",
+              "covers": [
+                "r1"
+              ],
               "decisive": true
             },
             {
               "id": "sunset_review",
-              "label": "automatic exit discipline",
+              "label": "Sunset and review clause",
               "cost": 30,
-              "axis": "automatic exit discipline",
-              "reveals": "",
+              "axis": "",
+              "reveals": "Sets an end date and requires evidence before renewal.",
+              "covers": [
+                "r2"
+              ],
               "decisive": true
             },
             {
               "id": "permanent_stimulus",
-              "label": "permanent demand expansion",
+              "label": "Permanent stimulus",
               "cost": 80,
-              "axis": "permanent demand expansion",
-              "reveals": ""
+              "axis": "",
+              "reveals": "Supports demand without an end date.",
+              "covers": [
+                "r1"
+              ]
             },
             {
               "id": "wait",
-              "label": "no immediate support",
+              "label": "Wait without support",
               "cost": 0,
-              "axis": "no immediate support",
-              "reveals": ""
+              "axis": "",
+              "reveals": "Commits no temporary support or exit review; this standalone alternative cannot be combined with purchases."
             }
           ],
           "commit": "Commit the decision"
@@ -1482,47 +1531,78 @@ export const CURRICULUM = {
         "value": {
           "budget": {
             "amount": 100,
-            "unit": ""
+            "unit": "plan points"
           },
           "decision": "",
+          "requirements": [
+            {
+              "id": "r1",
+              "text": "supply the narrowed temporary bridge"
+            },
+            {
+              "id": "r2",
+              "text": "address worker mismatch"
+            },
+            {
+              "id": "r3",
+              "text": "restore port supply capacity"
+            }
+          ],
+          "rule": "Cover every required outcome at the lowest total cost within the budget; keep all unused capacity in reserve.",
+          "plans": [
+            [
+              "narrow_bridge",
+              "training",
+              "port"
+            ]
+          ],
           "options": [
             {
               "id": "narrow_bridge",
-              "label": "temporary demand support",
+              "label": "Narrow temporary bridge",
               "cost": 45,
-              "axis": "temporary demand support",
-              "reveals": "",
+              "axis": "",
+              "reveals": "Targets the remaining demand gap after the measured offsets.",
+              "covers": [
+                "r1"
+              ],
               "decisive": true
             },
             {
               "id": "training",
-              "label": "worker matching",
+              "label": "Worker training",
               "cost": 25,
-              "axis": "worker matching",
-              "reveals": "",
+              "axis": "",
+              "reveals": "Addresses the documented mismatch between skills and jobs.",
+              "covers": [
+                "r2"
+              ],
               "decisive": true
             },
             {
               "id": "port",
-              "label": "supply capacity",
+              "label": "Port repair",
               "cost": 30,
-              "axis": "supply capacity",
-              "reveals": "",
+              "axis": "",
+              "reveals": "Restores the documented port capacity constraint.",
+              "covers": [
+                "r3"
+              ],
               "decisive": true
             },
             {
               "id": "full_bridge",
-              "label": "large fiscal expansion",
+              "label": "Full debt-financed bridge",
               "cost": 80,
-              "axis": "large fiscal expansion",
-              "reveals": ""
+              "axis": "",
+              "reveals": "Funds the original larger demand package, with no training or port work."
             },
             {
               "id": "publicity",
-              "label": "communications",
+              "label": "Publicity campaign",
               "cost": 20,
-              "axis": "communications",
-              "reveals": ""
+              "axis": "",
+              "reveals": "Changes messaging without repairing the demand or capacity constraints."
             }
           ],
           "commit": "Commit the decision"
@@ -3344,43 +3424,69 @@ export const CURRICULUM = {
             "unit": "plan points"
           },
           "decision": "",
+          "requirements": [
+            {
+              "id": "r1",
+              "text": "provide modeled demand support of at least 34.8 billion"
+            },
+            {
+              "id": "r2",
+              "text": "retain an independent supply-shock review"
+            }
+          ],
+          "rule": "Cover every required outcome at the lowest total cost within the budget; keep all unused capacity in reserve.",
+          "plans": [
+            [
+              "G8_7",
+              "supply_review"
+            ]
+          ],
           "options": [
             {
               "id": "G8_7",
-              "label": "targeted purchases",
+              "label": "8.7-billion purchase package",
               "cost": 65,
-              "axis": "targeted purchases",
-              "reveals": "",
+              "axis": "",
+              "reveals": "With a spending multiplier of 4, adds 4×8.7 billion to demand.",
+              "covers": [
+                "r1"
+              ],
               "decisive": true
             },
             {
               "id": "supply_review",
-              "label": "independent shock test",
+              "label": "Independent supply-shock review",
               "cost": 35,
-              "axis": "independent shock test",
-              "reveals": "",
+              "axis": "",
+              "reveals": "Tests oil-cost effects separately from demand support.",
+              "covers": [
+                "r2"
+              ],
               "decisive": true
             },
             {
               "id": "G6",
-              "label": "fast announcement",
+              "label": "6-billion purchase package",
               "cost": 45,
-              "axis": "fast announcement",
-              "reveals": ""
+              "axis": "",
+              "reveals": "With the same multiplier, adds 24 billion to demand."
             },
             {
               "id": "tax11_6",
-              "label": "tax alternative",
+              "label": "11.6-billion tax-cut package",
               "cost": 80,
-              "axis": "tax alternative",
-              "reveals": ""
+              "axis": "",
+              "reveals": "With a tax-cut multiplier magnitude of 3, adds 34.8 billion to demand.",
+              "covers": [
+                "r1"
+              ]
             },
             {
               "id": "publicity",
-              "label": "message",
+              "label": "Announcement campaign",
               "cost": 25,
-              "axis": "message",
-              "reveals": ""
+              "axis": "",
+              "reveals": "Publishes the announcement without adding modeled demand or a supply test."
             }
           ],
           "commit": "Commit the decision"

@@ -1792,12 +1792,41 @@ missions:
     # `decisive`: the measurement that would change the decision. The four costs
     # come to 27 against a pool of 10, so the board still trades.
     value:
-      budget: { amount: 10, unit: test_points }
+      budget:
+        amount: 10
+        unit: test points
+      decision: ""
+      requirements:
+        - id: r1
+          text: test the motion through a separate measurement chain
+      rule: Cover every required outcome at the lowest total cost within the budget; keep all unused capacity in reserve.
+      plans:
+        - accel
       options:
-      - { id: accel, label: "Independent seat and floor accelerometers", cost: 10, axis: acceleration, decisive: true }
-      - { id: wheel, label: "Repeat portable speed-wheel reading", cost: 6, axis: shared_speed }
-      - { id: paint, label: "Measure paint thickness", cost: 4, axis: cosmetic }
-      - { id: mass, label: "Reweigh same car", cost: 7, axis: mass }
+        - id: accel
+          label: Independent seat and floor accelerometers
+          cost: 10
+          axis: ""
+          reveals: Records acceleration through sensors and calibration separate from the portable speed kit.
+          covers:
+            - r1
+          decisive: true
+        - id: wheel
+          label: Repeat portable speed-wheel reading
+          cost: 6
+          axis: ""
+          reveals: Repeats the same calibration dependency.
+        - id: paint
+          label: Paint-thickness measurement
+          cost: 4
+          axis: ""
+          reveals: Measures coating thickness, not motion.
+        - id: mass
+          label: Reweigh the same car
+          cost: 7
+          axis: ""
+          reveals: Checks mass without independently testing its motion.
+      commit: Commit the decision
 # ============================================================ MISSION 5
 # Lifted from ../fpl_gpt/Safety_Factor_AP_Physics_1_Campaign_Implementation_Bible_v1 (1).md by tools/v10extract.mjs. Every quoted string below is
 # the bible's, verbatim; engine/dev/bibleParity.mjs holds it to that.

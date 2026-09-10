@@ -321,9 +321,43 @@
     # by its `axis`, so that phrase is the option's label as well; no wording of it
     # is changed. 45+15+30+25 = 115 against 60, and the two decisive ones cost 60.
     value:
-      budget: { amount: 60, unit: "evidence points" }
+      budget:
+        amount: 60
+        unit: evidence points
+      decision: ""
+      requirements:
+        - id: r1
+          text: retain the fixed historical index and publish a current-weight companion
+        - id: r2
+          text: verify and disclose the current weights
+      rule: Cover every required outcome at the lowest total cost within the budget; keep all unused capacity in reserve.
+      plans:
+        - parallel,audit
       options:
-      - { id: parallel, label: "fixed CPI plus current-weight companion", axis: "fixed CPI plus current-weight companion", cost: 45, decisive: true }
-      - { id: audit, label: "weight audit", axis: "weight audit", cost: 15, decisive: true }
-      - { id: ads, label: "publicity", axis: "publicity", cost: 30 }
-      - { id: erase, label: "replace history", axis: "replace history", cost: 25 }
+        - id: parallel
+          label: Parallel index publication
+          cost: 45
+          axis: ""
+          reveals: Keeps the historical series and adds a separately labelled current-weight series.
+          covers:
+            - r1
+          decisive: true
+        - id: audit
+          label: Household-weight audit
+          cost: 15
+          axis: ""
+          reveals: Checks the weights used in the new companion and publishes the method.
+          covers:
+            - r2
+          decisive: true
+        - id: ads
+          label: Publicity campaign
+          cost: 30
+          axis: ""
+          reveals: Increases awareness without checking weights or preserving comparability.
+        - id: erase
+          label: Replace the historical series
+          cost: 25
+          axis: ""
+          reveals: Substitutes new weights into history, losing the original comparable series.
+      commit: Commit the decision

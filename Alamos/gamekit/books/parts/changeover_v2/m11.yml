@@ -293,9 +293,45 @@
     # by its `axis`, so that phrase carries as the label too. 50+30+80+0 = 160, the
     # bible's own `total_available_cost`, against 80; the two decisive ones cost 80.
     value:
-      budget: { amount: 80 }
+      budget:
+        amount: 80
+        unit: plan points
+      decision: ""
+      requirements:
+        - id: r1
+          text: provide support during the adjustment delay
+        - id: r2
+          text: set an enforceable end date and review
+      rule: Cover every required outcome at the lowest total cost within the budget; keep all unused capacity in reserve.
+      plans:
+        - temporary_bridge,sunset_review
       options:
-      - { id: temporary_bridge, label: "short-run demand support", axis: "short-run demand support", cost: 50, decisive: true }
-      - { id: sunset_review, label: "automatic exit discipline", axis: "automatic exit discipline", cost: 30, decisive: true }
-      - { id: permanent_stimulus, label: "permanent demand expansion", axis: "permanent demand expansion", cost: 80 }
-      - { id: wait, label: "no immediate support", axis: "no immediate support", cost: 0 }
+        - id: temporary_bridge
+          label: Temporary demand bridge
+          cost: 50
+          axis: ""
+          reveals: Provides support during the documented adjustment delay.
+          covers:
+            - r1
+          decisive: true
+        - id: sunset_review
+          label: Sunset and review clause
+          cost: 30
+          axis: ""
+          reveals: Sets an end date and requires evidence before renewal.
+          covers:
+            - r2
+          decisive: true
+        - id: permanent_stimulus
+          label: Permanent stimulus
+          cost: 80
+          axis: ""
+          reveals: Supports demand without an end date.
+          covers:
+            - r1
+        - id: wait
+          label: Wait without support
+          cost: 0
+          axis: ""
+          reveals: Commits no temporary support or exit review; this standalone alternative cannot be combined with purchases.
+      commit: Commit the decision

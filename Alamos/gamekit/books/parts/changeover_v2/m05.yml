@@ -306,10 +306,50 @@
     # `axis`, so that phrase carries as the label too. 65+35+45+80+25 = 250 against
     # 100, and the two decisive ones cost exactly 100.
     value:
-      budget: { amount: 100, unit: "plan points" }
+      budget:
+        amount: 100
+        unit: plan points
+      decision: ""
+      requirements:
+        - id: r1
+          text: provide modeled demand support of at least 34.8 billion
+        - id: r2
+          text: retain an independent supply-shock review
+      rule: Cover every required outcome at the lowest total cost within the budget; keep all unused capacity in reserve.
+      plans:
+        - G8_7,supply_review
       options:
-      - { id: G8_7, label: "targeted purchases", axis: "targeted purchases", cost: 65, decisive: true }
-      - { id: supply_review, label: "independent shock test", axis: "independent shock test", cost: 35, decisive: true }
-      - { id: G6, label: "fast announcement", axis: "fast announcement", cost: 45 }
-      - { id: tax11_6, label: "tax alternative", axis: "tax alternative", cost: 80 }
-      - { id: publicity, label: "message", axis: "message", cost: 25 }
+        - id: G8_7
+          label: 8.7-billion purchase package
+          cost: 65
+          axis: ""
+          reveals: With a spending multiplier of 4, adds 4×8.7 billion to demand.
+          covers:
+            - r1
+          decisive: true
+        - id: supply_review
+          label: Independent supply-shock review
+          cost: 35
+          axis: ""
+          reveals: Tests oil-cost effects separately from demand support.
+          covers:
+            - r2
+          decisive: true
+        - id: G6
+          label: 6-billion purchase package
+          cost: 45
+          axis: ""
+          reveals: With the same multiplier, adds 24 billion to demand.
+        - id: tax11_6
+          label: 11.6-billion tax-cut package
+          cost: 80
+          axis: ""
+          reveals: With a tax-cut multiplier magnitude of 3, adds 34.8 billion to demand.
+          covers:
+            - r1
+        - id: publicity
+          label: Announcement campaign
+          cost: 25
+          axis: ""
+          reveals: Publishes the announcement without adding modeled demand or a supply test.
+      commit: Commit the decision

@@ -4324,35 +4324,51 @@ missions:
         amount: 6
         unit: inspection points
       decision: ""
+      requirements:
+        - id: r1
+          text: test repeatability of gate work
+        - id: r2
+          text: check corrected storage clearance
+        - id: r3
+          text: check downstream arrival timing
+      rule: Cover every required outcome at the lowest total cost within the budget; keep all unused capacity in reserve.
+      plans:
+        - repeat,storage,arrival
       options:
         - id: repeat
           label: Second hoist stroke
           cost: 2
-          axis: repeatability
-          reveals: ""
+          axis: ""
+          reveals: Checks whether the hoist can repeat the work.
+          covers:
+            - r1
           decisive: true
         - id: storage
           label: Corrected volume simulation
           cost: 2
-          axis: storage clearance
-          reveals: ""
+          axis: ""
+          reveals: Tests clearance using the revised storage curve.
+          covers:
+            - r2
           decisive: true
         - id: arrival
           label: Downstream arrival check
           cost: 2
-          axis: timing
-          reveals: ""
+          axis: ""
+          reveals: Checks whether the warning interval covers arrival.
+          covers:
+            - r3
           decisive: true
         - id: paint
           label: Runner paint inspection
           cost: 2
-          axis: appearance
-          reveals: ""
+          axis: ""
+          reveals: Checks finish on a runner that remains unavailable.
         - id: revenue
           label: Power-price update
           cost: 1
-          axis: revenue
-          reveals: ""
+          axis: ""
+          reveals: Updates revenue without testing the release constraints.
       commit: Commit the decision
 # ============================================================ MISSION 13
 # Split back out of books/headwater_v2.yml by tools/split-book.mjs; the book's text, verbatim.

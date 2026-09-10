@@ -2000,10 +2000,28 @@ function gameFor(s, at, group, day){
 
     if(format === 'VALUE'){
       const bud = b.budget ?? {}, opts = b.options ?? [];
+      // TWO SHAPES OF VALUE BOARD, and the second is the one the bibles write now.
+      //
+      // The original is a set of options on named `axis`es with a `decisive`
+      // subset: buy the things that would change the decision. The canonical
+      // block writes the same decision as a list of REQUIREMENTS with `covers`
+      // on each option — cover every outcome, cheapest, inside the budget — and
+      // that is strictly more of the bible on the screen, because the outcomes
+      // are player copy and an axis is a field name. A board with requirements
+      // is held to the requirement rules; one without is held to the axis rules,
+      // exactly as before.
+      const reqs = b.requirements ?? [];
+      // A PLAN COMES BACK AS A STRING. `yaml-lite`'s writer has no nested-list
+      // form, so `[['a','b']]` round-trips as `- a,b`; both shapes are read here
+      // rather than teaching the writer a form nothing else in the books uses.
+      const plans = (b.plans ?? []).map(pl => (Array.isArray(pl) ? pl.map(String)
+        : String(pl).split(',').map(x => x.trim()).filter(Boolean)));
       need(numeric(bud.amount) && +bud.amount > 0, 'a value board needs a positive budget');
       need(opts.length >= 4, 'a value board needs at least four options');
-      need(opts.every(o => String(o.label ?? '').trim() && String(o.axis ?? '').trim()
-        && numeric(o.cost)), 'every value option needs a label, an `axis` and a numeric cost');
+      need(opts.every(o => String(o.label ?? '').trim() && numeric(o.cost)
+        && (reqs.length || String(o.axis ?? '').trim())),
+        reqs.length ? 'every value option needs a label and a numeric cost'
+          : 'every value option needs a label, an `axis` and a numeric cost');
       const total = opts.reduce((n, o) => n + +o.cost, 0);
       need(total > +bud.amount,
         `the options cost ${total} and the budget is ${bud.amount} — the whole board is affordable,`
@@ -2013,9 +2031,30 @@ function gameFor(s, at, group, day){
         + ' would change the decision, so every answer is as good as every other');
       need(decisive.reduce((n, o) => n + +o.cost, 0) <= +bud.amount,
         'the decisive options together cost more than the budget — the stop cannot be answered right');
-      need(new Set(opts.map(o => o.axis)).size >= 2,
-        'every value option asks about the same axis — buying more of the same is the trap, so'
-        + ' at least two axes have to be on the board');
+      if(reqs.length){
+        need(reqs.every(r => String(r.id ?? '').trim() && String(r.text ?? '').trim()),
+          'every requirement needs an `id` and the `text` the player reads');
+        need(String(b.rule ?? '').trim(),
+          'a board with requirements needs the `rule` that says how the plan is judged');
+        const covered = new Set(opts.flatMap(o => o.covers ?? []));
+        for(const r of reqs){
+          need(covered.has(r.id), `no option covers the requirement "${r.id}" — it cannot be met`);
+        }
+        need(opts.some(o => !(o.covers ?? []).length),
+          'every option covers a requirement — with nothing on the board that buys the wrong thing'
+          + ' there is no decision, only addition');
+        for(const pl of plans){
+          const got = new Set(pl.flatMap(id => (opts.find(o => o.id === id)?.covers) ?? []));
+          need(reqs.every(r => got.has(r.id)),
+            `the accepted plan ${pl.join(' + ')} does not cover every requirement`);
+          need(pl.reduce((n, id) => n + (+(opts.find(o => o.id === id)?.cost) || 0), 0) <= +bud.amount,
+            `the accepted plan ${pl.join(' + ')} costs more than the budget`);
+        }
+      } else {
+        need(new Set(opts.map(o => o.axis)).size >= 2,
+          'every value option asks about the same axis — buying more of the same is the trap, so'
+          + ' at least two axes have to be on the board');
+      }
       // Not fatal, because a board can be reasoned about from cost and axis
       // alone. But the format is "what would this measurement tell you", and an
       // option that tells you nothing when bought is half a card.
@@ -2027,8 +2066,15 @@ function gameFor(s, at, group, day){
       return { ...base, value: {
         budget: { amount: +bud.amount, unit: bud.unit ?? '' },
         decision: String(b.decision ?? ''),
+        // The outcomes the plan has to cover, the rule it is judged by, and the
+        // authored plans — the half of a canonical VALUE board that used to be
+        // dropped between the bible and the panel.
+        ...(reqs.length ? { requirements: reqs.map(r => ({ id: String(r.id), text: String(r.text) })) } : {}),
+        ...(String(b.rule ?? '').trim() ? { rule: String(b.rule) } : {}),
+        ...(plans.length ? { plans } : {}),
         options: opts.map(o => ({ id: String(o.id ?? o.label), label: String(o.label),
-          cost: +o.cost, axis: String(o.axis), reveals: String(o.reveals ?? ''),
+          cost: +o.cost, axis: String(o.axis ?? ''), reveals: String(o.reveals ?? ''),
+          ...((o.covers ?? []).length ? { covers: o.covers.map(String) } : {}),
           ...(o.decisive ? { decisive: true } : {}),
           ...(o.irreversible ? { irreversible: true } : {}) })),
         ...(b.hint ? { hint: String(b.hint) } : {}),
