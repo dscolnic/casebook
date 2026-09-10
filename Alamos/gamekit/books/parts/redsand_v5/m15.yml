@@ -171,7 +171,7 @@
     person: abiola
     concept: 15   # value of information
     reason: "The final decision still hinges on composition, not on another confirmation of pressure or mass."
-    scene: "With Batch C quarantined and one shift left, spend the final test on the measurement that could actually change GO or NO-GO."
+    scene: "Batch C remains quarantined while pressure and mass are already measured precisely. The unresolved question is whether its composition meets the launch specifications."
     motivation: "The selected assay supplies the independent contaminant evidence that can change the batch's certification status."
     format: VALUE
     # CONVERTED from the payload below. `budget.value` -> `budget.amount`; each
@@ -188,8 +188,8 @@
       - { id: catalyst_temp, label: "Repeat average catalyst temperature", cost: 5, axis: thermal }
       - { id: valve, label: "Visual valve inspection", cost: 4, axis: hardware }
       commit: "Commit the decision"
-    question: "Which measurement has the greatest chance to change the launch decision?"
-    answerText: "Buy the independent Batch C contaminant assay."
+    question: "You have 10 test points. Cover every required outcome at the lowest total cost within the budget; keep all unused capacity in reserve. Select whole packages, then submit the plan; the board shows its total and remaining reserve for you to check."
+    answerText: "Each funded package supplies a required outcome; an affordable package that leaves one unresolved is insufficient."
     why: "Pressure and mass are already precise and are not the disputed claim. Average temperature cannot certify tank contents. A second independent assay determines whether quarantine/reprocessing remains necessary and directly controls GO/NO-GO."
     # wrong-path feedback, one rebuttal per wrong option:
     #   More precision on a nonbinding quantity has low decision value. Evidence is valuable for the action it can change.
@@ -306,7 +306,7 @@
     person: abiola
     concept: 15   # resource strategy
     reason: "The recovery route is selected and the last decision budget must fund all of its essential parts."
-    scene: "Fund reprocessing, electrolysis, validated reactor operation, verification, and safety so the surviving recovery plan can be executed."
+    scene: "The recovery route now needs a complete execution budget. Laila will accept different distributions if they preserve every production, purity and safety condition."
     motivation: "The allocation ensures reprocessing, verification, production, and protected safety capacity are funded together."
     format: SCIENCETANK
     # CONVERTED from the payload below. The engine's science tank takes proposals
@@ -331,8 +331,8 @@
       "Habitat and safety margin": 15
       "Production above validated point": 0
       "Cosmetic dashboard recalibration": 0
-    question: "Spend 100 points on the proposals that execute and verify the surviving plan."
-    answerText: "Use 35 points for reprocessing, 25 for independent verification, 15 for electrolysis, 10 for validated reactor operation, and 15 for safety; fund no cosmetic recalibration."
+    question: "Allocate exactly 100 points. Minimums: reprocessing 25, electrolysis 15, validated operation 10, independent assay 15 and safety 10. Reprocessing plus assay must total at least 60. Assign zero to unvalidated heating and cosmetic recalibration. Submit the allocation; the board checks the total and each requirement."
+    answerText: "The accepted plan funds every required capability within the stated limits; extra points may be distributed only as the public rule allows."
     why: "The grade rewards investments that can alter the decision or protect a binding constraint. Spending everything on production solves the old problem and recreates the new one."
     # wrong-path feedback, one rebuttal per wrong option:
     #   Overfunding raw production while underfunding reprocessing or final assay cannot make off-spec methane flight-ready. Spending points on cosmetic recalibration changes a display rather than the batch, and cutting safety or electrolysis breaks a binding link in the recovery chain.

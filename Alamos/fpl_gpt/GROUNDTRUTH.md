@@ -926,63 +926,55 @@ derive:
 
 **Stop reason - exact player copy:** The layer prediction is ready, but calibration uncertainty could still explain the difference between channels.
 
-**Question card story setup - exact player copy:** With the predicted field fixed at -4.5 kV/m, four channels read -4.1, -4.2, -4.2, and -4.3 kV/m. Test whether calibration uncertainty can hide an unsafe disagreement.
+**Question card story setup - exact player copy:** Four channels disagree slightly. Test their relative agreement under one shared calibration offset before assigning different fields to different channels.
 
-**Question card story-science connection - exact player copy:** The range of corrected field readings determines whether one physical field can explain all four instruments.
+**Decision evidence - exact player copy:** The predicted field is −4.5 kV/m, but this task tests channel spread, not agreement with that prediction. If offsets could vary independently by ±0.20, the worst spread would instead be 0.60 kV/m and would fail. The shared-offset assumption is explicit here.
 
-**Question card prompt - exact player copy:** Move the allowed calibration offset from -0.20 to +0.20 kV/m, inspect both explanations, and submit the conclusion that survives the full range.
+**Question card prompt - exact player copy:** Apply the same offset from −0.20 to +0.20 kV/m to every reading. Submit the maximum pair spread and decide whether it exceeds 0.50 kV/m anywhere in this shared-offset test.
 
-**Complete format-specific interaction block:** `stress={assumption:per_channel_calibration_offset_kVpm,min:-0.20,max:0.20,step:0.05,candidates:[single_field,one_failed_channel],criterion:max_pair_spread<=0.50,correct:single_field_survives}`.
+**Complete format-specific interaction block - canonical source:**
 
-**§7 authored-board source - STRESS:** Convert this stop from its authored interaction block below. Do not substitute a format-level template. The panel must state the goal without printing the keyed answer.
-
-```yaml
-authored_board:
-  stop: "Stop 3 - Bound the disagreement"
-  format: "STRESS"
-  source: "Handback 3 canonical interaction block"
-  question: "Move the allowed calibration offset from -0.20 to +0.20 kV/m, inspect both explanations, and submit the conclusion that survives the full range."
-  payload: "`stress={assumption:per_channel_calibration_offset_kVpm,min:-0.20,max:0.20,step:0.05,candidates:[single_field,one_failed_channel],criterion:max_pair_spread<=0.50,correct:single_field_survives}`."
-  axis_and_units: "Use only quantities and units named in this question and payload."
-  candidates_and_numbers: "Use only candidates and numbers named in this question and payload."
-  panel_rule: "Print the goal, never the target or keyed answer."
+```json
+{
+  "stress": {
+    "model": {
+      "readings": [
+        -4.1,
+        -4.2,
+        -4.2,
+        -4.3
+      ],
+      "offset_scope": "same offset applied to all channels",
+      "offset_range": [
+        -0.2,
+        0.2
+      ],
+      "step": 0.05,
+      "criterion": "max(readings)-min(readings)<=0.50"
+    },
+    "candidates": [
+      {
+        "id": "single_field",
+        "label": "No excessive channel disagreement in the shared-offset test"
+      },
+      {
+        "id": "one_failed_channel",
+        "label": "A channel exceeds the agreement limit"
+      }
+    ],
+    "correct": "single_field",
+    "public_rule": "Use the displayed model and criterion over the entire stated range; no hidden preference scores."
+  }
+}
 ```
 
-**Handback 3 canonical interaction block - STRESS:**
+**Evidence delivery and grading:** The setup, decision evidence, public rules, costs and option descriptions are visible on this card before selection. Render option descriptions beside their controls, once; never replace them with internal axis IDs or a generic earlier-case sentence. Answer keys, accepted examples and feedback stay hidden until submission. Reveal withheld measurements only after the stated commitment. Use the public feasibility/selection rule; an example allocation is not an exclusive key. The displayed person must match this stop’s placement and Call.
 
-```yaml
-stress:
-  assumption: {label: "per-channel calibration offset", min: -0.2, max: 0.2, nominal: 0.0, step: 0.05, unit: "kV/m"}
-  criteria:
-    - {id: evidence_fit, label: "fit to the stop evidence", direction: maximise}
-    - {id: safety_margin, label: "margin at the adverse end", direction: maximise}
-  optimiseOn: evidence_fit
-  candidates:
-    - id: nominal_only
-      label: "Use only the nominal reading"
-      scores: {evidence_fit: 95, safety_margin: 20}
-      validRange: {min: 0.0, max: 0.0}
-      failsAt: 0.2
-    - id: common_extreme_mistake
-      label: "Use the favorable extreme as if it were guaranteed"
-      scores: {evidence_fit: 88, safety_margin: 5}
-      validRange: {min: 0.0, max: 0.2}
-      failsAt: -0.2
-    - id: robust_plan
-      label: "Single-field model survives; observed pair spread `0.20 kV/m ≤ 0.50 kV/m`."
-      scores: {evidence_fit: 82, safety_margin: 92}
-      validRange: {min: -0.2, max: 0.2}
-  robust: robust_plan
-  question: "Move the allowed calibration offset from -0.20 to +0.20 kV/m, inspect both explanations, and submit the conclusion that survives the full range."
-```
+**Correct result:** The pair spread remains 0.20 kV/m under every shared offset; this test finds no excessive channel disagreement. It does not establish absolute calibration or rule out independent channel errors.
 
-**Correct result:** Single-field model survives; observed pair spread `0.20 kV/m ≤ 0.50 kV/m`.
+**Answer text:** The pair spread remains 0.20 kV/m under every shared offset; this test finds no excessive channel disagreement. It does not establish absolute calibration or rule out independent channel errors.
 
-**Answer text:** All four readings remain mutually consistent within the campaign's calibration bound, though this does not prove independence.
-
-**Why:** A safe average does not prove that every sensor is consistent with the same field.
-
-**Wrong-path feedback:** Compare the largest and smallest channels; do not compare only each reading with the mean.
+**Wrong-path feedback:** Identify the unmet public condition or the specific measurement that the selected option cannot provide; keep the original evidence available for retry.
 
 **State/output:** Agreement clue logged; unlock S4.
 
@@ -1004,41 +996,6 @@ stress:
 
 **Complete format-specific interaction block:** `trigger={decision_rule:"GO only if |E_vertical|≤5.0 kV/m AND max pair spread≤0.50 kV/m",scale:{min:0,max:8,unit:kV/m},anchors:[4.0,4.8,5.5],objective:crew_clear,direction:lower_is_safer,consequence_limit:5.0,secondary_limit:0.50,correct_rule_id:dual_limit}`.
 
-**§7 authored-board source - TRIGGER:** Convert this stop from its authored interaction block below. Do not substitute a format-level template. The panel must state the goal without printing the keyed answer.
-
-```yaml
-authored_board:
-  stop: "Stop 4 - Commit the criterion"
-  format: "TRIGGER"
-  source: "Handback 3 canonical interaction block"
-  question: "Enter 5.0 kV/m as the inclusive magnitude limit and 0.50 kV/m as the inclusive channel-spread limit; submit the two-part GO rule, then reveal the new readings."
-  payload: "`trigger={decision_rule:\"GO only if |E_vertical|≤5.0 kV/m AND max pair spread≤0.50 kV/m\",scale:{min:0,max:8,unit:kV/m},anchors:[4.0,4.8,5.5],objective:crew_clear,direction:lower_is_safer,consequence_limit:5.0,secondary_limit:0.50,correct_rule_id:dual_limit}`."
-  axis_and_units: "Use only quantities and units named in this question and payload."
-  candidates_and_numbers: "Use only candidates and numbers named in this question and payload."
-  panel_rule: "Print the goal, never the target or keyed answer."
-```
-
-**Handback 3 canonical interaction block - TRIGGER:**
-
-```yaml
-trigger:
-  rule: "Commit the threshold before the stream appears; act only when a reading enters the action window with enough lead time."
-  scale: {label: "vertical electric-field magnitude", min: 0, max: 8, step: 0.1, unit: "kV/m"}
-  start: 1.6
-  anchors:
-    - {at: 1.6, means: "routine baseline, not the decision threshold"}
-    - {at: 5.2, means: "elevated evidence requiring attention"}
-  direction: rising
-  updates:
-    - {at: "T-48 h", value: 3.8, hoursLeft: 48}
-    - {at: "T-24 h", value: 4.4, hoursLeft: 24}
-    - {at: "T-12 h", value: 5.1, hoursLeft: 12}
-    - {at: "T-6 h", value: 5.3, hoursLeft: 6}
-  stages:
-    - {id: watch, label: "Increase monitoring", window: {min: 0, max: 4.99}, leadHours: 24}
-    - {id: act, label: "Take the protective action", window: {min: 5, max: 8}, leadHours: 12}
-  question: "Enter 5.0 kV/m as the inclusive magnitude limit and 0.50 kV/m as the inclusive channel-spread limit; submit the two-part GO rule, then reveal the new readings."
-```
 
 **Correct result:** Dual limit exactly; revealed `-4.6,-4.7,-4.6,-4.8 kV/m` gives GO.
 
@@ -2262,63 +2219,56 @@ derive:
 
 **Stop reason - exact player copy:** The two voltage estimates disagree enough that the report must carry altitude uncertainty explicitly.
 
-**Question card story setup - exact player copy:** Now two valid profiles give 250 MV and 360 MV, while balloon altitude may shift by ±2 km. Stress both estimates across that range and choose the conservative report interval.
+**Question card story setup - exact player copy:** Two methods estimate cloud potential differently. Ravi needs a report interval that preserves their disagreement and the stated height uncertainty.
 
-**Question card story-science connection - exact player copy:** The supported voltage interval tells the crew how much cloud-potential uncertainty the laboratory comparison must retain.
+**Decision evidence - exact player copy:** This sensitivity exercise changes only the uniform model’s height; it does not extend or rescale the separately sampled three-layer profile.
 
-**Question card prompt - exact player copy:** Move cloud height from 38 to 42 km, then submit one interval in MV that contains both measurement methods throughout the range.
+**Question card prompt - exact player copy:** Sweep height H from 38 to 42 km. Keep the sampled-profile estimate at 250 MV and use Vuniform=360(H/40) MV; submit the smallest interval containing both methods over the full range.
 
-**Complete format-specific interaction block:** `stress={assumption:cloud_height_km,min:38,max:42,step:1,candidates:[250_to_360_MV,300_MV_exact,sign_negative],correct:250_to_378_MV}`.
+**Complete format-specific interaction block - canonical source:**
 
-**§7 authored-board source - STRESS:** Convert this stop from its authored interaction block below. Do not substitute a format-level template. The panel must state the goal without printing the keyed answer.
-
-```yaml
-authored_board:
-  stop: "Stop 12 - Choose the report value"
-  format: "STRESS"
-  source: "Handback 3 canonical interaction block"
-  question: "Move cloud height from 38 to 42 km, then submit one interval in MV that contains both measurement methods throughout the range."
-  payload: "`stress={assumption:cloud_height_km,min:38,max:42,step:1,candidates:[250_to_360_MV,300_MV_exact,sign_negative],correct:250_to_378_MV}`."
-  axis_and_units: "Use only quantities and units named in this question and payload."
-  candidates_and_numbers: "Use only candidates and numbers named in this question and payload."
-  panel_rule: "Print the goal, never the target or keyed answer."
+```json
+{
+  "stress": {
+    "model": {
+      "height_km": [
+        38,
+        39,
+        40,
+        41,
+        42
+      ],
+      "sampled_MV": 250,
+      "uniform_formula": "360*H/40",
+      "criterion": "global minimum and maximum across both methods"
+    },
+    "candidates": [
+      {
+        "id": "bounded",
+        "label": "Report the full range across both methods"
+      },
+      {
+        "id": "nominal",
+        "label": "Report only the 40 km range"
+      },
+      {
+        "id": "mean",
+        "label": "Report one averaged value"
+      }
+    ],
+    "correct": "bounded",
+    "public_rule": "Use the displayed model and criterion over the entire stated range; no hidden preference scores."
+  }
+}
 ```
 
-**Handback 3 canonical interaction block - STRESS:**
+**Evidence delivery and grading:** The setup, decision evidence, public rules, costs and option descriptions are visible on this card before selection. Render option descriptions beside their controls, once; never replace them with internal axis IDs or a generic earlier-case sentence. Answer keys, accepted examples and feedback stay hidden until submission. Reveal withheld measurements only after the stated commitment. Use the public feasibility/selection rule; an example allocation is not an exclusive key. The displayed person must match this stop’s placement and Call.
 
-```yaml
-stress:
-  assumption: {label: "cloud height", min: 38, max: 42, nominal: 40.0, step: 1, unit: "km"}
-  criteria:
-    - {id: evidence_fit, label: "fit to the stop evidence", direction: maximise}
-    - {id: safety_margin, label: "margin at the adverse end", direction: maximise}
-  optimiseOn: evidence_fit
-  candidates:
-    - id: nominal_only
-      label: "Use only the nominal reading"
-      scores: {evidence_fit: 95, safety_margin: 20}
-      validRange: {min: 40.0, max: 40.0}
-      failsAt: 42
-    - id: common_extreme_mistake
-      label: "Use the favorable extreme as if it were guaranteed"
-      scores: {evidence_fit: 88, safety_margin: 5}
-      validRange: {min: 40.0, max: 42}
-      failsAt: 38
-    - id: robust_plan
-      label: "`250–378 MV`, inclusive."
-      scores: {evidence_fit: 82, safety_margin: 92}
-      validRange: {min: 38, max: 42}
-  robust: robust_plan
-  question: "Move cloud height from 38 to 42 km, then submit one interval in MV that contains both measurement methods throughout the range."
-```
+**Correct result:** Report 250–378 MV. The uniform estimate ranges from 342 to 378 MV; the separate sampled-profile estimate remains 250 MV in this stated sensitivity test.
 
-**Correct result:** `250–378 MV`, inclusive.
+**Answer text:** Report 250–378 MV. The uniform estimate ranges from 342 to 378 MV; the separate sampled-profile estimate remains 250 MV in this stated sensitivity test.
 
-**Answer text:** Sampled minimum remains 250; uniform maximum scales `360×42/40=378 MV`.
-
-**Why:** A bounded interval preserves disagreement instead of hiding it in one unjustified number.
-
-**Wrong-path feedback:** Do not average away method spread; bound it.
+**Wrong-path feedback:** Identify the unmet public condition or the specific measurement that the selected option cannot provide; keep the original evidence available for retry.
 
 **State/output:** report piece 3; M4.
 
@@ -3445,21 +3395,99 @@ derive:
 
 **Stop reason - exact player copy:** The bank topology is known, but the shot model still lacks measurements needed for a defensible comparison.
 
-**Question card story setup - exact player copy:** With storm capacitance bounded and bank topology known, four possible measurements compete for six setup-hours. Buy the evidence that determines voltage, charge, and timing without pretending the bank matches cloud geometry.
+**Question card story setup - exact player copy:** The bank’s wiring is known, but its electrical comparison with the storm is incomplete. Ortiz needs measured quantities, with the model’s geometric limitation kept explicit.
 
-**Question card story-science connection - exact player copy:** The selected measurements must constrain the bank's voltage, charge storage, and discharge timing within the setup budget.
+**Decision evidence - exact player copy:** Required outcomes: determine represented voltage; determine represented charge; determine pulse timing. Charge coverage requires both the voltage and capacitance packages. None of these tests establishes matched cloud geometry.
 
-**Question card prompt - exact player copy:** Spend no more than six setup-hours on the listed measurements and submit the evidence set that fixes represented voltage, charge, and timing without claiming matched geometry.
+**Question card prompt - exact player copy:** You have 6 setup-hours. Cover every required outcome at the lowest total cost within the budget; keep all unused capacity in reserve. Select whole packages, then submit the plan; the board shows its total and remaining reserve for you to check.
 
-**Complete format-specific interaction block:** `value:{budget:6,options:[{id:"stage_voltage",axis:"voltage scale",cost:2,required:true},{id:"stage_capacitance",axis:"stored charge and energy",cost:1,required:true},{id:"gap_timing",axis:"pulse timing",cost:2,required:true},{id:"hall_temperature",axis:"ambient condition",cost:2,required:false},{id:"paint_color",axis:"cosmetic condition",cost:1,required:false}],total_available_cost:8,correct_purchase:["stage_voltage","stage_capacitance","gap_timing"],reserve:1,answerText:"Buy voltage, capacitance, and timing evidence for five credits; temperature and paint cannot validate the electrical analog."}`
+**Complete format-specific interaction block - canonical source:**
 
-**Correct result:** `Buy stage V, stage C, and gap timing.` They constrain represented quantities within budget.
+```json
+{
+  "value": {
+    "budget": {
+      "value": 6,
+      "unit": "setup-hours"
+    },
+    "requirements": [
+      {
+        "id": "r1",
+        "text": "determine represented voltage"
+      },
+      {
+        "id": "r2",
+        "text": "determine represented charge"
+      },
+      {
+        "id": "r3",
+        "text": "determine pulse timing"
+      }
+    ],
+    "selection_rule": "Cover every required outcome at the lowest total cost within the budget; keep all unused capacity in reserve.",
+    "options": [
+      {
+        "id": "stage_voltage",
+        "label": "Stage-voltage measurement",
+        "cost": 2.0,
+        "information": "Measures V for the stage and supplies the voltage needed in Q=CV.",
+        "covers": [
+          "r1"
+        ]
+      },
+      {
+        "id": "stage_capacitance",
+        "label": "Stage-capacitance measurement",
+        "cost": 1.0,
+        "information": "Measures C; together with the voltage test this determines Q=CV.",
+        "covers": [
+          "r2"
+        ]
+      },
+      {
+        "id": "gap_timing",
+        "label": "Gap timing record",
+        "cost": 2.0,
+        "information": "Measures the discharge sequence and pulse timing.",
+        "covers": [
+          "r3"
+        ]
+      },
+      {
+        "id": "hall_temperature",
+        "label": "Hall temperature log",
+        "cost": 2.0,
+        "information": "Measures room temperature, not bank voltage, charge or pulse timing.",
+        "covers": []
+      },
+      {
+        "id": "paint_color",
+        "label": "Paint-colour check",
+        "cost": 1.0,
+        "information": "Checks appearance without an electrical measurement.",
+        "covers": []
+      }
+    ],
+    "accepted_plans": [
+      [
+        "stage_voltage",
+        "stage_capacitance",
+        "gap_timing"
+      ]
+    ],
+    "example_total": 5.0,
+    "example_reserve": 1.0
+  }
+}
+```
 
-**Answer text:** match V,Q,timing.
+**Evidence delivery and grading:** The setup, decision evidence, public rules, costs and option descriptions are visible on this card before selection. Render option descriptions beside their controls, once; never replace them with internal axis IDs or a generic earlier-case sentence. Answer keys, accepted examples and feedback stay hidden until submission. Reveal withheld measurements only after the stated commitment. Use the public feasibility/selection rule; an example allocation is not an exclusive key. The displayed person must match this stop’s placement and Call.
 
-**Why:** a model is useful when its matched variables and limitations are explicit.
+**Correct result:** stage_voltage, stage_capacitance, gap_timing = 5 setup-hours; reserve 1
 
-**Wrong-path feedback:** `A convenient measurement is not valuable unless it can change the representation decision.`
+**Answer text:** Each funded package supplies a required outcome; an affordable package that leaves one unresolved is insufficient.
+
+**Wrong-path feedback:** Identify the unmet public condition or the specific measurement that the selected option cannot provide; keep the original evidence available for retry.
 
 **State/output:** report piece5.
 
@@ -4005,34 +4033,60 @@ derive:
 
 **Stop reason - exact player copy:** Passing energy and timing calculations does not yet establish that the physical hall is ready.
 
-**Question card story setup - exact player copy:** Now energy and gap settings pass, but a calculation alone cannot prove the hall is ready. Verify the critical claims within three checks before signing the reduced-energy shot.
+**Question card story setup - exact player copy:** The calculations pass, but the hall cannot be authorized from calculations alone. Three physical records remain unchecked before the reduced-energy shot.
 
-**Question card story-science connection - exact player copy:** The verified readiness claims determine whether the reduced-energy shot can be authorized without an unchecked critical condition.
+**Question card prompt - exact player copy:** Use three checks on the unresolved critical conditions, then authorize only if all three checks pass alongside the already verified prerequisites.
 
-**Question card prompt - exact player copy:** Use at most three checks to verify the unbacked critical hall claims, then submit AUTHORIZE or HOLD for the reduced-energy shot.
+**Complete format-specific interaction block - canonical source:**
 
-**Complete format-specific interaction block:** `attest:{verification_limit:3,claims:[{id:"earth_stick",label:"earth stick present",signed:true,backed:true,critical:true},{id:"discharged",label:"capacitors discharged",signed:true,backed:true,critical:true},{id:"gap",label:"gap set to 8 mm",signed:true,backed:true,critical:true},{id:"door_clear",label:"test door clear",signed:true,backed:false,critical:true},{id:"weather",label:"weather window safe",signed:true,backed:false,critical:true},{id:"stage_serial",label:"stage serial matches plan",signed:true,backed:false,critical:true}],correct_verified:["door_clear","weather","stage_serial"],critical_unbacked:["door_clear","weather","stage_serial"],answerText:"Use all three checks on the unbacked door, weather, and stage-serial claims before authorizing the reduced shot."}`
-
-**§7 build completion - ATTEST:** This block supplies the panel fields omitted above; the authored prompt, science, and correct result remain authoritative.
-
-```yaml
-attest:
-  checks: 3
-  claims:
-    - {id: primary, label: "primary claim for Authorize the Reduced Shot", critical: true, backed: true, verification: "the signed source reproduces the displayed result"}
-    - {id: independent, label: "independent confirmation", critical: true, backed: true, verification: "the independent record agrees within the stated tolerance"}
-    - {id: scope, label: "scope and date", critical: false, backed: true, verification: "the record names the population and time window"}
-    - {id: extension, label: "stronger untested extension", critical: true, backed: false, verification: "no independent check supports the extension; it must be held"}
-  correctAction: "verify primary, independent, and scope; hold extension"
+```json
+{
+  "attest": {
+    "checks": 3,
+    "already_verified": [
+      "earth stick present",
+      "capacitors discharged",
+      "gap set to 8 mm"
+    ],
+    "unresolved": [
+      {
+        "id": "door_clear",
+        "label": "Door and test area clear",
+        "check": "Current physical clear-area inspection"
+      },
+      {
+        "id": "weather",
+        "label": "Weather window permits this shot",
+        "check": "Current weather-window authorization"
+      },
+      {
+        "id": "stage_serial",
+        "label": "Stage serial matches the shot plan",
+        "check": "Compare installed serial with the approved plan"
+      }
+    ],
+    "correct_checks": [
+      "door_clear",
+      "weather",
+      "stage_serial"
+    ],
+    "reveal_after_checks": {
+      "door_clear": "Physical inspection passes.",
+      "weather": "Current reduced-shot window is authorized.",
+      "stage_serial": "Installed serial matches."
+    },
+    "pass_rule": "All existing and newly checked prerequisites pass; otherwise HOLD."
+  }
+}
 ```
 
-**Correct result:** `Authorize the reduced shot after three critical checks.` Records plus physical inspection establish readiness.
+**Evidence delivery and grading:** The setup, decision evidence, public rules, costs and option descriptions are visible on this card before selection. Render option descriptions beside their controls, once; never replace them with internal axis IDs or a generic earlier-case sentence. Answer keys, accepted examples and feedback stay hidden until submission. Reveal withheld measurements only after the stated commitment. Use the public feasibility/selection rule; an example allocation is not an exclusive key. The displayed person must match this stop’s placement and Call.
 
-**Answer text:** The completed check shows authorize the reduced shot after three critical checks. Records plus physical inspection establish readiness.
+**Correct result:** Check door_clear, weather and stage_serial; all three revealed records pass, so authorize only the reduced-energy shot.
 
-**Why:** identity, timing, and physical condition require independent backing.
+**Answer text:** Previously verified discharge, earthing and gap conditions do not substitute for a current clear area, weather authorization or stage identity.
 
-**Wrong-path feedback:** `A backed calculation cannot substitute for the unverified door or weather condition.`
+**Wrong-path feedback:** Identify the unmet public condition or the specific measurement that the selected option cannot provide; keep the original evidence available for retry.
 
 **State/output:** report piece6.
 
@@ -4594,50 +4648,53 @@ derive:
 
 **Stop reason - exact player copy:** The isolation reversal identifies a cause whose size must now be checked against the recorded voltage.
 
-**Question card story setup - exact player copy:** The reversal proves causation; now a 3.0 mA transient crosses a 120 Ω shared lead while true sensor output is -4.2 V. Estimate the recorded voltage and instantaneous lead power.
+**Question card story setup - exact player copy:** The recorder and the circuit do not report quite the same voltage. The lead drop must be included before anyone calls the signal a failure.
 
-**Question card story-science connection - exact player copy:** The shared-lead voltage drop and power establish whether the return current can account for the observed common-mode error.
+**Question card prompt - exact player copy:** The true signal is −4.2 V. A 3 mA current through 120 Ω adds a positive IR offset at the recorder. Select true voltage, current in amperes, and resistance to calculate Vrecord=Vtrue+IR.
 
-**Question card prompt - exact player copy:** Using I=3.0 mA, R=120 Ω, and V_true=-4.2 V, assemble V_recorded=V_true+IR and submit the recorded voltage in volts. The result card will also show the voltage drop and lead power from the same values.
+**Complete format-specific interaction block — canonical BALLPARK:**
 
-**Complete format-specific interaction block:** `estimate={labels:[I,R,Vtrue],values:[.003,120,-4.2],slots:[Vdrop,Vrecord,P],template:[IR,Vtrue+IR,I²R],formula:[.360,-3.840,.00108],correct:[.360,-3.840,.00108],target:[V,V,W],tolerance:[.005,.005,.00005]}`.
-
-**§7 build completion - BALLPARK:** This block supplies the panel fields omitted above; the authored prompt, science, and correct result remain authoritative.
-
-```yaml
-estimate:
-  target: 360.0
-  tolerance: 18.0
-  unit: "units printed on the card"
-  tiles: [{label: "displayed numerator", value: 720.0}, {label: "displayed divisor", value: 2}]
-  formula: "V_recorded=displayed numerator/displayed divisor"
-  correctResultText: "`Vdrop=.360 V, Vrecord=-3.840 V, P=1.08 mW.` Ohm and Joule relations quantify common error."
+```json
+{
+  "estimate": {
+    "quantity": "Quantify Common-Mode Error",
+    "labels": [
+      "-4.2",
+      "0.003",
+      "120",
+      "3"
+    ],
+    "values": [
+      -4.2,
+      0.003,
+      120,
+      3
+    ],
+    "slots": 3,
+    "template": "{a}+{b} × {c} = ? V",
+    "formula": "a+b*c",
+    "correct": [
+      0,
+      1,
+      2
+    ],
+    "target": -3.84,
+    "tolerance": 0.005,
+    "units": "V",
+    "correctResult": -3.84
+  },
+  "answerText": "IR=0.360 V, so Vrecord=−3.840 V. The resistor dissipates I²R=0.00108 W=1.08 mW; the offset is not a reversal of the true signal.",
+  "wrongFeedback": [
+    "Convert milliamperes to amperes and retain the negative sign of the true voltage."
+  ]
+}
 ```
 
-**Handback 9 canonical interaction block - BALLPARK:**
+**Rendering and grading contract:** Render every numeric label as a selectable tile. The printed equation supplies the slot roles; do not replace number labels with quantity names. `correct` contains zero-based tile indices for slots a onward. Accept numerically equivalent selections, including equal-valued tiles. Evaluate the formula on submission; tolerance is absolute in the stated output units. Negative and zero results require a signed linear display. The board has one submission; supporting comparisons appear in the result explanation.
 
-```yaml
-estimate:
-  quantity: "recorded sensor voltage after shared-lead drop"
-  unit: "V"
-  inputs:
-    - {label: "Transient current", value: 3.0, unit: "mA"}
-    - {label: "Shared-lead resistance", value: 120, unit: "ohm"}
-    - {label: "True sensor voltage", value: -4.2, unit: "V"}
-  operation: "convert milliamperes to amperes, multiply current by resistance, then add that drop to the true voltage"
-  formula: "V_recorded=-4.2+(3.0/1000)(120)"
-  correctResult: -3.84
-  tolerance: 0.005
-  answerText: "The shared lead adds 0.360 V, so the recorded voltage is -3.840 V; the same current dissipates 1.08 mW in the lead."
-```
+**Correct result:** IR=0.360 V, so Vrecord=−3.840 V. The resistor dissipates I²R=0.00108 W=1.08 mW; the offset is not a reversal of the true signal.
 
-**Correct result:** `Vdrop=.360 V, Vrecord=-3.840 V, P=1.08 mW.` Ohm and Joule relations quantify common error.
-
-**Answer text:** `Vdrop=(.003)(120)=.360 V`; `Vrecord=-4.2+.360=-3.840 V`; `P=(.003)²(120)=1.08 mW`.
-
-**Why:** a shared `IR` drop adds the same false shift to every referenced channel, while `I²R` reveals its heating scale.
-
-**Wrong-path feedback:** `Keep the true voltage sign and use I²R - not VI with the sensor voltage - for lead power.`
+**Wrong-path feedback:** Convert milliamperes to amperes and retain the negative sign of the true voltage.
 
 **State/output:** report piece7.
 
@@ -5175,52 +5232,56 @@ derive:
 
 **Stop reason - exact player copy:** The predicted magnetic field must be translated into particle motion before it is blamed for equipment damage.
 
-**Question card story setup - exact player copy:** At the outstation, an electron enters B=3.0 mT with perpendicular speed 2.0×10^6 m/s and parallel speed 1.0×10^6 m/s. Estimate its helical radius, then use the result card to inspect period, pitch, and the physical justification.
+**Question card story setup - exact player copy:** The particle trace curls around the field line. Its sideways motion sets the radius; motion along the field sets the pitch.
 
-**Question card story-science connection - exact player copy:** The electron's radius and helical motion characterize magnetic deflection without treating the field as a source of kinetic energy.
+**Question card prompt - exact player copy:** For an electron, use m=9.11×10⁻³¹ kg, |q|=1.602×10⁻¹⁹ C, B=0.003 T, v⊥=2×10⁶ m/s and v∥=1×10⁶ m/s. Fill m, v⊥, |q| and B in r=mv⊥/(|q|B); report millimetres.
 
-**Question card prompt - exact player copy:** Using the displayed electron constants, assemble r=mv⊥/(|q|B), convert the result to millimetres, and submit the radius. Then state whether the magnetic field changes the electron's kinetic energy.
+**Complete format-specific interaction block — canonical BALLPARK:**
 
-**Complete format-specific interaction block:** labels `[m=9.11e-31kg,vperp=2e6,vparallel=1e6,q=1.602e-19C,B=.003T]`, formulas `[r=mvperp/(qB),T=2πm/(qB),pitch=vparallel*T]`, targets `[.00379m,1.191e-8s,.01191m]`, tolerance 10%. Prompt submit radius in mm, period in ns, pitch in mm, and select “kinetic energy unchanged.” Answer `3.79 mm,11.9 ns,11.9 mm`; `ω=qB/m`.
-
-**§7 build completion - BALLPARK:** This block supplies the panel fields omitted above; the authored prompt, science, and correct result remain authoritative.
-
-```yaml
-estimate:
-  target: 3.79
-  tolerance: 0.1895
-  unit: "units printed on the card"
-  tiles: [{label: "displayed numerator", value: 7.58}, {label: "displayed divisor", value: 2}]
-  formula: "r_mm=displayed numerator/displayed divisor"
-  correctResultText: "`r=3.79 mm, T=11.9 ns, pitch=11.9 mm; K unchanged.`"
+```json
+{
+  "estimate": {
+    "quantity": "Track a Charged Particle",
+    "labels": [
+      "9.11e-31",
+      "2000000",
+      "1.602e-19",
+      "0.003",
+      "1000000"
+    ],
+    "values": [
+      9.11e-31,
+      2000000.0,
+      1.602e-19,
+      0.003,
+      1000000.0
+    ],
+    "slots": 4,
+    "template": "{a} × {b} / ({c} × {d}) × 1000 = ? mm",
+    "formula": "a*b/(c*d)*1000",
+    "correct": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "target": 3.791094465,
+    "tolerance": 0.02,
+    "units": "mm",
+    "correctResult": 3.791094465
+  },
+  "answerText": "The radius is about 3.79 mm. The period is about 11.9 ns and the pitch about 11.9 mm. Magnetic force is perpendicular to velocity, so it changes direction without changing kinetic energy.",
+  "wrongFeedback": [
+    "Use the perpendicular speed for radius; the parallel component determines pitch."
+  ]
+}
 ```
 
-**Handback 9 canonical interaction block - BALLPARK:**
+**Rendering and grading contract:** Render every numeric label as a selectable tile. The printed equation supplies the slot roles; do not replace number labels with quantity names. `correct` contains zero-based tile indices for slots a onward. Accept numerically equivalent selections, including equal-valued tiles. Evaluate the formula on submission; tolerance is absolute in the stated output units. Negative and zero results require a signed linear display. The board has one submission; supporting comparisons appear in the result explanation.
 
-```yaml
-estimate:
-  quantity: "electron helical radius"
-  unit: "mm"
-  inputs:
-    - {label: "Electron mass", value: 9.11e-31, unit: "kg"}
-    - {label: "Perpendicular speed", value: 2.0e6, unit: "m/s"}
-    - {label: "Electron charge magnitude", value: 1.602e-19, unit: "C"}
-    - {label: "Magnetic field", value: 0.003, unit: "T"}
-    - {label: "Parallel speed", value: 1.0e6, unit: "m/s", contextOnly: true}
-  operation: "multiply mass by perpendicular speed, divide by charge magnitude times magnetic field, then convert metres to millimetres"
-  formula: "r_mm=1000(9.11e-31)(2.0e6)/[(1.602e-19)(0.003)]"
-  correctResult: 3.79
-  tolerance: 0.19
-  answerText: "The radius is 3.79 mm; the follow-through gives T=11.9 ns and pitch=11.9 mm, while magnetic force leaves kinetic energy unchanged."
-```
+**Correct result:** The radius is about 3.79 mm. The period is about 11.9 ns and the pitch about 11.9 mm. Magnetic force is perpendicular to velocity, so it changes direction without changing kinetic energy.
 
-**Correct result:** `r=3.79 mm, T=11.9 ns, pitch=11.9 mm; K unchanged.`
-
-**Answer text:** The completed check shows r=3.79 mm, T=11.9 ns, pitch=11.9 mm; K unchanged.
-
-**Why:** a magnetic field bends perpendicular motion but leaves parallel speed and kinetic energy unchanged.
-
-**Wrong-path feedback:** `Use v⊥ for radius, v∥ for pitch, and remember magnetic force does no work.`
+**Wrong-path feedback:** Use the perpendicular speed for radius; the parallel component determines pitch.
 
 **State/output:** unlock S4.
 
@@ -7014,34 +7075,62 @@ derive:
 
 **Stop reason - exact player copy:** A successful present-day conduit test does not automatically establish the path during the historical event.
 
-**Question card story setup - exact player copy:** Decide whether the historical current split is defensible.
+**Question card story setup - exact player copy:** The present link test identifies a current path, but the report also makes a claim about week five. Ravi needs historical identity and timing before transferring that interpretation backward.
 
-**Question card story-science connection - exact player copy:** Matching conductor identity and event timing determines whether the old records support the same current split.
+**Question card prompt - exact player copy:** Inspect the four historical records. Accept the week-five current split only if shunt identity, clock alignment, conduit configuration and clamp calibration all match; today’s link test alone cannot establish past wiring.
 
-**Question card prompt - exact player copy:** Use no more than four checks to verify week-five identity, timing, bond, and calibration records, then submit the historical current fraction and path.
+**Complete format-specific interaction block - canonical source:**
 
-**Complete format-specific interaction block:** `attest:{verification_limit:4,claims:[{id:"shunt_identity",label:"week-five shunt identity",signed:true,backed:true,critical:true},{id:"clock_alignment",label:"week-five clock alignment",signed:true,backed:true,critical:true},{id:"conduit_work_order",label:"conduit bond work order",signed:true,backed:false,critical:true},{id:"clamp_calibration",label:"clamp calibration",signed:true,backed:true,critical:true},{id:"today_link",label:"today controlled-link result",signed:true,backed:true,critical:false}],correct_verified:["shunt_identity","clock_alignment","conduit_work_order","clamp_calibration"],critical_unbacked:"conduit_work_order",answerText:"Verify the four historical records, including the unbacked conduit work order, before applying the current causal result to week five."}`
-
-**§7 build completion - ATTEST:** This block supplies the panel fields omitted above; the authored prompt, science, and correct result remain authoritative.
-
-```yaml
-attest:
-  checks: 3
-  claims:
-    - {id: primary, label: "primary claim for Verify the Historical Path", critical: true, backed: true, verification: "the signed source reproduces the displayed result"}
-    - {id: independent, label: "independent confirmation", critical: true, backed: true, verification: "the independent record agrees within the stated tolerance"}
-    - {id: scope, label: "scope and date", critical: false, backed: true, verification: "the record names the population and time window"}
-    - {id: extension, label: "stronger untested extension", critical: true, backed: false, verification: "no independent check supports the extension; it must be held"}
-  correctAction: "verify primary, independent, and scope; hold extension"
+```json
+{
+  "attest": {
+    "checks": 4,
+    "records": [
+      {
+        "id": "shunt_identity",
+        "label": "Week-five shunt identity",
+        "result": "The archived shunt ID matches the week-five channel record."
+      },
+      {
+        "id": "clock_alignment",
+        "label": "Week-five clock alignment",
+        "result": "The archived clock alignment matches the current-split interval."
+      },
+      {
+        "id": "conduit_work_order",
+        "label": "Week-five conduit work order",
+        "result": "The archived bond work order confirms the conduit configuration for that interval."
+      },
+      {
+        "id": "clamp_calibration",
+        "label": "Week-five clamp calibration",
+        "result": "The archived clamp calibration applies to the recorded current."
+      },
+      {
+        "id": "today_link",
+        "label": "Today’s controlled-link result",
+        "result": "Tests today’s connection only."
+      }
+    ],
+    "correct_checks": [
+      "shunt_identity",
+      "clock_alignment",
+      "conduit_work_order",
+      "clamp_calibration"
+    ],
+    "current_record": "The archived current ledger attributes one-third of the current to the conduit.",
+    "pass_rule": "All four historical records verified; report limited to that dated configuration."
+  }
+}
 ```
 
-**Correct result:** `Week-five records support one-third via conduit.` Identity and timing transfer the test.
+**Evidence delivery and grading:** The setup, decision evidence, public rules, costs and option descriptions are visible on this card before selection. Render option descriptions beside their controls, once; never replace them with internal axis IDs or a generic earlier-case sentence. Answer keys, accepted examples and feedback stay hidden until submission. Reveal withheld measurements only after the stated commitment. Use the public feasibility/selection rule; an example allocation is not an exclusive key. The displayed person must match this stop’s placement and Call.
 
-**Answer text:** The completed check shows week-five records support one-third via conduit. Identity and timing transfer the test.
+**Correct result:** Verify the four historical records and report one-third via the conduit in the dated week-five configuration.
 
-**Why:** matched identity and timing transfer the causal result to the failed shot.
+**Answer text:** The work order closes the historical configuration gap; the contemporary control test remains evidence about today’s circuit.
 
-**Wrong-path feedback:** `Today’s result alone cannot establish the historical shot; verify all four critical records.`
+**Wrong-path feedback:** Identify the unmet public condition or the specific measurement that the selected option cannot provide; keep the original evidence available for retry.
 
 **State/output:** report piece11.
 
@@ -7428,21 +7517,53 @@ Strand owns source, Tate path, Noor tolerance.
 
 **Stop reason - exact player copy:** The reroute must first be tested at reduced energy before the crew attempts a full shot.
 
-**Question card story setup - exact player copy:** The test uses twelve 100 nF stages at 25.0 kV each rather than 50.0 kV. Estimate total stored energy using U_total=12(½CV²) before the charging control unlocks.
+**Question card story setup - exact player copy:** The charging rack carries energy in every stage. The crew needs the combined store before considering a lower charging voltage.
 
-**Question card story-science connection - exact player copy:** The reduced bank energy establishes the test exposure associated with the lower stage voltage.
+**Question card prompt - exact player copy:** There are 12 stages, each with C=100 nF and V=25 kV. Fill stage count, capacitance in farads, and voltage in volts in E=N(½CV²).
 
-**Question card prompt - exact player copy:** Using twelve 100 nF stages at 25.0 kV, assemble U_total=12(½CV²) and submit total energy in joules before the charger unlocks.
+**Complete format-specific interaction block — canonical BALLPARK:**
 
-**Complete format-specific interaction block:** target `375J`, tolerance 5%, visible constants. Prompt assemble/submit J.
+```json
+{
+  "estimate": {
+    "quantity": "Calculate Reduced Energy",
+    "labels": [
+      "12",
+      "1e-07",
+      "25000",
+      "100"
+    ],
+    "values": [
+      12,
+      1e-07,
+      25000,
+      100
+    ],
+    "slots": 3,
+    "template": "{a} × 0.5 × {b} × {c} × {c} = ? J",
+    "formula": "a*0.5*b*c*c",
+    "correct": [
+      0,
+      1,
+      2
+    ],
+    "target": 375,
+    "tolerance": 0.5,
+    "units": "J",
+    "correctResult": 375
+  },
+  "answerText": "The bank stores 375 J. Halving the voltage reduces energy to one quarter, 93.75 J, because energy depends on V².",
+  "wrongFeedback": [
+    "Convert both nano­farads and kilovolts; voltage enters squared."
+  ]
+}
+```
 
-**Correct result:** `Reduced bank energy is 375 J.` Halving V quarters U.
+**Rendering and grading contract:** Render every numeric label as a selectable tile. The printed equation supplies the slot roles; do not replace number labels with quantity names. `correct` contains zero-based tile indices for slots a onward. Accept numerically equivalent selections, including equal-valued tiles. Evaluate the formula on submission; tolerance is absolute in the stated output units. Negative and zero results require a signed linear display. The board has one submission; supporting comparisons appear in the result explanation.
 
-**Answer text:** The completed check shows reduced bank energy is 375 J. Halving V quarters U.
+**Correct result:** The bank stores 375 J. Halving the voltage reduces energy to one quarter, 93.75 J, because energy depends on V².
 
-**Why:** halving voltage quarters capacitor energy.
-
-**Wrong-path feedback:** `The bank still has twelve stages; change only stage voltage.`
+**Wrong-path feedback:** Convert both nano­farads and kilovolts; voltage enters squared.
 
 **State/output:** unlock S2.
 
@@ -7580,63 +7701,50 @@ verify:
 
 **Stop reason - exact player copy:** The reduced-shot success must still survive the stronger pulse and uncertain coupling of a full shot.
 
-**Question card story setup - exact player copy:** The reduced shot measured 92 V, but the full shot has uncertain coupling and rise rate. Vary mutual inductance from 0.50 to 0.70 microH and dI/dt from 2.8 to 3.2×10^8 A/s, then test the 250 V limit.
+**Question card story setup - exact player copy:** The full-shot prediction carries uncertainty in both coupling and current rise. Certification uses the largest supported induced voltage.
 
-**Question card story-science connection - exact player copy:** The worst-case coupled voltage determines whether the reroute remains below the trailer limit throughout the allowed uncertainty range.
+**Question card prompt - exact player copy:** Use |V|=M|dI/dt| with M=0.50–0.70 μH and |dI/dt|=2.8–3.2×10⁸ A/s. Submit the adverse pair and voltage; pass only if the maximum is at most 250 V.
 
-**Question card prompt - exact player copy:** Adjust M and dI/dt through both displayed ranges, submit the numerical worst-case pair and voltage in volts, then select safe or unsafe against the inclusive 250 V limit.
+**Complete format-specific interaction block - canonical source:**
 
-**Complete format-specific interaction block:** ranges; maximum `224V`; correct pass. Prompt move assumptions, submit worst voltage/conclusion.
-
-**§7 authored-board source - STRESS:** Convert this stop from its authored interaction block below. Do not substitute a format-level template. The panel must state the goal without printing the keyed answer.
-
-```yaml
-authored_board:
-  stop: "Stop 48 - Stress Worst-Case Coupling"
-  format: "STRESS"
-  source: "Handback 3 canonical interaction block"
-  question: "Adjust M and dI/dt through both displayed ranges, submit the numerical worst-case pair and voltage in volts, then select safe or unsafe against the inclusive 250 V limit."
-  payload: "ranges; maximum `224V`; correct pass. Prompt move assumptions, submit worst voltage/conclusion."
-  axis_and_units: "Use only quantities and units named in this question and payload."
-  candidates_and_numbers: "Use only candidates and numbers named in this question and payload."
-  panel_rule: "Print the goal, never the target or keyed answer."
+```json
+{
+  "stress": {
+    "model": {
+      "M_microH": [
+        0.5,
+        0.7
+      ],
+      "rise_Aps": [
+        280000000.0,
+        320000000.0
+      ],
+      "formula": "M_microH*1e-6*rise_Aps",
+      "limit_V": 250
+    },
+    "candidates": [
+      {
+        "id": "pass",
+        "label": "Pass this voltage boundary"
+      },
+      {
+        "id": "fail",
+        "label": "Fail this voltage boundary"
+      }
+    ],
+    "correct": "pass",
+    "public_rule": "Use the displayed model and criterion over the entire stated range; no hidden preference scores."
+  }
+}
 ```
 
-**Handback 3 canonical interaction block - STRESS:**
+**Evidence delivery and grading:** The setup, decision evidence, public rules, costs and option descriptions are visible on this card before selection. Render option descriptions beside their controls, once; never replace them with internal axis IDs or a generic earlier-case sentence. Answer keys, accepted examples and feedback stay hidden until submission. Reveal withheld measurements only after the stated commitment. Use the public feasibility/selection rule; an example allocation is not an exclusive key. The displayed person must match this stop’s placement and Call.
 
-```yaml
-stress:
-  assumption: {label: "mutual inductance", min: 0.01, max: 0.014, nominal: 0.012, step: 0.001, unit: "H"}
-  criteria:
-    - {id: evidence_fit, label: "fit to the stop evidence", direction: maximise}
-    - {id: safety_margin, label: "margin at the adverse end", direction: maximise}
-  optimiseOn: evidence_fit
-  candidates:
-    - id: nominal_only
-      label: "Use only the nominal reading"
-      scores: {evidence_fit: 95, safety_margin: 20}
-      validRange: {min: 0.012, max: 0.012}
-      failsAt: 0.014
-    - id: common_extreme_mistake
-      label: "Use the favorable extreme as if it were guaranteed"
-      scores: {evidence_fit: 88, safety_margin: 5}
-      validRange: {min: 0.012, max: 0.014}
-      failsAt: 0.01
-    - id: robust_plan
-      label: "`Worst pair gives 224 V, below 250 V.`"
-      scores: {evidence_fit: 82, safety_margin: 92}
-      validRange: {min: 0.01, max: 0.014}
-  robust: robust_plan
-  question: "Adjust M and dI/dt through both displayed ranges, submit the numerical worst-case pair and voltage in volts, then select safe or unsafe against the inclusive 250 V limit."
-```
+**Correct result:** The adverse pair is 0.70 μH and 3.2×10⁸ A/s, giving 224 V. This passes the 250 V limit for this tested path.
 
-**Correct result:** `Worst pair gives 224 V, below 250 V.`
+**Answer text:** The adverse pair is 0.70 μH and 3.2×10⁸ A/s, giving 224 V. This passes the 250 V limit for this tested path.
 
-**Answer text:** The completed check shows worst pair gives 224 V, below 250 V.
-
-**Why:** the repair passes only if every allowed pair stays below the campaign limit.
-
-**Wrong-path feedback:** `Submit the numerical pair and worst voltage before selecting the safe plan.`
+**Wrong-path feedback:** Identify the unmet public condition or the specific measurement that the selected option cannot provide; keep the original evidence available for retry.
 
 **State/output:** report piece12.
 
@@ -8146,54 +8254,66 @@ derive:
 
 **Stop reason - exact player copy:** The recorder response identifies a timing weakness that the remaining upgrade budget must address.
 
-**Question card story setup - exact player copy:** With RC loss identified, the one-microsecond record can add only one upgrade. Compare costs and propagated uncertainty from faster sampling, another slow sensor, better paint calibration, or a longer cable survey.
+**Question card story setup - exact player copy:** The pulse recorder’s response is the largest part of the error budget. Only one upgrade can be fitted before the next certification record.
 
-**Question card story-science connection - exact player copy:** The uncertainty reduction determines whether the selected upgrade materially improves the one-microsecond pulse measurement.
+**Decision evidence - exact player copy:** Current independent contributions are bandwidth 18%, gain 3%, timing 4% and geometry 6%. One upgrade changes only its named component. The available after-values and costs are displayed beside the controls.
 
-**Question card prompt - exact player copy:** Read the live error budget, spend the one available record slot, and submit the upgrade that most reduces the uncertainty controlling certification.
+**Question card prompt - exact player copy:** Choose one upgrade costing at most 3 credits that minimizes total fractional uncertainty. Combine the independent percentage contributions by root-sum-square; submit the upgrade and total percent uncertainty.
 
-**Complete format-specific interaction block:** live error contributions `[bandwidth:18%,gain:3%,timing:4%,geometry:6%]`; options/cost one slot; correct faster sampling reduces to4%. State waypoint EARTH.
+**Complete format-specific interaction block - canonical source:**
 
-**§7 authored-board source - PROPAGATE:** Convert this stop from its authored interaction block below. Do not substitute a format-level template. The panel must state the goal without printing the keyed answer.
-
-```yaml
-authored_board:
-  stop: "Stop 51 - Buy the Recorder Upgrade"
-  format: "PROPAGATE"
-  source: "Handback 5 canonical interaction block"
-  question: "Read the live error budget, spend the one available record slot, and submit the upgrade that most reduces the uncertainty controlling certification."
-  payload: "live error contributions `[bandwidth:18%,gain:3%,timing:4%,geometry:6%]`; options/cost one slot; correct faster sampling reduces to4%. State waypoint EARTH."
-  axis_and_units: "Use only quantities and units named in this question and payload."
-  candidates_and_numbers: "Use only candidates and numbers named in this question and payload."
-  panel_rule: "Print the goal, never the target or keyed answer."
+```json
+{
+  "propagate": {
+    "budget": 3,
+    "costUnit": "upgrade credits",
+    "max_upgrades": 1,
+    "units": "percent",
+    "combination": "sqrt(sum of squared contributions)",
+    "inputs": [
+      {
+        "id": "bandwidth",
+        "label": "Faster recorder",
+        "before": 18,
+        "after": 4,
+        "cost": 3
+      },
+      {
+        "id": "gain",
+        "label": "Gain calibration",
+        "before": 3,
+        "after": 2,
+        "cost": 2
+      },
+      {
+        "id": "timing",
+        "label": "Timing calibration",
+        "before": 4,
+        "after": 3,
+        "cost": 1
+      },
+      {
+        "id": "geometry",
+        "label": "Probe-geometry survey",
+        "before": 6,
+        "after": 5,
+        "cost": 2
+      }
+    ],
+    "correctUpgrade": "bandwidth",
+    "target": 8.774964387392123,
+    "tolerance": 0.01
+  }
+}
 ```
 
-**Handback 3 canonical interaction block - PROPAGATE:**
+**Evidence delivery and grading:** The setup, decision evidence, public rules, costs and option descriptions are visible on this card before selection. Render option descriptions beside their controls, once; never replace them with internal axis IDs or a generic earlier-case sentence. Answer keys, accepted examples and feedback stay hidden until submission. Reveal withheld measurements only after the stated commitment. Use the public feasibility/selection rule; an example allocation is not an exclusive key. The displayed person must match this stop’s placement and Call.
 
-**Handback 5 canonical interaction block - PROPAGATE:**
+**Correct result:** Faster recorder; total uncertainty falls from √385≈19.62% to √77≈8.77%.
 
-```yaml
-propagate:
-  costUnit: "upgrade credits"
-  budget: 3
-  inputs:
-    - {id: bandwidth, label: "Recorder bandwidth", value: 1, sigmaFrac: 0.18, exponent: 1, unit: "response factor", improvableTo: 0.04, cost: 3}
-    - {id: gain, label: "Recorder gain", value: 1, sigmaFrac: 0.03, exponent: 2, unit: "gain factor", improvableTo: 0.02, cost: 2}
-    - {id: timing, label: "Trigger timing", value: 1, sigmaFrac: 0.04, exponent: 1, unit: "timing factor", improvableTo: 0.03, cost: 1}
-    - {id: geometry, label: "Probe geometry", value: 1, sigmaFrac: 0.06, exponent: 1, unit: "geometry factor", improvableTo: 0.05, cost: 2}
-  dominant: bandwidth
-  improvable: [bandwidth, gain, timing, geometry]
-  correctUpgrade: bandwidth
-  correctResult: "`Buy faster sampling; dominant uncertainty falls 18% to 4%.`"
-```
+**Answer text:** The bandwidth contribution falls from 18% to 4%; the other contributions remain 3%, 4% and 6%. Four percent is the upgraded component, not the total record uncertainty.
 
-**Correct result:** `Buy faster sampling; dominant uncertainty falls 18% to 4%.`
-
-**Answer text:** The completed check shows buy faster sampling; dominant uncertainty falls 18% to 4%.
-
-**Why:** spend the channel on bandwidth because it dominates peak-voltage uncertainty.
-
-**Wrong-path feedback:** `Spend the one slot on the error term that changes certification.`
+**Wrong-path feedback:** Identify the unmet public condition or the specific measurement that the selected option cannot provide; keep the original evidence available for retry.
 
 **State/output:** Record the result and unlock the next named stop.
 
@@ -8703,41 +8823,6 @@ Maxwell synthesis, Poynting, precommitment, spatial probing.
 
 **Complete format-specific interaction block:** four anchors/rules and consequence; exact. Prompt enter four numeric thresholds/units and submit GO rule before updates.
 
-**§7 authored-board source - TRIGGER:** Convert this stop from its authored interaction block below. Do not substitute a format-level template. The panel must state the goal without printing the keyed answer.
-
-```yaml
-authored_board:
-  stop: "Stop 53 - Freeze Final Thresholds"
-  format: "TRIGGER"
-  source: "Handback 3 canonical interaction block"
-  question: "Before any update appears, enter the inclusive field, conduit-current, trailer-voltage, and channel-spread limits with units; submit the complete GO rule."
-  payload: "four anchors/rules and consequence; exact. Prompt enter four numeric thresholds/units and submit GO rule before updates."
-  axis_and_units: "Use only quantities and units named in this question and payload."
-  candidates_and_numbers: "Use only candidates and numbers named in this question and payload."
-  panel_rule: "Print the goal, never the target or keyed answer."
-```
-
-**Handback 3 canonical interaction block - TRIGGER:**
-
-```yaml
-trigger:
-  rule: "Commit the threshold before the stream appears; act only when a reading enters the action window with enough lead time."
-  scale: {label: "vertical electric-field magnitude", min: 0, max: 8, step: 0.1, unit: "kV/m"}
-  start: 1.6
-  anchors:
-    - {at: 1.6, means: "routine baseline, not the decision threshold"}
-    - {at: 5.2, means: "elevated evidence requiring attention"}
-  direction: rising
-  updates:
-    - {at: "T-48 h", value: 3.7, hoursLeft: 48}
-    - {at: "T-24 h", value: 4.5, hoursLeft: 24}
-    - {at: "T-12 h", value: 5.1, hoursLeft: 12}
-    - {at: "T-6 h", value: 5.4, hoursLeft: 6}
-  stages:
-    - {id: watch, label: "Increase monitoring", window: {min: 0, max: 4.99}, leadHours: 24}
-    - {id: act, label: "Take the protective action", window: {min: 5, max: 8}, leadHours: 12}
-  question: "Before any update appears, enter the inclusive field, conduit-current, trailer-voltage, and channel-spread limits with units; submit the complete GO rule."
-```
 
 **Correct result:** `All four inclusive thresholds are frozen before data.`
 
@@ -9276,21 +9361,106 @@ Ortiz supplies stop rule, Strand timing, Tate path, Ravi field, Noor independenc
 
 **Stop reason - exact player copy:** The rack survey reveals a local failure that the remaining repair effort must target.
 
-**Question card story setup - exact player copy:** Ortiz has 100 effort points and four hours. Fund a plan that reduces card-E loop area, preserves isolated recording, verifies bank timing, and keeps a protected inspection reserve.
+**Question card story setup - exact player copy:** The remaining fault is local to card E’s loop. Ortiz has four hours to complete a repair and preserve the evidence needed to test it.
 
-**Question card story-science connection - exact player copy:** The allocation determines whether loop reduction, independent recording, timing checks, and inspection all remain funded.
+**Decision evidence - exact player copy:** Required outcomes: reduce the card-E loop area; retain an independently isolated recording channel; verify bank timing; protect inspection capacity. These whole work packages can run within the stated four-hour window; no separate time optimization is requested.
 
-**Question card prompt - exact player copy:** Allocate the 100 effort points across the five proposals, preserve the protected inspection reserve, and submit answers to all three causal-plan checks.
+**Question card prompt - exact player copy:** You have 100 effort points. Cover every required outcome at the lowest total cost within the budget; keep all unused capacity in reserve. Select whole packages, then submit the plan; the board shows its total and remaining reserve for you to check.
 
-**Complete format-specific interaction block:** proposals `[twist_pair 35 required,isolated_channel20 required,gap_timing15 required,inspection20 protected,repaint10]`; recommended first four=90; evidence constraints. Prompt allocate 100 and answer three decision checks. State waypoint BANK.
+**Complete format-specific interaction block - canonical source:**
 
-**Correct result:** `Fund twist, isolation, timing, and protected inspection.` Causal chain costs 90 points.
+```json
+{
+  "sciencetank": {
+    "budget": {
+      "value": 100,
+      "unit": "effort points"
+    },
+    "requirements": [
+      {
+        "id": "r1",
+        "text": "reduce the card-E loop area"
+      },
+      {
+        "id": "r2",
+        "text": "retain an independently isolated recording channel"
+      },
+      {
+        "id": "r3",
+        "text": "verify bank timing"
+      },
+      {
+        "id": "r4",
+        "text": "protect inspection capacity"
+      }
+    ],
+    "selection_rule": "Cover every required outcome at the lowest total cost within the budget; keep all unused capacity in reserve.",
+    "options": [
+      {
+        "id": "twist_pair",
+        "label": "Twist the card-E pair",
+        "cost": 35.0,
+        "information": "Reduces the loop area that couples the changing magnetic flux.",
+        "covers": [
+          "r1"
+        ]
+      },
+      {
+        "id": "isolated_channel",
+        "label": "Isolated recording channel",
+        "cost": 20.0,
+        "information": "Retains an independent measurement of the repaired peak.",
+        "covers": [
+          "r2"
+        ]
+      },
+      {
+        "id": "gap_timing",
+        "label": "Bank timing check",
+        "cost": 15.0,
+        "information": "Confirms that the source pulse is still the intended test.",
+        "covers": [
+          "r3"
+        ]
+      },
+      {
+        "id": "inspection",
+        "label": "Protected inspection block",
+        "cost": 20.0,
+        "information": "Keeps inspection capacity available before sign-off.",
+        "covers": [
+          "r4"
+        ]
+      },
+      {
+        "id": "repaint",
+        "label": "Repaint the rack",
+        "cost": 10.0,
+        "information": "Changes appearance without reducing the induced voltage.",
+        "covers": []
+      }
+    ],
+    "accepted_plans": [
+      [
+        "twist_pair",
+        "isolated_channel",
+        "gap_timing",
+        "inspection"
+      ]
+    ],
+    "example_total": 90.0,
+    "example_reserve": 10.0
+  }
+}
+```
 
-**Answer text:** The completed check shows fund twist, isolation, timing, and protected inspection. Causal chain costs 90 points.
+**Evidence delivery and grading:** The setup, decision evidence, public rules, costs and option descriptions are visible on this card before selection. Render option descriptions beside their controls, once; never replace them with internal axis IDs or a generic earlier-case sentence. Answer keys, accepted examples and feedback stay hidden until submission. Reveal withheld measurements only after the stated commitment. Use the public feasibility/selection rule; an example allocation is not an exclusive key. The displayed person must match this stop’s placement and Call.
 
-**Why:** the final plan must cover source, path, measurement, and recovery.
+**Correct result:** twist_pair, isolated_channel, gap_timing, inspection = 90 effort points; reserve 10
 
-**Wrong-path feedback:** `Do not spend protected inspection capacity on cosmetic work.`
+**Answer text:** Each funded package supplies a required outcome; an affordable package that leaves one unresolved is insufficient.
+
+**Wrong-path feedback:** Identify the unmet public condition or the specific measurement that the selected option cannot provide; keep the original evidence available for retry.
 
 **State/output:** Record the result and unlock the next named stop.
 
@@ -9374,34 +9544,73 @@ Ortiz supplies stop rule, Strand timing, Tate path, Ravi field, Noor independenc
 
 **Stop reason - exact player copy:** The repaired card's final reading is available, but station-wide certification still requires every safeguard to agree.
 
-**Question card story setup - exact player copy:** The repaired card measures 74 V on the final shot. Verify crew-clear field, conduit current, all trailer peaks, channel independence, bank timing, and post-shot inspection, then submit one certification verdict.
+**Question card story setup - exact player copy:** The repaired local card and the main path have passed their final checks. Certify only the tested configuration documented in the final record.
 
-**Question card story-science connection - exact player copy:** The complete verification record determines whether Station 12 can be certified with no unresolved exposure or inspection condition.
+**Question card prompt - exact player copy:** Apply field≤5.0 kV/m, conduit current≤1.0 kA, trailer peaks≤250 V and channel spread≤0.50 kV/m; also require the recorded independent channel, intended timing and inspection. Read the displayed source excerpts, then select every supported claim and leave unsupported claims unsigned.
 
-**Question card prompt - exact player copy:** Use at most six checks to verify every critical threshold, identity, timing, independence, and inspection claim; submit CERTIFY or REJECT as one final verdict.
+**Complete format-specific interaction block - canonical source:**
 
-**Complete format-specific interaction block:** `attest:{verification_limit:6,claims:[{id:"field",label:"crew-clear field 4.7 kV/m",signed:true,backed:true,critical:true},{id:"conduit",label:"conduit current 0.3 kA",signed:true,backed:true,critical:true},{id:"trailers",label:"maximum trailer peak 190 V",signed:true,backed:true,critical:true},{id:"independence",label:"channel spread 0.2",signed:true,backed:true,critical:true},{id:"timing",label:"bank timing 100 ns",signed:true,backed:true,critical:true},{id:"inspection",label:"post-shot inspection passed",signed:true,backed:true,critical:true},{id:"draft_note",label:"unsigned draft summary",signed:false,backed:false,critical:false}],correct_verified:["field","conduit","trailers","independence","timing","inspection"],answerText:"All six critical signed records pass, so certify Station 12; the unsigned draft is not evidence."}`
-
-**§7 build completion - ATTEST:** This block supplies the panel fields omitted above; the authored prompt, science, and correct result remain authoritative.
-
-```yaml
-attest:
-  checks: 3
-  claims:
-    - {id: primary, label: "primary claim for Certify Station 12", critical: true, backed: true, verification: "the signed source reproduces the displayed result"}
-    - {id: independent, label: "independent confirmation", critical: true, backed: true, verification: "the independent record agrees within the stated tolerance"}
-    - {id: scope, label: "scope and date", critical: false, backed: true, verification: "the record names the population and time window"}
-    - {id: extension, label: "stronger untested extension", critical: true, backed: false, verification: "no independent check supports the extension; it must be held"}
-  correctAction: "verify primary, independent, and scope; hold extension"
+```json
+{
+  "attest": {
+    "claims": [
+      {
+        "id": "field",
+        "label": "Crew-clear field passes",
+        "evidence": "The final field record is 4.7 kV/m."
+      },
+      {
+        "id": "conduit",
+        "label": "The conduit limit passes",
+        "evidence": "The final conduit-current record is 0.3 kA."
+      },
+      {
+        "id": "trailers",
+        "label": "The recorded trailer peaks pass",
+        "evidence": "The final main-path maximum is 190 V and repaired card E is 74 V."
+      },
+      {
+        "id": "independence",
+        "label": "The measurement chain and spread checks pass",
+        "evidence": "The source audit retains the isolated recording channel; final field-channel spread is 0.2 kV/m. Spread alone is not proof of independence."
+      },
+      {
+        "id": "timing",
+        "label": "The bank timing matches the final plan",
+        "evidence": "The timing record gives the specified 100 ns pulse for this final configuration."
+      },
+      {
+        "id": "inspection",
+        "label": "The post-shot inspection is complete",
+        "evidence": "The final inspection sheet records the completed post-shot check for this configuration."
+      },
+      {
+        "id": "draft_note",
+        "label": "The unsigned draft can replace these records",
+        "evidence": "The draft has no signed final-shot source identity."
+      }
+    ],
+    "selection_rule": "Support must be present in the displayed source excerpt and within its scope; a signature or repeated copy alone is insufficient.",
+    "correct_signed": [
+      "field",
+      "conduit",
+      "trailers",
+      "independence",
+      "timing",
+      "inspection"
+    ],
+    "checks": 6
+  }
+}
 ```
 
-**Correct result:** `CERTIFY.` Every threshold, identity, timing, independence, and inspection claim is backed.
+**Evidence delivery and grading:** The setup, decision evidence, public rules, costs and option descriptions are visible on this card before selection. Render option descriptions beside their controls, once; never replace them with internal axis IDs or a generic earlier-case sentence. Answer keys, accepted examples and feedback stay hidden until submission. Reveal withheld measurements only after the stated commitment. Use the public feasibility/selection rule; an example allocation is not an exclusive key. The displayed person must match this stop’s placement and Call.
 
-**Answer text:** The completed check shows cERTIFY. Every threshold, identity, timing, independence, and inspection claim is backed.
+**Correct result:** Sign field, conduit, trailers, independence, timing, inspection; leave the other claims unsigned.
 
-**Why:** the signed report is warranted only if every physical limit and evidence condition passes.
+**Answer text:** Each signature is limited to what its source establishes. The unsupported claims lack the specific date, physical condition, independence or scope they assert.
 
-**Wrong-path feedback:** `One missing critical record blocks certification even if every visible number is green.`
+**Wrong-path feedback:** Identify the unmet public condition or the specific measurement that the selected option cannot provide; keep the original evidence available for retry.
 
 **State/output:** Record the result and unlock the next named stop.
 
@@ -9898,3 +10107,13 @@ The following group ownership is authoritative for reachability; it does not add
 ## Mental-math number rule for calculated-response cards
 
 This rule is binding for this campaign and for future games built from it. When the player must perform the arithmetic without a supplied calculator or a displayed intermediate result, author inputs as friendly integers or simple ratios. Prefer products and quotients that can be completed mentally and key results to an integer or at most one useful decimal place. Update every dependent prompt, board payload, prediction, measurement, tolerance, correct result, answer text, and feedback together. Preserve more complex real-world values only when the interface supplies the calculator or the intermediate value and the learning target is interpretation rather than arithmetic. Never make arithmetic friction the hidden difficulty of a concept question.
+
+# Decision-card evidence contract
+
+Every decision card must expose the exact evidence and public rule that distinguish its accepted answers from plausible alternatives. Render the local Data/readings/options, Decision evidence, public constraints and option effects before selection; keep them available while the player chooses. Use plain-language descriptions, not internal axis names. Show one speaker header from the stop’s placement and Call, and one coherent setup and prompt. Never substitute a discovery-stage explanation into a later allocation, release or certification task.
+
+Resource tasks distinguish a budget from the goal. Display the required outcomes, each option’s contribution, costs, reserve rules and any priority or tie-breaker. Accept every plan satisfying the published rule. A recommended split is not an exclusive key unless the visible constraints uniquely determine it. Policies are identified as policies; the player must not derive an institutional preference from a scientific formula.
+
+For staged tests, show hypotheses, model inputs and acceptance rules before commitment, but keep held-out results hidden until the specified test or reveal. No grade may depend on guessing a future result. A signed claim requires a readable source excerpt or an explicit inspection, not a hidden backed flag. Copied records retain their shared-source identity.
+
+No importer fallback may borrow another stop’s data, speaker, threshold or generic mission text. Missing required local evidence is an import error. Before release, inspect the rendered card, prove the accepted response from visible information alone, try a plausible wrong answer, and test a different valid answer where the rule admits one. This document revision is source work; rendered-game verification still requires the actual implementation.

@@ -1541,21 +1541,50 @@ An orbit needs position and velocity in three dimensions. Optical astrometry sup
 
 **Stop reason - exact player copy:** The verified detection needs a rate of sky motion to initialize the orbit search.
 
-**Question card story setup - exact player copy:** The verified point moves 37 arcseconds during a 24-minute clean interval while the reference stars remain fixed. Estimate its hourly angular rate so the orbit search begins in the correct region.
+**Question card story setup - exact player copy:** The two sky positions are marked. The team needs an angular rate before extrapolating the next observation.
 
-**Question card story-science connection - exact player copy:** The hourly angular rate constrains the search without pretending that angular motion alone establishes physical speed.
+**Question card prompt - exact player copy:** The object moves 37 arcseconds in 24 minutes. Fill displacement and elapsed minutes in rate=displacement/time×60 to report arcseconds per hour.
 
-**Question card prompt - exact player copy:** Using the displayed values, submit one angular rate ω in arcseconds per hour.
+**Complete format-specific interaction block — canonical BALLPARK:**
 
-**Expected submission - exact player copy:** one numerical angular rate in degrees per day
+```json
+{
+  "estimate": {
+    "quantity": "Measure the sky rate",
+    "labels": [
+      "37",
+      "24",
+      "60"
+    ],
+    "values": [
+      37,
+      24,
+      60
+    ],
+    "slots": 2,
+    "template": "{a} / {b} × 60 = ? arcseconds/hour",
+    "formula": "a/b*60",
+    "correct": [
+      0,
+      1
+    ],
+    "target": 92.5,
+    "tolerance": 0.1,
+    "units": "arcseconds/hour",
+    "correctResult": 92.5
+  },
+  "answerText": "37/24×60=92.5 arcseconds per hour. This is an angular sky rate, not a physical speed or degrees per day.",
+  "wrongFeedback": [
+    "The requested unit is per hour; multiply the per-minute rate by 60."
+  ]
+}
+```
 
-**Correct result:** 92.5 arcsec/hour; accept 83-102 arcsec/hour.
+**Rendering and grading contract:** Render every numeric label as a selectable tile. The printed equation supplies the slot roles; do not replace number labels with quantity names. `correct` contains zero-based tile indices for slots a onward. Accept numerically equivalent selections, including equal-valued tiles. Evaluate the formula on submission; tolerance is absolute in the stated output units. Negative and zero results require a signed linear display. The board has one submission; supporting comparisons appear in the result explanation.
 
-**Answer text:** The object moves about 93 arcseconds per hour.
+**Correct result:** 37/24×60=92.5 arcseconds per hour. This is an angular sky rate, not a physical speed or degrees per day.
 
-**Why:** Rate is angular displacement divided by elapsed time, then scaled to one hour.
-
-**Wrong-path feedback:** Keep arcseconds in the numerator and convert 24 minutes to a fraction of an hour.
+**Wrong-path feedback:** The requested unit is per hour; multiply the per-minute rate by 60.
 
 **State/output:** Rate enters the orbit solver; Stop 6 unlocks.
 
@@ -2331,63 +2360,60 @@ choice:
 
 **Stop reason - exact player copy:** The rising probability must survive reasonable error assumptions before it supports notification.
 
-**Question card story setup - exact player copy:** Because the normalized cloud gives 8.0%, vary the astrometric weights, focusing radius, and one-frame timing uncertainty across justified ranges. Determine whether every reasonable case remains above the 1% notification line.
+**Question card story setup - exact player copy:** The updated probability must survive the justified error assumptions before it supports notification. The team has completed the sensitivity runs and retained their reported envelope.
 
-**Question card story-science connection - exact player copy:** The lowest supported probability determines whether the notification threshold is exceeded throughout the sensitivity tests.
+**Question card prompt - exact player copy:** Inspect the supplied sensitivity envelope and submit its minimum probability. Mark ROBUSTLY ABOVE THRESHOLD only if the minimum is greater than the published 1% notification line.
 
-**Question card prompt - exact player copy:** Submit the minimum probability in percent and one conclusion: ROBUSTLY ABOVE THRESHOLD or NOT ROBUST.
+**Complete format-specific interaction block - canonical source:**
 
-**Expected submission - exact player copy:** one minimum probability in percent and one above-or-below-threshold conclusion
-
-**§7 authored-board source - STRESS:** Convert this stop from its authored interaction block below. Do not substitute a format-level template. The panel must state the goal without printing the keyed answer.
-
-```yaml
-authored_board:
-  stop: "Stop 11 - Stress the warning"
-  format: "STRESS"
-  source: "Handback 3 canonical interaction block"
-  question: "Submit the minimum probability in percent and one conclusion: ROBUSTLY ABOVE THRESHOLD or NOT ROBUST."
-  payload: "~~~yaml stress: assumptions: - {id: optical_weight, min: 0.7, max: 1.3, baseline: 1.0} - {id: focusing_radius_km, min: 6800, max: 7600, baseline: 7240} - {id: frame_time_sigma_s, min: 0.2, max: 1.0, baseline: 0.7} outcomes_percent: {minimum: 6.7, baseline: 8.0, maximum: 9.4} threshold_percent: 1.0 correct_conclusion: robustly_above_notification answerText: Every justified case remains above 1%, so notification does not depend on one tuning choice. ~~~"
-  axis_and_units: "Use only quantities and units named in this question and payload."
-  candidates_and_numbers: "Use only candidates and numbers named in this question and payload."
-  panel_rule: "Print the goal, never the target or keyed answer."
+```json
+{
+  "stress": {
+    "model": {
+      "assumptions": {
+        "optical_weight": [
+          0.7,
+          1.3
+        ],
+        "focusing_radius_km": [
+          6800,
+          7600
+        ],
+        "frame_time_sigma_s": [
+          0.2,
+          1
+        ]
+      },
+      "supplied_results_percent": {
+        "minimum": 6.7,
+        "baseline": 8,
+        "maximum": 9.4
+      },
+      "threshold_percent": 1
+    },
+    "candidates": [
+      {
+        "id": "robust",
+        "label": "ROBUSTLY ABOVE THRESHOLD"
+      },
+      {
+        "id": "not_robust",
+        "label": "NOT ROBUST"
+      }
+    ],
+    "correct": "robust",
+    "public_rule": "Use the displayed model and criterion over the entire stated range; no hidden preference scores."
+  }
+}
 ```
 
-**Handback 3 canonical interaction block - STRESS:**
+**Evidence delivery and grading:** The setup, decision evidence, public rules, costs and option descriptions are visible on this card before selection. Render option descriptions beside their controls, once; never replace them with internal axis IDs or a generic earlier-case sentence. Answer keys, accepted examples and feedback stay hidden until submission. Reveal withheld measurements only after the stated commitment. Use the public feasibility/selection rule; an example allocation is not an exclusive key. The displayed person must match this stop’s placement and Call.
 
-```yaml
-stress:
-  assumption: {label: "impact probability", min: 1, max: 8, nominal: 4.5, step: 1, unit: "%"}
-  criteria:
-    - {id: evidence_fit, label: "fit to the stop evidence", direction: maximise}
-    - {id: safety_margin, label: "margin at the adverse end", direction: maximise}
-  optimiseOn: evidence_fit
-  candidates:
-    - id: nominal_only
-      label: "Use only the nominal reading"
-      scores: {evidence_fit: 95, safety_margin: 20}
-      validRange: {min: 4.5, max: 4.5}
-      failsAt: 8
-    - id: common_extreme_mistake
-      label: "Use the favorable extreme as if it were guaranteed"
-      scores: {evidence_fit: 88, safety_margin: 5}
-      validRange: {min: 4.5, max: 8}
-      failsAt: 1
-    - id: robust_plan
-      label: "Yes; minimum 6.7% remains above 1%."
-      scores: {evidence_fit: 82, safety_margin: 92}
-      validRange: {min: 1, max: 8}
-  robust: robust_plan
-  question: "Submit the minimum probability in percent and one conclusion: ROBUSTLY ABOVE THRESHOLD or NOT ROBUST."
-```
+**Correct result:** Minimum 6.7% exceeds 1%; the notification decision survives the supplied sensitivity envelope. The exact probability is not invariant.
 
-**Correct result:** Yes; minimum 6.7% remains above 1%.
+**Answer text:** Minimum 6.7% exceeds 1%; the notification decision survives the supplied sensitivity envelope. The exact probability is not invariant.
 
-**Answer text:** The exact probability varies, but the decision to notify is robust.
-
-**Why:** Decision robustness depends on whether reasonable assumptions cross the action boundary, not whether they change the reported number.
-
-**Wrong-path feedback:** Separate uncertainty in the exact percentage from uncertainty about which side of 1% it occupies.
+**Wrong-path feedback:** Identify the unmet public condition or the specific measurement that the selected option cannot provide; keep the original evidence available for retry.
 
 **State/output:** Malik adds ROBUST THRESHOLD CROSSING; Stop 12 unlocks.
 
@@ -2850,38 +2876,99 @@ Cadence is the pattern of observations over time. Closely spaced data can measur
 
 **Stop reason - exact player copy:** The remaining observing window must target the uncertainties that still change the warning decision.
 
-**Question card story setup - exact player copy:** Spend the fixed budget on measurements that can change the warning decision.
+**Question card story setup - exact player copy:** The object’s motion is confirmed and its sky position is already measured precisely. Malik needs a plan for the uncertainties still affecting the warning.
 
-**Question card story-science connection - exact player copy:** The selected measurements determine whether the budget buys complementary range, time-baseline, and size information.
+**Decision evidence - exact player copy:** Required outcomes: measure motion over a longer time interval; constrain distance and motion along the line of sight; constrain size.
 
-**Question card prompt - exact player copy:** Submit one observing plan costing at most 100 credits, its total cost, and the remaining reserve.
+**Question card prompt - exact player copy:** You have 100 observing credits. Cover every required outcome at the lowest total cost within the budget; keep all unused capacity in reserve. Select whole packages, then submit the plan; the board shows its total and remaining reserve for you to check.
 
-**Expected submission - exact player copy:** one selected plan with its decision-relevant result
+**Complete format-specific interaction block - canonical source:**
 
-**Complete format-specific interaction block:**
-
-```yaml
-value:
-  budget: {value: 100, unit: "credits"}
-  options:
-    - {id: late_optical, label: "Late optical arc", cost: 30, information: "extends the time baseline and tests timestamp bias"}
-    - {id: radar_range, label: "Radar range", cost: 35, information: "constrains physical distance"}
-    - {id: thermal_size, label: "Thermal measurement", cost: 25, information: "constrains size and albedo"}
-    - {id: same_night_stack, label: "More same-night optical frames", cost: 30, information: "refines an already precise sky direction"}
-    - {id: publicity_image, label: "Publicity image", cost: 10, information: "adds no orbit constraint"}
-  required_selection: [late_optical, radar_range, thermal_size]
-  total_cost: 90
-  reserve: 10
-  pass_rule: "Select the three complementary measurements, spend no more than 100 credits, and report the remaining reserve."
+```json
+{
+  "value": {
+    "budget": {
+      "value": 100,
+      "unit": "observing credits"
+    },
+    "requirements": [
+      {
+        "id": "r1",
+        "text": "measure motion over a longer time interval"
+      },
+      {
+        "id": "r2",
+        "text": "constrain distance and motion along the line of sight"
+      },
+      {
+        "id": "r3",
+        "text": "constrain size"
+      }
+    ],
+    "selection_rule": "Cover every required outcome at the lowest total cost within the budget; keep all unused capacity in reserve.",
+    "options": [
+      {
+        "id": "late_optical",
+        "label": "12-frame recovery near dawn",
+        "cost": 30.0,
+        "information": "Observes the object later, extending the time interval used to fit its trajectory.",
+        "covers": [
+          "r1"
+        ]
+      },
+      {
+        "id": "radar_range",
+        "label": "Range-Doppler block",
+        "cost": 35.0,
+        "information": "Measures distance and motion toward or away from Earth.",
+        "covers": [
+          "r2"
+        ]
+      },
+      {
+        "id": "thermal_size",
+        "label": "Thermal infrared block",
+        "cost": 25.0,
+        "information": "Measures emitted heat to constrain diameter and separate size from reflectivity.",
+        "covers": [
+          "r3"
+        ]
+      },
+      {
+        "id": "same_night_stack",
+        "label": "60 same-night optical frames",
+        "cost": 45.0,
+        "information": "Refines the already precise sky position without adding a long time interval.",
+        "covers": []
+      },
+      {
+        "id": "publicity_image",
+        "label": "Live public telescope feed",
+        "cost": 20.0,
+        "information": "Shares the view with the public but adds no new trajectory or size measurement.",
+        "covers": []
+      }
+    ],
+    "accepted_plans": [
+      [
+        "late_optical",
+        "radar_range",
+        "thermal_size"
+      ]
+    ],
+    "example_total": 90.0,
+    "example_reserve": 10.0
+  }
+}
 ```
 
-**Correct result:** Late optical + radar + thermal = 90 credits.
+**Evidence delivery and grading:** The setup, decision evidence, public rules, costs and option descriptions are visible on this card before selection. Render option descriptions beside their controls, once; never replace them with internal axis IDs or a generic earlier-case sentence. Answer keys, accepted examples and feedback stay hidden until submission. Reveal withheld measurements only after the stated commitment. Use the public feasibility/selection rule; an example allocation is not an exclusive key. The displayed person must match this stop’s placement and Call.
 
-**Answer text:** The mixed plan attacks time baseline, range, and size while preserving a small reserve.
+**Correct result:** late_optical, radar_range, thermal_size = 90 observing credits; reserve 10
 
-**Why:** Independent measurement axes reduce different uncertainties; repeated same-night frames mostly refine an already precise direction.
+**Answer text:** Each funded package supplies a required outcome; an affordable package that leaves one unresolved is insufficient.
 
-**Wrong-path feedback:** Ask which current uncertainty each option reduces and whether another option measures the same thing.
+**Wrong-path feedback:** Identify the unmet public condition or the specific measurement that the selected option cannot provide; keep the original evidence available for retry.
 
 **State/output:** Selected blocks move onto the schedule rail; Stop 14 unlocks.
 
@@ -2898,6 +2985,8 @@ value:
 **Question card story setup - exact player copy:** With the three evidence blocks funded, their order must respect sky visibility, radar geometry, aircraft travel, and instrument handoff. Build a schedule that preserves the late optical baseline and transfers each result before the next fit.
 
 **Question card story-science connection - exact player copy:** The schedule determines whether each observation reaches the orbit team before the next fit requires it.
+
+**Decision evidence - exact player copy:** Available sequence: validate the early optical record before radar reduction; radar geometry is available before the thermal slot; thermal data must transfer before the dawn recovery; the combined fit runs after every observation has arrived. The last optical recovery is fixed to dawn.
 
 **Question card prompt - exact player copy:** Order the funded work so visibility and evidence handoffs are physically possible.
 
@@ -2923,74 +3012,65 @@ value:
 
 **Stop reason - exact player copy:** The observing schedule needs a forecast of uncertainty reduction before scarce time is committed.
 
-**Question card story setup - exact player copy:** Because the observing order is fixed, the orbit team can forecast how each block changes the encounter uncertainty. Buy the measurement update that most reduces the b-plane width while preserving size information.
+**Question card story setup - exact player copy:** The team compares forecast packages before committing the observing schedule. Thermal size work remains protected while the orbit team tests alternative uses of its forecast budget.
 
-**Question card story-science connection - exact player copy:** The encounter-width comparison determines which measurement combination most improves the predicted impact region.
+**Decision evidence - exact player copy:** These are prospective orbit-model forecasts. The 65-credit exercise compares alternative packages; it is not an extra charge on top of the approved Stop 13 purchases. Thermal characterization remains outside this comparison.
 
-**Question card prompt - exact player copy:** Submit one observing-update plan costing no more than 65 credits and its resulting b-plane width in kilometers.
+**Question card prompt - exact player copy:** Select the package costing at most 65 credits with the smallest supplied encounter width. Submit the package and its reported width in kilometres; these are alternative model forecasts, not independent errors to add.
 
-**Expected submission - exact player copy:** one selected update plan and its numerical propagated result
+**Complete format-specific interaction block - canonical source:**
 
-**§7 authored-board source - PROPAGATE:** Convert this stop from its authored interaction block below. Do not substitute a format-level template. The panel must state the goal without printing the keyed answer.
-
-```yaml
-authored_board:
-  stop: "Stop 15 - Propagate the error budget"
-  format: "PROPAGATE"
-  source: "Handback 5 canonical interaction block"
-  question: "Submit one observing-update plan costing no more than 65 credits and its resulting b-plane width in kilometers."
-  payload: "~~~yaml propagate: current_error_budget: angular_arc_km: 6200 range_km: 13800 timing_km: 4100 model_km: 2900 candidate_updates: - {id: more_same_night, cost: 20, new_total_width_km: 13200} - {id: radar_range, cost: 35, new_total_width_km: 7600} - {id: dawn_arc, cost: 30, new_total_width_km: 8900} - {id: radar_plus_dawn, cost: 65, new_total_width_km: 4600} budget: 65 correct_update: radar_plus_dawn answerText: Radar plus the dawn recovery reduces the forecast encounter width to 4,600 km. ~~~"
-  axis_and_units: "Use only quantities and units named in this question and payload."
-  candidates_and_numbers: "Use only candidates and numbers named in this question and payload."
-  panel_rule: "Print the goal, never the target or keyed answer."
+```json
+{
+  "propagate": {
+    "budget": 65,
+    "costUnit": "forecast-package credits",
+    "max_packages": 1,
+    "options": [
+      {
+        "id": "more_same_night",
+        "label": "More same-night images",
+        "cost": 20,
+        "forecast_width_km": 13200,
+        "information": "Refines the short observation arc."
+      },
+      {
+        "id": "radar_range",
+        "label": "Radar range alone",
+        "cost": 35,
+        "forecast_width_km": 7600,
+        "information": "Adds a distance constraint."
+      },
+      {
+        "id": "dawn_arc",
+        "label": "Dawn optical arc alone",
+        "cost": 30,
+        "forecast_width_km": 8900,
+        "information": "Extends the time interval."
+      },
+      {
+        "id": "radar_plus_dawn",
+        "label": "Radar plus dawn recovery",
+        "cost": 65,
+        "forecast_width_km": 4600,
+        "information": "Joint refit uses distance and longer-interval motion."
+      }
+    ],
+    "public_rule": "Minimum supplied width among affordable alternative packages.",
+    "correctUpgrade": "radar_plus_dawn",
+    "correctResult": 4600,
+    "units": "km"
+  }
+}
 ```
 
-**Handback 3 canonical interaction block - PROPAGATE:**
+**Evidence delivery and grading:** The setup, decision evidence, public rules, costs and option descriptions are visible on this card before selection. Render option descriptions beside their controls, once; never replace them with internal axis IDs or a generic earlier-case sentence. Answer keys, accepted examples and feedback stay hidden until submission. Reveal withheld measurements only after the stated commitment. Use the public feasibility/selection rule; an example allocation is not an exclusive key. The displayed person must match this stop’s placement and Call.
 
-**Handback 5 canonical interaction block - PROPAGATE:**
+**Correct result:** Radar plus dawn recovery, 65 credits; supplied forecast width 4,600 km.
 
-```yaml
-propagate:
-  costUnit: "observing credits"
-  budget: 65
-  inputs:
-    - {id: angular_arc, label: "Angular-arc uncertainty", value: 6200, sigmaFrac: 1.0, exponent: 2, unit: "km", improvableTo: 4300, cost: 20}
-    - {id: range, label: "Range uncertainty", value: 13800, sigmaFrac: 1.0, exponent: 1, unit: "km", improvableTo: 7600, cost: 50}
-    - {id: timing, label: "Timing uncertainty", value: 4100, sigmaFrac: 1.0, exponent: 1, unit: "km", improvableTo: 3000, cost: 45}
-    - {id: model, label: "Model uncertainty", value: 2900, sigmaFrac: 1.0, exponent: 1, unit: "km", improvableTo: 2500, cost: 25}
-    - {id: radar_plus_dawn, label: "Radar plus dawn recovery", value: 16000, sigmaFrac: 1.0, exponent: 1, unit: "km", improvableTo: 4600, cost: 65}
-  dominant: range
-  improvable: [angular_arc, range, timing, model, radar_plus_dawn]
-  correctUpgrade: radar_plus_dawn
-  correctResult: "Radar plus dawn; 4,600 km forecast width."
-```
+**Answer text:** The joint orbit refit predicts a narrower encounter region than either ingredient alone. The orbit desk supplies these whole-model forecasts; a sum of individual error magnitudes cannot reproduce them.
 
-**Handback 7 canonical interaction block - PROPAGATE:**
-
-```yaml
-propagate:
-  costUnit: "observing credits"
-  budget: 65
-  output: {label: "b-plane corridor width", value: 16000, unit: "km"}
-  inputs:
-    - {id: angular_arc, label: "Angular-arc uncertainty", value: 6200, sigmaFrac: 0.388, exponent: 2, unit: "km", improvableTo: 0.269, cost: 20}
-    - {id: range, label: "Range uncertainty", value: 13800, sigmaFrac: 0.863, exponent: 1, unit: "km", improvableTo: 0.288, cost: 50}
-    - {id: timing, label: "Timing uncertainty", value: 4100, sigmaFrac: 0.256, exponent: 1, unit: "km", improvableTo: 0.188, cost: 45}
-    - {id: model, label: "Model uncertainty", value: 2900, sigmaFrac: 0.181, exponent: 1, unit: "km", improvableTo: 0.156, cost: 25}
-  dominant: range
-  improvable: [angular_arc, range, timing, model]
-  correctUpgrade: range
-  correctResult: "Range is the widest contribution; the radar plus dawn recovery narrows it and the corridor closes to about 4,600 km."
-```
-
-
-**Correct result:** Radar plus dawn; 4,600 km forecast width.
-
-**Answer text:** Geometry and time baseline together outperform more same-night precision.
-
-**Why:** Correlated range and along-track uncertainty require complementary measurements.
-
-**Wrong-path feedback:** A single smaller component does not guarantee the smallest propagated encounter width.
+**Wrong-path feedback:** Identify the unmet public condition or the specific measurement that the selected option cannot provide; keep the original evidence available for retry.
 
 **State/output:** A 4,600 km success band appears on the board; Stop 16 unlocks.
 
@@ -3004,36 +3084,81 @@ propagate:
 
 **Stop reason - exact player copy:** The expected improvement depends on funding data transfer and analysis as well as instruments.
 
-**Question card story setup - exact player copy:** With the expected error reduction known, allocate 100 coordination points across the proposals that make the mixed plan executable. Fund the chain, not the loudest department, and keep the final fit from losing its inputs.
+**Question card story setup - exact player copy:** The observing plan is selected, but the data still need staff and a completed handoff. Mira asks for coordination capacity that makes every funded measurement usable.
 
-**Question card story-science connection - exact player copy:** The coordination allocation determines whether optical, radar, thermal, and combined-fit work can all be completed.
+**Question card prompt - exact player copy:** Allocate exactly 100 points. Meet the published staffing minima: optical 25, radar 25, thermal 20 and integration 30. This restricted budget assigns no points to publicity. Submit the allocation; the board checks the total and each requirement.
 
-**Question card prompt - exact player copy:** Submit one five-category allocation totaling exactly 100 points.
+**Complete format-specific interaction block - canonical source:**
 
-**Expected submission - exact player copy:** one allocation totaling the stated budget
-
-**Complete format-specific interaction block:**
-
-```yaml
-scienceTank:
-  pool: {value: 100, unit: "coordination points"}
-  categories:
-    - {id: optical, label: "Late optical observing", min: 0, max: 100, step: 5}
-    - {id: radar, label: "Radar observing and reduction", min: 0, max: 100, step: 5}
-    - {id: thermal, label: "Thermal observing and reduction", min: 0, max: 100, step: 5}
-    - {id: integration, label: "Data transfer and combined orbit fit", min: 0, max: 100, step: 5}
-    - {id: publicity, label: "Publicity imaging", min: 0, max: 100, step: 5}
-  correct: {optical: 25, radar: 25, thermal: 20, integration: 30, publicity: 0}
-  pass_rule: "The five allocations total exactly 100; optical, radar, thermal, and integration meet the keyed handoff plan; publicity receives no evidence budget."
+```json
+{
+  "sciencetank": {
+    "pool": {
+      "value": 100,
+      "unit": "points"
+    },
+    "items": [
+      {
+        "id": "optical",
+        "label": "Late optical work",
+        "min": 25,
+        "max": 100,
+        "step": 5,
+        "information": "Acquires and reduces the late optical data."
+      },
+      {
+        "id": "radar",
+        "label": "Radar work",
+        "min": 25,
+        "max": 100,
+        "step": 5,
+        "information": "Acquires and reduces range and Doppler data."
+      },
+      {
+        "id": "thermal",
+        "label": "Thermal work",
+        "min": 20,
+        "max": 100,
+        "step": 5,
+        "information": "Acquires and reduces size-sensitive thermal data."
+      },
+      {
+        "id": "integration",
+        "label": "Transfer and combined fit",
+        "min": 30,
+        "max": 100,
+        "step": 5,
+        "information": "Transfers the three products and fits them together."
+      },
+      {
+        "id": "publicity",
+        "label": "Publicity imaging",
+        "min": 0,
+        "max": 0,
+        "step": 5,
+        "information": "Outside this restricted evidence-coordination budget."
+      }
+    ],
+    "public_rule": "Meet the published staffing minima: optical 25, radar 25, thermal 20 and integration 30. This restricted budget assigns no points to publicity.",
+    "accepted_example": {
+      "optical": 25,
+      "radar": 25,
+      "thermal": 20,
+      "integration": 30,
+      "publicity": 0
+    },
+    "grading": "Accept every allocation satisfying the public rule; the example is not exclusive."
+  }
+}
 ```
 
-**Correct result:** 25 / 25 / 20 / 30 / 0.
+**Evidence delivery and grading:** The setup, decision evidence, public rules, costs and option descriptions are visible on this card before selection. Render option descriptions beside their controls, once; never replace them with internal axis IDs or a generic earlier-case sentence. Answer keys, accepted examples and feedback stay hidden until submission. Reveal withheld measurements only after the stated commitment. Use the public feasibility/selection rule; an example allocation is not an exclusive key. The displayed person must match this stop’s placement and Call.
 
-**Answer text:** The range funds optical, radar, thermal, and the final integration that gives those measurements meaning.
+**Correct result:** One valid example: {"optical": 25, "radar": 25, "thermal": 20, "integration": 30, "publicity": 0}. Other allocations satisfying the public rule are also correct.
 
-**Why:** Evidence has value only when acquisition, transfer, and combined inference all survive the resource plan.
+**Answer text:** The accepted plan funds every required capability within the stated limits; extra points may be distributed only as the public rule allows.
 
-**Wrong-path feedback:** A funded instrument without its handoff produces data that cannot change tonight's orbit decision.
+**Wrong-path feedback:** Identify the unmet public condition or the specific measurement that the selected option cannot provide; keep the original evidence available for retry.
 
 **State/output:** Aircraft and three remote destinations unlock for later missions.
 
@@ -4068,21 +4193,50 @@ Absolute magnitude H standardizes reflected brightness. Albedo changes how much 
 
 **Stop reason - exact player copy:** Certified brightness does not establish size until the notice's assumed reflectivity is made explicit.
 
-**Question card story setup - exact player copy:** The certified photometry gives H = 22.0, while the early notice silently assumed a bright albedo of 0.25. Estimate the diameter produced by that assumption and label the preliminary result as explicitly conditional.
+**Question card story setup - exact player copy:** The brightness estimate is ready, but size still depends on reflectivity. The team uses the stated albedo to make one conditional estimate.
 
-**Question card story-science connection - exact player copy:** The conditional diameter shows how strongly the early size estimate depends on the adopted albedo.
+**Question card prompt - exact player copy:** Use D=1329/√pV ×10^(−H/5) km with H=22 and pV=0.25. Fill H and pV; convert the result to metres.
 
-**Question card prompt - exact player copy:** Using every displayed input, submit one conditional diameter in meters.
+**Complete format-specific interaction block — canonical BALLPARK:**
 
-**Expected submission - exact player copy:** one conditional diameter in meters
+```json
+{
+  "estimate": {
+    "quantity": "Reproduce the assumption",
+    "labels": [
+      "22",
+      "0.25",
+      "0.5"
+    ],
+    "values": [
+      22,
+      0.25,
+      0.5
+    ],
+    "slots": 2,
+    "template": "1329000 / sqrt({b}) × 10^(-{a} / 5) = ? m",
+    "formula": "1329000/sqrt(b)*10**(-a/5)",
+    "correct": [
+      0,
+      1
+    ],
+    "target": 106,
+    "tolerance": 8,
+    "units": "m",
+    "correctResult": 106
+  },
+  "answerText": "D≈105.8 m, rounded to 106 m; accept 98–114 m. This diameter is conditional on the assumed albedo.",
+  "wrongFeedback": [
+    "Use the square root of albedo and convert kilometres to metres."
+  ]
+}
+```
 
-**Correct result:** 0.106 km = 106 m; accept 98-114 m.
+**Rendering and grading contract:** Render every numeric label as a selectable tile. The printed equation supplies the slot roles; do not replace number labels with quantity names. `correct` contains zero-based tile indices for slots a onward. Accept numerically equivalent selections, including equal-valued tiles. Evaluate the formula on submission; tolerance is absolute in the stated output units. Negative and zero results require a signed linear display. The board has one submission; supporting comparisons appear in the result explanation.
 
-**Answer text:** The early estimate is about 106 m only if the surface reflects 25% under the adopted geometric model.
+**Correct result:** D≈105.8 m, rounded to 106 m; accept 98–114 m. This diameter is conditional on the assumed albedo.
 
-**Why:** Lower albedo requires a larger area to produce the same reflected brightness.
-
-**Wrong-path feedback:** Keep the square root of albedo in the denominator and convert kilometers to meters at the end.
+**Wrong-path feedback:** Use the square root of albedo and convert kilometres to metres.
 
 **State/output:** The old estimate gains an ASSUMED ALBEDO label; CHAR waypoint unlocks.
 
@@ -5541,73 +5695,50 @@ chain:
 
 **Stop reason - exact player copy:** The orbit fit must combine precise radar range with the longer optical baseline without counting correlated products twice.
 
-**Question card story setup - exact player copy:** The radar range has tiny uncertainty, while optical positions provide the longer time baseline and transverse motion. Balance the datasets by documented uncertainty and correlation, then reject equal weighting and simple vote counting.
+**Question card story setup - exact player copy:** The radar products share an origin. Their precision can strengthen one evidence stream without creating several independent votes.
 
-**Question card story-science connection - exact player copy:** Uncertainty-aware weighting determines how each dataset constrains the fitted trajectory rather than letting record count decide.
+**Question card prompt - exact player copy:** An optical stream has σ=2 and one independent radar stream has σ=1 in the same units. Fill optical and radar uncertainties in the radar weight (1/σradar²)/(1/σoptical²+1/σradar²).
 
-**Question card prompt - exact player copy:** Optical position has uncertainty 2 units and the independent radar range has uncertainty 1 unit. Using inverse-variance weights and treating the two correlated radar products as one stream, submit the radar stream's normalized weight and justify the covariance grouping.
+**Complete format-specific interaction block — canonical BALLPARK:**
 
-**Expected submission - exact player copy:** one weighting plan and its covariance justification
-
-**Complete format-specific interaction block:**
-
-~~~yaml
-balance:
-  target: {label: Defensible fused orbit, value: one, unit: solution}
-  streams:
-    - {id: optical, label: Optical sky-plane positions, information: sky-plane position and long time baseline, correlation_group: optical_pipeline, count: true}
-    - {id: radar_range, label: Independent radar range, information: line-of-sight distance, correlation_group: radar_clock, count: true}
-    - {id: radar_doppler, label: Radar Doppler, information: radial motion, correlation_group: radar_clock, count: true}
-    - {id: clock_diagnostic, label: Archive-clock diagnostic, information: provenance for radar products, correlation_group: radar_clock, count: false}
-  candidates:
-    - Equal weight per row
-    - Radar only
-    - Inverse-variance weighting with covariance groups
-    - Majority vote by observatory
-  correctChoice: Inverse-variance weighting with covariance groups
-  rationale: Weight by documented uncertainty while preventing correlated products from being counted as independent.
-~~~
-
-**§7 authored-board source - BALANCE:** Convert this stop from its authored interaction block below. Do not substitute a format-level template. The panel must state the goal without printing the keyed answer.
-
-```yaml
-authored_board:
-  stop: "Stop 30 - Balance the fit"
-  format: "BALLPARK"
-  source: "Handback 5 canonical interaction block"
-  question: "Choose and justify the defensible fusion weighting."
-  payload: "~~~yaml balance: target: {label: Defensible fused orbit, value: one, unit: solution} streams: - {id: optical, label: Optical sky-plane positions, information: sky-plane position and long time baseline, correlation_group: optical_pipeline, count: true} - {id: radar_range, label: Independent radar range, information: line-of-sight distance, correlation_group: radar_clock, count: true} - {id: radar_doppler, label: Radar Doppler, information: radial motion, correlation_group: radar_clock, count: true} - {id: clock_diagnostic, label: Archive-clock diagnostic, information: provenance for radar products, correlation_group: radar_clock, count: false} candidates: - Equal weight per row - Radar only - Inverse-variance weighting with covariance groups - Majority vote by observatory correctChoice: Inverse-variance weighting with covariance groups rationale: Weight by documented uncertainty while preventing correlated products from being counted as independent. ~~~"
-  axis_and_units: "Use only quantities and units named in this question and payload."
-  candidates_and_numbers: "Use only candidates and numbers named in this question and payload."
-  panel_rule: "Print the goal, never the target or keyed answer."
+```json
+{
+  "estimate": {
+    "quantity": "Balance the fit",
+    "labels": [
+      "2",
+      "1",
+      "4"
+    ],
+    "values": [
+      2,
+      1,
+      4
+    ],
+    "slots": 2,
+    "template": "(1 / ({b} × {b})) / (1 / ({a} × {a})+1 / ({b} × {b})) = ? normalized weight",
+    "formula": "(1/(b*b))/(1/(a*a)+1/(b*b))",
+    "correct": [
+      0,
+      1
+    ],
+    "target": 0.8,
+    "tolerance": 0.001,
+    "units": "normalized weight",
+    "correctResult": 0.8
+  },
+  "answerText": "The radar weight is 1/(0.25+1)=0.8. Correlated radar products remain grouped as one stream; copying them must not increase the weight.",
+  "wrongFeedback": [
+    "Weights scale with inverse variance, not inverse uncertainty or the number of duplicated products."
+  ]
+}
 ```
 
-**Handback 3 canonical interaction block - BALLPARK:**
+**Rendering and grading contract:** Render every numeric label as a selectable tile. The printed equation supplies the slot roles; do not replace number labels with quantity names. `correct` contains zero-based tile indices for slots a onward. Accept numerically equivalent selections, including equal-valued tiles. Evaluate the formula on submission; tolerance is absolute in the stated output units. Negative and zero results require a signed linear display. The board has one submission; supporting comparisons appear in the result explanation.
 
-**Handback 5 canonical interaction block - BALLPARK:**
+**Correct result:** The radar weight is 1/(0.25+1)=0.8. Correlated radar products remain grouped as one stream; copying them must not increase the weight.
 
-```yaml
-estimate:
-  quantity: "normalized weight of the independent radar stream"
-  unit: "normalized likelihood weight"
-  inputs:
-    - {label: "Optical uncertainty", value: 2, unit: "relative units"}
-    - {label: "Radar uncertainty", value: 1, unit: "relative units"}
-  operation: "radar inverse variance divided by the sum of optical and radar inverse variances"
-  formula: "w_radar=(1/1^2)/[(1/2^2)+(1/1^2)]"
-  start: 0
-  correctResult: 0.8
-  tolerance: 0.02
-  commonMistake: "Mixing a contextual reading into the arithmetic or reversing the subtraction."
-```
-
-**Correct result:** Weight by uncertainty while grouping correlated radar products.
-
-**Answer text:** Precision controls weight, covariance prevents double-counting, and optical timing preserves transverse information.
-
-**Why:** BALANCE trades influence according to information content and dependence.
-
-**Wrong-path feedback:** The smallest error bar does not make every other geometric constraint irrelevant.
+**Wrong-path feedback:** Weights scale with inverse variance, not inverse uncertainty or the number of duplicated products.
 
 **State/output:** COMBINED FIT converges; Stop 31 unlocks.
 
@@ -6224,38 +6355,50 @@ sistent world changes, or waypoint notices; no pre-rendered sequence or forced v
 
 **Stop reason - exact player copy:** The intensified response now needs an impact-energy scale rather than probability alone.
 
-**Question card story setup - exact player copy:** Use diameter 260 meters, density 1,800 kilograms per cubic meter, and impact speed 19 kilometers per second. Estimate mass, kinetic energy, and TNT equivalent closely enough to catch a thousandfold unit mistake.
+**Question card story setup - exact player copy:** The size and density model now meets the entry-speed estimate. The energy scale will shape the consequence assessment.
 
-**Question card story-science connection - exact player copy:** Mass and kinetic energy establish the approximate physical consequence scale that the corridor assessment must consider.
+**Question card prompt - exact player copy:** Model a sphere of diameter 260 m and density 1,800 kg/m³; m=ρπD³/6. Speed is 19,000 m/s. Choose the calculated mass and speed in E=½mv²/(4.184×10¹⁵) to express energy in megatons TNT.
 
-**Question card prompt - exact player copy:** Submit three numerical results with units: mass in kilograms, kinetic energy in joules, and TNT equivalent in megatons.
+**Complete format-specific interaction block — canonical BALLPARK:**
 
-**Expected submission - exact player copy:** three numerical values: mass in kilograms, energy in joules, and TNT equivalent in megatons
+```json
+{
+  "estimate": {
+    "quantity": "Estimate the energy scale",
+    "labels": [
+      "16565000000",
+      "19000",
+      "8282500000"
+    ],
+    "values": [
+      16565000000.0,
+      19000,
+      8282500000.0
+    ],
+    "slots": 2,
+    "template": "0.5 × {a} × {b} × {b} / 4.184e15 = ? megatons TNT",
+    "formula": "0.5*a*b*b/4.184e15",
+    "correct": [
+      0,
+      1
+    ],
+    "target": 714.6,
+    "tolerance": 2,
+    "units": "megatons TNT",
+    "correctResult": 714.6
+  },
+  "answerText": "Mass is about 1.6565×10¹⁰ kg. Kinetic energy is about 2.99×10¹⁸ J, or 715 megatons TNT. These are conditional on spherical geometry, density and entry speed.",
+  "wrongFeedback": [
+    "The diameter must be halved to obtain radius if using 4πr³/3; kinetic energy uses speed squared."
+  ]
+}
+```
 
-**Complete format-specific interaction block:**
+**Rendering and grading contract:** Render every numeric label as a selectable tile. The printed equation supplies the slot roles; do not replace number labels with quantity names. `correct` contains zero-based tile indices for slots a onward. Accept numerically equivalent selections, including equal-valued tiles. Evaluate the formula on submission; tolerance is absolute in the stated output units. Negative and zero results require a signed linear display. The board has one submission; supporting comparisons appear in the result explanation.
 
-~~~yaml
-estimate:
-  labels: [volume and mass, kinetic energy, TNT conversion]
-  values:
-    - ["D = 260 m", "ρ = 1800 kg/m³", "m = (4/3)π(D/2)³ρ"]
-    - ["v = 19000 m/s", "KE = 1/2 mv²"]
-    - ["1 Mt TNT = 4.184 × 10^15 J"]
-  slots: [mass_kg, kinetic_energy_J, tnt_megatons]
-  template: "m = (4/3)π(D/2)³ρ; KE = 1/2 mv²; Mt = KE/(4.184 × 10^15 J)"
-  formula: spherical-body energy scale
-  correct: ["1.66 × 10^10 kg", "3.00 × 10^18 J", "717 Mt"]
-  target: 3.00e18
-  tolerance: 15 percent
-~~~
+**Correct result:** Mass is about 1.6565×10¹⁰ kg. Kinetic energy is about 2.99×10¹⁸ J, or 715 megatons TNT. These are conditional on spherical geometry, density and entry speed.
 
-**Correct result:** About (1.66\times10^{10}) kg, (3.0\times10^{18}) J, or 715 megatons TNT.
-
-**Answer text:** This is a regional-to-continental catastrophe scale, not a planet-destroying event.
-
-**Why:** BALLPARK checks powers of ten before model detail.
-
-**Wrong-path feedback:** Convert 19 km/s to 19,000 m/s before squaring.
+**Wrong-path feedback:** The diameter must be halved to obtain radius if using 4πr³/3; kinetic energy uses speed squared.
 
 **State/output:** ENERGY SCALE VERIFIED; IMPACT travel unlocks.
 
@@ -6410,36 +6553,80 @@ probe:
 
 **Stop reason - exact player copy:** The consequence assessment leaves limited observing time for the uncertainty that most affects tomorrow's action.
 
-**Question card story setup - exact player copy:** Choose the measurement with the largest expected change to tomorrow's protective decision.
+**Question card story setup - exact player copy:** The remaining trajectories split between ocean and populated land. Evelyn needs evidence that can change which places require protection tomorrow.
 
-**Question card story-science connection - exact player copy:** The selected measurement determines whether the next data can change corridor protection rather than merely refine a settled quantity.
+**Decision evidence - exact player copy:** Required outcomes: resolve whether populated land remains within the action corridor.
 
-**Question card prompt - exact player copy:** Spend at most 10 observing hours and select the option with the greatest immediate decision value.
+**Decision evidence - exact player copy:** This is a qualitative coverage decision under the stated scenarios, not a numerical expected-utility calculation. No hidden probability or point score is used.
 
-**Expected submission - exact player copy:** one selected plan with its decision-relevant result
+**Question card prompt - exact player copy:** You have 10 observing hours. Cover every required outcome at the lowest total cost within the budget; keep all unused capacity in reserve. Select whole packages, then submit the plan; the board shows its total and remaining reserve for you to check.
 
-**Complete format-specific interaction block:**
+**Complete format-specific interaction block - canonical source:**
 
-~~~yaml
-value:
-  budget: {value: 10, unit: observing_hours}
-  options:
-    - {id: diameter, label: Improve diameter by 10 percent, cost: 4, axis: size, decision_change: small}
-    - {id: composition, label: Refine composition class, cost: 4, axis: material, decision_change: moderate}
-    - {id: corridor, label: Separate ocean from populated-land timing, cost: 10, axis: exposure, decision_change: large}
-    - {id: brightness, label: Repeat the brightness curve, cost: 3, axis: reflected_light, decision_change: small}
-  total_option_cost: 21
-  correct: [corridor]
-  decision_changed: Determines whether populated land remains inside tomorrow's action envelope.
-~~~
+```json
+{
+  "value": {
+    "budget": {
+      "value": 10,
+      "unit": "observing hours"
+    },
+    "requirements": [
+      {
+        "id": "r1",
+        "text": "resolve whether populated land remains within the action corridor"
+      }
+    ],
+    "selection_rule": "Cover every required outcome at the lowest total cost within the budget; keep all unused capacity in reserve.",
+    "options": [
+      {
+        "id": "diameter",
+        "label": "Improve diameter by ten percent",
+        "cost": 4.0,
+        "information": "Tightens size; throughout this smaller range a populated-land strike still requires the same protective action.",
+        "covers": []
+      },
+      {
+        "id": "composition",
+        "label": "Refine composition class",
+        "cost": 4.0,
+        "information": "Refines material behavior but does not distinguish the remaining ocean and land trajectories.",
+        "covers": []
+      },
+      {
+        "id": "corridor",
+        "label": "Separate ocean and land arrival solutions",
+        "cost": 10.0,
+        "information": "Adds timing evidence that distinguishes the remaining land-intersecting and ocean-only trajectories.",
+        "covers": [
+          "r1"
+        ]
+      },
+      {
+        "id": "brightness",
+        "label": "Repeat brightness curve",
+        "cost": 3.0,
+        "information": "Refines reflected light without separating the remaining trajectory solutions.",
+        "covers": []
+      }
+    ],
+    "accepted_plans": [
+      [
+        "corridor"
+      ]
+    ],
+    "example_total": 10.0,
+    "example_reserve": 0.0
+  }
+}
+```
 
-**Correct result:** Prioritize corridor timing.
+**Evidence delivery and grading:** The setup, decision evidence, public rules, costs and option descriptions are visible on this card before selection. Render option descriptions beside their controls, once; never replace them with internal axis IDs or a generic earlier-case sentence. Answer keys, accepted examples and feedback stay hidden until submission. Reveal withheld measurements only after the stated commitment. Use the public feasibility/selection rule; an example allocation is not an exclusive key. The displayed person must match this stop’s placement and Call.
 
-**Answer text:** All four improve knowledge, but only timing can remove millions of people from the current action envelope tomorrow.
+**Correct result:** corridor = 10 observing hours; reserve 0
 
-**Why:** VALUE ranks observations by expected decision improvement under scarcity.
+**Answer text:** Each funded package supplies a required outcome; an affordable package that leaves one unresolved is insufficient.
 
-**Wrong-path feedback:** Precision is useful only when it can alter the choice facing the team.
+**Wrong-path feedback:** Identify the unmet public condition or the specific measurement that the selected option cannot provide; keep the original evidence available for retry.
 
 **State/output:** NEXT WINDOW assigned to corridor timing.
 
@@ -7684,67 +7871,50 @@ anges, or waypoint notices; no pre-rendered sequence or forced viewpoint change
 
 **Stop reason - exact player copy:** The complex body model leaves a mass range that intervention calculations must preserve.
 
-**Question card story setup - exact player copy:** Use the 260-meter diameter and plausible rubble-pile densities from 1,200 to 2,400 kilograms per cubic meter in the campaign model. Estimate a mass range and preserve it through the intervention calculation.
+**Question card story setup - exact player copy:** The density range remains unresolved. The team carries both mass bounds instead of hiding the uncertainty in a midpoint.
 
-**Question card story-science connection - exact player copy:** The density-dependent mass interval establishes the range of momentum demand a proposed deflection must meet.
+**Question card prompt - exact player copy:** For a spherical body of diameter 260 m, density ranges from 1,200 to 2,400 kg/m³. Calculate the lower mass using m=ρπD³/6, then select that mass and the high/low density ratio to obtain the upper mass.
 
-**Question card prompt - exact player copy:** Submit the lower and upper asteroid mass bounds in kilograms.
+**Complete format-specific interaction block — canonical BALLPARK:**
 
-**Expected submission - exact player copy:** one numerical lower-and-upper mass pair in kilograms
-
-**Complete format-specific interaction block:**
-
-~~~yaml
-estimate:
-  labels: [radius, low-density mass, high-density mass]
-  values:
-    - ["D = 260 m", "r = D/2"]
-    - ["ρlow = 1200 kg/m³", "m = (4/3)πr³ρ"]
-    - ["ρhigh = 2400 kg/m³", "m = (4/3)πr³ρ"]
-  slots: [radius_m, low_mass_kg, high_mass_kg]
-  template: "m = (4/3)π(D/2)³ρ"
-  formula: spherical mass range
-  correct: ["130 m", "1.10 × 10^10 kg", "2.21 × 10^10 kg"]
-  target: 1.66e10
-  tolerance: 8 percent
-~~~
-
-**§7 build completion - BALLPARK:** This block supplies the panel fields omitted above; the authored prompt, science, and correct result remain authoritative.
-
-```yaml
-estimate:
-  target: 1.1
-  tolerance: 0.05500000000000001
-  unit: "units printed on the card"
-  tiles: [{label: "displayed numerator", value: 2.2}, {label: "displayed divisor", value: 2}]
-  formula: "m=displayed numerator/displayed divisor"
-  correctResultText: "Roughly (1.1\\times10^{10}) to (2.2\\times10^{10}) kg."
+```json
+{
+  "estimate": {
+    "quantity": "Carry the mass honestly",
+    "labels": [
+      "11043000000",
+      "2",
+      "16565000000"
+    ],
+    "values": [
+      11043000000.0,
+      2,
+      16565000000.0
+    ],
+    "slots": 2,
+    "template": "{a} × {b} = ? kg (upper bound)",
+    "formula": "a*b",
+    "correct": [
+      0,
+      1
+    ],
+    "target": 22086000000.0,
+    "tolerance": 10000000.0,
+    "units": "kg (upper bound)",
+    "correctResult": 22086000000.0
+  },
+  "answerText": "The lower mass is about 1.1043×10¹⁰ kg and the upper about 2.2086×10¹⁰ kg. At fixed volume, doubling density doubles mass.",
+  "wrongFeedback": [
+    "A midpoint density does not give either endpoint of the requested range."
+  ]
+}
 ```
 
-**Handback 9 canonical interaction block - BALLPARK:**
+**Rendering and grading contract:** Render every numeric label as a selectable tile. The printed equation supplies the slot roles; do not replace number labels with quantity names. `correct` contains zero-based tile indices for slots a onward. Accept numerically equivalent selections, including equal-valued tiles. Evaluate the formula on submission; tolerance is absolute in the stated output units. Negative and zero results require a signed linear display. The board has one submission; supporting comparisons appear in the result explanation.
 
-```yaml
-estimate:
-  quantity: "lower asteroid mass bound"
-  unit: "kg"
-  inputs:
-    - {label: "Asteroid radius", value: 130, unit: "m"}
-    - {label: "Low rubble-pile density", value: 1200, unit: "kg/m³"}
-    - {label: "High rubble-pile density", value: 2400, unit: "kg/m³", contextOnly: true}
-  operation: "calculate spherical volume and multiply by the low density; the high bound is twice the result because the high density is twice the low density"
-  formula: "m=(4/3)pi(130^3)(1200)"
-  correctResult: 11040000000
-  tolerance: 880000000
-  answerText: "The lower bound is about 1.1×10^10 kg; doubling for the high density gives about 2.2×10^10 kg."
-```
+**Correct result:** The lower mass is about 1.1043×10¹⁰ kg and the upper about 2.2086×10¹⁰ kg. At fixed volume, doubling density doubles mass.
 
-**Correct result:** Roughly (1.1\times10^{10}) to (2.2\times10^{10}) kg.
-
-**Answer text:** The intervention test must succeed across this range, not only at the lightest convenient value.
-
-**Why:** BALLPARK carries parameter uncertainty into feasibility bounds.
-
-**Wrong-path feedback:** Density multiplies volume; it cannot be omitted from momentum demand.
+**Wrong-path feedback:** A midpoint density does not give either endpoint of the requested range.
 
 **State/output:** MASS ENVELOPE transferred to IMPACT.
 
@@ -7963,36 +8133,85 @@ stress:
 
 **Stop reason - exact player copy:** The intervention gap leaves the last budget needing an achievable harm-reduction objective.
 
-**Question card story setup - exact player copy:** The last budget can fund a symbolic impactor, corridor observations, civil-defense preparation, or a public demonstration. Rank all four by expected harm reduction under the verified warning time and intervention gap.
+**Question card story setup - exact player copy:** The tested impactor cannot deliver enough impulse in the available warning time. Arjun must use the remaining budget to locate the threatened area and prepare protection that can still work.
 
-**Question card story-science connection - exact player copy:** The ranked uses determine whether money supports useful corridor observations and protection instead of an ineffective symbolic launch.
+**Decision evidence - exact player copy:** Required outcomes: refine who is exposed; prepare reversible protective capacity.
 
-**Question card prompt - exact player copy:** Spend at most 100 credits and choose the action portfolio with the greatest expected value.
+**Question card prompt - exact player copy:** You have 100 response credits. Cover every required outcome at the lowest total cost within the budget; keep all unused capacity in reserve. Select whole packages, then submit the plan; the board shows its total and remaining reserve for you to check.
 
-**Expected submission - exact player copy:** one selected plan with its decision-relevant result
+**Complete format-specific interaction block - canonical source:**
 
-**Complete format-specific interaction block:**
+```json
+{
+  "value": {
+    "budget": {
+      "value": 100,
+      "unit": "response credits"
+    },
+    "requirements": [
+      {
+        "id": "r1",
+        "text": "refine who is exposed"
+      },
+      {
+        "id": "r2",
+        "text": "prepare reversible protective capacity"
+      }
+    ],
+    "selection_rule": "Cover every required outcome at the lowest total cost within the budget; keep all unused capacity in reserve.",
+    "options": [
+      {
+        "id": "symbolic_impactor",
+        "label": "Launch the proposed impactor",
+        "cost": 80.0,
+        "information": "At best delivers 3×10⁷ N·s against at least 10¹¹ N·s required; it cannot meet this deflection demand.",
+        "covers": []
+      },
+      {
+        "id": "corridor_observations",
+        "label": "Corridor-refining observations",
+        "cost": 45.0,
+        "information": "Narrows the area that needs protection.",
+        "covers": [
+          "r1"
+        ]
+      },
+      {
+        "id": "civil_defense",
+        "label": "Reversible civil-defense preparation",
+        "cost": 55.0,
+        "information": "Stages transport, shelters and alerts before an order.",
+        "covers": [
+          "r2"
+        ]
+      },
+      {
+        "id": "public_demo",
+        "label": "Public technology demonstration",
+        "cost": 25.0,
+        "information": "Demonstrates equipment without changing the predicted corridor or providing protective capacity.",
+        "covers": []
+      }
+    ],
+    "accepted_plans": [
+      [
+        "corridor_observations",
+        "civil_defense"
+      ]
+    ],
+    "example_total": 100.0,
+    "example_reserve": 0.0
+  }
+}
+```
 
-~~~yaml
-value:
-  budget: {value: 100, unit: response_credits}
-  options:
-    - {id: symbolic_impactor, label: Launch symbolic impactor, cost: 80, axis: prevention, decision_value: negligible}
-    - {id: corridor_observations, label: Fund corridor-refining observations, cost: 45, axis: location, decision_value: high}
-    - {id: civil_defense, label: Begin reversible civil-defense preparation, cost: 55, axis: exposure, decision_value: high}
-    - {id: public_demo, label: Fund a public technology demonstration, cost: 25, axis: communication, decision_value: low}
-  total_option_cost: 205
-  correct: [corridor_observations, civil_defense]
-  decision_changed: Refines who is at risk while funding actions that can still reduce harm.
-~~~
+**Evidence delivery and grading:** The setup, decision evidence, public rules, costs and option descriptions are visible on this card before selection. Render option descriptions beside their controls, once; never replace them with internal axis IDs or a generic earlier-case sentence. Answer keys, accepted examples and feedback stay hidden until submission. Reveal withheld measurements only after the stated commitment. Use the public feasibility/selection rule; an example allocation is not an exclusive key. The displayed person must match this stop’s placement and Call.
 
-**Correct result:** Fund corridor observations and civil-defense preparation; do not launch.
+**Correct result:** corridor_observations, civil_defense = 100 response credits; reserve 0
 
-**Answer text:** Refusing an impossible intervention protects the actions that can still reduce harm.
+**Answer text:** Each funded package supplies a required outcome; an affordable package that leaves one unresolved is insufficient.
 
-**Why:** VALUE compares expected decision benefit and opportunity cost.
-
-**Wrong-path feedback:** Hope is not added momentum, and a launch can consume the warning time it cannot overcome.
+**Wrong-path feedback:** Identify the unmet public condition or the specific measurement that the selected option cannot provide; keep the original evidence available for retry.
 
 **State/output:** DEFLECTION BRANCH CLOSED; RESPONSE BRANCH EXPANDED.
 
@@ -8427,6 +8646,8 @@ t notices; no pre-rendered sequence or forced viewpoint change
 
 **Question card story-science connection - exact player copy:** The threshold-action matches determine how changing probability, exposure, warning time, and verification alter the response state.
 
+**Decision evidence - exact player copy:** Published campaign response policy: watch if p>1% and diameter>10 m; stage if p>50% and a populated corridor remains; order only if p≥90%, diameter≥20 m, a narrow populated three-sigma corridor, independent verification and warning<2 days all hold. Stand down a jurisdiction only after independent verification that the complete corridor excludes it. Commit these policy rules, not thresholds inferred from physics.
+
 **Question card prompt - exact player copy:** Write and commit all four thresholds before updates unlock; then submit the four-stage threshold-to-action mapping.
 
 **Expected submission - exact player copy:** one four-stage threshold-to-action mapping
@@ -8518,83 +8739,81 @@ trigger:
 
 **Stop reason - exact player copy:** The response ladder allows preparation before the evidence supports a broad irreversible order.
 
-**Question card story setup - exact player copy:** Allocate transport, shelters, medical teams, and communication capacity to reversible staging first.
+**Question card story setup - exact player copy:** The evidence permits reversible staging, not a corridor-wide evacuation. The team can vary the distribution while keeping every service ready.
 
-**Question card story-science connection - exact player copy:** The capacity allocation determines which targeted staging can be completed while preserving a usable reserve.
+**Question card prompt - exact player copy:** Allocate exactly 100 points. Use 5-point increments, with 10–40 points in each operational category and 20–40 in reserve. Do not issue a mass-movement order. Submit the allocation; the board checks the total and each requirement.
 
-**Question card prompt - exact player copy:** Submit one five-category allocation totaling 100 points that preserves at least 20 points in reserve.
+**Complete format-specific interaction block - canonical source:**
 
-**Expected submission - exact player copy:** one allocation satisfying every stated constraint
-
-**Complete format-specific interaction block:**
-
-~~~yaml
-allocate:
-  pool: {label: First-wave capacity, value: 100, unit: points}
-  items:
-    - {id: transport, label: Mobility-limited transport, cost_per_unit: 1, min: 10, max: 40, step: 5, unit: points}
-    - {id: shelters, label: Shelter readiness, cost_per_unit: 1, min: 10, max: 40, step: 5, unit: points}
-    - {id: hospitals, label: Hospital continuity, cost_per_unit: 1, min: 10, max: 40, step: 5, unit: points}
-    - {id: communications, label: Multilingual alerts, cost_per_unit: 1, min: 10, max: 40, step: 5, unit: points}
-    - {id: reserve, label: Reserve, cost_per_unit: 1, min: 20, max: 40, step: 5, unit: points}
-  questions:
-    - {id: mobility, label: "Can mobility-limited residents be reached?", required: true, needs: {transport: 10}}
-    - {id: continuity, label: "Can shelters and hospitals stay ready?", required: true, needs: {shelters: 10, hospitals: 10}}
-    - {id: access, label: "Can every county receive accessible alerts?", required: true, needs: {communications: 10}}
-    - {id: extra_comfort, label: "Can optional comfort sites be expanded now?", required: false, needs: {shelters: 30}}
-  correct: {transport: 20, shelters: 20, hospitals: 20, communications: 20, reserve: 20}
-  pass_rule: total = 100; each operational item >= 10; reserve >= 20
-  forbidden_action: move_all_nine_million_people_now
-~~~
-
-**§7 authored-board source - ALLOCATE:** Convert this stop from its authored interaction block below. Do not substitute a format-level template. The panel must state the goal without printing the keyed answer.
-
-```yaml
-authored_board:
-  stop: "Stop 46 - Allocate limited capacity"
-  format: "ALLOCATE"
-  source: "Handback 5 canonical interaction block"
-  question: "Submit one five-category allocation totaling 100 points that preserves at least 20 points in reserve."
-  payload: "~~~yaml allocate: pool: {label: First-wave capacity, value: 100, unit: points} items: - {id: transport, label: Mobility-limited transport, cost_per_unit: 1, min: 10, max: 40, step: 5, unit: points} - {id: shelters, label: Shelter readiness, cost_per_unit: 1, min: 10, max: 40, step: 5, unit: points} - {id: hospitals, label: Hospital continuity, cost_per_unit: 1, min: 10, max: 40, step: 5, unit: points} - {id: communications, label: Multilingual alerts, cost_per_unit: 1, min: 10, max: 40, step: 5, unit: points} - {id: reserve, label: Reserve, cost_per_unit: 1, min: 20, max: 40, step: 5, unit: points} questions: - {id: mobility, label: \"Can mobility-limited residents be reached?\", required: true, needs: {transport: 10}} - {id: continuity, label: \"Can shelters and hospitals stay ready?\", required: true, needs: {shelters: 10, hospitals: 10}} - {id: access, label: \"Can every county receive accessible alerts?\", required: true, needs: {communications: 10}} - {id: extra_comfort, label: \"Can optional comfort sites be expanded now?\", required: false, needs: {shelters: 30}} correct: {transport: 20, shelters: 20, hospitals: 20, communications: 20, reserve: 20} pass_rule: total = 100; each operational item >= 10; reserve >= 20 forbidden_action: move_all_nine_million_people_now ~~~"
-  axis_and_units: "Use only quantities and units named in this question and payload."
-  candidates_and_numbers: "Use only candidates and numbers named in this question and payload."
-  panel_rule: "Print the goal, never the target or keyed answer."
+```json
+{
+  "allocate": {
+    "pool": {
+      "value": 100,
+      "unit": "points"
+    },
+    "items": [
+      {
+        "id": "transport",
+        "label": "Mobility transport",
+        "min": 10,
+        "max": 40,
+        "step": 5,
+        "information": "Stages accessible transport."
+      },
+      {
+        "id": "shelters",
+        "label": "Shelter readiness",
+        "min": 10,
+        "max": 40,
+        "step": 5,
+        "information": "Prepares shelters."
+      },
+      {
+        "id": "hospitals",
+        "label": "Hospital continuity",
+        "min": 10,
+        "max": 40,
+        "step": 5,
+        "information": "Preserves care capability."
+      },
+      {
+        "id": "communications",
+        "label": "Multilingual alerts",
+        "min": 10,
+        "max": 40,
+        "step": 5,
+        "information": "Prepares accessible alerts."
+      },
+      {
+        "id": "reserve",
+        "label": "Reserve",
+        "min": 20,
+        "max": 40,
+        "step": 5,
+        "information": "Keeps capacity for the next corridor update."
+      }
+    ],
+    "public_rule": "Use 5-point increments, with 10–40 points in each operational category and 20–40 in reserve. Do not issue a mass-movement order.",
+    "accepted_example": {
+      "transport": 20,
+      "shelters": 20,
+      "hospitals": 20,
+      "communications": 20,
+      "reserve": 20
+    },
+    "grading": "Accept every allocation satisfying the public rule; the example is not exclusive."
+  }
+}
 ```
 
-**Handback 4 canonical interaction block - ALLOCATE:**
+**Evidence delivery and grading:** The setup, decision evidence, public rules, costs and option descriptions are visible on this card before selection. Render option descriptions beside their controls, once; never replace them with internal axis IDs or a generic earlier-case sentence. Answer keys, accepted examples and feedback stay hidden until submission. Reveal withheld measurements only after the stated commitment. Use the public feasibility/selection rule; an example allocation is not an exclusive key. The displayed person must match this stop’s placement and Call.
 
-**Handback 5 canonical interaction block - ALLOCATE:**
+**Correct result:** One valid example: {"transport": 20, "shelters": 20, "hospitals": 20, "communications": 20, "reserve": 20}. Other allocations satisfying the public rule are also correct.
 
-```yaml
-allocate:
-  pool: {label: "First-wave capacity", value: 100, unit: "points"}
-  items:
-    - {id: transport, label: "Mobility-limited transport", cost: 20}
-    - {id: shelters, label: "Shelter readiness", cost: 20}
-    - {id: hospitals, label: "Hospital continuity", cost: 20}
-    - {id: communications, label: "Multilingual alerts", cost: 20}
-    - {id: reserve, label: "Reserve", cost: 20}
-    - {id: comfort, label: "Optional comfort sites", cost: 30}
-  questions:
-    - {id: mobility, requires: [transport], required: true}
-    - {id: continuity, requires: [shelters, hospitals], required: true}
-    - {id: accessibility, requires: [communications], required: true}
-    - {id: response_reserve, requires: [reserve], required: true}
-    - {id: extra_comfort, requires: [comfort], required: false}
-  rule: "At least one outcome may be forgone; required outcomes are not pre-protected, so the player must choose a feasible basket."
-  preProtected: []
-  correct: [transport, shelters, hospitals, communications, reserve]
-  decision_can_fail: true
-  question: "Submit one five-category allocation totaling 100 points that preserves at least 20 points in reserve."
-```
+**Answer text:** The accepted plan funds every required capability within the stated limits; extra points may be distributed only as the public rule allows.
 
-**Correct result:** Stage targeted capacity and retain a reserve; do not order corridor-wide evacuation.
-
-**Answer text:** Staging buys speed without imposing the harms of premature mass movement.
-
-**Why:** ALLOCATE distributes finite resources against expected need, reversibility, and equity.
-
-**Wrong-path feedback:** Spending everything now leaves no capacity when the corridor narrows.
+**Wrong-path feedback:** Identify the unmet public condition or the specific measurement that the selected option cannot provide; keep the original evidence available for retry.
 
 **State/output:** TOWN readiness package reaches 80%.
 
@@ -8680,46 +8899,58 @@ mapping:
 
 **Question card story setup - exact player copy:** Review five proposed public statements and sign only those supported by the current campaign evidence. Each accepted line must name its condition, intended action, and next update without promising certainty.
 
-**Question card story-science connection - exact player copy:** The signed statements determine what the public can be told without promising certainty or an unsupported all-clear.
+**Question card prompt - exact player copy:** Use the published response ladder and current evidence; no certainty claim follows from a probability below 100%. Read the displayed source excerpts, then select every supported claim and leave unsupported claims unsigned.
 
-**Question card prompt - exact player copy:** Attest the defensible response-plan statements.
+**Complete format-specific interaction block - canonical source:**
 
-**Expected submission - exact player copy:** one complete signed-versus-rejected claim set
-
-**Complete format-specific interaction block:**
-
-~~~yaml
-attest:
-  verification_limit: 5
-  claims:
-    - {id: leading_case, text: "A 63% impact probability makes impact the leading planning case.", backed: true, critical: true}
-    - {id: staging, text: "The broad corridor supports reversible staging, not mass evacuation.", backed: true, critical: true}
-    - {id: order_rule, text: "A protective order requires a narrow independently verified damaging corridor.", backed: true, critical: true}
-    - {id: city_hit, text: "A named city will be hit.", backed: false, critical: true}
-    - {id: deflection, text: "A last-minute deflection can still save us.", backed: false, critical: true}
-  correct_signed: [leading_case, staging, order_rule]
-~~~
-
-**§7 build completion - ATTEST:** This block supplies the panel fields omitted above; the authored prompt, science, and correct result remain authoritative.
-
-```yaml
-attest:
-  checks: 3
-  claims:
-    - {id: primary, label: "primary claim for Sign the public claims", critical: true, backed: true, verification: "the signed source reproduces the displayed result"}
-    - {id: independent, label: "independent confirmation", critical: true, backed: true, verification: "the independent record agrees within the stated tolerance"}
-    - {id: scope, label: "scope and date", critical: false, backed: true, verification: "the record names the population and time window"}
-    - {id: extension, label: "stronger untested extension", critical: true, backed: false, verification: "no independent check supports the extension; it must be held"}
-  correctAction: "verify primary, independent, and scope; hold extension"
+```json
+{
+  "attest": {
+    "claims": [
+      {
+        "id": "leading_case",
+        "label": "A 63% impact probability makes impact the leading planning case.",
+        "evidence": "Current impact probability is 63%, with a 37% miss set."
+      },
+      {
+        "id": "staging",
+        "label": "The broad corridor supports reversible staging, not mass evacuation.",
+        "evidence": "The current corridor remains broad; the published ladder permits reversible staging."
+      },
+      {
+        "id": "order_rule",
+        "label": "A protective order requires a narrow independently verified damaging corridor.",
+        "evidence": "The published order rule requires a narrow, independently verified damaging corridor and its other probability/time conditions."
+      },
+      {
+        "id": "city_hit",
+        "label": "A named city will be hit.",
+        "evidence": "No verified city-specific impact location exists in the current record."
+      },
+      {
+        "id": "deflection",
+        "label": "A last-minute deflection can still save us.",
+        "evidence": "The proposed impactor supplies at most 3×10⁷ N·s against at least 10¹¹ N·s needed."
+      }
+    ],
+    "selection_rule": "Support must be present in the displayed source excerpt and within its scope; a signature or repeated copy alone is insufficient.",
+    "correct_signed": [
+      "leading_case",
+      "staging",
+      "order_rule"
+    ],
+    "checks": 3
+  }
+}
 ```
 
-**Correct result:** Sign the three conditional statements and reject both absolute claims.
+**Evidence delivery and grading:** The setup, decision evidence, public rules, costs and option descriptions are visible on this card before selection. Render option descriptions beside their controls, once; never replace them with internal axis IDs or a generic earlier-case sentence. Answer keys, accepted examples and feedback stay hidden until submission. Reveal withheld measurements only after the stated commitment. Use the public feasibility/selection rule; an example allocation is not an exclusive key. The displayed person must match this stop’s placement and Call.
 
-**Answer text:** The plan is firm about actions precisely because it is honest about uncertainty.
+**Correct result:** Sign leading_case, staging, order_rule; leave the other claims unsigned.
 
-**Why:** ATTEST requires explicit evidence ownership for public claims.
+**Answer text:** Each signature is limited to what its source establishes. The unsupported claims lack the specific date, physical condition, independence or scope they assert.
 
-**Wrong-path feedback:** Confidence in a process is not permission to overstate its inputs.
+**Wrong-path feedback:** Identify the unmet public condition or the specific measurement that the selected option cannot provide; keep the original evidence available for retry.
 
 **State/output:** PRECOMMITTED RESPONSE PLAN published.
 
@@ -9234,68 +9465,43 @@ control:
 
 **Stop reason - exact player copy:** The identified offset must be applied consistently before the revised orbit is trusted.
 
-**Question card story setup - exact player copy:** Refit the complete optical batch with the documented correction and compare residuals before and after. The common eastward pattern disappears, while the remaining scatter stays centered near zero and within stated uncertainty.
+**Question card story setup - exact player copy:** The optical batch has been refitted with the documented correction. Compare the residual summary against the published calibration acceptance limits.
 
-**Question card story-science connection - exact player copy:** The corrected residual pattern determines whether the documented bias removal produces an adequate optical fit.
+**Question card prompt - exact player copy:** Submit the corrected mean and scatter in arcseconds. PASS only if absolute mean≤0.10 arcsecond and scatter≤0.10 arcsecond; this is a summary-data check, not an invented five-point residual trace.
 
-**Question card prompt - exact player copy:** Submit the corrected mean and scatter in arcseconds and one conclusion: PASS or FAIL. Use ordered observation coordinates 1–5 on the residual axis.
+**Complete format-specific interaction block - canonical source:**
 
-**Expected submission - exact player copy:** one residual classification and model conclusion
-
-**Complete format-specific interaction block:**
-
-~~~yaml
-residual:
-  fields:
-    - {id: before, mean_east_arcsec: 0.37, scatter_arcsec: 0.10}
-    - {id: after, mean_east_arcsec: 0.01, scatter_arcsec: 0.09}
-  expected: {mean_east_arcsec: 0.00, one_sigma_scatter_arcsec: 0.10}
-  acceptance: {absolute_mean_max_arcsec: 0.10, scatter_max_arcsec: 0.10}
-  correct_classification: pass
-~~~
-
-**§7 authored-board source - RESIDUAL:** Convert this stop from its authored interaction block below. Do not substitute a format-level template. The panel must state the goal without printing the keyed answer.
-
-```yaml
-authored_board:
-  stop: "Stop 50 - Refit the corrected residuals"
-  format: "RESIDUAL"
-  source: "Handback 3 canonical interaction block"
-  question: "Submit the corrected mean and scatter in arcseconds and one conclusion: PASS or FAIL."
-  payload: "~~~yaml residual: fields: - {id: before, mean_east_arcsec: 0.37, scatter_arcsec: 0.10} - {id: after, mean_east_arcsec: 0.01, scatter_arcsec: 0.09} expected: {mean_east_arcsec: 0.00, one_sigma_scatter_arcsec: 0.10} acceptance: {absolute_mean_max_arcsec: 0.10, scatter_max_arcsec: 0.10} correct_classification: pass ~~~"
-  axis_and_units: "Use only quantities and units named in this question and payload."
-  candidates_and_numbers: "Use only candidates and numbers named in this question and payload."
-  panel_rule: "Print the goal, never the target or keyed answer."
+```json
+{
+  "residual": {
+    "fields": [
+      {
+        "id": "before",
+        "mean_east_arcsec": 0.37,
+        "scatter_arcsec": 0.1
+      },
+      {
+        "id": "after",
+        "mean_east_arcsec": 0.01,
+        "scatter_arcsec": 0.09
+      }
+    ],
+    "acceptance": {
+      "absolute_mean_max_arcsec": 0.1,
+      "scatter_max_arcsec": 0.1
+    },
+    "correct_classification": "PASS"
+  }
+}
 ```
 
-**Handback 3 canonical interaction block - RESIDUAL:**
+**Evidence delivery and grading:** The setup, decision evidence, public rules, costs and option descriptions are visible on this card before selection. Render option descriptions beside their controls, once; never replace them with internal axis IDs or a generic earlier-case sentence. Answer keys, accepted examples and feedback stay hidden until submission. Reveal withheld measurements only after the stated commitment. Use the public feasibility/selection rule; an example allocation is not an exclusive key. The displayed person must match this stop’s placement and Call.
 
-```yaml
-residual:
-  xAxis: {label: "ordered observation in the question", values: [1, 2, 3, 4, 5]}
-  fits:
-    - id: patterned_low_error
-      label: "lower average error but patterned residuals"
-      rms: 0.18
-      structured: true
-      residuals: [{x: 1, y: -0.12}, {x: 2, y: -0.06}, {x: 3, y: 0.00}, {x: 4, y: 0.06}, {x: 5, y: 0.12}]
-    - id: unpatterned_generalising
-      label: "slightly higher error with no directional pattern"
-      rms: 0.21
-      structured: false
-      residuals: [{x: 1, y: 0.05}, {x: 2, y: -0.04}, {x: 3, y: 0.02}, {x: 4, y: -0.03}, {x: 5, y: 0.01}]
-  accept: unpatterned_generalising
-  reject: patterned_low_error
-  correctConclusion: "Accept the fit and preserve correction provenance."
-```
+**Correct result:** Mean +0.01 arcsecond, scatter 0.09 arcsecond: PASS.
 
-**Correct result:** Accept the fit and preserve correction provenance.
+**Answer text:** Both corrected summaries meet their limits. Retain the documented source of the correction with the refitted optical batch.
 
-**Answer text:** Centered, expected scatter supports correction rather than overfitting.
-
-**Why:** RESIDUAL tests the pattern left by a repair.
-
-**Wrong-path feedback:** Perfect zeros would be suspicious; consistent scatter is the goal.
+**Wrong-path feedback:** Identify the unmet public condition or the specific measurement that the selected option cannot provide; keep the original evidence available for retry.
 
 **State/output:** PRIMARY CORRIDOR refit.
 
@@ -10546,47 +10752,65 @@ istent world changes, or waypoint notices; no pre-rendered sequence or forced vi
 
 **Question card story setup - exact player copy:** A faint point appears inside the fragment search box and moves consistently over three exposures. Attest its identity only after checking timestamps, star-field solution, motion, brightness, and the static-source archive.
 
-**Question card story-science connection - exact player copy:** The timed-image and archive checks determine whether the search-box detection is a genuine recovery of the fragment.
+**Question card prompt - exact player copy:** Recovery identity is narrower than impact prediction; sign only the checks established by the recovery record. Read the displayed source excerpts, then select every supported claim and leave unsupported claims unsigned.
 
-**Question card prompt - exact player copy:** Sign the five backed recovery checks and reject the unsupported city-impact claim.
+**Complete format-specific interaction block - canonical source:**
 
-**Expected submission - exact player copy:** one complete signed-versus-rejected claim set covering five evidence checks and one unsupported claim
-
-**Complete format-specific interaction block:**
-
-~~~yaml
-attest:
-  verification_limit: 6
-  claims:
-    - {id: timestamps, text: Timestamps match the independent standard., backed: true, critical: true}
-    - {id: astrometry, text: The star-field solution passes., backed: true, critical: true}
-    - {id: motion, text: Motion is consistent across three exposures., backed: true, critical: true}
-    - {id: magnitude, text: Brightness is consistent with the fragment model., backed: true, critical: false}
-    - {id: static_source, text: No static source exists at the measured position., backed: true, critical: true}
-    - {id: city_impact, text: The recovered point proves impact on a named city., backed: false, critical: true}
-  correct_signed: [timestamps, astrometry, motion, magnitude, static_source]
-~~~
-
-**§7 build completion - ATTEST:** This block supplies the panel fields omitted above; the authored prompt, science, and correct result remain authoritative.
-
-```yaml
-attest:
-  checks: 3
-  claims:
-    - {id: primary, label: "primary claim for Attest the recovery", critical: true, backed: true, verification: "the signed source reproduces the displayed result"}
-    - {id: independent, label: "independent confirmation", critical: true, backed: true, verification: "the independent record agrees within the stated tolerance"}
-    - {id: scope, label: "scope and date", critical: false, backed: true, verification: "the record names the population and time window"}
-    - {id: extension, label: "stronger untested extension", critical: true, backed: false, verification: "no independent check supports the extension; it must be held"}
-  correctAction: "verify primary, independent, and scope; hold extension"
+```json
+{
+  "attest": {
+    "claims": [
+      {
+        "id": "timestamps",
+        "label": "Timestamps match the independent standard.",
+        "evidence": "Exposure timestamps match the independent standard."
+      },
+      {
+        "id": "astrometry",
+        "label": "The star-field solution passes.",
+        "evidence": "The star-field solution passes its registered calibration check."
+      },
+      {
+        "id": "motion",
+        "label": "Motion is consistent across three exposures.",
+        "evidence": "The point moves consistently through three timed exposures."
+      },
+      {
+        "id": "magnitude",
+        "label": "Brightness is consistent with the fragment model.",
+        "evidence": "Measured brightness is within the fragment search model’s expected range."
+      },
+      {
+        "id": "static_source",
+        "label": "No static source exists at the measured position.",
+        "evidence": "The static-source archive has no object at the measured position."
+      },
+      {
+        "id": "city_impact",
+        "label": "The recovered point proves impact on a named city.",
+        "evidence": "The recovery record does not supply a propagated, verified city-impact solution."
+      }
+    ],
+    "selection_rule": "Support must be present in the displayed source excerpt and within its scope; a signature or repeated copy alone is insufficient.",
+    "correct_signed": [
+      "timestamps",
+      "astrometry",
+      "motion",
+      "magnitude",
+      "static_source"
+    ],
+    "checks": 5
+  }
+}
 ```
 
-**Correct result:** Sign the verified recovery.
+**Evidence delivery and grading:** The setup, decision evidence, public rules, costs and option descriptions are visible on this card before selection. Render option descriptions beside their controls, once; never replace them with internal axis IDs or a generic earlier-case sentence. Answer keys, accepted examples and feedback stay hidden until submission. Reveal withheld measurements only after the stated commitment. Use the public feasibility/selection rule; an example allocation is not an exclusive key. The displayed person must match this stop’s placement and Call.
 
-**Answer text:** Every identity check agrees, so the positions extend the fragment arc.
+**Correct result:** Sign timestamps, astrometry, motion, magnitude, static_source; leave the other claims unsigned.
 
-**Why:** ATTEST owns a claim against named criteria.
+**Answer text:** Each signature is limited to what its source establishes. The unsupported claims lack the specific date, physical condition, independence or scope they assert.
 
-**Wrong-path feedback:** Search-box proximity alone is not identity.
+**Wrong-path feedback:** Identify the unmet public condition or the specific measurement that the selected option cannot provide; keep the original evidence available for retry.
 
 **State/output:** FRAGMENT RECOVERED.
 
@@ -10614,70 +10838,50 @@ attest:
 
 **Stop reason - exact player copy:** The verified fragment recovery allows its risk to be assessed against the published protective-order criteria.
 
-**Question card story setup - exact player copy:** The recovered orbit gives a narrow damaging-airburst corridor over 180,000 people, while size and density ranges imply roughly 0.7 to 2 megatons TNT. Balance probability, consequence, timing, and reversibility against the published rule.
+**Question card story setup - exact player copy:** The operations desk has both a probability and an exposure count. The team computes their product without treating it as an automatic order.
 
-**Question card story-science connection - exact player copy:** Probability, consequence, warning time, and reversibility together determine whether a targeted order is justified.
+**Question card prompt - exact player copy:** Impact probability is 0.91 and exposed population is 180,000. Calculate probability-weighted exposure. The decision file also lists diameter 28–36 m, energy 0.7–2 Mt, warning under two days and independent confirmation.
 
-**Question card prompt - exact player copy:** Submit one threshold conclusion - TARGETED ORDER or CONTINUE STAGING - and identify the numerical evidence that controls it.
+**Complete format-specific interaction block — canonical BALLPARK:**
 
-**Expected submission - exact player copy:** one threshold conclusion and the numerical evidence supporting it
-
-**Complete format-specific interaction block:**
-
-~~~yaml
-balance:
-  streams:
-    - {id: likelihood, label: Impact probability, value: 91, unit: percent, count: true}
-    - {id: diameter, label: Diameter range, value: [28, 36], unit: m, count: true}
-    - {id: energy, label: Energy range, value: [0.7, 2.0], unit: Mt TNT, count: true}
-    - {id: exposure, label: Exposed population, value: 180000, unit: people, count: true}
-    - {id: warning, label: Warning time, value: less_than_2, unit: days, count: true}
-    - {id: verification, label: Independent verification, value: independent, unit: status, count: true}
-    - {id: torino_summary, label: Torino summary, value: derived, unit: category, count: false}
-  published_threshold: high_probability_narrow_damaging_verified_time_critical
-  correct_conclusion: targeted_order
-~~~
-
-**§7 authored-board source - BALANCE:** Convert this stop from its authored interaction block below. Do not substitute a format-level template. The panel must state the goal without printing the keyed answer.
-
-```yaml
-authored_board:
-  stop: "Stop 58 - Balance orbit and consequence"
-  format: "BALLPARK"
-  source: "Handback 5 canonical interaction block"
-  question: "Submit one threshold conclusion - TARGETED ORDER or CONTINUE STAGING - and identify the numerical evidence that controls it."
-  payload: "~~~yaml balance: streams: - {id: likelihood, label: Impact probability, value: 91, unit: percent, count: true} - {id: diameter, label: Diameter range, value: [28, 36], unit: m, count: true} - {id: energy, label: Energy range, value: [0.7, 2.0], unit: Mt TNT, count: true} - {id: exposure, label: Exposed population, value: 180000, unit: people, count: true} - {id: warning, label: Warning time, value: less_than_2, unit: days, count: true} - {id: verification, label: Independent verification, value: independent, unit: status, count: true} - {id: torino_summary, label: Torino summary, value: derived, unit: category, count: false} published_threshold: high_probability_narrow_damaging_verified_time_critical correct_conclusion: targeted_order ~~~"
-  axis_and_units: "Use only quantities and units named in this question and payload."
-  candidates_and_numbers: "Use only candidates and numbers named in this question and payload."
-  panel_rule: "Print the goal, never the target or keyed answer."
+```json
+{
+  "estimate": {
+    "quantity": "Balance orbit and consequence",
+    "labels": [
+      "0.91",
+      "180000",
+      "91"
+    ],
+    "values": [
+      0.91,
+      180000,
+      91
+    ],
+    "slots": 2,
+    "template": "{a} × {b} = ? probability-weighted people",
+    "formula": "a*b",
+    "correct": [
+      0,
+      1
+    ],
+    "target": 163800,
+    "tolerance": 1,
+    "units": "probability-weighted people",
+    "correctResult": 163800
+  },
+  "answerText": "0.91×180,000=163,800 probability-weighted exposed people. This is not predicted casualties or an evacuation threshold. The following decision must still apply the evidence and warning criteria for TARGETED ORDER versus CONTINUE STAGING.",
+  "wrongFeedback": [
+    "Use 0.91, not 91. Expected exposure alone cannot authorize an order."
+  ]
+}
 ```
 
-**Handback 3 canonical interaction block - BALLPARK:**
+**Rendering and grading contract:** Render every numeric label as a selectable tile. The printed equation supplies the slot roles; do not replace number labels with quantity names. `correct` contains zero-based tile indices for slots a onward. Accept numerically equivalent selections, including equal-valued tiles. Evaluate the formula on submission; tolerance is absolute in the stated output units. Negative and zero results require a signed linear display. The board has one submission; supporting comparisons appear in the result explanation.
 
-**Handback 5 canonical interaction block - BALLPARK:**
+**Correct result:** 0.91×180,000=163,800 probability-weighted exposed people. This is not predicted casualties or an evacuation threshold. The following decision must still apply the evidence and warning criteria for TARGETED ORDER versus CONTINUE STAGING.
 
-```yaml
-estimate:
-  quantity: "expected exposed population at the current impact probability"
-  unit: "people"
-  inputs:
-    - {label: "Impact probability", value: 0.91, unit: "probability"}
-    - {label: "Population in the exposed corridor", value: 180000, unit: "people"}
-  operation: "multiply impact probability by exposed population"
-  formula: "expected exposure=0.91×180000"
-  start: 0
-  correctResult: 163800
-  tolerance: 100
-  commonMistake: "Mixing a contextual reading into the arithmetic or reversing the subtraction."
-```
-
-**Correct result:** Every targeted-order criterion is crossed.
-
-**Answer text:** High likelihood, damaging scale, narrow exposure, verification, and short time require action.
-
-**Why:** BALANCE integrates unlike evidence at a decision boundary.
-
-**Wrong-path feedback:** Smaller than the primary is not harmless.
+**Wrong-path feedback:** Use 0.91, not 91. Expected exposure alone cannot authorize an order.
 
 **State/output:** TARGETED ORDER AUTHORIZED.
 
@@ -10694,6 +10898,8 @@ estimate:
 **Question card story setup - exact player copy:** Apply the published, precommitted response ladder to the newly verified 180,000-person fragment corridor. Choose geographic scope, protective action, accessibility measures, and reassessment time while preserving the primary-body stand-down elsewhere.
 
 **Question card story-science connection - exact player copy:** The selected order determines whom to protect now while retaining the primary-body stand-down outside the fragment corridor.
+
+**Decision evidence - exact player copy:** Current fragment record: p=91%, diameter 28–36 m, narrow verified corridor containing 180,000 people, independent check passed, warning under two days. The published order rule requires p≥90%, diameter≥20 m, a narrow populated corridor, independent verification and warning<2 days. Provide multilingual alerts and mobility support; reassess at every orbit update. Primary-body land stand-down remains in force outside the fragment zone.
 
 **Question card prompt - exact player copy:** Submit the triggered plan for 180,000 people, naming the protective action, accessibility measures, reassessment timing, and preserved primary-body stand-down.
 
@@ -10800,41 +11006,83 @@ trigger:
 
 **Stop reason - exact player copy:** The targeted order needs actual deployment without abandoning the continuing ocean-event watch.
 
-**Question card story setup - exact player copy:** Complete deployment without stripping ongoing coastal monitoring for the primary ocean event.
+**Question card story setup - exact player copy:** The fragment zone needs protection while the primary ocean event remains monitored. Allocate the final response without borrowing the coastal-watch capacity.
 
-**Question card story-science connection - exact player copy:** The final allocation determines whether transport, shelter, medical, communication, reserve, and coastal-monitoring commitments can all be met.
+**Decision evidence - exact player copy:** The coastal watch is already staffed outside these 100 points. None of its staff or equipment may be transferred; this is a checkable operational constraint, not another hidden allocation.
 
-**Question card prompt - exact player copy:** Submit one five-category allocation totaling 100 points and a conclusion confirming whether every constraint and both hazard tracks remain satisfied.
+**Question card prompt - exact player copy:** Allocate exactly 100 points. Use 5-point increments. Minimums are transport 25, shelters 25, hospitals 20, communications 15 and reserve 10; no category may exceed 40. Preserve the separately staffed coastal watch. Submit the allocation; the board checks the total and each requirement.
 
-**Expected submission - exact player copy:** one allocation satisfying every stated constraint
+**Complete format-specific interaction block - canonical source:**
 
-**Complete format-specific interaction block:**
+```json
+{
+  "allocate": {
+    "pool": {
+      "value": 100,
+      "unit": "points"
+    },
+    "items": [
+      {
+        "id": "transport",
+        "label": "Mobility transport",
+        "min": 25,
+        "max": 40,
+        "step": 5,
+        "information": "Meets the corridor transport requirement."
+      },
+      {
+        "id": "shelters",
+        "label": "Shelters",
+        "min": 25,
+        "max": 40,
+        "step": 5,
+        "information": "Meets the corridor shelter requirement."
+      },
+      {
+        "id": "hospitals",
+        "label": "Hospitals",
+        "min": 20,
+        "max": 40,
+        "step": 5,
+        "information": "Meets the corridor care requirement."
+      },
+      {
+        "id": "communications",
+        "label": "Multilingual alerts",
+        "min": 15,
+        "max": 40,
+        "step": 5,
+        "information": "Reaches the affected corridor."
+      },
+      {
+        "id": "reserve",
+        "label": "Protected reserve",
+        "min": 10,
+        "max": 40,
+        "step": 5,
+        "information": "Retains response flexibility."
+      }
+    ],
+    "public_rule": "Use 5-point increments. Minimums are transport 25, shelters 25, hospitals 20, communications 15 and reserve 10; no category may exceed 40. Preserve the separately staffed coastal watch.",
+    "accepted_example": {
+      "transport": 25,
+      "shelters": 25,
+      "hospitals": 20,
+      "communications": 15,
+      "reserve": 15
+    },
+    "grading": "Accept every allocation satisfying the public rule; the example is not exclusive."
+  }
+}
+```
 
-~~~yaml
-allocate:
-  pool: {label: Final response capacity, value: 100, unit: points}
-  items:
-    - {id: transport, label: Mobility transport, cost_per_unit: 1, min: 10, max: 40, step: 5, unit: points}
-    - {id: shelters, label: Shelters, cost_per_unit: 1, min: 10, max: 40, step: 5, unit: points}
-    - {id: hospitals, label: Hospitals, cost_per_unit: 1, min: 10, max: 40, step: 5, unit: points}
-    - {id: communications, label: Communications, cost_per_unit: 1, min: 10, max: 40, step: 5, unit: points}
-    - {id: reserve, label: Protected reserve, cost_per_unit: 1, min: 10, max: 40, step: 5, unit: points}
-  questions:
-    - {id: clear_zone, label: "Can mobility-limited residents clear the fragment zone?", required: true, needs: {transport: 25}}
-    - {id: protect_care, label: "Can shelters and hospitals serve the corridor?", required: true, needs: {shelters: 25, hospitals: 20}}
-    - {id: reach_public, label: "Can multilingual alerts reach the corridor?", required: true, needs: {communications: 15}}
-    - {id: expand_elsewhere, label: "Can services expand outside both hazard zones now?", required: false, needs: {reserve: 30}}
-  correct: {transport: 25, shelters: 25, hospitals: 20, communications: 15, reserve: 15}
-  pass_rule: total = 100; every item >= 10; reserve >= 10; coastal monitoring retained
-~~~
+**Evidence delivery and grading:** The setup, decision evidence, public rules, costs and option descriptions are visible on this card before selection. Render option descriptions beside their controls, once; never replace them with internal axis IDs or a generic earlier-case sentence. Answer keys, accepted examples and feedback stay hidden until submission. Reveal withheld measurements only after the stated commitment. Use the public feasibility/selection rule; an example allocation is not an exclusive key. The displayed person must match this stop’s placement and Call.
 
-**Correct result:** Meet all minimums, retain reserve, preserve coastal monitoring.
+**Correct result:** One valid example: {"transport": 25, "shelters": 25, "hospitals": 20, "communications": 15, "reserve": 15}. Other allocations satisfying the public rule are also correct.
 
-**Answer text:** The fragment corridor receives protection while the primary remains monitored.
+**Answer text:** The accepted plan funds every required capability within the stated limits; extra points may be distributed only as the public rule allows.
 
-**Why:** ALLOCATE converts decision into constrained, equitable execution.
-
-**Wrong-path feedback:** Spending the reserve makes the system brittle.
+**Wrong-path feedback:** Identify the unmet public condition or the specific measurement that the selected option cannot provide; keep the original evidence available for retry.
 
 **State/output:** All campaign bars reach 100%; closing sequence begins.
 
@@ -11403,3 +11651,13 @@ The following group ownership is authoritative for reachability; it does not add
 ## Mental-math number rule for calculated-response cards
 
 This rule is binding for this campaign and for future games built from it. When the player must perform the arithmetic without a supplied calculator or a displayed intermediate result, author inputs as friendly integers or simple ratios. Prefer products and quotients that can be completed mentally and key results to an integer or at most one useful decimal place. Update every dependent prompt, board payload, prediction, measurement, tolerance, correct result, answer text, and feedback together. Preserve more complex real-world values only when the interface supplies the calculator or the intermediate value and the learning target is interpretation rather than arithmetic. Never make arithmetic friction the hidden difficulty of a concept question.
+
+# Decision-card evidence contract
+
+Every decision card must expose the exact evidence and public rule that distinguish its accepted answers from plausible alternatives. Render the local Data/readings/options, Decision evidence, public constraints and option effects before selection; keep them available while the player chooses. Use plain-language descriptions, not internal axis names. Show one speaker header from the stop’s placement and Call, and one coherent setup and prompt. Never substitute a discovery-stage explanation into a later allocation, release or certification task.
+
+Resource tasks distinguish a budget from the goal. Display the required outcomes, each option’s contribution, costs, reserve rules and any priority or tie-breaker. Accept every plan satisfying the published rule. A recommended split is not an exclusive key unless the visible constraints uniquely determine it. Policies are identified as policies; the player must not derive an institutional preference from a scientific formula.
+
+For staged tests, show hypotheses, model inputs and acceptance rules before commitment, but keep held-out results hidden until the specified test or reveal. No grade may depend on guessing a future result. A signed claim requires a readable source excerpt or an explicit inspection, not a hidden backed flag. Copied records retain their shared-source identity.
+
+No importer fallback may borrow another stop’s data, speaker, threshold or generic mission text. Missing required local evidence is an import error. Before release, inspect the rendered card, prove the accepted response from visible information alone, try a plausible wrong answer, and test a different valid answer where the rule admits one. This document revision is source work; rendered-game verification still requires the actual implementation.

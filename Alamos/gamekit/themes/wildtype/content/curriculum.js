@@ -2493,10 +2493,10 @@ export const BALLPARK_CALCS = {
     "prompt": "",
     "question": "Use the number tiles to calculate the daily nitrogen deficit in mg per day; submit need minus supply.",
     "labels": [
-      "need",
-      "supply",
-      "trays",
-      "hours"
+      "12",
+      "3",
+      "4",
+      "24"
     ],
     "values": [
       12,
@@ -2505,7 +2505,7 @@ export const BALLPARK_CALCS = {
       24
     ],
     "slots": 2,
-    "template": "{0} {1} → mg/day",
+    "template": "{0}-{1} = ? mg/day",
     "formula": "a-b",
     "correct": [
       0,
@@ -2521,10 +2521,10 @@ export const BALLPARK_CALCS = {
     "prompt": "",
     "question": "Build the ratio 6 divided by side length from the tiles; submit surface-area-to-volume ratio in inverse micrometres.",
     "labels": [
-      "faces",
-      "side length",
-      "surface area",
-      "volume"
+      "6",
+      "3",
+      "54",
+      "27"
     ],
     "values": [
       6,
@@ -2533,7 +2533,7 @@ export const BALLPARK_CALCS = {
       27
     ],
     "slots": 2,
-    "template": "{0} {1} → 1/µm",
+    "template": "{0} / {1} = ? 1/µm",
     "formula": "a/b",
     "correct": [
       0,
@@ -2549,10 +2549,10 @@ export const BALLPARK_CALCS = {
     "prompt": "",
     "question": "Use production minus consumption and submit net oxygen gain in mg per hour.",
     "labels": [
-      "gross production",
-      "respiration",
-      "hours",
-      "sealed pots"
+      "14",
+      "6",
+      "1",
+      "5"
     ],
     "values": [
       14,
@@ -2561,7 +2561,7 @@ export const BALLPARK_CALCS = {
       5
     ],
     "slots": 2,
-    "template": "{0} {1} → mg/hour",
+    "template": "{0}-{1} = ? mg/hour",
     "formula": "a-b",
     "correct": [
       0,
@@ -2577,10 +2577,10 @@ export const BALLPARK_CALCS = {
     "prompt": "",
     "question": "For the old program, use shared last day minus shared first day plus one; submit overlap in days.",
     "labels": [
-      "shared last day",
-      "shared first day",
-      "inclusive endpoint",
-      "field last day"
+      "4",
+      "4",
+      "1",
+      "9"
     ],
     "values": [
       4,
@@ -2589,7 +2589,7 @@ export const BALLPARK_CALCS = {
       9
     ],
     "slots": 3,
-    "template": "{0} {1} {2} → days",
+    "template": "{0}-{1}+{2} = ? days",
     "formula": "a-b+c",
     "correct": [
       0,
@@ -2606,10 +2606,10 @@ export const BALLPARK_CALCS = {
     "prompt": "",
     "question": "Use dividing cells divided by total cells times 100; submit the unusual tray fraction as a percent.",
     "labels": [
-      "dividing",
-      "total",
-      "percent scale",
-      "control dividing"
+      "18",
+      "60",
+      "100",
+      "6"
     ],
     "values": [
       18,
@@ -2618,7 +2618,7 @@ export const BALLPARK_CALCS = {
       6
     ],
     "slots": 3,
-    "template": "{0} {1} {2} → %",
+    "template": "{0} / {1} × {2} = ? %",
     "formula": "a/b*c",
     "correct": [
       0,
@@ -2635,19 +2635,19 @@ export const BALLPARK_CALCS = {
     "prompt": "",
     "question": "Multiply offspring count by recessive fraction; submit expected recessive offspring count.",
     "labels": [
-      "offspring",
-      "numerator",
-      "denominator",
-      "dominant parent copies"
+      "24",
+      "1",
+      "2",
+      "4"
     ],
     "values": [
       24,
       1,
       2,
-      2
+      4
     ],
     "slots": 3,
-    "template": "{0} {1} {2} → offspring",
+    "template": "{0} × {1} / {2} = ? offspring",
     "formula": "a*b/c",
     "correct": [
       0,
@@ -2664,10 +2664,10 @@ export const BALLPARK_CALCS = {
     "prompt": "",
     "question": "Calculate and submit recombination frequency as a percent.",
     "labels": [
-      "recombinants",
-      "total",
-      "percent scale",
-      "parent types"
+      "16",
+      "80",
+      "100",
+      "2"
     ],
     "values": [
       16,
@@ -2676,7 +2676,7 @@ export const BALLPARK_CALCS = {
       2
     ],
     "slots": 3,
-    "template": "{0} {1} {2} → %",
+    "template": "{0} / {1} × {2} = ? %",
     "formula": "a/b*c",
     "correct": [
       0,
@@ -2693,10 +2693,10 @@ export const BALLPARK_CALCS = {
     "prompt": "",
     "question": "Calculate the early group contribution with adults times offspring per adult; submit surviving offspring.",
     "labels": [
-      "early adults",
-      "early offspring per adult",
-      "late adults",
-      "late offspring per adult"
+      "10",
+      "6",
+      "10",
+      "3"
     ],
     "values": [
       10,
@@ -2705,7 +2705,7 @@ export const BALLPARK_CALCS = {
       3
     ],
     "slots": 2,
-    "template": "{0} {1} → offspring",
+    "template": "{0} × {1} = ? offspring",
     "formula": "a*b",
     "correct": [
       0,
@@ -2721,10 +2721,10 @@ export const BALLPARK_CALCS = {
     "prompt": "",
     "question": "Use the tiles to calculate A allele frequency; submit the fraction from zero to one.",
     "labels": [
-      "A copies",
-      "total copies",
-      "plants",
-      "heterozygotes"
+      "24",
+      "40",
+      "20",
+      "8"
     ],
     "values": [
       24,
@@ -2733,7 +2733,7 @@ export const BALLPARK_CALCS = {
       8
     ],
     "slots": 2,
-    "template": "{0} {1} → fraction",
+    "template": "{0} / {1} = ? fraction",
     "formula": "a/b",
     "correct": [
       0,
@@ -2749,19 +2749,21 @@ export const BALLPARK_CALCS = {
     "prompt": "",
     "question": "Multiply the two allele frequencies and two; submit expected heterozygote percent.",
     "labels": [
-      "two",
-      "p",
-      "q",
-      "percent scale"
+      "2",
+      "0.6",
+      "0.4",
+      "100",
+      "0.36"
     ],
     "values": [
       2,
       0.6,
       0.4,
-      100
+      100,
+      0.36
     ],
     "slots": 4,
-    "template": "{0} {1} {2} {3} → %",
+    "template": "{0} × {1} × {2} × {3} = ? %",
     "formula": "a*b*c*d",
     "correct": [
       0,
@@ -2779,10 +2781,10 @@ export const BALLPARK_CALCS = {
     "prompt": "",
     "question": "Use stored biomass energy times transfer fraction; submit primary-consumer energy in kJ.",
     "labels": [
-      "producer energy",
-      "transfer fraction",
-      "consumer levels",
-      "days"
+      "5000",
+      "0.1",
+      "2",
+      "7"
     ],
     "values": [
       5000,
@@ -2791,7 +2793,7 @@ export const BALLPARK_CALCS = {
       7
     ],
     "slots": 2,
-    "template": "{0} {1} → kJ",
+    "template": "{0} × {1} = ? kJ",
     "formula": "a*b",
     "correct": [
       0,
@@ -2807,10 +2809,10 @@ export const BALLPARK_CALCS = {
     "prompt": "",
     "question": "Use the tiles to calculate modeled net growth in plants per week.",
     "labels": [
-      "r",
-      "N",
-      "unused fraction",
-      "K"
+      "0.5",
+      "40",
+      "0.5",
+      "80"
     ],
     "values": [
       0.5,
@@ -2819,7 +2821,7 @@ export const BALLPARK_CALCS = {
       80
     ],
     "slots": 3,
-    "template": "{0} {1} {2} → plants/week",
+    "template": "{0} × {1} × {2} = ? plants/week",
     "formula": "a*b*c",
     "correct": [
       0,
@@ -2836,10 +2838,10 @@ export const BALLPARK_CALCS = {
     "prompt": "",
     "question": "Calculate initial oxygen minus rate times time; submit final oxygen in mg per litre.",
     "labels": [
-      "start",
-      "loss rate",
-      "hours",
-      "day production"
+      "8",
+      "0.5",
+      "8",
+      "3"
     ],
     "values": [
       8,
@@ -2848,7 +2850,7 @@ export const BALLPARK_CALCS = {
       3
     ],
     "slots": 3,
-    "template": "{0} {1} {2} → mg/L",
+    "template": "{0}-{1} × {2} = ? mg/L",
     "formula": "a-b*c",
     "correct": [
       0,
@@ -2865,10 +2867,10 @@ export const BALLPARK_CALCS = {
     "prompt": "",
     "question": "Calculate final oxygen using start minus net rate times duration; submit mg per litre, then compare with the recorded minimum.",
     "labels": [
-      "start",
-      "net loss rate",
-      "hours",
-      "minimum"
+      "9",
+      "0.25",
+      "8",
+      "6"
     ],
     "values": [
       9,
@@ -2877,7 +2879,7 @@ export const BALLPARK_CALCS = {
       6
     ],
     "slots": 3,
-    "template": "{0} {1} {2} → mg/L",
+    "template": "{0}-{1} × {2} = ? mg/L",
     "formula": "a-b*c",
     "correct": [
       0,

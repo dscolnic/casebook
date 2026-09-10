@@ -296,11 +296,11 @@
     person: ravi
     concept: 30   # model range
     reason: "The two voltage estimates disagree enough that the report must carry altitude uncertainty explicitly."
-    scene: "Now two valid profiles give 250 MV and 360 MV, while balloon altitude may shift by ±2 km. Stress both estimates across that range and choose the conservative report interval."
+    scene: "Two methods estimate cloud potential differently. Ravi needs a report interval that preserves their disagreement and the stated height uncertainty."
     motivation: "The supported voltage interval tells the crew how much cloud-potential uncertainty the laboratory comparison must retain."
     format: STRESS
-    question: "Move cloud height from 38 to 42 km, then submit one interval in MV that contains both measurement methods throughout the range."
-    answerText: "Sampled minimum remains 250; uniform maximum scales 360×42/40=378 MV."
+    question: "Sweep height H from 38 to 42 km. Keep the sampled-profile estimate at 250 MV and use Vuniform=360(H/40) MV; submit the smallest interval containing both methods over the full range."
+    answerText: "Report 250–378 MV. The uniform estimate ranges from 342 to 378 MV; the separate sampled-profile estimate remains 250 MV in this stated sensitivity test."
     why: "A bounded interval preserves disagreement instead of hiding it in one unjustified number."
     # wrong-path feedback, one rebuttal per wrong option:
     #   Do not average away method spread; bound it.

@@ -11,7 +11,7 @@
   objective: "Resolve whether sealed transport pots need an oxygen supply; the packed seedlings may fail before arrival."
   stake: "The roots survive the rinse, but plants wilt in sealed pots. Roots need oxygen to get much of their useful energy from food. Check day and night with Ivo at the Pond Tanks. Today you decide whether sealed transport pots need an oxygen supply."
   takeaway: "Keep the pots supplied with oxygen. ---"
-  segue: "Mission decision: Keep the pots supplied with oxygen. The sealed pot loses oxygen at night."
+  segue: "But Ivo sees new flowers come out at the wrong time. The old lamp plan needs a test."
   # The mission card's own "Primer concepts", printed on the plan card.
   terms:
   - {name: "ATP", def: "A molecule that couples energy-releasing reactions to cellular work."}
@@ -162,10 +162,10 @@
       tolerance: 0.05
       units: mg/hour
       labels:
-        - gross production
-        - respiration
-        - hours
-        - sealed pots
+        - "14"
+        - "6"
+        - "1"
+        - "5"
       values:
         - 14
         - 6
@@ -176,7 +176,7 @@
         - 1
       slots: 2
       formula: a-b
-      template: "{0} {1} → mg/hour"
+      template: "{0}-{1} = ? mg/hour"
       solution: "8"
 
   # --- Stop 11: Check the night controls

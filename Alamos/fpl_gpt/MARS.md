@@ -1243,33 +1243,53 @@ conversion board.
 
 **Stop reason - exact player copy:** The sample labels are checked, but the methane mass record still needs comparison with a particle count.
 
-**Question card story setup - exact player copy:** The tank report lists a methane shortfall of 1.60 × 10^3 kg. Use 1000 g/kg, methane molar mass 16.04 g/mol, and Avogadro's constant 6.022 × 10^23 molecules/mol to compare mass with particle count.
+**Question card story setup - exact player copy:** The fuel shortfall must be expressed as molecules before the reaction ledger can use it.
 
-**Question card story-science connection - exact player copy:** The molecule total puts the methane inventory on the same counting basis as the production record.
+**Question card prompt - exact player copy:** Convert a 1,600 kg methane shortfall to molecules using molar mass 16.04 g/mol and Avogadro’s constant 6.022×10²³ mol⁻¹. Fill mass in kilograms, molar mass and Avogadro’s constant; the equation converts kg to g.
 
-**Question card prompt - exact player copy:** Estimate the number of
-methane molecules represented by the shortfall.
+**Complete format-specific interaction block — canonical BALLPARK:**
 
-**Authored tiles/data:** 1.60 x 10^3 kg; 1000 g/kg; 16.04 g/mol CH4;
-6.022 x 10^23 molecules/mol.
+```json
+{
+  "estimate": {
+    "quantity": "How much methane is missing?",
+    "labels": [
+      "1600",
+      "16.04",
+      "6.022e+23",
+      "1000"
+    ],
+    "values": [
+      1600,
+      16.04,
+      6.022e+23,
+      1000
+    ],
+    "slots": 3,
+    "template": "{a} × 1000 / {b} × {c} = ? molecules",
+    "formula": "a*1000/b*c",
+    "correct": [
+      0,
+      1,
+      2
+    ],
+    "target": 6.006e+28,
+    "tolerance": 3.6036e+27,
+    "units": "molecules",
+    "correctResult": 6.006e+28
+  },
+  "answerText": "1,600×1,000/16.04×6.022×10²³≈6.006×10²⁸ methane molecules. The kilogram-to-gram conversion precedes the mole conversion.",
+  "wrongFeedback": [
+    "Skipping kilograms to grams makes the count a thousand times too small."
+  ]
+}
+```
 
-**Formula:** (1.60 x 10^3 kg)(1000 g/kg)/(16.04 g/mol)(6.022 x 10^23
-molecules/mol).
+**Rendering and grading contract:** Render every numeric label as a selectable tile. The printed equation supplies the slot roles; do not replace number labels with quantity names. `correct` contains zero-based tile indices for slots a onward. Accept numerically equivalent selections, including equal-valued tiles. Evaluate the formula on submission; tolerance is absolute in the stated output units. Negative and zero results require a signed linear display. The board has one submission; supporting comparisons appear in the result explanation.
 
-**Correct result:** 6.01 x 10^28 CH4 molecules; target 6.0 x 10^28,
-tolerance ±6%.
+**Correct result:** 1,600×1,000/16.04×6.022×10²³≈6.006×10²⁸ methane molecules. The kilogram-to-gram conversion precedes the mole conversion.
 
-**Answer text:** The shortfall represents about 6.01 x 10^28 methane molecules.
-
-**Why:** Kilograms must become grams before dividing by grams per mole.
-The result is about 9.98 x 10^4 mol, and each mole represents Avogadro's
-number of molecules. Multiplying mass directly by Avogadro's number
-skips molar mass and gives meaningless units.
-
-**Wrong-path feedback:** If near 6 x 10^25, the kilogram-to-gram factor
-was missed. If near 9.98 x 10^4, the player stopped at moles. If the
-player multiplies by 16.04, remind them that molar mass divides grams
-into mole-sized groups.
+**Wrong-path feedback:** Skipping kilograms to grams makes the count a thousand times too small.
 
 **State/output:** Update the wall display from kilograms to both
 kilograms and kilomoles; no inventory change.
@@ -1845,27 +1865,53 @@ to mass, point out that the schedule is a mass target.
 
 **Stop reason - exact player copy:** The production steps are identified and today's captured feed needs a methane-yield estimate.
 
-**Question card story setup - exact player copy:** The intake captured 6.60 × 10^6 g of carbon dioxide. Its molar mass is 44.01 g/mol; the reaction produces one mole of methane per mole of carbon dioxide, and methane has molar mass 16.04 g/mol.
+**Question card story setup - exact player copy:** The carbon-dioxide shipment sets one ceiling on methane production. Its mass cannot be copied straight onto the fuel ledger.
 
-**Question card story-science connection - exact player copy:** The feed-based ceiling determines whether additional compressor power could increase this shift's useful production.
+**Question card prompt - exact player copy:** The reaction yields one mole CH₄ per mole CO₂. Convert 6.60×10⁶ g CO₂ to kg CH₄ using molar masses 44.01 and 16.04 g/mol. Fill feed mass and the two molar masses in that order.
 
-**Question card prompt - exact player copy:** Estimate the theoretical
-methane from the captured CO2.
+**Complete format-specific interaction block — canonical BALLPARK:**
 
-**Formula/data:** (6.60 x 10^6 g CO2)/(44.01 g/mol) x (1 mol CH4/1 mol
-CO2) x (16.04 g/mol CH4).
+```json
+{
+  "estimate": {
+    "quantity": "Could today's air make enough methane?",
+    "labels": [
+      "6600000",
+      "44.01",
+      "16.04",
+      "1000"
+    ],
+    "values": [
+      6600000.0,
+      44.01,
+      16.04,
+      1000
+    ],
+    "slots": 3,
+    "template": "{a} / {b} × {c} / 1000 = ? kg CH₄",
+    "formula": "a/b*c/1000",
+    "correct": [
+      0,
+      1,
+      2
+    ],
+    "target": 2405.36,
+    "tolerance": 72.16,
+    "units": "kg CH₄",
+    "correctResult": 2405.36
+  },
+  "answerText": "The carbon-limited yield is about 2,405 kg methane. The one-to-one relationship is in moles, not grams.",
+  "wrongFeedback": [
+    "Use CO₂ molar mass to find input moles, then CH₄ molar mass to find product mass."
+  ]
+}
+```
 
-**Correct result:** 2405 kg CH4 (2.41 x 10^3 kg to three significant
-figures); tolerance +/-3%.
+**Rendering and grading contract:** Render every numeric label as a selectable tile. The printed equation supplies the slot roles; do not replace number labels with quantity names. `correct` contains zero-based tile indices for slots a onward. Accept numerically equivalent selections, including equal-valued tiles. Evaluate the formula on submission; tolerance is absolute in the stated output units. Negative and zero results require a signed linear display. The board has one submission; supporting comparisons appear in the result explanation.
 
-**Answer text:** The captured CO2 could make 2405 kg CH4.
+**Correct result:** The carbon-limited yield is about 2,405 kg methane. The one-to-one relationship is in moles, not grams.
 
-**Why:** (6.60 x 10^6 g / 44.01 g mol^-1)(16.04 g mol^-1) = 2.405 x 10^6
-g = 2405 kg CH4. Rounded to three significant figures this is 2.41 x
-10^3 kg. CO2 is sufficient for the 2000 kg requirement.
-
-**Wrong-path feedback:** 6600 kg treats a 1:1 mole ratio as a 1:1 mass
-ratio. About 150 is kilomoles, not kilograms of methane.
+**Wrong-path feedback:** Use CO₂ molar mass to find input moles, then CH₄ molar mass to find product mass.
 
 **State/output:** Set evidence_flags.co2_sufficient = true; Sundqvist
 turns off the proposed compressor overdrive.
@@ -1923,49 +1969,69 @@ requesting raw H2 delivery data.
 
 **Stop reason - exact player copy:** Hydrogen is limited and must cover production, a diagnostic tracer, and protected reserve.
 
-**Question card story setup - exact player copy:** Hydrogen runs out first, so divide the limited release among production, diagnosis, and restart reserve before redirecting the investigation.
+**Question card story setup - exact player copy:** The hydrogen release must support a diagnostic pulse without losing restart capacity. The crew can choose how much of the remaining gas to use for production.
 
-**Question card story-science connection - exact player copy:** The allocation determines whether the crew can investigate the supply problem without disabling the reactor or exhausting reserve.
+**Decision evidence - exact player copy:** The base tracer procedure includes its required line preparation. The purge item is additional capacity, not permission to omit a required safety step; it is optional in this allocation. No methane-production minimum is required for this diagnostic decision.
 
-**Question card prompt - exact player copy:** With hydrogen identified as the limiting reactant, allocate the 80 kmol across methane production, tracer testing, restart reserve, and purge protection while satisfying both required checks.
+**Question card prompt - exact player copy:** Allocate no more than 80 kmol H₂ in 4-kmol steps. Reserve at least 8 for the tracer and 16 for restart; production may receive 0–56 and the optional purge upgrade 0–8. Submit any feasible allocation; unassigned gas remains in store.
 
-**Complete format-specific interaction block:**
+**Complete format-specific interaction block - canonical source:**
 
-```yaml
-allocate:
-  pool: {label: "Hydrogen release", value: 80, unit: "kmol H2"}
-  items:
-    - {id: production, label: "Interim methane production", cost_per_unit: 1, min: 0, max: 56, step: 4, unit: "kmol H2"}
-    - {id: tracer, label: "Diagnostic tracer pulse", cost_per_unit: 1, min: 0, max: 16, step: 4, unit: "kmol H2"}
-    - {id: restart, label: "Reactor restart reserve", cost_per_unit: 1, min: 0, max: 24, step: 4, unit: "kmol H2"}
-    - {id: purge, label: "Purge-line protection", cost_per_unit: 1, min: 0, max: 8, step: 4, unit: "kmol H2"}
-  questions:
-    - {id: locate_loss, label: "Where does hydrogen stop being usable?", required: true, needs: {tracer: 8}}
-    - {id: restart_safe, label: "Can the reactor restart safely?", required: true, needs: {restart: 16}}
-    - {id: make_fuel, label: "Can this shift still make some methane?", required: false, needs: {production: 40}}
-    - {id: protect_line, label: "Can the diagnostic line be purged safely?", required: false, needs: {purge: 4}}
-  correct: {production: 56, tracer: 8, restart: 16, purge: 0}
-  pass_rule: "tracer >= 8 and restart >= 16 and total <= 80"
+```json
+{
+  "allocate": {
+    "pool": {
+      "value": 80,
+      "unit": "kmol H₂"
+    },
+    "items": [
+      {
+        "id": "production",
+        "label": "Interim methane production",
+        "min": 0,
+        "max": 56,
+        "step": 4
+      },
+      {
+        "id": "tracer",
+        "label": "Diagnostic tracer pulse",
+        "min": 8,
+        "max": 16,
+        "step": 4
+      },
+      {
+        "id": "restart",
+        "label": "Restart reserve",
+        "min": 16,
+        "max": 24,
+        "step": 4
+      },
+      {
+        "id": "purge",
+        "label": "Optional purge-capacity upgrade",
+        "min": 0,
+        "max": 8,
+        "step": 4
+      }
+    ],
+    "public_rule": "All bounds and 4-kmol steps hold; total<=80. Accept every feasible allocation.",
+    "example_allocation": {
+      "production": 56,
+      "tracer": 8,
+      "restart": 16,
+      "purge": 0
+    }
+  }
+}
 ```
 
-**Pool/items:** 80 kmol H2. Production pass: selectable 0-60 kmol.
-Tracer/line-volume test: minimum 8 kmol. Restart reserve: player-chosen minimum 16 kmol.
+**Evidence delivery and grading:** The setup, decision evidence, public rules, costs and option descriptions are visible on this card before selection. Render option descriptions beside their controls, once; never replace them with internal axis IDs or a generic earlier-case sentence. Answer keys, accepted examples and feedback stay hidden until submission. Reveal withheld measurements only after the stated commitment. Use the public feasibility/selection rule; an example allocation is not an exclusive key. The displayed person must match this stop’s placement and Call.
 
-**Correct result:** Any allocation with tracer ≥8, reserve ≥16, total
-≤80; recommended 56 production / 8 tracer / 16 reserve.
+**Correct result:** Any allocation satisfying the visible bounds and total is valid; 56/8/16/0 is one example.
 
-**Answer text:** Choose at least 8 kmol for the tracer and 16 kmol for restart; 56/8/16 is the recommended split.
+**Answer text:** The tracer minimum provides a resolvable pulse and the restart minimum preserves recovery. In the example, 56 kmol H₂ supports 14 kmol CH₄ at four H₂ per CH₄; other feasible distributions are allowed.
 
-**Why:** No allocation creates hydrogen. The scientific choice is
-whether a small diagnostic spend is worth the production it displaces.
-Eight kilomoles gives the meter a resolvable pulse; sixteen preserves a
-restart. The remaining 56 kmol supports only 14 kmol CH4, a visible cost
-that makes the evidence meaningful.
-
-**Wrong-path feedback:** Underfunded tracer yields no interpretable
-test. Underfunded reserve violates the safe-restart constraint.
-Over-allocation must be blocked with a message naming the missing
-amount.
+**Wrong-path feedback:** Identify the unmet public condition or the specific measurement that the selected option cannot provide; keep the original evidence available for retry.
 
 **State/output:** Set diagnostic_h2_reserved = true; hydrogen_reserve -
 8; unlock Hydrogen Store route for Mission 3.
@@ -2462,25 +2528,56 @@ nitrogen purge gas.
 
 **Stop reason - exact player copy:** The pressure reading cannot establish composition, so the branch first needs a total-mole baseline.
 
-**Question card story setup - exact player copy:** The sealed branch has pressure P = 24.6 atm, volume V = 400 L, and temperature T = 300 K. The ideal gas relationship is n = PV/(RT), where n is total gas amount and R = 0.082 L atm mol^-1 K^-1.
+**Question card story setup - exact player copy:** The gas vessel’s gauge readings are ready. The crew needs a mole count to compare this store with the reaction demand.
 
-**Question card story-science connection - exact player copy:** The gas quantity sets the inventory against which the independent composition measurement will be interpreted.
+**Question card prompt - exact player copy:** Use PV=nRT with P=24.6 atm, V=400 L, R=0.082 L·atm/(mol·K), and T=300 K. Fill P,V,R,T.
 
-**Question card prompt - exact player copy:** Submit the total amount of gas in moles.
+**Complete format-specific interaction block — canonical BALLPARK:**
 
-**Formula:** n = PV/RT = (24.6 atm)(400 L)/\[(0.082)(300 K)\].
+```json
+{
+  "estimate": {
+    "quantity": "How many total moles are in the branch?",
+    "labels": [
+      "24.6",
+      "400",
+      "0.082",
+      "300",
+      "273"
+    ],
+    "values": [
+      24.6,
+      400,
+      0.082,
+      300,
+      273
+    ],
+    "slots": 4,
+    "template": "{a} × {b} / ({c} × {d}) = ? mol",
+    "formula": "a*b/(c*d)",
+    "correct": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "target": 400,
+    "tolerance": 8,
+    "units": "mol",
+    "correctResult": 400
+  },
+  "answerText": "n=24.6×400/(0.082×300)=400 mol. The gas constant matches litres, atmospheres and kelvin.",
+  "wrongFeedback": [
+    "Use the given absolute temperature; 273 K is not the vessel temperature."
+  ]
+}
+```
 
-**Correct result:** 400 mol total gas; target 400, tolerance ±2%.
+**Rendering and grading contract:** Render every numeric label as a selectable tile. The printed equation supplies the slot roles; do not replace number labels with quantity names. `correct` contains zero-based tile indices for slots a onward. Accept numerically equivalent selections, including equal-valued tiles. Evaluate the formula on submission; tolerance is absolute in the stated output units. Negative and zero results require a signed linear display. The board has one submission; supporting comparisons appear in the result explanation.
 
-**Answer text:** The branch contains 400 mol of total gas.
+**Correct result:** n=24.6×400/(0.082×300)=400 mol. The gas constant matches litres, atmospheres and kelvin.
 
-**Why:** The ideal gas law counts total particles through their
-pressure-volume-temperature behavior. It does not distinguish H2 from
-N2. The normal-looking value can coexist with the wrong composition.
-
-**Wrong-path feedback:** Celsius cannot replace kelvin. Multiplying by R
-instead of dividing breaks units. A result near 20 or 500 is a copied
-reading, not a mole calculation.
+**Wrong-path feedback:** Use the given absolute temperature; 273 K is not the vessel temperature.
 
 **State/output:** Set evidence_flags.total_moles_normal = true.
 
@@ -3778,25 +3875,53 @@ calculation.
 
 **Stop reason - exact player copy:** The concentration-inventory distinction is settled and the recycle-water sample needs a molar concentration.
 
-**Question card story setup - exact player copy:** The recycle-water assay represents 0.365 g of hydrogen chloride in 0.2500 L of solution. Its molar mass is 36.46 g/mol, and this training model treats the acid as fully dissociated.
+**Question card story setup - exact player copy:** The acid sample is ready for the concentration check. The volume label must be converted before the result can guide dosing.
 
-**Question card story-science connection - exact player copy:** Molarity supplies a comparable process measurement for checking the water alarm with an independent instrument.
+**Question card prompt - exact player copy:** Dissolve 0.365 g HCl to make 250.0 mL solution. With molar mass 36.46 g/mol, fill mass, molar mass and volume in litres in M=(mass/molar mass)/volume.
 
-**Question card prompt - exact player copy:** Estimate the HCl molarity
-if the model treats it as fully dissociated.
+**Complete format-specific interaction block — canonical BALLPARK:**
 
-**Formula:** (0.365 g / 36.46 g mol^-1) / 0.2500 L.
+```json
+{
+  "estimate": {
+    "quantity": "Put the water sample on a molar scale",
+    "labels": [
+      "0.365",
+      "36.46",
+      "0.25",
+      "250"
+    ],
+    "values": [
+      0.365,
+      36.46,
+      0.25,
+      250
+    ],
+    "slots": 3,
+    "template": "{a} / {b} / {c} = ? mol/L",
+    "formula": "a/b/c",
+    "correct": [
+      0,
+      1,
+      2
+    ],
+    "target": 0.040044,
+    "tolerance": 0.0012,
+    "units": "mol/L",
+    "correctResult": 0.040044
+  },
+  "answerText": "The solution contains about 0.01001 mol HCl in 0.2500 L, giving 0.04004 M.",
+  "wrongFeedback": [
+    "Using millilitres directly makes molarity a thousand times too small."
+  ]
+}
+```
 
-**Correct result:** 0.0400 M; tolerance ±3%.
+**Rendering and grading contract:** Render every numeric label as a selectable tile. The printed equation supplies the slot roles; do not replace number labels with quantity names. `correct` contains zero-based tile indices for slots a onward. Accept numerically equivalent selections, including equal-valued tiles. Evaluate the formula on submission; tolerance is absolute in the stated output units. Negative and zero results require a signed linear display. The board has one submission; supporting comparisons appear in the result explanation.
 
-**Answer text:** The sample concentration is 0.0400 M HCl.
+**Correct result:** The solution contains about 0.01001 mol HCl in 0.2500 L, giving 0.04004 M.
 
-**Why:** Convert grams to moles, milliliters to liters, then divide
-moles by solution volume. The calculation describes the modeled acid
-concentration; later pH reasoning can use strong-acid dissociation.
-
-**Wrong-path feedback:** 0.000040 usually keeps milliliters as liters;
-1.46 divides mass by volume without molar mass.
+**Wrong-path feedback:** Using millilitres directly makes molarity a thousand times too small.
 
 **State/output:** Set recycle_acid_model = 0.0400.
 
@@ -4498,75 +4623,52 @@ authorize independent Tank Farm sampling.
 
 **Stop reason - exact player copy:** The carbon result points away from a large leak, so hydrogen and oxygen need closing too.
 
-**Question card story setup - exact player copy:** Take that prediction to the Tank Farm and close the carbon, hydrogen, and oxygen ledgers to test whether the methane was never produced.
+**Question card story setup - exact player copy:** The reactor feed contains both reactants, but only one will run out first. The methane promise has to respect that limit.
 
-**Question card story-science connection - exact player copy:** The three element balances distinguish lost matter from matter retained in another chemical form or an insufficient feed.
+**Question card prompt - exact player copy:** CO₂+4H₂→CH₄+2H₂O. Feed is 100 mol CO₂ and 320 mol H₂. Identify the limiting reactant, then fill its mole amount and the H₂:CH₄ coefficient in the methane calculation.
 
-**Question card prompt - exact player copy:** Close separate C, H, and O
-ledgers and state what the amounts imply.
+**Complete format-specific interaction block — canonical BALLPARK:**
 
-**Complete format-specific interaction block:**
-
-```yaml
-balance:
-  target: {label: "Normalized reactor interval", reactions: {co2_mol: 100, h2_mol: 320}}
-  streams:
-    - {id: input_co2, label: "CO2 in", atoms: {C: 100, O: 200}, count: true}
-    - {id: input_h2, label: "H2 in", atoms: {H: 640}, count: true}
-    - {id: output_ch4, label: "CH4 out", molecules_mol: 80, atoms: {C: 80, H: 320}, count: true}
-    - {id: output_h2o, label: "H2O out", molecules_mol: 160, atoms: {H: 320, O: 160}, count: true}
-    - {id: output_co2, label: "CO2 unreacted", molecules_mol: 20, atoms: {C: 20, O: 40}, count: true}
-    - {id: purge_n2, label: "N2 dilution gas", molecules_mol: 20, atoms: {N: 40}, count: false}
-  closure: {C: [100,100], H: [640,640], O: [200,200], tolerance: 0}
-  correct_action: "Count atoms in every input and output; identify H2 as limiting."
+```json
+{
+  "estimate": {
+    "quantity": "Close C, H, and O at the Tank Farm",
+    "labels": [
+      "320",
+      "4",
+      "100",
+      "2"
+    ],
+    "values": [
+      320,
+      4,
+      100,
+      2
+    ],
+    "slots": 2,
+    "template": "{a} / {b} = ? mol CH₄",
+    "formula": "a/b",
+    "correct": [
+      0,
+      1
+    ],
+    "target": 80,
+    "tolerance": 0.01,
+    "units": "mol CH₄",
+    "correctResult": 80
+  },
+  "answerText": "H₂ is limiting: 320/4=80 mol CH₄, with 160 mol H₂O produced and 20 mol CO₂ left. Carbon, hydrogen and oxygen balance.",
+  "wrongFeedback": [
+    "The 100 mol CO₂ could produce 100 mol CH₄ only with 400 mol H₂."
+  ]
+}
 ```
 
-**§7 authored-board source - BALANCE:** Convert this stop from its authored interaction block below. Do not substitute a format-level template. The panel must state the goal without printing the keyed answer.
+**Rendering and grading contract:** Render every numeric label as a selectable tile. The printed equation supplies the slot roles; do not replace number labels with quantity names. `correct` contains zero-based tile indices for slots a onward. Accept numerically equivalent selections, including equal-valued tiles. Evaluate the formula on submission; tolerance is absolute in the stated output units. Negative and zero results require a signed linear display. The board has one submission; supporting comparisons appear in the result explanation.
 
-```yaml
-authored_board:
-  stop: "Stop 23 - Close C, H, and O at the Tank Farm"
-  format: "BALLPARK"
-  source: "Handback 5 canonical interaction block"
-  question: "Close separate C, H, and O ledgers and state what the amounts imply."
-  payload: "```yaml balance: target: {label: \"Normalized reactor interval\", reactions: {co2_mol: 100, h2_mol: 320}} streams: - {id: input_co2, label: \"CO2 in\", atoms: {C: 100, O: 200}, count: true} - {id: input_h2, label: \"H2 in\", atoms: {H: 640}, count: true} - {id: output_ch4, label: \"CH4 out\", molecules_mol: 80, atoms: {C: 80, H: 320}, count: true} - {id: output_h2o, label: \"H2O out\", molecules_mol: 160, atoms: {H: 320, O: 160}, count: true} - {id: output_co2, label: \"CO2 unreacted\", molecules_mol: 20, atoms: {C: 20, O: 40}, count: true} - {id: purge_n2, label: \"N2 dilution gas\", molecules_mol: 20, atoms: {N: 40}, count: false} closure: {C: [100,100], H: [640,640], O: [200,200], tolerance: 0} correct_action: \"Count atoms in every input and output; identify H2 as limiting.\" ```"
-  axis_and_units: "Use only quantities and units named in this question and payload."
-  candidates_and_numbers: "Use only candidates and numbers named in this question and payload."
-  panel_rule: "Print the goal, never the target or keyed answer."
-```
+**Correct result:** H₂ is limiting: 320/4=80 mol CH₄, with 160 mol H₂O produced and 20 mol CO₂ left. Carbon, hydrogen and oxygen balance.
 
-**Handback 3 canonical interaction block - BALLPARK:**
-
-**Handback 5 canonical interaction block - BALLPARK:**
-
-```yaml
-estimate:
-  quantity: "maximum methane from the hydrogen supply"
-  unit: "mol CH4"
-  inputs:
-    - {label: "Hydrogen feed", value: 320, unit: "mol H2"}
-    - {label: "Hydrogen coefficient", value: 4, unit: "mol H2 per mol CH4"}
-    - {label: "Carbon-dioxide feed", value: 100, unit: "mol CO2", contextOnly: true}
-  operation: "divide hydrogen feed by the 4:1 stoichiometric coefficient"
-  formula: "n_CH4=320/4"
-  start: 0
-  correctResult: 80
-  tolerance: 1
-  commonMistake: "Mixing a contextual reading into the arithmetic or reversing the subtraction."
-```
-
-**Correct result:** Inputs: C 100, H 640, O 200 mol atoms. Outputs: C
-80+20=100; H 80x4 +160x2=640; O 20x2 +160=200. H2 is limiting because
-only 320 mol is supplied, supporting 80 mol CH4.
-
-**Answer text:** All C, H, and O atoms close; 320 mol H2 limits production to 80 mol CH4.
-
-**Why:** The ledger explains low methane without lost matter. Carbon not
-converted remains CO2. Hydrogen appears in methane and water exactly as
-the equation requires.
-
-**Wrong-path feedback:** Count atoms, not molecules; water contains two
-H and one O; remaining CO2 belongs in output inventory.
+**Wrong-path feedback:** The 100 mol CO₂ could produce 100 mol CH₄ only with 400 mol H₂.
 
 **State/output:** Tank composition display changes from "missing mass"
 to "unconverted CO2 / N2 dilution."
@@ -5115,54 +5217,53 @@ about speed.
 
 **Stop reason - exact player copy:** The heat-flow direction is established and the coolant's removal capacity needs quantifying.
 
-**Question card story setup - exact player copy:** A 1000 kg coolant charge warmed by 3.0 K; its specific heat capacity is 3.8 kJ/(kg K). In q = mcΔT, q is transferred heat, m is coolant mass, c is specific heat capacity, and ΔT is its temperature rise.
+**Question card story setup - exact player copy:** The coolant log shows a temperature rise. The crew needs the heat absorbed to close the reactor’s energy account.
 
-**Question card story-science connection - exact player copy:** The coolant energy transfer supplies a measured removal term for the reactor's energy balance.
+**Question card prompt - exact player copy:** For 1,000 kg coolant with specific heat 3.8 kJ/(kg·K) and temperature rise 3 K, fill m,c,ΔT in Q=mcΔT.
 
-**Question card prompt - exact player copy:** Submit the heat removed by the coolant in kilojoules.
+**Complete format-specific interaction block — canonical BALLPARK:**
 
-**Prompt/formula:** q = mc Delta T.
-
-**§7 build completion - BALLPARK:** This block supplies the panel fields omitted above; the authored prompt, science, and correct result remain authoritative.
-
-```yaml
-estimate:
-  target: 11400.0
-  tolerance: 570.0
-  unit: "units printed on the card"
-  tiles: [{label: "displayed numerator", value: 22800.0}, {label: "displayed divisor", value: 2}]
-  formula: "q=displayed numerator/displayed divisor"
-  correctResultText: "11,400 kJ or 11.4 MJ; tolerance ±2%."
+```json
+{
+  "estimate": {
+    "quantity": "Size the coolant load",
+    "labels": [
+      "1000",
+      "3.8",
+      "3",
+      "273"
+    ],
+    "values": [
+      1000,
+      3.8,
+      3,
+      273
+    ],
+    "slots": 3,
+    "template": "{a} × {b} × {c} = ? kJ",
+    "formula": "a*b*c",
+    "correct": [
+      0,
+      1,
+      2
+    ],
+    "target": 11400,
+    "tolerance": 228,
+    "units": "kJ",
+    "correctResult": 11400
+  },
+  "answerText": "The coolant absorbs 11,400 kJ. A temperature difference of 3 K is used directly; no absolute-temperature offset is added.",
+  "wrongFeedback": [
+    "Heat capacity multiplies the temperature change, not the absolute temperature."
+  ]
+}
 ```
 
-**Handback 9 canonical interaction block - BALLPARK:**
+**Rendering and grading contract:** Render every numeric label as a selectable tile. The printed equation supplies the slot roles; do not replace number labels with quantity names. `correct` contains zero-based tile indices for slots a onward. Accept numerically equivalent selections, including equal-valued tiles. Evaluate the formula on submission; tolerance is absolute in the stated output units. Negative and zero results require a signed linear display. The board has one submission; supporting comparisons appear in the result explanation.
 
-```yaml
-estimate:
-  quantity: "heat gained by the coolant"
-  unit: "kJ"
-  inputs:
-    - {label: "Coolant mass", value: 1000, unit: "kg"}
-    - {label: "Specific heat capacity", value: 3.8, unit: "kJ/(kg K)"}
-    - {label: "Temperature change", value: 3.0, unit: "K"}
-  operation: "multiply mass by specific heat capacity by temperature change"
-  formula: "q=(1000)(3.8)(3.0)"
-  correctResult: 11400
-  tolerance: 228
-  answerText: "The coolant gained 11,400 kJ, or 11.4 MJ, so the reactor system lost approximately that amount of heat."
-```
+**Correct result:** The coolant absorbs 11,400 kJ. A temperature difference of 3 K is used directly; no absolute-temperature offset is added.
 
-**Correct result:** 11,400 kJ or 11.4 MJ; tolerance ±2%.
-
-**Answer text:** The coolant removed 11.4 MJ of heat.
-
-**Why:** Multiply mass, energy per kilogram per kelvin, and temperature
-change. The positive number describes heat gained by coolant; the
-reactor system loses approximately that heat. Always name the system
-when assigning signs.
-
-**Wrong-path feedback:** Using final temperature instead of temperature
-change overstates the load. A value of 11,400 J misses the kJ unit.
+**Wrong-path feedback:** Heat capacity multiplies the temperature change, not the absolute temperature.
 
 **State/output:** Add coolant_removed = 11.4 MJ to the ledger.
 
@@ -5723,25 +5824,53 @@ H2 at fixed CO2 quadruples rate, so exponent 2. Overall order is 3.
 
 **Stop reason - exact player copy:** The reaction orders are identified and the temperature intervention needs a quantitative rate baseline.
 
-**Question card story setup - exact player copy:** Trial 1 records rate = 1.20 × 10^-3 M/s, [CO2] = 0.10 M, and [H2] = 0.20 M. The established rate law is rate = k[CO2][H2]^2, where k is the rate constant.
+**Question card story setup - exact player copy:** The rate measurements have fixed the reaction orders. The operator now needs the constant that makes the model predict this run.
 
-**Question card story-science connection - exact player copy:** The rate constant makes the later temperature test comparable with the measured initial-rate trials.
+**Question card prompt - exact player copy:** The rate law is rate=k[A][B]². Measured rate is 1.20×10⁻³ M/s at [A]=0.10 M and [B]=0.20 M. Fill rate,[A],[B] in k=rate/([A][B]²).
 
-**Question card prompt - exact player copy:** Use Trial 1 and rate =
-k\[CO2\]\[H2\]^2 to find k.
+**Complete format-specific interaction block — canonical BALLPARK:**
 
-**Formula:** k = 1.20e-3 / \[(0.10)(0.20)^2\].
+```json
+{
+  "estimate": {
+    "quantity": "Calculate k",
+    "labels": [
+      "0.0012",
+      "0.1",
+      "0.2",
+      "2"
+    ],
+    "values": [
+      0.0012,
+      0.1,
+      0.2,
+      2
+    ],
+    "slots": 3,
+    "template": "{a} / ({b} × {c} × {c}) = ? M⁻²·s⁻¹",
+    "formula": "a/(b*c*c)",
+    "correct": [
+      0,
+      1,
+      2
+    ],
+    "target": 0.3,
+    "tolerance": 0.006,
+    "units": "M⁻²·s⁻¹",
+    "correctResult": 0.3
+  },
+  "answerText": "k=0.00120/(0.10×0.20²)=0.300 M⁻²·s⁻¹. The squared concentration is essential to both the value and the units.",
+  "wrongFeedback": [
+    "Treating the second-order factor as first order gives the wrong constant."
+  ]
+}
+```
 
-**Correct result:** 0.300 M^-2 s^-1; tolerance +/-2%.
+**Rendering and grading contract:** Render every numeric label as a selectable tile. The printed equation supplies the slot roles; do not replace number labels with quantity names. `correct` contains zero-based tile indices for slots a onward. Accept numerically equivalent selections, including equal-valued tiles. Evaluate the formula on submission; tolerance is absolute in the stated output units. Negative and zero results require a signed linear display. The board has one submission; supporting comparisons appear in the result explanation.
 
-**Answer text:** The rate constant is 0.300 M^-2 s^-1.
+**Correct result:** k=0.00120/(0.10×0.20²)=0.300 M⁻²·s⁻¹. The squared concentration is essential to both the value and the units.
 
-**Why:** The concentration product is 0.0040 M^3, so k = (1.20e-3
-M/s)/(0.0040 M^3) = 0.300 M^-2 s^-1. Substituting another trial should
-reproduce the same k at the same temperature.
-
-**Wrong-path feedback:** A unit of s^-1 belongs to a first-order law,
-not this one.
+**Wrong-path feedback:** Treating the second-order factor as first order gives the wrong constant.
 
 **State/output:** Predicts the rate drop expected from reduced
 temperature for Stop 31.
@@ -7776,76 +7905,56 @@ concentrations.
 
 **Stop reason - exact player copy:** The equilibrium relationship is selected and the safe-temperature mixture needs calculating.
 
-**Question card story setup - exact player copy:** Use the measured changes in an ICE table to calculate the current equilibrium and the methane-yield ceiling at the safe temperature.
+**Question card story setup - exact player copy:** The equilibrium sample is ready. The crew checks the constant against the balanced reaction before predicting a shift.
 
-**Question card story-science connection - exact player copy:** The concentration table establishes the methane ceiling and remaining reactants for the proposed operating condition.
+**Question card prompt - exact player copy:** For CO₂+4H₂⇌CH₄+2H₂O, equilibrium concentrations are [CH₄]=0.5 M and [H₂O]=[CO₂]=[H₂]=1 M. Fill these four concentrations in Kc=[CH₄][H₂O]²/([CO₂][H₂]⁴).
 
-**Question card prompt - exact player copy:** Complete changes and
-equilibrium concentrations, then calculate Kc for this training
-condition.
+**Complete format-specific interaction block — canonical BALLPARK:**
 
-**Complete format-specific interaction block:**
-
-```yaml
-balance:
-  target: {label: "ICE table for 1.00 L vessel", reaction: "CO2 + 4H2 <=> CH4 + 2H2O"}
-  streams:
-    - {id: co2, label: "CO2", initial_M: 1.50, change_M: -0.50, equilibrium_M: 1.00}
-    - {id: h2, label: "H2", initial_M: 3.00, change_M: -2.00, equilibrium_M: 1.00}
-    - {id: ch4, label: "CH4", initial_M: 0.00, change_M: 0.50, equilibrium_M: 0.50}
-    - {id: h2o, label: "H2O", initial_M: 0.00, change_M: 1.00, equilibrium_M: 1.00}
-    - {id: catalyst, label: "Solid nickel catalyst", count: false, reason: "not part of the ICE concentration row or Kc expression"}
-  closure: {Kc: 0.50, tolerance: 0.01}
-  correct_action: "Use one extent x with coefficients -1, -4, +1, +2, then calculate Kc."
+```json
+{
+  "estimate": {
+    "quantity": "Complete the ICE table",
+    "labels": [
+      "0.5",
+      "1",
+      "1",
+      "1",
+      "4"
+    ],
+    "values": [
+      0.5,
+      1,
+      1,
+      1,
+      4
+    ],
+    "slots": 4,
+    "template": "{a} × {b} × {b} / ({c} × {d} × {d} × {d} × {d}) = ? Kc (concentration convention)",
+    "formula": "a*b*b/(c*d*d*d*d)",
+    "correct": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "target": 0.5,
+    "tolerance": 0.01,
+    "units": "Kc (concentration convention)",
+    "correctResult": 0.5
+  },
+  "answerText": "Kc=0.5. Starting from [CO₂]=1.5 M, [H₂]=3 M and no products, an extent of 0.5 M gives these equilibrium concentrations. Stoichiometric coefficients become powers.",
+  "wrongFeedback": [
+    "The coefficient 4 is an exponent, not the hydrogen concentration."
+  ]
+}
 ```
 
-**§7 authored-board source - BALANCE:** Convert this stop from its authored interaction block below. Do not substitute a format-level template. The panel must state the goal without printing the keyed answer.
+**Rendering and grading contract:** Render every numeric label as a selectable tile. The printed equation supplies the slot roles; do not replace number labels with quantity names. `correct` contains zero-based tile indices for slots a onward. Accept numerically equivalent selections, including equal-valued tiles. Evaluate the formula on submission; tolerance is absolute in the stated output units. Negative and zero results require a signed linear display. The board has one submission; supporting comparisons appear in the result explanation.
 
-```yaml
-authored_board:
-  stop: "Stop 42 - Complete the ICE table"
-  format: "BALLPARK"
-  source: "Handback 5 canonical interaction block"
-  question: "Complete changes and equilibrium concentrations, then calculate Kc for this training condition."
-  payload: "```yaml balance: target: {label: \"ICE table for 1.00 L vessel\", reaction: \"CO2 + 4H2 <=> CH4 + 2H2O\"} streams: - {id: co2, label: \"CO2\", initial_M: 1.50, change_M: -0.50, equilibrium_M: 1.00} - {id: h2, label: \"H2\", initial_M: 3.00, change_M: -2.00, equilibrium_M: 1.00} - {id: ch4, label: \"CH4\", initial_M: 0.00, change_M: 0.50, equilibrium_M: 0.50} - {id: h2o, label: \"H2O\", initial_M: 0.00, change_M: 1.00, equilibrium_M: 1.00} - {id: catalyst, label: \"Solid nickel catalyst\", count: false, reason: \"not part of the ICE concentration row or Kc expression\"} closure: {Kc: 0.50, tolerance: 0.01} correct_action: \"Use one extent x with coefficients -1, -4, +1, +2, then calculate Kc.\" ```"
-  axis_and_units: "Use only quantities and units named in this question and payload."
-  candidates_and_numbers: "Use only candidates and numbers named in this question and payload."
-  panel_rule: "Print the goal, never the target or keyed answer."
-```
+**Correct result:** Kc=0.5. Starting from [CO₂]=1.5 M, [H₂]=3 M and no products, an extent of 0.5 M gives these equilibrium concentrations. Stoichiometric coefficients become powers.
 
-**Handback 3 canonical interaction block - BALLPARK:**
-
-**Handback 5 canonical interaction block - BALLPARK:**
-
-```yaml
-estimate:
-  quantity: "equilibrium constant Kc"
-  unit: "dimensionless"
-  inputs:
-    - {label: "Equilibrium CO2", value: 1.00, unit: "M"}
-    - {label: "Equilibrium H2", value: 1.00, unit: "M"}
-    - {label: "Equilibrium CH4", value: 0.50, unit: "M"}
-    - {label: "Equilibrium H2O", value: 1.00, unit: "M"}
-  operation: "[CH4][H2O]^2 / ([CO2][H2]^4)"
-  formula: "Kc=(0.50)(1.00)^2/[(1.00)(1.00)^4]"
-  start: 0
-  correctResult: 0.50
-  tolerance: 0.01
-  commonMistake: "Mixing a contextual reading into the arithmetic or reversing the subtraction."
-```
-
-**Correct result:** Change -0.50 CO2, -2.00 H2, +0.50 CH4, +1.00 H2O;
-equilibrium 1.00, 1.00, 0.50, 1.00 M.
-Kc=(0.50)(1.00)^2/\[(1.00)(1.00)^4\] = 0.50.
-
-**Answer text:** The equilibrium row is 1.00, 1.00, 0.50, and 1.00 M, giving Kc = 0.50.
-
-**Why:** Every change is tied to one reaction extent x and multiplied by
-coefficients. Hydrogen changes by -4x; water by +2x. The balanced row is
-the guardrail against treating each concentration independently.
-
-**Wrong-path feedback:** If H2 falls by only 0.50, point to coefficient four.
-If water becomes only 0.50, point to coefficient two.
+**Wrong-path feedback:** The coefficient 4 is an exponent, not the hydrogen concentration.
 
 **State/output:** Model predicts that lowering product-water activity
 can drive more conversion.
@@ -9141,27 +9250,56 @@ diagrams.
 
 **Stop reason - exact player copy:** The electrolysis circuit is defined and the remaining operating time needs translating into hydrogen yield.
 
-**Question card story setup - exact player copy:** Convert the available current and time into hydrogen yield so the allocation uses actual gas production rather than electrical power alone.
+**Question card story setup - exact player copy:** The electrolyzer has a full shift to replenish hydrogen. The fuel ledger must include the measured efficiency.
 
-**Question card story-science connection - exact player copy:** The current-based yield determines how much hydrogen the scheduled run can actually add to recovery.
+**Question card prompt - exact player copy:** Run at 10,000 A for 8 h=28,800 s. Use F=96,485 C/mol e⁻, two electrons per H₂ molecule, efficiency 0.92 and molar mass 2.016 g/mol. Fill current,time,efficiency,molar mass; calculate hydrogen in kg.
 
-**Question card prompt - exact player copy:** Estimate collected
-hydrogen mass.
+**Complete format-specific interaction block — canonical BALLPARK:**
 
-**Calculation:** Q=10,000 x 28,800 = 2.88e8 C; mol e- =2985; theoretical
-mol H2 1492.5; actual 1373 mol; mass 2.77 kg H2.
+```json
+{
+  "estimate": {
+    "quantity": "Turn current into hydrogen",
+    "labels": [
+      "10000",
+      "28800",
+      "0.92",
+      "2.016",
+      "8"
+    ],
+    "values": [
+      10000,
+      28800,
+      0.92,
+      2.016,
+      8
+    ],
+    "slots": 4,
+    "template": "{a} × {b} / (2 × 96485) × {c} × {d} / 1000 = ? kg H₂",
+    "formula": "a*b/(2*96485)*c*d/1000",
+    "correct": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "target": 2.77,
+    "tolerance": 0.0831,
+    "units": "kg H₂",
+    "correctResult": 2.77
+  },
+  "answerText": "The charge yields about 2.768 kg H₂ after the 92% efficiency factor, rounded to 2.77 kg.",
+  "wrongFeedback": [
+    "Convert hours to seconds, divide by two electrons per molecule, and apply efficiency once."
+  ]
+}
+```
 
-**Correct result:** 2.77 kg; tolerance ±3%.
+**Rendering and grading contract:** Render every numeric label as a selectable tile. The printed equation supplies the slot roles; do not replace number labels with quantity names. `correct` contains zero-based tile indices for slots a onward. Accept numerically equivalent selections, including equal-valued tiles. Evaluate the formula on submission; tolerance is absolute in the stated output units. Negative and zero results require a signed linear display. The board has one submission; supporting comparisons appear in the result explanation.
 
-**Answer text:** The run produces about 2.77 kg H2 after the 92% current efficiency is applied.
+**Correct result:** The charge yields about 2.768 kg H₂ after the 92% efficiency factor, rounded to 2.77 kg.
 
-**Why:** Time must be seconds because an ampere is coulomb per second.
-Divide electron moles by two, then apply current efficiency and molar
-mass.
-
-**Wrong-path feedback:** Eight hours used directly undercounts by 3600;
-forgetting two electrons doubles hydrogen; forgetting efficiency gives
-the theoretical 3.01 kg.
+**Wrong-path feedback:** Convert hours to seconds, divide by two electrons per molecule, and apply efficiency once.
 
 **State/output:** Converts requested recovery hydrogen into required
 stack-hours.
@@ -9176,89 +9314,120 @@ stack-hours.
 
 **Stop reason - exact player copy:** The hydrogen yield is estimated and its power must fit alongside habitat, treatment, and cooling demands.
 
-**Question card story setup - exact player copy:** The committed plan must make gas without recreating earlier failures.
+**Question card story setup - exact player copy:** The dust front limits this shift’s energy. Recovery must keep the crew safe and preserve both the new product and the propellant already in storage.
 
-**Question card story-science connection - exact player copy:** The allocation determines whether recovery can proceed without sacrificing the systems that prevent a repeat failure.
+**Decision evidence - exact player copy:** Required outcomes: supply the protected habitat load; maintain reactor thermal control; purify recovered gas; replace recovery hydrogen; keep stored product refrigerated.
 
-**Question card prompt - exact player copy:** Build a plan that keeps
-crew safe, prevents another hot spot, purifies Batch C precursor gas,
-and produces recovery hydrogen.
+**Question card prompt - exact player copy:** You have 600 kWh. Cover every required outcome and allocate the whole budget. Select whole packages, then submit the plan; the board shows its total and remaining reserve for you to check.
 
-**Complete format-specific interaction block:**
+**Complete format-specific interaction block - canonical source:**
 
-```yaml
-allocate:
-  pool: {label: "Dust-limited electrical energy", value: 600, unit: kWh}
-  items:
-    - {id: habitat, label: "Protected habitat load", cost: 180}
-    - {id: cooling, label: "Reactor thermal control", cost: 120}
-    - {id: purification, label: "Product purification", cost: 80}
-    - {id: electrolysis, label: "Recovery electrolysis", cost: 160}
-    - {id: refrigeration, label: "Tank refrigeration", cost: 60}
-    - {id: fast_charge, label: "Optional battery fast charge", cost: 60}
-  questions:
-    - {id: crew_safe, label: "Does the habitat remain safe?", required: true, needs: [habitat]}
-    - {id: heat_safe, label: "Does the reactor remain below the validated heat limit?", required: true, needs: [cooling]}
-    - {id: fuel_clean, label: "Will recovered product stay within specification?", required: true, needs: [purification, refrigeration]}
-    - {id: replace_h2, label: "Will electrolysis replace required hydrogen?", required: true, needs: [electrolysis]}
-    - {id: fast_charge_ready, label: "Can optional battery fast charging run now?", required: false, needs: [fast_charge]}
-  correct: [habitat, cooling, purification, electrolysis, refrigeration]
-  pass_rule: "All required questions answered and total cost <=600 kWh."
+```json
+{
+  "allocate": {
+    "budget": {
+      "value": 600,
+      "unit": "kWh"
+    },
+    "requirements": [
+      {
+        "id": "r1",
+        "text": "supply the protected habitat load"
+      },
+      {
+        "id": "r2",
+        "text": "maintain reactor thermal control"
+      },
+      {
+        "id": "r3",
+        "text": "purify recovered gas"
+      },
+      {
+        "id": "r4",
+        "text": "replace recovery hydrogen"
+      },
+      {
+        "id": "r5",
+        "text": "keep stored product refrigerated"
+      }
+    ],
+    "selection_rule": "Cover every required outcome and allocate the whole budget.",
+    "options": [
+      {
+        "id": "habitat",
+        "label": "Habitat load",
+        "cost": 180.0,
+        "information": "Supplies the protected crew environment.",
+        "covers": [
+          "r1"
+        ]
+      },
+      {
+        "id": "cooling",
+        "label": "Reactor thermal control",
+        "cost": 120.0,
+        "information": "Maintains the validated reactor heat limit.",
+        "covers": [
+          "r2"
+        ]
+      },
+      {
+        "id": "purification",
+        "label": "Product purification",
+        "cost": 80.0,
+        "information": "Removes contaminants from recovered gas.",
+        "covers": [
+          "r3"
+        ]
+      },
+      {
+        "id": "electrolysis",
+        "label": "Recovery electrolysis",
+        "cost": 160.0,
+        "information": "Produces the hydrogen needed by recovery.",
+        "covers": [
+          "r4"
+        ]
+      },
+      {
+        "id": "refrigeration",
+        "label": "Tank refrigeration",
+        "cost": 60.0,
+        "information": "Preserves stored propellant in specification.",
+        "covers": [
+          "r5"
+        ]
+      },
+      {
+        "id": "fast_charge",
+        "label": "Battery fast charge",
+        "cost": 60.0,
+        "information": "Adds discretionary battery charge but performs none of the required process duties.",
+        "covers": []
+      }
+    ],
+    "accepted_plans": [
+      [
+        "habitat",
+        "cooling",
+        "purification",
+        "electrolysis",
+        "refrigeration"
+      ]
+    ],
+    "example_total": 600.0,
+    "example_reserve": 0.0
+  }
+}
 ```
 
-**§7 authored-board source - ALLOCATE:** Convert this stop from its authored interaction block below. Do not substitute a format-level template. The panel must state the goal without printing the keyed answer.
+**Evidence delivery and grading:** The setup, decision evidence, public rules, costs and option descriptions are visible on this card before selection. Render option descriptions beside their controls, once; never replace them with internal axis IDs or a generic earlier-case sentence. Answer keys, accepted examples and feedback stay hidden until submission. Reveal withheld measurements only after the stated commitment. Use the public feasibility/selection rule; an example allocation is not an exclusive key. The displayed person must match this stop’s placement and Call.
 
-```yaml
-authored_board:
-  stop: "Stop 52 - Allocate the recovery power"
-  format: "ALLOCATE"
-  source: "Handback 3 canonical interaction block"
-  question: "Build a plan that keeps crew safe, prevents another hot spot, purifies Batch C precursor gas, and produces recovery hydrogen."
-  payload: "```yaml allocate: pool: {label: \"Dust-limited electrical energy\", value: 600, unit: kWh} items: - {id: habitat, label: \"Protected habitat load\", cost: 180} - {id: cooling, label: \"Reactor thermal control\", cost: 120} - {id: purification, label: \"Product purification\", cost: 80} - {id: electrolysis, label: \"Recovery electrolysis\", cost: 160} - {id: refrigeration, label: \"Tank refrigeration\", cost: 60} - {id: fast_charge, label: \"Optional battery fast charge\", cost: 60} questions: - {id: crew_safe, label: \"Does the habitat remain safe?\", required: true, needs: [habitat]} - {id: heat_safe, label: \"Does the reactor remain below the validated heat limit?\", required: true, needs: [cooling]} - {id: fuel_clean, label: \"Will recovered product stay within specification?\", required: true, needs: [purification, refrigeration]} - {id: replace_h2, label: \"Will electrolysis replace required hydrogen?\", required: true, needs: [electrolysis]} correct: [habitat, cooling, purification, electrolysis, refrigeration] pass_rule: \"All required questions answered and total cost <=600 kWh.\" ```"
-  axis_and_units: "Use only quantities and units named in this question and payload."
-  candidates_and_numbers: "Use only candidates and numbers named in this question and payload."
-  panel_rule: "Print the goal, never the target or keyed answer."
-```
+**Correct result:** habitat, cooling, purification, electrolysis, refrigeration = 600 kWh; reserve 0
 
-**Handback 4 canonical interaction block - ALLOCATE:**
+**Answer text:** Each funded package supplies a required outcome; an affordable package that leaves one unresolved is insufficient.
 
-```yaml
-allocate:
-  pool: {label: "Dust-limited electrical energy", value: 600, unit: "kWh"}
-  items:
-    - {id: habitat, label: "Protected habitat load", cost: 180}
-    - {id: cooling, label: "Reactor thermal control", cost: 120}
-    - {id: purification, label: "Product purification", cost: 80}
-    - {id: electrolysis, label: "Recovery electrolysis", cost: 160}
-    - {id: refrigeration, label: "Tank refrigeration", cost: 60}
-    - {id: fast_charge, label: "Optional battery fast charge", cost: 60}
-  questions:
-    - {id: crew_safe, requires: [habitat], required: true}
-    - {id: heat_safe, requires: [cooling], required: true}
-    - {id: fuel_clean, requires: [purification, refrigeration], required: true}
-    - {id: replace_h2, requires: [electrolysis], required: true}
-    - {id: fast_charge_ready, requires: [fast_charge], required: false}
-  rule: "At least one outcome may be forgone; required outcomes are not pre-protected, so the player must choose a feasible basket."
-  preProtected: []
-  correct: [habitat, cooling, purification, electrolysis, refrigeration]
-  decision_can_fail: true
-  question: "Build a plan that keeps"
-```
-
-**Correct result:** Fund habitat 180 + thermal 120 + purification 80 +
-electrolysis 160 + refrigeration 60 = 600; omit fast-charge reserve.
-
-**Answer text:** Fund habitat 180, cooling 120, purification 80, electrolysis 160, and refrigeration 60 kWh; omit fast charging.
-
-**Why:** Every funded item answers a known constraint. The reserve is
-valuable but can be restored after the dust front; losing refrigeration
-wastes existing propellant, and losing purification creates off-spec
-product. The full pool requires accepting no discretionary margin this
-shift.
-
-**Wrong-path feedback:** If purification is cut, show that production
-may increase while quality degrades. If thermal control is cut, invoke
-the Mission 10 boundary. If habitat is cut, block commitment.
+**Wrong-path feedback:** Identify the unmet public condition or the specific measurement that the selected option cannot provide; keep the original evidence available for retry.
 
 **State/output:** power_plan_recovery = true; methane and oxygen
 projections reach target at start of Mission 14.
@@ -9980,6 +10149,8 @@ around one tank.
 
 **Question card story-science connection - exact player copy:** The precommitted purity, moisture, and pressure rules ensure an independent failure cannot be averaged into a pass.
 
+**Decision evidence - exact player copy:** Release specification: independent CH₄≥97.0%, CO₂≤2.0%, H₂O≤0.10%, and pressure 18.0–20.0 bar inclusive. Any failed independent composition test keeps the batch quarantined; averaging it with a passing dependent reading is not allowed.
+
 **Question card prompt - exact player copy:** Commit the independent methane-purity trigger before two blind samples appear; use the fixed carbon-dioxide, water, and pressure limits as companion rules.
 
 **Complete format-specific interaction block:**
@@ -10563,40 +10734,85 @@ plans, fund the causal chain, and state a complete go/no-go rule.
 
 **Stop reason - exact player copy:** The final decision still hinges on composition, not on another confirmation of pressure or mass.
 
-**Question card story setup - exact player copy:** With Batch C quarantined and one shift left, spend the final test on the measurement that could actually change GO or NO-GO.
+**Question card story setup - exact player copy:** Batch C remains quarantined while pressure and mass are already measured precisely. The unresolved question is whether its composition meets the launch specifications.
 
-**Question card story-science connection - exact player copy:** The selected assay supplies the independent contaminant evidence that can change the batch's certification status.
+**Decision evidence - exact player copy:** Required outcomes: obtain an independent measurement of Batch C contaminants.
 
-**Question card prompt - exact player copy:** Which measurement has the
-greatest chance to change the launch decision?
+**Question card prompt - exact player copy:** You have 10 test points. Cover every required outcome at the lowest total cost within the budget; keep all unused capacity in reserve. Select whole packages, then submit the plan; the board shows its total and remaining reserve for you to check.
 
-**Complete format-specific interaction block:**
+**Complete format-specific interaction block - canonical source:**
 
-```yaml
-value:
-  budget: {value: 10, unit: test_points}
-  options:
-    - {id: pressure, label: "Repeat total-pressure reading", cost: 6, axis: amount, required: false}
-    - {id: mass, label: "Duplicate tank mass", cost: 7, axis: amount, required: false}
-    - {id: assay, label: "Independent Batch C contaminant assay", cost: 10, axis: composition, required: true}
-    - {id: catalyst_temp, label: "Repeat average catalyst temperature", cost: 5, axis: thermal, required: false}
-    - {id: valve, label: "Visual valve inspection", cost: 4, axis: hardware, required: false}
-  total_option_cost: 32
-  correct: [assay]
-  decision_changed: "Confirms whether quarantine and reprocessing remain required."
+```json
+{
+  "value": {
+    "budget": {
+      "value": 10,
+      "unit": "test points"
+    },
+    "requirements": [
+      {
+        "id": "r1",
+        "text": "obtain an independent measurement of Batch C contaminants"
+      }
+    ],
+    "selection_rule": "Cover every required outcome at the lowest total cost within the budget; keep all unused capacity in reserve.",
+    "options": [
+      {
+        "id": "pressure",
+        "label": "Repeat total-pressure reading",
+        "cost": 6.0,
+        "information": "Improves an already precise amount-related measurement, not the gas mixture.",
+        "covers": []
+      },
+      {
+        "id": "mass",
+        "label": "Duplicate tank mass",
+        "cost": 7.0,
+        "information": "Rechecks total amount without separating contaminants.",
+        "covers": []
+      },
+      {
+        "id": "assay",
+        "label": "Independent Batch C contaminant assay",
+        "cost": 10.0,
+        "information": "Measures contaminants using a separately calibrated sample test.",
+        "covers": [
+          "r1"
+        ]
+      },
+      {
+        "id": "catalyst_temp",
+        "label": "Repeat average catalyst temperature",
+        "cost": 5.0,
+        "information": "Measures reactor temperature rather than tank composition.",
+        "covers": []
+      },
+      {
+        "id": "valve",
+        "label": "Visual valve inspection",
+        "cost": 4.0,
+        "information": "Checks visible hardware without measuring gas purity.",
+        "covers": []
+      }
+    ],
+    "accepted_plans": [
+      [
+        "assay"
+      ]
+    ],
+    "example_total": 10.0,
+    "example_reserve": 0.0
+  }
+}
 ```
 
-**Correct result:** Independent Batch C contaminant assay.
+**Evidence delivery and grading:** The setup, decision evidence, public rules, costs and option descriptions are visible on this card before selection. Render option descriptions beside their controls, once; never replace them with internal axis IDs or a generic earlier-case sentence. Answer keys, accepted examples and feedback stay hidden until submission. Reveal withheld measurements only after the stated commitment. Use the public feasibility/selection rule; an example allocation is not an exclusive key. The displayed person must match this stop’s placement and Call.
 
-**Answer text:** Buy the independent Batch C contaminant assay.
+**Correct result:** assay = 10 test points; reserve 0
 
-**Why:** Pressure and mass are already precise and are not the disputed
-claim. Average temperature cannot certify tank contents. A second
-independent assay determines whether quarantine/reprocessing remains
-necessary and directly controls GO/NO-GO.
+**Answer text:** Each funded package supplies a required outcome; an affordable package that leaves one unresolved is insufficient.
 
-**Wrong-path feedback:** More precision on a nonbinding quantity has low
-decision value. Evidence is valuable for the action it can change.
+**Wrong-path feedback:** Identify the unmet public condition or the specific measurement that the selected option cannot provide; keep the original evidence available for retry.
 
 **State/output:** Dispatch sealed sample to Tank Farm portable analyzer;
 diagnostic_budget = 0.
@@ -10693,48 +10909,99 @@ allocation.
 
 **Stop reason - exact player copy:** The recovery route is selected and the last decision budget must fund all of its essential parts.
 
-**Question card story setup - exact player copy:** Fund reprocessing, electrolysis, validated reactor operation, verification, and safety so the surviving recovery plan can be executed.
+**Question card story setup - exact player copy:** The recovery route now needs a complete execution budget. Laila will accept different distributions if they preserve every production, purity and safety condition.
 
-**Question card story-science connection - exact player copy:** The allocation ensures reprocessing, verification, production, and protected safety capacity are funded together.
+**Question card prompt - exact player copy:** Allocate exactly 100 points. Minimums: reprocessing 25, electrolysis 15, validated operation 10, independent assay 15 and safety 10. Reprocessing plus assay must total at least 60. Assign zero to unvalidated heating and cosmetic recalibration. Submit the allocation; the board checks the total and each requirement.
 
-**Question card prompt - exact player copy:** Spend 100 points on the proposals that execute and verify the surviving plan.
+**Complete format-specific interaction block - canonical source:**
 
-**Complete format-specific interaction block:**
-
-```yaml
-proposals:
-  - {id: reprocess, label: "Batch C reprocessing", min: 25, evidence: "Only action that lowers measured contaminants."}
-  - {id: electrolysis, label: "Timed electrolysis", min: 15, evidence: "Faraday-limited run replaces hydrogen lost during processing."}
-  - {id: validated_reactor, label: "Validated 550 K / 12 bar operation", min: 10, evidence: "Meets rate, equilibrium-yield, and thermal limits."}
-  - {id: independent_assay, label: "Independent final verification", min: 15, evidence: "Directly controls launch authorization."}
-  - {id: safety, label: "Habitat and safety margin", min: 10, evidence: "Protects the non-negotiable reserve."}
-  - {id: extra_heat, label: "Production above validated point", min: 0, evidence: "Adds thermal risk and is not required."}
-  - {id: cosmetic, label: "Cosmetic dashboard recalibration", min: 0, evidence: "Changes display, not composition or readiness."}
-recommended: {reprocess: 35, electrolysis: 15, validated_reactor: 10, independent_assay: 25, safety: 15, extra_heat: 0, cosmetic: 0}
-evidence:
-  required_total: 100
-  pass_rules: ["reprocess + independent_assay >= 60", "electrolysis >= 15", "validated_reactor >= 10", "safety >= 10", "cosmetic = 0", "total = 100"]
+```json
+{
+  "sciencetank": {
+    "pool": {
+      "value": 100,
+      "unit": "points"
+    },
+    "items": [
+      {
+        "id": "reprocess",
+        "label": "Batch C reprocessing",
+        "min": 25,
+        "max": 100,
+        "step": 1,
+        "information": "Reduces measured contaminants."
+      },
+      {
+        "id": "electrolysis",
+        "label": "Timed electrolysis",
+        "min": 15,
+        "max": 100,
+        "step": 1,
+        "information": "Replaces recovery hydrogen."
+      },
+      {
+        "id": "validated_reactor",
+        "label": "Validated reactor operation",
+        "min": 10,
+        "max": 100,
+        "step": 1,
+        "information": "Maintains 550 K and 12 bar."
+      },
+      {
+        "id": "independent_assay",
+        "label": "Independent final assay",
+        "min": 15,
+        "max": 100,
+        "step": 1,
+        "information": "Checks release specifications."
+      },
+      {
+        "id": "safety",
+        "label": "Habitat and safety",
+        "min": 10,
+        "max": 100,
+        "step": 1,
+        "information": "Protects crew and operating margin."
+      },
+      {
+        "id": "extra_heat",
+        "label": "Unvalidated extra heating",
+        "min": 0,
+        "max": 0,
+        "step": 1,
+        "information": "Exceeds the validated point."
+      },
+      {
+        "id": "cosmetic",
+        "label": "Cosmetic recalibration",
+        "min": 0,
+        "max": 0,
+        "step": 1,
+        "information": "Changes the display only."
+      }
+    ],
+    "public_rule": "Minimums: reprocessing 25, electrolysis 15, validated operation 10, independent assay 15 and safety 10. Reprocessing plus assay must total at least 60. Assign zero to unvalidated heating and cosmetic recalibration.",
+    "accepted_example": {
+      "reprocess": 35,
+      "electrolysis": 15,
+      "validated_reactor": 10,
+      "independent_assay": 25,
+      "safety": 15,
+      "extra_heat": 0,
+      "cosmetic": 0
+    },
+    "grading": "Accept every allocation satisfying the public rule; the example is not exclusive."
+  }
+}
 ```
 
-**Proposals:** Batch C purification/reprocessing; timed electrolysis;
-validated reactor operation; independent final assay; extra raw
-production above validated point; cosmetic dashboard recalibration;
-habitat/safety margin.
+**Evidence delivery and grading:** The setup, decision evidence, public rules, costs and option descriptions are visible on this card before selection. Render option descriptions beside their controls, once; never replace them with internal axis IDs or a generic earlier-case sentence. Answer keys, accepted examples and feedback stay hidden until submission. Reveal withheld measurements only after the stated commitment. Use the public feasibility/selection rule; an example allocation is not an exclusive key. The displayed person must match this stop’s placement and Call.
 
-**Correct result:** 35 reprocessing, 25 independent verification, 15 electrolysis, 10 validated reactor, and 15 safety/habitat; total 100. Accept variants with at least 60 points across reprocessing + verification and no points to cosmetic recalibration, provided safety gets at least 10.
+**Correct result:** One valid example: {"reprocess": 35, "electrolysis": 15, "validated_reactor": 10, "independent_assay": 25, "safety": 15, "extra_heat": 0, "cosmetic": 0}. Other allocations satisfying the public rule are also correct.
 
-**Evidence shown after commit:** Reprocessing is the only action that
-changes contaminant concentration; electrolysis replaces processing
-losses; the validated point preserves rate/yield/thermal limits;
-independent assay changes launch authorization.
+**Answer text:** The accepted plan funds every required capability within the stated limits; extra points may be distributed only as the public rule allows.
 
-**Answer text:** Use 35 points for reprocessing, 25 for independent verification, 15 for electrolysis, 10 for validated reactor operation, and 15 for safety; fund no cosmetic recalibration.
-
-**Why:** The grade rewards investments that can alter the decision or
-protect a binding constraint. Spending everything on production solves
-the old problem and recreates the new one.
-
-**Wrong-path feedback:** Overfunding raw production while underfunding reprocessing or final assay cannot make off-spec methane flight-ready. Spending points on cosmetic recalibration changes a display rather than the batch, and cutting safety or electrolysis breaks a binding link in the recovery chain.
+**Wrong-path feedback:** Identify the unmet public condition or the specific measurement that the selected option cannot provide; keep the original evidence available for retry.
 
 **State/output:** Execute the plan through persistent equipment and
 world-state updates; Batch C returns to Tank Farm.
@@ -11490,3 +11757,13 @@ station what full means."
 ## Mental-math number rule for calculated-response cards
 
 This rule is binding for this campaign and for future games built from it. When the player must perform the arithmetic without a supplied calculator or a displayed intermediate result, author inputs as friendly integers or simple ratios. Prefer products and quotients that can be completed mentally and key results to an integer or at most one useful decimal place. Update every dependent prompt, board payload, prediction, measurement, tolerance, correct result, answer text, and feedback together. Preserve more complex real-world values only when the interface supplies the calculator or the intermediate value and the learning target is interpretation rather than arithmetic. Never make arithmetic friction the hidden difficulty of a concept question.
+
+# Decision-card evidence contract
+
+Every decision card must expose the exact evidence and public rule that distinguish its accepted answers from plausible alternatives. Render the local Data/readings/options, Decision evidence, public constraints and option effects before selection; keep them available while the player chooses. Use plain-language descriptions, not internal axis names. Show one speaker header from the stop’s placement and Call, and one coherent setup and prompt. Never substitute a discovery-stage explanation into a later allocation, release or certification task.
+
+Resource tasks distinguish a budget from the goal. Display the required outcomes, each option’s contribution, costs, reserve rules and any priority or tie-breaker. Accept every plan satisfying the published rule. A recommended split is not an exclusive key unless the visible constraints uniquely determine it. Policies are identified as policies; the player must not derive an institutional preference from a scientific formula.
+
+For staged tests, show hypotheses, model inputs and acceptance rules before commitment, but keep held-out results hidden until the specified test or reveal. No grade may depend on guessing a future result. A signed claim requires a readable source excerpt or an explicit inspection, not a hidden backed flag. Copied records retain their shared-source identity.
+
+No importer fallback may borrow another stop’s data, speaker, threshold or generic mission text. Missing required local evidence is an import error. Before release, inspect the rendered card, prove the accepted response from visible information alone, try a plausible wrong answer, and test a different valid answer where the rule admits one. This document revision is source work; rendered-game verification still requires the actual implementation.

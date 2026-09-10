@@ -1641,41 +1641,6 @@ derive:
 
 **Complete format-specific interaction block:** `trigger:{decision_rule:"RISING FAST if measured 10:15 level >= committed tangent prediction",scale:{min:4.18,max:4.28,step:0.001,unit:"m"},anchors:[4.20,4.23,4.26],objective:"detect a rise at least as fast as current derivative",direction:"at or above",consequence_limit:"do not change release until warning review"}`; update reveals `4.235 m`.
 
-**§7 authored-board source - TRIGGER:** Convert this stop from its authored interaction block below. Do not substitute a format-level template. The panel must state the goal without printing the keyed answer.
-
-```yaml
-authored_board:
-  stop: "Stop 8 - Set the tangent alarm"
-  format: "TRIGGER"
-  source: "Handback 3 canonical interaction block"
-  question: "Calculate L(0.25)=4.20+(0.12)(0.25) and submit the predicted level in metres; then commit RISING FAST if measured level is at least that value."
-  payload: "`trigger:{decision_rule:\"RISING FAST if measured 10:15 level >= committed tangent prediction\",scale:{min:4.18,max:4.28,step:0.001,unit:\"m\"},anchors:[4.20,4.23,4.26],objective:\"detect a rise at least as fast as current derivative\",direction:\"at or above\",consequence_limit:\"do not change release until warning review\"}`; update reveals `4.235 m`."
-  axis_and_units: "Use only quantities and units named in this question and payload."
-  candidates_and_numbers: "Use only candidates and numbers named in this question and payload."
-  panel_rule: "Print the goal, never the target or keyed answer."
-```
-
-**Handback 3 canonical interaction block - TRIGGER:**
-
-```yaml
-trigger:
-  rule: "Commit the threshold before the stream appears; act only when a reading enters the action window with enough lead time."
-  scale: {label: "predicted water level", min: 4.18, max: 4.28, step: 0.001, unit: "m"}
-  start: 4.2
-  anchors:
-    - {at: 4.2, means: "routine baseline, not the decision threshold"}
-    - {at: 4.245, means: "elevated evidence requiring attention"}
-  direction: rising
-  updates:
-    - {at: "T-48 h", value: 4.2, hoursLeft: 48}
-    - {at: "T-24 h", value: 4.22, hoursLeft: 24}
-    - {at: "T-12 h", value: 4.235, hoursLeft: 12}
-    - {at: "T-6 h", value: 4.26, hoursLeft: 6}
-  stages:
-    - {id: watch, label: "Increase monitoring", window: {min: 4.18, max: 4.229}, leadHours: 24}
-    - {id: act, label: "Take the protective action", window: {min: 4.23, max: 4.28}, leadHours: 12}
-  question: "Calculate L(0.25)=4.20+(0.12)(0.25) and submit the predicted level in metres; then commit RISING FAST if measured level is at least that value."
-```
 
 **Correct result:** prediction `4.230 m`, tolerance `0.001`; trigger fires.
 
@@ -2815,45 +2780,12 @@ derive:
 
 **Question card story-science connection - exact player copy:** The combined travel and closure time defines the latest warning deadline the dispatch updates must satisfy.
 
+**Decision evidence - exact player copy:** The desk’s adopted warning policy uses a buffer equal to the 4.0-hour travel interval plus the 40-minute road-closure interval. Convert that sum to minutes. This is the campaign’s operational buffer rule, not a universal hydrological minimum lead time.
+
 **Question card prompt - exact player copy:** Submit the minimum lead time in minutes before road closure and commit WARN if planned release begins within that lead time; use 60 min/h.
 
 **Complete format-specific interaction block:** `trigger:{decision_rule:"WARN if release begins within committed lead time",scale:{min:200,max:300,step:5,unit:"min"},anchors:[240,280],objective:"warning before first road closure",direction:"at least",consequence_limit:"road must remain open for evacuation"}`
 
-**§7 authored-board source - TRIGGER:** Convert this stop from its authored interaction block below. Do not substitute a format-level template. The panel must state the goal without printing the keyed answer.
-
-```yaml
-authored_board:
-  stop: "Stop 16 - Commit the warning"
-  format: "TRIGGER"
-  source: "Handback 3 canonical interaction block"
-  question: "Submit the minimum lead time in minutes before road closure and commit WARN if planned release begins within that lead time; use 60 min/h."
-  payload: "`trigger:{decision_rule:\"WARN if release begins within committed lead time\",scale:{min:200,max:300,step:5,unit:\"min\"},anchors:[240,280],objective:\"warning before first road closure\",direction:\"at least\",consequence_limit:\"road must remain open for evacuation\"}`"
-  axis_and_units: "Use only quantities and units named in this question and payload."
-  candidates_and_numbers: "Use only candidates and numbers named in this question and payload."
-  panel_rule: "Print the goal, never the target or keyed answer."
-```
-
-**Handback 3 canonical interaction block - TRIGGER:**
-
-```yaml
-trigger:
-  rule: "Commit the threshold before the stream appears; act only when a reading enters the action window with enough lead time."
-  scale: {label: "road-closure lead time", min: 200, max: 300, step: 5, unit: "min"}
-  start: 220
-  anchors:
-    - {at: 220, means: "routine baseline, not the decision threshold"}
-    - {at: 265, means: "elevated evidence requiring attention"}
-  direction: falling
-  updates:
-    - {at: "T-48 h", value: 300, hoursLeft: 48}
-    - {at: "T-24 h", value: 290, hoursLeft: 24}
-    - {at: "T-12 h", value: 280, hoursLeft: 12}
-    - {at: "T-6 h", value: 260, hoursLeft: 6}
-  stages:
-    - {id: watch, label: "Increase monitoring", window: {min: 281, max: 300}, leadHours: 24}
-    - {id: act, label: "Take the protective action", window: {min: 200, max: 280}, leadHours: 12}
-  question: "Submit the minimum lead time in minutes before road closure and commit WARN if planned release begins within that lead time; use 60 min/h."
-```
 
 **Correct result:** `4*60+40=280 min`, exact; commit 280.
 
@@ -3387,52 +3319,49 @@ derive:
 
 **Stop reason - exact player copy:** The interior demand checks are ready to be compared with the schedule endpoints.
 
-**Question card story setup - exact player copy:** With critical times found, evaluate demand at t=0,1,3,5, then use derivative signs or D''(t)=6t-12 to justify the maximum. The machine limit is 24 MW, inclusive.
+**Question card story setup - exact player copy:** The turbine operator holds the schedule open: a peak inside the shift is not the only way to overload the machine.
 
-**Question card story-science connection - exact player copy:** The absolute maximum determines whether any part of the turbine schedule exceeds the machine's power limit.
+**Question card prompt - exact player copy:** Demand is D(t)=t³−6t²+9t+20 MW for 0≤t≤5 h. Compare t=0,1,3,5 h. Choose the absolute maximum; the inclusive machine limit is 24 MW.
 
-**Question card prompt - exact player copy:** Using D(t)=t^3-6t^2+9t+20 MW, evaluate t=0,1,3,5 h; submit the absolute maximum in megawatts, its time in hours, and safe/unsafe against the inclusive 24 MW limit.
+**Complete format-specific interaction block — canonical BALLPARK:**
 
-**Complete format-specific interaction block:** `estimate:{labels:["D(0)","D(1)","D(3)","D(5)"],values:[[20],[24],[20],[40]],slots:4,template:"largest candidate",formula:"D_max=max(20,24,20,40)",correct:[20,24,20,40],target:40,tolerance:0}`
-
-**§7 build completion - BALLPARK:** This block supplies the panel fields omitted above; the authored prompt, science, and correct result remain authoritative.
-
-```yaml
-estimate:
-  target: 40.0
-  tolerance: 2.0
-  unit: "units printed on the card"
-  tiles: [{label: "displayed numerator", value: 80.0}, {label: "displayed divisor", value: 2}]
-  formula: "D_max=displayed numerator/displayed divisor"
-  correctResultText: "`40 MW at 5 h`, unsafe; local max at `1 h` is `24 MW`."
+```json
+{
+  "estimate": {
+    "quantity": "Test the absolute peak",
+    "labels": [
+      "40",
+      "24",
+      "20"
+    ],
+    "values": [
+      40,
+      24,
+      20
+    ],
+    "slots": 1,
+    "template": "{a} = ? MW",
+    "formula": "a",
+    "correct": [
+      0
+    ],
+    "target": 40,
+    "tolerance": 0.1,
+    "units": "MW",
+    "correctResult": 40
+  },
+  "answerText": "The candidate demands are 20, 24, 20 and 40 MW. The absolute maximum is 40 MW at 5 h, so this schedule is unsafe. The 24 MW peak at 1 h is only a local maximum.",
+  "wrongFeedback": [
+    "Checking critical points without endpoints misses the largest demand."
+  ]
+}
 ```
 
-**Handback 9 canonical interaction block - BALLPARK:**
+**Rendering and grading contract:** Render every numeric label as a selectable tile. The printed equation supplies the slot roles; do not replace number labels with quantity names. `correct` contains zero-based tile indices for slots a onward. Accept numerically equivalent selections, including equal-valued tiles. Evaluate the formula on submission; tolerance is absolute in the stated output units. Negative and zero results require a signed linear display. The board has one submission; supporting comparisons appear in the result explanation.
 
-```yaml
-estimate:
-  quantity: "absolute maximum demand"
-  unit: "MW"
-  inputs:
-    - {label: "Demand at t=0 h", value: 20, unit: "MW"}
-    - {label: "Demand at t=1 h", value: 24, unit: "MW"}
-    - {label: "Demand at t=3 h", value: 20, unit: "MW"}
-    - {label: "Demand at t=5 h", value: 40, unit: "MW"}
-    - {label: "Inclusive machine limit", value: 24, unit: "MW", contextOnly: true}
-  operation: "compare the endpoint and critical-point demand values and select the largest"
-  formula: "D_max=max(20,24,20,40)"
-  correctResult: 40
-  tolerance: 0.1
-  answerText: "The absolute maximum is 40 MW at 5 h, so the plan is unsafe against the inclusive 24 MW limit; 24 MW at 1 h is only a local maximum."
-```
+**Correct result:** The candidate demands are 20, 24, 20 and 40 MW. The absolute maximum is 40 MW at 5 h, so this schedule is unsafe. The 24 MW peak at 1 h is only a local maximum.
 
-**Correct result:** `40 MW at 5 h`, unsafe; local max at `1 h` is `24 MW`.
-
-**Answer text:** EVT requires endpoints plus critical points; the endpoint peak exceeds capacity.
-
-**Why:** EVT requires endpoints plus critical points; the endpoint peak exceeds capacity. A correct maximum decides whether the two-day plan overloads the available unit.
-
-**Wrong-path feedback:** A local maximum need not be the absolute maximum.
+**Wrong-path feedback:** Checking critical points without endpoints misses the largest demand.
 
 **State/output:** overload tag; waypoint to STORE.
 
@@ -3874,49 +3803,52 @@ L'Hopital's rule for allowed indeterminate forms, exponential derivatives, deriv
 
 **Stop reason - exact player copy:** The crew can now use differentiation to resolve the replacement forecast's undefined starting rate.
 
-**Question card story setup - exact player copy:** A replacement forecast gives average rise A(t)=(e^(0.02t)-1)/t metres per hour during the first t hours. Because A(0) is undefined, calculate L=lim_(t->0)A(t), the rise rate approached when the forecast begins.
+**Question card story setup - exact player copy:** The inflow forecast stalls at the start time. The crew needs the value the model approaches before it can use the curve.
 
-**Question card story-science connection - exact player copy:** The initial rate limit establishes whether the exponential forecast begins with a finite reservoir-rise prediction.
+**Question card prompt - exact player copy:** Find lim(t→0)(e^(0.02t)−1)/t in m/h. Both numerator and denominator approach zero; use their derivatives to fill the numerator and denominator of the limiting ratio.
 
-**Question card prompt - exact player copy:** Let `L=lim_(t->0) A(t)=lim_(t->0)(e^(0.02t)-1)/t`. Confirm the 0/0 form, apply L'Hopital's rule by differentiating the numerator and denominator separately, preserve `L` on the left, and submit the limit in metres per hour.
+**Complete format-specific interaction block — canonical BALLPARK:**
 
-**Complete format-specific interaction block:** `estimate:{labels:["N'(0), numerator derivative at 0","D'(0), denominator derivative at 0"],values:[[0.02,1],[1,0]],slots:2,template:"L=N'(0)/D'(0)",formula:"L=0.02/1",correct:[0.02,1],target:0.02,tolerance:0.0001}`; `answerText:"The starting rise rate is L=0.020 m/h because N'(0)=0.02 and D'(0)=1."`
-
-**§7 build completion - BALLPARK:** This block supplies the panel fields omitted above; the authored prompt, science, and correct result remain authoritative.
-
-```yaml
-estimate:
-  target: 0.02
-  tolerance: 0.0001
-  unit: "m/h"
-  tiles: [{label: "N'(0)", value: 0.02}, {label: "D'(0)", value: 1}]
-  formula: "L=N'(0)/D'(0)"
-  correctResultText: "L=0.020 m/h"
+```json
+{
+  "estimate": {
+    "quantity": "Check the indeterminate rate",
+    "labels": [
+      "0.02",
+      "1",
+      "0",
+      "2"
+    ],
+    "values": [
+      0.02,
+      1,
+      0,
+      2
+    ],
+    "slots": 2,
+    "template": "{a} / {b} = ? m/h",
+    "formula": "a/b",
+    "correct": [
+      0,
+      1
+    ],
+    "target": 0.02,
+    "tolerance": 0.0001,
+    "units": "m/h",
+    "correctResult": 0.02
+  },
+  "answerText": "L’Hôpital’s rule gives lim(t→0)0.02e^(0.02t)/1 = 0.020 m/h. This is the approached rate, not a direct substitution into the original undefined quotient.",
+  "wrongFeedback": [
+    "Differentiating e^(0.02t) requires the chain-rule factor 0.02."
+  ]
+}
 ```
 
-**Handback 9 canonical interaction block - BALLPARK:**
+**Rendering and grading contract:** Render every numeric label as a selectable tile. The printed equation supplies the slot roles; do not replace number labels with quantity names. `correct` contains zero-based tile indices for slots a onward. Accept numerically equivalent selections, including equal-valued tiles. Evaluate the formula on submission; tolerance is absolute in the stated output units. Negative and zero results require a signed linear display. The board has one submission; supporting comparisons appear in the result explanation.
 
-```yaml
-estimate:
-  quantity: "limiting starting rise rate L"
-  unit: "m/h"
-  inputs:
-    - {label: "N'(0), numerator derivative at t=0", value: 0.02, unit: "m/h"}
-    - {label: "D'(0), denominator derivative", value: 1, unit: "dimensionless"}
-  operation: "divide N'(0) by D'(0)"
-  formula: "L=0.02/1"
-  correctResult: 0.02
-  tolerance: 0.0001
-  answerText: "The differentiated ratio is 0.02e^(0.02t)/1, so L=0.020 m/h."
-```
+**Correct result:** L’Hôpital’s rule gives lim(t→0)0.02e^(0.02t)/1 = 0.020 m/h. This is the approached rate, not a direct substitution into the original undefined quotient.
 
-**Correct result:** `L=0.020 m/h`.
-
-**Answer text:** The replacement forecast begins with a finite limiting rise rate of 0.020 m/h.
-
-**Why:** The original ratio has the indeterminate form 0/0, and the differentiated ratio approaches 0.02/1.
-
-**Wrong-path feedback:** L'Hopital's rule applies only after the original ratio is confirmed as 0/0 or infinity/infinity.
+**Wrong-path feedback:** Differentiating e^(0.02t) requires the chain-rule factor 0.02.
 
 **State/output:** replacement forecast passes the independent smooth-start check; unlock 6.2.
 
@@ -4014,53 +3946,79 @@ sweep:
 
 **Stop reason - exact player copy:** The alternative forecasts must be frozen before the archived crest is revealed.
 
-**Question card story setup - exact player copy:** With the plausible model identified, fit old radar hours 0-5 using Forecast A or B and freeze every parameter. The archive then reveals high-ground readings at hours 6-9 to test extrapolation.
+**Question card story setup - exact player copy:** Two forecast models fit the early readings. Freeze both supplied prediction sets before opening the later crest record.
 
-**Question card story-science connection - exact player copy:** Performance on the unseen crest determines which forecast deserves to guide the storm-storage plan.
+**Question card prompt - exact player copy:** Commit both fixed model predictions, then reveal the four holdout readings. Select the model with the smaller mean absolute prediction error; the result does not authorize refitting on these same readings.
 
-**Question card prompt - exact player copy:** Fit and freeze exactly one named model using hours 0-5, reveal hours 6-9, and submit the model label A or B that passes the holdout.
+**Complete format-specific interaction block - canonical source:**
 
-**Complete format-specific interaction block:** `holdout:{training:[{t:0,y:19},{t:2,y:21},{t:4,y:29},{t:5,y:33}],models:[{id:"A",pred_holdout:[31,27,22,19]},{id:"B",pred_holdout:[35,37,34,28]}],freeze_required:true,holdout:[{t:6,y:35},{t:7,y:38},{t:8,y:34},{t:9,y:29}],answer:"B"}`
-
-**§7 authored-board source - HOLDOUT:** Convert this stop from its authored interaction block below. Do not substitute a format-level template. The panel must state the goal without printing the keyed answer.
-
-```yaml
-authored_board:
-  stop: "Stop 23 - Freeze before revealing the crest"
-  format: "HOLDOUT"
-  source: "Handback 5 canonical interaction block"
-  question: "Fit and freeze exactly one named model using hours 0-5, reveal hours 6-9, and submit the model label A or B that passes the holdout."
-  payload: "`holdout:{training:[{t:0,y:19},{t:2,y:21},{t:4,y:29},{t:5,y:33}],models:[{id:\"A\",pred_holdout:[31,27,22,19]},{id:\"B\",pred_holdout:[35,37,34,28]}],freeze_required:true,holdout:[{t:6,y:35},{t:7,y:38},{t:8,y:34},{t:9,y:29}],answer:\"B\"}`"
-  axis_and_units: "Use only quantities and units named in this question and payload."
-  candidates_and_numbers: "Use only candidates and numbers named in this question and payload."
-  panel_rule: "Print the goal, never the target or keyed answer."
+```json
+{
+  "holdout": {
+    "training": [
+      {
+        "t": 0,
+        "y": 19
+      },
+      {
+        "t": 2,
+        "y": 21
+      },
+      {
+        "t": 4,
+        "y": 29
+      },
+      {
+        "t": 5,
+        "y": 33
+      }
+    ],
+    "models": [
+      {
+        "id": "A",
+        "prediction": [
+          31,
+          27,
+          22,
+          19
+        ]
+      },
+      {
+        "id": "B",
+        "prediction": [
+          35,
+          37,
+          34,
+          28
+        ]
+      }
+    ],
+    "times": [
+      6,
+      7,
+      8,
+      9
+    ],
+    "freeze_required": true,
+    "reveal_after_commit": [
+      35,
+      38,
+      34,
+      29
+    ],
+    "comparison": "mean absolute error; smaller is better",
+    "correctChoice": "B"
+  }
+}
 ```
 
-**Handback 3 canonical interaction block - HOLDOUT:**
+**Evidence delivery and grading:** The setup, decision evidence, public rules, costs and option descriptions are visible on this card before selection. Render option descriptions beside their controls, once; never replace them with internal axis IDs or a generic earlier-case sentence. Answer keys, accepted examples and feedback stay hidden until submission. Reveal withheld measurements only after the stated commitment. Use the public feasibility/selection rule; an example allocation is not an exclusive key. The displayed person must match this stop’s placement and Call.
 
-**Handback 5 canonical interaction block - HOLDOUT:**
+**Correct result:** B; mean absolute error 0.5 versus 9.25 for A.
 
-```yaml
-holdout:
-  axis: {label: "allowed crest-flow prediction error", min: 0, max: 8, step: 2, unit: "m³/s"}
-  fit: [{at: 0, value: 0.58}, {at: 2, value: 0.98}, {at: 4, value: 0.83}, {at: 6, value: 0.87}, {at: 8, value: 0.84}]
-  test: [{at: 0, value: 0.35}, {at: 2, value: 0.48}, {at: 4, value: 0.74}, {at: 6, value: 0.86}, {at: 8, value: 0.85}]
-  passScore: 0.80
-  overfitAt: 2
-  correctAt: 6
-  training: [{at: 0, value: 19}, {at: 2, value: 21}, {at: 4, value: 29}, {at: 5, value: 33}]
-  testReadings: [{at: 6, value: 35}, {at: 7, value: 38}, {at: 8, value: 34}, {at: 9, value: 29}]
-  modelPredictions: {A: [31, 27, 22, 19], B: [35, 37, 34, 28]}
-  correctChoice: B
-```
+**Answer text:** A misses the crest in a systematic direction. Both prediction sets were fixed before the readings appeared, so comparing them is an out-of-sample model comparison.
 
-**Correct result:** B.
-
-**Answer text:** B residuals `[0,1,0,1]`; A residuals `[4,11,12,10]` form a missed crest.
-
-**Why:** B residuals `[0,1,0,1]`; A residuals `[4,11,12,10]` form a missed crest. A model that fits training data but misses a patterned holdout crest cannot guide release.
-
-**Wrong-path feedback:** Training fit does not validate extrapolation.
+**Wrong-path feedback:** Identify the unmet public condition or the specific measurement that the selected option cannot provide; keep the original evidence available for retry.
 
 **State/output:** late crest on wall; unlock 6.4.
 
@@ -4761,54 +4719,52 @@ Riemann sums, left/right/trapezoid behavior, antiderivatives and `+C`, linearity
 
 **Stop reason - exact player copy:** The selected forecast supplies flow rates, while the storage plan requires the accumulated storm volume.
 
-**Question card story setup - exact player copy:** Forecast flows at hours 0,5,10,15,20 are 100,150,200,250,300 m3/s. Compute left, right, and trapezoidal sums using 5 h=18,000 s, then compare their likely bias from the rise.
+**Question card story setup - exact player copy:** The reservoir crew lays the flow readings along the shift chart. The total release must account for the spaces between them.
 
-**Question card story-science connection - exact player copy:** The three numerical sums bound and estimate incoming water while exposing bias from the rising sampled flow.
+**Question card prompt - exact player copy:** Flows at equally spaced times are 100,150,200,250,300 m³/s. Each interval lasts 5 h=18,000 s. Select the interval duration and the trapezoidal weighted flow sum, then calculate release in million m³.
 
-**Question card prompt - exact player copy:** Load the five flows in m^3/s, use Delta t=5 h=18000 s, and submit the trapezoidal total in million cubic metres. Then identify the left sum as low and the right sum as high.
+**Complete format-specific interaction block — canonical BALLPARK:**
 
-**Complete format-specific interaction block:** `balance:{streams:[{id:"left_sum",label:"left-endpoint estimate",values:[100,150,200,250],weight:18000,unit:"m3",counts:true},{id:"right_sum",label:"right-endpoint estimate",values:[150,200,250,300],weight:18000,unit:"m3",counts:true},{id:"trapezoid",label:"trapezoidal estimate",values:[125,175,225,275],weight:18000,unit:"m3",counts:true},{id:"midpoint_guess",label:"unsupported midpoint guess",value:15000000,unit:"m3",counts:false,reason:"no midpoint readings were observed"}],correct:{left_sum:12600000,right_sum:16200000,trapezoid:14400000},answerText:"Left and right sums bracket the rising flow; the trapezoidal estimate is 14,400,000 m3, and the unsupported midpoint guess does not count."}`
-
-**§7 authored-board source - BALANCE:** Convert this stop from its authored interaction block below. Do not substitute a format-level template. The panel must state the goal without printing the keyed answer.
-
-```yaml
-authored_board:
-  stop: "Stop 25 - Estimate sampled inflow"
-  format: "BALLPARK"
-  source: "Handback 5 canonical interaction block"
-  question: "Load the five flows in m^3/s, use Delta t=5 h=18000 s, and submit the left, right, and trapezoidal totals in cubic metres plus an over/under conclusion."
-  payload: "`balance:{streams:[{id:\"left_sum\",label:\"left-endpoint estimate\",values:[100,150,200,250],weight:18000,unit:\"m3\",counts:true},{id:\"right_sum\",label:\"right-endpoint estimate\",values:[150,200,250,300],weight:18000,unit:\"m3\",counts:true},{id:\"trapezoid\",label:\"trapezoidal estimate\",values:[125,175,225,275],weight:18000,unit:\"m3\",counts:true},{id:\"midpoint_guess\",label:\"unsupported midpoint guess\",value:15000000,unit:\"m3\",counts:false,reason:\"no midpoint readings were observed\"}],correct:{left_sum:12600000,right_sum:16200000,trapezoid:14400000},answerText:\"Left and right sums bracket the rising flow; the trapezoidal estimate is 14,400,000 m3, and the unsupported midpoint guess does not count.\"}`"
-  axis_and_units: "Use only quantities and units named in this question and payload."
-  candidates_and_numbers: "Use only candidates and numbers named in this question and payload."
-  panel_rule: "Print the goal, never the target or keyed answer."
+```json
+{
+  "estimate": {
+    "quantity": "Estimate sampled inflow",
+    "labels": [
+      "18000",
+      "800",
+      "700",
+      "900"
+    ],
+    "values": [
+      18000,
+      800,
+      700,
+      900
+    ],
+    "slots": 2,
+    "template": "{a} × {b} / 1000000 = ? million m³",
+    "formula": "a*b/1000000",
+    "correct": [
+      0,
+      1
+    ],
+    "target": 14.4,
+    "tolerance": 0.01,
+    "units": "million m³",
+    "correctResult": 14.4
+  },
+  "answerText": "The weighted sum is 100/2+150+200+250+300/2=800 m³/s. The trapezoidal estimate is 14.4 million m³. Increasing flow makes the left sum 12.6 million m³ a lower estimate and the right sum 16.2 million m³ an upper estimate.",
+  "wrongFeedback": [
+    "Halve only the first and last flow readings; convert hours to seconds before multiplying."
+  ]
+}
 ```
 
-**Handback 3 canonical interaction block - BALLPARK:**
+**Rendering and grading contract:** Render every numeric label as a selectable tile. The printed equation supplies the slot roles; do not replace number labels with quantity names. `correct` contains zero-based tile indices for slots a onward. Accept numerically equivalent selections, including equal-valued tiles. Evaluate the formula on submission; tolerance is absolute in the stated output units. Negative and zero results require a signed linear display. The board has one submission; supporting comparisons appear in the result explanation.
 
-**Handback 5 canonical interaction block - BALLPARK:**
+**Correct result:** The weighted sum is 100/2+150+200+250+300/2=800 m³/s. The trapezoidal estimate is 14.4 million m³. Increasing flow makes the left sum 12.6 million m³ a lower estimate and the right sum 16.2 million m³ an upper estimate.
 
-```yaml
-estimate:
-  quantity: "trapezoidal inflow volume"
-  unit: "million m³"
-  inputs:
-    - {label: "Five-hour flow readings", values: [100, 150, 200, 250, 300], unit: "m³/s"}
-    - {label: "Interval width", value: 18000, unit: "s"}
-  operation: "average each adjacent pair, sum the four averages, multiply by 18000 s, then divide by 1000000"
-  formula: "V_trap=18000[(100+150)/2+(150+200)/2+(200+250)/2+(250+300)/2]/1000000"
-  start: 0
-  correctResult: 14.4
-  tolerance: 0.1
-  commonMistake: "Mixing a contextual reading into the arithmetic or reversing the subtraction."
-```
-
-**Correct result:** `L=12.6`, `R=16.2`, `T=14.4 million m^3`.
-
-**Answer text:** for this increasing curve, left underestimates and right overestimates; trapezoids average adjacent endpoints.
-
-**Why:** for this increasing curve, left underestimates and right overestimates; trapezoids average adjacent endpoints. Numerical accumulation brackets urgency before an exact model is integrated.
-
-**Wrong-path feedback:** Convert hours to seconds.
+**Wrong-path feedback:** Halve only the first and last flow readings; convert hours to seconds before multiplying.
 
 **State/output:** estimated band; unlock 7.2.
 
@@ -5465,49 +5421,106 @@ derive:
 
 **Stop reason - exact player copy:** The verified turbine contribution leaves a specific release deficit and supporting tasks to fund.
 
-**Question card story setup - exact player copy:** Turbines clear 3.60 of the required 5.28 million m^3, leaving 1.68. Allocate the remaining release, warning staff, gate test, and protected reserve so every required condition is funded.
+**Question card story setup - exact player copy:** The turbines provide part of the needed drawdown. The remaining gate operation must be supported by warning, testing and recovery capacity.
 
-**Question card story-science connection - exact player copy:** The allocation determines whether remaining drawdown, warning staff, gate testing, and protected reserve all fit the plan.
+**Decision evidence - exact player copy:** Required outcomes: release the remaining 1.68 million m³; staff downstream warnings; verify a reversal stroke; retain restart capacity. Required drawdown is 5.28 million m³; turbines provide 3.60 million m³.
 
-**Question card prompt - exact player copy:** Allocate all 100 points among the four named items and submit one allocation plan; gate release, warning, test, and protected reserve must all be funded.
+**Question card prompt - exact player copy:** You have 100 points. Cover every required outcome and allocate the whole budget. Select whole packages, then submit the plan; the board shows its total and remaining reserve for you to check.
 
-**Complete format-specific interaction block:** `allocate:{pool:100,items:[{id:"gate",label:"1.68 million m3 gate release",cost:40,required:true},{id:"warning",label:"downstream warning shift",cost:25,required:true},{id:"test",label:"reversal gate test",cost:15,required:true},{id:"reserve",label:"restart reserve",cost:20,required:true,protected:true},{id:"cosmetic",label:"control-room repainting",cost:15,required:false}],questions:[{id:"release",text:"Does total release reach 5.28 million m3?",required:true},{id:"warning",text:"Are downstream warnings staffed?",required:true},{id:"reserve",text:"Is the restart reserve protected?",required:true}],correct_allocation:{gate:40,warning:25,test:15,reserve:20},answerText:"Fund the gate, warning, reversal test, and protected reserve; repainting would exceed the pool without improving clearance."}`
+**Complete format-specific interaction block - canonical source:**
 
-**§7 authored-board source - ALLOCATE:** Convert this stop from its authored interaction block below. Do not substitute a format-level template. The panel must state the goal without printing the keyed answer.
-
-```yaml
-authored_board:
-  stop: "Stop 32 - Allocate the just-clears plan"
-  format: "ALLOCATE"
-  source: "Handback 3 canonical interaction block"
-  question: "Allocate all 100 points among the four named items and submit one allocation plan; gate release, warning, test, and protected reserve must all be funded."
-  payload: "`allocate:{pool:100,items:[{id:\"gate\",label:\"1.68 million m3 gate release\",cost:40,required:true},{id:\"warning\",label:\"downstream warning shift\",cost:25,required:true},{id:\"test\",label:\"reversal gate test\",cost:15,required:true},{id:\"reserve\",label:\"restart reserve\",cost:20,required:true,protected:true},{id:\"cosmetic\",label:\"control-room repainting\",cost:15,required:false}],questions:[{id:\"release\",text:\"Does total release reach 5.28 million m3?\",required:true},{id:\"warning\",text:\"Are downstream warnings staffed?\",required:true},{id:\"reserve\",text:\"Is the restart reserve protected?\",required:true}],correct_allocation:{gate:40,warning:25,test:15,reserve:20},answerText:\"Fund the gate, warning, reversal test, and protected reserve; repainting would exceed the pool without improving clearance.\"}`"
-  axis_and_units: "Use only quantities and units named in this question and payload."
-  candidates_and_numbers: "Use only candidates and numbers named in this question and payload."
-  panel_rule: "Print the goal, never the target or keyed answer."
+```json
+{
+  "allocate": {
+    "budget": {
+      "value": 100,
+      "unit": "points"
+    },
+    "requirements": [
+      {
+        "id": "r1",
+        "text": "release the remaining 1.68 million m³"
+      },
+      {
+        "id": "r2",
+        "text": "staff downstream warnings"
+      },
+      {
+        "id": "r3",
+        "text": "verify a reversal stroke"
+      },
+      {
+        "id": "r4",
+        "text": "retain restart capacity"
+      }
+    ],
+    "selection_rule": "Cover every required outcome and allocate the whole budget.",
+    "options": [
+      {
+        "id": "gate",
+        "label": "Gate release block",
+        "cost": 40.0,
+        "information": "Releases the remaining 1.68 million m³.",
+        "covers": [
+          "r1"
+        ]
+      },
+      {
+        "id": "warning",
+        "label": "Downstream warning shift",
+        "cost": 25.0,
+        "information": "Staffs warnings for the release.",
+        "covers": [
+          "r2"
+        ]
+      },
+      {
+        "id": "test",
+        "label": "Reversal gate test",
+        "cost": 15.0,
+        "information": "Tests the reversal before repeated gate work.",
+        "covers": [
+          "r3"
+        ]
+      },
+      {
+        "id": "reserve",
+        "label": "Restart reserve",
+        "cost": 20.0,
+        "information": "Keeps restart staff and equipment available.",
+        "covers": [
+          "r4"
+        ]
+      },
+      {
+        "id": "cosmetic",
+        "label": "Control-room repainting",
+        "cost": 15.0,
+        "information": "Improves finish without changing release or warning capability.",
+        "covers": []
+      }
+    ],
+    "accepted_plans": [
+      [
+        "gate",
+        "warning",
+        "test",
+        "reserve"
+      ]
+    ],
+    "example_total": 100.0,
+    "example_reserve": 0.0
+  }
+}
 ```
 
-**Handback 3 canonical interaction block - ALLOCATE:**
+**Evidence delivery and grading:** The setup, decision evidence, public rules, costs and option descriptions are visible on this card before selection. Render option descriptions beside their controls, once; never replace them with internal axis IDs or a generic earlier-case sentence. Answer keys, accepted examples and feedback stay hidden until submission. Reveal withheld measurements only after the stated commitment. Use the public feasibility/selection rule; an example allocation is not an exclusive key. The displayed person must match this stop’s placement and Call.
 
-```yaml
-allocate_patch:
-  questions:
-    - {id: release, requires: [gate], required: true}
-    - {id: warning, requires: [warning], required: true}
-    - {id: reserve, requires: [reserve], required: false}
-  rule: "At least one outcome may be forgone; required outcomes are not pre-protected, so the player must choose a feasible basket."
-  preProtected: []
-  decision_can_fail: true
-  question: "Allocate all 100 points among the four named items and submit one allocation plan; gate release, warning, test, and protected reserve must all be funded."
-```
+**Correct result:** gate, warning, test, reserve = 100 points; reserve 0
 
-**Correct result:** all four funded exactly.
+**Answer text:** Each funded package supplies a required outcome; an affordable package that leaves one unresolved is insufficient.
 
-**Answer text:** The completed check shows all four funded exactly.
-
-**Why:** all four funded exactly. A mathematically sufficient release is unusable without warning and restart capacity.
-
-**Wrong-path feedback:** Storage volume alone is not the whole release constraint.
+**Wrong-path feedback:** Identify the unmet public condition or the specific measurement that the selected option cannot provide; keep the original evidence available for retry.
 
 **State/output:** mixed plan authorized.
 
@@ -6622,63 +6635,47 @@ derive:
 
 **Stop reason - exact player copy:** The observed seepage decay still carries rate uncertainty that could change load approval.
 
-**Question card story setup - exact player copy:** The observed decay constant is k=-0.30+-0.05 h^-1, and approval requires excess seepage below 5.0 L/min after 4 h, inclusive. Stress the full interval before approving the load.
+**Question card story setup - exact player copy:** The seepage rate is declining, but the decay rate is uncertain. Approval must survive the slowest supported decline.
 
-**Question card story-science connection - exact player copy:** The slowest allowed decay determines whether excess seepage remains under the required four-hour limit.
+**Question card prompt - exact player copy:** Sweep k from −0.35 to −0.25 h⁻¹ in 0.01 steps. With S(4)=12e^(4k) L/min, submit the largest S(4) and approve only if it is at most 5.0 L/min.
 
-**Question card prompt - exact player copy:** Sweep k from -0.35 through -0.25 h^-1 in 0.01 h^-1 steps using S(4)=12e^(4k); submit the worst-case value in L/min and approve/reject.
+**Complete format-specific interaction block - canonical source:**
 
-**Complete format-specific interaction block:** `stress:{assumption:{label:"k",min:-.35,max:-.25,step:.01},candidates:[{id:"approve",condition:"12e^(4k)<=5"},{id:"reject",condition:"otherwise"}],correct:"approve",worst_case:{k:-.25,value:4.415}}`
-
-**§7 authored-board source - STRESS:** Convert this stop from its authored interaction block below. Do not substitute a format-level template. The panel must state the goal without printing the keyed answer.
-
-```yaml
-authored_board:
-  stop: "Stop 40 - Approve the carrying limit"
-  format: "STRESS"
-  source: "Handback 3 canonical interaction block"
-  question: "Sweep k from -0.35 through -0.25 h^-1 in 0.01 h^-1 steps using S(4)=12e^(4k); submit the worst-case value in L/min and approve/reject."
-  payload: "`stress:{assumption:{label:\"k\",min:-.35,max:-.25,step:.01},candidates:[{id:\"approve\",condition:\"12e^(4k)<=5\"},{id:\"reject\",condition:\"otherwise\"}],correct:\"approve\",worst_case:{k:-.25,value:4.415}}`"
-  axis_and_units: "Use only quantities and units named in this question and payload."
-  candidates_and_numbers: "Use only candidates and numbers named in this question and payload."
-  panel_rule: "Print the goal, never the target or keyed answer."
+```json
+{
+  "stress": {
+    "model": {
+      "parameter": "k",
+      "min": -0.35,
+      "max": -0.25,
+      "step": 0.01,
+      "formula": "12*exp(4*k)",
+      "limit": 5,
+      "units": "L/min"
+    },
+    "candidates": [
+      {
+        "id": "approve",
+        "label": "Approve this tested load"
+      },
+      {
+        "id": "reject",
+        "label": "Reject this tested load"
+      }
+    ],
+    "correct": "approve",
+    "public_rule": "Use the displayed model and criterion over the entire stated range; no hidden preference scores."
+  }
+}
 ```
 
-**Handback 3 canonical interaction block - STRESS:**
+**Evidence delivery and grading:** The setup, decision evidence, public rules, costs and option descriptions are visible on this card before selection. Render option descriptions beside their controls, once; never replace them with internal axis IDs or a generic earlier-case sentence. Answer keys, accepted examples and feedback stay hidden until submission. Reveal withheld measurements only after the stated commitment. Use the public feasibility/selection rule; an example allocation is not an exclusive key. The displayed person must match this stop’s placement and Call.
 
-```yaml
-stress:
-  assumption: {label: "decay constant k", min: -0.35, max: -0.25, nominal: -0.3, step: 0.01, unit: "h^-1"}
-  criteria:
-    - {id: evidence_fit, label: "fit to the stop evidence", direction: maximise}
-    - {id: safety_margin, label: "margin at the adverse end", direction: maximise}
-  optimiseOn: evidence_fit
-  candidates:
-    - id: nominal_only
-      label: "Use only the nominal reading"
-      scores: {evidence_fit: 95, safety_margin: 20}
-      validRange: {min: -0.3, max: -0.3}
-      failsAt: -0.25
-    - id: common_extreme_mistake
-      label: "Use the favorable extreme as if it were guaranteed"
-      scores: {evidence_fit: 88, safety_margin: 5}
-      validRange: {min: -0.3, max: -0.25}
-      failsAt: -0.35
-    - id: robust_plan
-      label: "approve; worst `12e^-1=4.415`."
-      scores: {evidence_fit: 82, safety_margin: 92}
-      validRange: {min: -0.35, max: -0.25}
-  robust: robust_plan
-  question: "Sweep k from -0.35 through -0.25 h^-1 in 0.01 h^-1 steps using S(4)=12e^(4k); submit the worst-case value in L/min and approve/reject."
-```
+**Correct result:** The maximum occurs at k=−0.25: S(4)=4.4146 L/min, below the inclusive 5.0 limit. Approve this tested load.
 
-**Correct result:** approve; worst `12e^-1=4.415`.
+**Answer text:** The maximum occurs at k=−0.25: S(4)=4.4146 L/min, below the inclusive 5.0 limit. Approve this tested load.
 
-**Answer text:** even slowest supported decay stays below 5.
-
-**Why:** even slowest supported decay stays below 5. A safety conclusion should survive the least favorable supported parameter.
-
-**Wrong-path feedback:** Test the least negative `k`, which decays slowest.
+**Wrong-path feedback:** Identify the unmet public condition or the specific measurement that the selected option cannot provide; keep the original evidence available for retry.
 
 **State/output:** carrying limit signed.
 
@@ -7131,38 +7128,52 @@ derive:
 
 **Stop reason - exact player copy:** The lost-capacity result needs a per-metre summary without erasing changes along the curve.
 
-**Question card story setup - exact player copy:** With 7.5 million m^3 lost over a 3 m operating interval, compute the average capacity error per metre. Then state why that average cannot replace the full curve near a crossing.
+**Question card story setup - exact player copy:** The storage curve has become a loss report. The crew needs one average to describe the interval without pretending the curve is straight.
 
-**Question card story-science connection - exact player copy:** Average capacity error communicates the survey discrepancy while leaving the full curve necessary near a crossing.
+**Question card prompt - exact player copy:** Storage falls by 7.5 million m³ as reservoir height changes from 2 m to 5 m. Select the loss magnitude and height interval to calculate the average loss per metre.
 
-**Question card prompt - exact player copy:** Use f_avg=(1/(5-2))(7.5 million m^3); submit one number in million m^3/m, then submit summary only or replace full curve.
+**Complete format-specific interaction block — canonical BALLPARK:**
 
-**Complete format-specific interaction block:** `estimate:{labels:["lost volume","height interval"],values:[[7.5],[3]],slots:2,template:"loss/interval",formula:"f_avg=7.5/3",correct:[7.5,3],target:2.5,tolerance:.01}`
-
-**Handback 9 canonical interaction block - BALLPARK:**
-
-```yaml
-estimate:
-  quantity: "average capacity loss per metre"
-  unit: "million m³/m"
-  inputs:
-    - {label: "Total lost volume", value: 7.5, unit: "million m³"}
-    - {label: "Lower operating level", value: 2, unit: "m"}
-    - {label: "Upper operating level", value: 5, unit: "m"}
-  operation: "divide total lost volume by the operating-interval length"
-  formula: "f_avg=7.5/(5-2)"
-  correctResult: 2.5
-  tolerance: 0.01
-  answerText: "The average loss is 2.5 million m³ per metre; it summarizes the interval but cannot replace the full curve near a crossing."
+```json
+{
+  "estimate": {
+    "quantity": "Compute average loss",
+    "labels": [
+      "7.5",
+      "3",
+      "5",
+      "2"
+    ],
+    "values": [
+      7.5,
+      3,
+      5,
+      2
+    ],
+    "slots": 2,
+    "template": "{a} / {b} = ? million m³/m",
+    "formula": "a/b",
+    "correct": [
+      0,
+      1
+    ],
+    "target": 2.5,
+    "tolerance": 0.01,
+    "units": "million m³/m",
+    "correctResult": 2.5
+  },
+  "answerText": "The interval is 5−2=3 m, giving 7.5/3=2.5 million m³ lost per metre on average. This secant summary does not give every local rate.",
+  "wrongFeedback": [
+    "Divide by the height change, not by the final height."
+  ]
+}
 ```
 
-**Correct result:** `2.5 million m^3/m`.
+**Rendering and grading contract:** Render every numeric label as a selectable tile. The printed equation supplies the slot roles; do not replace number labels with quantity names. `correct` contains zero-based tile indices for slots a onward. Accept numerically equivalent selections, including equal-valued tiles. Evaluate the formula on submission; tolerance is absolute in the stated output units. Negative and zero results require a signed linear display. The board has one submission; supporting comparisons appear in the result explanation.
 
-**Answer text:** average preserves the integral but not pointwise change.
+**Correct result:** The interval is 5−2=3 m, giving 7.5/3=2.5 million m³ lost per metre on average. This secant summary does not give every local rate.
 
-**Why:** average preserves the integral but not pointwise change. Average value summarizes total loss but not local sensitivity.
-
-**Wrong-path feedback:** Divide by interval length `b-a`.
+**Wrong-path feedback:** Divide by the height change, not by the final height.
 
 **State/output:** quick-call note; waypoint STRUCT.
 
@@ -7176,34 +7187,60 @@ estimate:
 
 **Stop reason - exact player copy:** The storage discrepancy needs independent survey support before the old curve is replaced.
 
-**Question card story setup - exact player copy:** At least one independent depth record and one calibration record are required.
+**Question card story setup - exact player copy:** The revised storage curve needs physical survey evidence and a checked instrument. The older sheet also needs a separate transcription check.
 
-**Question card story-science connection - exact player copy:** The verified depth and calibration records determine whether the revised capacity curve rests on independent evidence.
+**Question card prompt - exact player copy:** The survey requires a current independent depth record and instrument calibration; historical transcription is a separate, narrower claim. Read the displayed source excerpts, then select every supported claim and leave unsupported claims unsigned.
 
-**Question card prompt - exact player copy:** Spend the three-record verification limit, select exactly three claim IDs including transects and sonar calibration, and submit survey physically backed or survey not physically backed.
+**Complete format-specific interaction block - canonical source:**
 
-**Complete format-specific interaction block:** `attest:{verification_limit:3,claims:[{id:"transects",label:"11 GPS transects dated this week",backed:true,critical:true},{id:"sonar",label:"depth sonar calibration block",backed:true,critical:true},{id:"oldsheet",label:"2003 sheet copied correctly",backed:true},{id:"operator",label:"operator memory of silt",backed:false},{id:"shared",label:"same software export",backed:false}],critical_unbacked:"operator memory",correct_checks:["transects","sonar","oldsheet"]}`
-
-**§7 build completion - ATTEST:** This block supplies the panel fields omitted above; the authored prompt, science, and correct result remain authoritative.
-
-```yaml
-attest:
-  checks: 3
-  claims:
-    - {id: primary, label: "primary claim for Verify independent transects", critical: true, backed: true, verification: "the signed source reproduces the displayed result"}
-    - {id: independent, label: "independent confirmation", critical: true, backed: true, verification: "the independent record agrees within the stated tolerance"}
-    - {id: scope, label: "scope and date", critical: false, backed: true, verification: "the record names the population and time window"}
-    - {id: extension, label: "stronger untested extension", critical: true, backed: false, verification: "no independent check supports the extension; it must be held"}
-  correctAction: "verify primary, independent, and scope; hold extension"
+```json
+{
+  "attest": {
+    "claims": [
+      {
+        "id": "transects",
+        "label": "The depth record is current and physical",
+        "evidence": "The survey log records 11 GPS-referenced transects acquired this week, separately from the storage software."
+      },
+      {
+        "id": "sonar",
+        "label": "The depth instrument was calibrated",
+        "evidence": "The survey’s sonar calibration record identifies the instrument used on those transects and records its completed check."
+      },
+      {
+        "id": "oldsheet",
+        "label": "The 2003 sheet was copied correctly",
+        "evidence": "The archived sheet and transcription match; this checks copying, not current reservoir capacity."
+      },
+      {
+        "id": "operator",
+        "label": "Memory establishes current silt volume",
+        "evidence": "The recollection has no measured volume or dated depth survey."
+      },
+      {
+        "id": "shared",
+        "label": "A repeated export independently confirms depth",
+        "evidence": "The second export comes from the same storage-software source."
+      }
+    ],
+    "selection_rule": "Support must be present in the displayed source excerpt and within its scope; a signature or repeated copy alone is insufficient.",
+    "correct_signed": [
+      "transects",
+      "sonar",
+      "oldsheet"
+    ],
+    "checks": 3
+  }
+}
 ```
 
-**Correct result:** three backed records.
+**Evidence delivery and grading:** The setup, decision evidence, public rules, costs and option descriptions are visible on this card before selection. Render option descriptions beside their controls, once; never replace them with internal axis IDs or a generic earlier-case sentence. Answer keys, accepted examples and feedback stay hidden until submission. Reveal withheld measurements only after the stated commitment. Use the public feasibility/selection rule; an example allocation is not an exclusive key. The displayed person must match this stop’s placement and Call.
 
-**Answer text:** independent transects and calibration support real silt loss.
+**Correct result:** Sign transects, sonar, oldsheet; leave the other claims unsigned.
 
-**Why:** independent transects and calibration support real silt loss. Independent physical records decide whether curve disagreement is real or clerical.
+**Answer text:** Each signature is limited to what its source establishes. The unsupported claims lack the specific date, physical condition, independence or scope they assert.
 
-**Wrong-path feedback:** A repeated export is not independent measurement.
+**Wrong-path feedback:** Identify the unmet public condition or the specific measurement that the selected option cannot provide; keep the original evidence available for retry.
 
 **State/output:** resurvey certified; waypoint GATES.
 
@@ -7891,50 +7928,99 @@ verify:
 
 **Stop reason - exact player copy:** One successful stroke does not establish a repeatable schedule with sufficient storage clearance and warning time.
 
-**Question card story setup - exact player copy:** Runner capacity is unavailable and the hoist passes one stroke, but three candidate schedules remain. Spend 6 inspection points on evidence that can distinguish repeatable gate work, storage clearance, and downstream safety.
+**Question card story setup - exact player copy:** One successful hoist stroke does not establish a repeatable schedule. Nia needs the remaining mechanical, storage and downstream checks.
 
-**Question card story-science connection - exact player copy:** The purchased inspections determine whether the alternative gate schedule is mechanically repeatable and safe downstream.
+**Decision evidence - exact player copy:** Required outcomes: test repeatability of gate work; check corrected storage clearance; check downstream arrival timing.
 
-**Question card prompt - exact player copy:** Spend exactly 6 inspection points and submit the selected evidence IDs; the plan must test repeatability, corrected storage clearance, and downstream arrival.
+**Question card prompt - exact player copy:** You have 6 inspection points. Cover every required outcome at the lowest total cost within the budget; keep all unused capacity in reserve. Select whole packages, then submit the plan; the board shows its total and remaining reserve for you to check.
 
-**Complete format-specific interaction block:** `value:{budget:6,options:[{id:"repeat",label:"second hoist stroke",cost:2,required:true},{id:"storage",label:"corrected volume simulation",cost:2,required:true},{id:"arrival",label:"downstream arrival check",cost:2,required:true},{id:"paint",label:"runner paint inspection",cost:2},{id:"revenue",label:"power-price update",cost:1}],required:["repeat","storage","arrival"],answerText:"Spend 2+2+2 on repeatability, storage, and arrival."}`
+**Complete format-specific interaction block - canonical source:**
 
-**§7 authored-board source - VALUE:** Convert this stop from its authored interaction block below. Do not substitute a format-level template. The panel must state the goal without printing the keyed answer.
-
-```yaml
-authored_board:
-  stop: "Stop 48 - Choose feasible schedule"
-  format: "VALUE"
-  source: "Handback 3 canonical interaction block"
-  question: "Spend exactly 6 inspection points and submit the selected evidence IDs; the plan must test repeatability, corrected storage clearance, and downstream arrival."
-  payload: "`value:{budget:6,options:[{id:\"repeat\",label:\"second hoist stroke\",cost:2,required:true},{id:\"storage\",label:\"corrected volume simulation\",cost:2,required:true},{id:\"arrival\",label:\"downstream arrival check\",cost:2,required:true},{id:\"paint\",label:\"runner paint inspection\",cost:2},{id:\"revenue\",label:\"power-price update\",cost:1}],required:[\"repeat\",\"storage\",\"arrival\"],answerText:\"Spend 2+2+2 on repeatability, storage, and arrival.\"}`"
-  axis_and_units: "Use only quantities and units named in this question and payload."
-  candidates_and_numbers: "Use only candidates and numbers named in this question and payload."
-  panel_rule: "Print the goal, never the target or keyed answer."
+```json
+{
+  "value": {
+    "budget": {
+      "value": 6,
+      "unit": "inspection points"
+    },
+    "requirements": [
+      {
+        "id": "r1",
+        "text": "test repeatability of gate work"
+      },
+      {
+        "id": "r2",
+        "text": "check corrected storage clearance"
+      },
+      {
+        "id": "r3",
+        "text": "check downstream arrival timing"
+      }
+    ],
+    "selection_rule": "Cover every required outcome at the lowest total cost within the budget; keep all unused capacity in reserve.",
+    "options": [
+      {
+        "id": "repeat",
+        "label": "Second hoist stroke",
+        "cost": 2.0,
+        "information": "Checks whether the hoist can repeat the work.",
+        "covers": [
+          "r1"
+        ]
+      },
+      {
+        "id": "storage",
+        "label": "Corrected volume simulation",
+        "cost": 2.0,
+        "information": "Tests clearance using the revised storage curve.",
+        "covers": [
+          "r2"
+        ]
+      },
+      {
+        "id": "arrival",
+        "label": "Downstream arrival check",
+        "cost": 2.0,
+        "information": "Checks whether the warning interval covers arrival.",
+        "covers": [
+          "r3"
+        ]
+      },
+      {
+        "id": "paint",
+        "label": "Runner paint inspection",
+        "cost": 2.0,
+        "information": "Checks finish on a runner that remains unavailable.",
+        "covers": []
+      },
+      {
+        "id": "revenue",
+        "label": "Power-price update",
+        "cost": 1.0,
+        "information": "Updates revenue without testing the release constraints.",
+        "covers": []
+      }
+    ],
+    "accepted_plans": [
+      [
+        "repeat",
+        "storage",
+        "arrival"
+      ]
+    ],
+    "example_total": 6.0,
+    "example_reserve": 0.0
+  }
+}
 ```
 
-**Handback 4 canonical interaction block - VALUE:**
+**Evidence delivery and grading:** The setup, decision evidence, public rules, costs and option descriptions are visible on this card before selection. Render option descriptions beside their controls, once; never replace them with internal axis IDs or a generic earlier-case sentence. Answer keys, accepted examples and feedback stay hidden until submission. Reveal withheld measurements only after the stated commitment. Use the public feasibility/selection rule; an example allocation is not an exclusive key. The displayed person must match this stop’s placement and Call.
 
-```yaml
-value:
-  budget: 6
-  costUnit: "inspection points"
-  options:
-    - {id: repeat, label: "Second hoist stroke", axis: "repeatability", cost: 2}
-    - {id: storage, label: "Corrected volume simulation", axis: "storage clearance", cost: 2}
-    - {id: arrival, label: "Downstream arrival check", axis: "timing", cost: 2}
-    - {id: paint, label: "Runner paint inspection", axis: "appearance", cost: 2}
-    - {id: revenue, label: "Power-price update", axis: "revenue", cost: 1}
-  keyedChoice: [repeat, storage, arrival]
-```
+**Correct result:** repeat, storage, arrival = 6 inspection points; reserve 0
 
-**Correct result:** repeat/storage/arrival.
+**Answer text:** Each funded package supplies a required outcome; an affordable package that leaves one unresolved is insufficient.
 
-**Answer text:** Spend 2+2+2 on repeatability, storage, and arrival.
-
-**Why:** Spend 2+2+2 on repeatability, storage, and arrival. The chosen evidence must test every binding constraint, not merely improve precision on a nonbinding one.
-
-**Wrong-path feedback:** Paint condition and power price do not test a binding release constraint; omitting repeatability, storage, or arrival leaves the schedule uncertified.
+**Wrong-path feedback:** Identify the unmet public condition or the specific measurement that the selected option cannot provide; keep the original evidence available for retry.
 
 **State/output:** feasible schedule selected.
 
@@ -8314,53 +8400,59 @@ linearization, propagated units, residual fields, numerical-method bias, degener
 
 **Stop reason - exact player copy:** The revised storage curve still carries level-measurement error that could consume the remaining release margin.
 
-**Question card story setup - exact player copy:** The corrected storage curve has dV/dh=2.0 million m3/m, and level uncertainty is ±0.015 m. Propagate that error, then compare it with the 0.10 million m3 release margin.
+**Question card story setup - exact player copy:** The corrected storage curve still carries measurement uncertainty. The crew has two inspection points to reduce the total error before relying on the release margin.
 
-**Question card story-science connection - exact player copy:** The propagated volume uncertainty determines whether the drawdown margin survives the gauge's height error.
+**Decision evidence - exact player copy:** dV/dh=2.0 million m³/m and σh=0.015 m. Flow and clock contribute independent output uncertainties of 0.010 and 0.004 million m³. Available upgrades reduce level to 0.015 for 2 points, flow to 0.003 for 1, or clock to 0.001 for 1. The release margin is 0.10 million m³.
 
-**Question card prompt - exact player copy:** Calculate |Delta V| approximately |dV/dh||Delta h| using 2.0 million m^3/m and 0.015 m; submit uncertainty in million m^3, compare it with the inclusive 0.10 million m^3 margin, then select one purchase ID.
+**Question card prompt - exact player copy:** Compute the level contribution |ΔV|=|dV/dh|σh, then choose the affordable upgrade plan giving the smallest combined uncertainty. Use root-sum-square for these independent contributions; submit the plan and combined uncertainty in million m³.
 
-**Complete format-specific interaction block:** `propagate:{budget:1,error_terms:[{id:"level",sigma:.015,sensitivity:2.0,output:.030},{id:"flow",sigma:.002,sensitivity:5,output:.010},{id:"clock",sigma:.001,sensitivity:4,output:.004}],purchase_options:[{id:"level",cost:1,reduction:.015},{id:"flow",cost:1,reduction:.003},{id:"clock",cost:1,reduction:.001}],correct_purchase:"level",threshold:.10}`
+**Complete format-specific interaction block - canonical source:**
 
-**§7 authored-board source - PROPAGATE:** Convert this stop from its authored interaction block below. Do not substitute a format-level template. The panel must state the goal without printing the keyed answer.
-
-```yaml
-authored_board:
-  stop: "Stop 49 - Linearize level error"
-  format: "PROPAGATE"
-  source: "Handback 5 canonical interaction block"
-  question: "Calculate |Delta V| approximately |dV/dh||Delta h| using 2.0 million m^3/m and 0.015 m; submit uncertainty in million m^3, compare it with the inclusive 0.10 million m^3 margin, then select one purchase ID."
-  payload: "`propagate:{budget:1,error_terms:[{id:\"level\",sigma:.015,sensitivity:2.0,output:.030},{id:\"flow\",sigma:.002,sensitivity:5,output:.010},{id:\"clock\",sigma:.001,sensitivity:4,output:.004}],purchase_options:[{id:\"level\",cost:1,reduction:.015},{id:\"flow\",cost:1,reduction:.003},{id:\"clock\",cost:1,reduction:.001}],correct_purchase:\"level\",threshold:.10}`"
-  axis_and_units: "Use only quantities and units named in this question and payload."
-  candidates_and_numbers: "Use only candidates and numbers named in this question and payload."
-  panel_rule: "Print the goal, never the target or keyed answer."
+```json
+{
+  "propagate": {
+    "budget": 2,
+    "costUnit": "inspection points",
+    "combination": "sqrt(level²+flow²+clock²)",
+    "contributions": [
+      {
+        "id": "level",
+        "before": 0.03,
+        "after": 0.015,
+        "cost": 2
+      },
+      {
+        "id": "flow",
+        "before": 0.01,
+        "after": 0.003,
+        "cost": 1
+      },
+      {
+        "id": "clock",
+        "before": 0.004,
+        "after": 0.001,
+        "cost": 1
+      }
+    ],
+    "units": "million m³",
+    "correctUpgrade": [
+      "level"
+    ],
+    "target": 0.018466185312619388,
+    "tolerance": 0.0001,
+    "acceptance_rule": "Minimize combined uncertainty within 2 points; no repeated upgrade."
+  },
+  "wrongFeedback": "Compare the combined errors, not simply the number of upgrades. Flow and clock together leave the dominant level contribution unchanged."
+}
 ```
 
-**Handback 3 canonical interaction block - PROPAGATE:**
+**Evidence delivery and grading:** The setup, decision evidence, public rules, costs and option descriptions are visible on this card before selection. Render option descriptions beside their controls, once; never replace them with internal axis IDs or a generic earlier-case sentence. Answer keys, accepted examples and feedback stay hidden until submission. Reveal withheld measurements only after the stated commitment. Use the public feasibility/selection rule; an example allocation is not an exclusive key. The displayed person must match this stop’s placement and Call.
 
-**Handback 5 canonical interaction block - PROPAGATE:**
+**Correct result:** Level upgrade; level error before upgrade 0.030 million m³; combined error after upgrade about 0.01847 million m³, below the 0.10 margin.
 
-```yaml
-propagate:
-  costUnit: "inspection points"
-  budget: 2
-  inputs:
-    - {id: level, label: "Level measurement", value: 2.0, sigmaFrac: 0.015, exponent: 1, unit: "million m³/m", improvableTo: 0.0075, cost: 2}
-    - {id: flow, label: "Flow calibration", value: 5.0, sigmaFrac: 0.002, exponent: 2, unit: "flow sensitivity", improvableTo: 0.0006, cost: 1}
-    - {id: clock, label: "Clock timing", value: 4.0, sigmaFrac: 0.001, exponent: 1, unit: "time sensitivity", improvableTo: 0.00025, cost: 1}
-  dominant: level
-  improvable: [level, flow, clock]
-  correctUpgrade: level
-  correctResult: "`+-0.030 million m^3`; margin survives."
-```
+**Answer text:** Before upgrading, the combined error is about 0.03187 million m³. Improving level gives about 0.01847; improving both flow and clock gives about 0.03017. The margin survives either way, but level is the best uncertainty reduction.
 
-**Correct result:** `+-0.030 million m^3`; margin survives.
-
-**Answer text:** `2.0*.015=.030<.10`; improve level.
-
-**Why:** `2.0*.015=.030<.10`; improve level. Only an error large enough to consume the margin can reverse authorization.
-
-**Wrong-path feedback:** Sensitivity carries units.
+**Wrong-path feedback:** Compare the combined errors, not simply the number of upgrades. Flow and clock together leave the dominant level contribution unchanged.
 
 **State/output:** error bar; unlock 13.2.
 
@@ -8845,52 +8937,49 @@ constrained extrema and endpoints, deadline sorting, Euler step sensitivity, pre
 
 **Stop reason - exact player copy:** The final release plan needs repairs, but the available crew count limits the feasible benefit.
 
-**Question card story setup - exact player copy:** Repair benefit is R(x)=18x-x^2 and coordination cost is C(x)=2x+8, where x crews can range from 0 to 6. Find the integer crew count maximizing P=R-C.
+**Question card story setup - exact player copy:** The staffing board has room for only a few crews. An attractive unconstrained optimum may not be a possible assignment.
 
-**Question card story-science connection - exact player copy:** Net repair benefit over the allowed crew interval determines the best achievable staffing level, including endpoints.
+**Question card prompt - exact player copy:** For integer crews 0≤x≤6, P(x)=(18x−x²)−(2x+8). Choose the feasible crew count that maximizes P; check the boundary if the derivative’s zero lies outside the allowed interval.
 
-**Question card prompt - exact player copy:** Using P(x)=(18x-x^2)-(2x+8) for integer 0<=x<=6, calculate P'(x), check feasible critical points and endpoints, then submit one integer crew count.
+**Complete format-specific interaction block — canonical BALLPARK:**
 
-**Complete format-specific interaction block:** `estimate:{labels:["solve P'=16-2x=0","check endpoints/integers"],values:[[8],[0,6]],slots:2,template:"feasible candidate",formula:"x=8 clipped then compare 0,6",correct:[8,6],target:6,tolerance:0}`
-
-**§7 build completion - BALLPARK:** This block supplies the panel fields omitted above; the authored prompt, science, and correct result remain authoritative.
-
-```yaml
-estimate:
-  target: 6.0
-  tolerance: 0.30000000000000004
-  unit: "units printed on the card"
-  tiles: [{label: "displayed numerator", value: 12.0}, {label: "displayed divisor", value: 2}]
-  formula: "x_best=displayed numerator/displayed divisor"
-  correctResultText: "`x=6` at endpoint; `P(6)=52`, versus `P(0)=-8`."
+```json
+{
+  "estimate": {
+    "quantity": "Find the repair optimum",
+    "labels": [
+      "6",
+      "8",
+      "0"
+    ],
+    "values": [
+      6,
+      8,
+      0
+    ],
+    "slots": 1,
+    "template": "{a} = ? crews",
+    "formula": "a",
+    "correct": [
+      0
+    ],
+    "target": 6,
+    "tolerance": 0.01,
+    "units": "crews",
+    "correctResult": 6
+  },
+  "answerText": "P′(x)=16−2x vanishes at 8, outside the allowed interval. P increases throughout 0≤x≤6, so assign 6 crews: P(6)=52 versus P(0)=−8.",
+  "wrongFeedback": [
+    "An unconstrained stationary point is not an available staffing choice."
+  ]
+}
 ```
 
-**Handback 9 canonical interaction block - BALLPARK:**
+**Rendering and grading contract:** Render every numeric label as a selectable tile. The printed equation supplies the slot roles; do not replace number labels with quantity names. `correct` contains zero-based tile indices for slots a onward. Accept numerically equivalent selections, including equal-valued tiles. Evaluate the formula on submission; tolerance is absolute in the stated output units. Negative and zero results require a signed linear display. The board has one submission; supporting comparisons appear in the result explanation.
 
-```yaml
-estimate:
-  quantity: "feasible crew count that maximizes net repair benefit"
-  unit: "crews"
-  inputs:
-    - {label: "Benefit linear coefficient", value: 18, unit: "benefit/crew"}
-    - {label: "Cost linear coefficient", value: 2, unit: "benefit/crew"}
-    - {label: "Benefit quadratic coefficient magnitude", value: 1, unit: "benefit/crew²"}
-    - {label: "Maximum available crews", value: 6, unit: "crews"}
-    - {label: "Minimum available crews", value: 0, unit: "crews", contextOnly: true}
-  operation: "find the unconstrained vertex, then enforce the feasible upper endpoint"
-  formula: "x_best=min((18-2)/(2×1),6)"
-  correctResult: 6
-  tolerance: 0.1
-  answerText: "The unconstrained critical point is 8 crews, outside the allowed interval, so the feasible maximum occurs at 6 crews."
-```
+**Correct result:** P′(x)=16−2x vanishes at 8, outside the allowed interval. P increases throughout 0≤x≤6, so assign 6 crews: P(6)=52 versus P(0)=−8.
 
-**Correct result:** `x=6` at endpoint; `P(6)=52`, versus `P(0)=-8`.
-
-**Answer text:** unconstrained critical point 8 lies outside `[0,6]`, so endpoints control.
-
-**Why:** unconstrained critical point 8 lies outside `[0,6]`, so endpoints control. The optimum sets the fastest useful repair without wasting scarce operators.
-
-**Wrong-path feedback:** A critical point outside the domain is not feasible.
+**Wrong-path feedback:** An unconstrained stationary point is not an available staffing choice.
 
 **State/output:** six crews assigned; unlock 14.2.
 
@@ -8904,21 +8993,57 @@ estimate:
 
 **Stop reason - exact player copy:** The crew allocation is fixed, leaving downstream repair order to be chosen by consequence.
 
-**Question card story setup - exact player copy:** With six crews fixed, sort four dark circuits by arrival and closure: Road 280 min, School 310, Caravan 350, Village 410. Repairs take 35,25,20,30 min, with two simultaneous teams.
+**Question card story setup - exact player copy:** Four warning circuits are dark and two repair teams are available. Elise uses the published earliest-deadline-first dispatch rule to choose the first pair.
 
-**Question card story-science connection - exact player copy:** Arrival and closure deadlines determine which dark warning circuits must be restored first.
+**Question card prompt - exact player copy:** Choose the pair with the two earliest deadlines. Repair durations inform the later schedule; this question grades dispatch priority, not a claim that every other sequence would miss a deadline.
 
-**Question card prompt - exact player copy:** Select exactly one of four first-team pairs and submit its label.
+**Complete format-specific interaction block - canonical source:**
 
-**Complete format-specific interaction block:** `question:"Which two circuits receive the first teams?"; choices:["Road and School","Caravan and Village","Road and Village","School and Caravan"]; answer:"Road and School"; why:"Road and School have the two earliest binding deadlines."; rebuttals:{"Caravan and Village":"This leaves both earliest deadlines, 280 and 310 minutes, without first teams.","Road and Village":"The School deadline at 310 minutes binds before the Village deadline at 410 minutes.","School and Caravan":"The Road deadline at 280 minutes is the earliest and cannot wait."}`
+```json
+{
+  "triage": {
+    "policy": "Dispatch first to the two earliest deadlines.",
+    "circuits": [
+      {
+        "id": "Road",
+        "deadline_min": 280,
+        "repair_min": 35
+      },
+      {
+        "id": "School",
+        "deadline_min": 310,
+        "repair_min": 25
+      },
+      {
+        "id": "Caravan",
+        "deadline_min": 350,
+        "repair_min": 20
+      },
+      {
+        "id": "Village",
+        "deadline_min": 410,
+        "repair_min": 30
+      }
+    ],
+    "teams": 2,
+    "choices": [
+      "Road and School",
+      "Caravan and Village",
+      "Road and Village",
+      "School and Caravan"
+    ],
+    "answer": "Road and School"
+  }
+}
+```
+
+**Evidence delivery and grading:** The setup, decision evidence, public rules, costs and option descriptions are visible on this card before selection. Render option descriptions beside their controls, once; never replace them with internal axis IDs or a generic earlier-case sentence. Answer keys, accepted examples and feedback stay hidden until submission. Reveal withheld measurements only after the stated commitment. Use the public feasibility/selection rule; an example allocation is not an exclusive key. The displayed person must match this stop’s placement and Call.
 
 **Correct result:** Road and School.
 
-**Answer text:** The completed check shows road and School.
+**Answer text:** Their deadlines are 280 and 310 minutes, earlier than 350 and 410. This applies the dispatch policy; without a start time, the data do not prove that other schedules are physically impossible.
 
-**Why:** Road and School. Earliest binding deadlines determine a safe schedule.
-
-**Wrong-path feedback:** Any pair omitting Road or School delays one of the two earliest binding deadlines; the option-specific payload rebuttals identify the missed deadline.
+**Wrong-path feedback:** Identify the unmet public condition or the specific measurement that the selected option cannot provide; keep the original evidence available for retry.
 
 **State/output:** repair route; waypoint INFLOW.
 
@@ -9015,41 +9140,6 @@ control:
 
 **Complete format-specific interaction block:** `trigger:{decision_rule:"READY iff slack>=0 and 4/4 circuits pass",scale:{min:-30,max:60,step:5,unit:"min"},anchors:[0,15,45],objective:"complete warning before required lead",direction:"at or above zero",consequence_limit:"no release with any dark circuit"}`; reveal `4/4 pass`.
 
-**§7 authored-board source - TRIGGER:** Convert this stop from its authored interaction block below. Do not substitute a format-level template. The panel must state the goal without printing the keyed answer.
-
-```yaml
-authored_board:
-  stop: "Stop 56 - Commit repaired warning trigger"
-  format: "TRIGGER"
-  source: "Handback 3 canonical interaction block"
-  question: "Calculate and submit slack 360-280-65 in minutes; commit READY if slack >=0 and all four circuits pass, then reveal circuit results."
-  payload: "`trigger:{decision_rule:\"READY iff slack>=0 and 4/4 circuits pass\",scale:{min:-30,max:60,step:5,unit:\"min\"},anchors:[0,15,45],objective:\"complete warning before required lead\",direction:\"at or above zero\",consequence_limit:\"no release with any dark circuit\"}`; reveal `4/4 pass`."
-  axis_and_units: "Use only quantities and units named in this question and payload."
-  candidates_and_numbers: "Use only candidates and numbers named in this question and payload."
-  panel_rule: "Print the goal, never the target or keyed answer."
-```
-
-**Handback 3 canonical interaction block - TRIGGER:**
-
-```yaml
-trigger:
-  rule: "Commit the threshold before the stream appears; act only when a reading enters the action window with enough lead time."
-  scale: {label: "warning-system slack", min: -30, max: 60, step: 5, unit: "min"}
-  start: -12
-  anchors:
-    - {at: -12, means: "routine baseline, not the decision threshold"}
-    - {at: 28.5, means: "elevated evidence requiring attention"}
-  direction: rising
-  updates:
-    - {at: "T-48 h", value: -10, hoursLeft: 48}
-    - {at: "T-24 h", value: 0, hoursLeft: 24}
-    - {at: "T-12 h", value: 15, hoursLeft: 12}
-    - {at: "T-6 h", value: 30, hoursLeft: 6}
-  stages:
-    - {id: watch, label: "Increase monitoring", window: {min: -30, max: 14}, leadHours: 24}
-    - {id: act, label: "Take the protective action", window: {min: 15, max: 60}, leadHours: 12}
-  question: "Calculate and submit slack 360-280-65 in minutes; commit READY if slack >=0 and all four circuits pass, then reveal circuit results."
-```
 
 **Correct result:** `15 min`; READY.
 
@@ -9501,57 +9591,59 @@ derive:
 
 **Stop reason - exact player copy:** The updated forecast and verified releases are ready to be combined into the final storage balance.
 
-**Question card story setup - exact player copy:** With the forecast certified, count 14.00 million m^3 starting room, 17.28 storm inflow, 2.00 safety reserve, 3.60 turbine release, and 1.68 gate release. Close the signed ledger.
+**Question card story setup - exact player copy:** The final water ledger is ready. Every signed term must belong to the same physical balance before the crew can close it.
 
-**Question card story-science connection - exact player copy:** The signed water ledger determines whether planned drawdown covers storm inflow and the protected safety margin.
+**Question card prompt - exact player copy:** In million m³, combine initial storage 14, inflows 3.6 and 1.68, release 17.28, and other loss 2. Fill the five terms of initial + inflow + inflow − release − loss. A price entry of 24 is not water.
 
-**Question card prompt - exact player copy:** Select which displayed entries are physical water streams, assign each its shown sign, and submit one signed ledger total in million m^3; exclude power price.
+**Complete format-specific interaction block — canonical BALLPARK:**
 
-**Complete format-specific interaction block:** `balance:{streams:[{id:"room",value:14,sign:1,count:true},{id:"turbine",value:3.6,sign:1,count:true},{id:"gate",value:1.68,sign:1,count:true},{id:"storm",value:17.28,sign:-1,count:true},{id:"reserve",value:2,sign:-1,count:true},{id:"power_price",value:.4,sign:1,count:false}],required_total:0,unit:"million m^3"}`
-
-**§7 authored-board source - BALANCE:** Convert this stop from its authored interaction block below. Do not substitute a format-level template. The panel must state the goal without printing the keyed answer.
-
-```yaml
-authored_board:
-  stop: "Stop 58 - Close the final water ledger"
-  format: "BALLPARK"
-  source: "Handback 5 canonical interaction block"
-  question: "Select which displayed entries are physical water streams, assign each its shown sign, and submit one signed ledger total in million m^3; exclude power price."
-  payload: "`balance:{streams:[{id:\"room\",value:14,sign:1,count:true},{id:\"turbine\",value:3.6,sign:1,count:true},{id:\"gate\",value:1.68,sign:1,count:true},{id:\"storm\",value:17.28,sign:-1,count:true},{id:\"reserve\",value:2,sign:-1,count:true},{id:\"power_price\",value:.4,sign:1,count:false}],required_total:0,unit:\"million m^3\"}`"
-  axis_and_units: "Use only quantities and units named in this question and payload."
-  candidates_and_numbers: "Use only candidates and numbers named in this question and payload."
-  panel_rule: "Print the goal, never the target or keyed answer."
+```json
+{
+  "estimate": {
+    "quantity": "Close the final water ledger",
+    "labels": [
+      "14",
+      "3.6",
+      "1.68",
+      "17.28",
+      "2",
+      "24"
+    ],
+    "values": [
+      14,
+      3.6,
+      1.68,
+      17.28,
+      2,
+      24
+    ],
+    "slots": 5,
+    "template": "{a}+{b}+{c}-{d}-{e} = ? million m³",
+    "formula": "a+b+c-d-e",
+    "correct": [
+      0,
+      1,
+      2,
+      3,
+      4
+    ],
+    "target": 0,
+    "tolerance": 0.001,
+    "units": "million m³",
+    "correctResult": 0
+  },
+  "answerText": "14+3.6+1.68−17.28−2=0 million m³ remains in this ledger. Preserve the loss signs and keep monetary entries outside a volume balance.",
+  "wrongFeedback": [
+    "Adding a release as an inflow creates water; a price cannot be added to a volume."
+  ]
+}
 ```
 
-**Handback 3 canonical interaction block - BALLPARK:**
+**Rendering and grading contract:** Render every numeric label as a selectable tile. The printed equation supplies the slot roles; do not replace number labels with quantity names. `correct` contains zero-based tile indices for slots a onward. Accept numerically equivalent selections, including equal-valued tiles. Evaluate the formula on submission; tolerance is absolute in the stated output units. Negative and zero results require a signed linear display. The board has one submission; supporting comparisons appear in the result explanation.
 
-**Handback 5 canonical interaction block - BALLPARK:**
+**Correct result:** 14+3.6+1.68−17.28−2=0 million m³ remains in this ledger. Preserve the loss signs and keep monetary entries outside a volume balance.
 
-```yaml
-estimate:
-  quantity: "signed final water-ledger total"
-  unit: "million m³"
-  inputs:
-    - {label: "Storage room", value: 14, sign: 1, unit: "million m³"}
-    - {label: "Turbine recovery", value: 3.6, sign: 1, unit: "million m³"}
-    - {label: "Gate recovery", value: 1.68, sign: 1, unit: "million m³"}
-    - {label: "Storm release", value: 17.28, sign: -1, unit: "million m³"}
-    - {label: "Required reserve", value: 2, sign: -1, unit: "million m³"}
-  operation: "add signed physical water streams"
-  formula: "water balance=14+3.6+1.68-17.28-2"
-  start: 1
-  correctResult: 0
-  tolerance: 0.01
-  commonMistake: "Mixing a contextual reading into the arithmetic or reversing the subtraction."
-```
-
-**Correct result:** `14+3.6+1.68-17.28-2=0`; exact.
-
-**Answer text:** the plan just clears required storage; power price is not water.
-
-**Why:** the plan just clears required storage; power price is not water. The final volume balance decides whether the staged gate plan is sufficient before motion begins.
-
-**Wrong-path feedback:** Count physical streams once and keep their signs.
+**Wrong-path feedback:** Adding a release as an inflow creates water; a price cannot be added to a volume.
 
 **State/output:** gate authorization token; waypoint GATES.
 
@@ -10290,3 +10382,13 @@ The following group ownership is authoritative for reachability; it does not add
 ## Mental-math number rule for calculated-response cards
 
 This rule is binding for this campaign and for future games built from it. When the player must perform the arithmetic without a supplied calculator or a displayed intermediate result, author inputs as friendly integers or simple ratios. Prefer products and quotients that can be completed mentally and key results to an integer or at most one useful decimal place. Update every dependent prompt, board payload, prediction, measurement, tolerance, correct result, answer text, and feedback together. Preserve more complex real-world values only when the interface supplies the calculator or the intermediate value and the learning target is interpretation rather than arithmetic. Never make arithmetic friction the hidden difficulty of a concept question.
+
+# Decision-card evidence contract
+
+Every decision card must expose the exact evidence and public rule that distinguish its accepted answers from plausible alternatives. Render the local Data/readings/options, Decision evidence, public constraints and option effects before selection; keep them available while the player chooses. Use plain-language descriptions, not internal axis names. Show one speaker header from the stop’s placement and Call, and one coherent setup and prompt. Never substitute a discovery-stage explanation into a later allocation, release or certification task.
+
+Resource tasks distinguish a budget from the goal. Display the required outcomes, each option’s contribution, costs, reserve rules and any priority or tie-breaker. Accept every plan satisfying the published rule. A recommended split is not an exclusive key unless the visible constraints uniquely determine it. Policies are identified as policies; the player must not derive an institutional preference from a scientific formula.
+
+For staged tests, show hypotheses, model inputs and acceptance rules before commitment, but keep held-out results hidden until the specified test or reveal. No grade may depend on guessing a future result. A signed claim requires a readable source excerpt or an explicit inspection, not a hidden backed flag. Copied records retain their shared-source identity.
+
+No importer fallback may borrow another stop’s data, speaker, threshold or generic mission text. Missing required local evidence is an import error. Before release, inspect the rendered card, prove the accepted response from visible information alone, try a plausible wrong answer, and test a different valid answer where the rule admits one. This document revision is source work; rendered-game verification still requires the actual implementation.

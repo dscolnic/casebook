@@ -1004,32 +1004,50 @@ sweep:
 
 **Stop reason - exact player copy:** The braking interval is identified, but its entry speed still needs measuring.
 
-**Question card story setup - exact player copy:** With the direction established, estimate the gondola's speed at the start of the marked braking interval. That speed is the input needed to predict where constant braking should stop it.
+**Question card story setup - exact player copy:** Luka marks the gondola’s entry into the braking interval. He needs a speed estimate before predicting where it will stop.
 
-**Question card story-science connection - exact player copy:** The starting speed fixes how far this gondola should travel before the brake brings it to rest.
+**Question card prompt - exact player copy:** The gondola moves Δx=0.70 m in Δt=0.50 s. Fill distance and elapsed time in vavg=Δx/Δt to estimate its starting speed.
 
-**Question card prompt - exact player copy:** Given `Delta x = 0.70 m` and `Delta t = 0.50 s`, use `v_avg = Delta x / Delta t`. Submit one starting-speed number in `m/s`.
+**Complete format-specific interaction block — canonical BALLPARK:**
 
-```yaml
-estimate:
-  labels: ["Position change", "Elapsed time"]
-  values: [0.70, 0.50]
-  slots: [numerator, denominator]
-  template: "speed = {numerator} m / {denominator} s"
-  formula: "v_avg=0.70/0.50"
-  correct: 1.4
-  target: 1.4
-  tolerance: 0.08
-  unit: "m/s"
+```json
+{
+  "estimate": {
+    "quantity": "Put a speed on the trace",
+    "labels": [
+      "0.7",
+      "0.5",
+      "1.2"
+    ],
+    "values": [
+      0.7,
+      0.5,
+      1.2
+    ],
+    "slots": 2,
+    "template": "{a} / {b} = ? m/s",
+    "formula": "a/b",
+    "correct": [
+      0,
+      1
+    ],
+    "target": 1.4,
+    "tolerance": 0.08,
+    "units": "m/s",
+    "correctResult": 1.4
+  },
+  "answerText": "0.70/0.50=1.4 m/s; accept 1.32–1.48 m/s. This first-bin estimate is recorded separately from the subsequent model value v₀=1.50 m/s.",
+  "wrongFeedback": [
+    "Time divided by distance gives s/m. Adding the two readings does not give a speed."
+  ]
+}
 ```
 
-**Correct result:** Submit 1.4 m/s; accept 1.32-1.48 m/s.
+**Rendering and grading contract:** Render every numeric label as a selectable tile. The printed equation supplies the slot roles; do not replace number labels with quantity names. `correct` contains zero-based tile indices for slots a onward. Accept numerically equivalent selections, including equal-valued tiles. Evaluate the formula on submission; tolerance is absolute in the stated output units. Negative and zero results require a signed linear display. The board has one submission; supporting comparisons appear in the result explanation.
 
-**Answer text:** The first interval gives an average starting speed of 1.4 m/s.
+**Correct result:** 0.70/0.50=1.4 m/s; accept 1.32–1.48 m/s. This first-bin estimate is recorded separately from the subsequent model value v₀=1.50 m/s.
 
-**Why:** Velocity is position change divided by time. The first interval is short enough to estimate the starting value used by the constant-acceleration model.
-
-**Wrong-path feedback:** Dividing time by distance gives seconds per metre, not speed. Follow the units.
+**Wrong-path feedback:** Time divided by distance gives s/m. Adding the two readings does not give a speed.
 
 **State/output:** Write `v0 = 1.50 m/s model value; first-bin estimate = 1.4 m/s` on the board and unlock the derivation.
 
@@ -1764,67 +1782,53 @@ order: ["Draw the chosen system", "Add total weight downward", "Add left and rig
 
 **Stop reason - exact player copy:** The force diagram is complete and the gauges need targets before the load is added.
 
-**Question card story setup - exact player copy:** The force diagram now shows only total weight and two upward support forces. Calculate the equal reading expected from each support so the live gauges have a prewritten target before loading.
+**Question card story setup - exact player copy:** The support check now includes the passengers. An empty structure’s weight is not the load the two supports will share.
 
-**Question card story-science connection - exact player copy:** The predicted force at each support lets the crew check whether the centered load is shared correctly.
+**Question card prompt - exact player copy:** The structure has mass 12,000 kg and carries 60 passengers of 70 kg each. With g=10 m/s² and two equally loaded supports, fill structure mass, passenger count and passenger mass in F=(M+Nm)g/2.
 
-**Question card prompt - exact player copy:** Given empty-ship mass `12,000 kg`, `60` riders at `70 kg` each, `g = 10.0 m/s^2`, two equal supports, and `F_left + F_right = mg`, submit the included force streams, total weight in `kN`, and one support-force number in `kN`.
+**Complete format-specific interaction block — canonical BALLPARK:**
 
-**Complete format-specific interaction block:**
-
-```yaml
-balance:
-  target: {label: "Total downward weight", value: 162, unit: kN}
-  streams:
-    - {id: left, label: "Left support", value: 81, unit: kN, count: true}
-    - {id: right, label: "Right support", value: 81, unit: kN, count: true}
-    - {id: drive, label: "Horizontal drive while off", value: 0, unit: kN, count: false}
-  correct_action: "Count both vertical supports; exclude the unpowered drive."
+```json
+{
+  "estimate": {
+    "quantity": "Divide the load",
+    "labels": [
+      "12000",
+      "60",
+      "70",
+      "600"
+    ],
+    "values": [
+      12000,
+      60,
+      70,
+      600
+    ],
+    "slots": 3,
+    "template": "({a}+{b} × {c}) × 10 / 2 = ? N per support",
+    "formula": "(a+b*c)*10/2",
+    "correct": [
+      0,
+      1,
+      2
+    ],
+    "target": 81000,
+    "tolerance": 100,
+    "units": "N per support",
+    "correctResult": 81000
+  },
+  "answerText": "The total mass is 16,200 kg and weight 162,000 N. Each equally loaded support carries 81,000 N.",
+  "wrongFeedback": [
+    "Include passenger mass before taking half of the total weight."
+  ]
+}
 ```
 
-**§7 authored-board source - BALANCE:** Convert this stop from its authored interaction block below. Do not substitute a format-level template. The panel must state the goal without printing the keyed answer.
+**Rendering and grading contract:** Render every numeric label as a selectable tile. The printed equation supplies the slot roles; do not replace number labels with quantity names. `correct` contains zero-based tile indices for slots a onward. Accept numerically equivalent selections, including equal-valued tiles. Evaluate the formula on submission; tolerance is absolute in the stated output units. Negative and zero results require a signed linear display. The board has one submission; supporting comparisons appear in the result explanation.
 
-```yaml
-authored_board:
-  stop: "Stop 7 - Divide the load"
-  format: "BALLPARK"
-  source: "Handback 5 canonical interaction block"
-  question: "Given empty-ship mass `12,000 kg`, `60` riders at `70 kg` each, `g = 10.0 m/s^2`, two equal supports, and `F_left + F_right = mg`, submit the included force streams, total weight in `kN`, and one support-force number in `kN`."
-  payload: "```yaml balance: target: {label: \"Total downward weight\", value: 162, unit: kN} streams: - {id: left, label: \"Left support\", value: 81, unit: kN, count: true} - {id: right, label: \"Right support\", value: 81, unit: kN, count: true} - {id: drive, label: \"Horizontal drive while off\", value: 0, unit: kN, count: false} correct_action: \"Count both vertical supports; exclude the unpowered drive.\" ```"
-  axis_and_units: "Use only quantities and units named in this question and payload."
-  candidates_and_numbers: "Use only candidates and numbers named in this question and payload."
-  panel_rule: "Print the goal, never the target or keyed answer."
-```
+**Correct result:** The total mass is 16,200 kg and weight 162,000 N. Each equally loaded support carries 81,000 N.
 
-**Handback 3 canonical interaction block - BALLPARK:**
-
-**Handback 5 canonical interaction block - BALLPARK:**
-
-```yaml
-estimate:
-  quantity: "force carried by one of two equal supports"
-  unit: "kN"
-  inputs:
-    - {label: "Empty-ship mass", value: 12000, unit: "kg"}
-    - {label: "Riders", value: 60, unit: "people"}
-    - {label: "Mass per rider", value: 70, unit: "kg/person"}
-    - {label: "Gravitational field", value: 10.0, unit: "N/kg"}
-    - {label: "Equal supports", value: 2, unit: "supports"}
-  operation: "[(empty mass + riders × mass per rider) × g] ÷ 2 ÷ 1000"
-  formula: "F_support=[(12000+60×70)(10.0)]/(2×1000)"
-  start: 0
-  correctResult: 81
-  tolerance: 0.1
-  commonMistake: "Mixing a contextual reading into the arithmetic or reversing the subtraction."
-```
-
-**Correct result:** Total 162 kN; left support 81 kN; right support 81 kN.
-
-**Answer text:** Each support should carry 81 kN during the centered static test.
-
-**Why:** In equilibrium, `Fleft + Fright - mg = 0`. Symmetry makes the two upward forces equal.
-
-**Wrong-path feedback:** Do not set each support equal to the full weight; together they balance it.
+**Wrong-path feedback:** Include passenger mass before taking half of the total weight.
 
 **State/output:** Put 81 kN target marks on both gauges.
 
@@ -2471,7 +2475,7 @@ control:
 
 **Question card story-science connection - exact player copy:** An inclusive speed threshold tells the operator exactly when the carousel must stop.
 
-**Question card prompt - exact player copy:** Given `r = 5.0 m`, `g = 9.80 m/s^2`, `theta_max = 20.0 degrees`, and `tan theta = v^2/(rg)`, submit one inclusive shutdown-threshold setting in `m/s` before the live speed unlocks; operation stops when measured speed is at or above that setting.
+**Question card prompt - exact player copy:** Given `r = 5.0 m`, `g = 9.80 m/s^2`, `theta_max = 20.0 degrees`, and `tan theta = v^2/(rg)`, choose the largest available 0.05 m/s increment that does not exceed the calculated boundary, then submit that inclusive shutdown-threshold setting in `m/s` before the live speed unlocks; operation stops when measured speed is at or above that setting.
 
 **Complete format-specific interaction block:**
 
@@ -2484,7 +2488,7 @@ trigger:
   direction: "at_or_above"
   consequence_limit: {value: 20.0, unit: deg, inclusive: true}
   correct: 4.20
-  tolerance: 0.05
+  tolerance: 0.001
   conclusion: "Stop the Carousel when measured speed reaches or exceeds 4.20 m/s."
 ```
 
@@ -2495,8 +2499,8 @@ authored_board:
   stop: "Stop 12 - Write the rule before the run"
   format: "TRIGGER"
   source: "Handback 3 canonical interaction block"
-  question: "Given `r = 5.0 m`, `g = 9.80 m/s^2`, `theta_max = 20.0 degrees`, and `tan theta = v^2/(rg)`, submit one inclusive shutdown-threshold setting in `m/s` before the live speed unlocks; operation stops when measured speed is at or above that setting."
-  payload: "```yaml trigger: decision_rule: \"Stop the ride when measured speed reaches or exceeds the threshold.\" scale: {min: 3.5, max: 4.6, step: 0.05, unit: m/s} anchors: [{value: 4.00, label: \"planned operation\"},{value: 4.22, label: \"20-degree model boundary\"}] objective: \"Protect the 20.0-degree chair-angle limit with a practical margin.\" direction: \"at_or_above\" consequence_limit: {value: 20.0, unit: deg, inclusive: true} correct: 4.20 tolerance: 0.05 conclusion: \"Stop the Carousel when measured speed reaches or exceeds 4.20 m/s.\" ```"
+  question: "Given `r = 5.0 m`, `g = 9.80 m/s^2`, `theta_max = 20.0 degrees`, and `tan theta = v^2/(rg)`, choose the largest available 0.05 m/s increment that does not exceed the calculated boundary, then submit that inclusive shutdown-threshold setting in `m/s` before the live speed unlocks; operation stops when measured speed is at or above that setting."
+  payload: "```yaml trigger: decision_rule: \"Stop the ride when measured speed reaches or exceeds the threshold.\" scale: {min: 3.5, max: 4.6, step: 0.05, unit: m/s} anchors: [{value: 4.00, label: \"planned operation\"},{value: 4.22, label: \"20-degree model boundary\"}] objective: \"Protect the 20.0-degree chair-angle limit with a practical margin.\" direction: \"at_or_above\" consequence_limit: {value: 20.0, unit: deg, inclusive: true} correct: 4.20 tolerance: 0.001 conclusion: \"Stop the Carousel when measured speed reaches or exceeds 4.20 m/s.\" ```"
   axis_and_units: "Use only quantities and units named in this question and payload."
   candidates_and_numbers: "Use only candidates and numbers named in this question and payload."
   panel_rule: "Print the goal, never the target or keyed answer."
@@ -2521,7 +2525,7 @@ trigger:
   stages:
     - {id: watch, label: "Increase monitoring", window: {min: 3, max: 4.19}, leadHours: 24}
     - {id: act, label: "Take the protective action", window: {min: 4.2, max: 5}, leadHours: 12}
-  question: "Given `r = 5.0 m`, `g = 9.80 m/s^2`, `theta_max = 20.0 degrees`, and `tan theta = v^2/(rg)`, submit one inclusive shutdown-threshold setting in `m/s` before the live speed unlocks; operation stops when measured speed is at or above that setting."
+  question: "Given `r = 5.0 m`, `g = 9.80 m/s^2`, `theta_max = 20.0 degrees`, and `tan theta = v^2/(rg)`, choose the largest available 0.05 m/s increment that does not exceed the calculated boundary, then submit that inclusive shutdown-threshold setting in `m/s` before the live speed unlocks; operation stops when measured speed is at or above that setting."
 ```
 
 **Correct result:** Submit shutdown setting 4.20 m/s, comparator at_or_above; 4.00 m/s passes.
@@ -3003,23 +3007,50 @@ Work transfers energy. A stopping car loses kinetic energy because friction does
 
 **Stop reason - exact player copy:** October's speed was twice the normal test speed, making its long stop worth checking physically.
 
-**Question card story setup - exact player copy:** A normal test runs at 2.0 m/s, while the October log reports 4.0 m/s. Estimate the energy ratio before deciding whether the much longer October stopping distance is physically surprising.
+**Question card story setup - exact player copy:** The bumper test is about to run faster. The crew needs to know how much more energy the same brake must absorb.
 
-**Question card story-science connection - exact player copy:** The energy multiplier shows how much more energy the brake must remove at the higher speed.
+**Question card prompt - exact player copy:** The same cart increases from 2 m/s to 4 m/s. Fill new speed and old speed in Knew/Kold=(vnew/vold)².
 
-**Question card prompt - exact player copy:** Given the same mass at `v1 = 2.0 m/s` and `v2 = 4.0 m/s`, use `K = 0.5mv^2` and `K2/K1 = (v2/v1)^2`. Submit one dimensionless numerical energy ratio.
+**Complete format-specific interaction block — canonical BALLPARK:**
 
-```yaml
-estimate: {labels: ["Speed ratio", "Exponent"], values: [2,2], slots: [base,exponent], template: "ratio = {base}^{exponent}", formula: "K2/K1=2^2", correct: 4, target: 4, tolerance: 0.05}
+```json
+{
+  "estimate": {
+    "quantity": "Speed squared",
+    "labels": [
+      "4",
+      "2",
+      "8"
+    ],
+    "values": [
+      4,
+      2,
+      8
+    ],
+    "slots": 2,
+    "template": "({a} / {b}) × ({a} / {b}) = ? energy ratio",
+    "formula": "(a/b)*(a/b)",
+    "correct": [
+      0,
+      1
+    ],
+    "target": 4,
+    "tolerance": 0.01,
+    "units": "energy ratio",
+    "correctResult": 4
+  },
+  "answerText": "Doubling speed quadruples kinetic energy at fixed mass. The ratio is 4, not the speed ratio 2.",
+  "wrongFeedback": [
+    "Kinetic energy depends on speed squared."
+  ]
+}
 ```
 
-**Correct result:** Submit 4 as the energy multiplier.
+**Rendering and grading contract:** Render every numeric label as a selectable tile. The printed equation supplies the slot roles; do not replace number labels with quantity names. `correct` contains zero-based tile indices for slots a onward. Accept numerically equivalent selections, including equal-valued tiles. Evaluate the formula on submission; tolerance is absolute in the stated output units. Negative and zero results require a signed linear display. The board has one submission; supporting comparisons appear in the result explanation.
 
-**Answer text:** Doubling speed quadruples kinetic energy.
+**Correct result:** Doubling speed quadruples kinetic energy at fixed mass. The ratio is 4, not the speed ratio 2.
 
-**Why:** Mass is unchanged and `K` is proportional to `v²`.
-
-**Wrong-path feedback:** A factor of two treats kinetic energy as linear in speed; square the speed ratio.
+**Wrong-path feedback:** Kinetic energy depends on speed squared.
 
 **State/output:** Mark the October car as `4x NORMAL ENERGY`.
 
@@ -3033,66 +3064,53 @@ estimate: {labels: ["Speed ratio", "Exponent"], values: [2,2], slots: [base,expo
 
 **Stop reason - exact player copy:** The energy increase is known, but the dry-floor stopping distance still needs a prediction.
 
-**Question card story setup - exact player copy:** With the fourfold increase established, close the car's energy ledger from 4.0 m/s to rest. Use friction as the measured transfer and exclude forces that do no work along the floor.
+**Question card story setup - exact player copy:** The cart’s brake must turn motion into frictional work before the track ends. The crew checks the stopping distance on a level run.
 
-**Question card story-science connection - exact player copy:** The energy transferred by friction determines whether the reported stopping distance is plausible.
+**Question card prompt - exact player copy:** A 240 kg cart enters at 4 m/s and stops under kinetic friction with μ=0.4. Use g=10 m/s². Fill speed, friction coefficient and g in d=v²/(2μg).
 
-**Question card prompt - exact player copy:** Given `m = 240 kg`, `v0 = 4.0 m/s`, `vf = 0 m/s`, `mu_k = 0.40`, and `g = 10.0 m/s^2`, use `K = 0.5mv0^2`, `f_k = mu_k mg`, and `f_k d = K`. Submit the included energy streams, initial energy in `J`, friction force in `N`, and stopping-distance number in `m`.
+**Complete format-specific interaction block — canonical BALLPARK:**
 
-**Complete format-specific interaction block:**
-
-```yaml
-balance:
-  target: {label: "Initial kinetic energy", value: 1920, unit: J}
-  streams:
-    - {id: friction, label: "Energy transferred by friction", value: 1920, unit: J, count: true}
-    - {id: finalK, label: "Final kinetic energy", value: 0, unit: J, count: true}
-    - {id: normal, label: "Work by normal force", value: 0, unit: J, count: false}
-  correct_action: "Use kinetic friction over distance; normal force is perpendicular to motion."
+```json
+{
+  "estimate": {
+    "quantity": "Close the stopping ledger",
+    "labels": [
+      "4",
+      "0.4",
+      "10",
+      "240"
+    ],
+    "values": [
+      4,
+      0.4,
+      10,
+      240
+    ],
+    "slots": 3,
+    "template": "{a} × {a} / (2 × {b} × {c}) = ? m",
+    "formula": "a*a/(2*b*c)",
+    "correct": [
+      0,
+      1,
+      2
+    ],
+    "target": 2,
+    "tolerance": 0.01,
+    "units": "m",
+    "correctResult": 2
+  },
+  "answerText": "Initial kinetic energy is ½×240×4²=1,920 J. Friction is μmg=960 N, giving d=1,920/960=2 m. Gravity and the normal force do no work along the level displacement.",
+  "wrongFeedback": [
+    "Mass cancels in this model; use speed squared, not speed."
+  ]
+}
 ```
 
-**§7 authored-board source - BALANCE:** Convert this stop from its authored interaction block below. Do not substitute a format-level template. The panel must state the goal without printing the keyed answer.
+**Rendering and grading contract:** Render every numeric label as a selectable tile. The printed equation supplies the slot roles; do not replace number labels with quantity names. `correct` contains zero-based tile indices for slots a onward. Accept numerically equivalent selections, including equal-valued tiles. Evaluate the formula on submission; tolerance is absolute in the stated output units. Negative and zero results require a signed linear display. The board has one submission; supporting comparisons appear in the result explanation.
 
-```yaml
-authored_board:
-  stop: "Stop 14 - Close the stopping ledger"
-  format: "BALLPARK"
-  source: "Handback 5 canonical interaction block"
-  question: "Given `m = 240 kg`, `v0 = 4.0 m/s`, `vf = 0 m/s`, `mu_k = 0.40`, and `g = 10.0 m/s^2`, use `K = 0.5mv0^2`, `f_k = mu_k mg`, and `f_k d = K`. Submit the included energy streams, initial energy in `J`, friction force in `N`, and stopping-distance number in `m`."
-  payload: "```yaml balance: target: {label: \"Initial kinetic energy\", value: 1920, unit: J} streams: - {id: friction, label: \"Energy transferred by friction\", value: 1920, unit: J, count: true} - {id: finalK, label: \"Final kinetic energy\", value: 0, unit: J, count: true} - {id: normal, label: \"Work by normal force\", value: 0, unit: J, count: false} correct_action: \"Use kinetic friction over distance; normal force is perpendicular to motion.\" ```"
-  axis_and_units: "Use only quantities and units named in this question and payload."
-  candidates_and_numbers: "Use only candidates and numbers named in this question and payload."
-  panel_rule: "Print the goal, never the target or keyed answer."
-```
+**Correct result:** Initial kinetic energy is ½×240×4²=1,920 J. Friction is μmg=960 N, giving d=1,920/960=2 m. Gravity and the normal force do no work along the level displacement.
 
-**Handback 3 canonical interaction block - BALLPARK:**
-
-**Handback 5 canonical interaction block - BALLPARK:**
-
-```yaml
-estimate:
-  quantity: "stopping distance"
-  unit: "m"
-  inputs:
-    - {label: "Car mass", value: 240, unit: "kg"}
-    - {label: "Initial speed", value: 4.0, unit: "m/s"}
-    - {label: "Kinetic-friction coefficient", value: 0.40, unit: "dimensionless"}
-    - {label: "Gravitational field", value: 10.0, unit: "N/kg"}
-  operation: "(0.5 m v²)/(μ m g)"
-  formula: "d=(0.5×240×4.0^2)/(0.40×240×10.0)"
-  start: 0
-  correctResult: 2.0
-  tolerance: 0.05
-  commonMistake: "Mixing a contextual reading into the arithmetic or reversing the subtraction."
-```
-
-**Correct result:** K=1920 J; fk=960 N; d=2.0 m.
-
-**Answer text:** The dry floor should stop the car in 2.0 m.
-
-**Why:** `μmgd = 1/2 mv²`; mass cancels. The normal force does no work because it is perpendicular to motion.
-
-**Wrong-path feedback:** Do not add normal-force work to horizontal motion.
+**Wrong-path feedback:** Mass cancels in this model; use speed squared, not speed.
 
 **State/output:** Draw the 2.0 m prediction line.
 
@@ -3138,32 +3156,78 @@ verify: {prediction: {value: 2.0, unit: m, tolerance: 0.08}, commit_required_bef
 
 **Stop reason - exact player copy:** The dry-floor result passes, but the disputed speed records still share measuring equipment.
 
-**Question card story setup - exact player copy:** The dry-floor model passes, but the old speed record shares equipment with other rides. Spend the remaining test slot on evidence that can distinguish real car motion from a repeated calibration error.
+**Question card story setup - exact player copy:** The dry-floor stop passes, but the disputed speed records share one measuring kit. Linh needs a measurement capable of distinguishing real motion from the kit’s calibration error.
 
-**Question card story-science connection - exact player copy:** An independent motion sensor can separate a genuine speed change from a shared calibration error.
+**Decision evidence - exact player copy:** Required outcomes: test the motion through a separate measurement chain.
 
-**Question card prompt - exact player copy:** With `10 test_points`, submit one test-slot allocation naming the funded test and its cost; the allocation must distinguish true car motion from a repeated shared-calibration error.
+**Question card prompt - exact player copy:** You have 10 test points. Cover every required outcome at the lowest total cost within the budget; keep all unused capacity in reserve. Select whole packages, then submit the plan; the board shows its total and remaining reserve for you to check.
 
-**Complete format-specific interaction block:**
+**Complete format-specific interaction block - canonical source:**
 
-```yaml
-value:
-  budget: {value: 10, unit: test_points}
-  options:
-    - {id: accel, label: "Independent seat and floor accelerometers", cost: 10, axis: acceleration, required: true}
-    - {id: wheel, label: "Repeat portable speed-wheel reading", cost: 6, axis: shared_speed, required: false}
-    - {id: paint, label: "Measure paint thickness", cost: 4, axis: cosmetic, required: false}
-    - {id: mass, label: "Reweigh same car", cost: 7, axis: mass, required: false}
-  correct: [accel]
+```json
+{
+  "value": {
+    "budget": {
+      "value": 10,
+      "unit": "test points"
+    },
+    "requirements": [
+      {
+        "id": "r1",
+        "text": "test the motion through a separate measurement chain"
+      }
+    ],
+    "selection_rule": "Cover every required outcome at the lowest total cost within the budget; keep all unused capacity in reserve.",
+    "options": [
+      {
+        "id": "accel",
+        "label": "Independent seat and floor accelerometers",
+        "cost": 10.0,
+        "information": "Records acceleration through sensors and calibration separate from the portable speed kit.",
+        "covers": [
+          "r1"
+        ]
+      },
+      {
+        "id": "wheel",
+        "label": "Repeat portable speed-wheel reading",
+        "cost": 6.0,
+        "information": "Repeats the same calibration dependency.",
+        "covers": []
+      },
+      {
+        "id": "paint",
+        "label": "Paint-thickness measurement",
+        "cost": 4.0,
+        "information": "Measures coating thickness, not motion.",
+        "covers": []
+      },
+      {
+        "id": "mass",
+        "label": "Reweigh the same car",
+        "cost": 7.0,
+        "information": "Checks mass without independently testing its motion.",
+        "covers": []
+      }
+    ],
+    "accepted_plans": [
+      [
+        "accel"
+      ]
+    ],
+    "example_total": 10.0,
+    "example_reserve": 0.0
+  }
+}
 ```
 
-**Correct result:** Choice 1 - independent seat and floor accelerometers; cost 10.
+**Evidence delivery and grading:** The setup, decision evidence, public rules, costs and option descriptions are visible on this card before selection. Render option descriptions beside their controls, once; never replace them with internal axis IDs or a generic earlier-case sentence. Answer keys, accepted examples and feedback stay hidden until submission. Reveal withheld measurements only after the stated commitment. Use the public feasibility/selection rule; an example allocation is not an exclusive key. The displayed person must match this stop’s placement and Call.
 
-**Answer text:** Fund the independent seat and floor accelerometers.
+**Correct result:** accel = 10 test points; reserve 0
 
-**Why:** They measure a different quantity through a different chain and can test the disputed speed-derived stop.
+**Answer text:** Each funded package supplies a required outcome; an affordable package that leaves one unresolved is insufficient.
 
-**Wrong-path feedback:** (wheel) Repeating the portable wheel preserves the shared calibration dependency. (paint) Paint thickness is cosmetic and cannot test the motion record. (mass) Reweighing the same car does not independently verify speed or acceleration.
+**Wrong-path feedback:** Identify the unmet public condition or the specific measurement that the selected option cannot provide; keep the original evidence available for retry.
 
 **State/output:** Set `test_plan.independent_accelerometers = true`.
 
@@ -3752,45 +3816,59 @@ sweep:
 
 **Question card story setup - exact player copy:** The prediction and low-power sweep pass, but Hart will authorize only the exact present configuration. Verify the sensor identity, release height, clear zone, brake state, and procedure within the inspection limit.
 
-**Question card story-science connection - exact player copy:** Configuration checks tie the permission to today's sensor, height, brake, and clear zone rather than an old signature.
+**Question card prompt - exact player copy:** Authorize only the present unmanned configuration; a past signature does not establish present physical conditions. Read the displayed source excerpts, then select every supported claim and leave unsupported claims unsigned.
 
-**Question card prompt - exact player copy:** Submit one selected-claims attestation containing every presently verified requirement for limited unmanned release and excluding any historical claim that does not establish today's condition.
+**Complete format-specific interaction block - canonical source:**
 
-**Complete format-specific interaction block:**
-
-```yaml
-attest:
-  verification_limit: 5
-  claims:
-    - {id: sensor, label: "Independent accelerometer ID C-17 installed", backed: true, critical: true}
-    - {id: height, label: "Release mark is 36.0 m above brake entry", backed: true, critical: true}
-    - {id: sweep, label: "Brake sweep passed today", backed: true, critical: true}
-    - {id: clear, label: "Drop zone physically clear", backed: true, critical: true}
-    - {id: old_signature, label: "1996 signature proves today's condition", backed: false, critical: true}
-  critical_unbacked: [old_signature]
-  correct: [sensor,height,sweep,clear]
+```json
+{
+  "attest": {
+    "claims": [
+      {
+        "id": "sensor",
+        "label": "Independent accelerometer ID C-17 installed",
+        "evidence": "Installation record identifies independent accelerometer C-17."
+      },
+      {
+        "id": "height",
+        "label": "Release mark is 36.0 m above brake entry",
+        "evidence": "The measured release mark is 36.0 m above brake entry."
+      },
+      {
+        "id": "sweep",
+        "label": "Brake sweep passed today",
+        "evidence": "Today’s brake sweep is recorded as complete and passing."
+      },
+      {
+        "id": "clear",
+        "label": "Drop zone physically clear",
+        "evidence": "The current physical inspection records the drop zone clear."
+      },
+      {
+        "id": "old_signature",
+        "label": "1996 signature proves today's condition",
+        "evidence": "The signature dates to 1996 and contains no current inspection."
+      }
+    ],
+    "selection_rule": "Support must be present in the displayed source excerpt and within its scope; a signature or repeated copy alone is insufficient.",
+    "correct_signed": [
+      "sensor",
+      "height",
+      "sweep",
+      "clear"
+    ],
+    "checks": 4
+  }
+}
 ```
 
-**§7 build completion - ATTEST:** This block supplies the panel fields omitted above; the authored prompt, science, and correct result remain authoritative.
+**Evidence delivery and grading:** The setup, decision evidence, public rules, costs and option descriptions are visible on this card before selection. Render option descriptions beside their controls, once; never replace them with internal axis IDs or a generic earlier-case sentence. Answer keys, accepted examples and feedback stay hidden until submission. Reveal withheld measurements only after the stated commitment. Use the public feasibility/selection rule; an example allocation is not an exclusive key. The displayed person must match this stop’s placement and Call.
 
-```yaml
-attest:
-  checks: 3
-  claims:
-    - {id: primary, label: "primary claim for Attest today's configuration", critical: true, backed: true, verification: "the signed source reproduces the displayed result"}
-    - {id: independent, label: "independent confirmation", critical: true, backed: true, verification: "the independent record agrees within the stated tolerance"}
-    - {id: scope, label: "scope and date", critical: false, backed: true, verification: "the record names the population and time window"}
-    - {id: extension, label: "stronger untested extension", critical: true, backed: false, verification: "no independent check supports the extension; it must be held"}
-  correctAction: "verify primary, independent, and scope; hold extension"
-```
+**Correct result:** Sign sensor, height, sweep, clear; leave the other claims unsigned.
 
-**Correct result:** Submit checks [sensor, height, brake response, clear zone]; reject old signature.
+**Answer text:** Each signature is limited to what its source establishes. The unsupported claims lack the specific date, physical condition, independence or scope they assert.
 
-**Answer text:** Authorize only after today's sensor, height, brake response, and clear zone are verified; the old signature is not present condition.
-
-**Why:** Records support history. Physical identity and condition support today's test.
-
-**Wrong-path feedback:** (old_signature) A 1996 signature records a past decision; it cannot establish today's sensor, release mark, brake response, or clear zone.
+**Wrong-path feedback:** Identify the unmet public condition or the specific measurement that the selected option cannot provide; keep the original evidence available for retry.
 
 **State/output:** Turn the arming key; set `test_authorized.tower_unmanned = true`.
 
@@ -4249,43 +4327,53 @@ control:
 
 **Question card story setup - exact player copy:** The response test is zero, but the certificate needs records as well as an intact seal. Verify serial number, delivery time, power history, and installation sign-off before closing this causal branch.
 
-**Question card story-science connection - exact player copy:** Delivery and power records determine whether the controller belongs in the October causal account.
+**Question card prompt - exact player copy:** Sign only the record-backed history of the sealed replacement, not a nonexistent installation. Read the displayed source excerpts, then select every supported claim and leave unsupported claims unsigned.
 
-**Question card prompt - exact player copy:** Submit one selected-claims attestation about the replacement controller's serial, delivery date, power history, and installation sign-off; select only claims backed by the displayed records.
+**Complete format-specific interaction block - canonical source:**
 
-**Complete format-specific interaction block:**
-
-```yaml
-attest:
-  verification_limit: 4
-  claims:
-    - {id: serial, label: "Crate serial matches replacement order", backed: true, critical: true}
-    - {id: delivered, label: "Delivered after October test", backed: true, critical: true}
-    - {id: power, label: "No power history", backed: true, critical: true}
-    - {id: signoff, label: "Installation sign-off exists", backed: false, critical: true}
-  correct: [serial,delivered,power]
+```json
+{
+  "attest": {
+    "claims": [
+      {
+        "id": "serial",
+        "label": "Crate serial matches replacement order",
+        "evidence": "The crate serial matches the replacement order."
+      },
+      {
+        "id": "delivered",
+        "label": "Delivered after October test",
+        "evidence": "The delivery record dates arrival after the October event."
+      },
+      {
+        "id": "power",
+        "label": "No power history",
+        "evidence": "The sealed-crate history records no energization."
+      },
+      {
+        "id": "signoff",
+        "label": "Installation sign-off exists",
+        "evidence": "No installation sign-off is present."
+      }
+    ],
+    "selection_rule": "Support must be present in the displayed source excerpt and within its scope; a signature or repeated copy alone is insufficient.",
+    "correct_signed": [
+      "serial",
+      "delivered",
+      "power"
+    ],
+    "checks": 3
+  }
+}
 ```
 
-**§7 build completion - ATTEST:** This block supplies the panel fields omitted above; the authored prompt, science, and correct result remain authoritative.
+**Evidence delivery and grading:** The setup, decision evidence, public rules, costs and option descriptions are visible on this card before selection. Render option descriptions beside their controls, once; never replace them with internal axis IDs or a generic earlier-case sentence. Answer keys, accepted examples and feedback stay hidden until submission. Reveal withheld measurements only after the stated commitment. Use the public feasibility/selection rule; an example allocation is not an exclusive key. The displayed person must match this stop’s placement and Call.
 
-```yaml
-attest:
-  checks: 3
-  claims:
-    - {id: primary, label: "primary claim for Verify the installation claim", critical: true, backed: true, verification: "the signed source reproduces the displayed result"}
-    - {id: independent, label: "independent confirmation", critical: true, backed: true, verification: "the independent record agrees within the stated tolerance"}
-    - {id: scope, label: "scope and date", critical: false, backed: true, verification: "the record names the population and time window"}
-    - {id: extension, label: "stronger untested extension", critical: true, backed: false, verification: "no independent check supports the extension; it must be held"}
-  correctAction: "verify primary, independent, and scope; hold extension"
-```
+**Correct result:** Sign serial, delivered, power; leave the other claims unsigned.
 
-**Correct result:** Submit evidence set [serial, delivered-after-event, never-powered].
+**Answer text:** Each signature is limited to what its source establishes. The unsupported claims lack the specific date, physical condition, independence or scope they assert.
 
-**Answer text:** The replacement arrived after the event, was never powered, and has no installation sign-off.
-
-**Why:** All three facts exclude it from the October causal chain.
-
-**Wrong-path feedback:** (signoff) No installation sign-off exists; the order and serial records prove possession of the crate, not installation in the ride.
+**Wrong-path feedback:** Identify the unmet public condition or the specific measurement that the selected option cannot provide; keep the original evidence available for retry.
 
 **State/output:** Add `REPLACEMENT CONTROLLER EXCLUDED` to Casebook.
 
@@ -4821,23 +4909,50 @@ Momentum is conserved over a short collision when external impulse is negligible
 
 **Stop reason - exact player copy:** The collision test is next, and opposite directions must be distinguished before combining momentum.
 
-**Question card story setup - exact player copy:** A 240 kg car moves right at 4.0 m/s while a 260 kg car moves left at 2.0 m/s. Estimate their signed total momentum before the instrumented test impact begins.
+**Question card story setup - exact player copy:** The collision ledger has motion in both directions. The net momentum must keep those signs before the carts are treated as one system.
 
-**Question card story-science connection - exact player copy:** Signed total momentum predicts the direction of motion that the joined cars should retain.
+**Question card prompt - exact player copy:** Taking right as positive, one cart carries +960 kg·m/s and the other −520 kg·m/s. Fill the two signed momenta and add them.
 
-**Question card prompt - exact player copy:** Given rightward momentum `+960 kg m/s` and leftward momentum `-520 kg m/s`, use `p_total = p1 + p2`. Submit one signed numerical total in `kg m/s` and state its direction.
+**Complete format-specific interaction block — canonical BALLPARK:**
 
-```yaml
-estimate: {labels: ["Rightward momentum", "Leftward momentum"], values: [960,-520], slots: [p1,p2], template: "ptotal = {p1} + {p2}", formula: "p_total=960-520", correct: 440, target: 440, tolerance: 0.03, unit: "kg m/s"}
+```json
+{
+  "estimate": {
+    "quantity": "Put directions into momentum",
+    "labels": [
+      "960",
+      "-520",
+      "520"
+    ],
+    "values": [
+      960,
+      -520,
+      520
+    ],
+    "slots": 2,
+    "template": "{a}+{b} = ? kg·m/s",
+    "formula": "a+b",
+    "correct": [
+      0,
+      1
+    ],
+    "target": 440,
+    "tolerance": 0.5,
+    "units": "kg·m/s",
+    "correctResult": 440
+  },
+  "answerText": "The system momentum is +440 kg·m/s, directed right. The opposing cart subtracts from the total.",
+  "wrongFeedback": [
+    "Using both positive magnitudes gives 1,480, which ignores the opposing directions."
+  ]
+}
 ```
 
-**Correct result:** Submit +440 kg·m/s (right).
+**Rendering and grading contract:** Render every numeric label as a selectable tile. The printed equation supplies the slot roles; do not replace number labels with quantity names. `correct` contains zero-based tile indices for slots a onward. Accept numerically equivalent selections, including equal-valued tiles. Evaluate the formula on submission; tolerance is absolute in the stated output units. Negative and zero results require a signed linear display. The board has one submission; supporting comparisons appear in the result explanation.
 
-**Answer text:** Total momentum before impact is 440 kg m/s to the right.
+**Correct result:** The system momentum is +440 kg·m/s, directed right. The opposing cart subtracts from the total.
 
-**Why:** Opposite directions receive opposite signs.
-
-**Wrong-path feedback:** Adding magnitudes predicts 1480 kg m/s and erases direction.
+**Wrong-path feedback:** Using both positive magnitudes gives 1,480, which ignores the opposing directions.
 
 **State/output:** Display the rightward total-momentum arrow.
 
@@ -5987,66 +6102,50 @@ Torque measures how force tends to rotate a system. Rotational inertia grows str
 
 **Stop reason - exact player copy:** Uneven test loads must be balanced before the wheel's braking response can be assessed.
 
-**Question card story setup - exact player copy:** Twelve test gondolas are loaded unevenly around the wheel, creating clockwise and counterclockwise moments. Reassign the movable loads until the net torque about the axle is acceptably close to zero.
+**Question card story setup - exact player copy:** The revised loading plan is on the balance board. The operator checks its residual torque before accepting the arrangement.
 
-**Question card story-science connection - exact player copy:** Net axle torque shows whether the load arrangement meets the wheel's balance tolerance.
+**Question card prompt - exact player copy:** The two signed torque totals are −126.0 and +124.6 kN·m. Add them, then compare the residual with the permitted interval −2 to +2 kN·m.
 
-**Question card prompt - exact player copy:** Given clockwise moment `-126.0 kN m`, counterclockwise moment `+124.6 kN m`, hub-weight moment `0 kN m`, and acceptance band `+/-2.0 kN m`, use `tau_net = sum tau`. Submit the included moment streams, one signed net-torque number in `kN m`, and one pass/fail conclusion.
+**Complete format-specific interaction block — canonical BALLPARK:**
 
-**Complete format-specific interaction block:**
-
-```yaml
-balance:
-  target: {label: "Net torque", value: 0, unit: "kN m"}
-  streams:
-    - {id: cw, label: "Clockwise loaded gondolas", value: -126.0, unit: "kN m", count: true}
-    - {id: ccw, label: "Counterclockwise loaded gondolas", value: 124.6, unit: "kN m", count: true}
-    - {id: hub_weight, label: "Hub weight through axle", value: 0, unit: "kN m", count: false}
-  tolerance: 2.0
-  correct_action: "Count off-axis moments; exclude weight acting through the axle."
+```json
+{
+  "estimate": {
+    "quantity": "Balance the wheel",
+    "labels": [
+      "-126",
+      "124.6",
+      "126"
+    ],
+    "values": [
+      -126,
+      124.6,
+      126
+    ],
+    "slots": 2,
+    "template": "{a}+{b} = ? kN·m",
+    "formula": "a+b",
+    "correct": [
+      0,
+      1
+    ],
+    "target": -1.4,
+    "tolerance": 0.01,
+    "units": "kN·m",
+    "correctResult": -1.4
+  },
+  "answerText": "The residual is −1.4 kN·m, inside the ±2 kN·m operating limit. That operating limit is not the answer-grading tolerance.",
+  "wrongFeedback": [
+    "Keep each direction sign; do not add torque magnitudes."
+  ]
+}
 ```
 
-**§7 authored-board source - BALANCE:** Convert this stop from its authored interaction block below. Do not substitute a format-level template. The panel must state the goal without printing the keyed answer.
+**Rendering and grading contract:** Render every numeric label as a selectable tile. The printed equation supplies the slot roles; do not replace number labels with quantity names. `correct` contains zero-based tile indices for slots a onward. Accept numerically equivalent selections, including equal-valued tiles. Evaluate the formula on submission; tolerance is absolute in the stated output units. Negative and zero results require a signed linear display. The board has one submission; supporting comparisons appear in the result explanation.
 
-```yaml
-authored_board:
-  stop: "Stop 33 - Balance the wheel"
-  format: "BALLPARK"
-  source: "Handback 5 canonical interaction block"
-  question: "Given clockwise moment `-126.0 kN m`, counterclockwise moment `+124.6 kN m`, hub-weight moment `0 kN m`, and acceptance band `+/-2.0 kN m`, use `tau_net = sum tau`. Submit the included moment streams, one signed net-torque number in `kN m`, and one pass/fail conclusion."
-  payload: "```yaml balance: target: {label: \"Net torque\", value: 0, unit: \"kN m\"} streams: - {id: cw, label: \"Clockwise loaded gondolas\", value: -126.0, unit: \"kN m\", count: true} - {id: ccw, label: \"Counterclockwise loaded gondolas\", value: 124.6, unit: \"kN m\", count: true} - {id: hub_weight, label: \"Hub weight through axle\", value: 0, unit: \"kN m\", count: false} tolerance: 2.0 correct_action: \"Count off-axis moments; exclude weight acting through the axle.\" ```"
-  axis_and_units: "Use only quantities and units named in this question and payload."
-  candidates_and_numbers: "Use only candidates and numbers named in this question and payload."
-  panel_rule: "Print the goal, never the target or keyed answer."
-```
+**Correct result:** The residual is −1.4 kN·m, inside the ±2 kN·m operating limit. That operating limit is not the answer-grading tolerance.
 
-**Handback 3 canonical interaction block - BALLPARK:**
-
-**Handback 5 canonical interaction block - BALLPARK:**
-
-```yaml
-estimate:
-  quantity: "signed net torque"
-  unit: "kN·m"
-  inputs:
-    - {label: "Clockwise loaded-gondola moment", value: -126.0, unit: "kN·m"}
-    - {label: "Counterclockwise loaded-gondola moment", value: 124.6, unit: "kN·m"}
-    - {label: "Hub-weight moment", value: 0, unit: "kN·m", contextOnly: true}
-  operation: "add the signed off-axis moments"
-  formula: "tau_net=-126.0+124.6"
-  start: 1
-  correctResult: -1.4
-  tolerance: 0.1
-  commonMistake: "Mixing a contextual reading into the arithmetic or reversing the subtraction."
-```
-
-**Correct result:** Submit -1.4 kN·m; accept within fictional ±2.0 kN·m tolerance.
-
-**Answer text:** The arranged test load is rotationally balanced within tolerance.
-
-**Why:** A force through the axle has zero lever arm and creates no torque about that axis.
-
-**Wrong-path feedback:** Force magnitude alone is not torque; include perpendicular distance.
+**Wrong-path feedback:** Keep each direction sign; do not add torque magnitudes.
 
 **State/output:** Lock the test gondola positions.
 
@@ -6151,76 +6250,63 @@ derive:
 
 **Stop reason - exact player copy:** The braking model is ready, while gusts and loading still threaten its operating assumptions.
 
-**Question card story setup - exact player copy:** The gondola shell presents a broad face to wind, and force uncertainty grows with gust speed. Move wind and loading assumptions through their ranges and watch which operating limits remain defensible.
+**Question card story setup - exact player copy:** The wind record limits a balanced-load test, and arm nine still has an unresolved indication. A test envelope is not an unrestricted operating certificate.
 
-**Question card story-science connection - exact player copy:** The sensitivity results identify wind and load restrictions that remain defensible across the tested uncertainty.
+**Question card prompt - exact player copy:** Inspect winds 4–12 m/s and balanced occupancies 6,12,18,24. Choose the envelope supported by the notebook and retain the unresolved inspection; the following rule must stop operation at 8.0 m/s or higher.
 
-**Question card prompt - exact player copy:** Vary wind speed from `4 m/s` to `12 m/s` in `1 m/s` steps and occupied gondolas from `6` to `24` in steps of `6`. Submit one stress-test conclusion selecting the operating envelope that survives and naming any unresolved inspection condition.
+**Complete format-specific interaction block - canonical source:**
 
-**Complete format-specific interaction block:**
-
-```yaml
-stress:
-  assumptions:
-    - {id: wind, label: "Wind speed", min: 4, max: 12, step: 1, unit: m/s}
-    - {id: occupied, label: "Occupied gondolas", min: 6, max: 24, step: 6}
-  candidates:
-    - {id: unrestricted, label: "Operate to 12 m/s", survives: false}
-    - {id: bounded, label: "Operate to 8 m/s with balanced loading", survives: true}
-    - {id: mark_safe, label: "Treat 41 mm indication as proven safe", survives: false}
-  correct: bounded
-  conclusion: "The 8.0 m/s balanced-load envelope survives; unrestricted wind and the uninspected arm do not."
+```json
+{
+  "stress": {
+    "model": {
+      "wind_values": [
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+      ],
+      "balanced_occupancies": [
+        6,
+        12,
+        18,
+        24
+      ],
+      "notebook_record": "The inspected balanced-load cases pass through the 8 m/s test boundary and fail above it; no tested result clears the 41 mm arm-nine indication.",
+      "operating_policy": "balanced loading, arm-nine inspection required, stop at wind >=8.0"
+    },
+    "candidates": [
+      {
+        "id": "unrestricted",
+        "label": "Operate through 12 m/s without restrictions"
+      },
+      {
+        "id": "bounded",
+        "label": "Use the tested wind boundary, balanced loading and arm-nine inspection"
+      },
+      {
+        "id": "mark_safe",
+        "label": "Treat the arm indication as already certified"
+      }
+    ],
+    "correct": "bounded",
+    "public_rule": "Use the displayed model and criterion over the entire stated range; no hidden preference scores."
+  }
+}
 ```
 
-**§7 authored-board source - STRESS:** Convert this stop from its authored interaction block below. Do not substitute a format-level template. The panel must state the goal without printing the keyed answer.
+**Evidence delivery and grading:** The setup, decision evidence, public rules, costs and option descriptions are visible on this card before selection. Render option descriptions beside their controls, once; never replace them with internal axis IDs or a generic earlier-case sentence. Answer keys, accepted examples and feedback stay hidden until submission. Reveal withheld measurements only after the stated commitment. Use the public feasibility/selection rule; an example allocation is not an exclusive key. The displayed person must match this stop’s placement and Call.
 
-```yaml
-authored_board:
-  stop: "Stop 35 - Stress the wind assumption"
-  format: "STRESS"
-  source: "Handback 3 canonical interaction block"
-  question: "Vary wind speed from `4 m/s` to `12 m/s` in `1 m/s` steps and occupied gondolas from `6` to `24` in steps of `6`. Submit one stress-test conclusion selecting the operating envelope that survives and naming any unresolved inspection condition."
-  payload: "```yaml stress: assumptions: - {id: wind, label: \"Wind speed\", min: 4, max: 12, step: 1, unit: m/s} - {id: occupied, label: \"Occupied gondolas\", min: 6, max: 24, step: 6} candidates: - {id: unrestricted, label: \"Operate to 12 m/s\", survives: false} - {id: bounded, label: \"Operate to 8 m/s with balanced loading\", survives: true} - {id: mark_safe, label: \"Treat 41 mm indication as proven safe\", survives: false} correct: bounded conclusion: \"The 8.0 m/s balanced-load envelope survives; unrestricted wind and the uninspected arm do not.\" ```"
-  axis_and_units: "Use only quantities and units named in this question and payload."
-  candidates_and_numbers: "Use only candidates and numbers named in this question and payload."
-  panel_rule: "Print the goal, never the target or keyed answer."
-```
+**Correct result:** Retain the 8.0 m/s boundary, balanced loading and arm-nine inspection. The operating rule stops at the boundary; it does not permit operation at or above 8.0 m/s.
 
-**Handback 3 canonical interaction block - STRESS:**
+**Answer text:** Retain the 8.0 m/s boundary, balanced loading and arm-nine inspection. The operating rule stops at the boundary; it does not permit operation at or above 8.0 m/s.
 
-```yaml
-stress:
-  assumption: {label: "wind speed", min: 4, max: 12, nominal: 8.0, step: 1, unit: "m/s"}
-  criteria:
-    - {id: evidence_fit, label: "fit to the stop evidence", direction: maximise}
-    - {id: safety_margin, label: "margin at the adverse end", direction: maximise}
-  optimiseOn: evidence_fit
-  candidates:
-    - id: nominal_only
-      label: "Use only the nominal reading"
-      scores: {evidence_fit: 95, safety_margin: 20}
-      validRange: {min: 8.0, max: 8.0}
-      failsAt: 12
-    - id: common_extreme_mistake
-      label: "Use the favorable extreme as if it were guaranteed"
-      scores: {evidence_fit: 88, safety_margin: 5}
-      validRange: {min: 8.0, max: 12}
-      failsAt: 4
-    - id: robust_plan
-      label: "Choice 2 - 8.0 m/s wind cap plus balanced loading and arm-nine inspection."
-      scores: {evidence_fit: 82, safety_margin: 92}
-      validRange: {min: 4, max: 12}
-  robust: robust_plan
-  question: "Vary wind speed from `4 m/s` to `12 m/s` in `1 m/s` steps and occupied gondolas from `6` to `24` in steps of `6`. Submit one stress-test conclusion selecting the operating envelope that survives and naming any unresolved inspection condition."
-```
-
-**Correct result:** Choice 2 - 8.0 m/s wind cap plus balanced loading and arm-nine inspection.
-
-**Answer text:** The 8.0 m/s balanced-load envelope survives; unrestricted wind and an uninspected arm do not.
-
-**Why:** Wind moment rises across the range, and the material-condition claim is not supplied by the torque model.
-
-**Wrong-path feedback:** (unrestricted) The 12 m/s cases fail the torque envelope. (mark_safe) A 41 mm indication alone does not establish material strength or remove the inspection hold.
+**Wrong-path feedback:** Identify the unmet public condition or the specific measurement that the selected option cannot provide; keep the original evidence available for retry.
 
 **State/output:** Store candidate envelope and inspection hold.
 
@@ -6696,23 +6782,50 @@ Energy predicts speed between heights; circular dynamics tests contact at the cr
 
 **Stop reason - exact player copy:** The coaster's crown speed needs an ideal benchmark before measured losses are included.
 
-**Question card story setup - exact player copy:** The train starts nearly from rest at 26 m and reaches the loop crown at 20 m. Estimate the no-loss crown speed before adding the measured friction and wheel losses from testing.
+**Question card story setup - exact player copy:** The drop height fixes the energy available at the bottom. The crew first checks the ideal speed before interpreting the real trace.
 
-**Question card story-science connection - exact player copy:** The height drop gives an upper benchmark for crown speed under the no-loss assumption.
+**Question card prompt - exact player copy:** Starting from rest, the gondola drops 6 m. Neglect resistance and use g=9.8 m/s². Fill g and height in v=√(2gh).
 
-**Question card prompt - exact player copy:** Given `g = 9.80 m/s^2` and vertical drop `Delta h = 6.0 m`, use `v = sqrt(2g Delta h)`. Submit one ideal crown-speed number in `m/s`.
+**Complete format-specific interaction block — canonical BALLPARK:**
 
-```yaml
-estimate: {labels: ["2g", "Height drop"], values: [19.6,6.0], slots: [factor,height], template: "v = sqrt({factor} x {height})", formula: "v=sqrt(19.6×6)", correct: 10.84, target: 10.8, tolerance: 0.05, unit: m/s}
+```json
+{
+  "estimate": {
+    "quantity": "Estimate the ideal crown speed",
+    "labels": [
+      "9.8",
+      "6",
+      "3"
+    ],
+    "values": [
+      9.8,
+      6,
+      3
+    ],
+    "slots": 2,
+    "template": "sqrt(2 × {a} × {b}) = ? m/s",
+    "formula": "sqrt(2*a*b)",
+    "correct": [
+      0,
+      1
+    ],
+    "target": 10.84,
+    "tolerance": 0.14,
+    "units": "m/s",
+    "correctResult": 10.84
+  },
+  "answerText": "√(2×9.8×6)=10.844… m/s, about 10.84 m/s; accept 10.70–10.98 m/s for this estimate.",
+  "wrongFeedback": [
+    "The square root is essential; 2gh has units of speed squared."
+  ]
+}
 ```
 
-**Correct result:** Submit 10.84 m/s; accept 10.70-10.98 m/s.
+**Rendering and grading contract:** Render every numeric label as a selectable tile. The printed equation supplies the slot roles; do not replace number labels with quantity names. `correct` contains zero-based tile indices for slots a onward. Accept numerically equivalent selections, including equal-valued tiles. Evaluate the formula on submission; tolerance is absolute in the stated output units. Negative and zero results require a signed linear display. The board has one submission; supporting comparisons appear in the result explanation.
 
-**Answer text:** The ideal crown speed is about 10.84 m/s.
+**Correct result:** √(2×9.8×6)=10.844… m/s, about 10.84 m/s; accept 10.70–10.98 m/s for this estimate.
 
-**Why:** The lost gravitational potential energy becomes kinetic energy when no losses are included.
-
-**Wrong-path feedback:** Use the height difference, not either absolute height.
+**Wrong-path feedback:** The square root is essential; 2gh has units of speed squared.
 
 **State/output:** Draw an `IDEAL MAXIMUM 10.84 m/s` line.
 
@@ -7500,33 +7613,92 @@ derive:
 
 **Stop reason - exact player copy:** The flume's power demand is known, but shutdown and logging must also fit in the test block.
 
-**Question card story setup - exact player copy:** The flume needs 44.1 kW, while the coaster measurement run needs 54.6 kW and shutdown controls need protected reserve. Allocate one complete test block without exceeding the shared plant limit.
+**Question card story setup - exact player copy:** The flume test is due in this block. Its drive, shutdown controls and independent record must fit the shared supply before the coaster is considered.
 
-**Question card story-science connection - exact player copy:** The allocation determines whether the test can run without sacrificing essential monitoring or emergency power.
+**Decision evidence - exact player copy:** Required outcomes: run the flume test; keep shutdown controls powered; record the test independently.
 
-**Question card prompt - exact player copy:** From a `55 kW` pool, submit one numerical allocation in `kW` among flume `44.1`, protected shutdown controls `5.0`, independent logging `3.0`, and coaster lift `54.6`; name what runs now, what waits, and whether shutdown remains protected.
+**Question card prompt - exact player copy:** You have 55 kW. Cover every required outcome at the lowest total cost within the budget; keep all unused capacity in reserve. Select whole packages, then submit the plan; the board shows its total and remaining reserve for you to check.
 
-**Complete format-specific interaction block:**
+**Complete format-specific interaction block - canonical source:**
 
-```yaml
-allocate:
-  pool: 55
-  items:
-    - {id: flume, label: "Flume verified duty", cost: 44.1, required: true}
-    - {id: shutdown, label: "Protected shutdown controls", cost: 5.0, protected: true, required: true}
-    - {id: logging, label: "Independent logging", cost: 3.0, required: true}
-    - {id: coaster, label: "Coaster lift", cost: 54.6, required: false}
-  questions: ["Which loads fit now?", "Which load must be scheduled later?", "Is protected shutdown preserved?"]
-  correct_allocation: {flume: 44.1, shutdown: 5.0, logging: 3.0, coaster: 0}
+```json
+{
+  "allocate": {
+    "budget": {
+      "value": 55,
+      "unit": "kW"
+    },
+    "requirements": [
+      {
+        "id": "r1",
+        "text": "run the flume test"
+      },
+      {
+        "id": "r2",
+        "text": "keep shutdown controls powered"
+      },
+      {
+        "id": "r3",
+        "text": "record the test independently"
+      }
+    ],
+    "selection_rule": "Cover every required outcome at the lowest total cost within the budget; keep all unused capacity in reserve.",
+    "options": [
+      {
+        "id": "flume",
+        "label": "Flume verified duty",
+        "cost": 44.1,
+        "information": "Runs the verified flume duty.",
+        "covers": [
+          "r1"
+        ]
+      },
+      {
+        "id": "shutdown",
+        "label": "Protected shutdown controls",
+        "cost": 5.0,
+        "information": "Keeps the shutdown system powered.",
+        "covers": [
+          "r2"
+        ]
+      },
+      {
+        "id": "logging",
+        "label": "Independent logging",
+        "cost": 3.0,
+        "information": "Records the test through the independent logger.",
+        "covers": [
+          "r3"
+        ]
+      },
+      {
+        "id": "coaster",
+        "label": "Coaster lift",
+        "cost": 54.6,
+        "information": "Runs the coaster instead of the scheduled flume; requires a separate block.",
+        "covers": []
+      }
+    ],
+    "accepted_plans": [
+      [
+        "flume",
+        "shutdown",
+        "logging"
+      ]
+    ],
+    "example_total": 52.1,
+    "example_reserve": 2.8999999999999986
+  }
+}
 ```
 
-**Correct result:** Allocation {flume:44.1 kW, shutdown:5.0 kW, logging:3.0 kW, coaster:0 kW}.
+**Evidence delivery and grading:** The setup, decision evidence, public rules, costs and option descriptions are visible on this card before selection. Render option descriptions beside their controls, once; never replace them with internal axis IDs or a generic earlier-case sentence. Answer keys, accepted examples and feedback stay hidden until submission. Reveal withheld measurements only after the stated commitment. Use the public feasibility/selection rule; an example allocation is not an exclusive key. The displayed person must match this stop’s placement and Call.
 
-**Answer text:** Run flume, shutdown controls, and logging now; schedule the coaster separately.
+**Correct result:** flume, shutdown, logging = 52.1 kW; reserve 2.9
 
-**Why:** The safe allocation totals 52.1 kW. Adding the coaster is impossible.
+**Answer text:** Each funded package supplies a required outcome; an affordable package that leaves one unresolved is insufficient.
 
-**Wrong-path feedback:** Protected shutdown is a required load, not spare capacity.
+**Wrong-path feedback:** Identify the unmet public condition or the specific measurement that the selected option cannot provide; keep the original evidence available for retry.
 
 **State/output:** Print non-overlap schedule.
 
@@ -7540,55 +7712,44 @@ allocate:
 
 **Stop reason - exact player copy:** The cleaned water line is ready for an independent exit-speed check.
 
-**Question card story setup - exact player copy:** The stall cannon uses the same cleaned water line and launches from ground level toward a mark 3.60 m away. Set the angle and pressure charge that reproduce the predicted 5.94 m/s exit speed.
+**Question card story setup - exact player copy:** The discharge must reach the marked target. Several launch angles can work if the speed is chosen to match.
 
-**Question card story-science connection - exact player copy:** The projectile's range links the water arc to launch speed and tests the line's predicted delivery.
+**Question card prompt - exact player copy:** For equal launch and landing heights, use R=v²sin(2θ)/g with g=9.80 m/s². Submit any angle from 20° to 70° and speed from 3.0 to 7.0 m/s giving R within 3.60±0.12 m.
 
-**Question card prompt - exact player copy:** Given target range `R = 3.60 m +/- 0.12 m`, `g = 9.80 m/s^2`, launch and landing at equal height, angle control `20-70 degrees`, and charge-speed control `3.0-7.0 m/s`, use `R = v^2 sin(2theta)/g`. Submit one numerical pair: launch angle in `degrees` and charge-speed setting in `m/s`.
+**Complete format-specific interaction block - canonical source:**
 
-**Complete format-specific interaction block:**
-
-```yaml
-lob:
-  angle: {min: 20, max: 70, step: 1, unit: deg}
-  charge: {min: 3.0, max: 7.0, step: 0.1, maps_to_speed: true, unit: "m/s"}
-  target: {range: 3.60, tolerance: 0.12, unit: m}
-  hidden_launch_speed: true
-  correct: {angle: 45, charge: 5.94}
+```json
+{
+  "lob": {
+    "angle_range_deg": [
+      20,
+      70
+    ],
+    "speed_range_mps": [
+      3,
+      7
+    ],
+    "g_mps2": 9.8,
+    "range_target_m": 3.6,
+    "range_tolerance_m": 0.12,
+    "formula": "v*v*sin(2*theta*pi/180)/9.8",
+    "acceptance": "20<=theta<=70 and 3<=v<=7 and 3.48<=R<=3.72",
+    "example": {
+      "theta_deg": 45,
+      "v_mps": 5.94
+    },
+    "exclusive_example": false
+  }
+}
 ```
 
-**§7 build completion - LOB:** This block supplies the panel fields omitted above; the authored prompt, science, and correct result remain authoritative.
+**Evidence delivery and grading:** The setup, decision evidence, public rules, costs and option descriptions are visible on this card before selection. Render option descriptions beside their controls, once; never replace them with internal axis IDs or a generic earlier-case sentence. Answer keys, accepted examples and feedback stay hidden until submission. Reveal withheld measurements only after the stated commitment. Use the public feasibility/selection rule; an example allocation is not an exclusive key. The displayed person must match this stop’s placement and Call.
 
-```yaml
-lob:
-  marks: [{label:"low",value:25},{label:"nominal",value:50},{label:"high",value:75}]
-  target: nominal
-```
+**Correct result:** Accept every permitted pair meeting the range band; (45°, 5.94 m/s) is one example.
 
-**Handback 4 canonical interaction block - LOB:**
+**Answer text:** The equation couples angle and speed, so a different angle can be compensated by a different speed. The task does not ask for minimum speed or insist on 45°.
 
-**Handback 5 canonical interaction block - LOB:**
-
-```yaml
-lob:
-  angle: {min: 20, max: 70, step: 1, unit: "degrees"}
-  charge: {min: 3.0, max: 7.0, step: 0.1, unit: "m/s"}
-  marks:
-    - {id: short, label: "Short marker", range: 3.0, unit: "m"}
-    - {id: target, label: "Target marker", range: 3.60, unit: "m"}
-    - {id: long, label: "Long marker", range: 4.2, unit: "m"}
-  target: target
-  correct: {angle: 45, charge: 5.94}
-  tolerance: {range: 0.12, speed: 0.09}
-```
-
-**Correct result:** Submit pair (45°, 5.94 m/s); accept speed 5.85-6.03 m/s.
-
-**Answer text:** At 45 degrees, a 5.94 m/s launch reaches about 3.60 m on level ground.
-
-**Why:** `R=v² sin(2θ)/g`; range is greatest at 45 degrees for equal launch and landing height.
-
-**Wrong-path feedback:** Split launch velocity into horizontal and vertical components.
+**Wrong-path feedback:** Identify the unmet public condition or the specific measurement that the selected option cannot provide; keep the original evidence available for retry.
 
 **State/output:** Set `evidence_flags.flume_speed_independent = true`.
 
@@ -7994,23 +8155,50 @@ Momentum change creates impulse. Stop time sets average force, while the force t
 
 **Stop reason - exact player copy:** The restraint review needs the dummy's momentum change before interpreting its force-time record.
 
-**Question card story setup - exact player copy:** The joined test cars move at 0.88 m/s after impact, and the 70 kg dummy stops with them. Estimate the dummy's momentum change before using the separately measured force-time trace.
+**Question card story setup - exact player copy:** The dummy trace is ready for the restraint review. The change in momentum tells the crew what impulse the restraint delivered.
 
-**Question card story-science connection - exact player copy:** Momentum change gives the impulse that the independently measured force trace should account for.
+**Question card prompt - exact player copy:** A 70 kg dummy changes speed by 0.88 m/s along the measured direction. Fill mass and speed-change magnitude in |Δp|=m|Δv|.
 
-**Question card prompt - exact player copy:** Given dummy mass `m = 70 kg` and speed-change magnitude `Delta v = 0.88 m/s`, use `|Delta p| = m|Delta v|`. Submit one momentum-change number in `kg m/s`.
+**Complete format-specific interaction block — canonical BALLPARK:**
 
-```yaml
-estimate: {labels: ["Dummy mass", "Speed change"], values: [70,0.88], slots: [mass,dv], template: "delta p = {mass} x {dv}", formula: "|Delta p|=70×0.88", correct: 61.6, target: 62, tolerance: 0.05, unit: "kg m/s"}
+```json
+{
+  "estimate": {
+    "quantity": "Retrieve the collision result",
+    "labels": [
+      "70",
+      "0.88",
+      "61.6"
+    ],
+    "values": [
+      70,
+      0.88,
+      61.6
+    ],
+    "slots": 2,
+    "template": "{a} × {b} = ? kg·m/s",
+    "formula": "a*b",
+    "correct": [
+      0,
+      1
+    ],
+    "target": 61.6,
+    "tolerance": 1.2,
+    "units": "kg·m/s",
+    "correctResult": 61.6
+  },
+  "answerText": "The momentum-change magnitude is 70×0.88=61.6 kg·m/s; accept 60.4–62.8. It equals the impulse magnitude, not a force without a stopping time.",
+  "wrongFeedback": [
+    "Use the change in speed, not an unrelated initial speed or the answer as an operand."
+  ]
+}
 ```
 
-**Correct result:** Submit 61.6 kg·m/s; accept 60.4-62.8 kg·m/s.
+**Rendering and grading contract:** Render every numeric label as a selectable tile. The printed equation supplies the slot roles; do not replace number labels with quantity names. `correct` contains zero-based tile indices for slots a onward. Accept numerically equivalent selections, including equal-valued tiles. Evaluate the formula on submission; tolerance is absolute in the stated output units. Negative and zero results require a signed linear display. The board has one submission; supporting comparisons appear in the result explanation.
 
-**Answer text:** The dummy's momentum changes by 61.6 kg m/s.
+**Correct result:** The momentum-change magnitude is 70×0.88=61.6 kg·m/s; accept 60.4–62.8. It equals the impulse magnitude, not a force without a stopping time.
 
-**Why:** It moves from 0.88 m/s to rest.
-
-**Wrong-path feedback:** Momentum uses velocity change, not stopping distance.
+**Wrong-path feedback:** Use the change in speed, not an unrelated initial speed or the answer as an operand.
 
 **State/output:** Send `Δp=61.6 kg m/s` to force-chain board.
 
@@ -8197,45 +8385,65 @@ stress:
 
 **Question card story setup - exact player copy:** Both force results pass, but old records mix masses, restraints, and sensors. Verify the claims that connect today's numbers to today's exact operating configurations before either final certificate section closes.
 
-**Question card story-science connection - exact player copy:** Verifying masses, restraints, and sensors prevents a passing result from being applied to an untested setup.
+**Question card prompt - exact player copy:** Certification transfers only to matching mass, restraint, sensor and brake configurations. Read the displayed source excerpts, then select every supported claim and leave unsupported claims unsigned.
 
-**Question card prompt - exact player copy:** Submit one selected-claims attestation containing only the displayed, currently verified bumper-car and tower configuration facts; exclude the historical all-load claim.
+**Complete format-specific interaction block - canonical source:**
 
-**Complete format-specific interaction block:**
-
-```yaml
-attest:
-  verification_limit: 6
-  claims:
-    - {id: bumper_mass, label: "Bumper car mass 240 kg", backed: true, critical: true}
-    - {id: bumper_pad, label: "0.22 s padded stop installed", backed: true, critical: true}
-    - {id: tower_height, label: "36.0 m release mark", backed: true, critical: true}
-    - {id: tower_sensor, label: "Sensor C-17 used", backed: true, critical: true}
-    - {id: tower_brake, label: "Current brake stack matches test", backed: true, critical: true}
-    - {id: old_allloads, label: "Old signature certifies every load", backed: false, critical: true}
-  correct: [bumper_mass,bumper_pad,tower_height,tower_sensor,tower_brake]
+```json
+{
+  "attest": {
+    "claims": [
+      {
+        "id": "bumper_mass",
+        "label": "Bumper car mass 240 kg",
+        "evidence": "The tested and installed bumper-car configuration is recorded at 240 kg."
+      },
+      {
+        "id": "bumper_pad",
+        "label": "0.22 s padded stop installed",
+        "evidence": "The installation record matches the pad used for the 0.22 s stop."
+      },
+      {
+        "id": "tower_height",
+        "label": "36.0 m release mark",
+        "evidence": "The current release mark matches the tested 36.0 m height."
+      },
+      {
+        "id": "tower_sensor",
+        "label": "Sensor C-17 used",
+        "evidence": "The test and installation records both identify C-17."
+      },
+      {
+        "id": "tower_brake",
+        "label": "Current brake stack matches test",
+        "evidence": "The installed stack matches the dated brake test."
+      },
+      {
+        "id": "old_allloads",
+        "label": "Old signature certifies every load",
+        "evidence": "The old signature contains no test covering every load."
+      }
+    ],
+    "selection_rule": "Support must be present in the displayed source excerpt and within its scope; a signature or repeated copy alone is insufficient.",
+    "correct_signed": [
+      "bumper_mass",
+      "bumper_pad",
+      "tower_height",
+      "tower_sensor",
+      "tower_brake"
+    ],
+    "checks": 5
+  }
+}
 ```
 
-**§7 build completion - ATTEST:** This block supplies the panel fields omitted above; the authored prompt, science, and correct result remain authoritative.
+**Evidence delivery and grading:** The setup, decision evidence, public rules, costs and option descriptions are visible on this card before selection. Render option descriptions beside their controls, once; never replace them with internal axis IDs or a generic earlier-case sentence. Answer keys, accepted examples and feedback stay hidden until submission. Reveal withheld measurements only after the stated commitment. Use the public feasibility/selection rule; an example allocation is not an exclusive key. The displayed person must match this stop’s placement and Call.
 
-```yaml
-attest:
-  checks: 3
-  claims:
-    - {id: primary, label: "primary claim for Attest both configurations", critical: true, backed: true, verification: "the signed source reproduces the displayed result"}
-    - {id: independent, label: "independent confirmation", critical: true, backed: true, verification: "the independent record agrees within the stated tolerance"}
-    - {id: scope, label: "scope and date", critical: false, backed: true, verification: "the record names the population and time window"}
-    - {id: extension, label: "stronger untested extension", critical: true, backed: false, verification: "no independent check supports the extension; it must be held"}
-  correctAction: "verify primary, independent, and scope; hold extension"
-```
+**Correct result:** Sign bumper_mass, bumper_pad, tower_height, tower_sensor, tower_brake; leave the other claims unsigned.
 
-**Correct result:** Submit verified set [bumper mass, bumper pad, tower height, tower sensor, tower brake].
+**Answer text:** Each signature is limited to what its source establishes. The unsupported claims lack the specific date, physical condition, independence or scope they assert.
 
-**Answer text:** Certify only the verified bumper and tower configurations; reject the old all-load claim.
-
-**Why:** Changing mass, restraint, height, sensor, or brake state changes the modeled or measured result.
-
-**Wrong-path feedback:** (old_allloads) The old signature cannot extend today's verified bumper and tower configurations to every passenger load.
+**Wrong-path feedback:** Identify the unmet public condition or the specific measurement that the selected option cannot provide; keep the original evidence available for retry.
 
 **State/output:** Set `ride_status.bumper=pass`, `ride_status.tower=pass`.
 
@@ -8814,34 +9022,106 @@ derive:
 
 **Stop reason - exact player copy:** Three rides are ready for scheduling, but they cannot all use the shared supply at once.
 
-**Question card story setup - exact player copy:** The three rides need operating power, monitoring, and a protected emergency reserve. Allocate the 100-point block so the schedule runs two rides at once without losing required emergency shutdown capacity.
+**Question card story setup - exact player copy:** The operating plan schedules the Carousel and Pirate Ship together, with the Ferris Wheel in the next block. Check that this schedule retains monitoring and shutdown capacity.
 
-**Question card story-science connection - exact player copy:** The capacity allocation selects a workable ride pair while preserving emergency shutdown reserve.
+**Decision evidence - exact player copy:** Required outcomes: run the scheduled Carousel block; run the scheduled Pirate Ship block; fund independent monitoring; protect emergency shutdown reserve. Other two-ride pairs can fit the power pool, but they do not implement this published schedule. Do not claim the keyed pair is the only physically feasible pair.
 
-**Question card prompt - exact player copy:** From a `100-point` shared-capacity pool, submit one numerical allocation among Carousel `24`, Pirate Ship `28`, Ferris Wheel `30`, independent monitoring `8`, and protected shutdown reserve `18`; run exactly two rides now, fund monitoring, protect reserve, and identify the deferred ride.
+**Question card prompt - exact player copy:** You have 100 capacity points. Cover every required outcome at the lowest total cost within the budget; keep all unused capacity in reserve. Select whole packages, then submit the plan; the board shows its total and remaining reserve for you to check.
 
-**Complete format-specific interaction block:**
+**Complete format-specific interaction block - canonical source:**
 
-```yaml
-allocate:
-  pool: 100
-  items:
-    - {id: carousel, label: "Carousel operating block", cost: 24, required: true}
-    - {id: ship, label: "Pirate Ship operating block", cost: 28, required: true}
-    - {id: wheel, label: "Ferris Wheel operating block", cost: 30, required: false}
-    - {id: monitor, label: "Independent monitoring", cost: 8, required: true}
-    - {id: shutdown, label: "Protected shutdown reserve", cost: 18, protected: true, required: true}
-  questions: ["Which two rides run together?", "Is monitoring funded?", "Is shutdown reserve protected?"]
-  correct_allocation: {carousel: 24, ship: 28, wheel: 0, monitor: 8, shutdown: 18}
+```json
+{
+  "allocate": {
+    "budget": {
+      "value": 100,
+      "unit": "capacity points"
+    },
+    "requirements": [
+      {
+        "id": "r1",
+        "text": "run the scheduled Carousel block"
+      },
+      {
+        "id": "r2",
+        "text": "run the scheduled Pirate Ship block"
+      },
+      {
+        "id": "r3",
+        "text": "fund independent monitoring"
+      },
+      {
+        "id": "r4",
+        "text": "protect emergency shutdown reserve"
+      }
+    ],
+    "selection_rule": "Cover every required outcome at the lowest total cost within the budget; keep all unused capacity in reserve.",
+    "options": [
+      {
+        "id": "carousel",
+        "label": "Carousel operating block",
+        "cost": 24.0,
+        "information": "Runs the scheduled Carousel duty.",
+        "covers": [
+          "r1"
+        ]
+      },
+      {
+        "id": "ship",
+        "label": "Pirate Ship operating block",
+        "cost": 28.0,
+        "information": "Runs the scheduled Pirate Ship duty.",
+        "covers": [
+          "r2"
+        ]
+      },
+      {
+        "id": "wheel",
+        "label": "Ferris Wheel operating block",
+        "cost": 30.0,
+        "information": "Runs the ride scheduled for the following block.",
+        "covers": []
+      },
+      {
+        "id": "monitor",
+        "label": "Independent monitoring",
+        "cost": 8.0,
+        "information": "Records the concurrent rides independently.",
+        "covers": [
+          "r3"
+        ]
+      },
+      {
+        "id": "shutdown",
+        "label": "Shutdown reserve",
+        "cost": 18.0,
+        "information": "Preserves emergency shutdown capacity.",
+        "covers": [
+          "r4"
+        ]
+      }
+    ],
+    "accepted_plans": [
+      [
+        "carousel",
+        "ship",
+        "monitor",
+        "shutdown"
+      ]
+    ],
+    "example_total": 78.0,
+    "example_reserve": 22.0
+  }
+}
 ```
 
-**Correct result:** Allocation: run Carousel and Pirate Ship; reserve Ferris Wheel for next block; protect shutdown reserve.
+**Evidence delivery and grading:** The setup, decision evidence, public rules, costs and option descriptions are visible on this card before selection. Render option descriptions beside their controls, once; never replace them with internal axis IDs or a generic earlier-case sentence. Answer keys, accepted examples and feedback stay hidden until submission. Reveal withheld measurements only after the stated commitment. Use the public feasibility/selection rule; an example allocation is not an exclusive key. The displayed person must match this stop’s placement and Call.
 
-**Answer text:** Run Carousel and Pirate Ship with monitoring and protected reserve; schedule the Ferris Wheel in the next block.
+**Correct result:** carousel, ship, monitor, shutdown = 78 capacity points; reserve 22
 
-**Why:** All three together exceed the pool. Sequential operation preserves the required 18-point shutdown reserve.
+**Answer text:** Each funded package supplies a required outcome; an affordable package that leaves one unresolved is insufficient.
 
-**Wrong-path feedback:** Do not spend protected reserve to make an impossible simultaneous schedule appear possible.
+**Wrong-path feedback:** Identify the unmet public condition or the specific measurement that the selected option cannot provide; keep the original evidence available for retry.
 
 **State/output:** Print alternating schedule.
 
@@ -10199,33 +10479,90 @@ stress:
 
 **Stop reason - exact player copy:** Only one work block remains before handover, with inspections and independent checks still to fund.
 
-**Question card story setup - exact player copy:** Spend the last work block on inspection, independent verification, operator cards, and protected reserve. Do not fund cosmetic work or another repeated coaster calculation that cannot correct its measured physical geometry.
+**Question card story setup - exact player copy:** The last work block must close the inspection and verification conditions before handover. Repeating the coaster calculation cannot repair its measured geometry.
 
-**Question card story-science connection - exact player copy:** The final allocation completes required safety work without spending scarce capacity on tasks that cannot fix the coaster.
+**Question card prompt - exact player copy:** Allocate exactly 100 points. Fund at least 25 inspection, 20 verification, 15 operating cards and 20 reserve. Assign zero to repeated coaster math and paint; distribute the remaining 20 points freely among the four required categories. Submit the allocation; the board checks the total and each requirement.
 
-**Question card prompt - exact player copy:** Submit one numerical allocation totaling exactly `100 points` among arm-nine inspection, independent verification, operating cards, protected reserve, repeated coaster math, and paint. Meet minima `25`, `20`, `15`, and `20` points for the first four respectively, and allocate `0` to the last two.
+**Complete format-specific interaction block - canonical source:**
 
-**Complete format-specific interaction block:**
-
-```yaml
-proposals:
-  - {id: arm, label: "Independent arm-nine inspection", min: 25, evidence: "Binding condition for wheel."}
-  - {id: verify, label: "Final independent sensor verification", min: 20, evidence: "Secures proof chain."}
-  - {id: cards, label: "Print and install operating-limit cards", min: 15, evidence: "Turns models into action."}
-  - {id: reserve, label: "Protected test and shutdown reserve", min: 20, evidence: "Keeps execution recoverable."}
-  - {id: coaster_math, label: "Repeat coaster calculation with same radius", min: 0, evidence: "Cannot change measured geometry."}
-  - {id: paint, label: "Repaint closed coaster gate", min: 0, evidence: "Cosmetic only."}
-recommended: {arm: 30, verify: 25, cards: 20, reserve: 25, coaster_math: 0, paint: 0}
-evidence: {required_total: 100, pass_rules: ["arm >= 25","verify >= 20","cards >= 15","reserve >= 20","coaster_math = 0","paint = 0","total = 100"]}
+```json
+{
+  "sciencetank": {
+    "pool": {
+      "value": 100,
+      "unit": "points"
+    },
+    "items": [
+      {
+        "id": "arm",
+        "label": "Arm-nine inspection",
+        "min": 25,
+        "max": 100,
+        "step": 1,
+        "information": "Checks the remaining wheel condition."
+      },
+      {
+        "id": "verify",
+        "label": "Independent verification",
+        "min": 20,
+        "max": 100,
+        "step": 1,
+        "information": "Checks the final evidence chain."
+      },
+      {
+        "id": "cards",
+        "label": "Operating cards",
+        "min": 15,
+        "max": 100,
+        "step": 1,
+        "information": "Publishes enforceable limits."
+      },
+      {
+        "id": "reserve",
+        "label": "Protected reserve",
+        "min": 20,
+        "max": 100,
+        "step": 1,
+        "information": "Keeps test and shutdown capacity."
+      },
+      {
+        "id": "coaster_math",
+        "label": "Repeat coaster math",
+        "min": 0,
+        "max": 0,
+        "step": 1,
+        "information": "Repeats the same geometry."
+      },
+      {
+        "id": "paint",
+        "label": "Paint",
+        "min": 0,
+        "max": 0,
+        "step": 1,
+        "information": "Changes only appearance."
+      }
+    ],
+    "public_rule": "Fund at least 25 inspection, 20 verification, 15 operating cards and 20 reserve. Assign zero to repeated coaster math and paint; distribute the remaining 20 points freely among the four required categories.",
+    "accepted_example": {
+      "arm": 30,
+      "verify": 25,
+      "cards": 20,
+      "reserve": 25,
+      "coaster_math": 0,
+      "paint": 0
+    },
+    "grading": "Accept every allocation satisfying the public rule; the example is not exclusive."
+  }
+}
 ```
 
-**Correct result:** Submit allocation {arm inspection:30, independent verification:25, operating cards:20, protected reserve:25, other:0}.
+**Evidence delivery and grading:** The setup, decision evidence, public rules, costs and option descriptions are visible on this card before selection. Render option descriptions beside their controls, once; never replace them with internal axis IDs or a generic earlier-case sentence. Answer keys, accepted examples and feedback stay hidden until submission. Reveal withheld measurements only after the stated commitment. Use the public feasibility/selection rule; an example allocation is not an exclusive key. The displayed person must match this stop’s placement and Call.
 
-**Answer text:** Use 30 points for arm inspection, 25 for independent verification, 20 for operating cards, and 25 for protected reserve.
+**Correct result:** One valid example: {"arm": 30, "verify": 25, "cards": 20, "reserve": 25, "coaster_math": 0, "paint": 0}. Other allocations satisfying the public rule are also correct.
 
-**Why:** Each funded item changes or secures a binding decision. Repeating correct coaster arithmetic cannot repair its geometry.
+**Answer text:** The accepted plan funds every required capability within the stated limits; extra points may be distributed only as the public rule allows.
 
-**Wrong-path feedback:** Spend on evidence or action that can change the certificate.
+**Wrong-path feedback:** Identify the unmet public condition or the specific measurement that the selected option cannot provide; keep the original evidence available for retry.
 
 **State/output:** Arm-nine inspection returns `PASS WITH OPERATING ENVELOPE`; final cards install.
 
@@ -10241,47 +10578,77 @@ evidence: {required_total: 100, pass_rules: ["arm >= 25","verify >= 20","cards >
 
 **Question card story setup - exact player copy:** Read every final ride condition, inspection, threshold, and closure reason. Attest the seven decisions only if each claim matches the tested physical system and no failed safety margin is hidden.
 
-**Question card story-science connection - exact player copy:** The attestation ties each opening, restriction, or closure to the tested configuration and its actual safety margin.
+**Question card prompt - exact player copy:** Sign the tested operating scope for each ride; a completed calculation is not a universal clearance. Read the displayed source excerpts, then select every supported claim and leave unsupported claims unsigned.
 
-**Question card prompt - exact player copy:** Submit one seven-claim certificate attestation: select exactly one supported final decision for each named ride, including every numerical operating limit, and exclude the unsupported all-open claim.
+**Complete format-specific interaction block - canonical source:**
 
-**Complete format-specific interaction block:**
-
-```yaml
-attest:
-  verification_limit: 7
-  claims:
-    - {id: carousel, label: "Carousel reopen below 4.20 m/s", backed: true, critical: true}
-    - {id: bumper, label: "Bumper Cars reopen in verified padded configuration", backed: true, critical: true}
-    - {id: tower, label: "Drop Tower reopen in verified tested configuration", backed: true, critical: true}
-    - {id: ship, label: "Pirate Ship conditional; avoid 5.70-6.30 s", backed: true, critical: true}
-    - {id: wheel, label: "Ferris Wheel conditional; inspection, balance, wind below 8.0 m/s", backed: true, critical: true}
-    - {id: flume, label: "Flume conditional; 0.45 m3/s and non-overlap power schedule", backed: true, critical: true}
-    - {id: coaster, label: "Coaster closed; measured margin fails", backed: true, critical: true}
-    - {id: all_open, label: "All seven reopen because calculations are complete", backed: false, critical: true}
-  correct: [carousel,bumper,tower,ship,wheel,flume,coaster]
+```json
+{
+  "attest": {
+    "claims": [
+      {
+        "id": "carousel",
+        "label": "Carousel reopen below 4.20 m/s",
+        "evidence": "The accepted operating card stops at 4.20 m/s; operating speed stays below it."
+      },
+      {
+        "id": "bumper",
+        "label": "Bumper Cars reopen in verified padded configuration",
+        "evidence": "Current mass and padded restraint match the independently verified configuration."
+      },
+      {
+        "id": "tower",
+        "label": "Drop Tower reopen in verified tested configuration",
+        "evidence": "Current height, sensor and brake match the verified configuration and tested force limit."
+      },
+      {
+        "id": "ship",
+        "label": "Pirate Ship conditional; avoid 5.70-6.30 s",
+        "evidence": "The operating card excludes drive intervals 5.70–6.30 s."
+      },
+      {
+        "id": "wheel",
+        "label": "Ferris Wheel conditional; inspection, balance, wind below 8.0 m/s",
+        "evidence": "The final inspection is conditional on balanced loading and wind below 8.0 m/s."
+      },
+      {
+        "id": "flume",
+        "label": "Flume conditional; 0.45 m3/s and non-overlap power schedule",
+        "evidence": "The accepted flow is 0.45 m³/s with the non-overlap power schedule."
+      },
+      {
+        "id": "coaster",
+        "label": "Coaster closed; measured margin fails",
+        "evidence": "The physical crown radius gives a required speed above the measured 9.40 m/s; the margin fails."
+      },
+      {
+        "id": "all_open",
+        "label": "All seven reopen because calculations are complete",
+        "evidence": "The failed coaster margin remains in the final record."
+      }
+    ],
+    "selection_rule": "Support must be present in the displayed source excerpt and within its scope; a signature or repeated copy alone is insufficient.",
+    "correct_signed": [
+      "carousel",
+      "bumper",
+      "tower",
+      "ship",
+      "wheel",
+      "flume",
+      "coaster"
+    ],
+    "checks": 7
+  }
+}
 ```
 
-**§7 build completion - ATTEST:** This block supplies the panel fields omitted above; the authored prompt, science, and correct result remain authoritative.
+**Evidence delivery and grading:** The setup, decision evidence, public rules, costs and option descriptions are visible on this card before selection. Render option descriptions beside their controls, once; never replace them with internal axis IDs or a generic earlier-case sentence. Answer keys, accepted examples and feedback stay hidden until submission. Reveal withheld measurements only after the stated commitment. Use the public feasibility/selection rule; an example allocation is not an exclusive key. The displayed person must match this stop’s placement and Call.
 
-```yaml
-attest:
-  checks: 3
-  claims:
-    - {id: primary, label: "primary claim for Attest the certificate", critical: true, backed: true, verification: "the signed source reproduces the displayed result"}
-    - {id: independent, label: "independent confirmation", critical: true, backed: true, verification: "the independent record agrees within the stated tolerance"}
-    - {id: scope, label: "scope and date", critical: false, backed: true, verification: "the record names the population and time window"}
-    - {id: extension, label: "stronger untested extension", critical: true, backed: false, verification: "no independent check supports the extension; it must be held"}
-  correctAction: "verify primary, independent, and scope; hold extension"
-```
+**Correct result:** Sign carousel, bumper, tower, ship, wheel, flume, coaster; leave the other claims unsigned.
 
-**Correct result:** Submit ordered decisions [Carousel open, Bumper open, Tower open, Pirate conditional, Wheel conditional, Flume conditional, Coaster closed].
+**Answer text:** Each signature is limited to what its source establishes. The unsupported claims lack the specific date, physical condition, independence or scope they assert.
 
-**Answer text:** Sign three reopenings, three conditional reopenings, and one evidence-based coaster closure.
-
-**Why:** Every approved ride has a verified configuration and operating rule. The coaster's physical measurement fails its required margin.
-
-**Wrong-path feedback:** (all_open) The all-open claim contradicts the measured Coaster radius and failed 0.12 m/s operating margin; certificate completion requires a supported closure for that row.
+**Wrong-path feedback:** Identify the unmet public condition or the specific measurement that the selected option cannot provide; keep the original evidence available for retry.
 
 **State/output:** Set all seven final decisions; stop timer; open final metric screen.
 
@@ -10799,3 +11166,13 @@ The following group ownership is authoritative for reachability; it does not add
 ## Mental-math number rule for calculated-response cards
 
 This rule is binding for this campaign and for future games built from it. When the player must perform the arithmetic without a supplied calculator or a displayed intermediate result, author inputs as friendly integers or simple ratios. Prefer products and quotients that can be completed mentally and key results to an integer or at most one useful decimal place. Update every dependent prompt, board payload, prediction, measurement, tolerance, correct result, answer text, and feedback together. Preserve more complex real-world values only when the interface supplies the calculator or the intermediate value and the learning target is interpretation rather than arithmetic. Never make arithmetic friction the hidden difficulty of a concept question.
+
+# Decision-card evidence contract
+
+Every decision card must expose the exact evidence and public rule that distinguish its accepted answers from plausible alternatives. Render the local Data/readings/options, Decision evidence, public constraints and option effects before selection; keep them available while the player chooses. Use plain-language descriptions, not internal axis names. Show one speaker header from the stop’s placement and Call, and one coherent setup and prompt. Never substitute a discovery-stage explanation into a later allocation, release or certification task.
+
+Resource tasks distinguish a budget from the goal. Display the required outcomes, each option’s contribution, costs, reserve rules and any priority or tie-breaker. Accept every plan satisfying the published rule. A recommended split is not an exclusive key unless the visible constraints uniquely determine it. Policies are identified as policies; the player must not derive an institutional preference from a scientific formula.
+
+For staged tests, show hypotheses, model inputs and acceptance rules before commitment, but keep held-out results hidden until the specified test or reveal. No grade may depend on guessing a future result. A signed claim requires a readable source excerpt or an explicit inspection, not a hidden backed flag. Copied records retain their shared-source identity.
+
+No importer fallback may borrow another stop’s data, speaker, threshold or generic mission text. Missing required local evidence is an import error. Before release, inspect the rendered card, prove the accepted response from visible information alone, try a plausible wrong answer, and test a different valid answer where the rule admits one. This document revision is source work; rendered-game verification still requires the actual implementation.

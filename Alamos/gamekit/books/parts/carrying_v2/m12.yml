@@ -151,11 +151,11 @@
     person: voss
     concept: 34   # feasibility | evidence | D6 compliance | RETRIEVE | L3 | obstacle
     reason: "The energy portfolio still depends on a gearbox delivery date that has not been verified."
-    scene: "The portfolio assumes repaired wind before ferry day, but the crated gearbox carries several schedule claims. Verify its evidence before counting that power."
+    scene: "The wind repair is ordered, but the ferry plan needs generation available by the vote. Read the delivery record before counting future power."
     motivation: "The schedule evidence determines whether repaired wind can count as firm supply before the ferry vote."
     format: ATTEST
-    question: "Verify at most three claims among order date, shipment status, fitting crew, and completion by vote; reject the critical unbacked completion claim"
-    answerText: "The completed check shows wind is not firm power before the vote."
+    question: "A purchase, shipment or booked crew does not establish completed installation. Read the displayed source excerpts, then select every supported claim and leave unsupported claims unsigned."
+    answerText: "Each signature is limited to what its source establishes. The unsupported claims lack the specific date, physical condition, independence or scope they assert."
     why: "Audit the gearbox schedule connects the measured environmental mechanism to the next island condition."
     # wrong-path feedback, one rebuttal per wrong option:
     #   The retry identifies the first incorrect mechanism, unit, unsupported claim, omitted requirement, or violated constraint.
@@ -282,11 +282,11 @@
     title: "Allocate firm power"
     concept: 26   # firm critical loads | energy | 12
     reason: "The exhaust repair makes the backup source usable, but protected loads must fit its limited output."
-    scene: "Captured methane can run safely after the exhaust repair, but its output is limited. Allocate 180 kilowatts across protected services."
+    scene: "The repaired methane system can support only a limited set of simultaneous loads. Water, school, treatment, food refrigeration and household service are all designated essential for this block."
     motivation: "The power allocation determines whether every essential service can be supplied without exceeding the firm generation available."
     format: ALLOCATE
-    question: "Allocate water pumps 55, school 20, treatment 35, ferry refrigeration 30, and homes 40; exclude decorative berth lighting 25"
-    answerText: "The completed check shows all five essential/protected loads receive exactly 180 kW."
+    question: "You have 180 kW. Cover every required outcome and allocate the whole budget. Select whole packages, then submit the plan; the board shows its total and remaining reserve for you to check."
+    answerText: "Each funded package supplies a required outcome; an affordable package that leaves one unresolved is insufficient."
     why: "Allocate firm power connects the measured environmental mechanism to the next island condition."
     # wrong-path feedback, one rebuttal per wrong option:
     #   The retry identifies the first incorrect mechanism, unit, unsupported claim, omitted requirement, or violated constraint.

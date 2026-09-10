@@ -11,7 +11,7 @@
   objective: "Decide whether the proposed rent ceiling alone houses every applicant."
   stake: "A cook took the new job, but still needs a home. A rent cap can help some tenants and leave others in a queue. Today you decide what the town can promise. By the end of the mission, you will check if the cap houses all who apply."
   takeaway: "The advice distinguishes a factual shortage from a value judgment about tenant protection."
-  segue: "Mission decision: The rent cap alone will not house all who apply. Forty homes are still missing from the offers. The town keeps relief and access as two goals. The access plan still needs funds."
+  segue: "So Leila asks who will fund the access measure; a lower posted rent has created no new public revenue."
   # The mission card's own "Primer concepts", printed on the plan card.
   terms:
   - {name: "Price ceiling", def: "A legal maximum price."}

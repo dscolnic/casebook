@@ -154,10 +154,10 @@
     title: "Balance the wheel"
     concept: 23   # Torque equilibrium
     reason: "Uneven test loads must be balanced before the wheel's braking response can be assessed."
-    scene: "Twelve test gondolas are loaded unevenly around the wheel, creating clockwise and counterclockwise moments. Reassign the movable loads until the net torque about the axle is acceptably close to zero."
+    scene: "The revised loading plan is on the balance board. The operator checks its residual torque before accepting the arrangement."
     motivation: "Net axle torque shows whether the load arrangement meets the wheel's balance tolerance."
     format: BALLPARK
-    question: "Given clockwise moment -126.0 kN m, counterclockwise moment +124.6 kN m, hub-weight moment 0 kN m, and acceptance band +/-2.0 kN m, use tau_net = sum tau. Submit the included moment streams, one signed net-torque number in kN m, and one pass/fail conclusion."
+    question: "The two signed torque totals are −126.0 and +124.6 kN·m. Add them, then compare the residual with the permitted interval −2 to +2 kN·m."
     answerText: "The arranged test load is rotationally balanced within tolerance."
     why: "A force through the axle has zero lever arm and creates no torque about that axis."
     # wrong-path feedback, one rebuttal per wrong option:
@@ -291,11 +291,11 @@
     person: chen
     concept: 36   # Uncertain wind load
     reason: "The braking model is ready, while gusts and loading still threaten its operating assumptions."
-    scene: "The gondola shell presents a broad face to wind, and force uncertainty grows with gust speed. Move wind and loading assumptions through their ranges and watch which operating limits remain defensible."
+    scene: "The wind record limits a balanced-load test, and arm nine still has an unresolved indication. A test envelope is not an unrestricted operating certificate."
     motivation: "The sensitivity results identify wind and load restrictions that remain defensible across the tested uncertainty."
     format: STRESS
-    question: "Vary wind speed from 4 m/s to 12 m/s in 1 m/s steps and occupied gondolas from 6 to 24 in steps of 6. Submit one stress-test conclusion selecting the operating envelope that survives and naming any unresolved inspection condition."
-    answerText: "The 8.0 m/s balanced-load envelope survives; unrestricted wind and an uninspected arm do not."
+    question: "Inspect winds 4–12 m/s and balanced occupancies 6,12,18,24. Choose the envelope supported by the notebook and retain the unresolved inspection; the following rule must stop operation at 8.0 m/s or higher."
+    answerText: "Retain the 8.0 m/s boundary, balanced loading and arm-nine inspection. The operating rule stops at the boundary; it does not permit operation at or above 8.0 m/s."
     why: "Wind moment rises across the range, and the material-condition claim is not supplied by the torque model."
     # wrong-path feedback, one rebuttal per wrong option:
     #   (unrestricted) The 12 m/s cases fail the torque envelope. (mark_safe) A 41 mm indication alone does not establish material strength or remove the inspection hold.

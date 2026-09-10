@@ -192,10 +192,10 @@
     title: "Convert depth to volume"
     concept: 4   # unit conversion
     reason: "The rainfall balance is complete, but the council needs recharge as a usable water volume."
-    scene: "With recharge depth established, Nkemdi needs the amount of water entering the usable aquifer area. Convert the depth across the mapped recharge zone without counting paved harbour land."
+    scene: "The recharge estimate has to match the aquifer's volume ledger. The catchment map and annual depth use different units."
     motivation: "Recharge depth over the mapped aquifer area sets the annual groundwater supply available for withdrawal planning."
     format: BALLPARK
-    question: "Assemble and submit annual recharge volume using 150 mm/yr, 0.001 m/mm, and 1.20 km² of recharge area with 1,000,000 m²/km². Answer in m³/yr."
+    question: "Recharge depth is 150 mm/year across 1.2×10⁶ m². Fill depth in metres and area to calculate annual volume."
     # THE BIBLE'S PAYLOAD, converted. The bible's four `labels` tokens become the
     # four tiles, each carrying the value the bible gives it; `slots: 4` and
     # `correct: [0,1,2,3]` are its `formula=product`. Its `tolerance=0.02` is a
@@ -239,11 +239,11 @@
     title: "Freeze the estimate"
     concept: 34   # model validation
     reason: "The average recharge estimate must face dry years before it becomes a drinking-water allowance."
-    scene: "The volume calculation fits the first ten years, so the dry years remain hidden. Freeze one planning rule before four unseen years appear and expose whether the mean is safe."
+    scene: "The long-run average hides dry years. Freeze the candidate withdrawal rules before checking which best limits failure in the withheld record."
     motivation: "The held-out years determine whether the planning rule includes restrictions when replenishment falls below demand."
     format: HOLDOUT
-    question: "Fit either mean recharge, 20th-percentile recharge, or wet-year recharge to years 1-10; click FREEZE; reveal years 11-14; submit the rule that keeps withdrawal below recharge in at least three of four years."
-    answerText: "The completed check shows use 144,000 m³/yr; it passes 151k, 146k, and treats 139k/128k as trigger years requiring restrictions."
+    question: "Freeze all three withdrawal rules, then reveal years 11–14. Select the rule that exceeds annual recharge in the fewest years; if tied, choose the lower total shortfall. Report how many years still fail rather than declaring the plan drought-safe."
+    answerText: "The rule passes the 151,000 and 146,000 years, but 144,000 exceeds 139,000 and 128,000. This is the best of the listed candidates, not a guarantee; drought restrictions remain necessary."
     why: "Holdout years test generalization; wet or mean rules overfit favorable conditions."
     # wrong-path feedback, one rebuttal per wrong option:
     #   Choosing the wet-year or mean rule overfits favorable years; choosing a rule that fails more than one hidden dry year violates the stated three-of-four criterion.
@@ -312,11 +312,11 @@
     person: okafor
     concept: 8   # uncertainty margin
     reason: "The dry-year test leaves measurement bias as an unresolved risk in the withdrawal allowance."
-    scene: "Because 144,000 m³/yr survives most held-out years, only measurement bias can still overturn it. Stress the estimate across the hand-gauge range and choose a ceiling the council can defend."
+    scene: "The lowest-failure withdrawal rule still fails in two withheld dry years. Test measurement bias separately and retain the drought restrictions."
     motivation: "The bias-adjusted recharge ceiling determines how much water the council can promise without using the optimistic end of the range."
     format: STRESS
-    question: "Move annual rainfall bias from -5% to +5%; observed planning recharge is 144,000 m³/yr. Submit one ceiling from 136,800, 144,000, 151,200, or 180,000 m³/yr that never exceeds corrected recharge."
-    answerText: "The completed check shows 144,000 x 0.95 = 136,800 m³/yr; adopt that conservative ceiling."
+    question: "For observed planning recharge 144,000 m³/year, use corrected recharge=144,000(1+b) with b from −0.05 to +0.05. Select the largest listed ceiling never exceeding corrected recharge in this bias test."
+    answerText: "136,800 m³/year survives this measurement-bias range. It still exceeds the withheld 128,000 dry year, so passing this test does not remove drought-triggered restrictions."
     why: "Negative bias lowers credible recharge; feedback shows which candidates fail at -5%."
     # wrong-path feedback, one rebuttal per wrong option:
     #   A ceiling of 144,000 m3/year or more ignores the -5% rainfall bias; 180,000 uses the unprotected mean rather than the minimum credible recharge.

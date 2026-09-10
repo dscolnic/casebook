@@ -11,7 +11,7 @@
   objective: "Decide whether the proposed market fee supplies enough revenue for the housing measure."
   stake: "The rent cap leaves some people out. The town wants a fee to fund more help, but lost sales could cut the cash it raises. Today you decide if the fee can pay for that help. By the end of the mission, you will check who bears its cost."
   takeaway: "The council owns the distribution choice while the player certifies the calculation."
-  segue: "Mission decision: Use the $120 fee receipts and report the $40 loss in gains. The funds cover the chosen housing step. Buyers and sellers both bear costs. One supplier now wants to close."
+  segue: "But Nico’s supplier is losing money; fee receipts will not tell its owner whether to close this month."
   # The mission card's own "Primer concepts", printed on the plan card.
   terms:
   - {name: "Excise tax", def: "A payment charged per unit traded."}

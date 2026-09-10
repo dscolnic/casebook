@@ -48,7 +48,7 @@
   - id: after-stop-22
     # After Stop 22 | common-map | automatic
     on: { after: [2] }
-    world: "At council-table, the dated accepted-result slip for Stop 22 reads: \"tags+checks=35\". The slip remains in that fixture's evidence holder."
+    world: "At council-table, the dated accepted-result slip for Stop 22 reads: \"tags+camera=40\". The slip remains in that fixture's evidence holder."
     panel: "STOP 22 RECORDED - STOP 23 OPEN"
     # unlocks: Unlock Stop 23 at common-map in Common Office.
     bubbles:
@@ -150,11 +150,11 @@
     person: voss
     concept: 34   # compliance records | evidence | D5 | PRACTICE | L3 | obstacle
     reason: "The posted catch ceiling cannot protect the nursery if a landing's origin is unknown."
-    scene: "The fish ceiling is posted, but four landing claims support the morning catch. Verify identity, time, mass, and nursery-zone origin before any catch receives a legal tag."
+    scene: "The landing papers establish identity and mass, but the catch location is still disputed. A paid fee cannot establish whether fishing occurred inside the nursery."
     motivation: "The verified landing records determine whether this catch can receive a legal tag under the nursery restriction."
     format: ATTEST
-    question: "verify at most 3 of 5 claims and reject any critical unbacked claim"
-    answerText: "The completed check shows nursery-zone origin is unbacked; hold catch."
+    question: "Use the three required checks on license, mass and nursery origin. Authorize the landing only if all three are supported; a missing origin record requires a hold."
+    answerText: "A landing timestamp or fee receipt does not locate the fishing activity. The next evidence budget must therefore include direct location coverage."
     why: "a receipt proves payment, not ecological compliance"
     # wrong-path feedback, one rebuttal per wrong option:
     #   Feedback identifies the first violated mechanism, unit, limit, or unsupported inference and allows a retry.
@@ -195,10 +195,10 @@
     person: voss
     concept: 34   # monitoring design | policy | 6
     reason: "The held landing reveals an origin-checking gap that the monitoring budget must close."
-    scene: "Because the catch cannot prove where it was taken, the council has forty monitoring credits. Buy records that can reveal both total extraction and nursery violations."
+    scene: "The disputed catch lacks a verified nursery-zone origin. The council needs both a catch total and direct location evidence before treating enforcement as complete."
     motivation: "The purchased evidence must reveal both total extraction and nursery violations within the available credits."
     format: VALUE
-    question: "choose within 40: electronic tags 20 required, random dock checks 15 required, poster 8, fisher survey 12, larger sign 10"
+    question: "You have 40 monitoring credits. Cover every required outcome at the lowest total cost within the budget; keep all unused capacity in reserve. Select whole packages, then submit the plan; the board shows its total and remaining reserve for you to check."
     # THE BIBLE'S PAYLOAD, converted. Its `budget`, its five options with their
     # `axis` and `cost`, and its `correct_purchase` transfer directly; the
     # bible's `required: true` is the engine's `decisive`, which is what marks an
@@ -214,7 +214,7 @@
       - { id: public_ad, label: Public advertisement, cost: 10, axis: awareness }
       - { id: seller_survey, label: Seller survey, cost: 15, axis: self-reported behavior }
       commit: Buy the records
-    answerText: "The completed check shows tags+checks=35."
+    answerText: "Each funded package supplies a required outcome; an affordable package that leaves one unresolved is insufficient."
     why: "evidence has value only if it can change enforcement"
     # wrong-path feedback, one rebuttal per wrong option:
     #   Feedback identifies the first violated mechanism, unit, limit, or unsupported inference and allows a retry.
@@ -273,10 +273,10 @@
     person: voss
     concept: 20   # agriculture trade-offs | policy | 6
     reason: "The matched land practices need a funded package before the common can implement them."
-    scene: "With practices matched to mechanisms, the common needs a 100-point package. Balance crop yield, soil health, runoff, and enforcement while rejecting a single-method cure."
+    scene: "The growing plan has several distinct risks. The council requires nutrient control, efficient irrigation, pest management, runoff protection and monitoring of the proposed modified crop."
     motivation: "The allocation determines whether soil, irrigation, pest, buffer, and crop-monitoring needs are covered together."
     format: SCIENCETANK
-    question: "Allocate exactly 100 points among soil testing 20, drip irrigation 25, integrated pest management (IPM) 25, buffer strips 20, blanket pesticide 30, and genetically modified organism (GMO) monitoring 10. Submit one workable allocation."
+    question: "You have 100 planning points. Cover every required outcome and allocate the whole budget. Select whole packages, then submit the plan; the board shows its total and remaining reserve for you to check."
     # THE BIBLE'S PAYLOAD, converted. Its six proposals and their costs become the
     # tank's proposals, and its `recommended` map — the five that total its
     # `truth_total` of 100 — the graded distribution, keyed by label. Its
@@ -290,7 +290,7 @@
     - { label: GMO monitoring, text: "Costs 10 points." }
     recommended: { Soil testing: 20, Drip irrigation: 25, IPM: 25, Buffer strips: 20, GMO monitoring: 10 }
     evidence: "The council already holds four lines of evidence on the common: crop yield, soil health, nitrate runoff, and pesticide resistance."
-    answerText: "The integrated five-part package protects yield, soil, water, and resistance monitoring without funding blanket pesticide use."
+    answerText: "Each funded package supplies a required outcome; an affordable package that leaves one unresolved is insufficient."
     why: "Green Revolution tools raise yield but can increase pollution, resistance, and monoculture"
     # wrong-path feedback, one rebuttal per wrong option:
     #   Feedback identifies the first violated mechanism, unit, limit, or unsupported inference and allows a retry.

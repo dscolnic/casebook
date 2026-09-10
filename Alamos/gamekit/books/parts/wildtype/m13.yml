@@ -11,7 +11,7 @@
   objective: "Resolve whether the receiving plot is ready for the pilot; the new plants could starve in suitable-looking ground."
   stake: "The partners are chosen, but the new soil lacks usable nitrogen. Roots need water and a form of nutrients they can take up. Test the soil with Tess, then take the plan to Ada. Today you decide whether the receiving plot is ready for the pilot."
   takeaway: "Prepare the receiving soil and water before planting. ---"
-  segue: "Mission decision: Prepare the receiving soil and water before planting. The dry soil fails the plant test."
+  segue: "But Ivo has no dawn pass yet. A bright noon cannot clear the whole day."
   # The mission card's own "Primer concepts", printed on the plan card.
   terms:
   - {name: "Nitrogen fixation", def: "Conversion of nitrogen gas into biologically usable reduced nitrogen."}
@@ -155,10 +155,10 @@
       tolerance: 0.05
       units: plants/week
       labels:
-        - r
-        - N
-        - unused fraction
-        - K
+        - "0.5"
+        - "40"
+        - "0.5"
+        - "80"
       values:
         - 0.5
         - 40
@@ -170,7 +170,7 @@
         - 2
       slots: 3
       formula: a*b*c
-      template: "{0} {1} {2} → plants/week"
+      template: "{0} × {1} × {2} = ? plants/week"
       solution: "10"
 
   # --- Stop 51: Separate site constraints

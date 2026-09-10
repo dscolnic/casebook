@@ -213,8 +213,8 @@
     scene: "The response test is zero, but the certificate needs records as well as an intact seal. Verify serial number, delivery time, power history, and installation sign-off before closing this causal branch."
     motivation: "Delivery and power records determine whether the controller belongs in the October causal account."
     format: ATTEST
-    question: "Submit one selected-claims attestation about the replacement controller's serial, delivery date, power history, and installation sign-off; select only claims backed by the displayed records."
-    answerText: "The replacement arrived after the event, was never powered, and has no installation sign-off."
+    question: "Sign only the record-backed history of the sealed replacement, not a nonexistent installation. Read the displayed source excerpts, then select every supported claim and leave unsupported claims unsigned."
+    answerText: "Each signature is limited to what its source establishes. The unsupported claims lack the specific date, physical condition, independence or scope they assert."
     why: "All three facts exclude it from the October causal chain."
     # wrong-path feedback, one rebuttal per wrong option:
     #   (signoff) No installation sign-off exists; the order and serial records prove possession of the crate, not installation in the ride.

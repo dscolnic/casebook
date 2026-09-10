@@ -280,11 +280,11 @@
     title: "Allocate shared capacity"
     concept: 35   # Resource coupling
     reason: "Three rides are ready for scheduling, but they cannot all use the shared supply at once."
-    scene: "The three rides need operating power, monitoring, and a protected emergency reserve. Allocate the 100-point block so the schedule runs two rides at once without losing required emergency shutdown capacity."
+    scene: "The operating plan schedules the Carousel and Pirate Ship together, with the Ferris Wheel in the next block. Check that this schedule retains monitoring and shutdown capacity."
     motivation: "The capacity allocation selects a workable ride pair while preserving emergency shutdown reserve."
     format: ALLOCATE
-    question: "From a 100-point shared-capacity pool, submit one numerical allocation among Carousel 24, Pirate Ship 28, Ferris Wheel 30, independent monitoring 8, and protected shutdown reserve 18; run exactly two rides now, fund monitoring, protect reserve, and identify the deferred ride."
-    answerText: "Run Carousel and Pirate Ship with monitoring and protected reserve; schedule the Ferris Wheel in the next block."
+    question: "You have 100 capacity points. Cover every required outcome at the lowest total cost within the budget; keep all unused capacity in reserve. Select whole packages, then submit the plan; the board shows its total and remaining reserve for you to check."
+    answerText: "Each funded package supplies a required outcome; an affordable package that leaves one unresolved is insufficient."
     why: "All three together exceed the pool. Sequential operation preserves the required 18-point shutdown reserve."
     # wrong-path feedback, one rebuttal per wrong option:
     #   Do not spend protected reserve to make an impossible simultaneous schedule appear possible.

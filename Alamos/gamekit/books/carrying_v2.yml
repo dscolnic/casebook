@@ -944,10 +944,10 @@ missions:
     title: "Convert depth to volume"
     concept: 4   # unit conversion
     reason: "The rainfall balance is complete, but the council needs recharge as a usable water volume."
-    scene: "With recharge depth established, Nkemdi needs the amount of water entering the usable aquifer area. Convert the depth across the mapped recharge zone without counting paved harbour land."
+    scene: "The recharge estimate has to match the aquifer's volume ledger. The catchment map and annual depth use different units."
     motivation: "Recharge depth over the mapped aquifer area sets the annual groundwater supply available for withdrawal planning."
     format: BALLPARK
-    question: "Assemble and submit annual recharge volume using 150 mm/yr, 0.001 m/mm, and 1.20 km² of recharge area with 1,000,000 m²/km². Answer in m³/yr."
+    question: "Recharge depth is 150 mm/year across 1.2×10⁶ m². Fill depth in metres and area to calculate annual volume."
     # THE BIBLE'S PAYLOAD, converted. The bible's four `labels` tokens become the
     # four tiles, each carrying the value the bible gives it; `slots: 4` and
     # `correct: [0,1,2,3]` are its `formula=product`. Its `tolerance=0.02` is a
@@ -991,11 +991,11 @@ missions:
     title: "Freeze the estimate"
     concept: 34   # model validation
     reason: "The average recharge estimate must face dry years before it becomes a drinking-water allowance."
-    scene: "The volume calculation fits the first ten years, so the dry years remain hidden. Freeze one planning rule before four unseen years appear and expose whether the mean is safe."
+    scene: "The long-run average hides dry years. Freeze the candidate withdrawal rules before checking which best limits failure in the withheld record."
     motivation: "The held-out years determine whether the planning rule includes restrictions when replenishment falls below demand."
     format: HOLDOUT
-    question: "Fit either mean recharge, 20th-percentile recharge, or wet-year recharge to years 1-10; click FREEZE; reveal years 11-14; submit the rule that keeps withdrawal below recharge in at least three of four years."
-    answerText: "The completed check shows use 144,000 m³/yr; it passes 151k, 146k, and treats 139k/128k as trigger years requiring restrictions."
+    question: "Freeze all three withdrawal rules, then reveal years 11–14. Select the rule that exceeds annual recharge in the fewest years; if tied, choose the lower total shortfall. Report how many years still fail rather than declaring the plan drought-safe."
+    answerText: "The rule passes the 151,000 and 146,000 years, but 144,000 exceeds 139,000 and 128,000. This is the best of the listed candidates, not a guarantee; drought restrictions remain necessary."
     why: "Holdout years test generalization; wet or mean rules overfit favorable conditions."
     # wrong-path feedback, one rebuttal per wrong option:
     #   Choosing the wet-year or mean rule overfits favorable years; choosing a rule that fails more than one hidden dry year violates the stated three-of-four criterion.
@@ -1064,11 +1064,11 @@ missions:
     person: okafor
     concept: 8   # uncertainty margin
     reason: "The dry-year test leaves measurement bias as an unresolved risk in the withdrawal allowance."
-    scene: "Because 144,000 m³/yr survives most held-out years, only measurement bias can still overturn it. Stress the estimate across the hand-gauge range and choose a ceiling the council can defend."
+    scene: "The lowest-failure withdrawal rule still fails in two withheld dry years. Test measurement bias separately and retain the drought restrictions."
     motivation: "The bias-adjusted recharge ceiling determines how much water the council can promise without using the optimistic end of the range."
     format: STRESS
-    question: "Move annual rainfall bias from -5% to +5%; observed planning recharge is 144,000 m³/yr. Submit one ceiling from 136,800, 144,000, 151,200, or 180,000 m³/yr that never exceeds corrected recharge."
-    answerText: "The completed check shows 144,000 x 0.95 = 136,800 m³/yr; adopt that conservative ceiling."
+    question: "For observed planning recharge 144,000 m³/year, use corrected recharge=144,000(1+b) with b from −0.05 to +0.05. Select the largest listed ceiling never exceeding corrected recharge in this bias test."
+    answerText: "136,800 m³/year survives this measurement-bias range. It still exceeds the withheld 128,000 dry year, so passing this test does not remove drought-triggered restrictions."
     why: "Negative bias lowers credible recharge; feedback shows which candidates fail at -5%."
     # wrong-path feedback, one rebuttal per wrong option:
     #   A ceiling of 144,000 m3/year or more ignores the -5% rainfall bias; 180,000 uses the unprotected mean rather than the minimum credible recharge.
@@ -1269,10 +1269,10 @@ missions:
     title: "Count usable plant energy"
     concept: 3   # GPP/NPP and 10% law
     reason: "The groundwater limit does not establish how many grazing animals the common can feed."
-    scene: "The water ceiling is now fixed, but the common can still be overstocked by counting all captured sunlight. Calculate usable plant production, then follow its loss to grazing animals."
+    scene: "The food-web budget starts with energy the producers retain. Respiration must be paid before consumer transfer is estimated."
     motivation: "Net plant production and transfer to herbivores set the energy available for stocking the common."
     format: BALLPARK
-    question: "First calculate NPP from GPP 18,000 kJ/m²/yr and plant respiration 8,000 kJ/m²/yr. Then apply 10% transfer and submit herbivore production in kJ/m²/yr."
+    question: "GPP is 18,000 and producer respiration 8,000 kJ/m²/year. At 10% transfer, fill GPP, respiration and transfer fraction in (GPP−R)×fraction."
     # THE BIBLE'S PAYLOAD, converted. Its three `estimate.values` become the three
     # tiles and its `formula="(GPP-R)*0.10"` the template; respiration is written
     # as the positive 8,000 the bible's own question states and subtracted by the
@@ -1356,10 +1356,10 @@ missions:
     person: vale
     concept: 7   # generalist/specialist, island biogeography, life history preview
     reason: "The recovery map shows that habitat damage will not affect every island species equally."
-    scene: "Because damaged soils recover at different rates, species using them also face different risk. Sort a broad-diet generalist and a narrow-habitat specialist for monitoring, protection, or routine watch."
+    scene: "The island survey records different recovery capacities and habitat risks. Iona must prioritize protection using those local observations, not species names alone."
     motivation: "Species specialization and breeding vulnerability determine which populations need protection before ferry expansion."
     format: TRIAGE
-    question: "Assign island rat, cliff-nesting petrel, fast-growing grass, and slow-breeding seal to routine, monitor, or protect first; submit one complete triage."
+    question: "Assign every species to routine, monitor or protect first. Protect first when breeding depends on the threatened irreplaceable habitat; monitor slow-replacing populations with alternative habitat; use routine watch for the widespread rapidly recovering generalists."
     # THE BIBLE'S PAYLOAD, converted. Its four keyed species become the options,
     # named as this stop's own prompt names them, and its `answer=petrel` is the
     # one to protect first. The bible's per-species rebuttals stay in the
@@ -1370,7 +1370,7 @@ missions:
     - "Fast-growing grass"
     - "Slow-breeding seal"
     answer: "Cliff-nesting petrel"
-    answerText: "The completed check shows protect the petrel first; monitor the seal; routine watch for the generalists."
+    answerText: "The petrel has the narrowest threatened breeding requirement in this specific survey. Slow replacement warrants seal monitoring, while the generalists have more recovery routes."
     why: "Narrow niches and isolation limit recolonization; feedback contrasts niche breadth."
     # wrong-path feedback, one rebuttal per wrong option:
     #   Protecting the rat or grass first favors fast-growing generalists; treating the slow-breeding seal as routine ignores its low replacement rate, while the cliff petrel has the narrowest habitat.
@@ -1916,10 +1916,10 @@ missions:
     title: "Measure catch per unit effort"
     concept: 19   # catch per unit effort | population limits | D1 trace | RETRIEVE | L2 | clue
     reason: "The recovered boat-hour records can test whether unchanged landings conceal a weakening fish stock."
-    scene: "The paper column recovered on Day 1 includes boat-hours that the electronic sales record omitted. Calculate catch per unit effort in two years to test whether steady landings mean a steady stock."
+    scene: "The catch total looks unchanged, but the fleet worked longer to obtain it. The crew compares catch per hour before calling the stock stable."
     motivation: "Catch per boat-hour distinguishes stable extraction from the growing effort required to obtain it."
     format: BALLPARK
-    question: "\"Using 960 t/4,800 boat-h in Year 1 and 960 t/8,000 boat-h in Year 5, submit both rates in kg/boat-h and the percent decline.\""
+    question: "Year 1 catch is 960 tonnes in 4,800 hours; year 5 is 960 tonnes in 8,000 hours. Compute each CPUE in kg/hour and place the two rates in (early−late)/early×100."
     # THE BIBLE'S PAYLOAD, converted. Its `formula=1000*tonnes/hours` is the
     # panel's formula and its first truth, 200 kg/boat-h, the target; its
     # `tolerance=1%` becomes the engine's absolute 2 kg/boat-h. The engine grades
@@ -2043,11 +2043,11 @@ missions:
     title: "Fund an enforceable ceiling"
     concept: 18   # commons governance | policy instruments | 5
     reason: "The measured replacement rate needs an enforceable fishing plan rather than a numerical promise alone."
-    scene: "The recovery test limits annual replacement to about 120 fish at the present stock. Allocate enforcement capacity so catch, effort, habitat, and data all support a ceiling below that replacement."
+    scene: "The current stock replaces about 120 fish each year, and the adopted catch ceiling is 100. Enforcement needs a way to count catch, track effort, protect the nursery and check the stock independently."
     motivation: "The allocation determines whether catch limits, effort checks, habitat protection, and data collection support the same sustainable ceiling."
     format: ALLOCATE
-    question: "\"Allocate 100 points and submit a plan: catch tags 30 required; boat-hour log 20 required; nursery closure 25 protected; independent survey 15; advertising 20; larger dock 25. Fund all required/protected items without exceeding 100.\""
-    answerText: "The completed check shows 90-point four-part plan; catch ceiling 100 fish/year, below 120 replacement."
+    question: "You have 100 enforcement points. Cover every required outcome at the lowest total cost within the budget; keep all unused capacity in reserve. Select whole packages, then submit the plan; the board shows its total and remaining reserve for you to check."
+    answerText: "Each funded package supplies a required outcome; an affordable package that leaves one unresolved is insufficient."
     why: "Shared resources avoid tragedy only when access and compliance are governed"
     # wrong-path feedback, one rebuttal per wrong option:
     #   Feedback identifies the first violated mechanism, unit, limit, or unsupported inference and allows a retry.
@@ -2144,7 +2144,7 @@ missions:
   - id: after-stop-22
     # After Stop 22 | common-map | automatic
     on: { after: [2] }
-    world: "At council-table, the dated accepted-result slip for Stop 22 reads: \"tags+checks=35\". The slip remains in that fixture's evidence holder."
+    world: "At council-table, the dated accepted-result slip for Stop 22 reads: \"tags+camera=40\". The slip remains in that fixture's evidence holder."
     panel: "STOP 22 RECORDED - STOP 23 OPEN"
     # unlocks: Unlock Stop 23 at common-map in Common Office.
     bubbles:
@@ -2246,11 +2246,11 @@ missions:
     person: voss
     concept: 34   # compliance records | evidence | D5 | PRACTICE | L3 | obstacle
     reason: "The posted catch ceiling cannot protect the nursery if a landing's origin is unknown."
-    scene: "The fish ceiling is posted, but four landing claims support the morning catch. Verify identity, time, mass, and nursery-zone origin before any catch receives a legal tag."
+    scene: "The landing papers establish identity and mass, but the catch location is still disputed. A paid fee cannot establish whether fishing occurred inside the nursery."
     motivation: "The verified landing records determine whether this catch can receive a legal tag under the nursery restriction."
     format: ATTEST
-    question: "verify at most 3 of 5 claims and reject any critical unbacked claim"
-    answerText: "The completed check shows nursery-zone origin is unbacked; hold catch."
+    question: "Use the three required checks on license, mass and nursery origin. Authorize the landing only if all three are supported; a missing origin record requires a hold."
+    answerText: "A landing timestamp or fee receipt does not locate the fishing activity. The next evidence budget must therefore include direct location coverage."
     why: "a receipt proves payment, not ecological compliance"
     # wrong-path feedback, one rebuttal per wrong option:
     #   Feedback identifies the first violated mechanism, unit, limit, or unsupported inference and allows a retry.
@@ -2291,10 +2291,10 @@ missions:
     person: voss
     concept: 34   # monitoring design | policy | 6
     reason: "The held landing reveals an origin-checking gap that the monitoring budget must close."
-    scene: "Because the catch cannot prove where it was taken, the council has forty monitoring credits. Buy records that can reveal both total extraction and nursery violations."
+    scene: "The disputed catch lacks a verified nursery-zone origin. The council needs both a catch total and direct location evidence before treating enforcement as complete."
     motivation: "The purchased evidence must reveal both total extraction and nursery violations within the available credits."
     format: VALUE
-    question: "choose within 40: electronic tags 20 required, random dock checks 15 required, poster 8, fisher survey 12, larger sign 10"
+    question: "You have 40 monitoring credits. Cover every required outcome at the lowest total cost within the budget; keep all unused capacity in reserve. Select whole packages, then submit the plan; the board shows its total and remaining reserve for you to check."
     # THE BIBLE'S PAYLOAD, converted. Its `budget`, its five options with their
     # `axis` and `cost`, and its `correct_purchase` transfer directly; the
     # bible's `required: true` is the engine's `decisive`, which is what marks an
@@ -2310,7 +2310,7 @@ missions:
       - { id: public_ad, label: Public advertisement, cost: 10, axis: awareness }
       - { id: seller_survey, label: Seller survey, cost: 15, axis: self-reported behavior }
       commit: Buy the records
-    answerText: "The completed check shows tags+checks=35."
+    answerText: "Each funded package supplies a required outcome; an affordable package that leaves one unresolved is insufficient."
     why: "evidence has value only if it can change enforcement"
     # wrong-path feedback, one rebuttal per wrong option:
     #   Feedback identifies the first violated mechanism, unit, limit, or unsupported inference and allows a retry.
@@ -2369,10 +2369,10 @@ missions:
     person: voss
     concept: 20   # agriculture trade-offs | policy | 6
     reason: "The matched land practices need a funded package before the common can implement them."
-    scene: "With practices matched to mechanisms, the common needs a 100-point package. Balance crop yield, soil health, runoff, and enforcement while rejecting a single-method cure."
+    scene: "The growing plan has several distinct risks. The council requires nutrient control, efficient irrigation, pest management, runoff protection and monitoring of the proposed modified crop."
     motivation: "The allocation determines whether soil, irrigation, pest, buffer, and crop-monitoring needs are covered together."
     format: SCIENCETANK
-    question: "Allocate exactly 100 points among soil testing 20, drip irrigation 25, integrated pest management (IPM) 25, buffer strips 20, blanket pesticide 30, and genetically modified organism (GMO) monitoring 10. Submit one workable allocation."
+    question: "You have 100 planning points. Cover every required outcome and allocate the whole budget. Select whole packages, then submit the plan; the board shows its total and remaining reserve for you to check."
     # THE BIBLE'S PAYLOAD, converted. Its six proposals and their costs become the
     # tank's proposals, and its `recommended` map — the five that total its
     # `truth_total` of 100 — the graded distribution, keyed by label. Its
@@ -2386,7 +2386,7 @@ missions:
     - { label: GMO monitoring, text: "Costs 10 points." }
     recommended: { Soil testing: 20, Drip irrigation: 25, IPM: 25, Buffer strips: 20, GMO monitoring: 10 }
     evidence: "The council already holds four lines of evidence on the common: crop yield, soil health, nitrate runoff, and pesticide resistance."
-    answerText: "The integrated five-part package protects yield, soil, water, and resistance monitoring without funding blanket pesticide use."
+    answerText: "Each funded package supplies a required outcome; an affordable package that leaves one unresolved is insufficient."
     why: "Green Revolution tools raise yield but can increase pollution, resistance, and monoculture"
     # wrong-path feedback, one rebuttal per wrong option:
     #   Feedback identifies the first violated mechanism, unit, limit, or unsupported inference and allows a retry.
@@ -2701,11 +2701,11 @@ missions:
     person: voss
     concept: 9   # repair priority | policy | 7
     reason: "The missing distribution water and the leachate pathway now compete for the same repair budget."
-    scene: "The pipe loses 50 cubic metres each day, while leachate threatens the same aquifer over a longer path. Spend sixty repair credits without abandoning contamination control."
+    scene: "The main loses water and the waste cell threatens the aquifer. The work order must locate the leak before repair and keep contamination testing funded."
     motivation: "The selected repairs determine whether immediate quantity loss is addressed without abandoning aquifer contamination control."
     format: VALUE
-    question: "From acoustic leak location 15, main repair 30, leachate liner test 15, cosmetic fence 12, and gas flare study 10, submit a plan costing at most 60 credits"
-    answerText: "The completed check shows locate and repair the main and test the leachate liner for exactly 60 credits."
+    question: "You have 60 repair credits. Cover every required outcome at the lowest total cost within the budget; keep all unused capacity in reserve. Select whole packages, then submit the plan; the board shows its total and remaining reserve for you to check."
+    answerText: "Each funded package supplies a required outcome; an affordable package that leaves one unresolved is insufficient."
     why: "Choose the repair priority connects the measured environmental mechanism to the next island condition."
     # wrong-path feedback, one rebuttal per wrong option:
     #   The retry identifies the first incorrect mechanism, unit, unsupported claim, omitted requirement, or violated constraint.
@@ -2945,10 +2945,10 @@ missions:
     title: "Compare child and adult dose"
     concept: 29   # dose | pollution | 8
     reason: "The school-branch finding makes body-size differences relevant to the exposure decision."
-    scene: "Because the increase begins on the school branch, concentration alone understates who is at risk. Calculate daily nitrate dose for a child and an adult."
+    scene: "The same water concentration reaches bodies of different size. The exposure comparison has to account for intake and body mass."
     motivation: "Dose per kilogram determines whether the same water concentration exposes children more heavily than adults."
     format: BALLPARK
-    question: "Apply dose=concentration*intake/body mass using 11.2 mg/L, child 1.0 L/day and 20 kg, adult 2.0 L/day and 70 kg; submit the pair in mg/kg/day"
+    question: "Concentration is 11.2 mg/L. A 20 kg child drinks 1 L/day; a 70 kg adult drinks 2 L/day. Compute each dose C×intake/mass in mg/(kg·day), then place child and adult doses in (child/adult−1)×100."
     # THE BIBLE'S PAYLOAD, converted. Its `equation` and both `cases` supply the
     # five tiles, each worth exactly what the bible gives it. The engine grades
     # ONE number, so the board is the child case — the first of the bible's two
@@ -3383,11 +3383,11 @@ missions:
     title: "Fund source controls"
     concept: 21   # integrated controls | policy | 9
     reason: "The compost test and source map now provide evidence for allocating prevention effort."
-    scene: "The compost test supplies a safer nutrient source, while the casebook locates remaining pathways. Allocate one hundred control points across confirmed sources."
+    scene: "The source map identifies several routes into the reef's water. The council must cover each confirmed route rather than rely on one general cleanup."
     motivation: "The funded controls determine which confirmed pollutant sources the island will intercept before another exposure occurs."
     format: ALLOCATE
-    question: "Fund liner and cap 25, tertiary nutrient removal 25, integrated pest management (IPM) 20, drip irrigation 15, and rain garden 15; reject clearcut subsidy 25 and blanket pesticide 20."
-    answerText: "The completed check shows the five source controls use all 100 points."
+    question: "You have 100 control points. Cover every required outcome and allocate the whole budget. Select whole packages, then submit the plan; the board shows its total and remaining reserve for you to check."
+    answerText: "Each funded package supplies a required outcome; an affordable package that leaves one unresolved is insufficient."
     why: "Fund source controls connects the measured environmental mechanism to the next island condition."
     # wrong-path feedback, one rebuttal per wrong option:
     #   The retry identifies the first incorrect mechanism, unit, unsupported claim, omitted requirement, or violated constraint.
@@ -3721,11 +3721,11 @@ missions:
     person: voss
     concept: 19   # sustainable plan | population limits | D5 | TRANSFER | L5 | decision
     reason: "The combined reef pressures make the original catch ceiling vulnerable to poor nursery recruitment."
-    scene: "The reef now faces nutrient, heat, fishing, and acidification pressure. Stress the catch ceiling across uncertain nursery recruitment."
+    scene: "Nursery recruitment may be lower than the earlier estimate. The catch ceiling must remain below replacement across the full supported range."
     motivation: "The low-recruitment comparison determines which catch limit remains below replacement in a bad year."
     format: STRESS
-    question: "Move recruitment from 80 to 130 fish and select among a fixed 100-fish catch, 70-fish precautionary catch, 130-fish catch, or no cap; submit the ceiling that stays below replacement"
-    answerText: "The completed check shows use 70 fish in low-recruitment years."
+    question: "Sweep replacement from 80 to 130 fish per year. Select the largest listed catch ceiling strictly below replacement throughout; no cap supplies no finite bound."
+    answerText: "70 fish per year remains below even the 80-fish lower bound. The 100-fish ceiling no longer survives the low-recruitment case."
     why: "Stress the catch ceiling connects the measured environmental mechanism to the next island condition."
     # wrong-path feedback, one rebuttal per wrong option:
     #   The retry identifies the first incorrect mechanism, unit, unsupported claim, omitted requirement, or violated constraint.
@@ -3971,10 +3971,10 @@ missions:
     title: "Calculate capacity factor"
     concept: 26   # capacity factor | energy | 11
     reason: "The small evening reserve makes the turbine's nameplate claim insufficient for supply planning."
-    scene: "The peak ledger leaves only fifteen kilowatts, and the turbine plate promises 250 kilowatts. Replace nameplate power with annual performance."
+    scene: "The turbine's nameplate describes capacity, not the energy it actually delivered. The annual log is ready for comparison."
     motivation: "Annual capacity factor distinguishes rated turbine power from the energy the island actually receives over a year."
     format: BALLPARK
-    question: "Apply capacity factor=680000 kWh/(250 kW*8760 h); submit one percent"
+    question: "Annual generation is 680,000 kWh. Rated power is 250 kW and the year has 8,760 hours. Fill generation,power,hours in capacity factor=energy/(power×time)×100."
     # THE BIBLE'S PAYLOAD, converted. Its three `inputs` become the three tiles
     # and its `equation` the template; `truth: 31.1` is the target and its
     # `tolerance: 0.2` is already an absolute band on a percentage.
@@ -4056,10 +4056,10 @@ missions:
     person: voss
     concept: 23   # energy portfolio | energy and policy | 11
     reason: "The council now has both measured wind performance and backup pollution costs to fund together."
-    scene: "Actual wind output and backup pollution are now counted together. Spend one hundred planning points on firm supply and controls."
+    scene: "Measured wind output is below its nameplate promise, and backup generation has pollution costs. The council requires a package addressing both demand reductions, storage, repair and exhaust control."
     motivation: "The energy portfolio determines whether firm supply and pollutant controls survive the same planning budget."
     format: SCIENCETANK
-    question: "Fund insulation 20, LEDs 10, battery 25, wind repair 25, and backup pollution controls 20; reject diesel expansion 40 and unfirmed solar 35"
+    question: "You have 100 energy-planning points. Cover every required outcome and allocate the whole budget. Select whole packages, then submit the plan; the board shows its total and remaining reserve for you to check."
     # THE BIBLE'S PAYLOAD, converted. Its seven proposals carry the point cost
     # written into each name, and its `recommended` list — the five that total the
     # pool of 100 — becomes the graded distribution, keyed by label.
@@ -4072,7 +4072,7 @@ missions:
     - { label: Diesel expansion, text: "Costs 40 points." }
     - { label: Unfirmed solar, text: "Costs 35 points." }
     recommended: { Insulation: 20, LEDs: 10, Battery: 25, Wind repair: 25, Backup pollution controls: 20 }
-    answerText: "The completed check shows the five-part portfolio totals 100 and preserves firm reserve."
+    answerText: "Each funded package supplies a required outcome; an affordable package that leaves one unresolved is insufficient."
     why: "Fund the energy portfolio connects the measured environmental mechanism to the next island condition."
     # wrong-path feedback, one rebuttal per wrong option:
     #   The retry identifies the first incorrect mechanism, unit, unsupported claim, omitted requirement, or violated constraint.
@@ -4235,11 +4235,11 @@ missions:
     person: voss
     concept: 34   # feasibility | evidence | D6 compliance | RETRIEVE | L3 | obstacle
     reason: "The energy portfolio still depends on a gearbox delivery date that has not been verified."
-    scene: "The portfolio assumes repaired wind before ferry day, but the crated gearbox carries several schedule claims. Verify its evidence before counting that power."
+    scene: "The wind repair is ordered, but the ferry plan needs generation available by the vote. Read the delivery record before counting future power."
     motivation: "The schedule evidence determines whether repaired wind can count as firm supply before the ferry vote."
     format: ATTEST
-    question: "Verify at most three claims among order date, shipment status, fitting crew, and completion by vote; reject the critical unbacked completion claim"
-    answerText: "The completed check shows wind is not firm power before the vote."
+    question: "A purchase, shipment or booked crew does not establish completed installation. Read the displayed source excerpts, then select every supported claim and leave unsupported claims unsigned."
+    answerText: "Each signature is limited to what its source establishes. The unsupported claims lack the specific date, physical condition, independence or scope they assert."
     why: "Audit the gearbox schedule connects the measured environmental mechanism to the next island condition."
     # wrong-path feedback, one rebuttal per wrong option:
     #   The retry identifies the first incorrect mechanism, unit, unsupported claim, omitted requirement, or violated constraint.
@@ -4366,11 +4366,11 @@ missions:
     title: "Allocate firm power"
     concept: 26   # firm critical loads | energy | 12
     reason: "The exhaust repair makes the backup source usable, but protected loads must fit its limited output."
-    scene: "Captured methane can run safely after the exhaust repair, but its output is limited. Allocate 180 kilowatts across protected services."
+    scene: "The repaired methane system can support only a limited set of simultaneous loads. Water, school, treatment, food refrigeration and household service are all designated essential for this block."
     motivation: "The power allocation determines whether every essential service can be supplied without exceeding the firm generation available."
     format: ALLOCATE
-    question: "Allocate water pumps 55, school 20, treatment 35, ferry refrigeration 30, and homes 40; exclude decorative berth lighting 25"
-    answerText: "The completed check shows all five essential/protected loads receive exactly 180 kW."
+    question: "You have 180 kW. Cover every required outcome and allocate the whole budget. Select whole packages, then submit the plan; the board shows its total and remaining reserve for you to check."
+    answerText: "Each funded package supplies a required outcome; an affordable package that leaves one unresolved is insufficient."
     why: "Allocate firm power connects the measured environmental mechanism to the next island condition."
     # wrong-path feedback, one rebuttal per wrong option:
     #   The retry identifies the first incorrect mechanism, unit, unsupported claim, omitted requirement, or violated constraint.
@@ -4949,10 +4949,10 @@ missions:
     title: "Calculate population growth"
     concept: 10   # population growth | populations | 14
     reason: "The age pattern needs confirmation from births and deaths before a growth forecast is used."
-    scene: "The age structure suggests decline, yet births and deaths must test that reading. Calculate natural growth and interpret the Rule of 70."
+    scene: "The population ledger records more deaths than births. The team checks the sign before applying a growth shortcut."
     motivation: "Natural population growth determines whether projecting a future doubling is meaningful for the island."
     format: BALLPARK
-    question: "Population growth rate is PGR=(births-deaths)/population*100. Using 3 births, 6 deaths, and 300 people, submit PGR in percent per year and decide whether the Rule of 70 doubling-time estimate, 70 divided by a positive growth rate, applies."
+    question: "In one year a population of 300 has 3 births and 6 deaths, with no migration. Fill births,deaths,population in (births−deaths)/population×100."
     # THE BIBLE'S PAYLOAD, converted. Its three `inputs` become the three tiles
     # and its `equation` the template; `truth: -1.18` is the target and its
     # `tolerance: 0.02` is already an absolute band on a percentage.
@@ -5033,11 +5033,11 @@ missions:
     person: voss
     concept: 22   # footprint and demand | population and policy | 14
     reason: "The combined person-day estimate still needs testing against uncertain per-person resource use."
-    scene: "The common ledger now includes 12,300 July person-days, not just resident head count. Stress per-person footprint and select the correct load definition."
+    scene: "July demand includes visitors as well as residents. The council must distinguish seasonal service use from long-term school planning."
     motivation: "The footprint range determines how the visitor cap must depend on available water and waste capacity."
     format: STRESS
-    question: "Move footprint from 1.8 to 5 hectares/person; submit person-days for seasonal services, age structure for long-term school demand, and a visitor cap tied to water and waste triggers"
-    answerText: "The completed check shows plan for 12,300 July person-days and condition the cap on water and waste."
+    question: "Inspect the footprint range 1.8–5.0 ha/person. Select the plan using the recorded July person-days for seasonal services, age structure for school demand, and water/waste triggers for visitor limits; do not convert hectares directly into a water allowance."
+    answerText: "Use 12,300 July person-days for seasonal service planning, age structure for school demand, and conditional visitor limits. The footprint range alone cannot yield a numerical visitor cap."
     why: "Stress the human-demand forecast connects the measured environmental mechanism to the next island condition."
     # wrong-path feedback, one rebuttal per wrong option:
     #   The retry identifies the first incorrect mechanism, unit, unsupported claim, omitted requirement, or violated constraint.
@@ -5133,7 +5133,7 @@ missions:
   - id: after-stop-58
     # After Stop 58 | sampler | automatic
     on: { after: [2] }
-    world: "At delivery-board, the dated accepted-result slip for Stop 58 reads: \"Submit (200 visitors/day, 20% reserve)\". The slip remains in that fixture's evidence holder."
+    world: "At delivery-board, the dated accepted-result slip for Stop 58 reads: \"200 visitors/day with 20% daily service capacity unbooked; check annual water margin separately\". The slip remains in that fixture's evidence holder."
     panel: "STOP 58 RECORDED - STOP 59 OPEN"
     # unlocks: Unlock Stop 59 at sampler in Waterworks.
     bubbles:
@@ -5275,10 +5275,10 @@ missions:
     title: "Collapse the final degeneracy"
     concept: 11   # coupled capacity | uncertainty | all keystones | COMBINE | L5 | crisis
     reason: "The climate review leaves multiple visitor-cap and reserve pairs that fit today's water supply."
-    scene: "Climate pathways are identified, yet visitor cap and drought reserve trade off while matching today's water total. Apply the dry-year constraint to collapse the pair."
+    scene: "Several visitor-cap and contingency-reserve pairs satisfy the modeled drought limit. The council has published a reserve floor so the final choice is not arbitrary."
     motivation: "The dry-year constraint identifies which cap-reserve pair remains feasible when recharge falls."
     format: DEGENERACY
-    question: "Use the two controls visitor cap and drought reserve: adjust visitor cap from 0 to 340 visitors/day in steps of 20 and reserve from 0% to 30% in steps of 5%. Submit the numerical pair satisfying annual withdrawal at or below 136,800 m3/year during a 15% drought before plan choices unlock."
+    question: "Use the supplied feasible-pair table for a 15% drought. Keep at least 20% of daily service capacity unbooked, then select the feasible pair allowing the most visitors per day."
     # THE BIBLE'S PAYLOAD, converted. Its two `controls` keep their min, max and
     # step; `locus_today` is the family of pairs that all satisfy the constraint
     # today and `locus_drought` the shorter family the drought year leaves, which
@@ -5307,7 +5307,7 @@ missions:
       truth: { a: 200, b: 20 }
       tolerance: { a: 10, b: 2.5 }
       commit: Report the pair
-    answerText: "The completed check shows submit (200 visitors/day, 20% reserve)."
+    answerText: "The 240-visitor pair fails the published reserve floor; the 160-visitor pair passes but serves fewer visitors. This daily capacity reserve is not the annual water-volume margin calculated next."
     why: "Collapse the final degeneracy connects the measured environmental mechanism to the next island condition."
     # wrong-path feedback, one rebuttal per wrong option:
     #   The retry identifies the first incorrect mechanism, unit, unsupported claim, omitted requirement, or violated constraint.
@@ -5326,7 +5326,7 @@ missions:
     title: "Verify the independent water sample"
     concept: 34   # final water check | causality and evidence | D2,D4,D8 | TRANSFER | L5 | verification
     reason: "The selected visitor cap needs an independent water check before the council can approve it."
-    scene: "The dry-year constraint leaves a 200-visitor cap with 20% reserve. Verify final quantity and quality with an independent sample."
+    scene: "The dry-year plan uses a 200-visitor cap; its annual water margin still needs checking. Verify final quantity and quality with an independent sample."
     motivation: "The remaining water margin and measured nitrate and chloride determine whether the cap meets both quantity and quality conditions."
     format: VERIFY
     question: "CALCULATE AND COMMIT margin=136800-132000 in m3/year; OPERATE the sampler with pump and time fixed; MEASURE nitrate and chloride; INTERPRET PASS only below 10.0 and 250 mg/L; no restoration"

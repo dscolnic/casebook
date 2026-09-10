@@ -152,10 +152,10 @@
     title: "Estimate the energy scale"
     concept: 13   # kinetic energy
     reason: "The intensified response now needs an impact-energy scale rather than probability alone."
-    scene: "Use diameter 260 meters, density 1,800 kilograms per cubic meter, and impact speed 19 kilometers per second. Estimate mass, kinetic energy, and TNT equivalent closely enough to catch a thousandfold unit mistake."
+    scene: "The size and density model now meets the entry-speed estimate. The energy scale will shape the consequence assessment."
     motivation: "Mass and kinetic energy establish the approximate physical consequence scale that the corridor assessment must consider."
     format: BALLPARK
-    question: "Submit three numerical results with units: mass in kilograms, kinetic energy in joules, and TNT equivalent in megatons."
+    question: "Model a sphere of diameter 260 m and density 1,800 kg/m³; m=ρπD³/6. Speed is 19,000 m/s. Choose the calculated mass and speed in E=½mv²/(4.184×10¹⁵) to express energy in megatons TNT."
     # Converted from the payload's `estimate`. The payload's `slots` name the
     # three results it wants, not the tiles; the engine's slots are tiles, so the
     # board carries the four quantities the payload's own `values` state — D, ρ,
@@ -334,10 +334,10 @@
     person: park
     concept: 18   # value of information
     reason: "The consequence assessment leaves limited observing time for the uncertainty that most affects tomorrow's action."
-    scene: "Choose the measurement with the largest expected change to tomorrow's protective decision."
+    scene: "The remaining trajectories split between ocean and populated land. Evelyn needs evidence that can change which places require protection tomorrow."
     motivation: "The selected measurement determines whether the next data can change corridor protection rather than merely refine a settled quantity."
     format: VALUE
-    question: "Spend at most 10 observing hours and select the option with the greatest immediate decision value."
+    question: "You have 10 observing hours. Cover every required outcome at the lowest total cost within the budget; keep all unused capacity in reserve. Select whole packages, then submit the plan; the board shows its total and remaining reserve for you to check."
     # Converted from the payload's `value`. Its `budget` object becomes the
     # engine's; each option keeps its own id, label, cost and axis, and its
     # `decision_change` line becomes what the option `reveals`. The payload's
@@ -350,7 +350,7 @@
       - { id: composition, label: Refine composition class, cost: 4, axis: material, reveals: moderate decision change }
       - { id: corridor, label: Separate ocean from populated-land timing, cost: 10, axis: exposure, reveals: large decision change, decisive: true }
       - { id: brightness, label: Repeat the brightness curve, cost: 3, axis: reflected_light, reveals: small decision change }
-    answerText: "All four improve knowledge, but only timing can remove millions of people from the current action envelope tomorrow."
+    answerText: "Each funded package supplies a required outcome; an affordable package that leaves one unresolved is insufficient."
     why: "VALUE ranks observations by expected decision improvement under scarcity."
     # wrong-path feedback, one rebuttal per wrong option:
     #   Precision is useful only when it can alter the choice facing the team.

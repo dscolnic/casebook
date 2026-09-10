@@ -11,7 +11,7 @@
   objective: "Decide whether the town should use the uncorrected freight quantity as its efficiency target."
   stake: "The firms may move more freight, but the water bill grows. People down the stream pay a cost left out of the price. Today you decide if the freight goal should change. By the end of the mission, you will add that harm to the count."
   takeaway: "The freight agreement now needs both access and a water-cost rule."
-  segue: "Mission decision: Use thirty freight units as the goal once harm is counted. The old goal left out a water cost. The plan gains a water rule. A filter quote may cut the cost of that rule."
+  segue: "So Owen needs affordable filters, but a border tax could raise the cost of his water plan."
   # The mission card's own "Primer concepts", printed on the plan card.
   terms:
   - {name: "External cost", def: "A cost imposed on people outside a transaction."}

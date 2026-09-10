@@ -11,7 +11,7 @@
   objective: "Resolve whether the largest seed family is enough for the pilot; the new population could start with too little variation."
   stake: "The insect story is clear, but the seed list has just one large family. A small sample can lose gene forms by chance. Count the forms with Nell, then take the list to Ada. Today you decide whether the largest seed family is enough for the pilot."
   takeaway: "Take several tested families and keep a reserve. ---"
-  segue: "Mission decision: Take several tested families and keep a reserve. The largest family lacks two rare alleles."
+  segue: "But Tess spots living partners absent from the list. Healthy plants may still fail without them."
   # The mission card's own "Primer concepts", printed on the plan card.
   terms:
   - {name: "Hardy-Weinberg model", def: "A no-evolution reference model relating allele and genotype frequencies under stated assumptions."}
@@ -92,10 +92,10 @@
       tolerance: 0.05
       units: fraction
       labels:
-        - A copies
-        - total copies
-        - plants
-        - heterozygotes
+        - "24"
+        - "40"
+        - "20"
+        - "8"
       values:
         - 24
         - 40
@@ -106,7 +106,7 @@
         - 1
       slots: 2
       formula: a/b
-      template: "{0} {1} → fraction"
+      template: "{0} / {1} = ? fraction"
       solution: "0.6"
 
   # --- Stop 42: Separate population explanations
@@ -236,15 +236,17 @@
       tolerance: 0.05
       units: "%"
       labels:
-        - two
-        - p
-        - q
-        - percent scale
+        - "2"
+        - "0.6"
+        - "0.4"
+        - "100"
+        - "0.36"
       values:
         - 2
         - 0.6
         - 0.4
         - 100
+        - 0.36
       correct:
         - 0
         - 1
@@ -252,7 +254,7 @@
         - 3
       slots: 4
       formula: a*b*c*d
-      template: "{0} {1} {2} {3} → %"
+      template: "{0} × {1} × {2} × {3} = ? %"
       solution: "48"
 
   # --- Stop 44: Keep several families

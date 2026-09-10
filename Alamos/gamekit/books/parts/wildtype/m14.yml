@@ -11,7 +11,7 @@
   objective: "Resolve whether the full-day pilot clears expansion; a daytime pass could hide a night-time failure."
   stake: "The test looks good by day, but the animals rise to the surface at dawn. Life in the tanks uses oxygen all night. Check the full day with Ivo, then take the facts to Ada. Today you decide whether the full-day pilot clears expansion."
   takeaway: "Hold expansion until the night oxygen problem is corrected. ---"
-  segue: "Mission decision: Hold expansion until the night oxygen problem is corrected. The dawn test falls below the oxygen limit."
+  segue: "Now Ada needs a stop rule before the ship leaves. A corrected test cannot promise every future result."
   # The mission card's own "Primer concepts", printed on the plan card.
   terms:
   - {name: "Net production", def: "Production remaining after the relevant consumption is subtracted."}
@@ -90,10 +90,10 @@
       tolerance: 0.05
       units: mg/L
       labels:
-        - start
-        - loss rate
-        - hours
-        - day production
+        - "8"
+        - "0.5"
+        - "8"
+        - "3"
       values:
         - 8
         - 0.5
@@ -105,7 +105,7 @@
         - 2
       slots: 3
       formula: a-b*c
-      template: "{0} {1} {2} → mg/L"
+      template: "{0}-{1} × {2} = ? mg/L"
       solution: "4"
 
   # --- Stop 54: Read the complete cycle

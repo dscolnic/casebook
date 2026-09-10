@@ -48,7 +48,7 @@
   - id: after-stop-43
     # After Stop 43 | allocation-slate | automatic
     on: { after: [3] }
-    world: "At forecast-table, the dated accepted-result slip for Stop 43 reads: \"The keyed result shown by the completed interaction.\". The slip remains in that fixture's evidence holder."
+    world: "At forecast-table, the dated accepted-result slip for Stop 43 reads: \"Clearing, training, port repair and reserve funded within 100 points.\". The slip remains in that fixture's evidence holder."
     panel: "STOP 43 RECORDED - STOP 44 OPEN"
     # unlocks: Unlock Stop 44 at allocation-slate in COUNTER.
     bubbles:
@@ -218,11 +218,11 @@
     title: "Protect growth engines"
     concept: 15   # growth resources
     reason: "Stabilizers reduce the immediate shock, leaving a limited fund for the temporary response."
-    scene: "The smaller seven-billion shock leaves a limited bridge fund. Allocate 100 points across household clearing, worker retraining, port repair, publicity, and a protected reserve while preserving all required growth investments."
+    scene: "The temporary response still needs payments to clear while people and the port recover capacity. The fund cannot cover every proposal."
     motivation: "The allocation protects household clearing while retaining training and port capacity needed for future output."
     format: ALLOCATE
-    question: "Allocate all 100 and submit the four funded items."
-    answerText: "\"Fund clearing, training, port repair, and reserve.\""
+    question: "You have 100 bridge-fund points. Cover every required outcome and allocate the whole budget. Select whole packages, then submit the plan; the board shows its total and remaining reserve for you to check."
+    answerText: "Each funded package supplies a required outcome; an affordable package that leaves one unresolved is insufficient."
     why: "Human capital, physical capital, and technology shift productive capacity; publicity does not."
     # wrong-path feedback, one rebuttal per wrong option:
     #   A different response does not fit the displayed evidence. Human capital, physical capital, and technology shift productive capacity; publicity does not.
@@ -276,11 +276,11 @@
     person: voss
     concept: 26   # stabilization timing
     reason: "The timing and funding checks are complete and the board must choose the response's duration."
-    scene: "Wage adjustment begins after launch, automatic stabilizers cover part of the loss, and the protected plan preserves growth capacity. Choose whether to wait, make permanent stimulus, or use a temporary bridge with an end date."
+    scene: "Support is needed before wage adjustment can close the temporary gap. Eli needs an exit rule so a bridge does not become an indefinite commitment."
     motivation: "The choice determines whether support bridges the launch delay without becoming an unjustified permanent commitment."
     format: VALUE
-    question: "Spend 80 and submit the plan."
-    answerText: "\"Use a temporary bridge with a sunset review; self-correction alone is too slow.\""
+    question: "You have 80 plan points. Cover every required outcome at the lowest total cost within the budget; keep all unused capacity in reserve. Select whole packages, then submit the plan; the board shows its total and remaining reserve for you to check."
+    answerText: "Each funded package supplies a required outcome; an affordable package that leaves one unresolved is insufficient."
     why: "Temporary support can span a lag without becoming a permanent demand expansion."
     # wrong-path feedback, one rebuttal per wrong option:
     #   A different response does not fit the displayed evidence. Temporary support can span a lag without becoming a permanent demand expansion.

@@ -152,10 +152,10 @@
     title: "Carry the mass honestly"
     concept: 3   # mass range
     reason: "The complex body model leaves a mass range that intervention calculations must preserve."
-    scene: "Use the 260-meter diameter and plausible rubble-pile densities from 1,200 to 2,400 kilograms per cubic meter in the campaign model. Estimate a mass range and preserve it through the intervention calculation."
+    scene: "The density range remains unresolved. The team carries both mass bounds instead of hiding the uncertainty in a midpoint."
     motivation: "The density-dependent mass interval establishes the range of momentum demand a proposed deflection must meet."
     format: BALLPARK
-    question: "Submit the lower and upper asteroid mass bounds in kilograms."
+    question: "For a spherical body of diameter 260 m, density ranges from 1,200 to 2,400 kg/m³. Calculate the lower mass using m=ρπD³/6, then select that mass and the high/low density ratio to obtain the upper mass."
     answerText: "The intervention test must succeed across this range, not only at the lightest convenient value."
     why: "BALLPARK carries parameter uncertainty into feasibility bounds."
     # wrong-path feedback, one rebuttal per wrong option:
@@ -347,10 +347,10 @@
     person: sen
     concept: 15   # response portfolio
     reason: "The intervention gap leaves the last budget needing an achievable harm-reduction objective."
-    scene: "The last budget can fund a symbolic impactor, corridor observations, civil-defense preparation, or a public demonstration. Rank all four by expected harm reduction under the verified warning time and intervention gap."
+    scene: "The tested impactor cannot deliver enough impulse in the available warning time. Arjun must use the remaining budget to locate the threatened area and prepare protection that can still work."
     motivation: "The ranked uses determine whether money supports useful corridor observations and protection instead of an ineffective symbolic launch."
     format: VALUE
-    question: "Spend at most 100 credits and choose the action portfolio with the greatest expected value."
+    question: "You have 100 response credits. Cover every required outcome at the lowest total cost within the budget; keep all unused capacity in reserve. Select whole packages, then submit the plan; the board shows its total and remaining reserve for you to check."
     # Converted from the payload's `value`. Its `budget` object becomes the
     # engine's; each option keeps its own id, label, cost and axis, and its
     # `decision_value` line becomes what the option `reveals`. The payload's
@@ -364,7 +364,7 @@
       - { id: corridor_observations, label: Fund corridor-refining observations, cost: 45, axis: location, reveals: high decision value, decisive: true }
       - { id: civil_defense, label: Begin reversible civil-defense preparation, cost: 55, axis: exposure, reveals: high decision value, decisive: true }
       - { id: public_demo, label: Fund a public technology demonstration, cost: 25, axis: communication, reveals: low decision value }
-    answerText: "Refusing an impossible intervention protects the actions that can still reduce harm."
+    answerText: "Each funded package supplies a required outcome; an affordable package that leaves one unresolved is insufficient."
     why: "VALUE compares expected decision benefit and opportunity cost."
     # wrong-path feedback, one rebuttal per wrong option:
     #   Hope is not added momentum, and a launch can consume the warning time it cannot overcome.

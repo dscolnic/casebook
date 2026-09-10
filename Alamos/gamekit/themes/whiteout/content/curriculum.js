@@ -3105,10 +3105,10 @@ export const CURRICULUM = {
         "type": "BALLPARK",
         "title": "Estimate the search work",
         "setup": "",
-        "play": "Use the displayed table size and power-of-two relationship to estimate the maximum binary-search midpoint checks; submit one number.",
-        "task": "Use the displayed table size and power-of-two relationship to estimate the maximum binary-search midpoint checks; submit one number.",
-        "question": "Use the displayed table size and power-of-two relationship to estimate the maximum binary-search midpoint checks; submit one number.",
-        "answer": "Because 1,024 = 2^10, ten halvings reduce the search interval to one candidate, so binary search needs about 10 midpoint checks.",
+        "play": "For a standard binary search with inclusive low/high bounds and 1,024 sorted records, fill n=1,024 and base 2 in floor(log(n)/log(2))+1. Calculate the maximum midpoint checks, including the possible final candidate check.",
+        "task": "For a standard binary search with inclusive low/high bounds and 1,024 sorted records, fill n=1,024 and base 2 in floor(log(n)/log(2))+1. Calculate the maximum midpoint checks, including the possible final candidate check.",
+        "question": "For a standard binary search with inclusive low/high bounds and 1,024 sorted records, fill n=1,024 and base 2 in floor(log(n)/log(2))+1. Calculate the maximum midpoint checks, including the possible final candidate check.",
+        "answer": "Because 1,024 = 2^10, ten halvings reduce the interval to one candidate; checking that remaining candidate can require an eleventh comparison. The standard inclusive-interval worst-case count is floor(log₂ n)+1 for n≥1.",
         "why": "Binary search cuts the remaining sorted interval in half after each comparison. The base-2 logarithm counts how many halvings are needed to reduce 1,024 possibilities to one.",
         "givens": [],
         "relationship": "",
@@ -3396,26 +3396,28 @@ export const CURRICULUM = {
 export const BALLPARK_CALCS = {
   "COMMS-3": {
     "prompt": "",
-    "question": "Use the displayed table size and power-of-two relationship to estimate the maximum binary-search midpoint checks; submit one number.",
+    "question": "For a standard binary search with inclusive low/high bounds and 1,024 sorted records, fill n=1,024 and base 2 in floor(log(n)/log(2))+1. Calculate the maximum midpoint checks, including the possible final candidate check.",
     "labels": [
-      "table size",
-      "records eliminated per check"
+      "1024",
+      "2",
+      "10"
     ],
     "values": [
       1024,
-      2
+      2,
+      10
     ],
     "slots": 2,
-    "template": "log{1}({0}) ≈ {checks} checks",
-    "formula": "log(a) / log(b)",
+    "template": "floor(log({0}) / log({1}))+1 = ? checks",
+    "formula": "floor(log(a)/log(b))+1",
     "correct": [
       0,
       1
     ],
-    "target": 10,
-    "tolerance": 1,
+    "target": 11,
+    "tolerance": 0.01,
     "units": "checks",
-    "solution": "log2(1024) = 10, so at most ten midpoint checks.",
+    "solution": "11",
     "explanation": "Binary search cuts the remaining sorted interval in half after each comparison. The base-2 logarithm counts how many halvings are needed to reduce 1,024 possibilities to one."
   }
 };

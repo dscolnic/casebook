@@ -11,7 +11,7 @@
   objective: "Which starting acceleration can the motor supply?"
   stake: "The rope can take the slower rise, but the motor has two jobs. It must pull the load and make the drum turn faster. At the Winder House, add those two demands before the start control is freed. By the end of the mission, you decide which start the motor can supply."
   takeaway: "The motor must supply load torque and acceleration torque. ---"
-  segue: "Mission decision: Use the slower start. The faster start asks too much of the motor. The control gains a stop at the tested setting. The full lift still needs its energy check. Ewan locks the start to 1 m/s². He must now tell management why a rope that passes cannot make the motor deliver the faster start."
+  segue: "The slower start fits the motor, but Ada still has no energy total for the full 1,200 m lift."
   # The mission card's own "Primer concepts", printed on the plan card.
   terms:
   - {name: "Torque", def: "the turning effect of a force about an axis."}
@@ -85,9 +85,9 @@
       tolerance: 0.01
       units: rad/s²
       labels:
-        - linear acceleration (m/s²)
-        - contact radius (m)
-        - diameter distractor (m)
+        - "1"
+        - "2"
+        - "4"
       values:
         - 1
         - 2
@@ -97,7 +97,7 @@
         - 1
       slots: 2
       formula: a/b
-      template: "{0}/{1}"
+      template: "{0} / {1} = ? rad/s²"
       solution: "0.5"
 
   # --- Stop 14: Add the two torque demands

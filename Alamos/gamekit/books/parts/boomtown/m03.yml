@@ -11,7 +11,7 @@
   objective: "Decide whether the tested rent increase raises room revenue."
   stake: "The lunch price has a cause, but some rooms now stand empty. A rent rise can bring in less cash if too few guests stay. Today you decide if the room rate should stay high. By the end of the mission, you will check what the rise earned."
   takeaway: "Vacant beds can reopen without pretending every landlord faces identical demand."
-  segue: "Mission decision: Do not keep the tested rent rise. Receipts fell by $100 a night. The owner puts the old rate back on the board. The diner still needs more meals from the same oven."
+  segue: "Now Nico needs more meals from one stove, but another cook may cost more than the meals they add."
   # The mission card's own "Primer concepts", printed on the plan card.
   terms:
   - {name: "Price elasticity of demand", def: "The percentage quantity response divided by the percentage price change."}

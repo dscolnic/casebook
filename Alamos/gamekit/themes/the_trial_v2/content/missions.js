@@ -5100,7 +5100,7 @@ export const MISSIONS = [
             2
           ]
         },
-        "world": "At holdout-safe, the dated accepted-result slip for Stop 42 reads: \"Freeze B before reveal; it stays within expected error on unseen records.\". The slip remains in that fixture's evidence holder.",
+        "world": "At holdout-safe, the dated accepted-result slip for Stop 42 reads: \"All candidate rules frozen before reveal; B selected afterward at 1.6% error.\". The slip remains in that fixture's evidence holder.",
         "stage": {
           "wall": [
             {

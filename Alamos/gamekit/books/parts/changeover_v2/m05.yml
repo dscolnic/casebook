@@ -289,11 +289,11 @@
     person: dane
     concept: 24   # fiscal choice
     reason: "The announced package falls short of the measured target, leaving the funding decision open."
-    scene: "The 6-billion announcement would add only 24 billion to demand and leave a 10.8-billion gap. Fund the option that reaches the measured target and preserves an independent supply-shock review before launch."
+    scene: "The announced purchases are too small for the measured demand gap. Rhea must also preserve a separate review of the supply shock."
     motivation: "The allocation identifies a package large enough for the modeled gap while retaining a separate supply-shock review."
     format: VALUE
-    question: "Spend exactly 100 plan points and submit the funded pair."
-    answerText: "Prepare 8.7 billion in purchases and preserve the supply-shock review."
+    question: "You have 100 plan points. Cover every required outcome at the lowest total cost within the budget; keep all unused capacity in reserve. Select whole packages, then submit the plan; the board shows its total and remaining reserve for you to check."
+    answerText: "Each funded package supplies a required outcome; an affordable package that leaves one unresolved is insufficient."
     why: "Demand stimulus can close a recessionary gap without proving that it can cure cost-push inflation."
     # wrong-path feedback, one rebuttal per wrong option:
     #   A different response does not fit the displayed evidence. Demand stimulus can close a recessionary gap without proving that it can cure cost-push inflation.

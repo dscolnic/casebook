@@ -1951,10 +1951,10 @@ missions:
     title: "Test the absolute peak"
     concept: 13   # EVT/first-second derivative tests
     reason: "The interior demand checks are ready to be compared with the schedule endpoints."
-    scene: "With critical times found, evaluate demand at t=0,1,3,5, then use derivative signs or D''(t)=6t-12 to justify the maximum. The machine limit is 24 MW, inclusive."
+    scene: "The turbine operator holds the schedule open: a peak inside the shift is not the only way to overload the machine."
     motivation: "The absolute maximum determines whether any part of the turbine schedule exceeds the machine's power limit."
     format: BALLPARK
-    question: "Using D(t)=t^3-6t^2+9t+20 MW, evaluate t=0,1,3,5 h; submit the absolute maximum in megawatts, its time in hours, and safe/unsafe against the inclusive 24 MW limit."
+    question: "Demand is D(t)=t³−6t²+9t+20 MW for 0≤t≤5 h. Compare t=0,1,3,5 h. Choose the absolute maximum; the inclusive machine limit is 24 MW."
     answerText: "EVT requires endpoints plus critical points; the endpoint peak exceeds capacity."
     why: "EVT requires endpoints plus critical points; the endpoint peak exceeds capacity. A correct maximum decides whether the two-day plan overloads the available unit."
     # wrong-path feedback, one rebuttal per wrong option:
@@ -2212,10 +2212,10 @@ missions:
     title: "Check the indeterminate rate"
     concept: 10   # L'Hopital's rule
     reason: "The crew can now use differentiation to resolve the replacement forecast's undefined starting rate."
-    scene: "A replacement forecast gives average rise A(t)=(e^(0.02t)-1)/t metres per hour during the first t hours. Because A(0) is undefined, calculate L=lim_(t->0)A(t), the rise rate approached when the forecast begins."
+    scene: "The inflow forecast stalls at the start time. The crew needs the value the model approaches before it can use the curve."
     motivation: "The initial rate limit establishes whether the exponential forecast begins with a finite reservoir-rise prediction."
     format: BALLPARK
-    question: "Let L=lim_(t->0) A(t)=lim_(t->0)(e^(0.02t)-1)/t. Confirm the 0/0 form, apply L'Hopital's rule by differentiating the numerator and denominator separately, preserve L on the left, and submit the limit in metres per hour."
+    question: "Find lim(t→0)(e^(0.02t)−1)/t in m/h. Both numerator and denominator approach zero; use their derivatives to fill the numerator and denominator of the limiting ratio."
     answerText: "The replacement forecast begins with a finite limiting rise rate of 0.020 m/h."
     why: "The original ratio has the indeterminate form 0/0, and the differentiated ratio approaches 0.02/1."
     # wrong-path feedback, one rebuttal per wrong option:
@@ -2301,11 +2301,11 @@ missions:
     title: "Freeze before revealing the crest"
     concept: 25   # curve shape/model validation
     reason: "The alternative forecasts must be frozen before the archived crest is revealed."
-    scene: "With the plausible model identified, fit old radar hours 0-5 using Forecast A or B and freeze every parameter. The archive then reveals high-ground readings at hours 6-9 to test extrapolation."
+    scene: "Two forecast models fit the early readings. Freeze both supplied prediction sets before opening the later crest record."
     motivation: "Performance on the unseen crest determines which forecast deserves to guide the storm-storage plan."
     format: HOLDOUT
-    question: "Fit and freeze exactly one named model using hours 0-5, reveal hours 6-9, and submit the model label A or B that passes the holdout."
-    answerText: "B residuals [0,1,0,1]; A residuals [4,11,12,10] form a missed crest."
+    question: "Commit both fixed model predictions, then reveal the four holdout readings. Select the model with the smaller mean absolute prediction error; the result does not authorize refitting on these same readings."
+    answerText: "A misses the crest in a systematic direction. Both prediction sets were fixed before the readings appeared, so comparing them is an out-of-sample model comparison."
     why: "B residuals [0,1,0,1]; A residuals [4,11,12,10] form a missed crest. A model that fits training data but misses a patterned holdout crest cannot guide release."
     # wrong-path feedback, one rebuttal per wrong option:
     #   Training fit does not validate extrapolation.
@@ -2591,10 +2591,10 @@ missions:
     title: "Estimate sampled inflow"
     concept: 14   # L/R/trapezoid sums
     reason: "The selected forecast supplies flow rates, while the storage plan requires the accumulated storm volume."
-    scene: "Forecast flows at hours 0,5,10,15,20 are 100,150,200,250,300 m3/s. Compute left, right, and trapezoidal sums using 5 h=18,000 s, then compare their likely bias from the rise."
+    scene: "The reservoir crew lays the flow readings along the shift chart. The total release must account for the spaces between them."
     motivation: "The three numerical sums bound and estimate incoming water while exposing bias from the rising sampled flow."
     format: BALLPARK
-    question: "Load the five flows in m^3/s, use Delta t=5 h=18000 s, and submit the trapezoidal total in million cubic metres. Then identify the left sum as low and the right sum as high."
+    question: "Flows at equally spaced times are 100,150,200,250,300 m³/s. Each interval lasts 5 h=18,000 s. Select the interval duration and the trapezoidal weighted flow sum, then calculate release in million m³."
     answerText: "for this increasing curve, left underestimates and right overestimates; trapezoids average adjacent endpoints."
     why: "for this increasing curve, left underestimates and right overestimates; trapezoids average adjacent endpoints. Numerical accumulation brackets urgency before an exact model is integrated."
     # wrong-path feedback, one rebuttal per wrong option:
@@ -3029,11 +3029,11 @@ missions:
     title: "Allocate the just-clears plan"
     concept: 15   # constrained accumulation
     reason: "The verified turbine contribution leaves a specific release deficit and supporting tasks to fund."
-    scene: "Turbines clear 3.60 of the required 5.28 million m^3, leaving 1.68. Allocate the remaining release, warning staff, gate test, and protected reserve so every required condition is funded."
+    scene: "The turbines provide part of the needed drawdown. The remaining gate operation must be supported by warning, testing and recovery capacity."
     motivation: "The allocation determines whether remaining drawdown, warning staff, gate testing, and protected reserve all fit the plan."
     format: ALLOCATE
-    question: "Allocate all 100 points among the four named items and submit one allocation plan; gate release, warning, test, and protected reserve must all be funded."
-    answerText: "The completed check shows all four funded exactly."
+    question: "You have 100 points. Cover every required outcome and allocate the whole budget. Select whole packages, then submit the plan; the board shows its total and remaining reserve for you to check."
+    answerText: "Each funded package supplies a required outcome; an affordable package that leaves one unresolved is insufficient."
     why: "all four funded exactly. A mathematically sufficient release is unusable without warning and restart capacity."
     # wrong-path feedback, one rebuttal per wrong option:
     #   Storage volume alone is not the whole release constraint.
@@ -3678,11 +3678,11 @@ missions:
     person: mehta
     concept: 21   # logistic stability/parameter uncertainty
     reason: "The observed seepage decay still carries rate uncertainty that could change load approval."
-    scene: "The observed decay constant is k=-0.30+-0.05 h^-1, and approval requires excess seepage below 5.0 L/min after 4 h, inclusive. Stress the full interval before approving the load."
+    scene: "The seepage rate is declining, but the decay rate is uncertain. Approval must survive the slowest supported decline."
     motivation: "The slowest allowed decay determines whether excess seepage remains under the required four-hour limit."
     format: STRESS
-    question: "Sweep k from -0.35 through -0.25 h^-1 in 0.01 h^-1 steps using S(4)=12e^(4k); submit the worst-case value in L/min and approve/reject."
-    answerText: "even slowest supported decay stays below 5."
+    question: "Sweep k from −0.35 to −0.25 h⁻¹ in 0.01 steps. With S(4)=12e^(4k) L/min, submit the largest S(4) and approve only if it is at most 5.0 L/min."
+    answerText: "The maximum occurs at k=−0.25: S(4)=4.4146 L/min, below the inclusive 5.0 limit. Approve this tested load."
     why: "even slowest supported decay stays below 5. A safety conclusion should survive the least favorable supported parameter."
     # wrong-path feedback, one rebuttal per wrong option:
     #   Test the least negative k, which decays slowest.
@@ -3923,10 +3923,10 @@ missions:
     title: "Compute average loss"
     concept: 19   # average value/splitting
     reason: "The lost-capacity result needs a per-metre summary without erasing changes along the curve."
-    scene: "With 7.5 million m^3 lost over a 3 m operating interval, compute the average capacity error per metre. Then state why that average cannot replace the full curve near a crossing."
+    scene: "The storage curve has become a loss report. The crew needs one average to describe the interval without pretending the curve is straight."
     motivation: "Average capacity error communicates the survey discrepancy while leaving the full curve necessary near a crossing."
     format: BALLPARK
-    question: "Use f_avg=(1/(5-2))(7.5 million m^3); submit one number in million m^3/m, then submit summary only or replace full curve."
+    question: "Storage falls by 7.5 million m³ as reservoir height changes from 2 m to 5 m. Select the loss magnitude and height interval to calculate the average loss per metre."
     answerText: "average preserves the integral but not pointwise change."
     why: "average preserves the integral but not pointwise change. Average value summarizes total loss but not local sensitivity."
     # wrong-path feedback, one rebuttal per wrong option:
@@ -3967,11 +3967,11 @@ missions:
     person: vale
     concept: 27   # evidence independence
     reason: "The storage discrepancy needs independent survey support before the old curve is replaced."
-    scene: "At least one independent depth record and one calibration record are required."
+    scene: "The revised storage curve needs physical survey evidence and a checked instrument. The older sheet also needs a separate transcription check."
     motivation: "The verified depth and calibration records determine whether the revised capacity curve rests on independent evidence."
     format: ATTEST
-    question: "Spend the three-record verification limit, select exactly three claim IDs including transects and sonar calibration, and submit survey physically backed or survey not physically backed."
-    answerText: "independent transects and calibration support real silt loss."
+    question: "The survey requires a current independent depth record and instrument calibration; historical transcription is a separate, narrower claim. Read the displayed source excerpts, then select every supported claim and leave unsupported claims unsigned."
+    answerText: "Each signature is limited to what its source establishes. The unsupported claims lack the specific date, physical condition, independence or scope they assert."
     why: "independent transects and calibration support real silt loss. Independent physical records decide whether curve disagreement is real or clerical."
     # wrong-path feedback, one rebuttal per wrong option:
     #   A repeated export is not independent measurement.
@@ -4305,11 +4305,11 @@ missions:
     person: chen
     concept: 15   # integrated capacity/work decision
     reason: "One successful stroke does not establish a repeatable schedule with sufficient storage clearance and warning time."
-    scene: "Runner capacity is unavailable and the hoist passes one stroke, but three candidate schedules remain. Spend 6 inspection points on evidence that can distinguish repeatable gate work, storage clearance, and downstream safety."
+    scene: "One successful hoist stroke does not establish a repeatable schedule. Nia needs the remaining mechanical, storage and downstream checks."
     motivation: "The purchased inspections determine whether the alternative gate schedule is mechanically repeatable and safe downstream."
     format: VALUE
-    question: "Spend exactly 6 inspection points and submit the selected evidence IDs; the plan must test repeatability, corrected storage clearance, and downstream arrival."
-    answerText: "Spend 2+2+2 on repeatability, storage, and arrival."
+    question: "You have 6 inspection points. Cover every required outcome at the lowest total cost within the budget; keep all unused capacity in reserve. Select whole packages, then submit the plan; the board shows its total and remaining reserve for you to check."
+    answerText: "Each funded package supplies a required outcome; an affordable package that leaves one unresolved is insufficient."
     why: "Spend 2+2+2 on repeatability, storage, and arrival. The chosen evidence must test every binding constraint, not merely improve precision on a nonbinding one."
     # wrong-path feedback, one rebuttal per wrong option:
     #   Paint condition and power price do not test a binding release constraint; omitting repeatability, storage, or arrival leaves the schedule uncertified.
@@ -4502,11 +4502,11 @@ missions:
     title: "Linearize level error"
     concept: 9   # linear approximation/error budget
     reason: "The revised storage curve still carries level-measurement error that could consume the remaining release margin."
-    scene: "The corrected storage curve has dV/dh=2.0 million m3/m, and level uncertainty is ±0.015 m. Propagate that error, then compare it with the 0.10 million m3 release margin."
+    scene: "The corrected storage curve still carries measurement uncertainty. The crew has two inspection points to reduce the total error before relying on the release margin."
     motivation: "The propagated volume uncertainty determines whether the drawdown margin survives the gauge's height error."
     format: PROPAGATE
-    question: "Calculate |Delta V| approximately |dV/dh||Delta h| using 2.0 million m^3/m and 0.015 m; submit uncertainty in million m^3, compare it with the inclusive 0.10 million m^3 margin, then select one purchase ID."
-    answerText: "2.0*.015=.030<.10; improve level."
+    question: "Compute the level contribution |ΔV|=|dV/dh|σh, then choose the affordable upgrade plan giving the smallest combined uncertainty. Use root-sum-square for these independent contributions; submit the plan and combined uncertainty in million m³."
+    answerText: "Before upgrading, the combined error is about 0.03187 million m³. Improving level gives about 0.01847; improving both flow and clock gives about 0.03017. The margin survives either way, but level is the best uncertainty reduction."
     why: "2.0*.015=.030<.10; improve level. Only an error large enough to consume the margin can reverse authorization."
     # wrong-path feedback, one rebuttal per wrong option:
     #   Sensitivity carries units.
@@ -4844,10 +4844,10 @@ missions:
     title: "Find the repair optimum"
     concept: 11   # optimization/marginal value
     reason: "The final release plan needs repairs, but the available crew count limits the feasible benefit."
-    scene: "Repair benefit is R(x)=18x-x^2 and coordination cost is C(x)=2x+8, where x crews can range from 0 to 6. Find the integer crew count maximizing P=R-C."
+    scene: "The staffing board has room for only a few crews. An attractive unconstrained optimum may not be a possible assignment."
     motivation: "Net repair benefit over the allowed crew interval determines the best achievable staffing level, including endpoints."
     format: BALLPARK
-    question: "Using P(x)=(18x-x^2)-(2x+8) for integer 0<=x<=6, calculate P'(x), check feasible critical points and endpoints, then submit one integer crew count."
+    question: "For integer crews 0≤x≤6, P(x)=(18x−x²)−(2x+8). Choose the feasible crew count that maximizes P; check the boundary if the derivative's zero lies outside the allowed interval."
     answerText: "unconstrained critical point 8 lies outside [0,6], so endpoints control."
     why: "unconstrained critical point 8 lies outside [0,6], so endpoints control. The optimum sets the fastest useful repair without wasting scarce operators."
     # wrong-path feedback, one rebuttal per wrong option:
@@ -4894,11 +4894,11 @@ missions:
     person: baptiste
     concept: 13   # constrained decision/extrema
     reason: "The crew allocation is fixed, leaving downstream repair order to be chosen by consequence."
-    scene: "With six crews fixed, sort four dark circuits by arrival and closure: Road 280 min, School 310, Caravan 350, Village 410. Repairs take 35,25,20,30 min, with two simultaneous teams."
+    scene: "Four warning circuits are dark and two repair teams are available. Elise uses the published earliest-deadline-first dispatch rule to choose the first pair."
     motivation: "Arrival and closure deadlines determine which dark warning circuits must be restored first."
     format: TRIAGE
-    question: "Select exactly one of four first-team pairs and submit its label."
-    answerText: "The completed check shows road and School."
+    question: "Choose the pair with the two earliest deadlines. Repair durations inform the later schedule; this question grades dispatch priority, not a claim that every other sequence would miss a deadline."
+    answerText: "Their deadlines are 280 and 310 minutes, earlier than 350 and 410. This applies the dispatch policy; without a start time, the data do not prove that other schedules are physically impossible."
     why: "Road and School. Earliest binding deadlines determine a safe schedule."
     # wrong-path feedback, one rebuttal per wrong option:
     #   Any pair omitting Road or School delays one of the two earliest binding deadlines; the option-specific payload rebuttals identify the missed deadline.
@@ -5210,10 +5210,10 @@ missions:
     title: "Close the final water ledger"
     concept: 15   # accumulated change/area/average
     reason: "The updated forecast and verified releases are ready to be combined into the final storage balance."
-    scene: "With the forecast certified, count 14.00 million m^3 starting room, 17.28 storm inflow, 2.00 safety reserve, 3.60 turbine release, and 1.68 gate release. Close the signed ledger."
+    scene: "The final water ledger is ready. Every signed term must belong to the same physical balance before the crew can close it."
     motivation: "The signed water ledger determines whether planned drawdown covers storm inflow and the protected safety margin."
     format: BALLPARK
-    question: "Select which displayed entries are physical water streams, assign each its shown sign, and submit one signed ledger total in million m^3; exclude power price."
+    question: "In million m³, combine initial storage 14, inflows 3.6 and 1.68, release 17.28, and other loss 2. Fill the five terms of initial + inflow + inflow − release − loss. A price entry of 24 is not water."
     answerText: "the plan just clears required storage; power price is not water."
     why: "the plan just clears required storage; power price is not water. The final volume balance decides whether the staged gate plan is sufficient before motion begins."
     # wrong-path feedback, one rebuttal per wrong option:

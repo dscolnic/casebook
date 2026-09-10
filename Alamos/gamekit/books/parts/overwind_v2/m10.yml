@@ -11,7 +11,7 @@
   objective: "What caused the cage to overrun its March landing?"
   stake: "The cage has its own bounce period, so the sealed March tape can now be tested. A load can move while its rope changes stretch. At the brake house and Rope Shop, trace that motion from the stop. By the end of the mission, you decide why the cage passed its landing."
   takeaway: "Initial motion and restoring force can explain a delayed overrun. ---"
-  segue: "Mission decision: The cage kept moving as the rope changed stretch. The model predicts the peak and its delay. The drum really was still. A passed empty test now sits beside a warm-pad warning. Ada places her signed March check below the two traces. She tells Ruth why its inference failed; the measured delayed peak supports the account without turning it into permission for the next trip."
+  segue: "The March delay now fits, yet Ada’s new empty pass uses cold pads. A weaker warm-pad limit could still defeat Ewan’s fast plan."
   # The mission card's own "Primer concepts", printed on the plan card.
   terms:
   - {name: "Initial condition", def: "a measured starting position or velocity used to choose one motion from a family of solutions."}

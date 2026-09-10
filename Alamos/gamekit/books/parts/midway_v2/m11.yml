@@ -285,11 +285,11 @@
     title: "Allocate shared plant power"
     concept: 18   # Finite power
     reason: "The flume's power demand is known, but shutdown and logging must also fit in the test block."
-    scene: "The flume needs 44.1 kW, while the coaster measurement run needs 54.6 kW and shutdown controls need protected reserve. Allocate one complete test block without exceeding the shared plant limit."
+    scene: "The flume test is due in this block. Its drive, shutdown controls and independent record must fit the shared supply before the coaster is considered."
     motivation: "The allocation determines whether the test can run without sacrificing essential monitoring or emergency power."
     format: ALLOCATE
-    question: "From a 55 kW pool, submit one numerical allocation in kW among flume 44.1, protected shutdown controls 5.0, independent logging 3.0, and coaster lift 54.6; name what runs now, what waits, and whether shutdown remains protected."
-    answerText: "Run flume, shutdown controls, and logging now; schedule the coaster separately."
+    question: "You have 55 kW. Cover every required outcome at the lowest total cost within the budget; keep all unused capacity in reserve. Select whole packages, then submit the plan; the board shows its total and remaining reserve for you to check."
+    answerText: "Each funded package supplies a required outcome; an affordable package that leaves one unresolved is insufficient."
     why: "The safe allocation totals 52.1 kW. Adding the coaster is impossible."
     # wrong-path feedback, one rebuttal per wrong option:
     #   Protected shutdown is a required load, not spare capacity.
@@ -343,11 +343,11 @@
     title: "Use the water arc as a speed check"
     concept: 3   # Projectile motion transfer
     reason: "The cleaned water line is ready for an independent exit-speed check."
-    scene: "The stall cannon uses the same cleaned water line and launches from ground level toward a mark 3.60 m away. Set the angle and pressure charge that reproduce the predicted 5.94 m/s exit speed."
+    scene: "The discharge must reach the marked target. Several launch angles can work if the speed is chosen to match."
     motivation: "The projectile's range links the water arc to launch speed and tests the line's predicted delivery."
     format: LOB
-    question: "Given target range R = 3.60 m +/- 0.12 m, g = 9.80 m/s^2, launch and landing at equal height, angle control 20-70 degrees, and charge-speed control 3.0-7.0 m/s, use R = v^2 sin(2theta)/g. Submit one numerical pair: launch angle in degrees and charge-speed setting in m/s."
-    answerText: "At 45 degrees, a 5.94 m/s launch reaches about 3.60 m on level ground."
+    question: "For equal launch and landing heights, use R=v²sin(2θ)/g with g=9.80 m/s². Submit any angle from 20° to 70° and speed from 3.0 to 7.0 m/s giving R within 3.60±0.12 m."
+    answerText: "The equation couples angle and speed, so a different angle can be compensated by a different speed. The task does not ask for minimum speed or insist on 45°."
     why: "R=v² sin(2θ)/g; range is greatest at 45 degrees for equal launch and landing height."
     # wrong-path feedback, one rebuttal per wrong option:
     #   Split launch velocity into horizontal and vertical components.

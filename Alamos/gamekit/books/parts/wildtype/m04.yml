@@ -11,7 +11,7 @@
   objective: "Resolve whether the old lamp program is ready for wider use; a rushed change could damage the whole nursery."
   stake: "The pots now have air, and the plants grow well. Light can change how a plant uses its genes. Check the old lamps with Ivo at the Growth Bench. Today you decide whether the old lamp program is ready for wider use."
   takeaway: "Keep the old lamp program in a small trial. ---"
-  segue: "Mission decision: Keep the old lamp program in a small trial. The leaves grow, but field effects remain untested."
+  segue: "Yet Tess finds that the flowers and insects miss each other. She brings both dated logs."
   # The mission card's own "Primer concepts", printed on the plan card.
   terms:
   - {name: "Signal", def: "A cue that a cell can detect and respond to."}

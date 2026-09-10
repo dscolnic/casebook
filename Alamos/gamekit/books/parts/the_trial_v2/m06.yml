@@ -260,10 +260,10 @@
     title: "How Long Until the First"
     concept: 15   # geometric versus binomial
     reason: "The precision plan requires rural enrollment, whose screening workload remains uncertain."
-    scene: "Precision requires the repaired frame, but each screened rural candidate has success probability p=0.20. Calculate the expected number screened until the first enrollment and distinguish this geometric question from a fixed-trial binomial count."
+    scene: "Recruitment continues until the first eligible candidate. The team needs the expected waiting count for staffing."
     motivation: "Expected trials to first enrollment determines the screening effort implied by the per-candidate success probability."
     format: BALLPARK
-    question: "Each independent rural screening has enrollment probability p=0.20. Using mean screens=1/p, submit the expected number of candidates screened until the first enrollment, then select whether this is a geometric or binomial model. Give the count in candidates. Accepted numerical tolerance is 0.01 candidates."
+    question: "Each independent candidate has eligibility probability p=0.20. For the geometric count including the first eligible candidate, fill 1 and p in E(N)=1/p."
     # The formula, p = 0.20, the target of 5 candidates and the 0.01 tolerance are
     # the prompt's own. The bible's "binomial mean np reminder" has no n on this
     # board, so it is carried in the explanation line rather than as a tile.

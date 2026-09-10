@@ -11,7 +11,7 @@
   objective: "Today you decide which search can reach the radio record before the link closes."
   stake: "The map is fixed, but Liv has a short chance to reach the plane. A search can cut a sorted list in half at each step. Count the checks before the link closes. By the end of the mission, decide which search can find the right radio channel in time."
   takeaway: "Binary search is required; the sorted table lets the code cut the remaining range in half and reach 122.3 MHz in three midpoint checks. ---"
-  segue: "Mission decision: Binary search can find 122.3 MHz before the link closes. The sorted table reaches it at index 4 after three checks. The crew locks that rescue frequency. Yet Mei sees two separate units report the same last warning."
+  segue: "Yet Mei separates two units on the bench, and their warning numbers still move together."
   # The mission card's own "Primer concepts", printed on the plan card.
   terms:
   - {name: "binary search", def: "a search on sorted data that repeatedly discards half of the remaining range. loop: code that repeats while a condition or counter says more work remains."}
@@ -31,7 +31,7 @@
     - {"title":"Linear search","problem":"Searching 8 unsorted items may require all 8 checks in the worst case.","rule":"","steps":[],"answer":"","mistake":""}
     - {"title":"Binary-search prerequisite","problem":"Binary search needs sorted data because each comparison decides which whole half can be discarded.","rule":"","steps":[],"answer":"","mistake":""}
     - {"title":"Binary midpoint","problem":"With low=0 and high=7, integer midpoint (low+high)/2 is 3.","rule":"","steps":[],"answer":"","mistake":""}
-    - {"title":"Halving work","problem":"A sorted list of 1024 items needs about 10 binary-search comparisons because 2^10 = 1024.","rule":"","steps":[],"answer":"","mistake":""}
+    - {"title":"Halving work","problem":"Ten halvings reduce 1024 candidates to one because 2^10 = 1024; a standard inclusive-interval binary search can require an eleventh midpoint check.","rule":"","steps":[],"answer":"","mistake":""}
     - {"title":"Update rule","problem":"If a[mid] < target, set low = mid + 1; if a[mid] > target, set high = mid - 1.","rule":"","steps":[],"answer":"","mistake":""}
 
   stops:
@@ -46,8 +46,8 @@
     scene: "Liv Andersen compares a scan of 1,024 records with a search that halves the range at each check. Estimate the maximum midpoint checks for binary search so the crew can choose a method before the next short pass."
     motivation: "The rescue decision depends on choosing an algorithm whose work fits the time window, not merely one that eventually finds the record."
     format: BALLPARK
-    question: "Use the displayed table size and power-of-two relationship to estimate the maximum binary-search midpoint checks; submit one number."
-    answerText: "Because 1,024 = 2^10, ten halvings reduce the search interval to one candidate, so binary search needs about 10 midpoint checks."
+    question: "For a standard binary search with inclusive low/high bounds and 1,024 sorted records, fill n=1,024 and base 2 in floor(log(n)/log(2))+1. Calculate the maximum midpoint checks, including the possible final candidate check."
+    answerText: "Because 1,024 = 2^10, ten halvings reduce the interval to one candidate; checking that remaining candidate can require an eleventh comparison. The standard inclusive-interval worst-case count is floor(log₂ n)+1 for n≥1."
     why: "Binary search cuts the remaining sorted interval in half after each comparison. The base-2 logarithm counts how many halvings are needed to reduce 1,024 possibilities to one."
     # wrong-path feedback, one rebuttal per wrong option:
     #   A value near 1,024 describes linear search, not halving. One check cannot identify an arbitrary target in 1,024 records.
@@ -66,22 +66,27 @@
     #     target: 10
     #     tolerance: 1
     estimate:
-      target: 10
-      tolerance: 1
+      target: 11
+      tolerance: 0.01
       units: checks
       labels:
-        - table size
-        - records eliminated per check
+        - "1024"
+        - "2"
+        - "10"
       values:
         - 1024
         - 2
+        - 10
       correct:
         - 0
         - 1
       slots: 2
-      formula: log(a) / log(b)
-      template: log{1}({0}) ≈ {checks} checks
-      solution: log2(1024) = 10, so at most ten midpoint checks.
+      formula: floor(log(a)/log(b))+1
+      template: floor(log({0}) / log({1}))+1 = ? checks
+      solution: "11"
+    wrongFeedback:
+      - Ten counts halvings to one candidate; it omits the possible final comparison.
+      - Using 1,024 describes a full linear scan.
 
   # --- Stop 38: Choose the search
   #     Concept: 31 — Linear and binary search; Keystone: Search & efficiency; Area: COMMS; Prerequisites: Practices efficiency from Stop 37.; Learning role: PRACTICE; Difficulty: L3; Story role: obstacle.

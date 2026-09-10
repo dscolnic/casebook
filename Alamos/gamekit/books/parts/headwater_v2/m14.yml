@@ -146,10 +146,10 @@
     title: "Find the repair optimum"
     concept: 11   # optimization/marginal value
     reason: "The final release plan needs repairs, but the available crew count limits the feasible benefit."
-    scene: "Repair benefit is R(x)=18x-x^2 and coordination cost is C(x)=2x+8, where x crews can range from 0 to 6. Find the integer crew count maximizing P=R-C."
+    scene: "The staffing board has room for only a few crews. An attractive unconstrained optimum may not be a possible assignment."
     motivation: "Net repair benefit over the allowed crew interval determines the best achievable staffing level, including endpoints."
     format: BALLPARK
-    question: "Using P(x)=(18x-x^2)-(2x+8) for integer 0<=x<=6, calculate P'(x), check feasible critical points and endpoints, then submit one integer crew count."
+    question: "For integer crews 0≤x≤6, P(x)=(18x−x²)−(2x+8). Choose the feasible crew count that maximizes P; check the boundary if the derivative's zero lies outside the allowed interval."
     answerText: "unconstrained critical point 8 lies outside [0,6], so endpoints control."
     why: "unconstrained critical point 8 lies outside [0,6], so endpoints control. The optimum sets the fastest useful repair without wasting scarce operators."
     # wrong-path feedback, one rebuttal per wrong option:
@@ -196,11 +196,11 @@
     person: baptiste
     concept: 13   # constrained decision/extrema
     reason: "The crew allocation is fixed, leaving downstream repair order to be chosen by consequence."
-    scene: "With six crews fixed, sort four dark circuits by arrival and closure: Road 280 min, School 310, Caravan 350, Village 410. Repairs take 35,25,20,30 min, with two simultaneous teams."
+    scene: "Four warning circuits are dark and two repair teams are available. Elise uses the published earliest-deadline-first dispatch rule to choose the first pair."
     motivation: "Arrival and closure deadlines determine which dark warning circuits must be restored first."
     format: TRIAGE
-    question: "Select exactly one of four first-team pairs and submit its label."
-    answerText: "The completed check shows road and School."
+    question: "Choose the pair with the two earliest deadlines. Repair durations inform the later schedule; this question grades dispatch priority, not a claim that every other sequence would miss a deadline."
+    answerText: "Their deadlines are 280 and 310 minutes, earlier than 350 and 410. This applies the dispatch policy; without a start time, the data do not prove that other schedules are physically impossible."
     why: "Road and School. Earliest binding deadlines determine a safe schedule."
     # wrong-path feedback, one rebuttal per wrong option:
     #   Any pair omitting Road or School delays one of the two earliest binding deadlines; the option-specific payload rebuttals identify the missed deadline.

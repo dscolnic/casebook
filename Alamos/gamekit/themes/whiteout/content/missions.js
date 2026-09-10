@@ -82,7 +82,7 @@ export const MISSIONS = [
       "body": "The heat alarm is red, but Malik says the engine still runs well. Java can lose a fraction when it divides whole numbers. Test the code at the Load Board before the crew cuts the heat. By the end of the mission, decide if the engine needs work or the code needs a fix.",
       "objective": "Today you decide whether the heat alarm calls for an engine shutdown or a code fix."
     },
-    "segue": "Mission decision: The generator is healthy. Java made 83/100 equal 0 with whole-number math. The steady 83 kW reading shows the machine still works. The crew keeps it online and fixes the percent code. But Mei now has two commands from one air reading.",
+    "segue": "But Mei stops a second air command before it reaches the same room.",
     "stops": [
       {
         "group": "POWER",
@@ -168,7 +168,7 @@ export const MISSIONS = [
       "body": "The heat is safe, but Mei has two commands from one air reading. Each if test can run its own branch. Trace the code before the crew locks out the air cleaner. By the end of the mission, decide if the fault lies in the sensor or the branches.",
       "objective": "Today you decide whether one sensor reading can make both branches fire."
     },
-    "segue": "Mission decision: The sensor is not duplicated; two separate if tests both run. One 1050 ppm packet made two commands, but the new branch made one. The crew keeps the scrubber online and fixes the branches. Yet Jonah sees Rover Three circle the same snow marker again.",
+    "segue": "Yet Jonah holds Rover Three in the bay after it circles the same marker twice.",
     "stops": [
       {
         "group": "HAB",
@@ -254,7 +254,7 @@ export const MISSIONS = [
       "body": "The air cleaner works, but Jonah sees Rover Three circle one marker. A loop needs a change that takes it toward its end. Trace each lap before the rover wastes more time. By the end of the mission, decide if the wheels are stuck or the code cannot stop.",
       "objective": "Today you decide whether to repair the rover wheels or the loop that drives them."
     },
-    "segue": "Mission decision: Rover Three is healthy; the route index never changes in the old loop. The fixed trace visits four points and stops at index 4. The crew keeps the rover ready. Now Priya finds the same code tool in all three fault traces.",
+    "segue": "Now Priya lays the three fault traces side by side; one code tool appears in all of them.",
     "stops": [
       {
         "group": "VEH",
@@ -426,7 +426,7 @@ export const MISSIONS = [
       "body": "The first fix works in the lab, but Malik sees no change at P02. Two objects can look alike and still hold their own state. Follow the names to the objects they point to. By the end of the mission, decide if the patch reached the live unit.",
       "objective": "Today you decide whether the patch reaches live object P02."
     },
-    "segue": "Mission decision: The patch changed simulator C17, not live controller P02. The trace shows active points to C17 and live points to P02. The crew fixes the live reference and checks P02. Yet Liv sees 08:0 on screen and 08:07 in the raw note.",
+    "segue": "Yet Liv holds a message for review; its final minute digit has vanished from the screen.",
     "stops": [
       {
         "group": "CODE",
@@ -516,7 +516,7 @@ export const MISSIONS = [
       "body": "The power fix works, but Liv sees the wrong time on a rescue note. A String cut can lose a digit. Check the raw note and the code before the crew drops the link. By the end of the mission, decide if the note is late or its shown time is wrong.",
       "objective": "Today you decide whether to keep the rescue link and fix the time parser."
     },
-    "segue": "Mission decision: The rescue link is on time; the time parser is wrong. The raw packet and two clocks show 08:07, but the String cut drops the last digit. The crew keeps the link and fixes the cut. But Mei sees Room 7 marked 4.1°C beside a local reading of 20.9°C.",
+    "segue": "But Mei puts two temperature readings beside Room 7, and they disagree by 16.8 degrees.",
     "stops": [
       {
         "group": "COMMS",
@@ -606,7 +606,7 @@ export const MISSIONS = [
       "body": "The link works, but Mei has a cold alarm for Room 7. An array index picks one item from a list. Match each room to its own reading before the crew moves out. By the end of the mission, decide if the room is cold or the code picked the wrong item.",
       "objective": "Today you decide whether Room 7 needs to be cleared or its index needs a fix."
     },
-    "segue": "Mission decision: Room 7 is safe; the controller reads the wrong array item. Local room readings are right, but the code swaps the Room 6 and Room 7 labels. The crew cancels the move and fixes the index map. Now Park finds every second record gone from the incident view.",
+    "segue": "Now Park asks for the missing incident lines before she signs the recovery record.",
     "stops": [
       {
         "group": "HAB",
@@ -692,7 +692,7 @@ export const MISSIONS = [
       "body": "Room 7 is safe, but Park sees gaps in the log. List items shift left when code removes one. Trace the cleanup code and check the raw file. By the end of the mission, decide if the notes were lost or the loop skipped them.",
       "objective": "Today you decide whether the raw log is lost or list cleanup skips its records."
     },
-    "segue": "Mission decision: The records were written; forward list removal skipped shifted items. The raw file has all six records, but cleanup leaves A-C-D-F. The crew restores the log and saves that case for later tests. But Jonah finds the known crack in the next map cell.",
+    "segue": "But Jonah halts the rover at a crack that the map puts one cell away.",
     "stops": [
       {
         "group": "OPS",
@@ -778,7 +778,7 @@ export const MISSIONS = [
       "body": "The log is back, but Jonah sees a crack in the wrong map cell. A grid uses a row and a column in a fixed order. Trace the write before the rover moves. By the end of the mission, decide if the map code swaps the two.",
       "objective": "Today you decide whether to trust the survey and fix the map write."
     },
-    "segue": "Mission decision: The field survey is right; the display swaps row and column. The source marks the crevasse at [0][1], but the broken write shows [1][0]. The crew fixes the grid before releasing the rover. Now Liv needs the right radio record before the next short pass ends.",
+    "segue": "Now Liv holds the transmitter open while the next satellite pass slips away.",
     "stops": [
       {
         "group": "VEH",
@@ -867,7 +867,7 @@ export const MISSIONS = [
         },
         {
           "title": "Halving work",
-          "problem": "A sorted list of 1024 items needs about 10 binary-search comparisons because 2^10 = 1024.",
+          "problem": "Ten halvings reduce 1024 candidates to one because 2^10 = 1024; a standard inclusive-interval binary search can require an eleventh midpoint check.",
           "steps": []
         },
         {
@@ -885,7 +885,7 @@ export const MISSIONS = [
       "body": "The map is fixed, but Liv has a short chance to reach the plane. A search can cut a sorted list in half at each step. Count the checks before the link closes. By the end of the mission, decide which search can find the right radio channel in time.",
       "objective": "Today you decide which search can reach the radio record before the link closes."
     },
-    "segue": "Mission decision: Binary search can find 122.3 MHz before the link closes. The sorted table reaches it at index 4 after three checks. The crew locks that rescue frequency. Yet Mei sees two separate units report the same last warning.",
+    "segue": "Yet Mei separates two units on the bench, and their warning numbers still move together.",
     "stops": [
       {
         "group": "COMMS",
@@ -971,7 +971,7 @@ export const MISSIONS = [
       "body": "The radio is set, but Mei sees two units share one warning. A static field holds one value for the whole class. Test which writes can change the other unit. By the end of the mission, decide if each object needs its own warning field.",
       "objective": "Today you decide whether each unit needs its own warning field."
     },
-    "segue": "Mission decision: The controllers share one static warning field. P02 and H04 are separate objects, but one write changes what both later read. The crew gives each object its own warning. Now Liv has just ten seconds to send the plane what it needs.",
+    "segue": "Now Liv clears the radio desk: the plane can hear only ten seconds of the waiting messages.",
     "stops": [
       {
         "group": "CODE",
@@ -1143,7 +1143,7 @@ export const MISSIONS = [
       "body": "The note got through, but ice may cut Liv off from the plane. Each call in a route builder must shrink the task until it can stop. Test the code before Jonah sends the rover out. By the end of the mission, decide if it can place the backup relay.",
       "objective": "Today you decide whether the route code can send Rover Three out and bring its calls to an end."
     },
-    "segue": "Mission decision: Rover Three can carry the backup relay on the fixed route. The code reaches build(0) and returns four safe points. The rover deploys and gives the station a second command path. Yet Priya has no test of two resolved records side by side.",
+    "segue": "Yet Priya holds the release after finding a gap in the tests: no adjacent resolved records.",
     "stops": [
       {
         "group": "CODE",
@@ -1233,7 +1233,7 @@ export const MISSIONS = [
       "body": "The relay works, but Priya has one test the green lights cannot answer. The code has not faced two closed records side by side. Test that case before the crew trusts its way back. By the end of the mission, decide if green means safe or just safe for now.",
       "objective": "Today you decide whether the green lights prove a safe recovery path."
     },
-    "segue": "Mission decision: The station is stable now, but rollback is not safe yet. Forward rollback scores 0/5 on new side-by-side cases and repeats the old skip pattern. The crew revokes ALL GREEN and keeps backward rollback. Now Park must choose a release plan as the plane enters its last weather window.",
+    "segue": "Now Park keeps her hand off the restart switch as the plane enters its last weather window.",
     "stops": [
       {
         "group": "CODE",

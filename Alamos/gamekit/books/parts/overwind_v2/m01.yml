@@ -11,7 +11,7 @@
   objective: "Can the proposed start be used for passenger trips?"
   stake: "The March stop left the cage past its landing, and the mine now wants faster trips. A rope pulls the cage that holds the shift. At the Bank, check the planned motion with a small test. By the end of the mission, you decide if the fast start can carry people."
   takeaway: "A correct motion calculation can still fail a safety limit. ---"
-  segue: "Mission decision: Reject the fast start. Its speed grows too fast for the stated limit. The slow schedule stays in place. The old drum drawing is now on the desk. Ruth takes the fast-start sheet off the shift board. Her brother Finn's tally stays on the hook with the other forty; no one boards for a test."
+  segue: "But Ewan’s fast timetable rests on a drum drawing that shows steel where the hub has a hole."
   # The mission card's own "Primer concepts", printed on the plan card.
   terms:
   - {name: "Velocity", def: "speed with a direction."}

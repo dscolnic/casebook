@@ -11,7 +11,7 @@
   objective: "Resolve whether to replace the failing seedling feed; the young plants may die before planting."
   stake: "The first trays have pale new leaves, but the ship is booked. Plants need the right mix of matter as well as fuel. Check the feed with Mara at the Sample Bench. Today you decide whether to replace the failing seedling feed."
   takeaway: "Replace the feed with a complete nutrient mix. ---"
-  segue: "Mission decision: Replace the feed with a complete nutrient mix. The nitrogen test restores growth."
+  segue: "But Mara finds swollen roots in the next tray. She needs the rinse checked before packing."
   # The mission card's own "Primer concepts", printed on the plan card.
   terms:
   - {name: "Element", def: "A substance made of one kind of atom."}
@@ -177,10 +177,10 @@
       tolerance: 0.05
       units: mg/day
       labels:
-        - need
-        - supply
-        - trays
-        - hours
+        - "12"
+        - "3"
+        - "4"
+        - "24"
       values:
         - 12
         - 3
@@ -191,7 +191,7 @@
         - 1
       slots: 2
       formula: a-b
-      template: "{0} {1} → mg/day"
+      template: "{0}-{1} = ? mg/day"
       solution: "9"
 
   # --- Stop 3: Check the stored mix

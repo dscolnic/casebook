@@ -267,11 +267,11 @@
     person: chen
     concept: 15   # integrated capacity/work decision
     reason: "One successful stroke does not establish a repeatable schedule with sufficient storage clearance and warning time."
-    scene: "Runner capacity is unavailable and the hoist passes one stroke, but three candidate schedules remain. Spend 6 inspection points on evidence that can distinguish repeatable gate work, storage clearance, and downstream safety."
+    scene: "One successful hoist stroke does not establish a repeatable schedule. Nia needs the remaining mechanical, storage and downstream checks."
     motivation: "The purchased inspections determine whether the alternative gate schedule is mechanically repeatable and safe downstream."
     format: VALUE
-    question: "Spend exactly 6 inspection points and submit the selected evidence IDs; the plan must test repeatability, corrected storage clearance, and downstream arrival."
-    answerText: "Spend 2+2+2 on repeatability, storage, and arrival."
+    question: "You have 6 inspection points. Cover every required outcome at the lowest total cost within the budget; keep all unused capacity in reserve. Select whole packages, then submit the plan; the board shows its total and remaining reserve for you to check."
+    answerText: "Each funded package supplies a required outcome; an affordable package that leaves one unresolved is insufficient."
     why: "Spend 2+2+2 on repeatability, storage, and arrival. The chosen evidence must test every binding constraint, not merely improve precision on a nonbinding one."
     # wrong-path feedback, one rebuttal per wrong option:
     #   Paint condition and power price do not test a binding release constraint; omitting repeatability, storage, or arrival leaves the schedule uncertified.

@@ -11,7 +11,7 @@
   objective: "Resolve which release plan the evidence now supports; an unchecked move could lose both the stock and its habitat."
   stake: "The ship waits, but the plan must work at night too. Each living group needs its tested care and links. Check the seed list with Nell, then take the final plan to Ada. Today you decide which release plan the evidence now supports."
   takeaway: "Authorize only the corrected monitored pilot, with a pause and return path. ---"
-  segue: "Mission decision: The small test is cleared. The night result meets the limit, and the plan says when to stop. Ada keeps seed families on the island as a reserve."
+  segue: "Now Ada can send the small test. The crew must watch it and stop if the recorded limits fail."
   # The mission card's own "Primer concepts", printed on the plan card.
   terms:
   - {name: "Pilot", def: "A limited test before a wider action."}
@@ -237,10 +237,10 @@
       tolerance: 0.05
       units: mg/L
       labels:
-        - start
-        - net loss rate
-        - hours
-        - minimum
+        - "9"
+        - "0.25"
+        - "8"
+        - "6"
       values:
         - 9
         - 0.25
@@ -252,7 +252,7 @@
         - 2
       slots: 3
       formula: a-b*c
-      template: "{0} {1} {2} → mg/L"
+      template: "{0}-{1} × {2} = ? mg/L"
       solution: "7"
 
   # --- Stop 60: Sign the living manifest

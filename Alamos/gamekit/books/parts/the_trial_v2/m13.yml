@@ -265,10 +265,10 @@
     person: reed
     concept: 17   # registered tests
     reason: "The slope finding joins several secondary analyses, so the correction family must be established."
-    scene: "The slope survives its own test, but the registry lists ten secondary analyses sharing one family. Verify all ten timestamps and reject an eleventh biomarker analysis added after results appeared."
+    scene: "The secondary-analysis family must be counted before adjusting its error allowance. The registry distinguishes planned tests from a later exploratory addition."
     motivation: "The timestamps determine which tests belong to the pre-specified family and which results remain exploratory."
     format: ATTEST
-    question: "Verify the ten preregistered secondary-test timestamps and reject the post-result biomarker claim. Submit the ten-test correction family."
+    question: "Use registry timestamps to identify the predeclared family; do not add a later analysis to that original family. Read the displayed source excerpts, then select every supported claim and leave unsupported claims unsigned."
     # MODEL CONVERSION. `verification_limit` (10) is the engine's `checks`, and the
     # payload's backed/critical flags carry over one for one — ten backed and
     # critical, the eleventh critical and unbacked, which is `critical_unbacked`.
@@ -306,7 +306,7 @@
       - { id: late_biomarker, label: "Late biomarker analysis", critical: true,
           signedBy: "Tomas Reed", evidence: "No registry timestamp; the analysis was added after results appeared." }
       commit: "Close the correction family"
-    answerText: "The completed check shows the correction family contains ten pre-specified tests; the added biomarker is exploratory."
+    answerText: "Each signature is limited to what its source establishes. The unsupported claims lack the specific date, physical condition, independence or scope they assert."
     why: "Counting only significant results would hide the number of chances that produced them."
     # wrong-path feedback, one rebuttal per wrong option:
     #   Count only significant tests

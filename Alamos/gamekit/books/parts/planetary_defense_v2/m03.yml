@@ -240,11 +240,11 @@
     person: rowan
     concept: 11   # robustness
     reason: "The rising probability must survive reasonable error assumptions before it supports notification."
-    scene: "Because the normalized cloud gives 8.0%, vary the astrometric weights, focusing radius, and one-frame timing uncertainty across justified ranges. Determine whether every reasonable case remains above the 1% notification line."
+    scene: "The updated probability must survive the justified error assumptions before it supports notification. The team has completed the sensitivity runs and retained their reported envelope."
     motivation: "The lowest supported probability determines whether the notification threshold is exceeded throughout the sensitivity tests."
     format: STRESS
-    question: "Submit the minimum probability in percent and one conclusion: ROBUSTLY ABOVE THRESHOLD or NOT ROBUST."
-    answerText: "The exact probability varies, but the decision to notify is robust."
+    question: "Inspect the supplied sensitivity envelope and submit its minimum probability. Mark ROBUSTLY ABOVE THRESHOLD only if the minimum is greater than the published 1% notification line."
+    answerText: "Minimum 6.7% exceeds 1%; the notification decision survives the supplied sensitivity envelope. The exact probability is not invariant."
     why: "Decision robustness depends on whether reasonable assumptions cross the action boundary, not whether they change the reported number."
     # wrong-path feedback, one rebuttal per wrong option:
     #   Separate uncertainty in the exact percentage from uncertainty about which side of 1% it occupies.

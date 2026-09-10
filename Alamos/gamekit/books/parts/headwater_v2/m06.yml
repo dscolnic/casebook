@@ -152,10 +152,10 @@
     title: "Check the indeterminate rate"
     concept: 10   # L'Hopital's rule
     reason: "The crew can now use differentiation to resolve the replacement forecast's undefined starting rate."
-    scene: "A replacement forecast gives average rise A(t)=(e^(0.02t)-1)/t metres per hour during the first t hours. Because A(0) is undefined, calculate L=lim_(t->0)A(t), the rise rate approached when the forecast begins."
+    scene: "The inflow forecast stalls at the start time. The crew needs the value the model approaches before it can use the curve."
     motivation: "The initial rate limit establishes whether the exponential forecast begins with a finite reservoir-rise prediction."
     format: BALLPARK
-    question: "Let L=lim_(t->0) A(t)=lim_(t->0)(e^(0.02t)-1)/t. Confirm the 0/0 form, apply L'Hopital's rule by differentiating the numerator and denominator separately, preserve L on the left, and submit the limit in metres per hour."
+    question: "Find lim(t→0)(e^(0.02t)−1)/t in m/h. Both numerator and denominator approach zero; use their derivatives to fill the numerator and denominator of the limiting ratio."
     answerText: "The replacement forecast begins with a finite limiting rise rate of 0.020 m/h."
     why: "The original ratio has the indeterminate form 0/0, and the differentiated ratio approaches 0.02/1."
     # wrong-path feedback, one rebuttal per wrong option:
@@ -241,11 +241,11 @@
     title: "Freeze before revealing the crest"
     concept: 25   # curve shape/model validation
     reason: "The alternative forecasts must be frozen before the archived crest is revealed."
-    scene: "With the plausible model identified, fit old radar hours 0-5 using Forecast A or B and freeze every parameter. The archive then reveals high-ground readings at hours 6-9 to test extrapolation."
+    scene: "Two forecast models fit the early readings. Freeze both supplied prediction sets before opening the later crest record."
     motivation: "Performance on the unseen crest determines which forecast deserves to guide the storm-storage plan."
     format: HOLDOUT
-    question: "Fit and freeze exactly one named model using hours 0-5, reveal hours 6-9, and submit the model label A or B that passes the holdout."
-    answerText: "B residuals [0,1,0,1]; A residuals [4,11,12,10] form a missed crest."
+    question: "Commit both fixed model predictions, then reveal the four holdout readings. Select the model with the smaller mean absolute prediction error; the result does not authorize refitting on these same readings."
+    answerText: "A misses the crest in a systematic direction. Both prediction sets were fixed before the readings appeared, so comparing them is an out-of-sample model comparison."
     why: "B residuals [0,1,0,1]; A residuals [4,11,12,10] form a missed crest. A model that fits training data but misses a patterned holdout crest cannot guide release."
     # wrong-path feedback, one rebuttal per wrong option:
     #   Training fit does not validate extrapolation.

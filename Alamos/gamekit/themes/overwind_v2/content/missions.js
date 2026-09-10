@@ -99,7 +99,7 @@ export const MISSIONS = [
       "body": "The March stop left the cage past its landing, and the mine now wants faster trips. A rope pulls the cage that holds the shift. At the Bank, check the planned motion with a small test. By the end of the mission, you decide if the fast start can carry people.",
       "objective": "Can the proposed start be used for passenger trips?"
     },
-    "segue": "Mission decision: Reject the fast start. Its speed grows too fast for the stated limit. The slow schedule stays in place. The old drum drawing is now on the desk. Ruth takes the fast-start sheet off the shift board. Her brother Finn's tally stays on the hook with the other forty; no one boards for a test.",
+    "segue": "But Ewan’s fast timetable rests on a drum drawing that shows steel where the hub has a hole.",
     "stops": [
       {
         "group": "BANK",
@@ -223,7 +223,7 @@ export const MISSIONS = [
       "body": "The fast start is held, but the drum record may be wrong too. Steel far from the shaft makes a drum harder to speed up. At the Winder House, check its shape against the old drawing. By the end of the mission, you decide which drum model belongs in the plan.",
       "objective": "Which drum inertia belongs in the winding model?"
     },
-    "segue": "Mission decision: Use the ring-shaped drum model. The measured hole changes how its mass is spread. The old drawing gets a warning tag. The rope record is next. Ewan marks the old drum drawing superseded in his own hand. The first record behind his promised timetable has failed a physical check.",
+    "segue": "The drum record is fixed, but Mara still has 12,000 kg of hanging rope missing from the load tally.",
     "stops": [
       {
         "group": "WIND",
@@ -351,7 +351,7 @@ export const MISSIONS = [
       "body": "The drum model is fixed, but the rope adds its own weight. The upper rope must pull the cage and all the steel below it. At the Rope Shop, weigh a sample and test the pull. By the end of the mission, you decide if the rope can take the planned rise.",
       "objective": "Does the proposed one-unit acceleration pass the rope pull limit?"
     },
-    "segue": "Mission decision: The slower rise passes the mean rope-pull limit. The rope's own weight is part of that pull. The bounce test stays open. The motor must now prove it can turn the drum. Mara keeps the sound rope in the plan and pins its measured mass beside the pull limit. She refuses a replacement order that would leave the missing dynamics unexplained.",
+    "segue": "The rope passes the mean pull, yet Ewan’s motor must also speed up the drum. That extra demand may rule out his fast start.",
     "stops": [
       {
         "group": "ROPE",
@@ -479,7 +479,7 @@ export const MISSIONS = [
       "body": "The rope can take the slower rise, but the motor has two jobs. It must pull the load and make the drum turn faster. At the Winder House, add those two demands before the start control is freed. By the end of the mission, you decide which start the motor can supply.",
       "objective": "Which starting acceleration can the motor supply?"
     },
-    "segue": "Mission decision: Use the slower start. The faster start asks too much of the motor. The control gains a stop at the tested setting. The full lift still needs its energy check. Ewan locks the start to 1 m/s². He must now tell management why a rope that passes cannot make the motor deliver the faster start.",
+    "segue": "The slower start fits the motor, but Ada still has no energy total for the full 1,200 m lift.",
     "stops": [
       {
         "group": "WIND",
@@ -615,7 +615,7 @@ export const MISSIONS = [
       "body": "The motor can start the load, but a full lift still needs enough energy. Work adds up force over each part of a trip. At the brake house and Winder House, check the lift and stored motion. By the end of the mission, you decide if that budget also proves a safe stop.",
       "objective": "Does the lift energy budget clear the emergency stop?"
     },
-    "segue": "Mission decision: The lift has enough energy, but the stop is not cleared. The drum stores motion energy too. The brake page stays open. Two trip tags now hang on the feed belt. Ada signs the energy page but leaves her brake page open. She places the March check beside it so the crew can see that enough lift energy has answered a different question.",
+    "segue": "But Ivo’s bin bolts have broken. Each lost ore trip adds to the pressure on Ewan to win back time.",
     "stops": [
       {
         "group": "CAGE",
@@ -743,7 +743,7 @@ export const MISSIONS = [
       "body": "The lift has enough energy, but the feed belt still stops with small loads. A moving stream can push hard on the belt. At the Tip and brake house, check steady flow and sudden impacts. By the end of the mission, you choose the feed change that protects the belt and bin.",
       "objective": "Which feed change protects the conveyor and bin?"
     },
-    "segue": "Mission decision: Fit the staged chute. The longer stop lowers the force on the bin. Ore can still reach the belt at the planned rate. The next file holds two gravity readings that disagree. Ivo marks the staged chute for installation. It preserves daily delivery in the stated model, removing one reason to demand that the passenger cage make up lost ore time.",
+    "segue": "The new chute saves the feed target, but Nia has two gravity readings that clash. The crew wants to know if they explain March.",
     "stops": [
       {
         "group": "TIP",
@@ -863,7 +863,7 @@ export const MISSIONS = [
       "body": "The feed fix works, but two gravity readings in the lift file do not match. A meter can drift while the ground stays the same. At the Gravity Station and Rope Shop, check drift and depth. By the end of the mission, you decide if gravity can explain the March overrun.",
       "objective": "Can the local gravity correction explain the March overrun?"
     },
-    "segue": "Mission decision: Correct the survey, but do not blame gravity for March. The weight change is small. It does not explain the delayed cage motion. The power chart still rejects the fastest cruise. Nia signs the drift correction and keeps the March inquiry open. A fault in her reading does not erase the separate evidence of the moving cage.",
+    "segue": "The gravity claim fails, yet Ewan still needs a speed his motor can sustain. The shaft-power ceiling is 600 kW.",
     "stops": [
       {
         "group": "GRAV",
@@ -987,7 +987,7 @@ export const MISSIONS = [
       "body": "The weight table holds, but the motor cannot give energy at any rate. Power is the rate at which a machine does work. At the Winder House and Tip, check the lift and a small drive. By the end of the mission, you choose a cruise speed that fits the power limit.",
       "objective": "Which cruise speed fits the motor power limit?"
     },
-    "segue": "Mission decision: Cap cruise at three and a half metres per second for now. The faster choice needs too much power. The brake limit is still open. A test mass keeps moving after its support stops. Ewan pins up 3.5 m/s as a power-only proposal. Ruth adds BRAKE PAGE OPEN across it before anyone can mistake that limited pass for passenger approval.",
+    "segue": "The power page allows a proposal, but Mara’s test mass still moves after its support stops. Finn’s cage did that in March.",
     "stops": [
       {
         "group": "WIND",
@@ -1115,7 +1115,7 @@ export const MISSIONS = [
       "body": "The power limit is met, but the cage can move after its support stops. A stretched rope can pull a load back toward rest. At the Rope Shop and Bank, check stretch and bounce. By the end of the mission, you decide if drum stop time alone can tell when the cage stops.",
       "objective": "Can a drum stop time alone predict when the cage stops?"
     },
-    "segue": "Mission decision: Keep separate records for drum and cage. The rope gives the cage its own bounce time. Drum rest alone cannot prove cage rest. The sealed March tape is now ready to read. Ruth puts a second space on the shift check for the cage trace. The drum-stop lamp that was lit while Finn was still moving can no longer close that check alone.",
+    "segue": "The rope has its own clock, but Ada must show it fits March. The exact peak time is still sealed in her file.",
     "stops": [
       {
         "group": "ROPE",
@@ -1243,7 +1243,7 @@ export const MISSIONS = [
       "body": "The cage has its own bounce period, so the sealed March tape can now be tested. A load can move while its rope changes stretch. At the brake house and Rope Shop, trace that motion from the stop. By the end of the mission, you decide why the cage passed its landing.",
       "objective": "What caused the cage to overrun its March landing?"
     },
-    "segue": "Mission decision: The cage kept moving as the rope changed stretch. The model predicts the peak and its delay. The drum really was still. A passed empty test now sits beside a warm-pad warning. Ada places her signed March check below the two traces. She tells Ruth why its inference failed; the measured delayed peak supports the account without turning it into permission for the next trip.",
+    "segue": "The March delay now fits, yet Ada’s new empty pass uses cold pads. A weaker warm-pad limit could still defeat Ewan’s fast plan.",
     "stops": [
       {
         "group": "CAGE",
@@ -1371,7 +1371,7 @@ export const MISSIONS = [
       "body": "March is explained, and the empty cage stops within the marked space. Warm brake pads and more load can change that distance. At the brake house, Bank and Winder House, check those limits before the shift rides. By the end of the mission, you decide if the empty test earns a faster passenger run.",
       "objective": "Does the empty test authorize the faster passenger profile?"
     },
-    "segue": "Mission decision: The empty test does not clear the faster passenger trip. The loaded warm case needs more space. Keep the two-metre-per-second choice for final review. The last empty test is ready. Ewan crosses out the fast shift sheet. The extra pay he promised is gone. Ada writes the load and pad state on the empty-test pass. Only the slow choice goes to the last check.",
+    "segue": "The fast plan fails, so Ruth needs one last empty wind and a signed range. The inspector arrives tomorrow.",
     "stops": [
       {
         "group": "CAGE",
@@ -1466,7 +1466,7 @@ export const MISSIONS = [
       "body": "The slower speed fits the worst stop, and the last test is ready. The plan must meet each limit for the loads it covers. At the Bank, Rope Shop and Winder House, check the final record. By the end of the mission, you choose the full profile that can open passenger access.",
       "objective": "Which complete profile can be signed for the defined operating range?"
     },
-    "segue": "Mission decision: Sign the two-metre-per-second plan within its tested range. The slower start and all limits stay attached. The empty test agrees with its prediction. Once the four bars are full, the passenger gate opens. Ruth opens the passenger gate for the signed range. Ewan posts the slower timetable above his crossed-out promise. The crew can reach work again once all checks pass. The extra shifts are gone. Finn takes his tally only after the last gates clear.",
+    "segue": "Ruth can call the forty-one forward once the last gates clear. But Ewan must keep the posted limits when ore trips fall behind.",
     "stops": [
       {
         "group": "BANK",

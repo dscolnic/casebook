@@ -11,7 +11,7 @@
   objective: "Today you decide whether each unit needs its own warning field."
   stake: "The radio is set, but Mei sees two units share one warning. A static field holds one value for the whole class. Test which writes can change the other unit. By the end of the mission, decide if each object needs its own warning field."
   takeaway: "The controllers share one static warning field; changing H04 overwrites the value later read from P02 even though the objects are physically separate. ---"
-  segue: "Mission decision: The controllers share one static warning field. P02 and H04 are separate objects, but one write changes what both later read. The crew gives each object its own warning. Now Liv has just ten seconds to send the plane what it needs."
+  segue: "Now Liv clears the radio desk: the plane can hear only ten seconds of the waiting messages."
   # The mission card's own "Primer concepts", printed on the plan card.
   terms:
   - {name: "static field", def: "one field shared by the class rather than stored separately in each object. instance field: state stored separately inside each object. reference: a value that points to an object rather than containing a separate copy of that object."}

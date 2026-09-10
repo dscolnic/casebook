@@ -155,8 +155,8 @@
     scene: "A faint point appears inside the fragment search box and moves consistently over three exposures. Attest its identity only after checking timestamps, star-field solution, motion, brightness, and the static-source archive."
     motivation: "The timed-image and archive checks determine whether the search-box detection is a genuine recovery of the fragment."
     format: ATTEST
-    question: "Sign the five backed recovery checks and reject the unsupported city-impact claim."
-    answerText: "Every identity check agrees, so the positions extend the fragment arc."
+    question: "Recovery identity is narrower than impact prediction; sign only the checks established by the recovery record. Read the displayed source excerpts, then select every supported claim and leave unsupported claims unsigned."
+    answerText: "Each signature is limited to what its source establishes. The unsupported claims lack the specific date, physical condition, independence or scope they assert."
     why: "ATTEST owns a claim against named criteria."
     # wrong-path feedback, one rebuttal per wrong option:
     #   Search-box proximity alone is not identity.
@@ -205,10 +205,10 @@
     title: "Balance orbit and consequence"
     concept: 16   # fragment risk
     reason: "The verified fragment recovery allows its risk to be assessed against the published protective-order criteria."
-    scene: "The recovered orbit gives a narrow damaging-airburst corridor over 180,000 people, while size and density ranges imply roughly 0.7 to 2 megatons TNT. Balance probability, consequence, timing, and reversibility against the published rule."
+    scene: "The operations desk has both a probability and an exposure count. The team computes their product without treating it as an automatic order."
     motivation: "Probability, consequence, warning time, and reversibility together determine whether a targeted order is justified."
     format: BALLPARK
-    question: "Submit one threshold conclusion - TARGETED ORDER or CONTINUE STAGING - and identify the numerical evidence that controls it."
+    question: "Impact probability is 0.91 and exposed population is 180,000. Calculate probability-weighted exposure. The decision file also lists diameter 28–36 m, energy 0.7–2 Mt, warning under two days and independent confirmation."
     answerText: "High likelihood, damaging scale, narrow exposure, verification, and short time require action."
     why: "BALANCE integrates unlike evidence at a decision boundary."
     # wrong-path feedback, one rebuttal per wrong option:
@@ -326,10 +326,10 @@
     title: "Allocate the final response"
     concept: 16   # execution
     reason: "The targeted order needs actual deployment without abandoning the continuing ocean-event watch."
-    scene: "Complete deployment without stripping ongoing coastal monitoring for the primary ocean event."
+    scene: "The fragment zone needs protection while the primary ocean event remains monitored. Allocate the final response without borrowing the coastal-watch capacity."
     motivation: "The final allocation determines whether transport, shelter, medical, communication, reserve, and coastal-monitoring commitments can all be met."
     format: ALLOCATE
-    question: "Submit one five-category allocation totaling 100 points and a conclusion confirming whether every constraint and both hazard tracks remain satisfied."
+    question: "Allocate exactly 100 points. Use 5-point increments. Minimums are transport 25, shelters 25, hospitals 20, communications 15 and reserve 10; no category may exceed 40. Preserve the separately staffed coastal watch. Submit the allocation; the board checks the total and each requirement."
     # ---- THE MODEL CONVERSION, and the one piece of real work in this stop.
     #
     # The payload's board is a CONTINUOUS SPLIT: 100 points divided across five
@@ -358,7 +358,7 @@
       - { question: "Can multilingual alerts reach the corridor?", requires: [communications], required: true }
       - { question: "Can services expand outside both hazard zones now?", requires: [reserve] }
       commit: Commit the allocation
-    answerText: "The fragment corridor receives protection while the primary remains monitored."
+    answerText: "The accepted plan funds every required capability within the stated limits; extra points may be distributed only as the public rule allows."
     why: "ALLOCATE converts decision into constrained, equitable execution."
     # wrong-path feedback, one rebuttal per wrong option:
     #   Spending the reserve makes the system brittle.

@@ -2635,7 +2635,7 @@ export const MISSIONS = [
             2
           ]
         },
-        "world": "At council-table, the dated accepted-result slip for Stop 22 reads: \"tags+checks=35\". The slip remains in that fixture's evidence holder.",
+        "world": "At council-table, the dated accepted-result slip for Stop 22 reads: \"tags+camera=40\". The slip remains in that fixture's evidence holder.",
         "stage": {
           "wall": [
             {
@@ -6706,7 +6706,7 @@ export const MISSIONS = [
             2
           ]
         },
-        "world": "At delivery-board, the dated accepted-result slip for Stop 58 reads: \"Submit (200 visitors/day, 20% reserve)\". The slip remains in that fixture's evidence holder.",
+        "world": "At delivery-board, the dated accepted-result slip for Stop 58 reads: \"200 visitors/day with 20% daily service capacity unbooked; check annual water margin separately\". The slip remains in that fixture's evidence holder.",
         "stage": {
           "wall": [
             {

@@ -968,31 +968,39 @@ answerText: The pale seedlings need materials as well as fuel. This result is no
 **Data/readings/options:** A tray needs 12 mg nitrogen per day; the stored feed supplies 3 mg per day. Assume no other nitrogen input.
 
 **Format-specific interaction block:**
-```yaml
-estimate:
-  quantity: Count the missing nitrogen
-  units: mg/day
-  labels:
-  - need
-  - supply
-  - trays
-  - hours
-  values:
-  - 12
-  - 3
-  - 4
-  - 24
-  slots: 2
-  template: '{0} {1} → mg/day'
-  formula: a-b
-  correct:
-  - 0
-  - 1
-  target: 9
-  correctResult: 9
-  tolerance: 0.05
-answerText: 'The deficit is the daily requirement minus the nitrogen already supplied: 12 − 3 = 9 mg per day. This result is now recorded for the next comparison.'
+```json
+{
+  "estimate": {
+    "quantity": "Count the missing nitrogen",
+    "units": "mg/day",
+    "labels": [
+      "12",
+      "3",
+      "4",
+      "24"
+    ],
+    "values": [
+      12,
+      3,
+      4,
+      24
+    ],
+    "slots": 2,
+    "template": "{a}-{b} = ? mg/day",
+    "formula": "a-b",
+    "correct": [
+      0,
+      1
+    ],
+    "target": 9,
+    "correctResult": 9,
+    "tolerance": 0.05
+  },
+  "answerText": "The deficit is the daily requirement minus the nitrogen already supplied: 12 − 3 = 9 mg per day. This result is now recorded for the next comparison."
+}
 ```
+
+**BALLPARK rendering and grading:** Show the numeric labels as tiles and the equation with named letter slots. Never substitute quantity names for those numbers. The key uses zero-based tile indices. Accept equivalent numeric selections, including interchangeable equal-valued tiles; a matching arbitrary index is not required. Tolerance is absolute in the output units. Unused numeric choices must remain visible.
 
 **Question card prompt — exact player copy:** Use the number tiles to calculate the daily nitrogen deficit in mg per day; submit need minus supply.
 
@@ -1150,6 +1158,8 @@ answerText: Only the stored-feed tray lies outside its own expected range. This 
 **Question card story-science connection — exact player copy:** Replace the feed with a complete nutrient mix.
 
 **Data/readings/options:** Recorded: 9 mg/day nitrogen deficit; stored-feed growth 2 mm/day; nitrogen-restored and complete-feed growth 8 mm/day; all other conditions matched.
+
+**Decision-record delivery:** Render the complete Data/readings/options record above on this question card before its choices. Keep any numerical limit, adopted decision rule and scope statement visible while choosing. Do not replace it with the story-science connection or an earlier mission’s generic explanation; do not display the author-only mission answer.
 
 **Format-specific interaction block:**
 ```yaml
@@ -1707,31 +1717,39 @@ answerText: The damaged sample contains cell walls and large vacuoles, identifyi
 **Data/readings/options:** A model root cell is a cube of side 3 micrometres; surface area = 6L² and volume = L³.
 
 **Format-specific interaction block:**
-```yaml
-estimate:
-  quantity: Compare exchange surfaces
-  units: 1/µm
-  labels:
-  - faces
-  - side length
-  - surface area
-  - volume
-  values:
-  - 6
-  - 3
-  - 54
-  - 27
-  slots: 2
-  template: '{0} {1} → 1/µm'
-  formula: a/b
-  correct:
-  - 0
-  - 1
-  target: 2
-  correctResult: 2
-  tolerance: 0.05
-answerText: For a cube, surface area divided by volume is 6L²/L³ = 6/L. This result is now recorded for the next comparison.
+```json
+{
+  "estimate": {
+    "quantity": "Compare exchange surfaces",
+    "units": "1/µm",
+    "labels": [
+      "6",
+      "3",
+      "54",
+      "27"
+    ],
+    "values": [
+      6,
+      3,
+      54,
+      27
+    ],
+    "slots": 2,
+    "template": "{a} / {b} = ? 1/µm",
+    "formula": "a/b",
+    "correct": [
+      0,
+      1
+    ],
+    "target": 2,
+    "correctResult": 2,
+    "tolerance": 0.05
+  },
+  "answerText": "For a cube, surface area divided by volume is 6L²/L³ = 6/L. This result is now recorded for the next comparison."
+}
 ```
+
+**BALLPARK rendering and grading:** Show the numeric labels as tiles and the equation with named letter slots. Never substitute quantity names for those numbers. The key uses zero-based tile indices. Accept equivalent numeric selections, including interchangeable equal-valued tiles; a matching arbitrary index is not required. Tolerance is absolute in the output units. Unused numeric choices must remain visible.
 
 **Question card prompt — exact player copy:** Build the ratio 6 divided by side length from the tiles; submit surface-area-to-volume ratio in inverse micrometres.
 
@@ -1895,6 +1913,8 @@ why: At equal initial pressure, the more concentrated root-cell solution has low
 **Question card story-science connection — exact player copy:** Use the rinse that matches the root cells.
 
 **Data/readings/options:** Stored result: fresh water caused swelling; 0.30 M rinse matched root cells and prevented net swelling; both groups received the same complete feed. After 30 minutes, viability is 55% in fresh water and 96% in matched rinse for this salt-adapted line; swelling alone is not called damage.
+
+**Decision-record delivery:** Render the complete Data/readings/options record above on this question card before its choices. Keep any numerical limit, adopted decision rule and scope statement visible while choosing. Do not replace it with the story-science connection or an earlier mission’s generic explanation; do not display the author-only mission answer.
 
 **Format-specific interaction block:**
 ```yaml
@@ -2442,31 +2462,39 @@ answerText: Energy from food reaches electron carriers and then the mitochondria
 **Data/readings/options:** Matched planted pots produce 14 mg oxygen/hour in light and consume 6 mg oxygen/hour through respiration. Assume these measured rates stay constant for one hour.
 
 **Format-specific interaction block:**
-```yaml
-estimate:
-  quantity: Calculate the daylight balance
-  units: mg/hour
-  labels:
-  - gross production
-  - respiration
-  - hours
-  - sealed pots
-  values:
-  - 14
-  - 6
-  - 1
-  - 5
-  slots: 2
-  template: '{0} {1} → mg/hour'
-  formula: a-b
-  correct:
-  - 0
-  - 1
-  target: 8
-  correctResult: 8
-  tolerance: 0.05
-answerText: 'The net daylight oxygen gain is gross production minus respiratory use: 14 − 6 = 8 mg per hour. This result is now recorded for the next comparison.'
+```json
+{
+  "estimate": {
+    "quantity": "Calculate the daylight balance",
+    "units": "mg/hour",
+    "labels": [
+      "14",
+      "6",
+      "1",
+      "5"
+    ],
+    "values": [
+      14,
+      6,
+      1,
+      5
+    ],
+    "slots": 2,
+    "template": "{a}-{b} = ? mg/hour",
+    "formula": "a-b",
+    "correct": [
+      0,
+      1
+    ],
+    "target": 8,
+    "correctResult": 8,
+    "tolerance": 0.05
+  },
+  "answerText": "The net daylight oxygen gain is gross production minus respiratory use: 14 − 6 = 8 mg per hour. This result is now recorded for the next comparison."
+}
 ```
+
+**BALLPARK rendering and grading:** Show the numeric labels as tiles and the equation with named letter slots. Never substitute quantity names for those numbers. The key uses zero-based tile indices. Accept equivalent numeric selections, including interchangeable equal-valued tiles; a matching arbitrary index is not required. Tolerance is absolute in the output units. Unused numeric choices must remain visible.
 
 **Question card prompt — exact player copy:** Use production minus consumption and submit net oxygen gain in mg per hour.
 
@@ -2624,6 +2652,8 @@ answerText: The sealed planted pot is the only station outside its expected oxyg
 **Question card story-science connection — exact player copy:** Keep the pots supplied with oxygen.
 
 **Data/readings/options:** Results: sealed planted pots fall to 1 mg/L oxygen overnight; ventilated pots stay at 7; fictional transport specification requires at least 6 mg/L throughout the trip.
+
+**Decision-record delivery:** Render the complete Data/readings/options record above on this question card before its choices. Keep any numerical limit, adopted decision rule and scope statement visible while choosing. Do not replace it with the story-science connection or an earlier mission’s generic explanation; do not display the author-only mission answer.
 
 **Format-specific interaction block:**
 ```yaml
@@ -3361,6 +3391,8 @@ why: The unchanged target DNA sequence rules out the proposed sequence rewrite i
 
 **Data/readings/options:** Old lamps improve leaf growth; target DNA is unchanged; RNA and protein increase; field pollinator timing has not yet been checked.
 
+**Decision-record delivery:** Render the complete Data/readings/options record above on this question card before its choices. Keep any numerical limit, adopted decision rule and scope statement visible while choosing. Do not replace it with the story-science connection or an earlier mission’s generic explanation; do not display the author-only mission answer.
+
 **Format-specific interaction block:**
 ```yaml
 question: Choose how far the nursery should apply the old lamp program now.
@@ -3908,32 +3940,40 @@ answerText: Healthy photosynthetic leaves show that the plants can capture light
 **Data/readings/options:** Old-program flowers are open on days 1–4 inclusive; field pollinators are active on days 4–9 inclusive. The original field schedule was days 3–8.
 
 **Format-specific interaction block:**
-```yaml
-estimate:
-  quantity: Find the shared flowering days
-  units: days
-  labels:
-  - shared last day
-  - shared first day
-  - inclusive endpoint
-  - field last day
-  values:
-  - 4
-  - 4
-  - 1
-  - 9
-  slots: 3
-  template: '{0} {1} {2} → days'
-  formula: a-b+c
-  correct:
-  - 0
-  - 1
-  - 2
-  target: 1
-  correctResult: 1
-  tolerance: 0.05
-answerText: The overlap consists only of day 4. This result is now recorded for the next comparison.
+```json
+{
+  "estimate": {
+    "quantity": "Find the shared flowering days",
+    "units": "days",
+    "labels": [
+      "4",
+      "4",
+      "1",
+      "9"
+    ],
+    "values": [
+      4,
+      4,
+      1,
+      9
+    ],
+    "slots": 3,
+    "template": "{a}-{b}+{c} = ? days",
+    "formula": "a-b+c",
+    "correct": [
+      0,
+      1,
+      2
+    ],
+    "target": 1,
+    "correctResult": 1,
+    "tolerance": 0.05
+  },
+  "answerText": "The overlap consists only of day 4. This result is now recorded for the next comparison."
+}
 ```
+
+**BALLPARK rendering and grading:** Show the numeric labels as tiles and the equation with named letter slots. Never substitute quantity names for those numbers. The key uses zero-based tile indices. Accept equivalent numeric selections, including interchangeable equal-valued tiles; a matching arbitrary index is not required. Tolerance is absolute in the output units. Unused numeric choices must remain visible.
 
 **Question card prompt — exact player copy:** For the old program, use shared last day minus shared first day plus one; submit overlap in days.
 
@@ -4091,6 +4131,8 @@ answerText: Only the old-program flower tray falls below its station-specific ex
 **Question card story-science connection — exact player copy:** Stop the wider reset and keep a mixed flowering schedule.
 
 **Data/readings/options:** Recorded: old-program overlap is one day; old-program trays receive 2 visits/hour; staggered trays receive 10 and unchanged field flowers 9.
+
+**Decision-record delivery:** Render the complete Data/readings/options record above on this question card before its choices. Keep any numerical limit, adopted decision rule and scope statement visible while choosing. Do not replace it with the story-science connection or an earlier mission’s generic explanation; do not display the author-only mission answer.
 
 **Format-specific interaction block:**
 ```yaml
@@ -4629,32 +4671,40 @@ answerText: The cell cycle provides an order for interpreting the tissue counts.
 **Data/readings/options:** The unusual tray has 18 dividing cells among 60 counted cells; a matched normal tray has 6 among 60.
 
 **Format-specific interaction block:**
-```yaml
-estimate:
-  quantity: Compare dividing fractions
-  units: '%'
-  labels:
-  - dividing
-  - total
-  - percent scale
-  - control dividing
-  values:
-  - 18
-  - 60
-  - 100
-  - 6
-  slots: 3
-  template: '{0} {1} {2} → %'
-  formula: a/b*c
-  correct:
-  - 0
-  - 1
-  - 2
-  target: 30
-  correctResult: 30
-  tolerance: 0.05
-answerText: The observed dividing fraction is 18/60 × 100 = 30 percent. This result is now recorded for the next comparison.
+```json
+{
+  "estimate": {
+    "quantity": "Compare dividing fractions",
+    "units": "%",
+    "labels": [
+      "18",
+      "60",
+      "100",
+      "6"
+    ],
+    "values": [
+      18,
+      60,
+      100,
+      6
+    ],
+    "slots": 3,
+    "template": "{a} / {b} × {c} = ? %",
+    "formula": "a/b*c",
+    "correct": [
+      0,
+      1,
+      2
+    ],
+    "target": 30,
+    "correctResult": 30,
+    "tolerance": 0.05
+  },
+  "answerText": "The observed dividing fraction is 18/60 × 100 = 30 percent. This result is now recorded for the next comparison."
+}
 ```
+
+**BALLPARK rendering and grading:** Show the numeric labels as tiles and the equation with named letter slots. Never substitute quantity names for those numbers. The key uses zero-based tile indices. Accept equivalent numeric selections, including interchangeable equal-valued tiles; a matching arbitrary index is not required. Tolerance is absolute in the output units. Unused numeric choices must remain visible.
 
 **Question card prompt — exact player copy:** Use dividing cells divided by total cells times 100; submit the unusual tray fraction as a percent.
 
@@ -4818,6 +4868,8 @@ why: 'The unusual tissue continues dividing when the same signal-removal treatme
 **Question card story-science connection — exact player copy:** Hold the unusual tissue tray for further tests.
 
 **Data/readings/options:** The unusual tray divides after signal removal; normal tissue stops; DNA copying is present; a causal mutation remains unknown.
+
+**Decision-record delivery:** Render the complete Data/readings/options record above on this question card before its choices. Keep any numerical limit, adopted decision rule and scope statement visible while choosing. Do not replace it with the story-science connection or an earlier mission’s generic explanation; do not display the author-only mission answer.
 
 **Format-specific interaction block:**
 ```yaml
@@ -5360,32 +5412,40 @@ answerText: Meiosis separates homologous chromosomes and then sister chromatids,
 **Data/readings/options:** Use Tt × tt, complete dominance, independent offspring and no viability difference. Expected recessive fraction is 1/2; 24 offspring are scored.
 
 **Format-specific interaction block:**
-```yaml
-estimate:
-  quantity: Predict the test family
-  units: offspring
-  labels:
-  - offspring
-  - numerator
-  - denominator
-  - dominant parent copies
-  values:
-  - 24
-  - 1
-  - 2
-  - 2
-  slots: 3
-  template: '{0} {1} {2} → offspring'
-  formula: a*b/c
-  correct:
-  - 0
-  - 1
-  - 2
-  target: 12
-  correctResult: 12
-  tolerance: 0.05
-answerText: The heterozygous parent supplies T or t with equal probability, while the recessive parent supplies only t. This result is now recorded for the next comparison.
+```json
+{
+  "estimate": {
+    "quantity": "Predict the test family",
+    "units": "offspring",
+    "labels": [
+      "24",
+      "1",
+      "2",
+      "4"
+    ],
+    "values": [
+      24,
+      1,
+      2,
+      4
+    ],
+    "slots": 3,
+    "template": "{a} × {b} / {c} = ? offspring",
+    "formula": "a*b/c",
+    "correct": [
+      0,
+      1,
+      2
+    ],
+    "target": 12,
+    "correctResult": 12,
+    "tolerance": 0.05
+  },
+  "answerText": "The heterozygous parent supplies T or t with equal probability, while the recessive parent supplies only t. This result is now recorded for the next comparison."
+}
 ```
+
+**BALLPARK rendering and grading:** Show the numeric labels as tiles and the equation with named letter slots. Never substitute quantity names for those numbers. The key uses zero-based tile indices. Accept equivalent numeric selections, including interchangeable equal-valued tiles; a matching arbitrary index is not required. Tolerance is absolute in the output units. Unused numeric choices must remain visible.
 
 **Question card prompt — exact player copy:** Multiply offspring count by recessive fraction; submit expected recessive offspring count.
 
@@ -5552,6 +5612,8 @@ answerText: Not every trait follows a simple dominant-recessive pattern. This re
 **Question card story-science connection — exact player copy:** Use a test cross and keep each family separate.
 
 **Data/readings/options:** Unknown parent has dominant phenotype and genotype TT or Tt; available partners are TT, Tt and tt; the target trait follows complete dominance without viability differences.
+
+**Decision-record delivery:** Render the complete Data/readings/options record above on this question card before its choices. Keep any numerical limit, adopted decision rule and scope statement visible while choosing. Do not replace it with the story-science connection or an earlier mission’s generic explanation; do not display the author-only mission answer.
 
 **Format-specific interaction block:**
 ```yaml
@@ -6289,6 +6351,8 @@ why: The early stop can shorten the enzyme, and the activity comparison shows a 
 
 **Data/readings/options:** An early nonsense change accompanies low purified-enzyme activity; other enzyme activity and growth conditions are normal; no rescue or targeted replacement experiment has been performed.
 
+**Decision-record delivery:** Render the complete Data/readings/options record above on this question card before its choices. Keep any numerical limit, adopted decision rule and scope statement visible while choosing. Do not replace it with the story-science connection or an earlier mission’s generic explanation; do not display the author-only mission answer.
+
 **Format-specific interaction block:**
 ```yaml
 question: Select the claim the evidence supports and the next handling decision.
@@ -6835,32 +6899,40 @@ answerText: The comparisons distinguish several ways a leaf can look different. 
 **Data/readings/options:** A linked-marker test cross produces 16 recombinant offspring among 80 total; all offspring are scored without viability bias. Use recombination percent = recombinants/total ×100.
 
 **Format-specific interaction block:**
-```yaml
-estimate:
-  quantity: Check the family marker distance
-  units: '%'
-  labels:
-  - recombinants
-  - total
-  - percent scale
-  - parent types
-  values:
-  - 16
-  - 80
-  - 100
-  - 2
-  slots: 3
-  template: '{0} {1} {2} → %'
-  formula: a/b*c
-  correct:
-  - 0
-  - 1
-  - 2
-  target: 20
-  correctResult: 20
-  tolerance: 0.05
-answerText: The recombinant fraction is 16/80, so the estimated recombination frequency is 20 percent. This result is now recorded for the next comparison.
+```json
+{
+  "estimate": {
+    "quantity": "Check the family marker distance",
+    "units": "%",
+    "labels": [
+      "16",
+      "80",
+      "100",
+      "2"
+    ],
+    "values": [
+      16,
+      80,
+      100,
+      2
+    ],
+    "slots": 3,
+    "template": "{a} / {b} × {c} = ? %",
+    "formula": "a/b*c",
+    "correct": [
+      0,
+      1,
+      2
+    ],
+    "target": 20,
+    "correctResult": 20,
+    "tolerance": 0.05
+  },
+  "answerText": "The recombinant fraction is 16/80, so the estimated recombination frequency is 20 percent. This result is now recorded for the next comparison."
+}
 ```
+
+**BALLPARK rendering and grading:** Show the numeric labels as tiles and the equation with named letter slots. Never substitute quantity names for those numbers. The key uses zero-based tile indices. Accept equivalent numeric selections, including interchangeable equal-valued tiles; a matching arbitrary index is not required. Tolerance is absolute in the output units. Unused numeric choices must remain visible.
 
 **Question card prompt — exact player copy:** Calculate and submit recombination frequency as a percent.
 
@@ -7014,6 +7086,8 @@ answerText: Semiconservative replication preserves a template strand in each dau
 **Question card story-science connection — exact player copy:** Keep ancestry records and test leaf shape under matched conditions.
 
 **Data/readings/options:** Clonal seedlings change shape across light conditions; family marker records remain stable; recombination frequency between tested markers is 20%; leaf width also varies within families.
+
+**Decision-record delivery:** Render the complete Data/readings/options record above on this question card before its choices. Keep any numerical limit, adopted decision rule and scope statement visible while choosing. Do not replace it with the story-science connection or an earlier mission’s generic explanation; do not display the author-only mission answer.
 
 **Format-specific interaction block:**
 ```yaml
@@ -7549,31 +7623,39 @@ answerText: The histories separate population evolution from an individual respo
 **Data/readings/options:** Ten early-emergence adults average 6 surviving offspring each; ten late-emergence adults average 3 each in the same monitored season.
 
 **Format-specific interaction block:**
-```yaml
-estimate:
-  quantity: Compare offspring contributions
-  units: offspring
-  labels:
-  - early adults
-  - early offspring per adult
-  - late adults
-  - late offspring per adult
-  values:
-  - 10
-  - 6
-  - 10
-  - 3
-  slots: 2
-  template: '{0} {1} → offspring'
-  formula: a*b
-  correct:
-  - 0
-  - 1
-  target: 60
-  correctResult: 60
-  tolerance: 0.05
-answerText: The early group contributes 10 × 6 = 60 surviving offspring, compared with 10 × 3 = 30 for the late group. This result is now recorded for the next comparison.
+```json
+{
+  "estimate": {
+    "quantity": "Compare offspring contributions",
+    "units": "offspring",
+    "labels": [
+      "10",
+      "6",
+      "10",
+      "3"
+    ],
+    "values": [
+      10,
+      6,
+      10,
+      3
+    ],
+    "slots": 2,
+    "template": "{a} × {b} = ? offspring",
+    "formula": "a*b",
+    "correct": [
+      0,
+      1
+    ],
+    "target": 60,
+    "correctResult": 60,
+    "tolerance": 0.05
+  },
+  "answerText": "The early group contributes 10 × 6 = 60 surviving offspring, compared with 10 × 3 = 30 for the late group. This result is now recorded for the next comparison."
+}
 ```
+
+**BALLPARK rendering and grading:** Show the numeric labels as tiles and the equation with named letter slots. Never substitute quantity names for those numbers. The key uses zero-based tile indices. Accept equivalent numeric selections, including interchangeable equal-valued tiles; a matching arbitrary index is not required. Tolerance is absolute in the output units. Unused numeric choices must remain visible.
 
 **Question card prompt — exact player copy:** Calculate the early group contribution with adults times offspring per adult; submit surviving offspring.
 
@@ -7740,6 +7822,8 @@ answerText: Selection patterns describe which phenotypes have higher reproductiv
 **Question card story-science connection — exact player copy:** Record population selection and protect the surviving variation.
 
 **Data/readings/options:** Archive: emergence timing is heritable in breeding tests; early types leave more offspring; their frequency rises over 40 insect generations; adult behavior changes alone cannot reproduce that record.
+
+**Decision-record delivery:** Render the complete Data/readings/options record above on this question card before its choices. Keep any numerical limit, adopted decision rule and scope statement visible while choosing. Do not replace it with the story-science connection or an earlier mission’s generic explanation; do not display the author-only mission answer.
 
 **Format-specific interaction block:**
 ```yaml
@@ -8184,31 +8268,39 @@ Hardy-Weinberg is a reference under stated assumptions, not a mechanism causing 
 **Data/readings/options:** A screened family contains 8 AA, 8 Aa and 4 aa diploid plants. Count A copies as 2AA + Aa and divide by twice the plant count.
 
 **Format-specific interaction block:**
-```yaml
-estimate:
-  quantity: Count the retained allele
-  units: fraction
-  labels:
-  - A copies
-  - total copies
-  - plants
-  - heterozygotes
-  values:
-  - 24
-  - 40
-  - 20
-  - 8
-  slots: 2
-  template: '{0} {1} → fraction'
-  formula: a/b
-  correct:
-  - 0
-  - 1
-  target: 0.6
-  correctResult: 0.6
-  tolerance: 0.05
-answerText: There are 2 × 8 + 8 = 24 A copies among 2 × 20 = 40 total copies, giving p = 0.6. This result is now recorded for the next comparison.
+```json
+{
+  "estimate": {
+    "quantity": "Count the retained allele",
+    "units": "fraction",
+    "labels": [
+      "24",
+      "40",
+      "20",
+      "8"
+    ],
+    "values": [
+      24,
+      40,
+      20,
+      8
+    ],
+    "slots": 2,
+    "template": "{a} / {b} = ? fraction",
+    "formula": "a/b",
+    "correct": [
+      0,
+      1
+    ],
+    "target": 0.6,
+    "correctResult": 0.6,
+    "tolerance": 0.05
+  },
+  "answerText": "There are 2 × 8 + 8 = 24 A copies among 2 × 20 = 40 total copies, giving p = 0.6. This result is now recorded for the next comparison."
+}
 ```
+
+**BALLPARK rendering and grading:** Show the numeric labels as tiles and the equation with named letter slots. Never substitute quantity names for those numbers. The key uses zero-based tile indices. Accept equivalent numeric selections, including interchangeable equal-valued tiles; a matching arbitrary index is not required. Tolerance is absolute in the output units. Unused numeric choices must remain visible.
 
 **Question card prompt — exact player copy:** Use the tiles to calculate A allele frequency; submit the fraction from zero to one.
 
@@ -8379,33 +8471,43 @@ answerText: A small founding sample can omit alleles by chance even when every s
 **Data/readings/options:** Use recorded p = 0.6 and q = 0.4. Under Hardy-Weinberg assumptions, expected heterozygote fraction is 2pq.
 
 **Format-specific interaction block:**
-```yaml
-estimate:
-  quantity: Check the reference model
-  units: '%'
-  labels:
-  - two
-  - p
-  - q
-  - percent scale
-  values:
-  - 2
-  - 0.6
-  - 0.4
-  - 100
-  slots: 4
-  template: '{0} {1} {2} {3} → %'
-  formula: a*b*c*d
-  correct:
-  - 0
-  - 1
-  - 2
-  - 3
-  target: 48
-  correctResult: 48
-  tolerance: 0.05
-answerText: The reference expectation is 2pq = 2 × 0.6 × 0.4 = 0.48, or 48 percent heterozygotes. This result is now recorded for the next comparison.
+```json
+{
+  "estimate": {
+    "quantity": "Check the reference model",
+    "units": "%",
+    "labels": [
+      "2",
+      "0.6",
+      "0.4",
+      "100",
+      "0.36"
+    ],
+    "values": [
+      2,
+      0.6,
+      0.4,
+      100,
+      0.36
+    ],
+    "slots": 4,
+    "template": "{a} × {b} × {c} × {d} = ? %",
+    "formula": "a*b*c*d",
+    "correct": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "target": 48,
+    "correctResult": 48,
+    "tolerance": 0.05
+  },
+  "answerText": "The reference expectation is 2pq = 2 × 0.6 × 0.4 = 0.48, or 48 percent heterozygotes. This result is now recorded for the next comparison."
+}
 ```
+
+**BALLPARK rendering and grading:** Show the numeric labels as tiles and the equation with named letter slots. Never substitute quantity names for those numbers. The key uses zero-based tile indices. Accept equivalent numeric selections, including interchangeable equal-valued tiles; a matching arbitrary index is not required. Tolerance is absolute in the output units. Unused numeric choices must remain visible.
 
 **Question card prompt — exact player copy:** Multiply the two allele frequencies and two; submit expected heterozygote percent.
 
@@ -8468,6 +8570,8 @@ answerText: The reference expectation is 2pq = 2 × 0.6 × 0.4 = 0.48, or 48 per
 **Question card story-science connection — exact player copy:** Take several tested families and keep a reserve.
 
 **Data/readings/options:** Three screened families carry different rare alleles; all pass the same health and habitat checks; the single largest family lacks two of those alleles; shipping space permits all three plus retained island reserve.
+
+**Decision-record delivery:** Render the complete Data/readings/options record above on this question card before its choices. Keep any numerical limit, adopted decision rule and scope statement visible while choosing. Do not replace it with the story-science connection or an earlier mission’s generic explanation; do not display the author-only mission answer.
 
 **Format-specific interaction block:**
 ```yaml
@@ -9017,31 +9121,39 @@ answerText: The interaction signs describe effects on the organisms in the suppl
 **Data/readings/options:** The pilot plants store 5,000 kJ of new biomass; use a stated simplified 10% transfer to primary consumers.
 
 **Format-specific interaction block:**
-```yaml
-estimate:
-  quantity: Budget the food web
-  units: kJ
-  labels:
-  - producer energy
-  - transfer fraction
-  - consumer levels
-  - days
-  values:
-  - 5000
-  - 0.1
-  - 2
-  - 7
-  slots: 2
-  template: '{0} {1} → kJ'
-  formula: a*b
-  correct:
-  - 0
-  - 1
-  target: 500
-  correctResult: 500
-  tolerance: 0.05
-answerText: Under the explicitly simplified ten-percent model, primary consumers receive 5,000 × 0.1 = 500 kJ. This result is now recorded for the next comparison.
+```json
+{
+  "estimate": {
+    "quantity": "Budget the food web",
+    "units": "kJ",
+    "labels": [
+      "5000",
+      "0.1",
+      "2",
+      "7"
+    ],
+    "values": [
+      5000,
+      0.1,
+      2,
+      7
+    ],
+    "slots": 2,
+    "template": "{a} × {b} = ? kJ",
+    "formula": "a*b",
+    "correct": [
+      0,
+      1
+    ],
+    "target": 500,
+    "correctResult": 500,
+    "tolerance": 0.05
+  },
+  "answerText": "Under the explicitly simplified ten-percent model, primary consumers receive 5,000 × 0.1 = 500 kJ. This result is now recorded for the next comparison."
+}
 ```
+
+**BALLPARK rendering and grading:** Show the numeric labels as tiles and the equation with named letter slots. Never substitute quantity names for those numbers. The key uses zero-based tile indices. Accept equivalent numeric selections, including interchangeable equal-valued tiles; a matching arbitrary index is not required. Tolerance is absolute in the output units. Unused numeric choices must remain visible.
 
 **Question card prompt — exact player copy:** Use stored biomass energy times transfer fraction; submit primary-consumer energy in kJ.
 
@@ -9208,6 +9320,8 @@ answerText: The clinic separates viral life-cycle evidence from a measured benef
 **Question card story-science connection — exact player copy:** Prepare the tested plant-partner combination in containment.
 
 **Data/readings/options:** Plants alone grow poorly in receiving-site soil; plants plus a screened compatible fungal isolate grow normally in contained tests; bulk island soil has not been screened; the permit covers contained pilot tests only.
+
+**Decision-record delivery:** Render the complete Data/readings/options record above on this question card before its choices. Keep any numerical limit, adopted decision rule and scope statement visible while choosing. Do not replace it with the story-science connection or an earlier mission’s generic explanation; do not display the author-only mission answer.
 
 **Format-specific interaction block:**
 ```yaml
@@ -9741,32 +9855,40 @@ answerText: This sequence is a simplified selected route through the nitrogen cy
 **Data/readings/options:** The contained plot has N = 40 plants; r = 0.5 per week; campaign model K = 80 plants. Use dN/dt = rN(K−N)/K.
 
 **Format-specific interaction block:**
-```yaml
-estimate:
-  quantity: Check room for growth
-  units: plants/week
-  labels:
-  - r
-  - N
-  - unused fraction
-  - K
-  values:
-  - 0.5
-  - 40
-  - 0.5
-  - 80
-  slots: 3
-  template: '{0} {1} {2} → plants/week'
-  formula: a*b*c
-  correct:
-  - 0
-  - 1
-  - 2
-  target: 10
-  correctResult: 10
-  tolerance: 0.05
-answerText: The unused-capacity factor is (80 − 40)/80 = 0.5. This result is now recorded for the next comparison.
+```json
+{
+  "estimate": {
+    "quantity": "Check room for growth",
+    "units": "plants/week",
+    "labels": [
+      "0.5",
+      "40",
+      "0.5",
+      "80"
+    ],
+    "values": [
+      0.5,
+      40,
+      0.5,
+      80
+    ],
+    "slots": 3,
+    "template": "{a} × {b} × {c} = ? plants/week",
+    "formula": "a*b*c",
+    "correct": [
+      0,
+      1,
+      2
+    ],
+    "target": 10,
+    "correctResult": 10,
+    "tolerance": 0.05
+  },
+  "answerText": "The unused-capacity factor is (80 − 40)/80 = 0.5. This result is now recorded for the next comparison."
+}
 ```
+
+**BALLPARK rendering and grading:** Show the numeric labels as tiles and the equation with named letter slots. Never substitute quantity names for those numbers. The key uses zero-based tile indices. Accept equivalent numeric selections, including interchangeable equal-valued tiles; a matching arbitrary index is not required. Tolerance is absolute in the output units. Unused numeric choices must remain visible.
 
 **Question card prompt — exact player copy:** Use the tiles to calculate modeled net growth in plants per week.
 
@@ -9933,6 +10055,8 @@ answerText: The site constraints operate through different mechanisms. This resu
 **Question card story-science connection — exact player copy:** Prepare the receiving soil and water before planting.
 
 **Data/readings/options:** Receiving soil is dry and nitrate-poor; prepared contained plots meet water and nutrient specifications without excess runoff; unprepared plots fail; proposed stocking assumes prepared-site K = 80.
+
+**Decision-record delivery:** Render the complete Data/readings/options record above on this question card before its choices. Keep any numerical limit, adopted decision rule and scope statement visible while choosing. Do not replace it with the story-science connection or an earlier mission’s generic explanation; do not display the author-only mission answer.
 
 **Format-specific interaction block:**
 ```yaml
@@ -10372,32 +10496,40 @@ This mission retrieves the prior mechanisms identified below and does not add a 
 **Data/readings/options:** The pilot starts the dark interval at 8 mg/L oxygen; measured net loss is 0.5 mg/L/hour for 8 hours. Use a linear teaching model for this interval.
 
 **Format-specific interaction block:**
-```yaml
-estimate:
-  quantity: Project the dark interval
-  units: mg/L
-  labels:
-  - start
-  - loss rate
-  - hours
-  - day production
-  values:
-  - 8
-  - 0.5
-  - 8
-  - 3
-  slots: 3
-  template: '{0} {1} {2} → mg/L'
-  formula: a-b*c
-  correct:
-  - 0
-  - 1
-  - 2
-  target: 4
-  correctResult: 4
-  tolerance: 0.05
-answerText: The projected final concentration is 8 − 0.5 × 8 = 4 mg/L. This result is now recorded for the next comparison.
+```json
+{
+  "estimate": {
+    "quantity": "Project the dark interval",
+    "units": "mg/L",
+    "labels": [
+      "8",
+      "0.5",
+      "8",
+      "3"
+    ],
+    "values": [
+      8,
+      0.5,
+      8,
+      3
+    ],
+    "slots": 3,
+    "template": "{a}-{b} × {c} = ? mg/L",
+    "formula": "a-b*c",
+    "correct": [
+      0,
+      1,
+      2
+    ],
+    "target": 4,
+    "correctResult": 4,
+    "tolerance": 0.05
+  },
+  "answerText": "The projected final concentration is 8 − 0.5 × 8 = 4 mg/L. This result is now recorded for the next comparison."
+}
 ```
+
+**BALLPARK rendering and grading:** Show the numeric labels as tiles and the equation with named letter slots. Never substitute quantity names for those numbers. The key uses zero-based tile indices. Accept equivalent numeric selections, including interchangeable equal-valued tiles; a matching arbitrary index is not required. Tolerance is absolute in the output units. Unused numeric choices must remain visible.
 
 **Question card prompt — exact player copy:** Calculate initial oxygen minus rate times time; submit final oxygen in mg per litre.
 
@@ -10659,6 +10791,8 @@ answerText: Each result supports a different scope of claim. This result is now 
 **Question card story-science connection — exact player copy:** Hold expansion until the night oxygen problem is corrected.
 
 **Data/readings/options:** Standard pilot reaches 4 mg/L at dawn; fictional requirement is at least 6 mg/L throughout the cycle; matched air-supply design reaches 7; long-term establishment has not been tested.
+
+**Decision-record delivery:** Render the complete Data/readings/options record above on this question card before its choices. Keep any numerical limit, adopted decision rule and scope statement visible while choosing. Do not replace it with the story-science connection or an earlier mission’s generic explanation; do not display the author-only mission answer.
 
 **Format-specific interaction block:**
 ```yaml
@@ -11299,32 +11433,40 @@ answerText: The habitat plan depends on measured relationships rather than the v
 **Data/readings/options:** Corrected pilot begins at 9 mg/L oxygen and loses a measured net 0.25 mg/L/hour for 8 hours; the required minimum is 6 mg/L inclusive. A calculator is available.
 
 **Format-specific interaction block:**
-```yaml
-estimate:
-  quantity: Check the corrected night margin
-  units: mg/L
-  labels:
-  - start
-  - net loss rate
-  - hours
-  - minimum
-  values:
-  - 9
-  - 0.25
-  - 8
-  - 6
-  slots: 3
-  template: '{0} {1} {2} → mg/L'
-  formula: a-b*c
-  correct:
-  - 0
-  - 1
-  - 2
-  target: 7
-  correctResult: 7
-  tolerance: 0.05
-answerText: The corrected pilot projects 9 − 0.25 × 8 = 7 mg/L at the end of the dark interval, one mg/L above the inclusive six-mg/L requirement. This result is now recorded for the next comparison.
+```json
+{
+  "estimate": {
+    "quantity": "Check the corrected night margin",
+    "units": "mg/L",
+    "labels": [
+      "9",
+      "0.25",
+      "8",
+      "6"
+    ],
+    "values": [
+      9,
+      0.25,
+      8,
+      6
+    ],
+    "slots": 3,
+    "template": "{a}-{b} × {c} = ? mg/L",
+    "formula": "a-b*c",
+    "correct": [
+      0,
+      1,
+      2
+    ],
+    "target": 7,
+    "correctResult": 7,
+    "tolerance": 0.05
+  },
+  "answerText": "The corrected pilot projects 9 − 0.25 × 8 = 7 mg/L at the end of the dark interval, one mg/L above the inclusive six-mg/L requirement. This result is now recorded for the next comparison."
+}
 ```
+
+**BALLPARK rendering and grading:** Show the numeric labels as tiles and the equation with named letter slots. Never substitute quantity names for those numbers. The key uses zero-based tile indices. Accept equivalent numeric selections, including interchangeable equal-valued tiles; a matching arbitrary index is not required. Tolerance is absolute in the output units. Unused numeric choices must remain visible.
 
 **Question card prompt — exact player copy:** Calculate final oxygen using start minus net rate times duration; submit mg per litre, then compare with the recorded minimum.
 
@@ -11387,6 +11529,8 @@ answerText: The corrected pilot projects 9 − 0.25 × 8 = 7 mg/L at the end of 
 **Question card story-science connection — exact player copy:** Authorize only the corrected monitored pilot, with a pause and return path.
 
 **Data/readings/options:** Required record: several screened families with island reserve; held abnormal line excluded; screened compatible partner only; prepared contained receiving plot; corrected full-cycle oxygen at least 6 mg/L; pause and return if below 6 or a new health failure occurs; permit covers the monitored pilot only.
+
+**Decision-record delivery:** Render the complete Data/readings/options record above on this question card before its choices. Keep any numerical limit, adopted decision rule and scope statement visible while choosing. Do not replace it with the story-science connection or an earlier mission’s generic explanation; do not display the author-only mission answer.
 
 **Format-specific interaction block:**
 ```yaml
@@ -11622,3 +11766,13 @@ The mainland trial has begun; its long-term fate is still unknown. If oxygen dro
 # 8. Implementation boundary and resolved handoff
 
 This revised bible is the canonical content source. Earlier v1.0 companion ledgers are not revised by this handback and must not override its delivery, cast copy or concept assignments; regenerate imported metadata from this v1.2 source. No live implementation was modified. Importer/schema and world conversion must preserve the authored source blocks, named people, IDs, exact stopKind placements, units, explicit grading data, route locks, timer pauses, recovery order and visible ship/loading-gate ending. Keys in kernel/ledger sections are author-only and must never be rendered as pre-answer evidence. The companion audit lists every supplied gate requirement and distinguishes static evidence from missing project/runtime checks.
+
+# Decision-card evidence contract
+
+Every decision card must expose the exact evidence and public rule that distinguish its accepted answers from plausible alternatives. Render the local Data/readings/options, Decision evidence, public constraints and option effects before selection; keep them available while the player chooses. Use plain-language descriptions, not internal axis names. Show one speaker header from the stop’s placement and Call, and one coherent setup and prompt. Never substitute a discovery-stage explanation into a later allocation, release or certification task.
+
+Resource tasks distinguish a budget from the goal. Display the required outcomes, each option’s contribution, costs, reserve rules and any priority or tie-breaker. Accept every plan satisfying the published rule. A recommended split is not an exclusive key unless the visible constraints uniquely determine it. Policies are identified as policies; the player must not derive an institutional preference from a scientific formula.
+
+For staged tests, show hypotheses, model inputs and acceptance rules before commitment, but keep held-out results hidden until the specified test or reveal. No grade may depend on guessing a future result. A signed claim requires a readable source excerpt or an explicit inspection, not a hidden backed flag. Copied records retain their shared-source identity.
+
+No importer fallback may borrow another stop’s data, speaker, threshold or generic mission text. Missing required local evidence is an import error. Before release, inspect the rendered card, prove the accepted response from visible information alone, try a plausible wrong answer, and test a different valid answer where the rule admits one. This document revision is source work; rendered-game verification still requires the actual implementation.

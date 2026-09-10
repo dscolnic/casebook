@@ -660,11 +660,11 @@ missions:
     person: voss
     concept: 32   # measurement/claims
     reason: "The street diagnosis is ready, but the first official record still contains an unsupported shortage claim."
-    scene: "The supply diagnosis explains today's street pattern but still does not justify a national shortage claim. Verify the records that identify dated quantities, coverage, and tradeoffs, then reject any claim resting only on the plaza crowd."
+    scene: "The plaza is busy, but a national claim requires a national record. Check what the dated transactions and staffing records actually establish."
     motivation: "Verification separates measured transactions and staffing costs from conclusions the plaza crowd cannot establish."
     format: ATTEST
-    question: "Spend three verification marks; submit the three backed claims and reject the unbacked conclusion."
-    answerText: "Record dated national transactions, the staffing cost, and the price-quantity pattern; do not claim a cash shortage."
+    question: "National conclusions need dated coverage; observations of a queue cannot establish a nationwide cash shortage. Read the displayed source excerpts, then select every supported claim and leave unsupported claims unsigned."
+    answerText: "Each signature is limited to what its source establishes. The unsupported claims lack the specific date, physical condition, independence or scope they assert."
     why: "The first page must preserve what is known without turning an incomplete clue into policy."
     # wrong-path feedback, one rebuttal per wrong option:
     #   A conclusion is not backed because it sounds urgent.
@@ -1063,7 +1063,7 @@ missions:
   - id: after-stop-11
     # After Stop 11 | basket-table | automatic
     on: { after: [3] }
-    world: "At basket-table, the dated accepted-result slip for Stop 11 reads: \"The keyed result shown by the completed interaction.\". The slip remains in that fixture's evidence holder."
+    world: "At basket-table, the dated accepted-result slip for Stop 11 reads: \"Inflation stays positive but changes with the energy weight.\". The slip remains in that fixture's evidence holder."
     panel: "STOP 11 RECORDED - STOP 12 OPEN"
     # unlocks: Unlock Stop 12 at basket-table in PRICES.
     bubbles:
@@ -1259,11 +1259,11 @@ missions:
     person: saye
     concept: 7   # CPI bias/weights
     reason: "The official inflation rate is reproducible, but the basket's energy weight may not fit today's households."
-    scene: "Because the official rate is 5.88%, Lina tests the old 30% imported-energy weight against current household shares of 15% to 25%. Move the weight through that range and watch which inflation conclusions survive."
+    scene: "The published price index uses an old energy weight. Lina checks how the conclusion changes when the household share changes."
     motivation: "Weight sensitivity shows whether the inflation conclusion depends on an unrepresentative spending pattern."
     format: STRESS
-    question: "Move the weight from 15% through 30%, inspect every displayed inflation rate, and submit the conclusion that survives the full range."
-    answerText: "Inflation is positive, but 5.88% depends strongly on the stale energy weight."
+    question: "Inspect the four supplied index recalculations from 15% to 30% energy weight. Select the conclusion true for every recalculation."
+    answerText: "All four rates are positive. The size varies from 3.1% to 5.88%, so the historical weight cannot be presented as representative of every household."
     why: "Sensitivity to a stale weight requires disclosure and a companion measure, not silent replacement."
     # wrong-path feedback, one rebuttal per wrong option:
     #   A different response does not fit the displayed evidence. Sensitivity to a stale weight requires disclosure and a companion measure, not silent replacement.
@@ -1319,11 +1319,11 @@ missions:
     person: saye
     concept: 7   # index publication
     reason: "The weighting test has exposed a representation problem without invalidating the historical calculation."
-    scene: "The official method is reproducible, yet its energy weight overstates many households' current exposure. Choose the evidence package that preserves the historical series while revealing how a representative current basket changes the result."
+    scene: "The historical price index is reproducible, but its old energy weight may misrepresent current households. Lina needs a publication plan that preserves comparability and exposes that limitation."
     motivation: "The evidence package preserves a comparable series while showing how a current household basket changes the estimate."
     format: VALUE
-    question: "Spend exactly 60 evidence points and submit the publication plan."
-    answerText: "Keep the fixed CPI and publish a current-weight companion with the weight audit."
+    question: "You have 60 evidence points. Cover every required outcome at the lowest total cost within the budget; keep all unused capacity in reserve. Select whole packages, then submit the plan; the board shows its total and remaining reserve for you to check."
+    answerText: "Each funded package supplies a required outcome; an affordable package that leaves one unresolved is insufficient."
     why: "Publishing both measures prevents a convenient revision from erasing history or a stale basket from hiding bias."
     # wrong-path feedback, one rebuttal per wrong option:
     #   A different response does not fit the displayed evidence. Publishing both measures prevents a convenient revision from erasing history or a stale basket from hiding bias.
@@ -1939,11 +1939,11 @@ missions:
     person: dane
     concept: 24   # fiscal choice
     reason: "The announced package falls short of the measured target, leaving the funding decision open."
-    scene: "The 6-billion announcement would add only 24 billion to demand and leave a 10.8-billion gap. Fund the option that reaches the measured target and preserves an independent supply-shock review before launch."
+    scene: "The announced purchases are too small for the measured demand gap. Rhea must also preserve a separate review of the supply shock."
     motivation: "The allocation identifies a package large enough for the modeled gap while retaining a separate supply-shock review."
     format: VALUE
-    question: "Spend exactly 100 plan points and submit the funded pair."
-    answerText: "Prepare 8.7 billion in purchases and preserve the supply-shock review."
+    question: "You have 100 plan points. Cover every required outcome at the lowest total cost within the budget; keep all unused capacity in reserve. Select whole packages, then submit the plan; the board shows its total and remaining reserve for you to check."
+    answerText: "Each funded package supplies a required outcome; an affordable package that leaves one unresolved is insufficient."
     why: "Demand stimulus can close a recessionary gap without proving that it can cure cost-push inflation."
     # wrong-path feedback, one rebuttal per wrong option:
     #   A different response does not fit the displayed evidence. Demand stimulus can close a recessionary gap without proving that it can cure cost-push inflation.
@@ -2191,10 +2191,10 @@ missions:
     title: "Place both gaps"
     concept: 12   # equilibrium/gaps
     reason: "The shock diagnosis must now be reconciled with the already measured output shortfall."
-    scene: "Because SRAS moved left, current output is 685.2 while Yf remains 720.0 billion, and the price level is elevated. Close the model with one recessionary gap and one supply shock."
+    scene: "The output report arrives alongside a fuel-cost shock. The policy desk must separate the real production gap from the price disturbance."
     motivation: "Locating both effects prevents a recessionary gap and a supply disturbance from being treated as the same problem."
     format: BALLPARK
-    question: "Toggle relevant readings and submit the model conclusion."
+    question: "Real output is 685.2 billion and full-employment output is 720 billion; nominal output is 740 billion. Select the two real quantities and calculate actual minus full-employment output. Oil costs have risen 18 index points."
     answerText: "\"Halvern has a recessionary gap plus an adverse supply shock.\""
     why: "One graph can show why lowering inflation and unemployment together is difficult."
     # wrong-path feedback, one rebuttal per wrong option:
@@ -2235,11 +2235,11 @@ missions:
     person: saye
     concept: 24   # fiscal dilemma
     reason: "Weak demand and cost pressure coexist, so the proposed package needs testing across oil-price outcomes."
-    scene: "The model now contains weak demand and cost-push inflation at once. Stress the 8.7-billion package across oil-cost changes from 0% through 18%, then submit the claim that survives every case."
+    scene: "Weak demand and an oil-cost shock coexist. The model separates how purchases affect demand from how oil affects costs."
     motivation: "The stress test identifies what fiscal expansion can support without promising to eliminate a supply-driven price rise."
     format: STRESS
-    question: "Inspect all four settings and submit one surviving conclusion."
-    answerText: "\"Use fiscal policy to close the demand gap, not to promise lower supply-driven prices.\""
+    question: "Sweep the oil shock through 0, 6, 12 and 18 index points. In this model ΔAD=4ΔG, ΔG=8.7 billion and the measured demand gap is 34.8 billion; select the claim that survives all settings."
+    answerText: "4×8.7=34.8 billion at each setting in this simplified model. This does not promise unchanged equilibrium output, lower prices or a repaired supply curve."
     why: "Fiscal expansion raises AD; it does not shift damaged SRAS right."
     # wrong-path feedback, one rebuttal per wrong option:
     #   A different response does not fit the displayed evidence. Fiscal expansion raises AD; it does not shift damaged SRAS right.
@@ -2887,11 +2887,11 @@ missions:
     person: arendt
     concept: 25   # monetary choice
     reason: "A proposed rate rise faces a recessionary gap and uncertain expected inflation."
-    scene: "The recessionary gap remains 34.8 billion while expected inflation could be 2% to 3%. Stress a one-point nominal hike across that range and select the claim that always survives."
+    scene: "The economy still has a demand shortfall. Test the borrowing-cost effect of a proposed one-percentage-point nominal rate rise before treating it as a recovery measure."
     motivation: "The real-rate sensitivity test shows which effects of tightening persist across the stated inflation expectations."
     format: STRESS
-    question: "Inspect all settings and submit one policy choice: \"do not raise now.\""
-    answerText: "\"Do not raise now; the hike tightens real borrowing conditions in every tested case.\""
+    question: "Sweep expected inflation from 2% to 3% in 0.25-point steps. Use r=i−πe and compare before and after a one-point rise in i with πe fixed within each run; select the statement that always holds."
+    answerText: "The real borrowing rate rises by one percentage point in every run. Under the stated weak-demand objective, that is a tightening effect, not evidence that the hike closes the gap."
     why: "A hike raises the real rate across the range and worsens weak demand."
     # wrong-path feedback, one rebuttal per wrong option:
     #   A different response does not fit the displayed evidence. A hike raises the real rate across the range and worsens weak demand.
@@ -3314,7 +3314,7 @@ missions:
   - id: after-stop-39
     # After Stop 39 | forecast-table | automatic
     on: { after: [3] }
-    world: "At price-history-board, the dated accepted-result slip for Stop 39 reads: \"The keyed result shown by the completed interaction.\". The slip remains in that fixture's evidence holder."
+    world: "At price-history-board, the dated accepted-result slip for Stop 39 reads: \"The temporary model has lower held-out forecast error.\". The slip remains in that fixture's evidence holder."
     panel: "STOP 39 RECORDED - STOP 40 OPEN"
     # unlocks: Unlock Stop 40 at forecast-table in RATE.
     bubbles:
@@ -3513,11 +3513,11 @@ missions:
     title: "Test unseen prices"
     concept: 8   # temporary vs persistent inflation
     reason: "Two price models fit the visible months and need a test they have not already seen."
-    scene: "Because quantity theory predicts 2% long-run inflation, fit a \"persistent money\" and a \"temporary supply\" model through months one to four. Freeze both before months five and six appear today."
+    scene: "Both inflation models have fixed forecasts for the next two months. Freeze them before opening the withheld readings."
     motivation: "Frozen predictions allow the later months to distinguish forecasting performance from fitting past observations."
     format: HOLDOUT
-    question: "Fit, freeze, reveal both holdout months, and submit the better mechanism."
-    answerText: "\"The temporary-supply model predicts the holdout; persistent monetary inflation does not.\""
+    question: "Commit the supplied forecasts, reveal months five and six, then select the model with smaller mean absolute error. Forecast accuracy alone does not prove the cause of inflation."
+    answerText: "The temporary model predicts the withheld observations more closely. Retain it provisionally; this two-observation comparison is not a causal proof."
     why: "Unseen normalization can reject a permanent-inflation story."
     # wrong-path feedback, one rebuttal per wrong option:
     #   A different response does not fit the displayed evidence. Unseen normalization can reject a permanent-inflation story.
@@ -3581,11 +3581,11 @@ missions:
     person: venn
     concept: 25   # policy horizon
     reason: "The unseen-price test is complete, but a permanent tightening commitment still faces uncertainty."
-    scene: "The shock model wins on unseen data, but inflation expectations range from 1.8% to 2.4%. Stress permanent tightening across that range and compare it with a conditional trigger."
+    scene: "The withheld prices favor a temporary shock, while inflation expectations remain uncertain. The board's policy requires review before making a permanent commitment."
     motivation: "Comparing permanent and conditional responses shows which policy remains justified across the tested inflation range."
     format: STRESS
-    question: "Inspect all settings and submit \"conditional stance.\""
-    answerText: "\"Do not justify permanent tightening from this temporary print; commit a reversible trigger.\""
+    question: "Inspect expectations from 1.8% to 2.4% in 0.2-point steps. Choose the plan that keeps monitoring active, permits reversal and does not claim that these expectations establish a permanent inflation shock."
+    answerText: "A monitored conditional stance meets all three published requirements throughout the stated expectations range. This is a decision under the board's policy, not an unstated numerical welfare optimum."
     why: "Long-run neutrality does not make short-run output losses disappear."
     # wrong-path feedback, one rebuttal per wrong option:
     #   A different response does not fit the displayed evidence. Long-run neutrality does not make short-run output losses disappear.
@@ -3681,7 +3681,7 @@ missions:
   - id: after-stop-43
     # After Stop 43 | allocation-slate | automatic
     on: { after: [3] }
-    world: "At forecast-table, the dated accepted-result slip for Stop 43 reads: \"The keyed result shown by the completed interaction.\". The slip remains in that fixture's evidence holder."
+    world: "At forecast-table, the dated accepted-result slip for Stop 43 reads: \"Clearing, training, port repair and reserve funded within 100 points.\". The slip remains in that fixture's evidence holder."
     panel: "STOP 43 RECORDED - STOP 44 OPEN"
     # unlocks: Unlock Stop 44 at allocation-slate in COUNTER.
     bubbles:
@@ -3851,11 +3851,11 @@ missions:
     title: "Protect growth engines"
     concept: 15   # growth resources
     reason: "Stabilizers reduce the immediate shock, leaving a limited fund for the temporary response."
-    scene: "The smaller seven-billion shock leaves a limited bridge fund. Allocate 100 points across household clearing, worker retraining, port repair, publicity, and a protected reserve while preserving all required growth investments."
+    scene: "The temporary response still needs payments to clear while people and the port recover capacity. The fund cannot cover every proposal."
     motivation: "The allocation protects household clearing while retaining training and port capacity needed for future output."
     format: ALLOCATE
-    question: "Allocate all 100 and submit the four funded items."
-    answerText: "\"Fund clearing, training, port repair, and reserve.\""
+    question: "You have 100 bridge-fund points. Cover every required outcome and allocate the whole budget. Select whole packages, then submit the plan; the board shows its total and remaining reserve for you to check."
+    answerText: "Each funded package supplies a required outcome; an affordable package that leaves one unresolved is insufficient."
     why: "Human capital, physical capital, and technology shift productive capacity; publicity does not."
     # wrong-path feedback, one rebuttal per wrong option:
     #   A different response does not fit the displayed evidence. Human capital, physical capital, and technology shift productive capacity; publicity does not.
@@ -3909,11 +3909,11 @@ missions:
     person: voss
     concept: 26   # stabilization timing
     reason: "The timing and funding checks are complete and the board must choose the response's duration."
-    scene: "Wage adjustment begins after launch, automatic stabilizers cover part of the loss, and the protected plan preserves growth capacity. Choose whether to wait, make permanent stimulus, or use a temporary bridge with an end date."
+    scene: "Support is needed before wage adjustment can close the temporary gap. Eli needs an exit rule so a bridge does not become an indefinite commitment."
     motivation: "The choice determines whether support bridges the launch delay without becoming an unjustified permanent commitment."
     format: VALUE
-    question: "Spend 80 and submit the plan."
-    answerText: "\"Use a temporary bridge with a sunset review; self-correction alone is too slow.\""
+    question: "You have 80 plan points. Cover every required outcome at the lowest total cost within the budget; keep all unused capacity in reserve. Select whole packages, then submit the plan; the board shows its total and remaining reserve for you to check."
+    answerText: "Each funded package supplies a required outcome; an affordable package that leaves one unresolved is insufficient."
     why: "Temporary support can span a lag without becoming a permanent demand expansion."
     # wrong-path feedback, one rebuttal per wrong option:
     #   A different response does not fit the displayed evidence. Temporary support can span a lag without becoming a permanent demand expansion.
@@ -4221,11 +4221,11 @@ missions:
     person: voss
     concept: 32   # certification
     reason: "The legal conversion and timing checks pass, but one shop-label claim remains uncorrected."
-    scene: "The tray converts exactly, reserves arrive at the inclusive threshold, and independent customs rejects the shortcut table. Verify those three claims and reject the uncorrected shop-label claim in the Rate Book."
+    scene: "Conversion, reserve timing and the customs rate have separate records. Check each before signing the first-week file."
     motivation: "Attestation separates verified payment readiness from a price-label assertion that still lacks support."
     format: ATTEST
-    question: "Spend three marks and submit certification."
-    answerText: "\"Approve 4.15 after replacing every 4.00 shortcut.\""
+    question: "Use the validated 4.15 crowns/RATE conversion; reserve requirements are inclusive. Read the displayed source excerpts, then select every supported claim and leave unsupported claims unsigned."
+    answerText: "Each signature is limited to what its source establishes. The unsupported claims lack the specific date, physical condition, independence or scope they assert."
     why: "Operational safety requires arithmetic, timing, and independent market evidence."
     # wrong-path feedback, one rebuttal per wrong option:
     #   A different response does not fit the displayed evidence. Operational safety requires arithmetic, timing, and independent market evidence.
@@ -4590,11 +4590,11 @@ missions:
     person: dane
     concept: 24   # fiscal redesign
     reason: "Domestic and foreign offsets are now measured, requiring a review of the full bridge package."
-    scene: "Fund a narrower bridge, training, and port repair within 100 points."
+    scene: "Domestic and foreign offsets weaken the case for a large debt-financed package. Rhea needs temporary support alongside repair of the two remaining capacity constraints."
     motivation: "The revised allocation balances immediate support with training and port investment under the fixed budget."
     format: VALUE
-    question: "Spend exactly 100 and submit."
-    answerText: "\"Keep the narrower bridge with training and port repair; reject the full debt plan.\""
+    question: "You have 100 plan points. Cover every required outcome at the lowest total cost within the budget; keep all unused capacity in reserve. Select whole packages, then submit the plan; the board shows its total and remaining reserve for you to check."
+    answerText: "Each funded package supplies a required outcome; an affordable package that leaves one unresolved is insufficient."
     why: "Targeted temporary support reduces crowding out while preserving long-run growth."
     # wrong-path feedback, one rebuttal per wrong option:
     #   A different response does not fit the displayed evidence. Targeted temporary support reduces crowding out while preserving long-run growth.
@@ -4665,7 +4665,7 @@ missions:
   - id: after-stop-55
     # After Stop 55 | threshold-rail | automatic
     on: { after: [3] }
-    world: "At forecast-table, the dated accepted-result slip for Stop 55 reads: \"The keyed result shown by the completed interaction.\". The slip remains in that fixture's evidence holder."
+    world: "At forecast-table, the dated accepted-result slip for Stop 55 reads: \"Conversion proceeds with temporary cover and the inflation guard.\". The slip remains in that fixture's evidence holder."
     panel: "STOP 55 RECORDED - STOP 56 OPEN"
     # unlocks: Unlock Stop 56 at threshold-rail in Rate Room.
     bubbles:
@@ -4847,11 +4847,11 @@ missions:
     person: corren
     concept: 24   # integrated policy
     reason: "The fuel estimate is ready and the full plan must withstand the combined disturbances."
-    scene: "Because the direct price effect is bounded, stress delay, unconditional easing, and conversion-plus-cover across fuel shocks of 8%, 12%, and 16%. Submit the plan that preserves payments and limits the output loss."
+    scene: "The conversion ratio has passed its accounting checks, but a fuel shock can still raise household costs. The board requires payment continuity and temporary cover without abandoning its inflation guard."
     motivation: "The model stress test selects a response that keeps payments working while limiting the output loss."
     format: STRESS
-    question: "Inspect three settings and submit one plan."
-    answerText: "\"Proceed at 4.15 with temporary first-week cover.\""
+    question: "Sweep fuel prices through increases of 8%, 12% and 16%. With basket weight 20%, compute the direct price contribution and select the plan preserving conversion, temporary cover and the review guard in every case."
+    answerText: "Direct contributions are 1.6, 2.4 and 3.2 percentage points. Conversion with temporary guarded cover meets the stated requirements; this limited model does not quantify total output or establish a universal policy optimum."
     why: "Robust policy preserves the sound ratio while treating the separate real shock."
     # wrong-path feedback, one rebuttal per wrong option:
     #   A different response does not fit the displayed evidence. Robust policy preserves the sound ratio while treating the separate real shock.
@@ -5096,10 +5096,10 @@ missions:
     title: "Live economy panel"
     concept: 32   # national snapshot
     reason: "The first-week readings are visible and must be assessed against the signed thresholds."
-    scene: "Launch data show real GDP 682 billion, Yf 720, unemployment 8.2%, companion inflation 3.0%, payment failures 0.5%, and fuel costs easing. Count the readings relevant to the signed stance."
+    scene: "The final dashboard shows weak output while the fuel shock eases. The team must read the indicators separately before choosing its response."
     motivation: "The live output gap and payment evidence determine whether the agreed emergency condition has actually been met."
     format: BALLPARK
-    question: "Select all six readings, calculate gap 682−720, and submit conclusion."
+    question: "Real output is 682 billion against full employment of 720 billion. Unemployment is 8.2%, inflation 3%, payment failures 0.5%, and fuel costs are easing. Calculate actual minus full-employment output using the two output levels."
     answerText: "\"The gap is −38 billion; payment failures 0.5% do not meet the 2% trigger.\""
     why: "Output is weak, but the payment trigger has not fired and inflation is below its stop limit."
     # wrong-path feedback, one rebuttal per wrong option:

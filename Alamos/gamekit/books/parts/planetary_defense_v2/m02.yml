@@ -152,10 +152,10 @@
     title: "Measure the sky rate"
     concept: 1   # angular rate
     reason: "The verified detection needs a rate of sky motion to initialize the orbit search."
-    scene: "The verified point moves 37 arcseconds during a 24-minute clean interval while the reference stars remain fixed. Estimate its hourly angular rate so the orbit search begins in the correct region."
+    scene: "The two sky positions are marked. The team needs an angular rate before extrapolating the next observation."
     motivation: "The hourly angular rate constrains the search without pretending that angular motion alone establishes physical speed."
     format: BALLPARK
-    question: "Using the displayed values, submit one angular rate ω in arcseconds per hour."
+    question: "The object moves 37 arcseconds in 24 minutes. Fill displacement and elapsed minutes in rate=displacement/time×60 to report arcseconds per hour."
     # Converted from the payload's `estimate`. Each tile carries the payload's own
     # value beside the payload's own label, so the tile says what it is worth;
     # `slots` is the count of tiles the panel takes, `correct` their indices, and

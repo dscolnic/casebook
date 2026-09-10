@@ -706,10 +706,10 @@ missions:
     title: "Measure the sky rate"
     concept: 1   # angular rate
     reason: "The verified detection needs a rate of sky motion to initialize the orbit search."
-    scene: "The verified point moves 37 arcseconds during a 24-minute clean interval while the reference stars remain fixed. Estimate its hourly angular rate so the orbit search begins in the correct region."
+    scene: "The two sky positions are marked. The team needs an angular rate before extrapolating the next observation."
     motivation: "The hourly angular rate constrains the search without pretending that angular motion alone establishes physical speed."
     format: BALLPARK
-    question: "Using the displayed values, submit one angular rate ω in arcseconds per hour."
+    question: "The object moves 37 arcseconds in 24 minutes. Fill displacement and elapsed minutes in rate=displacement/time×60 to report arcseconds per hour."
     # Converted from the payload's `estimate`. Each tile carries the payload's own
     # value beside the payload's own label, so the tile says what it is worth;
     # `slots` is the count of tiles the panel takes, `correct` their indices, and
@@ -1158,11 +1158,11 @@ missions:
     person: rowan
     concept: 11   # robustness
     reason: "The rising probability must survive reasonable error assumptions before it supports notification."
-    scene: "Because the normalized cloud gives 8.0%, vary the astrometric weights, focusing radius, and one-frame timing uncertainty across justified ranges. Determine whether every reasonable case remains above the 1% notification line."
+    scene: "The updated probability must survive the justified error assumptions before it supports notification. The team has completed the sensitivity runs and retained their reported envelope."
     motivation: "The lowest supported probability determines whether the notification threshold is exceeded throughout the sensitivity tests."
     format: STRESS
-    question: "Submit the minimum probability in percent and one conclusion: ROBUSTLY ABOVE THRESHOLD or NOT ROBUST."
-    answerText: "The exact probability varies, but the decision to notify is robust."
+    question: "Inspect the supplied sensitivity envelope and submit its minimum probability. Mark ROBUSTLY ABOVE THRESHOLD only if the minimum is greater than the published 1% notification line."
+    answerText: "Minimum 6.7% exceeds 1%; the notification decision survives the supplied sensitivity envelope. The exact probability is not invariant."
     why: "Decision robustness depends on whether reasonable assumptions cross the action boundary, not whether they change the reported number."
     # wrong-path feedback, one rebuttal per wrong option:
     #   Separate uncertainty in the exact percentage from uncertainty about which side of 1% it occupies.
@@ -1435,10 +1435,10 @@ missions:
     person: rowan
     concept: 18   # information gain
     reason: "The remaining observing window must target the uncertainties that still change the warning decision."
-    scene: "Spend the fixed budget on measurements that can change the warning decision."
+    scene: "The object's motion is confirmed and its sky position is already measured precisely. Malik needs a plan for the uncertainties still affecting the warning."
     motivation: "The selected measurements determine whether the budget buys complementary range, time-baseline, and size information."
     format: VALUE
-    question: "Submit one observing plan costing at most 100 credits, its total cost, and the remaining reserve."
+    question: "You have 100 observing credits. Cover every required outcome at the lowest total cost within the budget; keep all unused capacity in reserve. Select whole packages, then submit the plan; the board shows its total and remaining reserve for you to check."
     # Converted from the payload's `value`. `budget: 100` becomes the engine's
     # budget object; each option keeps its own id, label, cost and axis. The
     # payload's `recommended` set — its keyed 90-credit plan — is what the engine
@@ -1451,7 +1451,7 @@ missions:
       - { id: radar, label: Range-Doppler block, cost: 35, axis: geometry, decisive: true }
       - { id: thermal, label: Thermal infrared block, cost: 25, axis: size, decisive: true }
       - { id: publicity, label: Live public telescope feed, cost: 20, axis: communication }
-    answerText: "The mixed plan attacks time baseline, range, and size while preserving a small reserve."
+    answerText: "Each funded package supplies a required outcome; an affordable package that leaves one unresolved is insufficient."
     why: "Independent measurement axes reduce different uncertainties; repeated same-night frames mostly refine an already precise direction."
     # wrong-path feedback, one rebuttal per wrong option:
     #   Ask which current uncertainty each option reduces and whether another option measures the same thing.
@@ -1526,11 +1526,11 @@ missions:
     title: "Propagate the error budget"
     concept: 11   # error budget
     reason: "The observing schedule needs a forecast of uncertainty reduction before scarce time is committed."
-    scene: "Because the observing order is fixed, the orbit team can forecast how each block changes the encounter uncertainty. Buy the measurement update that most reduces the b-plane width while preserving size information."
+    scene: "The team compares forecast packages before committing the observing schedule. Thermal size work remains protected while the orbit team tests alternative uses of its forecast budget."
     motivation: "The encounter-width comparison determines which measurement combination most improves the predicted impact region."
     format: PROPAGATE
-    question: "Submit one observing-update plan costing no more than 65 credits and its resulting b-plane width in kilometers."
-    answerText: "Geometry and time baseline together outperform more same-night precision."
+    question: "Select the package costing at most 65 credits with the smallest supplied encounter width. Submit the package and its reported width in kilometres; these are alternative model forecasts, not independent errors to add."
+    answerText: "The joint orbit refit predicts a narrower encounter region than either ingredient alone. The orbit desk supplies these whole-model forecasts; a sum of individual error magnitudes cannot reproduce them."
     why: "Correlated range and along-track uncertainty require complementary measurements."
     # wrong-path feedback, one rebuttal per wrong option:
     #   A single smaller component does not guarantee the smallest propagated encounter width.
@@ -1609,10 +1609,10 @@ missions:
     person: chen
     concept: 20   # observing allocation
     reason: "The expected improvement depends on funding data transfer and analysis as well as instruments."
-    scene: "With the expected error reduction known, allocate 100 coordination points across the proposals that make the mixed plan executable. Fund the chain, not the loudest department, and keep the final fit from losing its inputs."
+    scene: "The observing plan is selected, but the data still need staff and a completed handoff. Mira asks for coordination capacity that makes every funded measurement usable."
     motivation: "The coordination allocation determines whether optical, radar, thermal, and combined-fit work can all be completed."
     format: SCIENCETANK
-    question: "Submit one five-category allocation totaling exactly 100 points."
+    question: "Allocate exactly 100 points. Meet the published staffing minima: optical 25, radar 25, thermal 20 and integration 30. This restricted budget assigns no points to publicity. Submit the allocation; the board checks the total and each requirement."
     # Converted from the payload's `proposals` / `recommended`. The engine keys
     # `recommended` by the proposal's LABEL rather than its id, so the payload's
     # id-keyed map becomes the same five numbers against the same five labels.
@@ -1628,7 +1628,7 @@ missions:
       East-dome thermal link: 20
       Final orbit and covariance handoff: 30
       Public live feed: 0
-    answerText: "The range funds optical, radar, thermal, and the final integration that gives those measurements meaning."
+    answerText: "The accepted plan funds every required capability within the stated limits; extra points may be distributed only as the public rule allows."
     why: "Evidence has value only when acquisition, transfer, and combined inference all survive the resource plan."
     # wrong-path feedback, one rebuttal per wrong option:
     #   A funded instrument without its handoff produces data that cannot change tonight's orbit decision.
@@ -2184,10 +2184,10 @@ missions:
     title: "Reproduce the assumption"
     concept: 3   # H-to-diameter estimate
     reason: "Certified brightness does not establish size until the notice's assumed reflectivity is made explicit."
-    scene: "The certified photometry gives H = 22.0, while the early notice silently assumed a bright albedo of 0.25. Estimate the diameter produced by that assumption and label the preliminary result as explicitly conditional."
+    scene: "The brightness estimate is ready, but size still depends on reflectivity. The team uses the stated albedo to make one conditional estimate."
     motivation: "The conditional diameter shows how strongly the early size estimate depends on the adopted albedo."
     format: BALLPARK
-    question: "Using every displayed input, submit one conditional diameter in meters."
+    question: "Use D=1329/√pV ×10^(−H/5) km with H=22 and pV=0.25. Fill H and pV; convert the result to metres."
     # Converted from the payload's `estimate`. Its three tiles keep its own
     # labels; the values are its own expressions worked out — 10^(-22/5) is
     # 3.9811e-5 and 1/sqrt(0.25) is 2 — because the panel multiplies numbers.
@@ -3021,10 +3021,10 @@ missions:
     title: "Balance the fit"
     concept: 11   # weighted fit
     reason: "The orbit fit must combine precise radar range with the longer optical baseline without counting correlated products twice."
-    scene: "The radar range has tiny uncertainty, while optical positions provide the longer time baseline and transverse motion. Balance the datasets by documented uncertainty and correlation, then reject equal weighting and simple vote counting."
+    scene: "The radar products share an origin. Their precision can strengthen one evidence stream without creating several independent votes."
     motivation: "Uncertainty-aware weighting determines how each dataset constrains the fitted trajectory rather than letting record count decide."
     format: BALLPARK
-    question: "Optical position has uncertainty 2 units and the independent radar range has uncertainty 1 unit. Using inverse-variance weights and treating the two correlated radar products as one stream, submit the radar stream's normalized weight and justify the covariance grouping."
+    question: "An optical stream has σ=2 and one independent radar stream has σ=1 in the same units. Fill optical and radar uncertainties in the radar weight (1/σradar²)/(1/σoptical²+1/σradar²)."
     answerText: "Precision controls weight, covariance prevents double-counting, and optical timing preserves transverse information."
     why: "BALANCE trades influence according to information content and dependence."
     # wrong-path feedback, one rebuttal per wrong option:
@@ -3336,10 +3336,10 @@ missions:
     title: "Estimate the energy scale"
     concept: 13   # kinetic energy
     reason: "The intensified response now needs an impact-energy scale rather than probability alone."
-    scene: "Use diameter 260 meters, density 1,800 kilograms per cubic meter, and impact speed 19 kilometers per second. Estimate mass, kinetic energy, and TNT equivalent closely enough to catch a thousandfold unit mistake."
+    scene: "The size and density model now meets the entry-speed estimate. The energy scale will shape the consequence assessment."
     motivation: "Mass and kinetic energy establish the approximate physical consequence scale that the corridor assessment must consider."
     format: BALLPARK
-    question: "Submit three numerical results with units: mass in kilograms, kinetic energy in joules, and TNT equivalent in megatons."
+    question: "Model a sphere of diameter 260 m and density 1,800 kg/m³; m=ρπD³/6. Speed is 19,000 m/s. Choose the calculated mass and speed in E=½mv²/(4.184×10¹⁵) to express energy in megatons TNT."
     # Converted from the payload's `estimate`. The payload's `slots` name the
     # three results it wants, not the tiles; the engine's slots are tiles, so the
     # board carries the four quantities the payload's own `values` state — D, ρ,
@@ -3518,10 +3518,10 @@ missions:
     person: park
     concept: 18   # value of information
     reason: "The consequence assessment leaves limited observing time for the uncertainty that most affects tomorrow's action."
-    scene: "Choose the measurement with the largest expected change to tomorrow's protective decision."
+    scene: "The remaining trajectories split between ocean and populated land. Evelyn needs evidence that can change which places require protection tomorrow."
     motivation: "The selected measurement determines whether the next data can change corridor protection rather than merely refine a settled quantity."
     format: VALUE
-    question: "Spend at most 10 observing hours and select the option with the greatest immediate decision value."
+    question: "You have 10 observing hours. Cover every required outcome at the lowest total cost within the budget; keep all unused capacity in reserve. Select whole packages, then submit the plan; the board shows its total and remaining reserve for you to check."
     # Converted from the payload's `value`. Its `budget` object becomes the
     # engine's; each option keeps its own id, label, cost and axis, and its
     # `decision_change` line becomes what the option `reveals`. The payload's
@@ -3534,7 +3534,7 @@ missions:
       - { id: composition, label: Refine composition class, cost: 4, axis: material, reveals: moderate decision change }
       - { id: corridor, label: Separate ocean from populated-land timing, cost: 10, axis: exposure, reveals: large decision change, decisive: true }
       - { id: brightness, label: Repeat the brightness curve, cost: 3, axis: reflected_light, reveals: small decision change }
-    answerText: "All four improve knowledge, but only timing can remove millions of people from the current action envelope tomorrow."
+    answerText: "Each funded package supplies a required outcome; an affordable package that leaves one unresolved is insufficient."
     why: "VALUE ranks observations by expected decision improvement under scarcity."
     # wrong-path feedback, one rebuttal per wrong option:
     #   Precision is useful only when it can alter the choice facing the team.
@@ -4103,10 +4103,10 @@ missions:
     title: "Carry the mass honestly"
     concept: 3   # mass range
     reason: "The complex body model leaves a mass range that intervention calculations must preserve."
-    scene: "Use the 260-meter diameter and plausible rubble-pile densities from 1,200 to 2,400 kilograms per cubic meter in the campaign model. Estimate a mass range and preserve it through the intervention calculation."
+    scene: "The density range remains unresolved. The team carries both mass bounds instead of hiding the uncertainty in a midpoint."
     motivation: "The density-dependent mass interval establishes the range of momentum demand a proposed deflection must meet."
     format: BALLPARK
-    question: "Submit the lower and upper asteroid mass bounds in kilograms."
+    question: "For a spherical body of diameter 260 m, density ranges from 1,200 to 2,400 kg/m³. Calculate the lower mass using m=ρπD³/6, then select that mass and the high/low density ratio to obtain the upper mass."
     answerText: "The intervention test must succeed across this range, not only at the lightest convenient value."
     why: "BALLPARK carries parameter uncertainty into feasibility bounds."
     # wrong-path feedback, one rebuttal per wrong option:
@@ -4298,10 +4298,10 @@ missions:
     person: sen
     concept: 15   # response portfolio
     reason: "The intervention gap leaves the last budget needing an achievable harm-reduction objective."
-    scene: "The last budget can fund a symbolic impactor, corridor observations, civil-defense preparation, or a public demonstration. Rank all four by expected harm reduction under the verified warning time and intervention gap."
+    scene: "The tested impactor cannot deliver enough impulse in the available warning time. Arjun must use the remaining budget to locate the threatened area and prepare protection that can still work."
     motivation: "The ranked uses determine whether money supports useful corridor observations and protection instead of an ineffective symbolic launch."
     format: VALUE
-    question: "Spend at most 100 credits and choose the action portfolio with the greatest expected value."
+    question: "You have 100 response credits. Cover every required outcome at the lowest total cost within the budget; keep all unused capacity in reserve. Select whole packages, then submit the plan; the board shows its total and remaining reserve for you to check."
     # Converted from the payload's `value`. Its `budget` object becomes the
     # engine's; each option keeps its own id, label, cost and axis, and its
     # `decision_value` line becomes what the option `reveals`. The payload's
@@ -4315,7 +4315,7 @@ missions:
       - { id: corridor_observations, label: Fund corridor-refining observations, cost: 45, axis: location, reveals: high decision value, decisive: true }
       - { id: civil_defense, label: Begin reversible civil-defense preparation, cost: 55, axis: exposure, reveals: high decision value, decisive: true }
       - { id: public_demo, label: Fund a public technology demonstration, cost: 25, axis: communication, reveals: low decision value }
-    answerText: "Refusing an impossible intervention protects the actions that can still reduce harm."
+    answerText: "Each funded package supplies a required outcome; an affordable package that leaves one unresolved is insufficient."
     why: "VALUE compares expected decision benefit and opportunity cost."
     # wrong-path feedback, one rebuttal per wrong option:
     #   Hope is not added momentum, and a launch can consume the warning time it cannot overcome.
@@ -4554,11 +4554,11 @@ missions:
     title: "Allocate limited capacity"
     concept: 16   # emergency resources
     reason: "The response ladder allows preparation before the evidence supports a broad irreversible order."
-    scene: "Allocate transport, shelters, medical teams, and communication capacity to reversible staging first."
+    scene: "The evidence permits reversible staging, not a corridor-wide evacuation. The team can vary the distribution while keeping every service ready."
     motivation: "The capacity allocation determines which targeted staging can be completed while preserving a usable reserve."
     format: ALLOCATE
-    question: "Submit one five-category allocation totaling 100 points that preserves at least 20 points in reserve."
-    answerText: "Staging buys speed without imposing the harms of premature mass movement."
+    question: "Allocate exactly 100 points. Use 5-point increments, with 10–40 points in each operational category and 20–40 in reserve. Do not issue a mass-movement order. Submit the allocation; the board checks the total and each requirement."
+    answerText: "The accepted plan funds every required capability within the stated limits; extra points may be distributed only as the public rule allows."
     why: "ALLOCATE distributes finite resources against expected need, reversibility, and equity."
     # wrong-path feedback, one rebuttal per wrong option:
     #   Spending everything now leaves no capacity when the corridor narrows.
@@ -4712,8 +4712,8 @@ missions:
     scene: "Review five proposed public statements and sign only those supported by the current campaign evidence. Each accepted line must name its condition, intended action, and next update without promising certainty."
     motivation: "The signed statements determine what the public can be told without promising certainty or an unsupported all-clear."
     format: ATTEST
-    question: "Attest the defensible response-plan statements."
-    answerText: "The plan is firm about actions precisely because it is honest about uncertainty."
+    question: "Use the published response ladder and current evidence; no certainty claim follows from a probability below 100%. Read the displayed source excerpts, then select every supported claim and leave unsupported claims unsigned."
+    answerText: "Each signature is limited to what its source establishes. The unsupported claims lack the specific date, physical condition, independence or scope they assert."
     why: "ATTEST requires explicit evidence ownership for public claims."
     # wrong-path feedback, one rebuttal per wrong option:
     #   Confidence in a process is not permission to overstate its inputs.
@@ -4976,11 +4976,11 @@ missions:
     title: "Refit the corrected residuals"
     concept: 8   # orbit correction
     reason: "The identified offset must be applied consistently before the revised orbit is trusted."
-    scene: "Refit the complete optical batch with the documented correction and compare residuals before and after. The common eastward pattern disappears, while the remaining scatter stays centered near zero and within stated uncertainty."
+    scene: "The optical batch has been refitted with the documented correction. Compare the residual summary against the published calibration acceptance limits."
     motivation: "The corrected residual pattern determines whether the documented bias removal produces an adequate optical fit."
     format: RESIDUAL
-    question: "Submit the corrected mean and scatter in arcseconds and one conclusion: PASS or FAIL. Use ordered observation coordinates 1–5 on the residual axis."
-    answerText: "Centered, expected scatter supports correction rather than overfitting."
+    question: "Submit the corrected mean and scatter in arcseconds. PASS only if absolute mean≤0.10 arcsecond and scatter≤0.10 arcsecond; this is a summary-data check, not an invented five-point residual trace."
+    answerText: "Both corrected summaries meet their limits. Retain the documented source of the correction with the refitted optical batch."
     why: "RESIDUAL tests the pattern left by a repair."
     # wrong-path feedback, one rebuttal per wrong option:
     #   Perfect zeros would be suspicious; consistent scatter is the goal.
@@ -5697,8 +5697,8 @@ missions:
     scene: "A faint point appears inside the fragment search box and moves consistently over three exposures. Attest its identity only after checking timestamps, star-field solution, motion, brightness, and the static-source archive."
     motivation: "The timed-image and archive checks determine whether the search-box detection is a genuine recovery of the fragment."
     format: ATTEST
-    question: "Sign the five backed recovery checks and reject the unsupported city-impact claim."
-    answerText: "Every identity check agrees, so the positions extend the fragment arc."
+    question: "Recovery identity is narrower than impact prediction; sign only the checks established by the recovery record. Read the displayed source excerpts, then select every supported claim and leave unsupported claims unsigned."
+    answerText: "Each signature is limited to what its source establishes. The unsupported claims lack the specific date, physical condition, independence or scope they assert."
     why: "ATTEST owns a claim against named criteria."
     # wrong-path feedback, one rebuttal per wrong option:
     #   Search-box proximity alone is not identity.
@@ -5747,10 +5747,10 @@ missions:
     title: "Balance orbit and consequence"
     concept: 16   # fragment risk
     reason: "The verified fragment recovery allows its risk to be assessed against the published protective-order criteria."
-    scene: "The recovered orbit gives a narrow damaging-airburst corridor over 180,000 people, while size and density ranges imply roughly 0.7 to 2 megatons TNT. Balance probability, consequence, timing, and reversibility against the published rule."
+    scene: "The operations desk has both a probability and an exposure count. The team computes their product without treating it as an automatic order."
     motivation: "Probability, consequence, warning time, and reversibility together determine whether a targeted order is justified."
     format: BALLPARK
-    question: "Submit one threshold conclusion - TARGETED ORDER or CONTINUE STAGING - and identify the numerical evidence that controls it."
+    question: "Impact probability is 0.91 and exposed population is 180,000. Calculate probability-weighted exposure. The decision file also lists diameter 28–36 m, energy 0.7–2 Mt, warning under two days and independent confirmation."
     answerText: "High likelihood, damaging scale, narrow exposure, verification, and short time require action."
     why: "BALANCE integrates unlike evidence at a decision boundary."
     # wrong-path feedback, one rebuttal per wrong option:
@@ -5868,10 +5868,10 @@ missions:
     title: "Allocate the final response"
     concept: 16   # execution
     reason: "The targeted order needs actual deployment without abandoning the continuing ocean-event watch."
-    scene: "Complete deployment without stripping ongoing coastal monitoring for the primary ocean event."
+    scene: "The fragment zone needs protection while the primary ocean event remains monitored. Allocate the final response without borrowing the coastal-watch capacity."
     motivation: "The final allocation determines whether transport, shelter, medical, communication, reserve, and coastal-monitoring commitments can all be met."
     format: ALLOCATE
-    question: "Submit one five-category allocation totaling 100 points and a conclusion confirming whether every constraint and both hazard tracks remain satisfied."
+    question: "Allocate exactly 100 points. Use 5-point increments. Minimums are transport 25, shelters 25, hospitals 20, communications 15 and reserve 10; no category may exceed 40. Preserve the separately staffed coastal watch. Submit the allocation; the board checks the total and each requirement."
     # ---- THE MODEL CONVERSION, and the one piece of real work in this stop.
     #
     # The payload's board is a CONTINUOUS SPLIT: 100 points divided across five
@@ -5900,7 +5900,7 @@ missions:
       - { question: "Can multilingual alerts reach the corridor?", requires: [communications], required: true }
       - { question: "Can services expand outside both hazard zones now?", requires: [reserve] }
       commit: Commit the allocation
-    answerText: "The fragment corridor receives protection while the primary remains monitored."
+    answerText: "The accepted plan funds every required capability within the stated limits; extra points may be distributed only as the public rule allows."
     why: "ALLOCATE converts decision into constrained, equitable execution."
     # wrong-path feedback, one rebuttal per wrong option:
     #   Spending the reserve makes the system brittle.

@@ -193,10 +193,10 @@
     title: "Compare child and adult dose"
     concept: 29   # dose | pollution | 8
     reason: "The school-branch finding makes body-size differences relevant to the exposure decision."
-    scene: "Because the increase begins on the school branch, concentration alone understates who is at risk. Calculate daily nitrate dose for a child and an adult."
+    scene: "The same water concentration reaches bodies of different size. The exposure comparison has to account for intake and body mass."
     motivation: "Dose per kilogram determines whether the same water concentration exposes children more heavily than adults."
     format: BALLPARK
-    question: "Apply dose=concentration*intake/body mass using 11.2 mg/L, child 1.0 L/day and 20 kg, adult 2.0 L/day and 70 kg; submit the pair in mg/kg/day"
+    question: "Concentration is 11.2 mg/L. A 20 kg child drinks 1 L/day; a 70 kg adult drinks 2 L/day. Compute each dose C×intake/mass in mg/(kg·day), then place child and adult doses in (child/adult−1)×100."
     # THE BIBLE'S PAYLOAD, converted. Its `equation` and both `cases` supply the
     # five tiles, each worth exactly what the bible gives it. The engine grades
     # ONE number, so the board is the child case — the first of the bible's two

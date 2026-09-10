@@ -202,10 +202,10 @@
     title: "Ask Among the Flagged"
     concept: 24   # conditional probability
     reason: "The unique warning count leaves the shipment-flagged group needing its own risk estimate."
-    scene: "With duplicate reports removed, the shipment flag can become the conditioning group rather than another headline count. Use the two-percent overlap and five-percent flag rate to calculate the serious-event probability among flagged shipments."
+    scene: "The positive-test group is the relevant denominator now. The team must not substitute the whole screened population."
     motivation: "Conditional event probability measures how concentrated serious events are among flagged shipments."
     format: BALLPARK
-    question: "The probability of both a serious event and a shipment flag is 0.02, while the probability of a shipment flag is 0.05. Use P(serious event | shipment flag)=P(serious event and shipment flag)/P(shipment flag) and submit the conditional probability as a percent."
+    question: "P(condition and positive)=0.02 and P(positive)=0.05. Fill joint probability and positive-test probability in P(condition|positive)=joint/positive."
     # The formula, the two visible probabilities, the target 0.40 and the 0.005
     # tolerance are all the prompt's own. The third tile, 0.08, is the marginal
     # rate this mission's other consoles carry (stop 9's P(A)=0.08 and stop 11's

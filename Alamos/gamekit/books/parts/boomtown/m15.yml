@@ -11,7 +11,7 @@
   objective: "Decide which complete agreement the council can sign under its published rules."
   stake: "The old gate can be changed, but the plan still needs funds and names. Each promise must have someone who will keep it. Today you decide which whole plan the town can sign. By the end of the mission, you will check its costs, terms and owners."
   takeaway: "The council can sign a complete agreement while publishing who pays, who benefits and what would trigger review."
-  segue: "Mission decision: Sign the access retrofit with funded housing support and the water-cost rule. All funds are confirmed and each promise has an owner. The final trial meets the corrected goal. The plan is ready for signing after the final resource check."
+  segue: "Yet Leila still has unmatched housing requests; the signed agreement must keep those people in its review."
   # The mission card's own "Primer concepts", printed on the plan card.
   terms:
   - {name: "Accountability", def: "A named person or institution must report whether a promise is kept."}

@@ -141,10 +141,10 @@
     title: "Live economy panel"
     concept: 32   # national snapshot
     reason: "The first-week readings are visible and must be assessed against the signed thresholds."
-    scene: "Launch data show real GDP 682 billion, Yf 720, unemployment 8.2%, companion inflation 3.0%, payment failures 0.5%, and fuel costs easing. Count the readings relevant to the signed stance."
+    scene: "The final dashboard shows weak output while the fuel shock eases. The team must read the indicators separately before choosing its response."
     motivation: "The live output gap and payment evidence determine whether the agreed emergency condition has actually been met."
     format: BALLPARK
-    question: "Select all six readings, calculate gap 682−720, and submit conclusion."
+    question: "Real output is 682 billion against full employment of 720 billion. Unemployment is 8.2%, inflation 3%, payment failures 0.5%, and fuel costs are easing. Calculate actual minus full-employment output using the two output levels."
     answerText: "\"The gap is −38 billion; payment failures 0.5% do not meet the 2% trigger.\""
     why: "Output is weak, but the payment trigger has not fired and inflation is below its stop limit."
     # wrong-path feedback, one rebuttal per wrong option:

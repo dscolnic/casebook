@@ -2410,9 +2410,9 @@ export const BALLPARK_CALCS = {
     "prompt": "",
     "question": "Choose the quantity tiles for the displayed formula a/b; submit the resulting rope-contact radius in m.",
     "labels": [
-      "rim speed (m/s)",
-      "angular speed (rad/s)",
-      "half-turn distractor"
+      "6",
+      "3",
+      "2"
     ],
     "values": [
       6,
@@ -2420,7 +2420,7 @@ export const BALLPARK_CALCS = {
       2
     ],
     "slots": 2,
-    "template": "{0}/{1}",
+    "template": "{0} / {1} = ? m",
     "formula": "a/b",
     "correct": [
       0,
@@ -2436,9 +2436,9 @@ export const BALLPARK_CALCS = {
     "prompt": "",
     "question": "Choose the quantity tiles for the displayed formula a/b; submit the resulting drum angular acceleration in rad/s².",
     "labels": [
-      "linear acceleration (m/s²)",
-      "contact radius (m)",
-      "diameter distractor (m)"
+      "1",
+      "2",
+      "4"
     ],
     "values": [
       1,
@@ -2446,7 +2446,7 @@ export const BALLPARK_CALCS = {
       4
     ],
     "slots": 2,
-    "template": "{0}/{1}",
+    "template": "{0} / {1} = ? rad/s²",
     "formula": "a/b",
     "correct": [
       0,
@@ -2462,17 +2462,19 @@ export const BALLPARK_CALCS = {
     "prompt": "",
     "question": "Choose the quantity tiles for the displayed formula a*b*c*c; submit the resulting drum motion energy in J.",
     "labels": [
-      "inertia (kg m²)",
-      "angular speed (rad/s)",
-      "half"
+      "45000",
+      "2",
+      "0.5",
+      "4"
     ],
     "values": [
       45000,
       2,
-      0.5
+      0.5,
+      4
     ],
     "slots": 3,
-    "template": "{0}*{1}*{2}*{2}",
+    "template": "{0} × {1} × {2} × {2} = ? J",
     "formula": "a*b*c*c",
     "correct": [
       2,
@@ -2489,9 +2491,9 @@ export const BALLPARK_CALCS = {
     "prompt": "",
     "question": "Choose the quantity tiles for the displayed formula a/b; submit the resulting mean bin impact force in N.",
     "labels": [
-      "arriving momentum (kg m/s)",
-      "stopping time (s)",
-      "longer-time alternative (s)"
+      "600",
+      "0.2",
+      "0.6"
     ],
     "values": [
       600,
@@ -2499,7 +2501,7 @@ export const BALLPARK_CALCS = {
       0.6
     ],
     "slots": 2,
-    "template": "{0}/{1}",
+    "template": "{0} / {1} = ? N",
     "formula": "a/b",
     "correct": [
       0,
@@ -2515,9 +2517,9 @@ export const BALLPARK_CALCS = {
     "prompt": "",
     "question": "Choose the quantity tiles for the displayed formula a*b; submit the resulting recall the full-length pull in N.",
     "labels": [
-      "total hanging mass (kg)",
-      "conservative gravity (m/s²)",
-      "acceleration distractor"
+      "16000",
+      "10",
+      "1"
     ],
     "values": [
       16000,
@@ -2525,7 +2527,7 @@ export const BALLPARK_CALCS = {
       1
     ],
     "slots": 2,
-    "template": "{0}*{1}",
+    "template": "{0} × {1} = ? N",
     "formula": "a*b",
     "correct": [
       0,

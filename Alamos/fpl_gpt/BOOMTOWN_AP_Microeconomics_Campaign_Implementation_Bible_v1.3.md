@@ -1288,6 +1288,8 @@ Nico marks two meal crates for the repair crew; the bench gains a completed-work
 
 **Data/readings/options — exact player copy:** The record contains opportunity costs of 3 boxes per repair hour for the diner and 1 for the crew; the trial invoice charges 8 boxes for 4 hours. Both teams can choose freely, and no other cost exists.
 
+**Decision-record delivery:** Render the complete Data/readings/options record above on this question card before its choices. Keep any numerical limit, adopted decision rule and scope statement visible while choosing. Do not replace it with the story-science connection or an earlier mission’s generic explanation; do not display the author-only mission answer.
+
 **Format-specific interaction block:**
 
 ```json
@@ -2137,6 +2139,8 @@ The public board displays the old-price order count beside the new sales receipt
 
 **Data/readings/options — exact player copy:** Orders at $6 rose from 60 to 90; input cost stayed $4; the new outcome is $8 and 75 lunches per day. Only one curve shifted.
 
+**Decision-record delivery:** Render the complete Data/readings/options record above on this question card before its choices. Keep any numerical limit, adopted decision rule and scope statement visible while choosing. Do not replace it with the story-science connection or an earlier mission’s generic explanation; do not display the author-only mission answer.
+
 **Format-specific interaction block:**
 
 ```json
@@ -2969,6 +2973,8 @@ The guesthouse listing drops to the earlier rate and its vacant-room cards flip 
 **Question card story-science connection — exact player copy:** Vacant beds can reopen without pretending every landlord faces identical demand.
 
 **Data/readings/options — exact player copy:** The same-quality rooms yielded $400 before and $300 after the rise; demand elasticity over that comparison is 2.25. No other demand determinant changed.
+
+**Decision-record delivery:** Render the complete Data/readings/options record above on this question card before its choices. Keep any numerical limit, adopted decision rule and scope statement visible while choosing. Do not replace it with the story-science connection or an earlier mission’s generic explanation; do not display the author-only mission answer.
 
 **Format-specific interaction block:**
 
@@ -3803,6 +3809,8 @@ One job card appears; a second is stamped HOLD FOR EQUIPMENT REVIEW. The filled 
 **Question card story-science connection — exact player copy:** The diner fills one post while admitting that its offer may shift workers between local firms.
 
 **Data/readings/options — exact player copy:** The fourth cook adds $60 receipts and the fifth adds $40; each costs $50. The firm can sell every added lunch at $5, and no other marginal costs change.
+
+**Decision-record delivery:** Render the complete Data/readings/options record above on this question card before its choices. Keep any numerical limit, adopted decision rule and scope statement visible while choosing. Do not replace it with the story-science connection or an earlier mission’s generic explanation; do not display the author-only mission answer.
 
 **Format-specific interaction block:**
 
@@ -4645,6 +4653,8 @@ One row of lease cards turns to reduced rent; forty application tokens remain ma
 
 **Data/readings/options — exact player copy:** The cap creates a modeled 40-home shortage; incumbent tenants benefit, applicants can remain excluded, and the town’s stated aim is access for every applicant. No new homes or rent aid are included in the cap proposal.
 
+**Decision-record delivery:** Render the complete Data/readings/options record above on this question card before its choices. Keep any numerical limit, adopted decision rule and scope statement visible while choosing. Do not replace it with the story-science connection or an earlier mission’s generic explanation; do not display the author-only mission answer.
+
 **Format-specific interaction block:**
 
 ```json
@@ -5482,6 +5492,8 @@ The housing fund receives a posted reservation while the delivery board loses tw
 
 **Data/readings/options — exact player copy:** The housing measure costs $120 daily; fee receipts are $120, buyers bear $3 and sellers $1 per remaining delivery, and the undistorted linear-market deadweight loss is $40 daily. The council has explicitly chosen to fund this measure if receipts cover it.
 
+**Decision-record delivery:** Render the complete Data/readings/options record above on this question card before its choices. Keep any numerical limit, adopted decision rule and scope statement visible while choosing. Do not replace it with the story-science connection or an earlier mission’s generic explanation; do not display the author-only mission answer.
+
 **Format-specific interaction block:**
 
 ```json
@@ -6318,6 +6330,8 @@ The supplier shutter remains open and the next-month lease review appears beside
 
 **Data/readings/options — exact player copy:** Operating loses $40 daily; shutdown loses the unavoidable $100 lease charge; market price $8 exceeds AVC $5 at the best output. The lease can be reconsidered next month.
 
+**Decision-record delivery:** Render the complete Data/readings/options record above on this question card before its choices. Keep any numerical limit, adopted decision rule and scope statement visible while choosing. Do not replace it with the story-science connection or an earlier mission’s generic explanation; do not display the author-only mission answer.
+
 **Format-specific interaction block:**
 
 ```json
@@ -7152,6 +7166,8 @@ New vendor permit placards appear at the existing supply shelves; the diner’s 
 
 **Data/readings/options — exact player copy:** The proposed vendors meet the same published health and space requirements as incumbents; they offer differentiated menus and use vacant permitted stalls. The council’s rule is open entry unless a demonstrated external harm justifies a restriction.
 
+**Decision-record delivery:** Render the complete Data/readings/options record above on this question card before its choices. Keep any numerical limit, adopted decision rule and scope statement visible while choosing. Do not replace it with the story-science connection or an earlier mission’s generic explanation; do not display the author-only mission answer.
+
 **Format-specific interaction block:**
 
 ```json
@@ -7982,6 +7998,8 @@ The job board changes from three to four filled posts at the signed offer. The e
 **Question card story-science connection — exact player copy:** The worker agreement gains support from evidence rather than a blanket claim about regulation.
 
 **Data/readings/options — exact player copy:** Without the floor, employment is 3 at $25; the wage schedule rises $5 per added worker from $15 at one worker, and MRP is 60,50,40,30,20. With the $30 floor, the trial hires 4 at $30.
+
+**Decision-record delivery:** Render the complete Data/readings/options record above on this question card before its choices. Keep any numerical limit, adopted decision rule and scope statement visible while choosing. Do not replace it with the story-science connection or an earlier mission’s generic explanation; do not display the author-only mission answer.
 
 **Format-specific interaction block:**
 
@@ -8827,6 +8845,8 @@ The freight wall map keeps thirty unused slots lit with text labels beside the e
 
 **Data/readings/options — exact player copy:** The single terminal chooses 20 of 50 usable slots at $60; MR=MC at 20, while P=MC at 40 in the no-externality benchmark. A legal barrier excludes rivals from the terminal.
 
+**Decision-record delivery:** Render the complete Data/readings/options record above on this question card before its choices. Keep any numerical limit, adopted decision rule and scope statement visible while choosing. Do not replace it with the story-science connection or an earlier mission’s generic explanation; do not display the author-only mission answer.
+
 **Format-specific interaction block:**
 
 ```json
@@ -9654,6 +9674,8 @@ The pact’s guaranteed-service stamp is revoked and its forecast is relabeled c
 **Question card story-science connection — exact player copy:** The town must not budget service on an unstable private promise.
 
 **Data/readings/options — exact player copy:** Both firms gain from Expand under either rival action; the only Nash equilibrium of this one-shot table is Expand/Expand, yielding (30,30), below the pact’s joint (40,40).
+
+**Decision-record delivery:** Render the complete Data/readings/options record above on this question card before its choices. Keep any numerical limit, adopted decision rule and scope statement visible while choosing. Do not replace it with the story-science connection or an earlier mission’s generic explanation; do not display the author-only mission answer.
 
 **Format-specific interaction block:**
 
@@ -10493,6 +10515,8 @@ The catchment map adds the measured damage cost and an accessible report beside 
 **Question card story-science connection — exact player copy:** The freight agreement now needs both access and a water-cost rule.
 
 **Data/readings/options — exact player copy:** Private monopoly output was 20; the no-harm competitive benchmark was 40; with external harm the efficient quantity is 30. A $20-per-unit corrective charge exactly equals constant marginal harm in this model.
+
+**Decision-record delivery:** Render the complete Data/readings/options record above on this question card before its choices. Keep any numerical limit, adopted decision rule and scope statement visible while choosing. Do not replace it with the story-science connection or an earlier mission’s generic explanation; do not display the author-only mission answer.
 
 **Format-specific interaction block:**
 
@@ -11339,6 +11363,8 @@ The untaxed filter quote remains pinned to the compliance plan and the tariff tr
 
 **Data/readings/options — exact player copy:** The same-quality imported filter costs $10 untaxed or $12 with tariff; imports fall 60 to 40, government receives $80 and local producers gain. The council’s rule is least resource cost for the required water protection, with transfers disclosed separately.
 
+**Decision-record delivery:** Render the complete Data/readings/options record above on this question card before its choices. Keep any numerical limit, adopted decision rule and scope statement visible while choosing. Do not replace it with the story-science connection or an earlier mission’s generic explanation; do not display the author-only mission answer.
+
 **Format-specific interaction block:**
 
 ```json
@@ -12176,6 +12202,8 @@ The new-line ribbon disappears from the public board; the retrofit receives the 
 
 **Data/readings/options — exact player copy:** The initial new-line claim double-counted an internal $40 transfer; the independent stress table rejects it above 10% overrun. The retrofit meets the whole 0–40% range and outperforms status quo under the adopted net-resource rule.
 
+**Decision-record delivery:** Render the complete Data/readings/options record above on this question card before its choices. Keep any numerical limit, adopted decision rule and scope statement visible while choosing. Do not replace it with the story-science connection or an earlier mission’s generic explanation; do not display the author-only mission answer.
+
 **Format-specific interaction block:**
 
 ```json
@@ -12994,6 +13022,8 @@ The public board holds the unsigned final agreement; lease support and water-rev
 
 **Data/readings/options — exact player copy:** The retrofit survives 40% overrun; confirmed funds cover $150 daily; housing support and access reporting are assigned; freight is governed by the measured $20 external-cost rule; the final flow trial matches 30. New line fails the stress rule; status quo leaves access unresolved. The council’s published decision rule requires all these conditions, then the highest feasible net resource benefit. The retrofit replaces exclusive monopoly pricing with regulated equal access at private marginal cost plus the harm charge; its fixed-cost support is in the confirmed budget. A harm tax alone on the unchanged monopoly would not produce the efficient quantity. The earlier $30 wage and four-job schedule remain conditional on unchanged product receipts and productivity, and the cooperative must report whether qualified workers can actually take the jobs.
 
+**Decision-record delivery:** Render the complete Data/readings/options record above on this question card before its choices. Keep any numerical limit, adopted decision rule and scope statement visible while choosing. Do not replace it with the story-science connection or an earlier mission’s generic explanation; do not display the author-only mission answer.
+
 **Format-specific interaction block:**
 
 ```json
@@ -13272,3 +13302,13 @@ Leila leaves the unmatched home requests on the board. This deal does not give e
 This is the canonical authored bible, not a compiled or playable build. Engine importer/schema, project readability checker, worldParity, placement, reachable, right-first play, wrong-first play, restore and timer behavior are NOT TESTED. JSON blocks are single canonical board sources; keyed fields, mechanism, answer text and consistency bundles are authoring/grading-only until feedback. Do not display them as pre-answer evidence. Options and visible readings are player-facing.
 
 Retain group IDs T, CM, E, P, X and all Project Y terrain and path dimensions. Build the declared reusable fixtures because the source has no fixture implementation. Keep 14 other buildings as scenery with contemporary labels. Final agreement appears on the Public Notice Board only after the final graded recommendation, metric recovery allocation and four 100% bars; signing then opens the existing Civic Advice Office exit normally, updates the freight booking notice and posts the rent-support and water-monitoring notices. No train, rail platform, mine portal or off-map travel is invented. No further quiz follows the final decision.
+
+# Decision-card evidence contract
+
+Every decision card must expose the exact evidence and public rule that distinguish its accepted answers from plausible alternatives. Render the local Data/readings/options, Decision evidence, public constraints and option effects before selection; keep them available while the player chooses. Use plain-language descriptions, not internal axis names. Show one speaker header from the stop’s placement and Call, and one coherent setup and prompt. Never substitute a discovery-stage explanation into a later allocation, release or certification task.
+
+Resource tasks distinguish a budget from the goal. Display the required outcomes, each option’s contribution, costs, reserve rules and any priority or tie-breaker. Accept every plan satisfying the published rule. A recommended split is not an exclusive key unless the visible constraints uniquely determine it. Policies are identified as policies; the player must not derive an institutional preference from a scientific formula.
+
+For staged tests, show hypotheses, model inputs and acceptance rules before commitment, but keep held-out results hidden until the specified test or reveal. No grade may depend on guessing a future result. A signed claim requires a readable source excerpt or an explicit inspection, not a hidden backed flag. Copied records retain their shared-source identity.
+
+No importer fallback may borrow another stop’s data, speaker, threshold or generic mission text. Missing required local evidence is an import error. Before release, inspect the rendered card, prove the accepted response from visible information alone, try a plausible wrong answer, and test a different valid answer where the rule admits one. This document revision is source work; rendered-game verification still requires the actual implementation.

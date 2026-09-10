@@ -11,7 +11,7 @@
   objective: "Today you decide whether to repair the rover wheels or the loop that drives them."
   stake: "The air cleaner works, but Jonah sees Rover Three circle one marker. A loop needs a change that takes it toward its end. Trace each lap before the rover wastes more time. By the end of the mission, decide if the wheels are stuck or the code cannot stop."
   takeaway: "Rover Three is mechanically healthy; its loop never advances the route index, so the stopping condition can never become true. ---"
-  segue: "Mission decision: Rover Three is healthy; the route index never changes in the old loop. The fixed trace visits four points and stops at index 4. The crew keeps the rover ready. Now Priya finds the same code tool in all three fault traces."
+  segue: "Now Priya lays the three fault traces side by side; one code tool appears in all of them."
   # The mission card's own "Primer concepts", printed on the plan card.
   terms:
   - {name: "loop", def: "code that repeats while a condition or counter says more work remains. termination: the condition that makes repeated or recursive work stop. index: the numbered position used to access an element; Java arrays and lists start at index zero."}

@@ -275,10 +275,10 @@
     title: "Close C, H, and O at the Tank Farm"
     concept: 2   # full atom ledger
     reason: "The carbon result points away from a large leak, so hydrogen and oxygen need closing too."
-    scene: "Take that prediction to the Tank Farm and close the carbon, hydrogen, and oxygen ledgers to test whether the methane was never produced."
+    scene: "The reactor feed contains both reactants, but only one will run out first. The methane promise has to respect that limit."
     motivation: "The three element balances distinguish lost matter from matter retained in another chemical form or an insufficient feed."
     format: BALLPARK
-    question: "Close separate C, H, and O ledgers and state what the amounts imply."
+    question: "CO₂+4H₂→CH₄+2H₂O. Feed is 100 mol CO₂ and 320 mol H₂. Identify the limiting reactant, then fill its mole amount and the H₂:CH₄ coefficient in the methane calculation."
     answerText: "All C, H, and O atoms close; 320 mol H2 limits production to 80 mol CH4."
     why: "The ledger explains low methane without lost matter. Carbon not converted remains CO2. Hydrogen appears in methane and water exactly as the equation requires."
     # wrong-path feedback, one rebuttal per wrong option:

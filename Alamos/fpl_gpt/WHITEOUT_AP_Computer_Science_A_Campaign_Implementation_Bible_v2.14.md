@@ -2763,36 +2763,85 @@ All four stops stay local so the early campaign teaches one subsystem without si
 
 **Stop reason — exact player copy:** Priya will not patch the live station until one cheap test can tell whether the three failures share a software utility.
 
-**Question card story setup — exact player copy (44 words; 2 sentences):** Priya Nair checks the evidence: the software mirror can spend twelve test minutes before the next heat cycle, and several tests reproduce symptoms without equally separating causes. Choose the evidence package most likely to distinguish a shared utility defect from three unrelated hardware failures.
+**Question card story setup - exact player copy:** The software mirror has four test minutes before the next heat cycle. Priya needs to distinguish a shared utility failure from unrelated physical faults.
 
-**Question card story-science connection — exact player copy:** The best test is the one whose outcome changes which explanation survives, not simply the one that produces the most data.
+**Decision evidence - exact player copy:** Required outcomes: test captured inputs through the common code; check physical behavior through an independent control.
 
-**Format-specific interaction block:**
-```yaml
-value:
-  budget: 4
-  options:
-    - {id: shared, label: "Run captured inputs through the shared utility", axis: "software", cost: 2, required: true}
-    - {id: hardware, label: "Replay independent physical-control values", axis: "physical", cost: 2}
-    - {id: log, label: "Pull the prior-shift event log", axis: "history", cost: 1}
-    - {id: full, label: "Run the entire integrated station simulation", axis: "integration", cost: 4}
-  correct: [shared, hardware]
-  answerText: "Spend the four-minute budget on the shared-code replay and the independent physical control. Together they test two different evidence axes and can separate one shared software cause from unrelated hardware failures."
+**Question card prompt - exact player copy:** You have 4 test minutes. Cover every required outcome at the lowest total cost within the budget; keep all unused capacity in reserve. Select whole packages, then submit the plan; the board shows its total and remaining reserve for you to check.
+
+**Complete format-specific interaction block - canonical source:**
+
+```json
+{
+  "value": {
+    "budget": {
+      "value": 4,
+      "unit": "test minutes"
+    },
+    "requirements": [
+      {
+        "id": "r1",
+        "text": "test captured inputs through the common code"
+      },
+      {
+        "id": "r2",
+        "text": "check physical behavior through an independent control"
+      }
+    ],
+    "selection_rule": "Cover every required outcome at the lowest total cost within the budget; keep all unused capacity in reserve.",
+    "options": [
+      {
+        "id": "shared",
+        "label": "Shared-utility replay",
+        "cost": 2.0,
+        "information": "Runs the captured failing inputs through the common utility without the live hardware.",
+        "covers": [
+          "r1"
+        ]
+      },
+      {
+        "id": "hardware",
+        "label": "Independent physical controls",
+        "cost": 2.0,
+        "information": "Replays independently checked physical values without the common utility.",
+        "covers": [
+          "r2"
+        ]
+      },
+      {
+        "id": "log",
+        "label": "Prior-shift event log",
+        "cost": 1.0,
+        "information": "Adds history, but does not independently test today’s physical systems.",
+        "covers": []
+      },
+      {
+        "id": "full",
+        "label": "Integrated station simulation",
+        "cost": 4.0,
+        "information": "Runs the code and hardware model together, leaving their effects entangled.",
+        "covers": []
+      }
+    ],
+    "accepted_plans": [
+      [
+        "shared",
+        "hardware"
+      ]
+    ],
+    "example_total": 4.0,
+    "example_reserve": 0.0
+  }
+}
 ```
 
-**Question card prompt — exact player copy:** Spend at most four test minutes and submit the evidence package that tests two different kinds of evidence and can change the shared-cause decision.
+**Evidence delivery and grading:** The setup, decision evidence, public rules, costs and option descriptions are visible on this card before selection. Render option descriptions beside their controls, once; never replace them with internal axis IDs or a generic earlier-case sentence. Answer keys, accepted examples and feedback stay hidden until submission. Reveal withheld measurements only after the stated commitment. Use the public feasibility/selection rule; an example allocation is not an exclusive key. The displayed person must match this stop’s placement and Call.
 
-**Correct result:** Choose the shared-utility replay (2) plus independent physical controls (2); total 4 minutes.
+**Correct result:** shared, hardware = 4 test minutes; reserve 0
 
-**Answer text:** The shared replay tests the common code path, while the hardware controls check whether the physical systems can remain normal at the same time.
+**Answer text:** Each funded package supplies a required outcome; an affordable package that leaves one unresolved is insufficient.
 
-**Why/mechanism:** Testing should discriminate competing explanations rather than maximize activity or data volume.
-
-**Wrong-path feedback:** - The prior-shift log adds history but does not independently test the live physical mechanism.
-
-- The full simulation spends the entire budget on one integrated axis and gives up the independent physical comparison.
-
-- The shared replay alone tests software but cannot reject simultaneous physical faults.
+**Wrong-path feedback:** Identify the unmet public condition or the specific measurement that the selected option cannot provide; keep the original evidence available for retry.
 
 **State/output:** Priya schedules the shared replay and quiet controls on the Test Bench.
 
@@ -2872,56 +2921,61 @@ rebuttals:
 
 **Stop reason — exact player copy:** Priya needs to separate what the utility's documentation actually promises from behaviors the station merely happened to rely on.
 
-**Question card story setup — exact player copy (45 words; 2 sentences):** Priya Nair checks: the method header, comments, and captured tests make several claims about valid inputs and returned values, but only three can be verified before the next control cycle. Spend three checks on the claims that determine whether callers are using the utility correctly.
+**Question card story setup - exact player copy:** Two method claims already have tests, while two others remain unchecked. Priya has two verification slots before callers reuse the utility.
 
-**Question card story-science connection — exact player copy:** A documented precondition can shift responsibility to callers, while an undocumented behavior cannot safely be treated as a contract.
+**Question card prompt - exact player copy:** Spend the two checks on unresolved claims that affect callers. Then inspect the results; unchecked does not mean false, and a check may support or refute its claim.
 
-**Format-specific interaction block:**
-```yaml
-attest:
-  checks: 2
-  claims:
-  - id: c1
-    label: input may be empty
-    evidence: comment plus empty-input test
-    backed: true
-    critical: false
-  - id: c2
-    label: returned list preserves input order
-    evidence: comment plus two order tests
-    backed: true
-    critical: true
-  - id: c3
-    label: method never changes the input list
-    evidence: must be checked with a reference-preservation test
-    backed: false
-    critical: true
-  - id: c4
-    label: method always returns exactly three values
-    evidence: must be checked with a four-value input
-    backed: false
-    critical: true
-  answer:
-  - c3
-  - c4
-  answerText: Spend the two checks on the two unresolved critical claims. The reference
-    test supports no input mutation; the four-value test disproves the fixed-size
-    claim.
+**Complete format-specific interaction block - canonical source:**
+
+```json
+{
+  "attest": {
+    "checks": 2,
+    "claims": [
+      {
+        "id": "c1",
+        "label": "Input may be empty",
+        "status": "tested",
+        "evidence": "The comment permits empty input and the empty-input test passes."
+      },
+      {
+        "id": "c2",
+        "label": "Returned order matches input order",
+        "status": "tested",
+        "evidence": "The comment specifies preservation; both order tests pass."
+      },
+      {
+        "id": "c3",
+        "label": "The method never changes the input list",
+        "status": "untested",
+        "evidence": "A reference-preservation test is available."
+      },
+      {
+        "id": "c4",
+        "label": "The method always returns three values",
+        "status": "untested",
+        "evidence": "A four-value input test is available."
+      }
+    ],
+    "correct_checks": [
+      "c3",
+      "c4"
+    ],
+    "reveal_after_checks": {
+      "c3": "Input list unchanged in the reference-preservation test.",
+      "c4": "Four-value input returns four values, refuting the exactly-three claim."
+    }
+  }
+}
 ```
 
-**Question card prompt — exact player copy:** You have two verification checks. Spend them on the unresolved claims whose failure would change whether this method is safe to reuse, then submit the two claims to verify.
+**Evidence delivery and grading:** The setup, decision evidence, public rules, costs and option descriptions are visible on this card before selection. Render option descriptions beside their controls, once; never replace them with internal axis IDs or a generic earlier-case sentence. Answer keys, accepted examples and feedback stay hidden until submission. Reveal withheld measurements only after the stated commitment. Use the public feasibility/selection rule; an example allocation is not an exclusive key. The displayed person must match this stop’s placement and Call.
 
-**Correct result:** Verify `method never changes the input list` and `method always returns exactly three values`; the first is supported and the second is disproved.
+**Correct result:** Check c3 and c4. The supplied tests support input preservation for the tested case and refute an always-three return size.
 
-**Answer text:** The two scarce checks belong on the unresolved critical claims. The reference test confirms no mutation, while a four-value input proves that fixed size is not part of the contract.
+**Answer text:** Existing empty-input and order tests do not resolve mutation or fixed-length behavior; the two remaining tests address those separate gaps.
 
-**Why/mechanism:** Comments and contracts communicate intended preconditions/postconditions, but examples alone do not make an accidental pattern a guarantee.
-
-**Wrong-path feedback:** - Rechecking empty-input support spends a scarce check on a claim already backed by documentation and a boundary test.
-
-- Rechecking order preservation repeats evidence already supported by documentation and two tests.
-
-- Skipping either unresolved critical claim leaves a behavior that could break callers unverified.
+**Wrong-path feedback:** Identify the unmet public condition or the specific measurement that the selected option cannot provide; keep the original evidence available for retry.
 
 **State/output:** The Code Review Wall marks three contract claims VERIFIED and one `NOT GUARANTEED`.
 
@@ -6091,7 +6145,7 @@ These are generic practice examples. They are not part of the campaign story, ar
 
 3. **Binary midpoint:** With `low=0` and `high=7`, integer midpoint `(low+high)/2` is `3`.
 
-4. **Halving work:** A sorted list of 1024 items needs about 10 binary-search comparisons because `2^10 = 1024`.
+4. **Halving work:** Ten halvings reduce 1024 candidates to one because `2^10 = 1024`; a standard inclusive-interval binary search can require an eleventh midpoint check.
 
 5. **Update rule:** If `a[mid] < target`, set `low = mid + 1`; if `a[mid] > target`, set `high = mid - 1`.
 
@@ -6202,25 +6256,47 @@ The mission is one causal investigation rather than four topic-matched questions
 **Question card story-science connection — exact player copy:** The rescue decision depends on choosing an algorithm whose work fits the time window, not merely one that eventually finds the record.
 
 **Format-specific interaction block:**
-```yaml
-estimate:
-  labels: ["table size", "records eliminated per check"]
-  values: [1024, 2]
-  slots: 2
-  template: "log{1}({0}) ≈ {checks} checks"
-  formula: "log(a) / log(b)"
-  correct: [0, 1]
-  target: 10
-  tolerance: 1
-  units: "checks"
-  correctResult: "log2(1024) = 10, so at most ten midpoint checks."
+```json
+{
+  "estimate": {
+    "labels": [
+      "1024",
+      "2",
+      "10"
+    ],
+    "values": [
+      1024,
+      2,
+      10
+    ],
+    "slots": 2,
+    "template": "floor(log({a}) / log({b}))+1 = ? checks",
+    "formula": "floor(log(a)/log(b))+1",
+    "correct": [
+      0,
+      1
+    ],
+    "target": 11,
+    "tolerance": 0.01,
+    "units": "checks",
+    "correctResult": 11,
+    "quantity": "Maximum midpoint checks for 1,024 sorted records"
+  },
+  "answerText": "For the standard inclusive-interval binary search, floor(log₂1024)+1=11 midpoint checks in the worst case. Ten halvings reduce 1,024 possibilities to one candidate, which can still need a check.",
+  "wrongFeedback": [
+    "Ten counts halvings to one candidate; it omits the possible final comparison.",
+    "Using 1,024 describes a full linear scan."
+  ]
+}
 ```
 
-**Question card prompt — exact player copy:** Use the displayed table size and power-of-two relationship to estimate the maximum binary-search midpoint checks; submit one number.
+**BALLPARK rendering and grading:** Show the numeric labels as tiles and the equation with named letter slots. Never substitute quantity names for those numbers. The key uses zero-based tile indices. Accept equivalent numeric selections, including interchangeable equal-valued tiles; a matching arbitrary index is not required. Tolerance is absolute in the output units. Unused numeric choices must remain visible.
 
-**Correct result:** About 10 checks.
+**Question card prompt — exact player copy:** For a standard binary search with inclusive low/high bounds and 1,024 sorted records, fill n=1,024 and base 2 in floor(log(n)/log(2))+1. Calculate the maximum midpoint checks, including the possible final candidate check.
 
-**Answer text:** Because 1,024 = 2^10, ten halvings reduce the search interval to one candidate, so binary search needs about 10 midpoint checks.
+**Correct result:** At most 11 midpoint checks for the standard inclusive-interval implementation.
+
+**Answer text:** Because 1,024 = 2^10, ten halvings reduce the interval to one candidate; checking that remaining candidate can require an eleventh comparison. The standard inclusive-interval worst-case count is floor(log₂ n)+1 for n≥1.
 
 **Why/mechanism:** Binary search cuts the remaining sorted interval in half after each comparison. The base-2 logarithm counts how many halvings are needed to reduce 1,024 possibilities to one.
 
@@ -6230,7 +6306,7 @@ estimate:
 
 - One check cannot identify an arbitrary target in 1,024 records.
 
-**State/output:** The Message Queue Board posts `LINEAR: up to 1024 / BINARY: about 10` without naming the winning target index.
+**State/output:** The Message Queue Board posts `LINEAR: up to 1024 / BINARY: up to 11` without naming the winning target index.
 
 **Unlock:** Stop 38.
 
@@ -7365,40 +7441,113 @@ Each later location unlocks only after the preceding evidence makes that move ne
 
 **Stop reason — exact player copy:** Park has ten transmission seconds and must send enough operational evidence for the aircraft to act without exposing information it does not need.
 
-**Question card story setup — exact player copy (42 words; 2 sentences):** Elena Park checks the evidence: each message item has a transmission cost, and names plus birthdates are personally identifiable information that do not change the landing decision. Spend the ten-second budget on the evidence that determines runway, weather, medical, and power readiness.
+**Question card story setup - exact player copy:** The rescue aircraft needs an operational landing brief. Personal identities and internal debugging details are not needed to make this landing decision.
 
-**Question card story-science connection — exact player copy:** Useful computing decisions include both technical sufficiency and the human cost of collecting or transmitting unnecessary personal data.
+**Decision evidence - exact player copy:** Required outcomes: report runway readiness; report approach weather; report power endurance; report medical passenger count.
 
-**Format-specific interaction block:**
-```yaml
-value:
-  budget: 10
-  options:
-    - {id: runway, label: "runway surface state", axis: "landing surface", cost: 2, required: true, reveals: "whether the runway can accept the aircraft"}
-    - {id: weather, label: "crosswind and visibility", axis: "flight conditions", cost: 2, required: true, reveals: "whether the approach is inside weather limits"}
-    - {id: power, label: "station power endurance", axis: "station endurance", cost: 2, required: true, reveals: "whether landing support can remain powered"}
-    - {id: medical, label: "medical passenger count", axis: "casualty load", cost: 2, required: true, reveals: "how many medical seats the aircraft must plan for"}
-    - {id: pii, label: "names and birthdates of all 28 people", axis: "personal data", cost: 5, reveals: "identities that do not change the landing decision"}
-    - {id: debug, label: "full controller debug dump", axis: "diagnostics", cost: 6, reveals: "low-level software details that do not change the landing decision"}
-  correct: [runway, weather, power, medical]
-  answerText: "The four operational axes cost eight seconds and each changes the landing plan; personal data and a full debug dump consume bandwidth without changing that decision."
+**Question card prompt - exact player copy:** You have 10 transmission seconds. Cover every required outcome at the lowest total cost within the budget; keep all unused capacity in reserve. Select whole packages, then submit the plan; the board shows its total and remaining reserve for you to check.
+
+**Complete format-specific interaction block - canonical source:**
+
+```json
+{
+  "value": {
+    "budget": {
+      "value": 10,
+      "unit": "transmission seconds"
+    },
+    "requirements": [
+      {
+        "id": "r1",
+        "text": "report runway readiness"
+      },
+      {
+        "id": "r2",
+        "text": "report approach weather"
+      },
+      {
+        "id": "r3",
+        "text": "report power endurance"
+      },
+      {
+        "id": "r4",
+        "text": "report medical passenger count"
+      }
+    ],
+    "selection_rule": "Cover every required outcome at the lowest total cost within the budget; keep all unused capacity in reserve.",
+    "options": [
+      {
+        "id": "runway",
+        "label": "Runway surface state",
+        "cost": 2.0,
+        "information": "Reports whether the landing surface can accept the aircraft.",
+        "covers": [
+          "r1"
+        ]
+      },
+      {
+        "id": "weather",
+        "label": "Crosswind and visibility",
+        "cost": 2.0,
+        "information": "Reports the approach conditions against flight limits.",
+        "covers": [
+          "r2"
+        ]
+      },
+      {
+        "id": "power",
+        "label": "Station power endurance",
+        "cost": 2.0,
+        "information": "Reports how long landing support can remain powered.",
+        "covers": [
+          "r3"
+        ]
+      },
+      {
+        "id": "medical",
+        "label": "Medical passenger count",
+        "cost": 2.0,
+        "information": "Reports the number of medical seats required.",
+        "covers": [
+          "r4"
+        ]
+      },
+      {
+        "id": "pii",
+        "label": "Names and birthdates",
+        "cost": 5.0,
+        "information": "Sends identities that do not affect the present landing decision.",
+        "covers": []
+      },
+      {
+        "id": "debug",
+        "label": "Full controller debug dump",
+        "cost": 6.0,
+        "information": "Sends software details unrelated to the current landing requirements.",
+        "covers": []
+      }
+    ],
+    "accepted_plans": [
+      [
+        "runway",
+        "weather",
+        "power",
+        "medical"
+      ]
+    ],
+    "example_total": 8.0,
+    "example_reserve": 2.0
+  }
+}
 ```
 
-**Question card prompt — exact player copy:** Spend at most ten seconds and submit the evidence set the aircraft needs for the landing decision.
+**Evidence delivery and grading:** The setup, decision evidence, public rules, costs and option descriptions are visible on this card before selection. Render option descriptions beside their controls, once; never replace them with internal axis IDs or a generic earlier-case sentence. Answer keys, accepted examples and feedback stay hidden until submission. Reveal withheld measurements only after the stated commitment. Use the public feasibility/selection rule; an example allocation is not an exclusive key. The displayed person must match this stop’s placement and Call.
 
-**Correct result:** Runway + weather + power + medical count; total 8 seconds.
+**Correct result:** runway, weather, power, medical = 8 transmission seconds; reserve 2
 
-**Answer text:** Those four items each change an operational decision, while PII and a full debug dump consume scarce bandwidth without changing the landing call.
+**Answer text:** Each funded package supplies a required outcome; an affordable package that leaves one unresolved is insufficient.
 
-**Why/mechanism:** Impact-of-computing reasoning asks what data are necessary, who bears risk, and whether a technical choice creates avoidable privacy harm.
-
-**Wrong-path feedback:**
-
-- PII is not required for the landing decision.
-
-- The debug dump exceeds the remaining budget after required operational items.
-
-- Dropping a required operational item removes evidence the aircraft needs.
+**Wrong-path feedback:** Identify the unmet public condition or the specific measurement that the selected option cannot provide; keep the original evidence available for retry.
 
 **State/output:** The Rescue Board marks the four operational items SEND and the PII/debug items LOCAL ONLY.
 
@@ -9149,52 +9298,83 @@ The mission is one causal investigation rather than four topic-matched questions
 
 **Stop reason — exact player copy:** The aircraft is entering the last usable weather window, and Park must choose a release plan before any wider controller update begins.
 
-**Question card story setup — exact player copy (41 words; 2 sentences):** Elena Park checks the evidence: the crew has 100 release points to divide among regression tests, backward rollback, independent communications, canary monitoring, and a tempting full restart. Allocate enough support to the mechanisms already proven necessary for a reversible staged release.
+**Question card story setup - exact player copy:** The live station is stable, but release still needs tested recovery and an independent command path. Elena needs the four release capabilities funded before the next live change.
 
-**Question card story-science connection — exact player copy:** The final plan should integrate established evidence rather than buy every attractive action or trust one dramatic restart.
+**Decision evidence - exact player copy:** Recorded tests: forward rollback restored 0 of 5 holdout cases; the independent rover command path remains available. A successful live state does not prove recovery is safe.
 
-**Format-specific interaction block:**
-```yaml
-proposals:
-  - {id: regression, label: "Regression suite", max: 25}
-  - {id: rollback, label: "Backward rollback readiness", max: 25}
-  - {id: relay, label: "Independent rover relay", max: 20}
-  - {id: canary, label: "Canary monitoring", max: 30}
-  - {id: restart, label: "Immediate full restart", max: 100}
-recommended:
-  regression: 25
-  rollback: 25
-  relay: 20
-  canary: 30
-  restart: 0
-evidence:
-  - "Mission 14: forward rollback fails 0/5 holdout cases."
-  - "Mission 13: rover relay is an independent command path."
-  - "Mission 8: regression preserves the exact adjacent-record failure."
-  - "A canary limits the first live change to one controller."
-constraints:
-  - "Allocate exactly 100 release points."
-  - "Preserve a verified rollback path."
-  - "Keep an independent command path active."
-  - "Limit the first live change to one controller."
-answerText: "Fund regression, backward rollback, relay, and canary monitoring; spend nothing on the irreversible full restart."
+**Question card prompt - exact player copy:** Allocate exactly 100 points. Each listed release capability requires its full package: regression 25, backward rollback 25, independent relay 20 and canary monitoring 30. A full restart is outside the authorized staged release. Submit the allocation; the board checks the total and each requirement.
+
+**Complete format-specific interaction block - canonical source:**
+
+```json
+{
+  "sciencetank": {
+    "pool": {
+      "value": 100,
+      "unit": "points"
+    },
+    "items": [
+      {
+        "id": "regression",
+        "label": "Regression suite",
+        "min": 25,
+        "max": 25,
+        "step": 1,
+        "information": "Retains the known adjacent-record test."
+      },
+      {
+        "id": "rollback",
+        "label": "Backward rollback readiness",
+        "min": 25,
+        "max": 25,
+        "step": 1,
+        "information": "Prepares the independently tested restoration route."
+      },
+      {
+        "id": "relay",
+        "label": "Independent rover relay",
+        "min": 20,
+        "max": 20,
+        "step": 1,
+        "information": "Keeps commands independent of the shared relay."
+      },
+      {
+        "id": "canary",
+        "label": "Canary monitoring",
+        "min": 30,
+        "max": 30,
+        "step": 1,
+        "information": "Limits the first live deployment to one controller."
+      },
+      {
+        "id": "restart",
+        "label": "Immediate full restart",
+        "min": 0,
+        "max": 0,
+        "step": 1,
+        "information": "Removes the required staged-release boundary."
+      }
+    ],
+    "public_rule": "Each listed release capability requires its full package: regression 25, backward rollback 25, independent relay 20 and canary monitoring 30. A full restart is outside the authorized staged release.",
+    "accepted_example": {
+      "regression": 25,
+      "rollback": 25,
+      "relay": 20,
+      "canary": 30,
+      "restart": 0
+    },
+    "grading": "Accept every allocation satisfying the public rule; the example is not exclusive."
+  }
+}
 ```
 
-**Question card prompt — exact player copy:** Spend exactly 100 release points and submit the staged plan that satisfies every proven recovery constraint.
+**Evidence delivery and grading:** The setup, decision evidence, public rules, costs and option descriptions are visible on this card before selection. Render option descriptions beside their controls, once; never replace them with internal axis IDs or a generic earlier-case sentence. Answer keys, accepted examples and feedback stay hidden until submission. Reveal withheld measurements only after the stated commitment. Use the public feasibility/selection rule; an example allocation is not an exclusive key. The displayed person must match this stop’s placement and Call.
 
-**Correct result:** 25 regression, 25 rollback, 20 relay, 30 canary, 0 full restart.
+**Correct result:** One valid example: {"regression": 25, "rollback": 25, "relay": 20, "canary": 30, "restart": 0}. Other allocations satisfying the public rule are also correct.
 
-**Answer text:** Each funded proposal corresponds to evidence the campaign has already established, and the full restart removes the reversibility that the failed rollback path makes essential.
+**Answer text:** The accepted plan funds every required capability within the stated limits; extra points may be distributed only as the public rule allows.
 
-**Why/mechanism:** Program design is the selection and composition of abstractions and tests that meet system constraints, not just writing one more line of code.
-
-**Wrong-path feedback:**
-
-- Funding the full restart sacrifices the staged recovery constraint.
-
-- Dropping relay removes independent command.
-
-- Dropping regression or rollback abandons the specific Mission 14 failure mechanism.
+**Wrong-path feedback:** Identify the unmet public condition or the specific measurement that the selected option cannot provide; keep the original evidence available for retry.
 
 **State/output:** The Rescue Board displays four release gates and crosses out FULL RESTART.
 
@@ -9615,3 +9795,13 @@ Every stop above has one canonical format named in `QUESTION_TYPES.md`, one stop
 
 
 **Still required before implementation-ready or release-ready:** resolve these payloads against the actual `FORMATS` set and field schema in `engine/content/normalize.js` and the current importer; run schema/content/location/lesson/gameplay validators; then play all 60 stops right-first and wrong-first.
+
+# Decision-card evidence contract
+
+Every decision card must expose the exact evidence and public rule that distinguish its accepted answers from plausible alternatives. Render the local Data/readings/options, Decision evidence, public constraints and option effects before selection; keep them available while the player chooses. Use plain-language descriptions, not internal axis names. Show one speaker header from the stop’s placement and Call, and one coherent setup and prompt. Never substitute a discovery-stage explanation into a later allocation, release or certification task.
+
+Resource tasks distinguish a budget from the goal. Display the required outcomes, each option’s contribution, costs, reserve rules and any priority or tie-breaker. Accept every plan satisfying the published rule. A recommended split is not an exclusive key unless the visible constraints uniquely determine it. Policies are identified as policies; the player must not derive an institutional preference from a scientific formula.
+
+For staged tests, show hypotheses, model inputs and acceptance rules before commitment, but keep held-out results hidden until the specified test or reveal. No grade may depend on guessing a future result. A signed claim requires a readable source excerpt or an explicit inspection, not a hidden backed flag. Copied records retain their shared-source identity.
+
+No importer fallback may borrow another stop’s data, speaker, threshold or generic mission text. Missing required local evidence is an import error. Before release, inspect the rendered card, prove the accepted response from visible information alone, try a plausible wrong answer, and test a different valid answer where the rule admits one. This document revision is source work; rendered-game verification still requires the actual implementation.

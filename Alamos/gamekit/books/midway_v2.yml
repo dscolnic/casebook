@@ -583,10 +583,10 @@ missions:
     title: "Put a speed on the trace"
     concept: 1   # average velocity and scale
     reason: "The braking interval is identified, but its entry speed still needs measuring."
-    scene: "With the direction established, estimate the gondola's speed at the start of the marked braking interval. That speed is the input needed to predict where constant braking should stop it."
+    scene: "Luka marks the gondola's entry into the braking interval. He needs a speed estimate before predicting where it will stop."
     motivation: "The starting speed fixes how far this gondola should travel before the brake brings it to rest."
     format: BALLPARK
-    question: "Given Delta x = 0.70 m and Delta t = 0.50 s, use v_avg = Delta x / Delta t. Submit one starting-speed number in m/s."
+    question: "The gondola moves Δx=0.70 m in Δt=0.50 s. Fill distance and elapsed time in vavg=Δx/Δt to estimate its starting speed."
     answerText: "The first interval gives an average starting speed of 1.4 m/s."
     why: "Velocity is position change divided by time. The first interval is short enough to estimate the starting value used by the constant-acceleration model."
     # wrong-path feedback, one rebuttal per wrong option:
@@ -956,10 +956,10 @@ missions:
     title: "Divide the load"
     concept: 23   # static equilibrium
     reason: "The force diagram is complete and the gauges need targets before the load is added."
-    scene: "The force diagram now shows only total weight and two upward support forces. Calculate the equal reading expected from each support so the live gauges have a prewritten target before loading."
+    scene: "The support check now includes the passengers. An empty structure's weight is not the load the two supports will share."
     motivation: "The predicted force at each support lets the crew check whether the centered load is shared correctly."
     format: BALLPARK
-    question: "Given empty-ship mass 12,000 kg, 60 riders at 70 kg each, g = 10.0 m/s^2, two equal supports, and F_left + F_right = mg, submit the included force streams, total weight in kN, and one support-force number in kN."
+    question: "The structure has mass 12,000 kg and carries 60 passengers of 70 kg each. With g=10 m/s² and two equally loaded supports, fill structure mass, passenger count and passenger mass in F=(M+Nm)g/2."
     answerText: "Each support should carry 81 kN during the centered static test."
     why: "In equilibrium, Fleft + Fright - mg = 0. Symmetry makes the two upward forces equal."
     # wrong-path feedback, one rebuttal per wrong option:
@@ -1419,7 +1419,7 @@ missions:
     scene: "The rule must keep every chair at or below the stated limit."
     motivation: "An inclusive speed threshold tells the operator exactly when the carousel must stop."
     format: TRIGGER
-    question: "Given r = 5.0 m, g = 9.80 m/s^2, theta_max = 20.0 degrees, and tan theta = v^2/(rg), submit one inclusive shutdown-threshold setting in m/s before the live speed unlocks; operation stops when measured speed is at or above that setting."
+    question: "Given r = 5.0 m, g = 9.80 m/s^2, theta_max = 20.0 degrees, and tan theta = v^2/(rg), choose the largest available 0.05 m/s increment that does not exceed the calculated boundary, then submit that inclusive shutdown-threshold setting in m/s before the live speed unlocks; operation stops when measured speed is at or above that setting."
     answerText: "Use an inclusive 4.20 m/s shutdown threshold; the 4.00 m/s test value passes."
     why: "The exact model boundary is about 4.22 m/s. The authored threshold stays just below it and clearly states what happens at equality."
     # wrong-path feedback, one rebuttal per wrong option:
@@ -1634,10 +1634,10 @@ missions:
     title: "Speed squared"
     concept: 14   # Kinetic-energy scaling
     reason: "October's speed was twice the normal test speed, making its long stop worth checking physically."
-    scene: "A normal test runs at 2.0 m/s, while the October log reports 4.0 m/s. Estimate the energy ratio before deciding whether the much longer October stopping distance is physically surprising."
+    scene: "The bumper test is about to run faster. The crew needs to know how much more energy the same brake must absorb."
     motivation: "The energy multiplier shows how much more energy the brake must remove at the higher speed."
     format: BALLPARK
-    question: "Given the same mass at v1 = 2.0 m/s and v2 = 4.0 m/s, use K = 0.5mv^2 and K2/K1 = (v2/v1)^2. Submit one dimensionless numerical energy ratio."
+    question: "The same cart increases from 2 m/s to 4 m/s. Fill new speed and old speed in Knew/Kold=(vnew/vold)²."
     answerText: "Doubling speed quadruples kinetic energy."
     why: "Mass is unchanged and K is proportional to v²."
     # wrong-path feedback, one rebuttal per wrong option:
@@ -1669,10 +1669,10 @@ missions:
     title: "Close the stopping ledger"
     concept: 16   # Work-energy
     reason: "The energy increase is known, but the dry-floor stopping distance still needs a prediction."
-    scene: "With the fourfold increase established, close the car's energy ledger from 4.0 m/s to rest. Use friction as the measured transfer and exclude forces that do no work along the floor."
+    scene: "The cart's brake must turn motion into frictional work before the track ends. The crew checks the stopping distance on a level run."
     motivation: "The energy transferred by friction determines whether the reported stopping distance is plausible."
     format: BALLPARK
-    question: "Given m = 240 kg, v0 = 4.0 m/s, vf = 0 m/s, mu_k = 0.40, and g = 10.0 m/s^2, use K = 0.5mv0^2, f_k = mu_k mg, and f_k d = K. Submit the included energy streams, initial energy in J, friction force in N, and stopping-distance number in m."
+    question: "A 240 kg cart enters at 4 m/s and stops under kinetic friction with μ=0.4. Use g=10 m/s². Fill speed, friction coefficient and g in d=v²/(2μg)."
     answerText: "The dry floor should stop the car in 2.0 m."
     why: "μmgd = 1/2 mv²; mass cancels. The normal force does no work because it is perpendicular to motion."
     # wrong-path feedback, one rebuttal per wrong option:
@@ -1766,11 +1766,11 @@ missions:
     person: chen
     concept: 35   # Value of information
     reason: "The dry-floor result passes, but the disputed speed records still share measuring equipment."
-    scene: "The dry-floor model passes, but the old speed record shares equipment with other rides. Spend the remaining test slot on evidence that can distinguish real car motion from a repeated calibration error."
+    scene: "The dry-floor stop passes, but the disputed speed records share one measuring kit. Linh needs a measurement capable of distinguishing real motion from the kit's calibration error."
     motivation: "An independent motion sensor can separate a genuine speed change from a shared calibration error."
     format: VALUE
-    question: "With 10 test_points, submit one test-slot allocation naming the funded test and its cost; the allocation must distinguish true car motion from a repeated shared-calibration error."
-    answerText: "Fund the independent seat and floor accelerometers."
+    question: "You have 10 test points. Cover every required outcome at the lowest total cost within the budget; keep all unused capacity in reserve. Select whole packages, then submit the plan; the board shows its total and remaining reserve for you to check."
+    answerText: "Each funded package supplies a required outcome; an affordable package that leaves one unresolved is insufficient."
     why: "They measure a different quantity through a different chain and can test the disputed speed-derived stop."
     # wrong-path feedback, one rebuttal per wrong option:
     #   (wheel) Repeating the portable wheel preserves the shared calibration dependency. (paint) Paint thickness is cosmetic and cannot test the motion record. (mass) Reweighing the same car does not independently verify speed or acceleration.
@@ -2129,8 +2129,8 @@ missions:
     scene: "The prediction and low-power sweep pass, but Hart will authorize only the exact present configuration. Verify the sensor identity, release height, clear zone, brake state, and procedure within the inspection limit."
     motivation: "Configuration checks tie the permission to today's sensor, height, brake, and clear zone rather than an old signature."
     format: ATTEST
-    question: "Submit one selected-claims attestation containing every presently verified requirement for limited unmanned release and excluding any historical claim that does not establish today's condition."
-    answerText: "Authorize only after today's sensor, height, brake response, and clear zone are verified; the old signature is not present condition."
+    question: "Authorize only the present unmanned configuration; a past signature does not establish present physical conditions. Read the displayed source excerpts, then select every supported claim and leave unsupported claims unsigned."
+    answerText: "Each signature is limited to what its source establishes. The unsupported claims lack the specific date, physical condition, independence or scope they assert."
     why: "Records support history. Physical identity and condition support today's test."
     # wrong-path feedback, one rebuttal per wrong option:
     #   (old_signature) A 1996 signature records a past decision; it cannot establish today's sensor, release mark, brake response, or clear zone.
@@ -2394,8 +2394,8 @@ missions:
     scene: "The response test is zero, but the certificate needs records as well as an intact seal. Verify serial number, delivery time, power history, and installation sign-off before closing this causal branch."
     motivation: "Delivery and power records determine whether the controller belongs in the October causal account."
     format: ATTEST
-    question: "Submit one selected-claims attestation about the replacement controller's serial, delivery date, power history, and installation sign-off; select only claims backed by the displayed records."
-    answerText: "The replacement arrived after the event, was never powered, and has no installation sign-off."
+    question: "Sign only the record-backed history of the sealed replacement, not a nonexistent installation. Read the displayed source excerpts, then select every supported claim and leave unsupported claims unsigned."
+    answerText: "Each signature is limited to what its source establishes. The unsupported claims lack the specific date, physical condition, independence or scope they assert."
     why: "All three facts exclude it from the October causal chain."
     # wrong-path feedback, one rebuttal per wrong option:
     #   (signoff) No installation sign-off exists; the order and serial records prove possession of the crate, not installation in the ride.
@@ -2695,10 +2695,10 @@ missions:
     title: "Put directions into momentum"
     concept: 19   # Signed momentum
     reason: "The collision test is next, and opposite directions must be distinguished before combining momentum."
-    scene: "A 240 kg car moves right at 4.0 m/s while a 260 kg car moves left at 2.0 m/s. Estimate their signed total momentum before the instrumented test impact begins."
+    scene: "The collision ledger has motion in both directions. The net momentum must keep those signs before the carts are treated as one system."
     motivation: "Signed total momentum predicts the direction of motion that the joined cars should retain."
     format: BALLPARK
-    question: "Given rightward momentum +960 kg m/s and leftward momentum -520 kg m/s, use p_total = p1 + p2. Submit one signed numerical total in kg m/s and state its direction."
+    question: "Taking right as positive, one cart carries +960 kg·m/s and the other −520 kg·m/s. Fill the two signed momenta and add them."
     answerText: "Total momentum before impact is 440 kg m/s to the right."
     why: "Opposite directions receive opposite signs."
     # wrong-path feedback, one rebuttal per wrong option:
@@ -3564,10 +3564,10 @@ missions:
     title: "Balance the wheel"
     concept: 23   # Torque equilibrium
     reason: "Uneven test loads must be balanced before the wheel's braking response can be assessed."
-    scene: "Twelve test gondolas are loaded unevenly around the wheel, creating clockwise and counterclockwise moments. Reassign the movable loads until the net torque about the axle is acceptably close to zero."
+    scene: "The revised loading plan is on the balance board. The operator checks its residual torque before accepting the arrangement."
     motivation: "Net axle torque shows whether the load arrangement meets the wheel's balance tolerance."
     format: BALLPARK
-    question: "Given clockwise moment -126.0 kN m, counterclockwise moment +124.6 kN m, hub-weight moment 0 kN m, and acceptance band +/-2.0 kN m, use tau_net = sum tau. Submit the included moment streams, one signed net-torque number in kN m, and one pass/fail conclusion."
+    question: "The two signed torque totals are −126.0 and +124.6 kN·m. Add them, then compare the residual with the permitted interval −2 to +2 kN·m."
     answerText: "The arranged test load is rotationally balanced within tolerance."
     why: "A force through the axle has zero lever arm and creates no torque about that axis."
     # wrong-path feedback, one rebuttal per wrong option:
@@ -3701,11 +3701,11 @@ missions:
     person: chen
     concept: 36   # Uncertain wind load
     reason: "The braking model is ready, while gusts and loading still threaten its operating assumptions."
-    scene: "The gondola shell presents a broad face to wind, and force uncertainty grows with gust speed. Move wind and loading assumptions through their ranges and watch which operating limits remain defensible."
+    scene: "The wind record limits a balanced-load test, and arm nine still has an unresolved indication. A test envelope is not an unrestricted operating certificate."
     motivation: "The sensitivity results identify wind and load restrictions that remain defensible across the tested uncertainty."
     format: STRESS
-    question: "Vary wind speed from 4 m/s to 12 m/s in 1 m/s steps and occupied gondolas from 6 to 24 in steps of 6. Submit one stress-test conclusion selecting the operating envelope that survives and naming any unresolved inspection condition."
-    answerText: "The 8.0 m/s balanced-load envelope survives; unrestricted wind and an uninspected arm do not."
+    question: "Inspect winds 4–12 m/s and balanced occupancies 6,12,18,24. Choose the envelope supported by the notebook and retain the unresolved inspection; the following rule must stop operation at 8.0 m/s or higher."
+    answerText: "Retain the 8.0 m/s boundary, balanced loading and arm-nine inspection. The operating rule stops at the boundary; it does not permit operation at or above 8.0 m/s."
     why: "Wind moment rises across the range, and the material-condition claim is not supplied by the torque model."
     # wrong-path feedback, one rebuttal per wrong option:
     #   (unrestricted) The 12 m/s cases fail the torque envelope. (mark_safe) A 41 mm indication alone does not establish material strength or remove the inspection hold.
@@ -3995,10 +3995,10 @@ missions:
     title: "Estimate the ideal crown speed"
     concept: 16   # Energy conservation
     reason: "The coaster's crown speed needs an ideal benchmark before measured losses are included."
-    scene: "The train starts nearly from rest at 26 m and reaches the loop crown at 20 m. Estimate the no-loss crown speed before adding the measured friction and wheel losses from testing."
+    scene: "The drop height fixes the energy available at the bottom. The crew first checks the ideal speed before interpreting the real trace."
     motivation: "The height drop gives an upper benchmark for crown speed under the no-loss assumption."
     format: BALLPARK
-    question: "Given g = 9.80 m/s^2 and vertical drop Delta h = 6.0 m, use v = sqrt(2g Delta h). Submit one ideal crown-speed number in m/s."
+    question: "Starting from rest, the gondola drops 6 m. Neglect resistance and use g=9.8 m/s². Fill g and height in v=√(2gh)."
     answerText: "The ideal crown speed is about 10.84 m/s."
     why: "The lost gravitational potential energy becomes kinetic energy when no losses are included."
     # wrong-path feedback, one rebuttal per wrong option:
@@ -4521,11 +4521,11 @@ missions:
     title: "Allocate shared plant power"
     concept: 18   # Finite power
     reason: "The flume's power demand is known, but shutdown and logging must also fit in the test block."
-    scene: "The flume needs 44.1 kW, while the coaster measurement run needs 54.6 kW and shutdown controls need protected reserve. Allocate one complete test block without exceeding the shared plant limit."
+    scene: "The flume test is due in this block. Its drive, shutdown controls and independent record must fit the shared supply before the coaster is considered."
     motivation: "The allocation determines whether the test can run without sacrificing essential monitoring or emergency power."
     format: ALLOCATE
-    question: "From a 55 kW pool, submit one numerical allocation in kW among flume 44.1, protected shutdown controls 5.0, independent logging 3.0, and coaster lift 54.6; name what runs now, what waits, and whether shutdown remains protected."
-    answerText: "Run flume, shutdown controls, and logging now; schedule the coaster separately."
+    question: "You have 55 kW. Cover every required outcome at the lowest total cost within the budget; keep all unused capacity in reserve. Select whole packages, then submit the plan; the board shows its total and remaining reserve for you to check."
+    answerText: "Each funded package supplies a required outcome; an affordable package that leaves one unresolved is insufficient."
     why: "The safe allocation totals 52.1 kW. Adding the coaster is impossible."
     # wrong-path feedback, one rebuttal per wrong option:
     #   Protected shutdown is a required load, not spare capacity.
@@ -4579,11 +4579,11 @@ missions:
     title: "Use the water arc as a speed check"
     concept: 3   # Projectile motion transfer
     reason: "The cleaned water line is ready for an independent exit-speed check."
-    scene: "The stall cannon uses the same cleaned water line and launches from ground level toward a mark 3.60 m away. Set the angle and pressure charge that reproduce the predicted 5.94 m/s exit speed."
+    scene: "The discharge must reach the marked target. Several launch angles can work if the speed is chosen to match."
     motivation: "The projectile's range links the water arc to launch speed and tests the line's predicted delivery."
     format: LOB
-    question: "Given target range R = 3.60 m +/- 0.12 m, g = 9.80 m/s^2, launch and landing at equal height, angle control 20-70 degrees, and charge-speed control 3.0-7.0 m/s, use R = v^2 sin(2theta)/g. Submit one numerical pair: launch angle in degrees and charge-speed setting in m/s."
-    answerText: "At 45 degrees, a 5.94 m/s launch reaches about 3.60 m on level ground."
+    question: "For equal launch and landing heights, use R=v²sin(2θ)/g with g=9.80 m/s². Submit any angle from 20° to 70° and speed from 3.0 to 7.0 m/s giving R within 3.60±0.12 m."
+    answerText: "The equation couples angle and speed, so a different angle can be compensated by a different speed. The task does not ask for minimum speed or insist on 45°."
     why: "R=v² sin(2θ)/g; range is greatest at 45 degrees for equal launch and landing height."
     # wrong-path feedback, one rebuttal per wrong option:
     #   Split launch velocity into horizontal and vertical components.
@@ -4774,10 +4774,10 @@ missions:
     title: "Retrieve the collision result"
     concept: 20   # Collision energy and momentum
     reason: "The restraint review needs the dummy's momentum change before interpreting its force-time record."
-    scene: "The joined test cars move at 0.88 m/s after impact, and the 70 kg dummy stops with them. Estimate the dummy's momentum change before using the separately measured force-time trace."
+    scene: "The dummy trace is ready for the restraint review. The change in momentum tells the crew what impulse the restraint delivered."
     motivation: "Momentum change gives the impulse that the independently measured force trace should account for."
     format: BALLPARK
-    question: "Given dummy mass m = 70 kg and speed-change magnitude Delta v = 0.88 m/s, use |Delta p| = m|Delta v|. Submit one momentum-change number in kg m/s."
+    question: "A 70 kg dummy changes speed by 0.88 m/s along the measured direction. Fill mass and speed-change magnitude in |Δp|=m|Δv|."
     answerText: "The dummy's momentum changes by 61.6 kg m/s."
     why: "It moves from 0.88 m/s to rest."
     # wrong-path feedback, one rebuttal per wrong option:
@@ -4956,8 +4956,8 @@ missions:
     scene: "Both force results pass, but old records mix masses, restraints, and sensors. Verify the claims that connect today's numbers to today's exact operating configurations before either final certificate section closes."
     motivation: "Verifying masses, restraints, and sensors prevents a passing result from being applied to an untested setup."
     format: ATTEST
-    question: "Submit one selected-claims attestation containing only the displayed, currently verified bumper-car and tower configuration facts; exclude the historical all-load claim."
-    answerText: "Certify only the verified bumper and tower configurations; reject the old all-load claim."
+    question: "Certification transfers only to matching mass, restraint, sensor and brake configurations. Read the displayed source excerpts, then select every supported claim and leave unsupported claims unsigned."
+    answerText: "Each signature is limited to what its source establishes. The unsupported claims lack the specific date, physical condition, independence or scope they assert."
     why: "Changing mass, restraint, height, sensor, or brake state changes the modeled or measured result."
     # wrong-path feedback, one rebuttal per wrong option:
     #   (old_allloads) The old signature cannot extend today's verified bumper and tower configurations to every passenger load.
@@ -5285,11 +5285,11 @@ missions:
     title: "Allocate shared capacity"
     concept: 35   # Resource coupling
     reason: "Three rides are ready for scheduling, but they cannot all use the shared supply at once."
-    scene: "The three rides need operating power, monitoring, and a protected emergency reserve. Allocate the 100-point block so the schedule runs two rides at once without losing required emergency shutdown capacity."
+    scene: "The operating plan schedules the Carousel and Pirate Ship together, with the Ferris Wheel in the next block. Check that this schedule retains monitoring and shutdown capacity."
     motivation: "The capacity allocation selects a workable ride pair while preserving emergency shutdown reserve."
     format: ALLOCATE
-    question: "From a 100-point shared-capacity pool, submit one numerical allocation among Carousel 24, Pirate Ship 28, Ferris Wheel 30, independent monitoring 8, and protected shutdown reserve 18; run exactly two rides now, fund monitoring, protect reserve, and identify the deferred ride."
-    answerText: "Run Carousel and Pirate Ship with monitoring and protected reserve; schedule the Ferris Wheel in the next block."
+    question: "You have 100 capacity points. Cover every required outcome at the lowest total cost within the budget; keep all unused capacity in reserve. Select whole packages, then submit the plan; the board shows its total and remaining reserve for you to check."
+    answerText: "Each funded package supplies a required outcome; an affordable package that leaves one unresolved is insufficient."
     why: "All three together exceed the pool. Sequential operation preserves the required 18-point shutdown reserve."
     # wrong-path feedback, one rebuttal per wrong option:
     #   Do not spend protected reserve to make an impossible simultaneous schedule appear possible.
@@ -6110,11 +6110,11 @@ missions:
     person: hart
     concept: 35   # Value and resource strategy
     reason: "Only one work block remains before handover, with inspections and independent checks still to fund."
-    scene: "Spend the last work block on inspection, independent verification, operator cards, and protected reserve. Do not fund cosmetic work or another repeated coaster calculation that cannot correct its measured physical geometry."
+    scene: "The last work block must close the inspection and verification conditions before handover. Repeating the coaster calculation cannot repair its measured geometry."
     motivation: "The final allocation completes required safety work without spending scarce capacity on tasks that cannot fix the coaster."
     format: SCIENCETANK
-    question: "Submit one numerical allocation totaling exactly 100 points among arm-nine inspection, independent verification, operating cards, protected reserve, repeated coaster math, and paint. Meet minima 25, 20, 15, and 20 points for the first four respectively, and allocate 0 to the last two."
-    answerText: "Use 30 points for arm inspection, 25 for independent verification, 20 for operating cards, and 25 for protected reserve."
+    question: "Allocate exactly 100 points. Fund at least 25 inspection, 20 verification, 15 operating cards and 20 reserve. Assign zero to repeated coaster math and paint; distribute the remaining 20 points freely among the four required categories. Submit the allocation; the board checks the total and each requirement."
+    answerText: "The accepted plan funds every required capability within the stated limits; extra points may be distributed only as the public rule allows."
     why: "Each funded item changes or secures a binding decision. Repeating correct coaster arithmetic cannot repair its geometry."
     # wrong-path feedback, one rebuttal per wrong option:
     #   Spend on evidence or action that can change the certificate.
@@ -6165,8 +6165,8 @@ missions:
     scene: "Read every final ride condition, inspection, threshold, and closure reason. Attest the seven decisions only if each claim matches the tested physical system and no failed safety margin is hidden."
     motivation: "The attestation ties each opening, restriction, or closure to the tested configuration and its actual safety margin."
     format: ATTEST
-    question: "Submit one seven-claim certificate attestation: select exactly one supported final decision for each named ride, including every numerical operating limit, and exclude the unsupported all-open claim."
-    answerText: "Sign three reopenings, three conditional reopenings, and one evidence-based coaster closure."
+    question: "Sign the tested operating scope for each ride; a completed calculation is not a universal clearance. Read the displayed source excerpts, then select every supported claim and leave unsupported claims unsigned."
+    answerText: "Each signature is limited to what its source establishes. The unsupported claims lack the specific date, physical condition, independence or scope they assert."
     why: "Every approved ride has a verified configuration and operating rule. The coaster's physical measurement fails its required margin."
     # wrong-path feedback, one rebuttal per wrong option:
     #   (all_open) The all-open claim contradicts the measured Coaster radius and failed 0.12 m/s operating margin; certificate completion requires a supported closure for that row.

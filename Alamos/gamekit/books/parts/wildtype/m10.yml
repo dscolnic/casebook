@@ -11,7 +11,7 @@
   objective: "Resolve whether the insect change reflects selection or individual adjustment; a false explanation could guide the wrong release stock."
   stake: "Leaf shape can change, but the bug records span many generations. A trait can spread when those that carry it leave more young. Check the old field logs with Tess, then meet Ada. Today you decide whether the insect change reflects selection or individual adjustment."
   takeaway: "Record population selection and protect the surviving variation. ---"
-  segue: "Mission decision: The old logs show a change across generations. Early types left more young in those conditions. Ada keeps the other forms too; a new coast may favor them."
+  segue: "Now Nell checks the seed list. Its largest family may leave rare gene forms behind."
   # The mission card's own "Primer concepts", printed on the plan card.
   terms:
   - {name: "Natural selection", def: "Change driven by differences in survival and reproduction associated with inherited traits."}
@@ -163,10 +163,10 @@
       tolerance: 0.05
       units: offspring
       labels:
-        - early adults
-        - early offspring per adult
-        - late adults
-        - late offspring per adult
+        - "10"
+        - "6"
+        - "10"
+        - "3"
       values:
         - 10
         - 6
@@ -177,7 +177,7 @@
         - 1
       slots: 2
       formula: a*b
-      template: "{0} {1} → offspring"
+      template: "{0} × {1} = ? offspring"
       solution: "60"
 
   # --- Stop 39: Choose the selection pattern

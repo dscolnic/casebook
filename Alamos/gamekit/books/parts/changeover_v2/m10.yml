@@ -48,7 +48,7 @@
   - id: after-stop-39
     # After Stop 39 | forecast-table | automatic
     on: { after: [3] }
-    world: "At price-history-board, the dated accepted-result slip for Stop 39 reads: \"The keyed result shown by the completed interaction.\". The slip remains in that fixture's evidence holder."
+    world: "At price-history-board, the dated accepted-result slip for Stop 39 reads: \"The temporary model has lower held-out forecast error.\". The slip remains in that fixture's evidence holder."
     panel: "STOP 39 RECORDED - STOP 40 OPEN"
     # unlocks: Unlock Stop 40 at forecast-table in RATE.
     bubbles:
@@ -247,11 +247,11 @@
     title: "Test unseen prices"
     concept: 8   # temporary vs persistent inflation
     reason: "Two price models fit the visible months and need a test they have not already seen."
-    scene: "Because quantity theory predicts 2% long-run inflation, fit a \"persistent money\" and a \"temporary supply\" model through months one to four. Freeze both before months five and six appear today."
+    scene: "Both inflation models have fixed forecasts for the next two months. Freeze them before opening the withheld readings."
     motivation: "Frozen predictions allow the later months to distinguish forecasting performance from fitting past observations."
     format: HOLDOUT
-    question: "Fit, freeze, reveal both holdout months, and submit the better mechanism."
-    answerText: "\"The temporary-supply model predicts the holdout; persistent monetary inflation does not.\""
+    question: "Commit the supplied forecasts, reveal months five and six, then select the model with smaller mean absolute error. Forecast accuracy alone does not prove the cause of inflation."
+    answerText: "The temporary model predicts the withheld observations more closely. Retain it provisionally; this two-observation comparison is not a causal proof."
     why: "Unseen normalization can reject a permanent-inflation story."
     # wrong-path feedback, one rebuttal per wrong option:
     #   A different response does not fit the displayed evidence. Unseen normalization can reject a permanent-inflation story.
@@ -315,11 +315,11 @@
     person: venn
     concept: 25   # policy horizon
     reason: "The unseen-price test is complete, but a permanent tightening commitment still faces uncertainty."
-    scene: "The shock model wins on unseen data, but inflation expectations range from 1.8% to 2.4%. Stress permanent tightening across that range and compare it with a conditional trigger."
+    scene: "The withheld prices favor a temporary shock, while inflation expectations remain uncertain. The board's policy requires review before making a permanent commitment."
     motivation: "Comparing permanent and conditional responses shows which policy remains justified across the tested inflation range."
     format: STRESS
-    question: "Inspect all settings and submit \"conditional stance.\""
-    answerText: "\"Do not justify permanent tightening from this temporary print; commit a reversible trigger.\""
+    question: "Inspect expectations from 1.8% to 2.4% in 0.2-point steps. Choose the plan that keeps monitoring active, permits reversal and does not claim that these expectations establish a permanent inflation shock."
+    answerText: "A monitored conditional stance meets all three published requirements throughout the stated expectations range. This is a decision under the board's policy, not an unstated numerical welfare optimum."
     why: "Long-run neutrality does not make short-run output losses disappear."
     # wrong-path feedback, one rebuttal per wrong option:
     #   A different response does not fit the displayed evidence. Long-run neutrality does not make short-run output losses disappear.

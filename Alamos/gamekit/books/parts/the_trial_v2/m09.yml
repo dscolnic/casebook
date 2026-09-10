@@ -316,11 +316,11 @@
     person: shah
     concept: 31   # practical scope and blinding
     reason: "The detectable guessing gap must be reconciled with intact concealment and uncertain survey response."
-    scene: "The arm difference is statistically detectable, but the sealed-box audit remained intact and both correct-guess rates are low. Stress the conclusion across survey nonresponse from zero to five percentage points and choose the supported claim."
+    scene: "The survey shows different guessing rates, while the independent sealed-box audit remains intact. Test whether the measured gap survives the specified nonresponse adjustment."
     motivation: "The sensitivity analysis determines how strongly the board can interpret unequal guessing without declaring the blind broken."
     format: STRESS
-    question: "Move nonresponse from 0 to 5 percentage points in 1-point steps while holding the sealed-box audit fixed. Submit the conclusion surviving the full range."
-    answerText: "The completed check shows report unequal guessing proportions, not a proven allocation breach. Design, audit, and survey limitations constrain scope."
+    question: "Treatment correct guesses are 30/200 and placebo correct guesses 16/200. Apply a possible 0–5 percentage-point correction that reduces their difference; select the claim supported throughout without claiming that guessing proves an allocation breach."
+    answerText: "The adjusted descriptive gap ranges from 7 to 2 percentage points. It does not prove a concealment breach or guarantee statistical significance under every missing-data model."
     why: "The board must separate evidence of unequal guessing from proof that allocation was exposed."
     # wrong-path feedback, one rebuttal per wrong option:
     #   Difference proves broken concealment

@@ -11,7 +11,7 @@
   objective: "Decide whether the town should block new food sellers to protect current profits."
   stake: "The supplier stays open, but new food stalls want space. Nico likes cheap supplies yet fears new rivals. Today you decide if the town should let the stalls in. By the end of the mission, you will test the case for fair entry rules."
   takeaway: "The diner owner accepts new sellers after seeing that earlier calls for cheaper inputs used the same competition argument."
-  segue: "Mission decision: Let the new food sellers enter under the same rules. They meet the health and space checks. New permits go up beside the old menus. Workers now ask what more jobs will pay."
+  segue: "Now Leila has more job offers to examine, but one large employer can still shape the wage."
   # The mission card's own "Primer concepts", printed on the plan card.
   terms:
   - {name: "Perfect competition", def: "Many price-taking firms sell identical goods with open entry and exit."}

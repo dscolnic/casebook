@@ -11,7 +11,7 @@
   objective: "Decide whether the freight shortage is entirely a physical capacity problem."
   stake: "The wage plan adds a job, but freight fees stay high. Ruth has empty slots that the mine cannot afford. Today you decide if lack of space is the whole cause. By the end of the mission, you will check how the gate sets its price."
   takeaway: "The town can ask whether competition requires duplicate infrastructure or better access."
-  segue: "Mission decision: Market power is part of the freight problem. Only twenty of fifty usable slots are booked. The town keeps access changes in the plan. Two firms now offer a pact."
+  segue: "Yet Ruth’s rivals promise to limit expansion; Mara needs a forecast built from incentives, not that promise."
   # The mission card's own "Primer concepts", printed on the plan card.
   terms:
   - {name: "Monopoly", def: "A sole seller protected by barriers to entry."}

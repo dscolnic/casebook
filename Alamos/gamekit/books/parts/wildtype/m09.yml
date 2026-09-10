@@ -11,7 +11,7 @@
   objective: "Resolve whether leaf shape alone is a reliable breeding label; a misleading label could remove useful seed families."
   stake: "The enzyme lead is saved, but leaf shapes give mixed family labels. The same genes can yield new shapes when the light changes. Check the plants with Ivo, then read the seed records with Nell. Today you decide whether leaf shape alone is a reliable breeding label."
   takeaway: "Keep ancestry records and test leaf shape under matched conditions. ---"
-  segue: "Mission decision: Keep ancestry records and test leaf shape under matched conditions. The same clone changes leaf shape with light."
+  segue: "But Tess has forty generations of insect records. A change in one plant cannot explain them."
   # The mission card's own "Primer concepts", printed on the plan card.
   terms:
   - {name: "Common-garden test", def: "A comparison that raises organisms in the same conditions."}
@@ -170,10 +170,10 @@
       tolerance: 0.05
       units: "%"
       labels:
-        - recombinants
-        - total
-        - percent scale
-        - parent types
+        - "16"
+        - "80"
+        - "100"
+        - "2"
       values:
         - 16
         - 80
@@ -185,7 +185,7 @@
         - 2
       slots: 3
       formula: a/b*c
-      template: "{0} {1} {2} → %"
+      template: "{0} / {1} × {2} = ? %"
       solution: "20"
 
   # --- Stop 35: Keep the lineage traceable

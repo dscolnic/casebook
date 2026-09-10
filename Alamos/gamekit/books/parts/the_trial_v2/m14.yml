@@ -151,11 +151,11 @@
     person: reed
     concept: 25   # interval sensitivity/practical significance
     reason: "The corrected benefit finding does not remove uncertainty about late harm."
-    scene: "The primary benefit interval excludes zero, while late harm ranges from -1 to +5 events per 1,000. Move the missing-outcome assumption through its registered range and watch which actions remain defensible."
+    scene: "The benefit finding survives, but late harm remains uncertain. The board must distinguish planning further evidence from authorizing more enrollment."
     motivation: "The missing-outcome sensitivity range determines whether benefit supports unconditional continuation or only a bounded follow-up."
     format: STRESS
-    question: "Move the missing-outcome assumption from -2 to +2 events per 1,000 in steps of 1 while holding the model fixed. Submit the action defensible throughout."
-    answerText: "The completed check shows the data support benefit, but harm uncertainty rules out unconditional continuation; a bounded follow-up can reduce uncertainty."
+    question: "Shift the harm interval [−1,+5] by each missing-outcome adjustment from −2 to +2 events per 1,000. Choose the conclusion consistent with every interval: no unconditional enrollment while a plausible upper bound crosses the safety line; prepare an evidence review and apply the separate enrollment gate."
+    answerText: "Upper harm bounds range from 3 to 7 events per 1,000. Unconditional enrollment is not justified; prepare the bounded evidence review, with no new enrollment authorized by this card."
     why: "Crossing a safety boundary under plausible assumptions blocks unconditional continuation."
     # wrong-path feedback, one rebuttal per wrong option:
     #   Point estimate alone controls action
@@ -211,10 +211,10 @@
     person: reed
     concept: 32   # value of information
     reason: "The live decision now turns on unresolved harm rather than settled efficacy or file integrity."
-    scene: "The stress test leaves one uncertain harm boundary, while efficacy and file integrity are already locked. Spend a 60-hour budget on evidence that can narrow harm uncertainty without reopening settled analyses."
+    scene: "Benefit and file integrity are already established, but the harm estimate still depends on uncertain late outcomes and exposure records. Tomas needs both gaps checked before the board revisits enrollment."
     motivation: "The selected evidence must narrow the harm boundary enough to inform the next enrollment decision."
     format: VALUE
-    question: "Allocate at most 60 staff-hours among the five evidence options. Submit the combination that narrows harm uncertainty without reopening locked analyses."
+    question: "You have 60 staff-hours. Cover every required outcome at the lowest total cost within the budget; keep all unused capacity in reserve. Select whole packages, then submit the plan; the board shows its total and remaining reserve for you to check."
     # MODEL CONVERSION. The payload marks the two options it wants bought
     # `required: true`; the engine's word for "this one would change the decision"
     # is `decisive`, and the pair it names is the payload's own `correct_purchase`.
@@ -233,7 +233,7 @@
       - { id: staff_survey, label: "Staff survey", axis: "workflow opinion", cost: 15 }
       - { id: biomarker, label: "Biomarker", axis: "new exploratory mechanism", cost: 25 }
       commit: "Order the evidence"
-    answerText: "The completed check shows fund source calls and the independent kit audit; they address the live harm boundary."
+    answerText: "Each funded package supplies a required outcome; an affordable package that leaves one unresolved is insufficient."
     why: "More data are not automatically valuable; useful evidence must alter the stop-or-continue decision."
     # wrong-path feedback, one rebuttal per wrong option:
     #   Any new data are valuable
@@ -288,11 +288,11 @@
     title: "Write the Rule"
     concept: 19   # integrated decision threshold
     reason: "More evidence could help, but the board must limit patient exposure while waiting for it."
-    scene: "The chosen evidence can improve power, but waiting exposes more patients."
+    scene: "The board needs a written harm rule before the next update. A follow-up plan is not permission to enroll patients while a stop condition holds."
     motivation: "The precommitted harm thresholds and enrollment cap determine when follow-up must stop, change, or continue."
     format: TRIGGER
-    question: "rule stop if upper 95% harm bound >=4/1000; modify if 2 to <4; continue if <2; max additional enrollment120; scale 0-6 anchors2,4; inclusive stop at4; objective preserve benefit, consequence limit 4 excess serious events/1000."
-    answerText: "The completed check shows authorize one 120-patient follow-up under the written 2/4 thresholds; stop is inclusive at 4."
+    question: "Commit the board's policy: STOP if the upper 95% harm bound is at least 4 excess events per 1,000; MODIFY from 2 inclusive to below 4; CONTINUE below 2. Record a maximum of 120 additional patients, subject to the stop rule, and submit the complete mapping."
+    answerText: "The cap limits a later eligible follow-up; it does not override an active harm stop. The earlier uncertain harm interval is not silently replaced by a favorable reading."
     why: "Precommitment prevents a favored outcome from moving the safety boundary tomorrow."
     # wrong-path feedback, one rebuttal per wrong option:
     #   numeric threshold pair, enrollment cap, action mapping

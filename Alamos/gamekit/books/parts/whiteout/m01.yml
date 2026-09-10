@@ -11,7 +11,7 @@
   objective: "Today you decide whether the heat alarm calls for an engine shutdown or a code fix."
   stake: "The heat alarm is red, but Malik says the engine still runs well. Java can lose a fraction when it divides whole numbers. Test the code at the Load Board before the crew cuts the heat. By the end of the mission, decide if the engine needs work or the code needs a fix."
   takeaway: "The generator is healthy; integer arithmetic is collapsing 83/100 to zero and falsely creating the heat emergency. ---"
-  segue: "Mission decision: The generator is healthy. Java made 83/100 equal 0 with whole-number math. The steady 83 kW reading shows the machine still works. The crew keeps it online and fixes the percent code. But Mei now has two commands from one air reading."
+  segue: "But Mei stops a second air command before it reaches the same room."
   # The mission card's own "Primer concepts", printed on the plan card.
   terms:
   - {name: "integer division", def: "division between two integers that discards the fractional part before any later conversion. cast: an explicit conversion that changes how Java treats a value for an expression."}

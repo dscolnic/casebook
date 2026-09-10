@@ -11,7 +11,7 @@
   objective: "Decide whether the proposed filter tariff preserves the cheapest compliance option."
   stake: "The water rule needs a filter, but a new tax could raise its price. Local sellers gain while buyers pay more. Today you decide which filter quote the plan should use. By the end of the mission, you will track the tax's costs and gains."
   takeaway: "The town keeps both fiscal and resource accounts visible for the final agreement."
-  segue: "Mission decision: Keep the untaxed filter quote and report who gains from the tariff. The same filter costs more with the fee. The town retains the cheaper quote. The new rail line now seems ready to sign."
+  segue: "Now Mara can compare filter costs, but the new rail line’s claimed savings still mix transfers with real gains."
   # The mission card's own "Primer concepts", printed on the plan card.
   terms:
   - {name: "Tariff", def: "A tax on imported goods."}

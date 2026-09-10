@@ -48,7 +48,7 @@
   - id: after-stop-58
     # After Stop 58 | sampler | automatic
     on: { after: [2] }
-    world: "At delivery-board, the dated accepted-result slip for Stop 58 reads: \"Submit (200 visitors/day, 20% reserve)\". The slip remains in that fixture's evidence holder."
+    world: "At delivery-board, the dated accepted-result slip for Stop 58 reads: \"200 visitors/day with 20% daily service capacity unbooked; check annual water margin separately\". The slip remains in that fixture's evidence holder."
     panel: "STOP 58 RECORDED - STOP 59 OPEN"
     # unlocks: Unlock Stop 59 at sampler in Waterworks.
     bubbles:
@@ -190,10 +190,10 @@
     title: "Collapse the final degeneracy"
     concept: 11   # coupled capacity | uncertainty | all keystones | COMBINE | L5 | crisis
     reason: "The climate review leaves multiple visitor-cap and reserve pairs that fit today's water supply."
-    scene: "Climate pathways are identified, yet visitor cap and drought reserve trade off while matching today's water total. Apply the dry-year constraint to collapse the pair."
+    scene: "Several visitor-cap and contingency-reserve pairs satisfy the modeled drought limit. The council has published a reserve floor so the final choice is not arbitrary."
     motivation: "The dry-year constraint identifies which cap-reserve pair remains feasible when recharge falls."
     format: DEGENERACY
-    question: "Use the two controls visitor cap and drought reserve: adjust visitor cap from 0 to 340 visitors/day in steps of 20 and reserve from 0% to 30% in steps of 5%. Submit the numerical pair satisfying annual withdrawal at or below 136,800 m3/year during a 15% drought before plan choices unlock."
+    question: "Use the supplied feasible-pair table for a 15% drought. Keep at least 20% of daily service capacity unbooked, then select the feasible pair allowing the most visitors per day."
     # THE BIBLE'S PAYLOAD, converted. Its two `controls` keep their min, max and
     # step; `locus_today` is the family of pairs that all satisfy the constraint
     # today and `locus_drought` the shorter family the drought year leaves, which
@@ -222,7 +222,7 @@
       truth: { a: 200, b: 20 }
       tolerance: { a: 10, b: 2.5 }
       commit: Report the pair
-    answerText: "The completed check shows submit (200 visitors/day, 20% reserve)."
+    answerText: "The 240-visitor pair fails the published reserve floor; the 160-visitor pair passes but serves fewer visitors. This daily capacity reserve is not the annual water-volume margin calculated next."
     why: "Collapse the final degeneracy connects the measured environmental mechanism to the next island condition."
     # wrong-path feedback, one rebuttal per wrong option:
     #   The retry identifies the first incorrect mechanism, unit, unsupported claim, omitted requirement, or violated constraint.
@@ -241,7 +241,7 @@
     title: "Verify the independent water sample"
     concept: 34   # final water check | causality and evidence | D2,D4,D8 | TRANSFER | L5 | verification
     reason: "The selected visitor cap needs an independent water check before the council can approve it."
-    scene: "The dry-year constraint leaves a 200-visitor cap with 20% reserve. Verify final quantity and quality with an independent sample."
+    scene: "The dry-year plan uses a 200-visitor cap; its annual water margin still needs checking. Verify final quantity and quality with an independent sample."
     motivation: "The remaining water margin and measured nitrate and chloride determine whether the cap meets both quantity and quality conditions."
     format: VERIFY
     question: "CALCULATE AND COMMIT margin=136800-132000 in m3/year; OPERATE the sampler with pump and time fixed; MEASURE nitrate and chloride; INTERPRET PASS only below 10.0 and 250 mg/L; no restoration"

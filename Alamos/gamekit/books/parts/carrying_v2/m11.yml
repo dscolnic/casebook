@@ -198,10 +198,10 @@
     title: "Calculate capacity factor"
     concept: 26   # capacity factor | energy | 11
     reason: "The small evening reserve makes the turbine's nameplate claim insufficient for supply planning."
-    scene: "The peak ledger leaves only fifteen kilowatts, and the turbine plate promises 250 kilowatts. Replace nameplate power with annual performance."
+    scene: "The turbine's nameplate describes capacity, not the energy it actually delivered. The annual log is ready for comparison."
     motivation: "Annual capacity factor distinguishes rated turbine power from the energy the island actually receives over a year."
     format: BALLPARK
-    question: "Apply capacity factor=680000 kWh/(250 kW*8760 h); submit one percent"
+    question: "Annual generation is 680,000 kWh. Rated power is 250 kW and the year has 8,760 hours. Fill generation,power,hours in capacity factor=energy/(power×time)×100."
     # THE BIBLE'S PAYLOAD, converted. Its three `inputs` become the three tiles
     # and its `equation` the template; `truth: 31.1` is the target and its
     # `tolerance: 0.2` is already an absolute band on a percentage.
@@ -283,10 +283,10 @@
     person: voss
     concept: 23   # energy portfolio | energy and policy | 11
     reason: "The council now has both measured wind performance and backup pollution costs to fund together."
-    scene: "Actual wind output and backup pollution are now counted together. Spend one hundred planning points on firm supply and controls."
+    scene: "Measured wind output is below its nameplate promise, and backup generation has pollution costs. The council requires a package addressing both demand reductions, storage, repair and exhaust control."
     motivation: "The energy portfolio determines whether firm supply and pollutant controls survive the same planning budget."
     format: SCIENCETANK
-    question: "Fund insulation 20, LEDs 10, battery 25, wind repair 25, and backup pollution controls 20; reject diesel expansion 40 and unfirmed solar 35"
+    question: "You have 100 energy-planning points. Cover every required outcome and allocate the whole budget. Select whole packages, then submit the plan; the board shows its total and remaining reserve for you to check."
     # THE BIBLE'S PAYLOAD, converted. Its seven proposals carry the point cost
     # written into each name, and its `recommended` list — the five that total the
     # pool of 100 — becomes the graded distribution, keyed by label.
@@ -299,7 +299,7 @@
     - { label: Diesel expansion, text: "Costs 40 points." }
     - { label: Unfirmed solar, text: "Costs 35 points." }
     recommended: { Insulation: 20, LEDs: 10, Battery: 25, Wind repair: 25, Backup pollution controls: 20 }
-    answerText: "The completed check shows the five-part portfolio totals 100 and preserves firm reserve."
+    answerText: "Each funded package supplies a required outcome; an affordable package that leaves one unresolved is insufficient."
     why: "Fund the energy portfolio connects the measured environmental mechanism to the next island condition."
     # wrong-path feedback, one rebuttal per wrong option:
     #   The retry identifies the first incorrect mechanism, unit, unsupported claim, omitted requirement, or violated constraint.

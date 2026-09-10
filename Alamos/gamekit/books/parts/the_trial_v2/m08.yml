@@ -294,10 +294,10 @@
     title: "Size the Confirmation"
     concept: 14   # margin of error/sample size
     reason: "The benchmark result makes a sufficiently precise replacement-kit audit necessary before release."
-    scene: "The exposed cohort exceeds the benchmark, and the replacement audit must be precise before release. Calculate the conservative minimum sample for 95% confidence and margin of error 0.03 using p-star=0.50."
+    scene: "The precision target now determines the kit order. A fractional requirement cannot be rounded down when the margin must be met."
     motivation: "The required sample size determines how many kits must be inspected to meet the planned margin of error."
     format: BALLPARK
-    question: "Use n=(z-star^2)(p-star)(1-p-star)/(margin of error)^2 with z-star=1.96, p-star=0.50, and margin of error 0.03. Calculate the minimum sample size and round up to a whole number of kits."
+    question: "Use n=z²p(1−p)/E² with z=1.96, p=0.5 and margin E=0.03. Fill z,p,E; round the result up to a whole kit."
     # Every tile is one of the prompt's own numbers: z* 1.96, the two 0.50 factors
     # of p-star(1 - p-star), and the 0.03 margin of error.
     # MODEL CONVERSION on the target. The bible keys the answer at 1068 whole kits

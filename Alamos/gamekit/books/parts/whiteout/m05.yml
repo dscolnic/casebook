@@ -11,7 +11,7 @@
   objective: "Today you decide whether the patch reaches live object P02."
   stake: "The first fix works in the lab, but Malik sees no change at P02. Two objects can look alike and still hold their own state. Follow the names to the objects they point to. By the end of the mission, decide if the patch reached the live unit."
   takeaway: "The patch is modifying simulator object C17, not live controller P02; the live reference path must be corrected before the method call can matter. ---"
-  segue: "Mission decision: The patch changed simulator C17, not live controller P02. The trace shows active points to C17 and live points to P02. The crew fixes the live reference and checks P02. Yet Liv sees 08:0 on screen and 08:07 in the raw note."
+  segue: "Yet Liv holds a message for review; its final minute digit has vanished from the screen."
   # The mission card's own "Primer concepts", printed on the plan card.
   terms:
   - {name: "reference", def: "a value that points to an object rather than containing a separate copy of that object. constructor: code that initializes a new object when it is created. instance field: state stored separately inside each object."}

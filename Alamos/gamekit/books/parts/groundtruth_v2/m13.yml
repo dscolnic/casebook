@@ -261,11 +261,11 @@
     title: "Buy the Recorder Upgrade"
     concept: 30   # error budget
     reason: "The recorder response identifies a timing weakness that the remaining upgrade budget must address."
-    scene: "With RC loss identified, the one-microsecond record can add only one upgrade. Compare costs and propagated uncertainty from faster sampling, another slow sensor, better paint calibration, or a longer cable survey."
+    scene: "The pulse recorder's response is the largest part of the error budget. Only one upgrade can be fitted before the next certification record."
     motivation: "The uncertainty reduction determines whether the selected upgrade materially improves the one-microsecond pulse measurement."
     format: PROPAGATE
-    question: "Read the live error budget, spend the one available record slot, and submit the upgrade that most reduces the uncertainty controlling certification."
-    answerText: "The completed check shows buy faster sampling; dominant uncertainty falls 18% to 4%."
+    question: "Choose one upgrade costing at most 3 credits that minimizes total fractional uncertainty. Combine the independent percentage contributions by root-sum-square; submit the upgrade and total percent uncertainty."
+    answerText: "The bandwidth contribution falls from 18% to 4%; the other contributions remain 3%, 4% and 6%. Four percent is the upgraded component, not the total record uncertainty."
     why: "spend the channel on bandwidth because it dominates peak-voltage uncertainty."
     # wrong-path feedback, one rebuttal per wrong option:
     #   Spend the one slot on the error term that changes certification.

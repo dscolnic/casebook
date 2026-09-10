@@ -153,10 +153,10 @@
     title: "Estimate the ideal crown speed"
     concept: 16   # Energy conservation
     reason: "The coaster's crown speed needs an ideal benchmark before measured losses are included."
-    scene: "The train starts nearly from rest at 26 m and reaches the loop crown at 20 m. Estimate the no-loss crown speed before adding the measured friction and wheel losses from testing."
+    scene: "The drop height fixes the energy available at the bottom. The crew first checks the ideal speed before interpreting the real trace."
     motivation: "The height drop gives an upper benchmark for crown speed under the no-loss assumption."
     format: BALLPARK
-    question: "Given g = 9.80 m/s^2 and vertical drop Delta h = 6.0 m, use v = sqrt(2g Delta h). Submit one ideal crown-speed number in m/s."
+    question: "Starting from rest, the gondola drops 6 m. Neglect resistance and use g=9.8 m/s². Fill g and height in v=√(2gh)."
     answerText: "The ideal crown speed is about 10.84 m/s."
     why: "The lost gravitational potential energy becomes kinetic energy when no losses are included."
     # wrong-path feedback, one rebuttal per wrong option:

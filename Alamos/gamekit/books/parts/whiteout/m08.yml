@@ -11,7 +11,7 @@
   objective: "Today you decide whether the raw log is lost or list cleanup skips its records."
   stake: "Room 7 is safe, but Park sees gaps in the log. List items shift left when code removes one. Trace the cleanup code and check the raw file. By the end of the mission, decide if the notes were lost or the loop skipped them."
   takeaway: "The records were written; forward ArrayList removal skips shifted resolved entries, leaving an alternating survivor pattern. ---"
-  segue: "Mission decision: The records were written; forward list removal skipped shifted items. The raw file has all six records, but cleanup leaves A-C-D-F. The crew restores the log and saves that case for later tests. But Jonah finds the known crack in the next map cell."
+  segue: "But Jonah halts the rover at a crack that the map puts one cell away."
   # The mission card's own "Primer concepts", printed on the plan card.
   terms:
   - {name: "ArrayList", def: "a resizable indexed collection that can add and remove elements while a program runs. index: the numbered position used to access an element; Java arrays and lists start at index zero. edge case: an input at a boundary or unusual condition that can expose a hidden bug."}

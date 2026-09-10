@@ -11,7 +11,7 @@
   objective: "Decide whether the supplier should operate during the current month."
   stake: "The fee funds help, but a supplier may close. A loss does not mean closing saves cash when some bills must still be paid. Today you decide if this shift should run. By the end of the mission, you will compare the two costs."
   takeaway: "Short-run continuity and long-run sustainability require different comparisons."
-  segue: "Mission decision: Keep the supplier open this month and review exit next month. Staying open loses $40; closing loses $100. The shift goes ahead. New firms now want space to open."
+  segue: "Yet Nico wants to block new kitchens; the entry he welcomed for supplies now threatens his own profit."
   # The mission card's own "Primer concepts", printed on the plan card.
   terms:
   - {name: "Marginal cost", def: "The extra total cost of one additional unit."}

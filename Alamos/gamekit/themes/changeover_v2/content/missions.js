@@ -1480,7 +1480,7 @@ export const MISSIONS = [
             3
           ]
         },
-        "world": "At basket-table, the dated accepted-result slip for Stop 11 reads: \"The keyed result shown by the completed interaction.\". The slip remains in that fixture's evidence holder.",
+        "world": "At basket-table, the dated accepted-result slip for Stop 11 reads: \"Inflation stays positive but changes with the energy weight.\". The slip remains in that fixture's evidence holder.",
         "stage": {
           "wall": [
             {
@@ -4798,7 +4798,7 @@ export const MISSIONS = [
             3
           ]
         },
-        "world": "At price-history-board, the dated accepted-result slip for Stop 39 reads: \"The keyed result shown by the completed interaction.\". The slip remains in that fixture's evidence holder.",
+        "world": "At price-history-board, the dated accepted-result slip for Stop 39 reads: \"The temporary model has lower held-out forecast error.\". The slip remains in that fixture's evidence holder.",
         "stage": {
           "wall": [
             {
@@ -5209,7 +5209,7 @@ export const MISSIONS = [
             3
           ]
         },
-        "world": "At forecast-table, the dated accepted-result slip for Stop 43 reads: \"The keyed result shown by the completed interaction.\". The slip remains in that fixture's evidence holder.",
+        "world": "At forecast-table, the dated accepted-result slip for Stop 43 reads: \"Clearing, training, port repair and reserve funded within 100 points.\". The slip remains in that fixture's evidence holder.",
         "stage": {
           "wall": [
             {
@@ -6598,7 +6598,7 @@ export const MISSIONS = [
             3
           ]
         },
-        "world": "At forecast-table, the dated accepted-result slip for Stop 55 reads: \"The keyed result shown by the completed interaction.\". The slip remains in that fixture's evidence holder.",
+        "world": "At forecast-table, the dated accepted-result slip for Stop 55 reads: \"Conversion proceeds with temporary cover and the inflation guard.\". The slip remains in that fixture's evidence holder.",
         "stage": {
           "wall": [
             {

@@ -11,7 +11,7 @@
   objective: "Today you decide whether the route code can send Rover Three out and bring its calls to an end."
   stake: "The note got through, but ice may cut Liv off from the plane. Each call in a route builder must shrink the task until it can stop. Test the code before Jonah sends the rover out. By the end of the mission, decide if it can place the backup relay."
   takeaway: "The repaired recursion terminates at build(0) and returns exactly four safe waypoints, so Rover Three can deploy the backup relay. ---"
-  segue: "Mission decision: Rover Three can carry the backup relay on the fixed route. The code reaches build(0) and returns four safe points. The rover deploys and gives the station a second command path. Yet Priya has no test of two resolved records side by side."
+  segue: "Yet Priya holds the release after finding a gap in the tests: no adjacent resolved records."
   # The mission card's own "Primer concepts", printed on the plan card.
   terms:
   - {name: "recursion", def: "a method solving a problem by calling itself on a smaller version of that problem. base case: the input a recursive method can answer directly without another recursive call. method contract: the promised inputs, outputs, and conditions a method is expected to satisfy."}

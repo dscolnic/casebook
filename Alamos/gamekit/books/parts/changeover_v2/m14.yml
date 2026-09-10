@@ -48,7 +48,7 @@
   - id: after-stop-55
     # After Stop 55 | threshold-rail | automatic
     on: { after: [3] }
-    world: "At forecast-table, the dated accepted-result slip for Stop 55 reads: \"The keyed result shown by the completed interaction.\". The slip remains in that fixture's evidence holder."
+    world: "At forecast-table, the dated accepted-result slip for Stop 55 reads: \"Conversion proceeds with temporary cover and the inflation guard.\". The slip remains in that fixture's evidence holder."
     panel: "STOP 55 RECORDED - STOP 56 OPEN"
     # unlocks: Unlock Stop 56 at threshold-rail in Rate Room.
     bubbles:
@@ -230,11 +230,11 @@
     person: corren
     concept: 24   # integrated policy
     reason: "The fuel estimate is ready and the full plan must withstand the combined disturbances."
-    scene: "Because the direct price effect is bounded, stress delay, unconditional easing, and conversion-plus-cover across fuel shocks of 8%, 12%, and 16%. Submit the plan that preserves payments and limits the output loss."
+    scene: "The conversion ratio has passed its accounting checks, but a fuel shock can still raise household costs. The board requires payment continuity and temporary cover without abandoning its inflation guard."
     motivation: "The model stress test selects a response that keeps payments working while limiting the output loss."
     format: STRESS
-    question: "Inspect three settings and submit one plan."
-    answerText: "\"Proceed at 4.15 with temporary first-week cover.\""
+    question: "Sweep fuel prices through increases of 8%, 12% and 16%. With basket weight 20%, compute the direct price contribution and select the plan preserving conversion, temporary cover and the review guard in every case."
+    answerText: "Direct contributions are 1.6, 2.4 and 3.2 percentage points. Conversion with temporary guarded cover meets the stated requirements; this limited model does not quantify total output or establish a universal policy optimum."
     why: "Robust policy preserves the sound ratio while treating the separate real shock."
     # wrong-path feedback, one rebuttal per wrong option:
     #   A different response does not fit the displayed evidence. Robust policy preserves the sound ratio while treating the separate real shock.

@@ -298,10 +298,10 @@
     title: "Quantify Common-Mode Error"
     concept: 16   # Ohm drop and Joule power
     reason: "The isolation reversal identifies a cause whose size must now be checked against the recorded voltage."
-    scene: "The reversal proves causation; now a 3.0 mA transient crosses a 120 Ω shared lead while true sensor output is -4.2 V. Estimate the recorded voltage and instantaneous lead power."
+    scene: "The recorder and the circuit do not report quite the same voltage. The lead drop must be included before anyone calls the signal a failure."
     motivation: "The shared-lead voltage drop and power establish whether the return current can account for the observed common-mode error."
     format: BALLPARK
-    question: "Using I=3.0 mA, R=120 Ω, and V_true=-4.2 V, assemble V_recorded=V_true+IR and submit the recorded voltage in volts. The result card will also show the voltage drop and lead power from the same values."
+    question: "The true signal is −4.2 V. A 3 mA current through 120 Ω adds a positive IR offset at the recorder. Select true voltage, current in amperes, and resistance to calculate Vrecord=Vtrue+IR."
     answerText: "Vdrop=(.003)(120)=.360 V; Vrecord=-4.2+.360=-3.840 V; P=(.003)²(120)=1.08 mW."
     why: "a shared IR drop adds the same false shift to every referenced channel, while I²R reveals its heating scale."
     # wrong-path feedback, one rebuttal per wrong option:

@@ -303,11 +303,11 @@
     person: voss
     concept: 9   # repair priority | policy | 7
     reason: "The missing distribution water and the leachate pathway now compete for the same repair budget."
-    scene: "The pipe loses 50 cubic metres each day, while leachate threatens the same aquifer over a longer path. Spend sixty repair credits without abandoning contamination control."
+    scene: "The main loses water and the waste cell threatens the aquifer. The work order must locate the leak before repair and keep contamination testing funded."
     motivation: "The selected repairs determine whether immediate quantity loss is addressed without abandoning aquifer contamination control."
     format: VALUE
-    question: "From acoustic leak location 15, main repair 30, leachate liner test 15, cosmetic fence 12, and gas flare study 10, submit a plan costing at most 60 credits"
-    answerText: "The completed check shows locate and repair the main and test the leachate liner for exactly 60 credits."
+    question: "You have 60 repair credits. Cover every required outcome at the lowest total cost within the budget; keep all unused capacity in reserve. Select whole packages, then submit the plan; the board shows its total and remaining reserve for you to check."
+    answerText: "Each funded package supplies a required outcome; an affordable package that leaves one unresolved is insufficient."
     why: "Choose the repair priority connects the measured environmental mechanism to the next island condition."
     # wrong-path feedback, one rebuttal per wrong option:
     #   The retry identifies the first incorrect mechanism, unit, unsupported claim, omitted requirement, or violated constraint.

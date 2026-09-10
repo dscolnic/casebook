@@ -146,11 +146,11 @@
     title: "Linearize level error"
     concept: 9   # linear approximation/error budget
     reason: "The revised storage curve still carries level-measurement error that could consume the remaining release margin."
-    scene: "The corrected storage curve has dV/dh=2.0 million m3/m, and level uncertainty is ±0.015 m. Propagate that error, then compare it with the 0.10 million m3 release margin."
+    scene: "The corrected storage curve still carries measurement uncertainty. The crew has two inspection points to reduce the total error before relying on the release margin."
     motivation: "The propagated volume uncertainty determines whether the drawdown margin survives the gauge's height error."
     format: PROPAGATE
-    question: "Calculate |Delta V| approximately |dV/dh||Delta h| using 2.0 million m^3/m and 0.015 m; submit uncertainty in million m^3, compare it with the inclusive 0.10 million m^3 margin, then select one purchase ID."
-    answerText: "2.0*.015=.030<.10; improve level."
+    question: "Compute the level contribution |ΔV|=|dV/dh|σh, then choose the affordable upgrade plan giving the smallest combined uncertainty. Use root-sum-square for these independent contributions; submit the plan and combined uncertainty in million m³."
+    answerText: "Before upgrading, the combined error is about 0.03187 million m³. Improving level gives about 0.01847; improving both flow and clock gives about 0.03017. The margin survives either way, but level is the best uncertainty reduction."
     why: "2.0*.015=.030<.10; improve level. Only an error large enough to consume the margin can reverse authorization."
     # wrong-path feedback, one rebuttal per wrong option:
     #   Sensitivity carries units.

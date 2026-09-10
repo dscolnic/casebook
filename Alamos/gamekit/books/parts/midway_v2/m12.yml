@@ -150,10 +150,10 @@
     title: "Retrieve the collision result"
     concept: 20   # Collision energy and momentum
     reason: "The restraint review needs the dummy's momentum change before interpreting its force-time record."
-    scene: "The joined test cars move at 0.88 m/s after impact, and the 70 kg dummy stops with them. Estimate the dummy's momentum change before using the separately measured force-time trace."
+    scene: "The dummy trace is ready for the restraint review. The change in momentum tells the crew what impulse the restraint delivered."
     motivation: "Momentum change gives the impulse that the independently measured force trace should account for."
     format: BALLPARK
-    question: "Given dummy mass m = 70 kg and speed-change magnitude Delta v = 0.88 m/s, use |Delta p| = m|Delta v|. Submit one momentum-change number in kg m/s."
+    question: "A 70 kg dummy changes speed by 0.88 m/s along the measured direction. Fill mass and speed-change magnitude in |Δp|=m|Δv|."
     answerText: "The dummy's momentum changes by 61.6 kg m/s."
     why: "It moves from 0.88 m/s to rest."
     # wrong-path feedback, one rebuttal per wrong option:
@@ -332,8 +332,8 @@
     scene: "Both force results pass, but old records mix masses, restraints, and sensors. Verify the claims that connect today's numbers to today's exact operating configurations before either final certificate section closes."
     motivation: "Verifying masses, restraints, and sensors prevents a passing result from being applied to an untested setup."
     format: ATTEST
-    question: "Submit one selected-claims attestation containing only the displayed, currently verified bumper-car and tower configuration facts; exclude the historical all-load claim."
-    answerText: "Certify only the verified bumper and tower configurations; reject the old all-load claim."
+    question: "Certification transfers only to matching mass, restraint, sensor and brake configurations. Read the displayed source excerpts, then select every supported claim and leave unsupported claims unsigned."
+    answerText: "Each signature is limited to what its source establishes. The unsupported claims lack the specific date, physical condition, independence or scope they assert."
     why: "Changing mass, restraint, height, sensor, or brake state changes the modeled or measured result."
     # wrong-path feedback, one rebuttal per wrong option:
     #   (old_allloads) The old signature cannot extend today's verified bumper and tower configurations to every passenger load.

@@ -186,10 +186,10 @@
     title: "How much methane is missing?"
     concept: 1   # grams-moles-particles
     reason: "The sample labels are checked, but the methane mass record still needs comparison with a particle count."
-    scene: "The tank report lists a methane shortfall of 1.60 × 10^3 kg. Use 1000 g/kg, methane molar mass 16.04 g/mol, and Avogadro's constant 6.022 × 10^23 molecules/mol to compare mass with particle count."
+    scene: "The fuel shortfall must be expressed as molecules before the reaction ledger can use it."
     motivation: "The molecule total puts the methane inventory on the same counting basis as the production record."
     format: BALLPARK
-    question: "Estimate the number of methane molecules represented by the shortfall."
+    question: "Convert a 1,600 kg methane shortfall to molecules using molar mass 16.04 g/mol and Avogadro's constant 6.022×10²³ mol⁻¹. Fill mass in kilograms, molar mass and Avogadro's constant; the equation converts kg to g."
     # CONVERTED from the bible's `data` and `correct result` lines below. The four
     # tiles are the bible's four data numbers; the target and tolerance are its
     # "target 6.0 x 10^28, tolerance ±6%", said as a number (6% of 6.0e28 = 3.6e27).

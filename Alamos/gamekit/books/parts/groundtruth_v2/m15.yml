@@ -140,11 +140,11 @@
     person: ortiz
     concept: 30   # causal repair portfolio
     reason: "The rack survey reveals a local failure that the remaining repair effort must target."
-    scene: "Ortiz has 100 effort points and four hours. Fund a plan that reduces card-E loop area, preserves isolated recording, verifies bank timing, and keeps a protected inspection reserve."
+    scene: "The remaining fault is local to card E's loop. Ortiz has four hours to complete a repair and preserve the evidence needed to test it."
     motivation: "The allocation determines whether loop reduction, independent recording, timing checks, and inspection all remain funded."
     format: SCIENCETANK
-    question: "Allocate the 100 effort points across the five proposals, preserve the protected inspection reserve, and submit answers to all three causal-plan checks."
-    answerText: "The completed check shows fund twist, isolation, timing, and protected inspection. Causal chain costs 90 points."
+    question: "You have 100 effort points. Cover every required outcome at the lowest total cost within the budget; keep all unused capacity in reserve. Select whole packages, then submit the plan; the board shows its total and remaining reserve for you to check."
+    answerText: "Each funded package supplies a required outcome; an affordable package that leaves one unresolved is insufficient."
     why: "the final plan must cover source, path, measurement, and recovery."
     # wrong-path feedback, one rebuttal per wrong option:
     #   Do not spend protected inspection capacity on cosmetic work.
@@ -286,11 +286,11 @@
     person: ortiz
     concept: 30   # final certification
     reason: "The repaired card's final reading is available, but station-wide certification still requires every safeguard to agree."
-    scene: "The repaired card measures 74 V on the final shot. Verify crew-clear field, conduit current, all trailer peaks, channel independence, bank timing, and post-shot inspection, then submit one certification verdict."
+    scene: "The repaired local card and the main path have passed their final checks. Certify only the tested configuration documented in the final record."
     motivation: "The complete verification record determines whether Station 12 can be certified with no unresolved exposure or inspection condition."
     format: ATTEST
-    question: "Use at most six checks to verify every critical threshold, identity, timing, independence, and inspection claim; submit CERTIFY or REJECT as one final verdict."
-    answerText: "The completed check shows cERTIFY. Every threshold, identity, timing, independence, and inspection claim is backed."
+    question: "Apply field≤5.0 kV/m, conduit current≤1.0 kA, trailer peaks≤250 V and channel spread≤0.50 kV/m; also require the recorded independent channel, intended timing and inspection. Read the displayed source excerpts, then select every supported claim and leave unsupported claims unsigned."
+    answerText: "Each signature is limited to what its source establishes. The unsupported claims lack the specific date, physical condition, independence or scope they assert."
     why: "the signed report is warranted only if every physical limit and evidence condition passes."
     # wrong-path feedback, one rebuttal per wrong option:
     #   One missing critical record blocks certification even if every visible number is green.

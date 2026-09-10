@@ -186,10 +186,10 @@
     title: "Put the water sample on a molar scale"
     concept: 6   # molarity
     reason: "The concentration-inventory distinction is settled and the recycle-water sample needs a molar concentration."
-    scene: "The recycle-water assay represents 0.365 g of hydrogen chloride in 0.2500 L of solution. Its molar mass is 36.46 g/mol, and this training model treats the acid as fully dissociated."
+    scene: "The acid sample is ready for the concentration check. The volume label must be converted before the result can guide dosing."
     motivation: "Molarity supplies a comparable process measurement for checking the water alarm with an independent instrument."
     format: BALLPARK
-    question: "Estimate the HCl molarity if the model treats it as fully dissociated."
+    question: "Dissolve 0.365 g HCl to make 250.0 mL solution. With molar mass 36.46 g/mol, fill mass, molar mass and volume in litres in M=(mass/molar mass)/volume."
     # CONVERTED from the bible's `data` line, (0.365 g / 36.46 g mol^-1) / 0.2500 L,
     # and its "0.0400 M; tolerance ±3%" (3% of 0.0400 = 0.0012).
     estimate:

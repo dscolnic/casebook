@@ -279,11 +279,11 @@
     person: voss
     concept: 32   # measurement/claims
     reason: "The street diagnosis is ready, but the first official record still contains an unsupported shortage claim."
-    scene: "The supply diagnosis explains today's street pattern but still does not justify a national shortage claim. Verify the records that identify dated quantities, coverage, and tradeoffs, then reject any claim resting only on the plaza crowd."
+    scene: "The plaza is busy, but a national claim requires a national record. Check what the dated transactions and staffing records actually establish."
     motivation: "Verification separates measured transactions and staffing costs from conclusions the plaza crowd cannot establish."
     format: ATTEST
-    question: "Spend three verification marks; submit the three backed claims and reject the unbacked conclusion."
-    answerText: "Record dated national transactions, the staffing cost, and the price-quantity pattern; do not claim a cash shortage."
+    question: "National conclusions need dated coverage; observations of a queue cannot establish a nationwide cash shortage. Read the displayed source excerpts, then select every supported claim and leave unsupported claims unsigned."
+    answerText: "Each signature is limited to what its source establishes. The unsupported claims lack the specific date, physical condition, independence or scope they assert."
     why: "The first page must preserve what is known without turning an incomplete clue into policy."
     # wrong-path feedback, one rebuttal per wrong option:
     #   A conclusion is not backed because it sounds urgent.

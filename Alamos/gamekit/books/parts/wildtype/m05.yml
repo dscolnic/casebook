@@ -11,7 +11,7 @@
   objective: "Resolve whether to expand the restored flowering schedule; seed production could fall despite healthy leaves."
   stake: "The lamp trial helps leaves grow, but fewer bugs visit the flowers. Flowers and their pollen carriers need to share the same days. Check the field counts with Tess at the Marsh Research Bay. Today you decide whether to expand the restored flowering schedule."
   takeaway: "Stop the wider reset and keep a mixed flowering schedule. ---"
-  segue: "Mission decision: Stop the wider reset and keep a mixed flowering schedule. The mixed trays still get insect visits."
+  segue: "But Mara has one tray that will not stop growing. The next test must check its cells."
   # The mission card's own "Primer concepts", printed on the plan card.
   terms:
   - {name: "Mutualism", def: "An interaction that benefits both participating species."}
@@ -165,10 +165,10 @@
       tolerance: 0.05
       units: days
       labels:
-        - shared last day
-        - shared first day
-        - inclusive endpoint
-        - field last day
+        - "4"
+        - "4"
+        - "1"
+        - "9"
       values:
         - 4
         - 4
@@ -180,7 +180,7 @@
         - 2
       slots: 3
       formula: a-b+c
-      template: "{0} {1} {2} → days"
+      template: "{0}-{1}+{2} = ? days"
       solution: "1"
 
   # --- Stop 19: Compare field trays

@@ -219,7 +219,7 @@
     title: "Turn current into hydrogen"
     concept: 14   # Faraday's law
     reason: "The electrolysis circuit is defined and the remaining operating time needs translating into hydrogen yield."
-    scene: "Convert the available current and time into hydrogen yield so the allocation uses actual gas production rather than electrical power alone."
+    scene: "The electrolyzer has a full shift to replenish hydrogen. The fuel ledger must include the measured efficiency."
     motivation: "The current-based yield determines how much hydrogen the scheduled run can actually add to recovery."
     format: BALLPARK
     # CONVERTED from the bible's Data (current 10,000 A for 8.00 h; current
@@ -245,7 +245,7 @@
       target: 2768
       tolerance: 83
       units: "g H2"
-    question: "Estimate collected hydrogen mass."
+    question: "Run at 10,000 A for 8 h=28,800 s. Use F=96,485 C/mol e⁻, two electrons per H₂ molecule, efficiency 0.92 and molar mass 2.016 g/mol. Fill current,time,efficiency,molar mass; calculate hydrogen in kg."
     answerText: "The run produces about 2.77 kg H2 after the 92% current efficiency is applied."
     why: "Time must be seconds because an ampere is coulomb per second. Divide electron moles by two, then apply current efficiency and molar mass."
     # wrong-path feedback, one rebuttal per wrong option:
@@ -261,7 +261,7 @@
     title: "Allocate the recovery power"
     concept: 14   # electrochemistry under constraints
     reason: "The hydrogen yield is estimated and its power must fit alongside habitat, treatment, and cooling demands."
-    scene: "The committed plan must make gas without recreating earlier failures."
+    scene: "The dust front limits this shift's energy. Recovery must keep the crew safe and preserve both the new product and the propellant already in storage."
     motivation: "The allocation determines whether recovery can proceed without sacrificing the systems that prevent a repeat failure."
     format: ALLOCATE
     # CONVERTED from the payload below — already the engine's model, a subset
@@ -318,8 +318,8 @@
           requires:
             - fast_charge
           required: false
-    question: "Build a plan that keeps crew safe, prevents another hot spot, purifies Batch C precursor gas, and produces recovery hydrogen."
-    answerText: "Fund habitat 180, cooling 120, purification 80, electrolysis 160, and refrigeration 60 kWh; omit fast charging."
+    question: "You have 600 kWh. Cover every required outcome and allocate the whole budget. Select whole packages, then submit the plan; the board shows its total and remaining reserve for you to check."
+    answerText: "Each funded package supplies a required outcome; an affordable package that leaves one unresolved is insufficient."
     why: "Every funded item answers a known constraint. The reserve is valuable but can be restored after the dust front; losing refrigeration wastes existing propellant, and losing purification creates off-spec product. The full pool requires accepting no discretionary margin this shift."
     # wrong-path feedback, one rebuttal per wrong option:
     #   If purification is cut, show that production may increase while quality degrades. If thermal control is cut, invoke the Mission 10 boundary. If habitat is cut, block commitment.

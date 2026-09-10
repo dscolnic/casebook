@@ -11,7 +11,7 @@
   objective: "Decide whether demand or supply explains the lunch price rise."
   stake: "The meal trade works, but the lunch queue grows. More buyers or higher costs could push the price up. Today you decide which cause the town should post. By the end of the mission, you will test the lunch price claim."
   takeaway: "A documented cause lets the town respond to capacity rather than blame without evidence."
-  segue: "Mission decision: More buyers caused the lunch price rise. Costs stayed fixed, but orders rose at the old price. The town posts the cause. The room desk now shows beds that no one will book."
+  segue: "Yet Leila finds empty rooms after the rent rise; more arrivals have not guaranteed more bookings."
   # The mission card's own "Primer concepts", printed on the plan card.
   terms:
   - {name: "Demand", def: "Quantities buyers are willing and able to buy at different prices."}

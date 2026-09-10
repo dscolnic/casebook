@@ -276,11 +276,11 @@
     person: arendt
     concept: 25   # monetary choice
     reason: "A proposed rate rise faces a recessionary gap and uncertain expected inflation."
-    scene: "The recessionary gap remains 34.8 billion while expected inflation could be 2% to 3%. Stress a one-point nominal hike across that range and select the claim that always survives."
+    scene: "The economy still has a demand shortfall. Test the borrowing-cost effect of a proposed one-percentage-point nominal rate rise before treating it as a recovery measure."
     motivation: "The real-rate sensitivity test shows which effects of tightening persist across the stated inflation expectations."
     format: STRESS
-    question: "Inspect all settings and submit one policy choice: \"do not raise now.\""
-    answerText: "\"Do not raise now; the hike tightens real borrowing conditions in every tested case.\""
+    question: "Sweep expected inflation from 2% to 3% in 0.25-point steps. Use r=i−πe and compare before and after a one-point rise in i with πe fixed within each run; select the statement that always holds."
+    answerText: "The real borrowing rate rises by one percentage point in every run. Under the stated weak-demand objective, that is a tightening effect, not evidence that the hike closes the gap."
     why: "A hike raises the real rate across the range and worsens weak demand."
     # wrong-path feedback, one rebuttal per wrong option:
     #   A different response does not fit the displayed evidence. A hike raises the real rate across the range and worsens weak demand.

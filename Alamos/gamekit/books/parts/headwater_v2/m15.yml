@@ -195,10 +195,10 @@
     title: "Close the final water ledger"
     concept: 15   # accumulated change/area/average
     reason: "The updated forecast and verified releases are ready to be combined into the final storage balance."
-    scene: "With the forecast certified, count 14.00 million m^3 starting room, 17.28 storm inflow, 2.00 safety reserve, 3.60 turbine release, and 1.68 gate release. Close the signed ledger."
+    scene: "The final water ledger is ready. Every signed term must belong to the same physical balance before the crew can close it."
     motivation: "The signed water ledger determines whether planned drawdown covers storm inflow and the protected safety margin."
     format: BALLPARK
-    question: "Select which displayed entries are physical water streams, assign each its shown sign, and submit one signed ledger total in million m^3; exclude power price."
+    question: "In million m³, combine initial storage 14, inflows 3.6 and 1.68, release 17.28, and other loss 2. Fill the five terms of initial + inflow + inflow − release − loss. A price entry of 24 is not water."
     answerText: "the plan just clears required storage; power price is not water."
     why: "the plan just clears required storage; power price is not water. The final volume balance decides whether the staged gate plan is sufficient before motion begins."
     # wrong-path feedback, one rebuttal per wrong option:

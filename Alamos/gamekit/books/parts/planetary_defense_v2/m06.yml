@@ -153,10 +153,10 @@
     title: "Reproduce the assumption"
     concept: 3   # H-to-diameter estimate
     reason: "Certified brightness does not establish size until the notice's assumed reflectivity is made explicit."
-    scene: "The certified photometry gives H = 22.0, while the early notice silently assumed a bright albedo of 0.25. Estimate the diameter produced by that assumption and label the preliminary result as explicitly conditional."
+    scene: "The brightness estimate is ready, but size still depends on reflectivity. The team uses the stated albedo to make one conditional estimate."
     motivation: "The conditional diameter shows how strongly the early size estimate depends on the adopted albedo."
     format: BALLPARK
-    question: "Using every displayed input, submit one conditional diameter in meters."
+    question: "Use D=1329/√pV ×10^(−H/5) km with H=22 and pV=0.25. Fill H and pV; convert the result to metres."
     # Converted from the payload's `estimate`. Its three tiles keep its own
     # labels; the values are its own expressions worked out — 10^(-22/5) is
     # 3.9811e-5 and 1/sqrt(0.25) is 2 — because the panel multiplies numbers.

@@ -11,7 +11,7 @@
   objective: "Which drum inertia belongs in the winding model?"
   stake: "The fast start is held, but the drum record may be wrong too. Steel far from the shaft makes a drum harder to speed up. At the Winder House, check its shape against the old drawing. By the end of the mission, you decide which drum model belongs in the plan."
   takeaway: "Where mass sits matters when a body turns. ---"
-  segue: "Mission decision: Use the ring-shaped drum model. The measured hole changes how its mass is spread. The old drawing gets a warning tag. The rope record is next. Ewan marks the old drum drawing superseded in his own hand. The first record behind his promised timetable has failed a physical check."
+  segue: "The drum record is fixed, but Mara still has 12,000 kg of hanging rope missing from the load tally."
   # The mission card's own "Primer concepts", printed on the plan card.
   terms:
   - {name: "Rotational inertia", def: "a measure of how mass distribution resists changes in turning speed."}
@@ -85,9 +85,9 @@
       tolerance: 0.01
       units: m
       labels:
-        - rim speed (m/s)
-        - angular speed (rad/s)
-        - half-turn distractor
+        - "6"
+        - "3"
+        - "2"
       values:
         - 6
         - 3
@@ -97,7 +97,7 @@
         - 1
       slots: 2
       formula: a/b
-      template: "{0}/{1}"
+      template: "{0} / {1} = ? m"
       solution: "2"
 
   # --- Stop 6: Integrate the ring

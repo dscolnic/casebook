@@ -353,7 +353,7 @@
     scene: "The rule must keep every chair at or below the stated limit."
     motivation: "An inclusive speed threshold tells the operator exactly when the carousel must stop."
     format: TRIGGER
-    question: "Given r = 5.0 m, g = 9.80 m/s^2, theta_max = 20.0 degrees, and tan theta = v^2/(rg), submit one inclusive shutdown-threshold setting in m/s before the live speed unlocks; operation stops when measured speed is at or above that setting."
+    question: "Given r = 5.0 m, g = 9.80 m/s^2, theta_max = 20.0 degrees, and tan theta = v^2/(rg), choose the largest available 0.05 m/s increment that does not exceed the calculated boundary, then submit that inclusive shutdown-threshold setting in m/s before the live speed unlocks; operation stops when measured speed is at or above that setting."
     answerText: "Use an inclusive 4.20 m/s shutdown threshold; the 4.00 m/s test value passes."
     why: "The exact model boundary is about 4.22 m/s. The authored threshold stays just below it and clearly states what happens at equality."
     # wrong-path feedback, one rebuttal per wrong option:

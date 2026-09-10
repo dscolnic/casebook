@@ -11,7 +11,7 @@
   objective: "Today you decide whether Room 7 needs to be cleared or its index needs a fix."
   stake: "The link works, but Mei has a cold alarm for Room 7. An array index picks one item from a list. Match each room to its own reading before the crew moves out. By the end of the mission, decide if the room is cold or the code picked the wrong item."
   takeaway: "Room 7 is safe; the controller maps Room 6 and Room 7 to the wrong indexes, producing a false 4.1°C emergency. ---"
-  segue: "Mission decision: Room 7 is safe; the controller reads the wrong array item. Local room readings are right, but the code swaps the Room 6 and Room 7 labels. The crew cancels the move and fixes the index map. Now Park finds every second record gone from the incident view."
+  segue: "Now Park asks for the missing incident lines before she signs the recovery record."
   # The mission card's own "Primer concepts", printed on the plan card.
   terms:
   - {name: "array", def: "a fixed-length indexed collection whose elements all use one declared type. index: the numbered position used to access an element; Java arrays and lists start at index zero."}

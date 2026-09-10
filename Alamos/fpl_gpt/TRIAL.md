@@ -114,7 +114,7 @@ The QA path assumes target time, zero wrong submissions, 12 RP per mission, and 
 | 11 | File lock prevents further silent edits | 0/0/0/-3 | 0/0/0/12 | 100/100/100/67 |
 | 12 | Three problems require separate teams | 0/0/0/-6 | 0/0/0/12 | 100/100/100/73 |
 | 13 | Multiplicity correction locks evidence | 0/0/0/-4 | 0/0/0/12 | 100/100/100/81 |
-| 14 | One final follow-up wave is authorized | 0/0/0/-7 | 0/0/0/12 | 100/100/100/86 |
+| 14 | One conditional follow-up plan is authorized; enrollment remains gated | 0/0/0/-7 | 0/0/0/12 | 100/100/100/86 |
 | 15 | Board safeguards release reserve | 0/0/0/+2 | 0/0/0/12 | 100/100/100/100 |
 
 ---
@@ -1027,19 +1027,52 @@ Categorical values name groups, while quantitative values have meaningful numeri
 
 **Stop reason - exact player copy:** The two long recoveries need an objective flag before anyone removes or dismisses them.
 
-**Question card story setup - exact player copy:** One patient's recorded recovery time is 34 days, much longer than most recoveries in the trial. Calculate the upper fence, the cutoff above which a value is flagged as a possible outlier, to decide whether this record needs review.
+**Question card story setup - exact player copy:** An unusually long stay appears in the trial log. The team needs a consistent flag for review without silently deleting an observation.
 
-**Question card story-science connection - exact player copy:** The upper fence determines whether the recorded recovery warrants source review, not whether it should automatically be deleted.
+**Question card prompt - exact player copy:** Q1=10 days and Q3=18 days. Fill Q3 and the IQR in upper fence=Q3+1.5×IQR. Then compare a 34-day stay with that fence.
 
-**Question card prompt - exact player copy:** The recovery times have Q1=10 days and Q3=18 days. Using IQR=Q3-Q1 and upper fence=Q3+1.5(IQR), calculate the upper fence and decide whether the patient's 34-day recovery time should be flagged.
+**Complete format-specific interaction block — canonical BALLPARK:**
 
-**Correct result:** IQR = 8 days; upper fence = 18 + 1.5(8) = 30 days. Since 34 > 30, flag it and keep it pending review.
+```json
+{
+  "estimate": {
+    "quantity": "Mark the Extreme",
+    "labels": [
+      "18",
+      "8",
+      "10",
+      "34"
+    ],
+    "values": [
+      18,
+      8,
+      10,
+      34
+    ],
+    "slots": 2,
+    "template": "{a}+1.5 × {b} = ? days",
+    "formula": "a+1.5*b",
+    "correct": [
+      0,
+      1
+    ],
+    "target": 30,
+    "tolerance": 0.01,
+    "units": "days",
+    "correctResult": 30
+  },
+  "answerText": "IQR=18−10=8 days; the upper fence is 30 days. The 34-day stay is flagged for review and retained unless a justified data rule says otherwise.",
+  "wrongFeedback": [
+    "The IQR is Q3−Q1. An outlier flag is not permission to erase a genuine outcome."
+  ]
+}
+```
 
-**Answer text:** The completed check shows IQR = 8 days; upper fence = 18 + 1.5(8) = 30 days. Since 34 > 30, flag it and keep it pending review.
+**Rendering and grading contract:** Render every numeric label as a selectable tile. The printed equation supplies the slot roles; do not replace number labels with quantity names. `correct` contains zero-based tile indices for slots a onward. Accept numerically equivalent selections, including equal-valued tiles. Evaluate the formula on submission; tolerance is absolute in the stated output units. Negative and zero results require a signed linear display. The board has one submission; supporting comparisons appear in the result explanation.
 
-**Why:** An outlier flag triggers source review; it does not grant permission to delete a patient.
+**Correct result:** IQR=18−10=8 days; the upper fence is 30 days. The 34-day stay is flagged for review and retained unless a justified data rule says otherwise.
 
-**Wrong-path feedback:** First calculate the interquartile range, then add 1.5 times that range to Q3. Compare 34 days with that upper fence; do not compare it with Q3 alone.
+**Wrong-path feedback:** The IQR is Q3−Q1. An outlier flag is not permission to erase a genuine outcome.
 
 **State/output:** The 34-day record gains amber REVIEW, DO NOT DELETE; unlock S4; pays off M2/M7.
 
@@ -1065,21 +1098,60 @@ Categorical values name groups, while quantitative values have meaningful numeri
 
 **Stop reason - exact player copy:** The descriptive review is ready, but the board must separate registered claims from later discoveries.
 
-**Question card story setup - exact player copy:** Lena opens the registry that was locked before the first patient enrolled and places it beside the later analysis notes. Decide which conclusions were planned in advance and which appeared only after the team saw the data.
+**Question card story setup - exact player copy:** The registry was locked before enrollment. Compare its contents with the later notes before labeling analyses as planned.
 
-**Question card story-science connection - exact player copy:** The dated registry evidence determines which conclusions were planned before results and which require an exploratory label.
+**Question card prompt - exact player copy:** Only analyses listed in the pre-enrollment registry qualify as prespecified. Read the displayed source excerpts, then select every supported claim and leave unsupported claims unsigned.
 
-**Question card prompt - exact player copy:** The locked registry lists 30-day improvement, serious-event rate, and mean recovery time. The two-site treatment interaction and lab marker first appear in notes written after data review. Spend three checks on the pre-specified claims, then classify the interaction.
+**Complete format-specific interaction block - canonical source:**
 
-**Complete format-specific interaction block:** `attest:{verification_limit:3,claims:[{id:"primary_30d",label:"primary 30-day improvement",backed:true,critical:true},{id:"serious_event",label:"serious-event rate",backed:true,critical:true},{id:"recovery_mean",label:"recovery-time mean",backed:true,critical:false},{id:"site_interaction",label:"two-site treatment interaction",backed:false,critical:true},{id:"lab_marker",label:"exploratory lab marker",backed:false,critical:false}],required_checks:["primary_30d","serious_event","recovery_mean"],critical_unbacked:"site_interaction",correct_conclusion:"label the interaction exploratory",answerText:"Verify the three backed claims and label the critical, unbacked site interaction exploratory."}`
+```json
+{
+  "attest": {
+    "claims": [
+      {
+        "id": "primary_30d",
+        "label": "Primary 30-day improvement was prespecified",
+        "evidence": "The locked pre-enrollment registry lists primary improvement at day 30."
+      },
+      {
+        "id": "serious_event",
+        "label": "Serious-event rate was prespecified",
+        "evidence": "The locked pre-enrollment registry lists the serious-event outcome."
+      },
+      {
+        "id": "recovery_mean",
+        "label": "Mean recovery time was prespecified",
+        "evidence": "The locked pre-enrollment registry lists mean recovery time."
+      },
+      {
+        "id": "site_interaction",
+        "label": "The two-site interaction was prespecified",
+        "evidence": "The interaction first appears in notes written after the results were examined, not in the locked registry."
+      },
+      {
+        "id": "lab_marker",
+        "label": "The lab marker was prespecified",
+        "evidence": "The marker is labelled exploratory in the later analysis notes and absent from the locked registry."
+      }
+    ],
+    "selection_rule": "Support must be present in the displayed source excerpt and within its scope; a signature or repeated copy alone is insufficient.",
+    "correct_signed": [
+      "primary_30d",
+      "serious_event",
+      "recovery_mean"
+    ],
+    "checks": 3
+  }
+}
+```
 
-**Correct result:** Verify the first three; interaction is critical but unbacked.
+**Evidence delivery and grading:** The setup, decision evidence, public rules, costs and option descriptions are visible on this card before selection. Render option descriptions beside their controls, once; never replace them with internal axis IDs or a generic earlier-case sentence. Answer keys, accepted examples and feedback stay hidden until submission. Reveal withheld measurements only after the stated commitment. Use the public feasibility/selection rule; an example allocation is not an exclusive key. The displayed person must match this stop’s placement and Call.
 
-**Answer text:** Keep the three timestamped claims as pre-specified and report the two-site pattern transparently as exploratory monitoring evidence.
+**Correct result:** Sign primary_30d, serious_event, recovery_mean; leave the other claims unsigned.
 
-**Why:** A clear sample statistic cannot turn an unregistered observation into a pre-specified population claim.
+**Answer text:** Each signature is limited to what its source establishes. The unsupported claims lack the specific date, physical condition, independence or scope they assert.
 
-**Wrong-path feedback:** Recheck when each claim was recorded. A pre-enrollment timestamp supports pre-specification, not truth; a pattern first written after data review must be labeled exploratory even when it looks important.
+**Wrong-path feedback:** Identify the unmet public condition or the specific measurement that the selected option cannot provide; keep the original evidence available for retry.
 
 **State/output:** Binder piece 1 appears; next briefing unlocks; sets up M4/M13.
 
@@ -1533,19 +1605,52 @@ Mean, SD, and range are sensitive to extremes; median and IQR resist them. z exp
 
 **Stop reason - exact player copy:** The verified recovery records still need a center that is not dominated by one long case.
 
-**Question card story setup - exact player copy:** The verified sample contains recovery times of 4, 5, 5, 6, and 20 days. Compare the mean and median to learn which summary stays closer to the experience of most patients.
+**Question card story setup - exact player copy:** One long stay pulls on the summary. The trial team compares what the mean and median say about this small set.
 
-**Question card story-science connection - exact player copy:** The mean-median comparison shows which summary stays closer to most patients' recovery experience.
+**Question card prompt - exact player copy:** Recorded stays are 4,5,5,6,20 days. Calculate their sum and select it with the number of observations in mean=sum/count. After submitting, compare the mean with the middle ordered value.
 
-**Question card prompt - exact player copy:** Submit mean and median in days from values 4,5,5,6,20; formula mean=sum/5. BALLPARK slots sum,mean,median; targets 40,8,5; tolerances 0,0.01,0.01.
+**Complete format-specific interaction block — canonical BALLPARK:**
 
-**Correct result:** Mean = 40/5 = 8 days; median = 5 days. The high value pulls the mean above the median, matching right skew.
+```json
+{
+  "estimate": {
+    "quantity": "Which Center Survives",
+    "labels": [
+      "40",
+      "5",
+      "20",
+      "6"
+    ],
+    "values": [
+      40,
+      5,
+      20,
+      6
+    ],
+    "slots": 2,
+    "template": "{a} / {b} = ? days",
+    "formula": "a/b",
+    "correct": [
+      0,
+      1
+    ],
+    "target": 8,
+    "tolerance": 0.01,
+    "units": "days",
+    "correctResult": 8
+  },
+  "answerText": "The mean is 40/5=8 days; the median is 5 days. The long stay raises the mean above the median. Both summaries describe the same retained data.",
+  "wrongFeedback": [
+    "There are five observations; 20 is one stay, not the total or the sample size."
+  ]
+}
+```
 
-**Answer text:** The completed check shows mean = 40/5 = 8 days; median = 5 days. The high value pulls the mean above the median, matching right skew.
+**Rendering and grading contract:** Render every numeric label as a selectable tile. The printed equation supplies the slot roles; do not replace number labels with quantity names. `correct` contains zero-based tile indices for slots a onward. Accept numerically equivalent selections, including equal-valued tiles. Evaluate the formula on submission; tolerance is absolute in the stated output units. Negative and zero results require a signed linear display. The board has one submission; supporting comparisons appear in the result explanation.
 
-**Why:** A treatment claim built on a pulled mean may exaggerate what a typical patient gains.
+**Correct result:** The mean is 40/5=8 days; the median is 5 days. The long stay raises the mean above the median. Both summaries describe the same retained data.
 
-**Wrong-path feedback:** pair: mean days, median days
+**Wrong-path feedback:** There are five observations; 20 is one stay, not the total or the sample size.
 
 **State/output:** Viewer displays MEAN 8, MEDIAN 5; unlock S2.
 
@@ -2155,19 +2260,50 @@ derive:
 
 **Stop reason - exact player copy:** The unique warning count leaves the shipment-flagged group needing its own risk estimate.
 
-**Question card story setup - exact player copy:** With duplicate reports removed, the shipment flag can become the conditioning group rather than another headline count. Use the two-percent overlap and five-percent flag rate to calculate the serious-event probability among flagged shipments.
+**Question card story setup - exact player copy:** The positive-test group is the relevant denominator now. The team must not substitute the whole screened population.
 
-**Question card story-science connection - exact player copy:** Conditional event probability measures how concentrated serious events are among flagged shipments.
+**Question card prompt - exact player copy:** P(condition and positive)=0.02 and P(positive)=0.05. Fill joint probability and positive-test probability in P(condition|positive)=joint/positive.
 
-**Question card prompt - exact player copy:** The probability of both a serious event and a shipment flag is 0.02, while the probability of a shipment flag is 0.05. Use `P(serious event | shipment flag)=P(serious event and shipment flag)/P(shipment flag)` and submit the conditional probability as a percent.
+**Complete format-specific interaction block — canonical BALLPARK:**
 
-**Correct result:** P(serious event | shipment flag)=0.02/0.05=0.40, so 40% of flagged shipments coincide with a serious event.
+```json
+{
+  "estimate": {
+    "quantity": "Ask Among the Flagged",
+    "labels": [
+      "0.02",
+      "0.05",
+      "0.4"
+    ],
+    "values": [
+      0.02,
+      0.05,
+      0.4
+    ],
+    "slots": 2,
+    "template": "{a} / {b} = ? probability",
+    "formula": "a/b",
+    "correct": [
+      0,
+      1
+    ],
+    "target": 0.4,
+    "tolerance": 0.001,
+    "units": "probability",
+    "correctResult": 0.4
+  },
+  "answerText": "The conditional probability is 0.02/0.05=0.40, or 40%. The denominator restricts attention to positive tests.",
+  "wrongFeedback": [
+    "A joint probability alone does not answer a conditional question."
+  ]
+}
+```
 
-**Answer text:** The completed check shows p(serious event | shipment flag)=0.02/0.05=0.40, so 40% of flagged shipments coincide with a serious event.
+**Rendering and grading contract:** Render every numeric label as a selectable tile. The printed equation supplies the slot roles; do not replace number labels with quantity names. `correct` contains zero-based tile indices for slots a onward. Accept numerically equivalent selections, including equal-valued tiles. Evaluate the formula on submission; tolerance is absolute in the stated output units. Negative and zero results require a signed linear display. The board has one submission; supporting comparisons appear in the result explanation.
 
-**Why:** A high conditional rate directs the next inspection toward handling without proving that handling caused harm.
+**Correct result:** The conditional probability is 0.02/0.05=0.40, or 40%. The denominator restricts attention to positive tests.
 
-**Wrong-path feedback:** conditional probability or percent
+**Wrong-path feedback:** A joint probability alone does not answer a conditional question.
 
 **State/output:** shipment lane gains 40% conditional-rate label; unlock S3.
 
@@ -2830,41 +2966,6 @@ choice:
 
 **Complete format-specific interaction block:** `trigger:{decision_rule:"reject H0 only when adjusted p ≤ 0.025",scale:{min:0,max:0.10,anchors:[0.01,0.02,0.05,0.10]},objective:"limit false-positive risk after the extra look",direction:"smaller p is stronger evidence",consequence_limit:{value:0.025,label:"family false-positive risk"},mapping:{type_I:"stop an effective trial",type_II:"continue a harmful trial",power:"1-beta"},update:{p:0.031,decision:"fail to reject"},answerText:"The inclusive threshold is 0.025; because 0.031 is larger, fail to reject H0."}`
 
-**§7 authored-board source - TRIGGER:** Convert this stop from its authored interaction block below. Do not substitute a format-level template. The panel must state the goal without printing the keyed answer.
-
-```yaml
-authored_board:
-  stop: "Stop 16 - Price the Errors"
-  format: "TRIGGER"
-  source: "Handback 3 canonical interaction block"
-  question: "An unplanned second look must share the total 0.05 false-positive allowance equally with the first look. Before the new P-value appears, set the inclusive cutoff, match Type I error, Type II error, and power to their trial consequences, then reveal P=0.031 and decide whether to reject the null hypothesis."
-  payload: "`trigger:{decision_rule:\"reject H0 only when adjusted p ≤ 0.025\",scale:{min:0,max:0.10,anchors:[0.01,0.02,0.05,0.10]},objective:\"limit false-positive risk after the extra look\",direction:\"smaller p is stronger evidence\",consequence_limit:{value:0.025,label:\"family false-positive risk\"},mapping:{type_I:\"stop an effective trial\",type_II:\"continue a harmful trial\",power:\"1-beta\"},update:{p:0.031,decision:\"fail to reject\"},answerText:\"The inclusive threshold is 0.025; because 0.031 is larger, fail to reject H0.\"}`"
-  axis_and_units: "Use only quantities and units named in this question and payload."
-  candidates_and_numbers: "Use only candidates and numbers named in this question and payload."
-  panel_rule: "Print the goal, never the target or keyed answer."
-```
-
-**Handback 3 canonical interaction block - TRIGGER:**
-
-```yaml
-trigger:
-  rule: "Commit the threshold before the stream appears; act only when a reading enters the action window with enough lead time."
-  scale: {label: "family-wise false-positive risk", min: 0, max: 10, step: 0.1, unit: "%"}
-  start: 2
-  anchors:
-    - {at: 2, means: "routine baseline, not the decision threshold"}
-    - {at: 6.5, means: "elevated evidence requiring attention"}
-  direction: rising
-  updates:
-    - {at: "T-48 h", value: 1, hoursLeft: 48}
-    - {at: "T-24 h", value: 2, hoursLeft: 24}
-    - {at: "T-12 h", value: 3, hoursLeft: 12}
-    - {at: "T-6 h", value: 5, hoursLeft: 6}
-  stages:
-    - {id: watch, label: "Increase monitoring", window: {min: 0, max: 2.49}, leadHours: 24}
-    - {id: act, label: "Take the protective action", window: {min: 2.5, max: 10}, leadHours: 12}
-  question: "Rule: reject H0 only if adjusted p<=.025; scale 0-.10; anchors.01,.025,.05,.10; objective limit false-positive risk after extra look; direction lower p stronger; consequence limit no more than 2.5%. Submit threshold and map: Type I=stop effective trial, Type II=continue harmful trial, power=1-beta. Then reveal update p=.031 and select fail to reject."
-```
 
 **Correct result:** Threshold 0.025 inclusive; update p=0.031 produces fail to reject.
 
@@ -3911,19 +4012,50 @@ derive:
 
 **Stop reason - exact player copy:** The precision plan requires rural enrollment, whose screening workload remains uncertain.
 
-**Question card story setup - exact player copy:** Precision requires the repaired frame, but each screened rural candidate has success probability p=0.20. Calculate the expected number screened until the first enrollment and distinguish this geometric question from a fixed-trial binomial count.
+**Question card story setup - exact player copy:** Recruitment continues until the first eligible candidate. The team needs the expected waiting count for staffing.
 
-**Question card story-science connection - exact player copy:** Expected trials to first enrollment determines the screening effort implied by the per-candidate success probability.
+**Question card prompt - exact player copy:** Each independent candidate has eligibility probability p=0.20. For the geometric count including the first eligible candidate, fill 1 and p in E(N)=1/p.
 
-**Question card prompt - exact player copy:** Each independent rural screening has enrollment probability p=0.20. Using mean screens=1/p, submit the expected number of candidates screened until the first enrollment, then select whether this is a geometric or binomial model. Give the count in candidates. Accepted numerical tolerance is 0.01 candidates.
+**Complete format-specific interaction block — canonical BALLPARK:**
 
-**Correct result:** Expected trials to first success=1/.20=5. The number of trials is not fixed, so the model is geometric.
+```json
+{
+  "estimate": {
+    "quantity": "How Long Until the First",
+    "labels": [
+      "1",
+      "0.2",
+      "0.8"
+    ],
+    "values": [
+      1,
+      0.2,
+      0.8
+    ],
+    "slots": 2,
+    "template": "{a} / {b} = ? candidates",
+    "formula": "a/b",
+    "correct": [
+      0,
+      1
+    ],
+    "target": 5,
+    "tolerance": 0.01,
+    "units": "candidates",
+    "correctResult": 5
+  },
+  "answerText": "The expected count is 1/0.20=5 candidates. This geometric model counts trials through first success; it is not a fixed-size binomial count.",
+  "wrongFeedback": [
+    "The success probability is 0.20, not the failure probability 0.80."
+  ]
+}
+```
 
-**Answer text:** The completed check shows expected trials to first success=1/.20=5. The number of trials is not fixed, so the model is geometric.
+**Rendering and grading contract:** Render every numeric label as a selectable tile. The printed equation supplies the slot roles; do not replace number labels with quantity names. `correct` contains zero-based tile indices for slots a onward. Accept numerically equivalent selections, including equal-valued tiles. Evaluate the formula on submission; tolerance is absolute in the stated output units. Negative and zero results require a signed linear display. The board has one submission; supporting comparisons appear in the result explanation.
 
-**Why:** The waiting-time estimate turns a statistical repair into a calendar cost.
+**Correct result:** The expected count is 1/0.20=5 candidates. This geometric model counts trials through first success; it is not a fixed-size binomial count.
 
-**Wrong-path feedback:** candidates screened
+**Wrong-path feedback:** The success probability is 0.20, not the failure probability 0.80.
 
 **State/output:** five-candidate staffing added; binder 6; M7.
 
@@ -5169,19 +5301,53 @@ derive:
 
 **Stop reason - exact player copy:** The benchmark result makes a sufficiently precise replacement-kit audit necessary before release.
 
-**Question card story setup - exact player copy:** The exposed cohort exceeds the benchmark, and the replacement audit must be precise before release. Calculate the conservative minimum sample for 95% confidence and margin of error 0.03 using p-star=0.50.
+**Question card story setup - exact player copy:** The precision target now determines the kit order. A fractional requirement cannot be rounded down when the margin must be met.
 
-**Question card story-science connection - exact player copy:** The required sample size determines how many kits must be inspected to meet the planned margin of error.
+**Question card prompt - exact player copy:** Use n=z²p(1−p)/E² with z=1.96, p=0.5 and margin E=0.03. Fill z,p,E; round the result up to a whole kit.
 
-**Question card prompt - exact player copy:** Use `n=(z-star^2)(p-star)(1-p-star)/(margin of error)^2` with `z-star=1.96`, `p-star=0.50`, and margin of error 0.03. Calculate the minimum sample size and round up to a whole number of kits.
+**Complete format-specific interaction block — canonical BALLPARK:**
 
-**Correct result:** Round up to 1,068 kits. Lower confidence or larger n changes margin of error; using.50 is conservative when p is unknown.
+```json
+{
+  "estimate": {
+    "quantity": "Size the Confirmation",
+    "labels": [
+      "1.96",
+      "0.5",
+      "0.03",
+      "3"
+    ],
+    "values": [
+      1.96,
+      0.5,
+      0.03,
+      3
+    ],
+    "slots": 3,
+    "template": "ceil({a} × {a} × {b} × (1-{b}) / ({c} × {c})) = ? kits",
+    "formula": "ceil(a*a*b*(1-b)/(c*c))",
+    "correct": [
+      0,
+      1,
+      2
+    ],
+    "target": 1068,
+    "tolerance": 0.01,
+    "units": "kits",
+    "correctResult": 1068
+  },
+  "answerText": "The unrounded requirement is 1067.11…, so order 1,068 kits. Rounding down would miss the stated precision requirement under this planning formula.",
+  "wrongFeedback": [
+    "Use 0.03 for three percentage points and round sample size upward."
+  ]
+}
+```
 
-**Answer text:** The completed check shows round up to 1,068 kits. Lower confidence or larger n changes margin of error; using.50 is conservative when p is unknown.
+**Rendering and grading contract:** Render every numeric label as a selectable tile. The printed equation supplies the slot roles; do not replace number labels with quantity names. `correct` contains zero-based tile indices for slots a onward. Accept numerically equivalent selections, including equal-valued tiles. Evaluate the formula on submission; tolerance is absolute in the stated output units. Negative and zero results require a signed linear display. The board has one submission; supporting comparisons appear in the result explanation.
 
-**Why:** Rounding down would promise precision the audit cannot deliver.
+**Correct result:** The unrounded requirement is 1067.11…, so order 1,068 kits. Rounding down would miss the stated precision requirement under this planning formula.
 
-**Wrong-path feedback:** minimum whole kits
+**Wrong-path feedback:** Use 0.03 for three percentage points and round sample size upward.
 
 **State/output:** cohort quarantined; binder 8; M9.
 
@@ -5794,63 +5960,68 @@ derive:
 
 **Stop reason - exact player copy:** The detectable guessing gap must be reconciled with intact concealment and uncertain survey response.
 
-**Question card story setup - exact player copy:** The arm difference is statistically detectable, but the sealed-box audit remained intact and both correct-guess rates are low. Stress the conclusion across survey nonresponse from zero to five percentage points and choose the supported claim.
+**Question card story setup - exact player copy:** The survey shows different guessing rates, while the independent sealed-box audit remains intact. Test whether the measured gap survives the specified nonresponse adjustment.
 
-**Question card story-science connection - exact player copy:** The sensitivity analysis determines how strongly the board can interpret unequal guessing without declaring the blind broken.
+**Question card prompt - exact player copy:** Treatment correct guesses are 30/200 and placebo correct guesses 16/200. Apply a possible 0–5 percentage-point correction that reduces their difference; select the claim supported throughout without claiming that guessing proves an allocation breach.
 
-**Question card prompt - exact player copy:** Move nonresponse from 0 to 5 percentage points in 1-point steps while holding the sealed-box audit fixed. Submit the conclusion surviving the full range.
+**Complete format-specific interaction block - canonical source:**
 
-**Complete format-specific interaction block:** assumption range nonresponse shift 0-.05 step.01; candidates concealment failed, guessing differed, randomisation caused guesses, no evidence; correct guessing differed survives, concealment failed darkens above.01.
-
-**§7 authored-board source - STRESS:** Convert this stop from its authored interaction block below. Do not substitute a format-level template. The panel must state the goal without printing the keyed answer.
-
-```yaml
-authored_board:
-  stop: "Stop 36 - Say What It Means"
-  format: "STRESS"
-  source: "Handback 3 canonical interaction block"
-  question: "Move nonresponse from 0 to 5 percentage points in 1-point steps while holding the sealed-box audit fixed. Submit the conclusion surviving the full range."
-  payload: "assumption range nonresponse shift 0-.05 step.01; candidates concealment failed, guessing differed, randomisation caused guesses, no evidence; correct guessing differed survives, concealment failed darkens above.01."
-  axis_and_units: "Use only quantities and units named in this question and payload."
-  candidates_and_numbers: "Use only candidates and numbers named in this question and payload."
-  panel_rule: "Print the goal, never the target or keyed answer."
+```json
+{
+  "stress": {
+    "model": {
+      "treatment": 0.15,
+      "placebo": 0.08,
+      "nonresponse_correction_pp": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "adjusted_gap_pp": [
+        7,
+        6,
+        5,
+        4,
+        3,
+        2
+      ],
+      "sealed_box": "independent audit intact",
+      "criterion": "descriptive gap stays positive; no causal conclusion from guessing alone"
+    },
+    "candidates": [
+      {
+        "id": "gap",
+        "label": "The adjusted guessing gap stays positive; a concealment breach is not established"
+      },
+      {
+        "id": "breach",
+        "label": "The survey proves allocation was exposed"
+      },
+      {
+        "id": "cause",
+        "label": "Randomization caused the guessing difference"
+      },
+      {
+        "id": "none",
+        "label": "The survey contains no evidence"
+      }
+    ],
+    "correct": "gap",
+    "public_rule": "Use the displayed model and criterion over the entire stated range; no hidden preference scores."
+  }
+}
 ```
 
-**Handback 3 canonical interaction block - STRESS:**
+**Evidence delivery and grading:** The setup, decision evidence, public rules, costs and option descriptions are visible on this card before selection. Render option descriptions beside their controls, once; never replace them with internal axis IDs or a generic earlier-case sentence. Answer keys, accepted examples and feedback stay hidden until submission. Reveal withheld measurements only after the stated commitment. Use the public feasibility/selection rule; an example allocation is not an exclusive key. The displayed person must match this stop’s placement and Call.
 
-```yaml
-stress:
-  assumption: {label: "unmeasured outcome shift", min: -5, max: 5, nominal: 0.0, step: 1, unit: "percentage points"}
-  criteria:
-    - {id: evidence_fit, label: "fit to the stop evidence", direction: maximise}
-    - {id: safety_margin, label: "margin at the adverse end", direction: maximise}
-  optimiseOn: evidence_fit
-  candidates:
-    - id: nominal_only
-      label: "Use only the nominal reading"
-      scores: {evidence_fit: 95, safety_margin: 20}
-      validRange: {min: 0.0, max: 0.0}
-      failsAt: 5
-    - id: common_extreme_mistake
-      label: "Use the favorable extreme as if it were guaranteed"
-      scores: {evidence_fit: 88, safety_margin: 5}
-      validRange: {min: 0.0, max: 5}
-      failsAt: -5
-    - id: robust_plan
-      label: "Report unequal guessing proportions, not a proven allocation breach. Design, audit, and survey limitations constrain scope."
-      scores: {evidence_fit: 82, safety_margin: 92}
-      validRange: {min: -5, max: 5}
-  robust: robust_plan
-  question: "Move nonresponse from 0 to 5 percentage points in 1-point steps while holding the sealed-box audit fixed. Submit the conclusion surviving the full range."
-```
+**Correct result:** The adjusted descriptive gap ranges from 7 to 2 percentage points. It does not prove a concealment breach or guarantee statistical significance under every missing-data model.
 
-**Correct result:** Report unequal guessing proportions, not a proven allocation breach. Design, audit, and survey limitations constrain scope.
+**Answer text:** The adjusted descriptive gap ranges from 7 to 2 percentage points. It does not prove a concealment breach or guarantee statistical significance under every missing-data model.
 
-**Answer text:** The completed check shows report unequal guessing proportions, not a proven allocation breach. Design, audit, and survey limitations constrain scope.
-
-**Why:** The board must separate evidence of unequal guessing from proof that allocation was exposed.
-
-**Wrong-path feedback:** Difference proves broken concealment
+**Wrong-path feedback:** Identify the unmet public condition or the specific measurement that the selected option cannot provide; keep the original evidence available for retry.
 
 **State/output:** binder 9; M10.
 
@@ -6822,7 +6993,7 @@ Retrieve sampling-distribution logic and use it to distinguish ordinary variabil
 
 **Trigger:** accepted_stop_42.
 
-**World state:** At `holdout-safe`, the dated accepted-result slip for Stop 42 reads: "Freeze B before reveal; it stays within expected error on unseen records.". The slip remains in that fixture’s evidence holder.
+**World state:** At `holdout-safe`, the dated accepted-result slip for Stop 42 reads: "All candidate rules frozen before reveal; B selected afterward at 1.6% error.". The slip remains in that fixture’s evidence holder.
 
 **Panel/HUD text:** STOP 42 RECORDED - STOP 43 OPEN
 
@@ -6950,55 +7121,40 @@ derive:
 
 **Stop reason - exact player copy:** The expected extraction spread allows a fair test of cleaning rules on untouched records.
 
-**Question card story setup - exact player copy:** The expected spread is two units, and three candidate cleaning rules fit the development rows. Freeze one rule before the console reveals 20 previously held-out source records and their errors.
+**Question card story setup - exact player copy:** Three cleaning rules fit the development records. The team seals all three rules before using the untouched validation set to compare them.
 
-**Question card story-science connection - exact player copy:** Held-out errors determine whether the frozen cleaning rule generalizes beyond the development rows.
+**Question card prompt - exact player copy:** Freeze the three supplied rules, then reveal their held-out error rates. Select a rule only if its held-out error is at most 2.0%; choose the lowest held-out error if more than one passes. Do not tune any rule on this set.
 
-**Question card prompt - exact player copy:** Review training errors for rules A, B, and C, then freeze one documented rule before 20 held-out records unlock. Submit the rule with acceptable unseen error.
+**Complete format-specific interaction block - canonical source:**
 
-**Complete format-specific interaction block:** training fits A1.2,B1.3,C1.4 error; freeze B due documented rule; heldout A4.8,B1.6,C3.9; correct B; settings and revealed data supplied.
-
-**Handback 4 canonical interaction block - HOLDOUT:**
-
-**Handback 5 canonical interaction block - HOLDOUT:**
-
-```yaml
-holdout:
-  axis: {label: "allowed prediction error", min: 0, max: 5, step: 0.5, unit: "%"}
-  fit: [{at: 0.5, value: 0.62}, {at: 1.0, value: 0.78}, {at: 1.5, value: 0.88}, {at: 2.0, value: 0.98}, {at: 2.5, value: 0.86}]
-  test: [{at: 0.5, value: 0.40}, {at: 1.0, value: 0.66}, {at: 1.5, value: 0.85}, {at: 2.0, value: 0.55}, {at: 2.5, value: 0.82}]
-  passScore: 0.80
-  overfitAt: 2.0
-  correctAt: 1.5
-  frozenRule: B
-  ruleErrors:
-    - {id: A, training: 1.2, heldout: 4.8, unit: "%"}
-    - {id: B, training: 1.3, heldout: 1.6, unit: "%"}
-    - {id: C, training: 1.4, heldout: 3.9, unit: "%"}
-  correctChoice: B
+```json
+{
+  "holdout": {
+    "freeze_required": true,
+    "training_errors_percent": {
+      "A": 1.2,
+      "B": 1.3,
+      "C": 1.4
+    },
+    "reveal_after_commit": {
+      "A": 4.8,
+      "B": 1.6,
+      "C": 3.9
+    },
+    "public_limit_percent": 2.0,
+    "public_selection_rule": "lowest held-out error among passing frozen rules; none if no rule passes",
+    "correctChoice": "B"
+  }
+}
 ```
 
-**§7 authored-board source - HOLDOUT:** Convert this stop from its authored interaction block below. Do not substitute a format-level template. The panel must state the goal without printing the keyed answer.
+**Evidence delivery and grading:** The setup, decision evidence, public rules, costs and option descriptions are visible on this card before selection. Render option descriptions beside their controls, once; never replace them with internal axis IDs or a generic earlier-case sentence. Answer keys, accepted examples and feedback stay hidden until submission. Reveal withheld measurements only after the stated commitment. Use the public feasibility/selection rule; an example allocation is not an exclusive key. The displayed person must match this stop’s placement and Call.
 
-```yaml
-authored_board:
-  stop: "Stop 42 - Freeze Before Revealing"
-  format: "HOLDOUT"
-  source: "Complete format-specific interaction block"
-  question: "Review training errors for rules A, B, and C, then freeze one documented rule before 20 held-out records unlock. Submit the rule with acceptable unseen error."
-  payload: "training fits A1.2,B1.3,C1.4 error; freeze B due documented rule; heldout A4.8,B1.6,C3.9; correct B; settings and revealed data supplied."
-  axis_and_units: "Use only quantities and units named in this question and payload."
-  candidates_and_numbers: "Use only candidates and numbers named in this question and payload."
-  panel_rule: "Print the goal, never the target or keyed answer."
-```
+**Correct result:** B; 1.6% held-out error meets the inclusive 2.0% limit.
 
-**Correct result:** Freeze B before reveal; it stays within expected error on unseen records.
+**Answer text:** A and C fail the stated error ceiling. B is selected after reveal from previously frozen candidates; it is not rewarded for being guessed before the data were available.
 
-**Answer text:** The completed check shows freeze B before reveal; it stays within expected error on unseen records.
-
-**Why:** A holdout prevents the rule from being rewarded for memorizing the same anomalies it must predict.
-
-**Wrong-path feedback:** Tune on holdout; freeze before reveal
+**Wrong-path feedback:** Identify the unmet public condition or the specific measurement that the selected option cannot provide; keep the original evidence available for retry.
 
 **State/output:** independent hash created; travel STAT.
 
@@ -7081,21 +7237,61 @@ trace:
 
 **Stop reason - exact player copy:** The independent rerun passes, but the final data lock still needs enforceable controls.
 
-**Question card story setup - exact player copy:** The independent extraction survives its holdout and dependency audit. Verify the source hash, signed timestamp, frozen analysis plan, and read-only archive while rejecting the copied report as genuinely independent support.
+**Question card story setup - exact player copy:** The extraction passed its holdout, but the evidence record still needs an audit trail. Sign only what the frozen records and source map establish.
 
-**Question card story-science connection - exact player copy:** Verified hashes, timestamps, analysis plans, and archive permissions determine whether the locked table is genuinely reproducible and protected.
+**Question card prompt - exact player copy:** Require source identity, timing, analysis freeze and read-only preservation; count a shared-source copy only once. Read the displayed source excerpts, then select every supported claim and leave unsupported claims unsigned.
 
-**Question card prompt - exact player copy:** Select exactly four backed controls: source hash, signed timestamp, frozen plan, and read-only permission. Submit the attestation while rejecting copied-report agreement as independent evidence.
+**Complete format-specific interaction block - canonical source:**
 
-**Complete format-specific interaction block:** `attest:{verification_limit:4,claims:[{id:"source_hash",label:"source hash",signed:true,backed:true,critical:true},{id:"timestamp",label:"signed timestamp",signed:true,backed:true,critical:true},{id:"analysis_plan",label:"frozen analysis plan",signed:true,backed:true,critical:true},{id:"readonly",label:"read-only archive permission",signed:true,backed:true,critical:true},{id:"copied_reports",label:"three copied reports are independent",signed:true,backed:false,critical:true}],correct_verified:["source_hash","timestamp","analysis_plan","readonly"],critical_unbacked:"copied_reports",answerText:"Verify the four independent lock records and reject copied-report agreement as independent support."}`
+```json
+{
+  "attest": {
+    "claims": [
+      {
+        "id": "source_hash",
+        "label": "The source file is identified",
+        "evidence": "The extraction record and frozen archive show the same source hash."
+      },
+      {
+        "id": "timestamp",
+        "label": "The source timing is signed",
+        "evidence": "The archive retains the signed timestamp associated with that source hash."
+      },
+      {
+        "id": "analysis_plan",
+        "label": "The analysis plan was frozen",
+        "evidence": "The stored plan is locked before the withheld extraction was opened."
+      },
+      {
+        "id": "readonly",
+        "label": "The evidence archive is read-only",
+        "evidence": "The archive permission record permits reading but not alteration of the frozen file."
+      },
+      {
+        "id": "copied_reports",
+        "label": "Three copied reports independently confirm the result",
+        "evidence": "All three reports point to the same extraction and source hash."
+      }
+    ],
+    "selection_rule": "Support must be present in the displayed source excerpt and within its scope; a signature or repeated copy alone is insufficient.",
+    "correct_signed": [
+      "source_hash",
+      "timestamp",
+      "analysis_plan",
+      "readonly"
+    ],
+    "checks": 4
+  }
+}
+```
 
-**Correct result:** Lock the independently rerun table with four backed controls; matching dependent reports add no independent evidence.
+**Evidence delivery and grading:** The setup, decision evidence, public rules, costs and option descriptions are visible on this card before selection. Render option descriptions beside their controls, once; never replace them with internal axis IDs or a generic earlier-case sentence. Answer keys, accepted examples and feedback stay hidden until submission. Reveal withheld measurements only after the stated commitment. Use the public feasibility/selection rule; an example allocation is not an exclusive key. The displayed person must match this stop’s placement and Call.
 
-**Answer text:** The completed check shows lock the independently rerun table with four backed controls; matching dependent reports add no independent evidence.
+**Correct result:** Sign source_hash, timestamp, analysis_plan, readonly; leave the other claims unsigned.
 
-**Why:** A lock preserves the analysis boundary only if its evidence and permissions are independently backed.
+**Answer text:** Each signature is limited to what its source establishes. The unsupported claims lack the specific date, physical condition, independence or scope they assert.
 
-**Wrong-path feedback:** Copied reports provide three proofs
+**Wrong-path feedback:** Identify the unmet public condition or the specific measurement that the selected option cannot provide; keep the original evidence available for retry.
 
 **State/output:** binder 11; Integrity lock; M12.
 
@@ -8219,21 +8415,97 @@ derive:
 
 **Stop reason - exact player copy:** The slope finding joins several secondary analyses, so the correction family must be established.
 
-**Question card story setup - exact player copy:** The slope survives its own test, but the registry lists ten secondary analyses sharing one family. Verify all ten timestamps and reject an eleventh biomarker analysis added after results appeared.
+**Question card story setup - exact player copy:** The secondary-analysis family must be counted before adjusting its error allowance. The registry distinguishes planned tests from a later exploratory addition.
 
-**Question card story-science connection - exact player copy:** The timestamps determine which tests belong to the pre-specified family and which results remain exploratory.
+**Question card prompt - exact player copy:** Use registry timestamps to identify the predeclared family; do not add a later analysis to that original family. Read the displayed source excerpts, then select every supported claim and leave unsupported claims unsigned.
 
-**Question card prompt - exact player copy:** Verify the ten preregistered secondary-test timestamps and reject the post-result biomarker claim. Submit the ten-test correction family.
+**Complete format-specific interaction block - canonical source:**
 
-**Complete format-specific interaction block:** `attest:{verification_limit:10,claims:[{id:"secondary_1",signed:true,backed:true,critical:true},{id:"secondary_2",signed:true,backed:true,critical:true},{id:"secondary_3",signed:true,backed:true,critical:true},{id:"secondary_4",signed:true,backed:true,critical:true},{id:"secondary_5",signed:true,backed:true,critical:true},{id:"secondary_6",signed:true,backed:true,critical:true},{id:"secondary_7",signed:true,backed:true,critical:true},{id:"secondary_8",signed:true,backed:true,critical:true},{id:"secondary_9",signed:true,backed:true,critical:true},{id:"secondary_10",signed:true,backed:true,critical:true},{id:"late_biomarker",signed:true,backed:false,critical:true}],correct_verified:["secondary_1","secondary_2","secondary_3","secondary_4","secondary_5","secondary_6","secondary_7","secondary_8","secondary_9","secondary_10"],critical_unbacked:"late_biomarker",answerText:"Count and verify all ten preregistered secondary claims; exclude the biomarker added after results appeared."}`
+```json
+{
+  "attest": {
+    "claims": [
+      {
+        "id": "secondary_1",
+        "label": "Secondary analysis 1 was preregistered",
+        "evidence": "The locked registry lists analysis 1 before results were opened."
+      },
+      {
+        "id": "secondary_2",
+        "label": "Secondary analysis 2 was preregistered",
+        "evidence": "The locked registry lists analysis 2 before results were opened."
+      },
+      {
+        "id": "secondary_3",
+        "label": "Secondary analysis 3 was preregistered",
+        "evidence": "The locked registry lists analysis 3 before results were opened."
+      },
+      {
+        "id": "secondary_4",
+        "label": "Secondary analysis 4 was preregistered",
+        "evidence": "The locked registry lists analysis 4 before results were opened."
+      },
+      {
+        "id": "secondary_5",
+        "label": "Secondary analysis 5 was preregistered",
+        "evidence": "The locked registry lists analysis 5 before results were opened."
+      },
+      {
+        "id": "secondary_6",
+        "label": "Secondary analysis 6 was preregistered",
+        "evidence": "The locked registry lists analysis 6 before results were opened."
+      },
+      {
+        "id": "secondary_7",
+        "label": "Secondary analysis 7 was preregistered",
+        "evidence": "The locked registry lists analysis 7 before results were opened."
+      },
+      {
+        "id": "secondary_8",
+        "label": "Secondary analysis 8 was preregistered",
+        "evidence": "The locked registry lists analysis 8 before results were opened."
+      },
+      {
+        "id": "secondary_9",
+        "label": "Secondary analysis 9 was preregistered",
+        "evidence": "The locked registry lists analysis 9 before results were opened."
+      },
+      {
+        "id": "secondary_10",
+        "label": "Secondary analysis 10 was preregistered",
+        "evidence": "The locked registry lists analysis 10 before results were opened."
+      },
+      {
+        "id": "late_biomarker",
+        "label": "The biomarker belonged to the preregistered family",
+        "evidence": "Its first registry addition is dated after results were opened."
+      }
+    ],
+    "selection_rule": "Support must be present in the displayed source excerpt and within its scope; a signature or repeated copy alone is insufficient.",
+    "correct_signed": [
+      "secondary_1",
+      "secondary_2",
+      "secondary_3",
+      "secondary_4",
+      "secondary_5",
+      "secondary_6",
+      "secondary_7",
+      "secondary_8",
+      "secondary_9",
+      "secondary_10"
+    ],
+    "checks": 10
+  }
+}
+```
 
-**Correct result:** The correction family contains ten pre-specified tests; the added biomarker is exploratory.
+**Evidence delivery and grading:** The setup, decision evidence, public rules, costs and option descriptions are visible on this card before selection. Render option descriptions beside their controls, once; never replace them with internal axis IDs or a generic earlier-case sentence. Answer keys, accepted examples and feedback stay hidden until submission. Reveal withheld measurements only after the stated commitment. Use the public feasibility/selection rule; an example allocation is not an exclusive key. The displayed person must match this stop’s placement and Call.
 
-**Answer text:** The completed check shows the correction family contains ten pre-specified tests; the added biomarker is exploratory.
+**Correct result:** Sign secondary_1, secondary_2, secondary_3, secondary_4, secondary_5, secondary_6, secondary_7, secondary_8, secondary_9, secondary_10; leave the other claims unsigned.
 
-**Why:** Counting only significant results would hide the number of chances that produced them.
+**Answer text:** Each signature is limited to what its source establishes. The unsupported claims lack the specific date, physical condition, independence or scope they assert.
 
-**Wrong-path feedback:** Count only significant tests
+**Wrong-path feedback:** Identify the unmet public condition or the specific measurement that the selected option cannot provide; keep the original evidence available for retry.
 
 **State/output:** travel BOARD.
 
@@ -8269,41 +8541,6 @@ derive:
 
 **Complete format-specific interaction block:** `trigger:{prediction:{equation:"family risk=1-(1-alpha)^m",inputs:{alpha:0.05,m:10},truth:0.4013,tolerance:0.002},decision_rule:"retain only p≤0.005",scale:{min:0,max:0.05,anchors:[0.001,0.005,0.01,0.05]},updates:[0.0017,0.004,0.007,0.012,0.02,0.03,0.08,0.11,0.24,0.61],correct_survivors:[0.0017,0.004],answerText:"Ten uncorrected tests have 40.13% family risk; the Bonferroni line is 0.005, so only the first two p-values survive."}`
 
-**§7 authored-board source - TRIGGER:** Convert this stop from its authored interaction block below. Do not substitute a format-level template. The panel must state the goal without printing the keyed answer.
-
-```yaml
-authored_board:
-  stop: "Stop 52 - Correct Before Seeing"
-  format: "TRIGGER"
-  source: "Handback 3 canonical interaction block"
-  question: "calculate/commit 1-.95^10=.4013 and.05/10=.005; threshold scale 0-.05, anchors.001,.005,.01,.05; reveal p-values [.0017,.004,.007,.012,.02,.03,.08,.11,.24,.61]; survivors first two."
-  payload: "`trigger:{prediction:{equation:\"family risk=1-(1-alpha)^m\",inputs:{alpha:0.05,m:10},truth:0.4013,tolerance:0.002},decision_rule:\"retain only p≤0.005\",scale:{min:0,max:0.05,anchors:[0.001,0.005,0.01,0.05]},updates:[0.0017,0.004,0.007,0.012,0.02,0.03,0.08,0.11,0.24,0.61],correct_survivors:[0.0017,0.004],answerText:\"Ten uncorrected tests have 40.13% family risk; the Bonferroni line is 0.005, so only the first two p-values survive.\"}`"
-  axis_and_units: "Use only quantities and units named in this question and payload."
-  candidates_and_numbers: "Use only candidates and numbers named in this question and payload."
-  panel_rule: "Print the goal, never the target or keyed answer."
-```
-
-**Handback 3 canonical interaction block - TRIGGER:**
-
-```yaml
-trigger:
-  rule: "Commit the threshold before the stream appears; act only when a reading enters the action window with enough lead time."
-  scale: {label: "corrected p-value", min: 0, max: 0.05, step: 0.001, unit: "p"}
-  start: 0.01
-  anchors:
-    - {at: 0.01, means: "routine baseline, not the decision threshold"}
-    - {at: 0.0325, means: "elevated evidence requiring attention"}
-  direction: falling
-  updates:
-    - {at: "T-48 h", value: 0.045, hoursLeft: 48}
-    - {at: "T-24 h", value: 0.035, hoursLeft: 24}
-    - {at: "T-12 h", value: 0.025, hoursLeft: 12}
-    - {at: "T-6 h", value: 0.015, hoursLeft: 6}
-  stages:
-    - {id: watch, label: "Increase monitoring", window: {min: 0.0251, max: 0.05}, leadHours: 24}
-    - {id: act, label: "Take the protective action", window: {min: 0, max: 0.025}, leadHours: 12}
-  question: "calculate/commit 1-.95^10=.4013 and.05/10=.005; threshold scale 0-.05, anchors.001,.005,.01,.05; reveal p-values [.0017,.004,.007,.012,.02,.03,.08,.11,.24,.61]; survivors first two."
-```
 
 **Correct result:** 40.13%,.005 inclusive; first two survive.
 
@@ -8585,7 +8822,7 @@ No new equation is introduced; retrieve confidence intervals, power, expected va
 
 ## Main story happening - designer summary
 
-**Three locations:** STAT S1 stress intervals; REG S2 VALUE buys evidence; BOARD S3-S4 computes power direction and precommits trigger. Waypoints follow the uncertainty result. Apparent victory becomes a final constrained problem. One bounded follow-up is authorized.
+**Three locations:** STAT S1 stress intervals; REG S2 VALUE buys evidence; BOARD S3-S4 computes power direction and precommits trigger. Waypoints follow the uncertainty result. Apparent victory becomes a final constrained problem. One bounded follow-up plan is authorized, subject to the harm gate before any enrollment.
 
 ## Designer intent - not shown to player
 
@@ -8684,63 +8921,79 @@ Confidence intervals express plausible parameter ranges. Power concerns detectin
 
 **Stop reason - exact player copy:** The corrected benefit finding does not remove uncertainty about late harm.
 
-**Question card story setup - exact player copy:** The primary benefit interval excludes zero, while late harm ranges from -1 to +5 events per 1,000. Move the missing-outcome assumption through its registered range and watch which actions remain defensible.
+**Question card story setup - exact player copy:** The benefit finding survives, but late harm remains uncertain. The board must distinguish planning further evidence from authorizing more enrollment.
 
-**Question card story-science connection - exact player copy:** The missing-outcome sensitivity range determines whether benefit supports unconditional continuation or only a bounded follow-up.
+**Question card prompt - exact player copy:** Shift the harm interval [−1,+5] by each missing-outcome adjustment from −2 to +2 events per 1,000. Choose the conclusion consistent with every interval: no unconditional enrollment while a plausible upper bound crosses the safety line; prepare an evidence review and apply the separate enrollment gate.
 
-**Question card prompt - exact player copy:** Move the missing-outcome assumption from -2 to +2 events per 1,000 in steps of 1 while holding the model fixed. Submit the action defensible throughout.
+**Complete format-specific interaction block - canonical source:**
 
-**Complete format-specific interaction block:** assumption -2 to +2 events/1000 step1; candidates stop now, continue unconditionally, bounded follow-up with trigger; only bounded follow-up remains across full range.
-
-**§7 authored-board source - STRESS:** Convert this stop from its authored interaction block below. Do not substitute a format-level template. The panel must state the goal without printing the keyed answer.
-
-```yaml
-authored_board:
-  stop: "Stop 53 - Stress the Boundary"
-  format: "STRESS"
-  source: "Handback 3 canonical interaction block"
-  question: "Move the missing-outcome assumption from -2 to +2 events per 1,000 in steps of 1 while holding the model fixed. Submit the action defensible throughout."
-  payload: "assumption -2 to +2 events/1000 step1; candidates stop now, continue unconditionally, bounded follow-up with trigger; only bounded follow-up remains across full range."
-  axis_and_units: "Use only quantities and units named in this question and payload."
-  candidates_and_numbers: "Use only candidates and numbers named in this question and payload."
-  panel_rule: "Print the goal, never the target or keyed answer."
+```json
+{
+  "stress": {
+    "model": {
+      "base_harm_interval": [
+        -1,
+        5
+      ],
+      "shift_values": [
+        -2,
+        -1,
+        0,
+        1,
+        2
+      ],
+      "shifted_intervals": [
+        [
+          -3,
+          3
+        ],
+        [
+          -2,
+          4
+        ],
+        [
+          -1,
+          5
+        ],
+        [
+          0,
+          6
+        ],
+        [
+          1,
+          7
+        ]
+      ],
+      "safety_upper_bound": 4,
+      "policy": "An unresolved scenario reaching the safety line blocks unconditional enrollment. Evidence collection and follow-up planning do not themselves authorize patients."
+    },
+    "candidates": [
+      {
+        "id": "stop_all",
+        "label": "Declare benefit disproven and permanently stop every investigation"
+      },
+      {
+        "id": "unconditional",
+        "label": "Continue enrollment unconditionally"
+      },
+      {
+        "id": "bounded",
+        "label": "Prepare bounded evidence review; enrollment remains subject to the safety gate"
+      }
+    ],
+    "correct": "bounded",
+    "public_rule": "Use the displayed model and criterion over the entire stated range; no hidden preference scores."
+  }
+}
 ```
 
-**Handback 3 canonical interaction block - STRESS:**
+**Evidence delivery and grading:** The setup, decision evidence, public rules, costs and option descriptions are visible on this card before selection. Render option descriptions beside their controls, once; never replace them with internal axis IDs or a generic earlier-case sentence. Answer keys, accepted examples and feedback stay hidden until submission. Reveal withheld measurements only after the stated commitment. Use the public feasibility/selection rule; an example allocation is not an exclusive key. The displayed person must match this stop’s placement and Call.
 
-```yaml
-stress:
-  assumption: {label: "stopping boundary", min: 0.01, max: 0.05, nominal: 0.030000000000000002, step: 0.005, unit: "p-value"}
-  criteria:
-    - {id: evidence_fit, label: "fit to the stop evidence", direction: maximise}
-    - {id: safety_margin, label: "margin at the adverse end", direction: maximise}
-  optimiseOn: evidence_fit
-  candidates:
-    - id: nominal_only
-      label: "Use only the nominal reading"
-      scores: {evidence_fit: 95, safety_margin: 20}
-      validRange: {min: 0.030000000000000002, max: 0.030000000000000002}
-      failsAt: 0.05
-    - id: common_extreme_mistake
-      label: "Use the favorable extreme as if it were guaranteed"
-      scores: {evidence_fit: 88, safety_margin: 5}
-      validRange: {min: 0.030000000000000002, max: 0.05}
-      failsAt: 0.01
-    - id: robust_plan
-      label: "The data support benefit, but harm uncertainty rules out unconditional continuation; a bounded follow-up can reduce uncertainty."
-      scores: {evidence_fit: 82, safety_margin: 92}
-      validRange: {min: 0.01, max: 0.05}
-  robust: robust_plan
-  question: "Move the missing-outcome assumption from -2 to +2 events per 1,000 in steps of 1 while holding the model fixed. Submit the action defensible throughout."
-```
+**Correct result:** Upper harm bounds range from 3 to 7 events per 1,000. Unconditional enrollment is not justified; prepare the bounded evidence review, with no new enrollment authorized by this card.
 
-**Correct result:** The data support benefit, but harm uncertainty rules out unconditional continuation; a bounded follow-up can reduce uncertainty.
+**Answer text:** Upper harm bounds range from 3 to 7 events per 1,000. Unconditional enrollment is not justified; prepare the bounded evidence review, with no new enrollment authorized by this card.
 
-**Answer text:** The completed check shows the data support benefit, but harm uncertainty rules out unconditional continuation; a bounded follow-up can reduce uncertainty.
-
-**Why:** Crossing a safety boundary under plausible assumptions blocks unconditional continuation.
-
-**Wrong-path feedback:** Point estimate alone controls action
+**Wrong-path feedback:** Identify the unmet public condition or the specific measurement that the selected option cannot provide; keep the original evidence available for retry.
 
 **State/output:** travel REG.
 
@@ -8754,21 +9007,92 @@ stress:
 
 **Stop reason - exact player copy:** The live decision now turns on unresolved harm rather than settled efficacy or file integrity.
 
-**Question card story setup - exact player copy:** The stress test leaves one uncertain harm boundary, while efficacy and file integrity are already locked. Spend a 60-hour budget on evidence that can narrow harm uncertainty without reopening settled analyses.
+**Question card story setup - exact player copy:** Benefit and file integrity are already established, but the harm estimate still depends on uncertain late outcomes and exposure records. Tomas needs both gaps checked before the board revisits enrollment.
 
-**Question card story-science connection - exact player copy:** The selected evidence must narrow the harm boundary enough to inform the next enrollment decision.
+**Decision evidence - exact player copy:** Required outcomes: verify late-event outcomes; verify exposure independently.
 
-**Question card prompt - exact player copy:** Allocate at most 60 staff-hours among the five evidence options. Submit the combination that narrows harm uncertainty without reopening locked analyses.
+**Question card prompt - exact player copy:** You have 60 staff-hours. Cover every required outcome at the lowest total cost within the budget; keep all unused capacity in reserve. Select whole packages, then submit the plan; the board shows its total and remaining reserve for you to check.
 
-**Complete format-specific interaction block:** `value:{budget:60,options:[{id:"source_calls",axis:"late-event outcome verification",cost:30,required:true},{id:"kit_audit",axis:"independent exposure verification",cost:20,required:true},{id:"efficacy_rerun",axis:"settled efficacy estimate",cost:25,required:false},{id:"staff_survey",axis:"workflow opinion",cost:15,required:false},{id:"biomarker",axis:"new exploratory mechanism",cost:25,required:false}],total_available_cost:115,correct_purchase:["source_calls","kit_audit"],reserve:10,answerText:"Buy source calls and the independent kit audit for 50 hours; only they can narrow the unresolved harm boundary."}`
+**Complete format-specific interaction block - canonical source:**
 
-**Correct result:** Fund source calls and the independent kit audit; they address the live harm boundary.
+```json
+{
+  "value": {
+    "budget": {
+      "value": 60,
+      "unit": "staff-hours"
+    },
+    "requirements": [
+      {
+        "id": "r1",
+        "text": "verify late-event outcomes"
+      },
+      {
+        "id": "r2",
+        "text": "verify exposure independently"
+      }
+    ],
+    "selection_rule": "Cover every required outcome at the lowest total cost within the budget; keep all unused capacity in reserve.",
+    "options": [
+      {
+        "id": "source_calls",
+        "label": "Late-event source calls",
+        "cost": 30.0,
+        "information": "Checks the clinical source records for late outcomes.",
+        "covers": [
+          "r1"
+        ]
+      },
+      {
+        "id": "kit_audit",
+        "label": "Independent kit audit",
+        "cost": 20.0,
+        "information": "Checks which treatment exposure each record actually represents.",
+        "covers": [
+          "r2"
+        ]
+      },
+      {
+        "id": "efficacy_rerun",
+        "label": "Rerun the efficacy analysis",
+        "cost": 25.0,
+        "information": "Repeats the locked benefit analysis rather than checking late harm.",
+        "covers": []
+      },
+      {
+        "id": "staff_survey",
+        "label": "Staff workflow survey",
+        "cost": 15.0,
+        "information": "Collects opinions about workflow, not verified outcomes or exposure.",
+        "covers": []
+      },
+      {
+        "id": "biomarker",
+        "label": "Exploratory biomarker study",
+        "cost": 25.0,
+        "information": "Explores a mechanism without resolving the current late-event and exposure records.",
+        "covers": []
+      }
+    ],
+    "accepted_plans": [
+      [
+        "source_calls",
+        "kit_audit"
+      ]
+    ],
+    "example_total": 50.0,
+    "example_reserve": 10.0
+  }
+}
+```
 
-**Answer text:** The completed check shows fund source calls and the independent kit audit; they address the live harm boundary.
+**Evidence delivery and grading:** The setup, decision evidence, public rules, costs and option descriptions are visible on this card before selection. Render option descriptions beside their controls, once; never replace them with internal axis IDs or a generic earlier-case sentence. Answer keys, accepted examples and feedback stay hidden until submission. Reveal withheld measurements only after the stated commitment. Use the public feasibility/selection rule; an example allocation is not an exclusive key. The displayed person must match this stop’s placement and Call.
 
-**Why:** More data are not automatically valuable; useful evidence must alter the stop-or-continue decision.
+**Correct result:** source_calls, kit_audit = 50 staff-hours; reserve 10
 
-**Wrong-path feedback:** Any new data are valuable
+**Answer text:** Each funded package supplies a required outcome; an affordable package that leaves one unresolved is insufficient.
+
+**Wrong-path feedback:** Identify the unmet public condition or the specific measurement that the selected option cannot provide; keep the original evidence available for retry.
 
 **State/output:** evidence orders; travel BOARD.
 
@@ -8906,57 +9230,46 @@ choice:
 
 **Stop reason - exact player copy:** More evidence could help, but the board must limit patient exposure while waiting for it.
 
-**Question card story setup - exact player copy:** The chosen evidence can improve power, but waiting exposes more patients.
+**Question card story setup - exact player copy:** The board needs a written harm rule before the next update. A follow-up plan is not permission to enroll patients while a stop condition holds.
 
-**Question card story-science connection - exact player copy:** The precommitted harm thresholds and enrollment cap determine when follow-up must stop, change, or continue.
+**Question card prompt - exact player copy:** Commit the board’s policy: STOP if the upper 95% harm bound is at least 4 excess events per 1,000; MODIFY from 2 inclusive to below 4; CONTINUE below 2. Record a maximum of 120 additional patients, subject to the stop rule, and submit the complete mapping.
 
-**Question card prompt - exact player copy:** rule stop if upper 95% harm bound >=4/1000; modify if 2 to <4; continue if <2; max additional enrollment120; scale 0-6 anchors2,4; inclusive stop at4; objective preserve benefit, consequence limit 4 excess serious events/1000.
+**Complete format-specific interaction block - canonical source:**
 
-**Complete format-specific interaction block:** `trigger: {visible_prompt: "rule stop if upper 95% harm bound >=4/1000; modify if 2 to <4; continue if <2; max additional enrollment120; scale 0-6 anchors2,4; inclusive stop at4; objective preserve benefit, consequence limit 4 excess serious events/1000.", keyed_result: "Authorize one 120-patient follow-up under the written 2/4 thresholds; stop is inclusive at 4.", feedback: "numeric threshold pair, enrollment cap, action mapping", answerText: "Use the keyed result and explanation printed below."}`
-
-**§7 authored-board source - TRIGGER:** Convert this stop from its authored interaction block below. Do not substitute a format-level template. The panel must state the goal without printing the keyed answer.
-
-```yaml
-authored_board:
-  stop: "Stop 56 - Write the Rule"
-  format: "TRIGGER"
-  source: "Handback 3 canonical interaction block"
-  question: "rule stop if upper 95% harm bound >=4/1000; modify if 2 to <4; continue if <2; max additional enrollment120; scale 0-6 anchors2,4; inclusive stop at4; objective preserve benefit, consequence limit 4 excess serious events/1000."
-  payload: "`trigger: {visible_prompt: \"rule stop if upper 95% harm bound >=4/1000; modify if 2 to <4; continue if <2; max additional enrollment120; scale 0-6 anchors2,4; inclusive stop at4; objective preserve benefit, consequence limit 4 excess serious events/1000.\", keyed_result: \"Authorize one 120-patient follow-up under the written 2/4 thresholds; stop is inclusive at 4.\", feedback: \"numeric threshold pair, enrollment cap, action mapping\", answerText: \"Use the keyed result and explanation printed below.\"}`"
-  axis_and_units: "Use only quantities and units named in this question and payload."
-  candidates_and_numbers: "Use only candidates and numbers named in this question and payload."
-  panel_rule: "Print the goal, never the target or keyed answer."
+```json
+{
+  "trigger": {
+    "quantity": "upper 95% harm bound",
+    "unit": "excess events per 1000",
+    "rules": [
+      {
+        "action": "STOP",
+        "condition": "bound>=4"
+      },
+      {
+        "action": "MODIFY",
+        "condition": "2<=bound<4"
+      },
+      {
+        "action": "CONTINUE",
+        "condition": "bound<2"
+      }
+    ],
+    "enrollment_cap": 120,
+    "priority": "STOP overrides remaining enrollment allowance",
+    "commit_before_update": true,
+    "scope": "Plan commitment only; no new enrollment authorized by this card."
+  }
+}
 ```
 
-**Handback 3 canonical interaction block - TRIGGER:**
+**Evidence delivery and grading:** The setup, decision evidence, public rules, costs and option descriptions are visible on this card before selection. Render option descriptions beside their controls, once; never replace them with internal axis IDs or a generic earlier-case sentence. Answer keys, accepted examples and feedback stay hidden until submission. Reveal withheld measurements only after the stated commitment. Use the public feasibility/selection rule; an example allocation is not an exclusive key. The displayed person must match this stop’s placement and Call.
 
-```yaml
-trigger:
-  rule: "Commit the threshold before the stream appears; act only when a reading enters the action window with enough lead time."
-  scale: {label: "stopping p-value", min: 0, max: 0.1, step: 0.005, unit: "p"}
-  start: 0.02
-  anchors:
-    - {at: 0.02, means: "routine baseline, not the decision threshold"}
-    - {at: 0.065, means: "elevated evidence requiring attention"}
-  direction: falling
-  updates:
-    - {at: "T-48 h", value: 0.08, hoursLeft: 48}
-    - {at: "T-24 h", value: 0.05, hoursLeft: 24}
-    - {at: "T-12 h", value: 0.025, hoursLeft: 12}
-    - {at: "T-6 h", value: 0.015, hoursLeft: 6}
-  stages:
-    - {id: watch, label: "Increase monitoring", window: {min: 0.0251, max: 0.1}, leadHours: 24}
-    - {id: act, label: "Take the protective action", window: {min: 0, max: 0.025}, leadHours: 12}
-  question: "rule stop if upper 95% harm bound >=4/1000; modify if 2 to <4; continue if <2; max additional enrollment120; scale 0-6 anchors2,4; inclusive stop at4; objective preserve benefit, consequence limit 4 excess serious events/1000."
-```
+**Correct result:** Commit the 2/4 boundaries, inclusive STOP at 4 and 120-patient maximum subject to those boundaries.
 
-**Correct result:** Authorize one 120-patient follow-up under the written 2/4 thresholds; stop is inclusive at 4.
+**Answer text:** The cap limits a later eligible follow-up; it does not override an active harm stop. The earlier uncertain harm interval is not silently replaced by a favorable reading.
 
-**Answer text:** The completed check shows authorize one 120-patient follow-up under the written 2/4 thresholds; stop is inclusive at 4.
-
-**Why:** Precommitment prevents a favored outcome from moving the safety boundary tomorrow.
-
-**Wrong-path feedback:** numeric threshold pair, enrollment cap, action mapping
+**Wrong-path feedback:** Identify the unmet public condition or the specific measurement that the selected option cannot provide; keep the original evidence available for retry.
 
 **State/output:** binder14; M15.
 
@@ -8996,7 +9309,7 @@ Mission decision: Allow one small follow-up group under the safety rule. The ben
 
 **Story event - exact player copy:** One small follow-up group opens under the prewritten patient-safety rule.
 
-MISSION 14 COMPLETE; TIME {elapsed} / TARGET 17:00; INCORRECT SUBMISSIONS {incorrect_submissions}; One follow-up wave authorized; T-7; shared RP copy; QA 100/100/100/86 after 12 RP to Time.
+MISSION 14 COMPLETE; TIME {elapsed} / TARGET 17:00; INCORRECT SUBMISSIONS {incorrect_submissions}; Conditional follow-up plan authorized; enrollment remains gated; T-7; shared RP copy; QA 100/100/100/86 after 12 RP to Time.
 
 ## Optional secondary brief and six-question review
 
@@ -9759,7 +10072,7 @@ No additional prerequisite is required. These practice questions review related 
 **Main event:** A harm interval crosses the boundary after apparent efficacy success.  
 **Locations:** Statistics & Analysis; Regulatory & Registry; Monitoring Board Room.  
 **Core statistics:** interval sensitivity, power, value of information, decision thresholds.  
-**Ending change:** one bounded follow-up wave is authorized under a precommitted rule.
+**Ending change:** one bounded follow-up plan is authorized under a precommitted rule; enrollment cannot begin while a stop condition holds.
 
 ### Mission 15
 
@@ -10138,3 +10451,13 @@ The following group ownership is authoritative for reachability; it does not add
 ## Mental-math number rule for calculated-response cards
 
 This rule is binding for this campaign and for future games built from it. When the player must perform the arithmetic without a supplied calculator or a displayed intermediate result, author inputs as friendly integers or simple ratios. Prefer products and quotients that can be completed mentally and key results to an integer or at most one useful decimal place. Update every dependent prompt, board payload, prediction, measurement, tolerance, correct result, answer text, and feedback together. Preserve more complex real-world values only when the interface supplies the calculator or the intermediate value and the learning target is interpretation rather than arithmetic. Never make arithmetic friction the hidden difficulty of a concept question.
+
+# Decision-card evidence contract
+
+Every decision card must expose the exact evidence and public rule that distinguish its accepted answers from plausible alternatives. Render the local Data/readings/options, Decision evidence, public constraints and option effects before selection; keep them available while the player chooses. Use plain-language descriptions, not internal axis names. Show one speaker header from the stop’s placement and Call, and one coherent setup and prompt. Never substitute a discovery-stage explanation into a later allocation, release or certification task.
+
+Resource tasks distinguish a budget from the goal. Display the required outcomes, each option’s contribution, costs, reserve rules and any priority or tie-breaker. Accept every plan satisfying the published rule. A recommended split is not an exclusive key unless the visible constraints uniquely determine it. Policies are identified as policies; the player must not derive an institutional preference from a scientific formula.
+
+For staged tests, show hypotheses, model inputs and acceptance rules before commitment, but keep held-out results hidden until the specified test or reveal. No grade may depend on guessing a future result. A signed claim requires a readable source excerpt or an explicit inspection, not a hidden backed flag. Copied records retain their shared-source identity.
+
+No importer fallback may borrow another stop’s data, speaker, threshold or generic mission text. Missing required local evidence is an import error. Before release, inspect the rendered card, prove the accepted response from visible information alone, try a plausible wrong answer, and test a different valid answer where the rule admits one. This document revision is source work; rendered-game verification still requires the actual implementation.

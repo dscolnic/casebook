@@ -153,10 +153,10 @@
     title: "Count usable plant energy"
     concept: 3   # GPP/NPP and 10% law
     reason: "The groundwater limit does not establish how many grazing animals the common can feed."
-    scene: "The water ceiling is now fixed, but the common can still be overstocked by counting all captured sunlight. Calculate usable plant production, then follow its loss to grazing animals."
+    scene: "The food-web budget starts with energy the producers retain. Respiration must be paid before consumer transfer is estimated."
     motivation: "Net plant production and transfer to herbivores set the energy available for stocking the common."
     format: BALLPARK
-    question: "First calculate NPP from GPP 18,000 kJ/m²/yr and plant respiration 8,000 kJ/m²/yr. Then apply 10% transfer and submit herbivore production in kJ/m²/yr."
+    question: "GPP is 18,000 and producer respiration 8,000 kJ/m²/year. At 10% transfer, fill GPP, respiration and transfer fraction in (GPP−R)×fraction."
     # THE BIBLE'S PAYLOAD, converted. Its three `estimate.values` become the three
     # tiles and its `formula="(GPP-R)*0.10"` the template; respiration is written
     # as the positive 8,000 the bible's own question states and subtracted by the
@@ -240,10 +240,10 @@
     person: vale
     concept: 7   # generalist/specialist, island biogeography, life history preview
     reason: "The recovery map shows that habitat damage will not affect every island species equally."
-    scene: "Because damaged soils recover at different rates, species using them also face different risk. Sort a broad-diet generalist and a narrow-habitat specialist for monitoring, protection, or routine watch."
+    scene: "The island survey records different recovery capacities and habitat risks. Iona must prioritize protection using those local observations, not species names alone."
     motivation: "Species specialization and breeding vulnerability determine which populations need protection before ferry expansion."
     format: TRIAGE
-    question: "Assign island rat, cliff-nesting petrel, fast-growing grass, and slow-breeding seal to routine, monitor, or protect first; submit one complete triage."
+    question: "Assign every species to routine, monitor or protect first. Protect first when breeding depends on the threatened irreplaceable habitat; monitor slow-replacing populations with alternative habitat; use routine watch for the widespread rapidly recovering generalists."
     # THE BIBLE'S PAYLOAD, converted. Its four keyed species become the options,
     # named as this stop's own prompt names them, and its `answer=petrel` is the
     # one to protect first. The bible's per-species rebuttals stay in the
@@ -254,7 +254,7 @@
     - "Fast-growing grass"
     - "Slow-breeding seal"
     answer: "Cliff-nesting petrel"
-    answerText: "The completed check shows protect the petrel first; monitor the seal; routine watch for the generalists."
+    answerText: "The petrel has the narrowest threatened breeding requirement in this specific survey. Slow replacement warrants seal monitoring, while the generalists have more recovery routes."
     why: "Narrow niches and isolation limit recolonization; feedback contrasts niche breadth."
     # wrong-path feedback, one rebuttal per wrong option:
     #   Protecting the rat or grass first favors fast-growing generalists; treating the slow-breeding seal as routine ignores its low replacement rate, while the cliff petrel has the narrowest habitat.

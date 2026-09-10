@@ -329,8 +329,8 @@
     scene: "The prediction and low-power sweep pass, but Hart will authorize only the exact present configuration. Verify the sensor identity, release height, clear zone, brake state, and procedure within the inspection limit."
     motivation: "Configuration checks tie the permission to today's sensor, height, brake, and clear zone rather than an old signature."
     format: ATTEST
-    question: "Submit one selected-claims attestation containing every presently verified requirement for limited unmanned release and excluding any historical claim that does not establish today's condition."
-    answerText: "Authorize only after today's sensor, height, brake response, and clear zone are verified; the old signature is not present condition."
+    question: "Authorize only the present unmanned configuration; a past signature does not establish present physical conditions. Read the displayed source excerpts, then select every supported claim and leave unsupported claims unsigned."
+    answerText: "Each signature is limited to what its source establishes. The unsupported claims lack the specific date, physical condition, independence or scope they assert."
     why: "Records support history. Physical identity and condition support today's test."
     # wrong-path feedback, one rebuttal per wrong option:
     #   (old_signature) A 1996 signature records a past decision; it cannot establish today's sensor, release mark, brake response, or clear zone.

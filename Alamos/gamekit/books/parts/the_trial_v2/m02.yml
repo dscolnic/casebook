@@ -153,10 +153,10 @@
     title: "Which Center Survives"
     concept: 10   # mean, median, skew
     reason: "The verified recovery records still need a center that is not dominated by one long case."
-    scene: "The verified sample contains recovery times of 4, 5, 5, 6, and 20 days. Compare the mean and median to learn which summary stays closer to the experience of most patients."
+    scene: "One long stay pulls on the summary. The trial team compares what the mean and median say about this small set."
     motivation: "The mean-median comparison shows which summary stays closer to most patients' recovery experience."
     format: BALLPARK
-    question: "Submit mean and median in days from values 4,5,5,6,20; formula mean=sum/5. BALLPARK slots sum,mean,median; targets 40,8,5; tolerances 0,0.01,0.01."
+    question: "Recorded stays are 4,5,5,6,20 days. Calculate their sum and select it with the number of observations in mean=sum/count. After submitting, compare the mean with the middle ordered value."
     # MODEL CONVERSION. The bible keys three readouts (sum 40, mean 8, median 5)
     # against three tolerances; the engine's estimate panel builds one number from
     # the tiles. The mean is the one the prompt gives a formula for — mean = sum/5

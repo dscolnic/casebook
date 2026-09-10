@@ -1159,6 +1159,8 @@ Retry: dismiss feedback, review the unchanged data, reset the unsolved board and
 
 **Data/readings — exact player copy:** Recorded start: a=2 m/s²; campaign passenger-trial limit a≤1.5 m/s²; replay displacement=16 m; no brake or rope compliance test has occurred.
 
+**Decision-record delivery:** Render the complete Data/readings/options record above on this question card before its choices. Keep any numerical limit, adopted decision rule and scope statement visible while choosing. Do not replace it with the story-science connection or an earlier mission’s generic explanation; do not display the author-only mission answer.
+
 **Format-specific interaction block:**
 ```yaml
 question: Can the proposed start be used for passenger trips?
@@ -1600,29 +1602,37 @@ Mass distribution matters because each mass element is weighted by its squared d
 **Data/readings — exact player copy:** Tachometer ω=3 rad/s and rope speed v=6 m/s; no slip at the drum; R=v/ω.
 
 **Format-specific interaction block:**
-```yaml
-estimate:
-  quantity: Rope-contact radius
-  labels:
-  - rim speed (m/s)
-  - angular speed (rad/s)
-  - half-turn distractor
-  values:
-  - 6
-  - 3
-  - 2
-  slots: 2
-  template: Use the labeled quantities to fill 2 blanks.
-  formula: a/b
-  correct:
-  - 0
-  - 1
-  target: 2
-  tolerance: 0.01
-  units: m
-  correctResult: 2
-answerText: R=6/3=2 m; the rope-contact radius is not the drum diameter.
+```json
+{
+  "estimate": {
+    "quantity": "Rope-contact radius",
+    "labels": [
+      "6",
+      "3",
+      "2"
+    ],
+    "values": [
+      6,
+      3,
+      2
+    ],
+    "slots": 2,
+    "template": "{a} / {b} = ? m",
+    "formula": "a/b",
+    "correct": [
+      0,
+      1
+    ],
+    "target": 2,
+    "tolerance": 0.01,
+    "units": "m",
+    "correctResult": 2
+  },
+  "answerText": "R=6/3=2 m; the rope-contact radius is not the drum diameter."
+}
 ```
+
+**BALLPARK rendering and grading:** Show the numeric labels as tiles and the equation with named letter slots. Never substitute quantity names for those numbers. The key uses zero-based tile indices. Accept equivalent numeric selections, including interchangeable equal-valued tiles; a matching arbitrary index is not required. Tolerance is absolute in the output units. Unused numeric choices must remain visible.
 
 **Question card prompt — exact player copy:** Choose the quantity tiles for the displayed formula a/b; submit the resulting rope-contact radius in m.
 
@@ -1828,6 +1838,8 @@ Retry: dismiss feedback, review the unchanged data, reset the unsolved board and
 **Question card story-science connection — exact player copy:** A measured mass distribution changes the motor demand that the crew can safely authorize.
 
 **Data/readings — exact player copy:** Whole mass 18000 kg; annular radii 1 and 2 m; old solid-disk value 36000 kg m²; new integral 45000 kg m².
+
+**Decision-record delivery:** Render the complete Data/readings/options record above on this question card before its choices. Keep any numerical limit, adopted decision rule and scope statement visible while choosing. Do not replace it with the story-science connection or an earlier mission’s generic explanation; do not display the author-only mission answer.
 
 **Format-specific interaction block:**
 ```yaml
@@ -2489,6 +2501,8 @@ Retry: dismiss feedback, review the unchanged data, reset the unsolved board and
 
 **Data/readings — exact player copy:** Recorded full-length pull 176 kN at a=1 m/s²; campaign mean-pull limit 220 kN inclusive; upper-rope mass 12000 kg; cage plus payload 4000 kg.
 
+**Decision-record delivery:** Render the complete Data/readings/options record above on this question card before its choices. Keep any numerical limit, adopted decision rule and scope statement visible while choosing. Do not replace it with the story-science connection or an earlier mission’s generic explanation; do not display the author-only mission answer.
+
 **Format-specific interaction block:**
 ```yaml
 question: Does the proposed one-unit acceleration pass the rope pull limit?
@@ -2930,29 +2944,37 @@ Torque and rotation link the motor to the moving load through the working radius
 **Data/readings — exact player copy:** Required rope acceleration a=1 m/s²; R=2 m; α=a/R.
 
 **Format-specific interaction block:**
-```yaml
-estimate:
-  quantity: Drum angular acceleration
-  labels:
-  - linear acceleration (m/s²)
-  - contact radius (m)
-  - diameter distractor (m)
-  values:
-  - 1
-  - 2
-  - 4
-  slots: 2
-  template: Use the labeled quantities to fill 2 blanks.
-  formula: a/b
-  correct:
-  - 0
-  - 1
-  target: 0.5
-  tolerance: 0.01
-  units: rad/s²
-  correctResult: 0.5
-answerText: α=1/2=0.5 rad/s² links the linear start to the rotating drum.
+```json
+{
+  "estimate": {
+    "quantity": "Drum angular acceleration",
+    "labels": [
+      "1",
+      "2",
+      "4"
+    ],
+    "values": [
+      1,
+      2,
+      4
+    ],
+    "slots": 2,
+    "template": "{a} / {b} = ? rad/s²",
+    "formula": "a/b",
+    "correct": [
+      0,
+      1
+    ],
+    "target": 0.5,
+    "tolerance": 0.01,
+    "units": "rad/s²",
+    "correctResult": 0.5
+  },
+  "answerText": "α=1/2=0.5 rad/s² links the linear start to the rotating drum."
+}
 ```
+
+**BALLPARK rendering and grading:** Show the numeric labels as tiles and the equation with named letter slots. Never substitute quantity names for those numbers. The key uses zero-based tile indices. Accept equivalent numeric selections, including interchangeable equal-valued tiles; a matching arbitrary index is not required. Tolerance is absolute in the output units. Unused numeric choices must remain visible.
 
 **Question card prompt — exact player copy:** Choose the quantity tiles for the displayed formula a/b; submit the resulting drum angular acceleration in rad/s².
 
@@ -3146,6 +3168,8 @@ Retry: dismiss feedback, review the unchanged data, reset the unsolved board and
 **Question card story-science connection — exact player copy:** The torque result decides which start the installed motor can actually supply.
 
 **Data/readings — exact player copy:** Campaign motor torque ceiling 400000 N m; a=1 requires 374500 N m, a=2 requires 429000 N m; Day 1 trial acceleration ceiling 1.5 m/s².
+
+**Decision-record delivery:** Render the complete Data/readings/options record above on this question card before its choices. Keep any numerical limit, adopted decision rule and scope statement visible while choosing. Do not replace it with the story-science connection or an earlier mission’s generic explanation; do not display the author-only mission answer.
 
 **Format-specific interaction block:**
 ```yaml
@@ -3747,30 +3771,40 @@ Retry: dismiss feedback, review the unchanged data, reset the unsolved board and
 **Data/readings — exact player copy:** Use I=45000 kg m² and ω=2 rad/s at a reviewed 4 m/s speed; Krot=Iω²/2.
 
 **Format-specific interaction block:**
-```yaml
-estimate:
-  quantity: Drum motion energy
-  labels:
-  - inertia (kg m²)
-  - angular speed (rad/s)
-  - half
-  values:
-  - 45000
-  - 2
-  - 0.5
-  slots: 3
-  template: Use the labeled quantities to fill 3 blanks.
-  formula: a*b*c*c
-  correct:
-  - 2
-  - 0
-  - 1
-  target: 90000
-  tolerance: 90.0
-  units: J
-  correctResult: 90000
-answerText: Krot=0.5×45000×2²=90000 J; the stored rotational motion also needs an energy destination during stopping.
+```json
+{
+  "estimate": {
+    "quantity": "Drum motion energy",
+    "labels": [
+      "45000",
+      "2",
+      "0.5",
+      "4"
+    ],
+    "values": [
+      45000,
+      2,
+      0.5,
+      4
+    ],
+    "slots": 3,
+    "template": "{a} × {b} × {c} × {c} = ? J",
+    "formula": "a*b*c*c",
+    "correct": [
+      2,
+      0,
+      1
+    ],
+    "target": 90000,
+    "tolerance": 90.0,
+    "units": "J",
+    "correctResult": 90000
+  },
+  "answerText": "Krot=0.5×45000×2²=90000 J; the stored rotational motion also needs an energy destination during stopping."
+}
 ```
+
+**BALLPARK rendering and grading:** Show the numeric labels as tiles and the equation with named letter slots. Never substitute quantity names for those numbers. The key uses zero-based tile indices. Accept equivalent numeric selections, including interchangeable equal-valued tiles; a matching arbitrary index is not required. Tolerance is absolute in the output units. Unused numeric choices must remain visible.
 
 **Question card prompt — exact player copy:** Choose the quantity tiles for the displayed formula a*b*c*c; submit the resulting drum motion energy in J.
 
@@ -3820,6 +3854,8 @@ Retry: dismiss feedback, review the unchanged data, reset the unsolved board and
 **Question card story-science connection — exact player copy:** An energy account establishes one necessary condition without replacing the separate stopping limits.
 
 **Data/readings — exact player copy:** Ideal lift requires 120 MJ; campaign usable lift allocation is 130 MJ; drum alone stores 90 kJ at 4 m/s; pad performance at working temperature remains untested.
+
+**Decision-record delivery:** Render the complete Data/readings/options record above on this question card before its choices. Keep any numerical limit, adopted decision rule and scope statement visible while choosing. Do not replace it with the story-science connection or an earlier mission’s generic explanation; do not display the author-only mission answer.
 
 **Format-specific interaction block:**
 ```yaml
@@ -4425,29 +4461,37 @@ Retry: dismiss feedback, review the unchanged data, reset the unsolved board and
 **Data/readings — exact player copy:** Instrumented bin surrogate receives 600 kg m/s momentum and stops it in 0.2 s; Favg=Δp/Δt; force limit 1500 N.
 
 **Format-specific interaction block:**
-```yaml
-estimate:
-  quantity: Mean bin impact force
-  labels:
-  - arriving momentum (kg m/s)
-  - stopping time (s)
-  - longer-time alternative (s)
-  values:
-  - 600
-  - 0.2
-  - 0.6
-  slots: 2
-  template: Use the labeled quantities to fill 2 blanks.
-  formula: a/b
-  correct:
-  - 0
-  - 1
-  target: 3000
-  tolerance: 3.0
-  units: N
-  correctResult: 3000
-answerText: Favg=600/0.2=3000 N, so the short impact exceeds the fictional 1500 N limit; a 0.6 s stop would give 1000 N.
+```json
+{
+  "estimate": {
+    "quantity": "Mean bin impact force",
+    "labels": [
+      "600",
+      "0.2",
+      "0.6"
+    ],
+    "values": [
+      600,
+      0.2,
+      0.6
+    ],
+    "slots": 2,
+    "template": "{a} / {b} = ? N",
+    "formula": "a/b",
+    "correct": [
+      0,
+      1
+    ],
+    "target": 3000,
+    "tolerance": 3.0,
+    "units": "N",
+    "correctResult": 3000
+  },
+  "answerText": "Favg=600/0.2=3000 N, so the short impact exceeds the fictional 1500 N limit; a 0.6 s stop would give 1000 N."
+}
 ```
+
+**BALLPARK rendering and grading:** Show the numeric labels as tiles and the equation with named letter slots. Never substitute quantity names for those numbers. The key uses zero-based tile indices. Accept equivalent numeric selections, including interchangeable equal-valued tiles; a matching arbitrary index is not required. Tolerance is absolute in the output units. Unused numeric choices must remain visible.
 
 **Question card prompt — exact player copy:** Choose the quantity tiles for the displayed formula a/b; submit the resulting mean bin impact force in N.
 
@@ -4497,6 +4541,8 @@ Retry: dismiss feedback, review the unchanged data, reset the unsolved board and
 **Question card story-science connection — exact player copy:** The momentum history decides whether the feed arrangement can protect the machinery while keeping ore moving.
 
 **Data/readings — exact player copy:** Steady loading requires 1000 N; bin mean-force limit 1500 N; short impact is 3000 N; staged chute extends the same 600 kg m/s momentum change to 0.6 s, giving 1000 N; staging does not change daily mass delivery.
+
+**Decision-record delivery:** Render the complete Data/readings/options record above on this question card before its choices. Keep any numerical limit, adopted decision rule and scope statement visible while choosing. Do not replace it with the story-science connection or an earlier mission’s generic explanation; do not display the author-only mission answer.
 
 **Format-specific interaction block:**
 ```yaml
@@ -5172,6 +5218,8 @@ Retry: dismiss feedback, review the unchanged data, reset the unsolved board and
 
 **Data/readings — exact player copy:** Corrected campaign survey g=9.80 m/s²; load table conservatively uses g=10 m/s²; at full length the static pull difference is 16000×0.20=3200 N; March record shows delayed relative motion after drum rest.
 
+**Decision-record delivery:** Render the complete Data/readings/options record above on this question card before its choices. Keep any numerical limit, adopted decision rule and scope statement visible while choosing. Do not replace it with the story-science connection or an earlier mission’s generic explanation; do not display the author-only mission answer.
+
 **Format-specific interaction block:**
 ```yaml
 question: Can the local gravity correction explain the March overrun?
@@ -5615,29 +5663,37 @@ Power and rate describe how quickly energy must move through the machine. The la
 **Data/readings — exact player copy:** At steady cruise a=0; cage plus hanging rope mass 16000 kg; g=10 m/s²; T=mg.
 
 **Format-specific interaction block:**
-```yaml
-estimate:
-  quantity: Recall the full-length pull
-  labels:
-  - total hanging mass (kg)
-  - conservative gravity (m/s²)
-  - acceleration distractor
-  values:
-  - 16000
-  - 10
-  - 1
-  slots: 2
-  template: Use the labeled quantities to fill 2 blanks.
-  formula: a*b
-  correct:
-  - 0
-  - 1
-  target: 160000
-  tolerance: 160.0
-  units: N
-  correctResult: 160000
-answerText: T=16000×10=160000 N; steady speed removes ma but not the load’s weight.
+```json
+{
+  "estimate": {
+    "quantity": "Recall the full-length pull",
+    "labels": [
+      "16000",
+      "10",
+      "1"
+    ],
+    "values": [
+      16000,
+      10,
+      1
+    ],
+    "slots": 2,
+    "template": "{a} × {b} = ? N",
+    "formula": "a*b",
+    "correct": [
+      0,
+      1
+    ],
+    "target": 160000,
+    "tolerance": 160.0,
+    "units": "N",
+    "correctResult": 160000
+  },
+  "answerText": "T=16000×10=160000 N; steady speed removes ma but not the load’s weight."
+}
 ```
+
+**BALLPARK rendering and grading:** Show the numeric labels as tiles and the equation with named letter slots. Never substitute quantity names for those numbers. The key uses zero-based tile indices. Accept equivalent numeric selections, including interchangeable equal-valued tiles; a matching arbitrary index is not required. Tolerance is absolute in the output units. Unused numeric choices must remain visible.
 
 **Question card prompt — exact player copy:** Choose the quantity tiles for the displayed formula a*b; submit the resulting recall the full-length pull in N.
 
@@ -5831,6 +5887,8 @@ Retry: dismiss feedback, review the unchanged data, reset the unsolved board and
 **Question card story-science connection — exact player copy:** The largest work rate determines which cruise proposal the motor can sustain.
 
 **Data/readings — exact player copy:** Campaign cruise shaft-power ceiling 600 kW, already net of auxiliary demand; full-length tension 160 kN; proposed cruise speeds 3.5 m/s and 4 m/s; products are 560 and 640 kW respectively; braking still unapproved.
+
+**Decision-record delivery:** Render the complete Data/readings/options record above on this question card before its choices. Keep any numerical limit, adopted decision rule and scope statement visible while choosing. Do not replace it with the story-science connection or an earlier mission’s generic explanation; do not display the author-only mission answer.
 
 **Format-specific interaction block:**
 ```yaml
@@ -6495,6 +6553,8 @@ Retry: dismiss feedback, review the unchanged data, reset the unsolved board and
 **Question card story-science connection — exact player copy:** The cage’s own motion must be bounded before a stationary drum can count as a safe stop.
 
 **Data/readings — exact player copy:** Full-depth fitted model period 5.03 s; drum encoder reports zero motion after its brake engages; independent cage sensor can still record oscillation; tension remains positive in the tested amplitude range. Operating range recorded now: M=1000–4000 kg; L=40–1200 m; k=15000000/L N/m; m_eff=M+10L/3 kg; ω=√(k/m_eff). Residual-state acceptance requires x0≈0 and u≤min(v,g/(2ω)), ensuring tension≥Mg/2. The all-range frequency bound is ω≥1.25 rad/s.
+
+**Decision-record delivery:** Render the complete Data/readings/options record above on this question card before its choices. Keep any numerical limit, adopted decision rule and scope statement visible while choosing. Do not replace it with the story-science connection or an earlier mission’s generic explanation; do not display the author-only mission answer.
 
 **Format-specific interaction block:**
 ```yaml
@@ -7178,6 +7238,8 @@ Retry: dismiss feedback, review the unchanged data, reset the unsolved board and
 **Question card story-science connection — exact player copy:** The cage’s own motion must be bounded before a stationary drum can count as a safe stop.
 
 **Data/readings — exact player copy:** Predicted peak 1.60 m upward at 1.26 s; observed 1.60 m at 1.26 s; drum stationary; fitted k=12500 N/m and m_eff=8000 kg; minimum cage tension in ±1.6 m modal range remains 30 kN using T=M(g−ω²x).
+
+**Decision-record delivery:** Render the complete Data/readings/options record above on this question card before its choices. Keep any numerical limit, adopted decision rule and scope statement visible while choosing. Do not replace it with the story-science connection or an earlier mission’s generic explanation; do not display the author-only mission answer.
 
 **Format-specific interaction block:**
 ```yaml
@@ -7872,6 +7934,8 @@ Retry: dismiss feedback, review the unchanged data, reset the unsolved board and
 
 **Data/readings — exact player copy:** Campaign overhead allowance 5.0 m inclusive; allowed speed menu 1.5,2.0,2.5,3.0,3.5 m/s; d_bound=0.5v²+0.8v; at 2.0 m/s bound=3.6 m, at 2.5 bound=5.125 m; function rises for v≥0; empty cold pass does not certify loaded warm travel.
 
+**Decision-record delivery:** Render the complete Data/readings/options record above on this question card before its choices. Keep any numerical limit, adopted decision rule and scope statement visible while choosing. Do not replace it with the story-science connection or an earlier mission’s generic explanation; do not display the author-only mission answer.
+
 **Format-specific interaction block:**
 ```yaml
 question: Does the empty test authorize the faster passenger profile?
@@ -8538,6 +8602,8 @@ Retry: dismiss feedback, review the unchanged data, reset the unsolved board and
 
 **Data/readings — exact player copy:** Signable campaign range: total cage plus payload 1000≤M≤4000 kg; hanging length 40–1200 m; start a≤1 m/s²; v menu as above; g table 10 m/s² conservatively covers synthetic survey; rope mean-pull≤220 kN; motor torque≤400 kN m; cruise power≤600 kW; working-pad b≥1 m/s²; modal envelope ω≥1.25 rad/s and residual amplitude≤v/ω; overhead allowance≥5 m; inspection/test flags all complete; bars are settled after the decision before passenger release. Residual-state acceptance also requires x0≈0 and u≤min(v,g/(2ω)); no slack-rope trajectory is permitted.
 
+**Decision-record delivery:** Render the complete Data/readings/options record above on this question card before its choices. Keep any numerical limit, adopted decision rule and scope statement visible while choosing. Do not replace it with the story-science connection or an earlier mission’s generic explanation; do not display the author-only mission answer.
+
 **Format-specific interaction block:**
 ```yaml
 question: Which complete profile can be signed for the defined operating range?
@@ -8790,3 +8856,13 @@ The mine has a service it can use, but the crew has lost the planned overtime an
 # 8. Implementation boundary and handoff
 
 This artifact specifies new content and world decisions; it is not an engine patch. Convert against the actual current importer, preserve all resolved build decisions and verify every rendered phase. Run import, schema, content, world parity, reachable fixtures, lessons, duplicate IDs, format mix, copy length, readability and both full playthroughs. The exact current project commands and version are unavailable, so no command completion or runtime PASS is asserted. The v1.0 ledger, author script, numeric audit and Giant Gate assessment are historical. This v1.2 bible preserves the v1.1 handback and adds the ensemble/depth requirements from Master v3.5, Ledger v1.5 and Gate v2.5. OVERWIND_EXPANSION_CHECK.md and OVERWIND_REVIEW_QUESTIONS.json document the current source checks; regenerate imports and rerun build checks against this version.
+
+# Decision-card evidence contract
+
+Every decision card must expose the exact evidence and public rule that distinguish its accepted answers from plausible alternatives. Render the local Data/readings/options, Decision evidence, public constraints and option effects before selection; keep them available while the player chooses. Use plain-language descriptions, not internal axis names. Show one speaker header from the stop’s placement and Call, and one coherent setup and prompt. Never substitute a discovery-stage explanation into a later allocation, release or certification task.
+
+Resource tasks distinguish a budget from the goal. Display the required outcomes, each option’s contribution, costs, reserve rules and any priority or tie-breaker. Accept every plan satisfying the published rule. A recommended split is not an exclusive key unless the visible constraints uniquely determine it. Policies are identified as policies; the player must not derive an institutional preference from a scientific formula.
+
+For staged tests, show hypotheses, model inputs and acceptance rules before commitment, but keep held-out results hidden until the specified test or reveal. No grade may depend on guessing a future result. A signed claim requires a readable source excerpt or an explicit inspection, not a hidden backed flag. Copied records retain their shared-source identity.
+
+No importer fallback may borrow another stop’s data, speaker, threshold or generic mission text. Missing required local evidence is an import error. Before release, inspect the rendered card, prove the accepted response from visible information alone, try a plausible wrong answer, and test a different valid answer where the rule admits one. This document revision is source work; rendered-game verification still requires the actual implementation.

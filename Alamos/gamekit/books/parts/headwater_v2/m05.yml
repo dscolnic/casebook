@@ -201,10 +201,10 @@
     title: "Test the absolute peak"
     concept: 13   # EVT/first-second derivative tests
     reason: "The interior demand checks are ready to be compared with the schedule endpoints."
-    scene: "With critical times found, evaluate demand at t=0,1,3,5, then use derivative signs or D''(t)=6t-12 to justify the maximum. The machine limit is 24 MW, inclusive."
+    scene: "The turbine operator holds the schedule open: a peak inside the shift is not the only way to overload the machine."
     motivation: "The absolute maximum determines whether any part of the turbine schedule exceeds the machine's power limit."
     format: BALLPARK
-    question: "Using D(t)=t^3-6t^2+9t+20 MW, evaluate t=0,1,3,5 h; submit the absolute maximum in megawatts, its time in hours, and safe/unsafe against the inclusive 24 MW limit."
+    question: "Demand is D(t)=t³−6t²+9t+20 MW for 0≤t≤5 h. Compare t=0,1,3,5 h. Choose the absolute maximum; the inclusive machine limit is 24 MW."
     answerText: "EVT requires endpoints plus critical points; the endpoint peak exceeds capacity."
     why: "EVT requires endpoints plus critical points; the endpoint peak exceeds capacity. A correct maximum decides whether the two-day plan overloads the available unit."
     # wrong-path feedback, one rebuttal per wrong option:

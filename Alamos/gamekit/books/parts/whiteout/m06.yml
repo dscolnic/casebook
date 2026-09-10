@@ -11,7 +11,7 @@
   objective: "Today you decide whether to keep the rescue link and fix the time parser."
   stake: "The power fix works, but Liv sees the wrong time on a rescue note. A String cut can lose a digit. Check the raw note and the code before the crew drops the link. By the end of the mission, decide if the note is late or its shown time is wrong."
   takeaway: "The network is on time; the parser cuts the timestamp one character early, turning 08:07 into 08:0 on two displays. ---"
-  segue: "Mission decision: The rescue link is on time; the time parser is wrong. The raw packet and two clocks show 08:07, but the String cut drops the last digit. The crew keeps the link and fixes the cut. But Mei sees Room 7 marked 4.1°C beside a local reading of 20.9°C."
+  segue: "But Mei puts two temperature readings beside Room 7, and they disagree by 16.8 degrees."
   # The mission card's own "Primer concepts", printed on the plan card.
   terms:
   - {name: "packet", def: "a chunk of network data routed independently before messages are reassembled."}

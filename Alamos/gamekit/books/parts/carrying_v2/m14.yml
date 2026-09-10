@@ -185,10 +185,10 @@
     title: "Calculate population growth"
     concept: 10   # population growth | populations | 14
     reason: "The age pattern needs confirmation from births and deaths before a growth forecast is used."
-    scene: "The age structure suggests decline, yet births and deaths must test that reading. Calculate natural growth and interpret the Rule of 70."
+    scene: "The population ledger records more deaths than births. The team checks the sign before applying a growth shortcut."
     motivation: "Natural population growth determines whether projecting a future doubling is meaningful for the island."
     format: BALLPARK
-    question: "Population growth rate is PGR=(births-deaths)/population*100. Using 3 births, 6 deaths, and 300 people, submit PGR in percent per year and decide whether the Rule of 70 doubling-time estimate, 70 divided by a positive growth rate, applies."
+    question: "In one year a population of 300 has 3 births and 6 deaths, with no migration. Fill births,deaths,population in (births−deaths)/population×100."
     # THE BIBLE'S PAYLOAD, converted. Its three `inputs` become the three tiles
     # and its `equation` the template; `truth: -1.18` is the target and its
     # `tolerance: 0.02` is already an absolute band on a percentage.
@@ -269,11 +269,11 @@
     person: voss
     concept: 22   # footprint and demand | population and policy | 14
     reason: "The combined person-day estimate still needs testing against uncertain per-person resource use."
-    scene: "The common ledger now includes 12,300 July person-days, not just resident head count. Stress per-person footprint and select the correct load definition."
+    scene: "July demand includes visitors as well as residents. The council must distinguish seasonal service use from long-term school planning."
     motivation: "The footprint range determines how the visitor cap must depend on available water and waste capacity."
     format: STRESS
-    question: "Move footprint from 1.8 to 5 hectares/person; submit person-days for seasonal services, age structure for long-term school demand, and a visitor cap tied to water and waste triggers"
-    answerText: "The completed check shows plan for 12,300 July person-days and condition the cap on water and waste."
+    question: "Inspect the footprint range 1.8–5.0 ha/person. Select the plan using the recorded July person-days for seasonal services, age structure for school demand, and water/waste triggers for visitor limits; do not convert hectares directly into a water allowance."
+    answerText: "Use 12,300 July person-days for seasonal service planning, age structure for school demand, and conditional visitor limits. The footprint range alone cannot yield a numerical visitor cap."
     why: "Stress the human-demand forecast connects the measured environmental mechanism to the next island condition."
     # wrong-path feedback, one rebuttal per wrong option:
     #   The retry identifies the first incorrect mechanism, unit, unsupported claim, omitted requirement, or violated constraint.

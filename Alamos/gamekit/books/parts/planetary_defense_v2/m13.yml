@@ -222,11 +222,11 @@
     title: "Refit the corrected residuals"
     concept: 8   # orbit correction
     reason: "The identified offset must be applied consistently before the revised orbit is trusted."
-    scene: "Refit the complete optical batch with the documented correction and compare residuals before and after. The common eastward pattern disappears, while the remaining scatter stays centered near zero and within stated uncertainty."
+    scene: "The optical batch has been refitted with the documented correction. Compare the residual summary against the published calibration acceptance limits."
     motivation: "The corrected residual pattern determines whether the documented bias removal produces an adequate optical fit."
     format: RESIDUAL
-    question: "Submit the corrected mean and scatter in arcseconds and one conclusion: PASS or FAIL. Use ordered observation coordinates 1–5 on the residual axis."
-    answerText: "Centered, expected scatter supports correction rather than overfitting."
+    question: "Submit the corrected mean and scatter in arcseconds. PASS only if absolute mean≤0.10 arcsecond and scatter≤0.10 arcsecond; this is a summary-data check, not an invented five-point residual trace."
+    answerText: "Both corrected summaries meet their limits. Retain the documented source of the correction with the refitted optical batch."
     why: "RESIDUAL tests the pattern left by a repair."
     # wrong-path feedback, one rebuttal per wrong option:
     #   Perfect zeros would be suspicious; consistent scatter is the goal.

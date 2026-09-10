@@ -11,7 +11,7 @@
   objective: "Which feed change protects the conveyor and bin?"
   stake: "The lift has enough energy, but the feed belt still stops with small loads. A moving stream can push hard on the belt. At the Tip and brake house, check steady flow and sudden impacts. By the end of the mission, you choose the feed change that protects the belt and bin."
   takeaway: "Changing momentum over a longer time can reduce force. ---"
-  segue: "Mission decision: Fit the staged chute. The longer stop lowers the force on the bin. Ore can still reach the belt at the planned rate. The next file holds two gravity readings that disagree. Ivo marks the staged chute for installation. It preserves daily delivery in the stated model, removing one reason to demand that the passenger cage make up lost ore time."
+  segue: "The new chute saves the feed target, but Nia has two gravity readings that clash. The crew wants to know if they explain March."
   # The mission card's own "Primer concepts", printed on the plan card.
   terms:
   - {name: "Momentum", def: "mass multiplied by velocity."}
@@ -223,9 +223,9 @@
       tolerance: 3
       units: N
       labels:
-        - arriving momentum (kg m/s)
-        - stopping time (s)
-        - longer-time alternative (s)
+        - "600"
+        - "0.2"
+        - "0.6"
       values:
         - 600
         - 0.2
@@ -235,7 +235,7 @@
         - 1
       slots: 2
       formula: a/b
-      template: "{0}/{1}"
+      template: "{0} / {1} = ? N"
       solution: "3000"
 
   # --- Stop 24: Commit the day's plan

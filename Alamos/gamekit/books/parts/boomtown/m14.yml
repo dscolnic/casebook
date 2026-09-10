@@ -11,7 +11,7 @@
   objective: "Decide whether the second line remains the best plan after correcting the cost comparison."
   stake: "The filter quote is in, but the new rail line looks too good. A fee that changes hands may have been counted as a saving. Today you decide which plan can stand a cost rise. By the end of the mission, you will test the claim before the vote."
   takeaway: "The final hearing can now choose an agreement whose claims use one consistent accounting boundary."
-  segue: "Mission decision: Drop the claim that the new line is best and keep the access retrofit. The claim counted a transfer as a saving. The line also fails the cost test. Its ribbon comes down before the vote."
+  segue: "But Leila needs confirmed housing funds before signing; the retrofit’s better cost test is not a funded agreement."
   # The mission card's own "Primer concepts", printed on the plan card.
   terms:
   - {name: "Transfer", def: "A payment that changes who holds purchasing power without itself using up resources."}

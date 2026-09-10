@@ -386,7 +386,7 @@ missions:
   objective: "Can the proposed start be used for passenger trips?"
   stake: "The March stop left the cage past its landing, and the mine now wants faster trips. A rope pulls the cage that holds the shift. At the Bank, check the planned motion with a small test. By the end of the mission, you decide if the fast start can carry people."
   takeaway: "A correct motion calculation can still fail a safety limit. ---"
-  segue: "Mission decision: Reject the fast start. Its speed grows too fast for the stated limit. The slow schedule stays in place. The old drum drawing is now on the desk. Ruth takes the fast-start sheet off the shift board. Her brother Finn's tally stays on the hook with the other forty; no one boards for a test."
+  segue: "But Ewan’s fast timetable rests on a drum drawing that shows steel where the hub has a hole."
   # The mission card's own "Primer concepts", printed on the plan card.
   terms:
   - {name: "Velocity", def: "speed with a direction."}
@@ -649,7 +649,7 @@ missions:
   objective: "Which drum inertia belongs in the winding model?"
   stake: "The fast start is held, but the drum record may be wrong too. Steel far from the shaft makes a drum harder to speed up. At the Winder House, check its shape against the old drawing. By the end of the mission, you decide which drum model belongs in the plan."
   takeaway: "Where mass sits matters when a body turns. ---"
-  segue: "Mission decision: Use the ring-shaped drum model. The measured hole changes how its mass is spread. The old drawing gets a warning tag. The rope record is next. Ewan marks the old drum drawing superseded in his own hand. The first record behind his promised timetable has failed a physical check."
+  segue: "The drum record is fixed, but Mara still has 12,000 kg of hanging rope missing from the load tally."
   # The mission card's own "Primer concepts", printed on the plan card.
   terms:
   - {name: "Rotational inertia", def: "a measure of how mass distribution resists changes in turning speed."}
@@ -723,9 +723,9 @@ missions:
       tolerance: 0.01
       units: m
       labels:
-        - rim speed (m/s)
-        - angular speed (rad/s)
-        - half-turn distractor
+        - "6"
+        - "3"
+        - "2"
       values:
         - 6
         - 3
@@ -735,7 +735,7 @@ missions:
         - 1
       slots: 2
       formula: a/b
-      template: "{0}/{1}"
+      template: "{0} / {1} = ? m"
       solution: "2"
 
   # --- Stop 6: Integrate the ring
@@ -931,7 +931,7 @@ missions:
   objective: "Does the proposed one-unit acceleration pass the rope pull limit?"
   stake: "The drum model is fixed, but the rope adds its own weight. The upper rope must pull the cage and all the steel below it. At the Rope Shop, weigh a sample and test the pull. By the end of the mission, you decide if the rope can take the planned rise."
   takeaway: "A hanging rope is part of the load. ---"
-  segue: "Mission decision: The slower rise passes the mean rope-pull limit. The rope's own weight is part of that pull. The bounce test stays open. The motor must now prove it can turn the drum. Mara keeps the sound rope in the plan and pins its measured mass beside the pull limit. She refuses a replacement order that would leave the missing dynamics unexplained."
+  segue: "The rope passes the mean pull, yet Ewan’s motor must also speed up the drum. That extra demand may rule out his fast start."
   # The mission card's own "Primer concepts", printed on the plan card.
   terms:
   - {name: "Tension", def: "the pulling force carried by a stretched rope."}
@@ -1186,7 +1186,7 @@ missions:
   objective: "Which starting acceleration can the motor supply?"
   stake: "The rope can take the slower rise, but the motor has two jobs. It must pull the load and make the drum turn faster. At the Winder House, add those two demands before the start control is freed. By the end of the mission, you decide which start the motor can supply."
   takeaway: "The motor must supply load torque and acceleration torque. ---"
-  segue: "Mission decision: Use the slower start. The faster start asks too much of the motor. The control gains a stop at the tested setting. The full lift still needs its energy check. Ewan locks the start to 1 m/s². He must now tell management why a rope that passes cannot make the motor deliver the faster start."
+  segue: "The slower start fits the motor, but Ada still has no energy total for the full 1,200 m lift."
   # The mission card's own "Primer concepts", printed on the plan card.
   terms:
   - {name: "Torque", def: "the turning effect of a force about an axis."}
@@ -1260,9 +1260,9 @@ missions:
       tolerance: 0.01
       units: rad/s²
       labels:
-        - linear acceleration (m/s²)
-        - contact radius (m)
-        - diameter distractor (m)
+        - "1"
+        - "2"
+        - "4"
       values:
         - 1
         - 2
@@ -1272,7 +1272,7 @@ missions:
         - 1
       slots: 2
       formula: a/b
-      template: "{0}/{1}"
+      template: "{0} / {1} = ? rad/s²"
       solution: "0.5"
 
   # --- Stop 14: Add the two torque demands
@@ -1447,7 +1447,7 @@ missions:
   objective: "Does the lift energy budget clear the emergency stop?"
   stake: "The motor can start the load, but a full lift still needs enough energy. Work adds up force over each part of a trip. At the brake house and Winder House, check the lift and stored motion. By the end of the mission, you decide if that budget also proves a safe stop."
   takeaway: "Enough energy does not establish a safe stop. ---"
-  segue: "Mission decision: The lift has enough energy, but the stop is not cleared. The drum stores motion energy too. The brake page stays open. Two trip tags now hang on the feed belt. Ada signs the energy page but leaves her brake page open. She places the March check beside it so the crew can see that enough lift energy has answered a different question."
+  segue: "But Ivo’s bin bolts have broken. Each lost ore trip adds to the pressure on Ewan to win back time."
   # The mission card's own "Primer concepts", printed on the plan card.
   terms:
   - {name: "MJ (megajoule)", def: "one million joules of energy; kJ (kilojoule) means one thousand joules."}
@@ -1643,20 +1643,22 @@ missions:
       tolerance: 90
       units: J
       labels:
-        - inertia (kg m²)
-        - angular speed (rad/s)
-        - half
+        - "45000"
+        - "2"
+        - "0.5"
+        - "4"
       values:
         - 45000
         - 2
         - 0.5
+        - 4
       correct:
         - 2
         - 0
         - 1
       slots: 3
       formula: a*b*c*c
-      template: "{0}*{1}*{2}*{2}"
+      template: "{0} × {1} × {2} × {2} = ? J"
       solution: "90000"
 
   # --- Stop 20: Commit the day's plan
@@ -1715,7 +1717,7 @@ missions:
   objective: "Which feed change protects the conveyor and bin?"
   stake: "The lift has enough energy, but the feed belt still stops with small loads. A moving stream can push hard on the belt. At the Tip and brake house, check steady flow and sudden impacts. By the end of the mission, you choose the feed change that protects the belt and bin."
   takeaway: "Changing momentum over a longer time can reduce force. ---"
-  segue: "Mission decision: Fit the staged chute. The longer stop lowers the force on the bin. Ore can still reach the belt at the planned rate. The next file holds two gravity readings that disagree. Ivo marks the staged chute for installation. It preserves daily delivery in the stated model, removing one reason to demand that the passenger cage make up lost ore time."
+  segue: "The new chute saves the feed target, but Nia has two gravity readings that clash. The crew wants to know if they explain March."
   # The mission card's own "Primer concepts", printed on the plan card.
   terms:
   - {name: "Momentum", def: "mass multiplied by velocity."}
@@ -1927,9 +1929,9 @@ missions:
       tolerance: 3
       units: N
       labels:
-        - arriving momentum (kg m/s)
-        - stopping time (s)
-        - longer-time alternative (s)
+        - "600"
+        - "0.2"
+        - "0.6"
       values:
         - 600
         - 0.2
@@ -1939,7 +1941,7 @@ missions:
         - 1
       slots: 2
       formula: a/b
-      template: "{0}/{1}"
+      template: "{0} / {1} = ? N"
       solution: "3000"
 
   # --- Stop 24: Commit the day's plan
@@ -1998,7 +2000,7 @@ missions:
   objective: "Can the local gravity correction explain the March overrun?"
   stake: "The feed fix works, but two gravity readings in the lift file do not match. A meter can drift while the ground stays the same. At the Gravity Station and Rope Shop, check drift and depth. By the end of the mission, you decide if gravity can explain the March overrun."
   takeaway: "An ideal depth model is different from a measured gravity value. ---"
-  segue: "Mission decision: Correct the survey, but do not blame gravity for March. The weight change is small. It does not explain the delayed cage motion. The power chart still rejects the fastest cruise. Nia signs the drift correction and keeps the March inquiry open. A fault in her reading does not erase the separate evidence of the moving cage."
+  segue: "The gravity claim fails, yet Ewan still needs a speed his motor can sustain. The shaft-power ceiling is 600 kW."
   # The mission card's own "Primer concepts", printed on the plan card.
   terms:
   - {name: "Gravity", def: "the attraction between masses."}
@@ -2274,7 +2276,7 @@ missions:
   objective: "Which cruise speed fits the motor power limit?"
   stake: "The weight table holds, but the motor cannot give energy at any rate. Power is the rate at which a machine does work. At the Winder House and Tip, check the lift and a small drive. By the end of the mission, you choose a cruise speed that fits the power limit."
   takeaway: "Power limits how fast usable energy can be delivered. ---"
-  segue: "Mission decision: Cap cruise at three and a half metres per second for now. The faster choice needs too much power. The brake limit is still open. A test mass keeps moving after its support stops. Ewan pins up 3.5 m/s as a power-only proposal. Ruth adds BRAKE PAGE OPEN across it before anyone can mistake that limited pass for passenger approval."
+  segue: "The power page allows a proposal, but Mara’s test mass still moves after its support stops. Finn’s cage did that in March."
   # The mission card's own "Primer concepts", printed on the plan card.
   terms:
   - {name: "Power", def: "the rate of energy transfer."}
@@ -2348,9 +2350,9 @@ missions:
       tolerance: 160
       units: N
       labels:
-        - total hanging mass (kg)
-        - conservative gravity (m/s²)
-        - acceleration distractor
+        - "16000"
+        - "10"
+        - "1"
       values:
         - 16000
         - 10
@@ -2360,7 +2362,7 @@ missions:
         - 1
       slots: 2
       formula: a*b
-      template: "{0}*{1}"
+      template: "{0} × {1} = ? N"
       solution: "160000"
 
   # --- Stop 30: Turn lift work into power
@@ -2535,7 +2537,7 @@ missions:
   objective: "Can a drum stop time alone predict when the cage stops?"
   stake: "The power limit is met, but the cage can move after its support stops. A stretched rope can pull a load back toward rest. At the Rope Shop and Bank, check stretch and bounce. By the end of the mission, you decide if drum stop time alone can tell when the cage stops."
   takeaway: "A fixed support can hold a load that is still moving. ---"
-  segue: "Mission decision: Keep separate records for drum and cage. The rope gives the cage its own bounce time. Drum rest alone cannot prove cage rest. The sealed March tape is now ready to read. Ruth puts a second space on the shift check for the cage trace. The drum-stop lamp that was lit while Finn was still moving can no longer close that check alone."
+  segue: "The rope has its own clock, but Ada must show it fits March. The exact peak time is still sealed in her file."
   # The mission card's own "Primer concepts", printed on the plan card.
   terms:
   - {name: "Elasticity", def: "the ability to store energy while stretched and return toward the original shape."}
@@ -2791,7 +2793,7 @@ missions:
   objective: "What caused the cage to overrun its March landing?"
   stake: "The cage has its own bounce period, so the sealed March tape can now be tested. A load can move while its rope changes stretch. At the brake house and Rope Shop, trace that motion from the stop. By the end of the mission, you decide why the cage passed its landing."
   takeaway: "Initial motion and restoring force can explain a delayed overrun. ---"
-  segue: "Mission decision: The cage kept moving as the rope changed stretch. The model predicts the peak and its delay. The drum really was still. A passed empty test now sits beside a warm-pad warning. Ada places her signed March check below the two traces. She tells Ruth why its inference failed; the measured delayed peak supports the account without turning it into permission for the next trip."
+  segue: "The March delay now fits, yet Ada’s new empty pass uses cold pads. A weaker warm-pad limit could still defeat Ewan’s fast plan."
   # The mission card's own "Primer concepts", printed on the plan card.
   terms:
   - {name: "Initial condition", def: "a measured starting position or velocity used to choose one motion from a family of solutions."}
@@ -3078,7 +3080,7 @@ missions:
   objective: "Does the empty test authorize the faster passenger profile?"
   stake: "March is explained, and the empty cage stops within the marked space. Warm brake pads and more load can change that distance. At the brake house, Bank and Winder House, check those limits before the shift rides. By the end of the mission, you decide if the empty test earns a faster passenger run."
   takeaway: "A test approves only the conditions it actually covers. ---"
-  segue: "Mission decision: The empty test does not clear the faster passenger trip. The loaded warm case needs more space. Keep the two-metre-per-second choice for final review. The last empty test is ready. Ewan crosses out the fast shift sheet. The extra pay he promised is gone. Ada writes the load and pad state on the empty-test pass. Only the slow choice goes to the last check."
+  segue: "The fast plan fails, so Ruth needs one last empty wind and a signed range. The inspector arrives tomorrow."
   # The mission card's own "Primer concepts", printed on the plan card.
   terms:
   - {name: "Braking deceleration", def: "the positive size of acceleration opposite motion."}
@@ -3368,7 +3370,7 @@ missions:
   objective: "Which complete profile can be signed for the defined operating range?"
   stake: "The slower speed fits the worst stop, and the last test is ready. The plan must meet each limit for the loads it covers. At the Bank, Rope Shop and Winder House, check the final record. By the end of the mission, you choose the full profile that can open passenger access."
   takeaway: "A signed profile must keep every constraint and its tested range. ---"
-  segue: "Mission decision: Sign the two-metre-per-second plan within its tested range. The slower start and all limits stay attached. The empty test agrees with its prediction. Once the four bars are full, the passenger gate opens. Ruth opens the passenger gate for the signed range. Ewan posts the slower timetable above his crossed-out promise. The crew can reach work again once all checks pass. The extra shifts are gone. Finn takes his tally only after the last gates clear."
+  segue: "Ruth can call the forty-one forward once the last gates clear. But Ewan must keep the posted limits when ore trips fall behind."
   # The mission card's own "Primer concepts", printed on the plan card.
   terms:
   - {name: "Operating range", def: "the loads, lengths and conditions for which a plan has been checked."}

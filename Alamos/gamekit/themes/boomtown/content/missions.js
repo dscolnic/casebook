@@ -90,7 +90,7 @@ export const MISSIONS = [
       "body": "The diner has food but a broken work bench. Nico can cook or fix it, so one task must wait. Today you decide if a trade can keep lunch on time. By the end of the mission, you will choose a meal and repair deal.",
       "objective": "Decide whether the diner should trade packed meals for repairs."
     },
-    "segue": "Mission decision: Trade two meal boxes for each hour of repairs. Both teams give up less than they would on their own. The bench is fixed and lunch can start. More people still join the queue.",
+    "segue": "But Nico still has a growing lunch queue; repaired equipment has not settled why orders rose.",
     "stops": [
       {
         "group": "CM",
@@ -204,7 +204,7 @@ export const MISSIONS = [
       "body": "The meal trade works, but the lunch queue grows. More buyers or higher costs could push the price up. Today you decide which cause the town should post. By the end of the mission, you will test the lunch price claim.",
       "objective": "Decide whether demand or supply explains the lunch price rise."
     },
-    "segue": "Mission decision: More buyers caused the lunch price rise. Costs stayed fixed, but orders rose at the old price. The town posts the cause. The room desk now shows beds that no one will book.",
+    "segue": "Yet Leila finds empty rooms after the rent rise; more arrivals have not guaranteed more bookings.",
     "stops": [
       {
         "group": "T",
@@ -327,7 +327,7 @@ export const MISSIONS = [
       "body": "The lunch price has a cause, but some rooms now stand empty. A rent rise can bring in less cash if too few guests stay. Today you decide if the room rate should stay high. By the end of the mission, you will check what the rise earned.",
       "objective": "Decide whether the tested rent increase raises room revenue."
     },
-    "segue": "Mission decision: Do not keep the tested rent rise. Receipts fell by $100 a night. The owner puts the old rate back on the board. The diner still needs more meals from the same oven.",
+    "segue": "Now Nico needs more meals from one stove, but another cook may cost more than the meals they add.",
     "stops": [
       {
         "group": "T",
@@ -458,7 +458,7 @@ export const MISSIONS = [
       "body": "Rooms fill again, but Nico needs more meals from one stove. Each new cook may add less than the last. Today you decide if one more cook is worth the wage. By the end of the mission, you will choose which job to post.",
       "objective": "Decide whether another cook is worth hiring at the current wage."
     },
-    "segue": "Mission decision: Hire the fourth cook, but not the fifth. The fourth adds more sales than wage cost; the fifth does not. One job is posted. The bakery loses a worker to that offer.",
+    "segue": "But Nico’s new cook still needs a home; Leila cannot turn a job offer into an available room.",
     "stops": [
       {
         "group": "CM",
@@ -573,7 +573,7 @@ export const MISSIONS = [
       "body": "A cook took the new job, but still needs a home. A rent cap can help some tenants and leave others in a queue. Today you decide what the town can promise. By the end of the mission, you will check if the cap houses all who apply.",
       "objective": "Decide whether the proposed rent ceiling alone houses every applicant."
     },
-    "segue": "Mission decision: The rent cap alone will not house all who apply. Forty homes are still missing from the offers. The town keeps relief and access as two goals. The access plan still needs funds.",
+    "segue": "So Leila asks who will fund the access measure; a lower posted rent has created no new public revenue.",
     "stops": [
       {
         "group": "T",
@@ -708,7 +708,7 @@ export const MISSIONS = [
       "body": "The rent cap leaves some people out. The town wants a fee to fund more help, but lost sales could cut the cash it raises. Today you decide if the fee can pay for that help. By the end of the mission, you will check who bears its cost.",
       "objective": "Decide whether the proposed market fee supplies enough revenue for the housing measure."
     },
-    "segue": "Mission decision: Use the $120 fee receipts and report the $40 loss in gains. The funds cover the chosen housing step. Buyers and sellers both bear costs. One supplier now wants to close.",
+    "segue": "But Nico’s supplier is losing money; fee receipts will not tell its owner whether to close this month.",
     "stops": [
       {
         "group": "T",
@@ -839,7 +839,7 @@ export const MISSIONS = [
       "body": "The fee funds help, but a supplier may close. A loss does not mean closing saves cash when some bills must still be paid. Today you decide if this shift should run. By the end of the mission, you will compare the two costs.",
       "objective": "Decide whether the supplier should operate during the current month."
     },
-    "segue": "Mission decision: Keep the supplier open this month and review exit next month. Staying open loses $40; closing loses $100. The shift goes ahead. New firms now want space to open.",
+    "segue": "Yet Nico wants to block new kitchens; the entry he welcomed for supplies now threatens his own profit.",
     "stops": [
       {
         "group": "CM",
@@ -958,7 +958,7 @@ export const MISSIONS = [
       "body": "The supplier stays open, but new food stalls want space. Nico likes cheap supplies yet fears new rivals. Today you decide if the town should let the stalls in. By the end of the mission, you will test the case for fair entry rules.",
       "objective": "Decide whether the town should block new food sellers to protect current profits."
     },
-    "segue": "Mission decision: Let the new food sellers enter under the same rules. They meet the health and space checks. New permits go up beside the old menus. Workers now ask what more jobs will pay.",
+    "segue": "Now Leila has more job offers to examine, but one large employer can still shape the wage.",
     "stops": [
       {
         "group": "CM",
@@ -1077,7 +1077,7 @@ export const MISSIONS = [
       "body": "New stalls bring jobs, but the mine buys most skilled work. To hire one more worker, it may need to raise pay for all. Today you decide if a wage floor can raise pay and jobs here. By the end of the mission, you will test that claim.",
       "objective": "Decide whether the proposed wage floor can raise both pay and employment in the stated model."
     },
-    "segue": "Mission decision: Support the $30 wage floor for this model. It raises jobs from three to four and raises pay. The offer goes on the board. The mine now points to high freight fees.",
+    "segue": "But Ruth has unused freight slots; better wages alone will not give rival firms access to them.",
     "stops": [
       {
         "group": "P",
@@ -1208,7 +1208,7 @@ export const MISSIONS = [
       "body": "The wage plan adds a job, but freight fees stay high. Ruth has empty slots that the mine cannot afford. Today you decide if lack of space is the whole cause. By the end of the mission, you will check how the gate sets its price.",
       "objective": "Decide whether the freight shortage is entirely a physical capacity problem."
     },
-    "segue": "Mission decision: Market power is part of the freight problem. Only twenty of fifty usable slots are booked. The town keeps access changes in the plan. Two firms now offer a pact.",
+    "segue": "Yet Ruth’s rivals promise to limit expansion; Mara needs a forecast built from incentives, not that promise.",
     "stops": [
       {
         "group": "E",
@@ -1306,7 +1306,7 @@ export const MISSIONS = [
       "body": "The gate has spare space, but two firms now offer a pact. Each could gain by breaking its word. Today you decide if the town can trust their joint plan. By the end of the mission, you will test each firm's best move.",
       "objective": "Decide whether the firms will keep their low-output pact without enforcement."
     },
-    "segue": "Mission decision: Expect both firms to expand in the one-round model. Each gains by expanding under either rival move. The pact loses its guarantee stamp. More freight may raise water costs.",
+    "segue": "But Owen says more freight sends more harm downstream; the firms’ payoffs leave that bill out.",
     "stops": [
       {
         "group": "E",
@@ -1437,7 +1437,7 @@ export const MISSIONS = [
       "body": "The firms may move more freight, but the water bill grows. People down the stream pay a cost left out of the price. Today you decide if the freight goal should change. By the end of the mission, you will add that harm to the count.",
       "objective": "Decide whether the town should use the uncorrected freight quantity as its efficiency target."
     },
-    "segue": "Mission decision: Use thirty freight units as the goal once harm is counted. The old goal left out a water cost. The plan gains a water rule. A filter quote may cut the cost of that rule.",
+    "segue": "So Owen needs affordable filters, but a border tax could raise the cost of his water plan.",
     "stops": [
       {
         "group": "X",
@@ -1556,7 +1556,7 @@ export const MISSIONS = [
       "body": "The water rule needs a filter, but a new tax could raise its price. Local sellers gain while buyers pay more. Today you decide which filter quote the plan should use. By the end of the mission, you will track the tax's costs and gains.",
       "objective": "Decide whether the proposed filter tariff preserves the cheapest compliance option."
     },
-    "segue": "Mission decision: Keep the untaxed filter quote and report who gains from the tariff. The same filter costs more with the fee. The town retains the cheaper quote. The new rail line now seems ready to sign.",
+    "segue": "Now Mara can compare filter costs, but the new rail line’s claimed savings still mix transfers with real gains.",
     "stops": [
       {
         "group": "CM",
@@ -1654,7 +1654,7 @@ export const MISSIONS = [
       "body": "The filter quote is in, but the new rail line looks too good. A fee that changes hands may have been counted as a saving. Today you decide which plan can stand a cost rise. By the end of the mission, you will test the claim before the vote.",
       "objective": "Decide whether the second line remains the best plan after correcting the cost comparison."
     },
-    "segue": "Mission decision: Drop the claim that the new line is best and keep the access retrofit. The claim counted a transfer as a saving. The line also fails the cost test. Its ribbon comes down before the vote.",
+    "segue": "But Leila needs confirmed housing funds before signing; the retrofit’s better cost test is not a funded agreement.",
     "stops": [
       {
         "group": "E",
@@ -1744,7 +1744,7 @@ export const MISSIONS = [
       "body": "The old gate can be changed, but the plan still needs funds and names. Each promise must have someone who will keep it. Today you decide which whole plan the town can sign. By the end of the mission, you will check its costs, terms and owners.",
       "objective": "Decide which complete agreement the council can sign under its published rules."
     },
-    "segue": "Mission decision: Sign the access retrofit with funded housing support and the water-cost rule. All funds are confirmed and each promise has an owner. The final trial meets the corrected goal. The plan is ready for signing after the final resource check.",
+    "segue": "Yet Leila still has unmatched housing requests; the signed agreement must keep those people in its review.",
     "stops": [
       {
         "group": "P",

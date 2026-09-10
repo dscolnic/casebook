@@ -282,11 +282,11 @@
     person: ortiz
     concept: 30   # timestamps/current identity
     reason: "A successful present-day conduit test does not automatically establish the path during the historical event."
-    scene: "Decide whether the historical current split is defensible."
+    scene: "The present link test identifies a current path, but the report also makes a claim about week five. Ravi needs historical identity and timing before transferring that interpretation backward."
     motivation: "Matching conductor identity and event timing determines whether the old records support the same current split."
     format: ATTEST
-    question: "Use no more than four checks to verify week-five identity, timing, bond, and calibration records, then submit the historical current fraction and path."
-    answerText: "The completed check shows week-five records support one-third via conduit. Identity and timing transfer the test."
+    question: "Inspect the four historical records. Accept the week-five current split only if shunt identity, clock alignment, conduit configuration and clamp calibration all match; today's link test alone cannot establish past wiring."
+    answerText: "The work order closes the historical configuration gap; the contemporary control test remains evidence about today's circuit."
     why: "matched identity and timing transfer the causal result to the failed shot."
     # wrong-path feedback, one rebuttal per wrong option:
     #   Today's result alone cannot establish the historical shot; verify all four critical records.

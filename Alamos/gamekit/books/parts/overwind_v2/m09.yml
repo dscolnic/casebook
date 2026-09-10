@@ -11,7 +11,7 @@
   objective: "Can a drum stop time alone predict when the cage stops?"
   stake: "The power limit is met, but the cage can move after its support stops. A stretched rope can pull a load back toward rest. At the Rope Shop and Bank, check stretch and bounce. By the end of the mission, you decide if drum stop time alone can tell when the cage stops."
   takeaway: "A fixed support can hold a load that is still moving. ---"
-  segue: "Mission decision: Keep separate records for drum and cage. The rope gives the cage its own bounce time. Drum rest alone cannot prove cage rest. The sealed March tape is now ready to read. Ruth puts a second space on the shift check for the cage trace. The drum-stop lamp that was lit while Finn was still moving can no longer close that check alone."
+  segue: "The rope has its own clock, but Ada must show it fits March. The exact peak time is still sealed in her file."
   # The mission card's own "Primer concepts", printed on the plan card.
   terms:
   - {name: "Elasticity", def: "the ability to store energy while stretched and return toward the original shape."}

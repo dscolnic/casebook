@@ -215,10 +215,10 @@
     title: "Divide the load"
     concept: 23   # static equilibrium
     reason: "The force diagram is complete and the gauges need targets before the load is added."
-    scene: "The force diagram now shows only total weight and two upward support forces. Calculate the equal reading expected from each support so the live gauges have a prewritten target before loading."
+    scene: "The support check now includes the passengers. An empty structure's weight is not the load the two supports will share."
     motivation: "The predicted force at each support lets the crew check whether the centered load is shared correctly."
     format: BALLPARK
-    question: "Given empty-ship mass 12,000 kg, 60 riders at 70 kg each, g = 10.0 m/s^2, two equal supports, and F_left + F_right = mg, submit the included force streams, total weight in kN, and one support-force number in kN."
+    question: "The structure has mass 12,000 kg and carries 60 passengers of 70 kg each. With g=10 m/s² and two equally loaded supports, fill structure mass, passenger count and passenger mass in F=(M+Nm)g/2."
     answerText: "Each support should carry 81 kN during the centered static test."
     why: "In equilibrium, Fleft + Fright - mg = 0. Symmetry makes the two upward forces equal."
     # wrong-path feedback, one rebuttal per wrong option:

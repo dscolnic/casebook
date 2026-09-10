@@ -214,10 +214,10 @@
     title: "Balance the fit"
     concept: 11   # weighted fit
     reason: "The orbit fit must combine precise radar range with the longer optical baseline without counting correlated products twice."
-    scene: "The radar range has tiny uncertainty, while optical positions provide the longer time baseline and transverse motion. Balance the datasets by documented uncertainty and correlation, then reject equal weighting and simple vote counting."
+    scene: "The radar products share an origin. Their precision can strengthen one evidence stream without creating several independent votes."
     motivation: "Uncertainty-aware weighting determines how each dataset constrains the fitted trajectory rather than letting record count decide."
     format: BALLPARK
-    question: "Optical position has uncertainty 2 units and the independent radar range has uncertainty 1 unit. Using inverse-variance weights and treating the two correlated radar products as one stream, submit the radar stream's normalized weight and justify the covariance grouping."
+    question: "An optical stream has σ=2 and one independent radar stream has σ=1 in the same units. Fill optical and radar uncertainties in the radar weight (1/σradar²)/(1/σoptical²+1/σradar²)."
     answerText: "Precision controls weight, covariance prevents double-counting, and optical timing preserves transverse information."
     why: "BALANCE trades influence according to information content and dependence."
     # wrong-path feedback, one rebuttal per wrong option:

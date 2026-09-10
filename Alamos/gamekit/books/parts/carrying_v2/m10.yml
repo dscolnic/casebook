@@ -289,11 +289,11 @@
     person: voss
     concept: 19   # sustainable plan | population limits | D5 | TRANSFER | L5 | decision
     reason: "The combined reef pressures make the original catch ceiling vulnerable to poor nursery recruitment."
-    scene: "The reef now faces nutrient, heat, fishing, and acidification pressure. Stress the catch ceiling across uncertain nursery recruitment."
+    scene: "Nursery recruitment may be lower than the earlier estimate. The catch ceiling must remain below replacement across the full supported range."
     motivation: "The low-recruitment comparison determines which catch limit remains below replacement in a bad year."
     format: STRESS
-    question: "Move recruitment from 80 to 130 fish and select among a fixed 100-fish catch, 70-fish precautionary catch, 130-fish catch, or no cap; submit the ceiling that stays below replacement"
-    answerText: "The completed check shows use 70 fish in low-recruitment years."
+    question: "Sweep replacement from 80 to 130 fish per year. Select the largest listed catch ceiling strictly below replacement throughout; no cap supplies no finite bound."
+    answerText: "70 fish per year remains below even the 80-fish lower bound. The 100-fish ceiling no longer survives the low-recruitment case."
     why: "Stress the catch ceiling connects the measured environmental mechanism to the next island condition."
     # wrong-path feedback, one rebuttal per wrong option:
     #   The retry identifies the first incorrect mechanism, unit, unsupported claim, omitted requirement, or violated constraint.

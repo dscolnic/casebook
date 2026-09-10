@@ -11,7 +11,7 @@
   objective: "Which cruise speed fits the motor power limit?"
   stake: "The weight table holds, but the motor cannot give energy at any rate. Power is the rate at which a machine does work. At the Winder House and Tip, check the lift and a small drive. By the end of the mission, you choose a cruise speed that fits the power limit."
   takeaway: "Power limits how fast usable energy can be delivered. ---"
-  segue: "Mission decision: Cap cruise at three and a half metres per second for now. The faster choice needs too much power. The brake limit is still open. A test mass keeps moving after its support stops. Ewan pins up 3.5 m/s as a power-only proposal. Ruth adds BRAKE PAGE OPEN across it before anyone can mistake that limited pass for passenger approval."
+  segue: "The power page allows a proposal, but Mara’s test mass still moves after its support stops. Finn’s cage did that in March."
   # The mission card's own "Primer concepts", printed on the plan card.
   terms:
   - {name: "Power", def: "the rate of energy transfer."}
@@ -85,9 +85,9 @@
       tolerance: 160
       units: N
       labels:
-        - total hanging mass (kg)
-        - conservative gravity (m/s²)
-        - acceleration distractor
+        - "16000"
+        - "10"
+        - "1"
       values:
         - 16000
         - 10
@@ -97,7 +97,7 @@
         - 1
       slots: 2
       formula: a*b
-      template: "{0}*{1}"
+      template: "{0} × {1} = ? N"
       solution: "160000"
 
   # --- Stop 30: Turn lift work into power

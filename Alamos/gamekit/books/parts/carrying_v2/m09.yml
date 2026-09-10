@@ -307,11 +307,11 @@
     title: "Fund source controls"
     concept: 21   # integrated controls | policy | 9
     reason: "The compost test and source map now provide evidence for allocating prevention effort."
-    scene: "The compost test supplies a safer nutrient source, while the casebook locates remaining pathways. Allocate one hundred control points across confirmed sources."
+    scene: "The source map identifies several routes into the reef's water. The council must cover each confirmed route rather than rely on one general cleanup."
     motivation: "The funded controls determine which confirmed pollutant sources the island will intercept before another exposure occurs."
     format: ALLOCATE
-    question: "Fund liner and cap 25, tertiary nutrient removal 25, integrated pest management (IPM) 20, drip irrigation 15, and rain garden 15; reject clearcut subsidy 25 and blanket pesticide 20."
-    answerText: "The completed check shows the five source controls use all 100 points."
+    question: "You have 100 control points. Cover every required outcome and allocate the whole budget. Select whole packages, then submit the plan; the board shows its total and remaining reserve for you to check."
+    answerText: "Each funded package supplies a required outcome; an affordable package that leaves one unresolved is insufficient."
     why: "Fund source controls connects the measured environmental mechanism to the next island condition."
     # wrong-path feedback, one rebuttal per wrong option:
     #   The retry identifies the first incorrect mechanism, unit, unsupported claim, omitted requirement, or violated constraint.

@@ -183,10 +183,10 @@
     title: "Size the coolant load"
     concept: 8   # calorimetry
     reason: "The heat-flow direction is established and the coolant's removal capacity needs quantifying."
-    scene: "A 1000 kg coolant charge warmed by 3.0 K; its specific heat capacity is 3.8 kJ/(kg K). In q = mcΔT, q is transferred heat, m is coolant mass, c is specific heat capacity, and ΔT is its temperature rise."
+    scene: "The coolant log shows a temperature rise. The crew needs the heat absorbed to close the reactor's energy account."
     motivation: "The coolant energy transfer supplies a measured removal term for the reactor's energy balance."
     format: BALLPARK
-    question: "Submit the heat removed by the coolant in kilojoules."
+    question: "For 1,000 kg coolant with specific heat 3.8 kJ/(kg·K) and temperature rise 3 K, fill m,c,ΔT in Q=mcΔT."
     answerText: "The coolant removed 11.4 MJ of heat."
     why: "Multiply mass, energy per kilogram per kelvin, and temperature change. The positive number describes heat gained by coolant; the reactor system loses approximately that heat. Always name the system when assigning signs."
     # wrong-path feedback, one rebuttal per wrong option:

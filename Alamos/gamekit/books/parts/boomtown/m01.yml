@@ -11,7 +11,7 @@
   objective: "Decide whether the diner should trade packed meals for repairs."
   stake: "The diner has food but a broken work bench. Nico can cook or fix it, so one task must wait. Today you decide if a trade can keep lunch on time. By the end of the mission, you will choose a meal and repair deal."
   takeaway: "The adviser can recommend the agreement without ordering either business to accept it."
-  segue: "Mission decision: Trade two meal boxes for each hour of repairs. Both teams give up less than they would on their own. The bench is fixed and lunch can start. More people still join the queue."
+  segue: "But Nico still has a growing lunch queue; repaired equipment has not settled why orders rose."
   # The mission card's own "Primer concepts", printed on the plan card.
   terms:
   - {name: "Scarcity", def: "Wants exceed the resources available to meet them."}

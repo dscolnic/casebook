@@ -183,10 +183,10 @@
     title: "Complete the ICE table"
     concept: 12   # ICE stoichiometry
     reason: "The equilibrium relationship is selected and the safe-temperature mixture needs calculating."
-    scene: "Use the measured changes in an ICE table to calculate the current equilibrium and the methane-yield ceiling at the safe temperature."
+    scene: "The equilibrium sample is ready. The crew checks the constant against the balanced reaction before predicting a shift."
     motivation: "The concentration table establishes the methane ceiling and remaining reactants for the proposed operating condition."
     format: BALLPARK
-    question: "Complete changes and equilibrium concentrations, then calculate Kc for this training condition."
+    question: "For CO₂+4H₂⇌CH₄+2H₂O, equilibrium concentrations are [CH₄]=0.5 M and [H₂O]=[CO₂]=[H₂]=1 M. Fill these four concentrations in Kc=[CH₄][H₂O]²/([CO₂][H₂]⁴)."
     answerText: "The equilibrium row is 1.00, 1.00, 0.50, and 1.00 M, giving Kc = 0.50."
     why: "Every change is tied to one reaction extent x and multiplied by coefficients. Hydrogen changes by -4x; water by +2x. The balanced row is the guardrail against treating each concentration independently."
     # wrong-path feedback, one rebuttal per wrong option:

@@ -11,7 +11,7 @@
   objective: "Resolve whether the sequence change can explain the weak enzyme; the wrong diagnosis could remove a healthy family."
   stake: "The family stays on the list, but one enzyme works poorly. Cells use RNA to turn DNA code into proteins. Trace the code with Nell, then check the enzyme with Mara. Today you decide whether the sequence change can explain the weak enzyme."
   takeaway: "Treat the changed enzyme as a supported lead, not a complete diagnosis. ---"
-  segue: "Mission decision: Treat the changed enzyme as a supported lead, not a complete diagnosis. The changed gene and weak enzyme fit one testable cause."
+  segue: "Yet Ivo finds that leaf shapes shift between rooms. Nell needs a label that can survive that change."
   # The mission card's own "Primer concepts", printed on the plan card.
   terms:
   - {name: "Transcription", def: "Making an RNA copy using a DNA template."}

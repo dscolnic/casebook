@@ -281,11 +281,11 @@
     person: hart
     concept: 35   # Value and resource strategy
     reason: "Only one work block remains before handover, with inspections and independent checks still to fund."
-    scene: "Spend the last work block on inspection, independent verification, operator cards, and protected reserve. Do not fund cosmetic work or another repeated coaster calculation that cannot correct its measured physical geometry."
+    scene: "The last work block must close the inspection and verification conditions before handover. Repeating the coaster calculation cannot repair its measured geometry."
     motivation: "The final allocation completes required safety work without spending scarce capacity on tasks that cannot fix the coaster."
     format: SCIENCETANK
-    question: "Submit one numerical allocation totaling exactly 100 points among arm-nine inspection, independent verification, operating cards, protected reserve, repeated coaster math, and paint. Meet minima 25, 20, 15, and 20 points for the first four respectively, and allocate 0 to the last two."
-    answerText: "Use 30 points for arm inspection, 25 for independent verification, 20 for operating cards, and 25 for protected reserve."
+    question: "Allocate exactly 100 points. Fund at least 25 inspection, 20 verification, 15 operating cards and 20 reserve. Assign zero to repeated coaster math and paint; distribute the remaining 20 points freely among the four required categories. Submit the allocation; the board checks the total and each requirement."
+    answerText: "The accepted plan funds every required capability within the stated limits; extra points may be distributed only as the public rule allows."
     why: "Each funded item changes or secures a binding decision. Repeating correct coaster arithmetic cannot repair its geometry."
     # wrong-path feedback, one rebuttal per wrong option:
     #   Spend on evidence or action that can change the certificate.
@@ -336,8 +336,8 @@
     scene: "Read every final ride condition, inspection, threshold, and closure reason. Attest the seven decisions only if each claim matches the tested physical system and no failed safety margin is hidden."
     motivation: "The attestation ties each opening, restriction, or closure to the tested configuration and its actual safety margin."
     format: ATTEST
-    question: "Submit one seven-claim certificate attestation: select exactly one supported final decision for each named ride, including every numerical operating limit, and exclude the unsupported all-open claim."
-    answerText: "Sign three reopenings, three conditional reopenings, and one evidence-based coaster closure."
+    question: "Sign the tested operating scope for each ride; a completed calculation is not a universal clearance. Read the displayed source excerpts, then select every supported claim and leave unsupported claims unsigned."
+    answerText: "Each signature is limited to what its source establishes. The unsupported claims lack the specific date, physical condition, independence or scope they assert."
     why: "Every approved ride has a verified configuration and operating rule. The coaster's physical measurement fails its required margin."
     # wrong-path feedback, one rebuttal per wrong option:
     #   (all_open) The all-open claim contradicts the measured Coaster radius and failed 0.12 m/s operating margin; certificate completion requires a supported closure for that row.

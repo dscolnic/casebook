@@ -11,7 +11,7 @@
   objective: "Does the lift energy budget clear the emergency stop?"
   stake: "The motor can start the load, but a full lift still needs enough energy. Work adds up force over each part of a trip. At the brake house and Winder House, check the lift and stored motion. By the end of the mission, you decide if that budget also proves a safe stop."
   takeaway: "Enough energy does not establish a safe stop. ---"
-  segue: "Mission decision: The lift has enough energy, but the stop is not cleared. The drum stores motion energy too. The brake page stays open. Two trip tags now hang on the feed belt. Ada signs the energy page but leaves her brake page open. She places the March check beside it so the crew can see that enough lift energy has answered a different question."
+  segue: "But Ivo’s bin bolts have broken. Each lost ore trip adds to the pressure on Ewan to win back time."
   # The mission card's own "Primer concepts", printed on the plan card.
   terms:
   - {name: "MJ (megajoule)", def: "one million joules of energy; kJ (kilojoule) means one thousand joules."}
@@ -207,20 +207,22 @@
       tolerance: 90
       units: J
       labels:
-        - inertia (kg m²)
-        - angular speed (rad/s)
-        - half
+        - "45000"
+        - "2"
+        - "0.5"
+        - "4"
       values:
         - 45000
         - 2
         - 0.5
+        - 4
       correct:
         - 2
         - 0
         - 1
       slots: 3
       formula: a*b*c*c
-      template: "{0}*{1}*{2}*{2}"
+      template: "{0} × {1} × {2} × {2} = ? J"
       solution: "90000"
 
   # --- Stop 20: Commit the day's plan

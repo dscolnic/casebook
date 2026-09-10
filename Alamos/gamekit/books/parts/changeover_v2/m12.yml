@@ -287,11 +287,11 @@
     person: voss
     concept: 32   # certification
     reason: "The legal conversion and timing checks pass, but one shop-label claim remains uncorrected."
-    scene: "The tray converts exactly, reserves arrive at the inclusive threshold, and independent customs rejects the shortcut table. Verify those three claims and reject the uncorrected shop-label claim in the Rate Book."
+    scene: "Conversion, reserve timing and the customs rate have separate records. Check each before signing the first-week file."
     motivation: "Attestation separates verified payment readiness from a price-label assertion that still lacks support."
     format: ATTEST
-    question: "Spend three marks and submit certification."
-    answerText: "\"Approve 4.15 after replacing every 4.00 shortcut.\""
+    question: "Use the validated 4.15 crowns/RATE conversion; reserve requirements are inclusive. Read the displayed source excerpts, then select every supported claim and leave unsupported claims unsigned."
+    answerText: "Each signature is limited to what its source establishes. The unsupported claims lack the specific date, physical condition, independence or scope they assert."
     why: "Operational safety requires arithmetic, timing, and independent market evidence."
     # wrong-path feedback, one rebuttal per wrong option:
     #   A different response does not fit the displayed evidence. Operational safety requires arithmetic, timing, and independent market evidence.

@@ -50,7 +50,7 @@
   - id: after-stop-42
     # After Stop 42 | extraction-map | automatic
     on: { after: [2] }
-    world: "At holdout-safe, the dated accepted-result slip for Stop 42 reads: \"Freeze B before reveal; it stays within expected error on unseen records.\". The slip remains in that fixture's evidence holder."
+    world: "At holdout-safe, the dated accepted-result slip for Stop 42 reads: \"All candidate rules frozen before reveal; B selected afterward at 1.6% error.\". The slip remains in that fixture's evidence holder."
     panel: "STOP 42 RECORDED - STOP 43 OPEN"
     # unlocks: Unlock Stop 43 at extraction-map in Statistics & Analysis.
     bubbles:
@@ -199,11 +199,11 @@
     title: "Freeze Before Revealing"
     concept: 30   # model validation
     reason: "The expected extraction spread allows a fair test of cleaning rules on untouched records."
-    scene: "The expected spread is two units, and three candidate cleaning rules fit the development rows. Freeze one rule before the console reveals 20 previously held-out source records and their errors."
+    scene: "Three cleaning rules fit the development records. The team seals all three rules before using the untouched validation set to compare them."
     motivation: "Held-out errors determine whether the frozen cleaning rule generalizes beyond the development rows."
     format: HOLDOUT
-    question: "Review training errors for rules A, B, and C, then freeze one documented rule before 20 held-out records unlock. Submit the rule with acceptable unseen error."
-    answerText: "The completed check shows freeze B before reveal; it stays within expected error on unseen records."
+    question: "Freeze the three supplied rules, then reveal their held-out error rates. Select a rule only if its held-out error is at most 2.0%; choose the lowest held-out error if more than one passes. Do not tune any rule on this set."
+    answerText: "A and C fail the stated error ceiling. B is selected after reveal from previously frozen candidates; it is not rewarded for being guessed before the data were available."
     why: "A holdout prevents the rule from being rewarded for memorizing the same anomalies it must predict."
     # wrong-path feedback, one rebuttal per wrong option:
     #   Tune on holdout; freeze before reveal
@@ -323,10 +323,10 @@
     person: voss
     concept: 30   # file integrity
     reason: "The independent rerun passes, but the final data lock still needs enforceable controls."
-    scene: "The independent extraction survives its holdout and dependency audit. Verify the source hash, signed timestamp, frozen analysis plan, and read-only archive while rejecting the copied report as genuinely independent support."
+    scene: "The extraction passed its holdout, but the evidence record still needs an audit trail. Sign only what the frozen records and source map establish."
     motivation: "Verified hashes, timestamps, analysis plans, and archive permissions determine whether the locked table is genuinely reproducible and protected."
     format: ATTEST
-    question: "Select exactly four backed controls: source hash, signed timestamp, frozen plan, and read-only permission. Submit the attestation while rejecting copied-report agreement as independent evidence."
+    question: "Require source identity, timing, analysis freeze and read-only preservation; count a shared-source copy only once. Read the displayed source excerpts, then select every supported claim and leave unsupported claims unsigned."
     # MODEL CONVERSION, the same one as M1 S4. `verification_limit` is the engine's
     # `checks`; the bible's `backed` and `critical` flags carry over unchanged, and
     # `correct_verified` plus `critical_unbacked` are what those flags already encode.
@@ -350,7 +350,7 @@
       - { id: copied_reports, label: "three copied reports are independent", critical: true,
           signedBy: "Mara Voss", evidence: "Not backed: all three reports run off the same nightly extraction, so their agreement is not independent support." }
       commit: "Seal the file"
-    answerText: "The completed check shows lock the independently rerun table with four backed controls; matching dependent reports add no independent evidence."
+    answerText: "Each signature is limited to what its source establishes. The unsupported claims lack the specific date, physical condition, independence or scope they assert."
     why: "A lock preserves the analysis boundary only if its evidence and permissions are independently backed."
     # wrong-path feedback, one rebuttal per wrong option:
     #   Copied reports provide three proofs

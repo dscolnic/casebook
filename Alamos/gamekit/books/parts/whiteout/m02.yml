@@ -11,7 +11,7 @@
   objective: "Today you decide whether one sensor reading can make both branches fire."
   stake: "The heat is safe, but Mei has two commands from one air reading. Each if test can run its own branch. Trace the code before the crew locks out the air cleaner. By the end of the mission, decide if the fault lies in the sensor or the branches."
   takeaway: "The sensor is not duplicated; two independent if statements can both fire, and an exclusive branch structure removes the double command. ---"
-  segue: "Mission decision: The sensor is not duplicated; two separate if tests both run. One 1050 ppm packet made two commands, but the new branch made one. The crew keeps the scrubber online and fixes the branches. Yet Jonah sees Rover Three circle the same snow marker again."
+  segue: "Yet Jonah holds Rover Three in the bay after it circles the same marker twice."
   # The mission card's own "Primer concepts", printed on the plan card.
   terms:
   - {name: "Boolean expression", def: "a comparison or logical test whose value is true or false. branch: one path through conditional code that runs only when its condition is selected."}

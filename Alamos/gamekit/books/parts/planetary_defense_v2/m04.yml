@@ -149,10 +149,10 @@
     person: rowan
     concept: 18   # information gain
     reason: "The remaining observing window must target the uncertainties that still change the warning decision."
-    scene: "Spend the fixed budget on measurements that can change the warning decision."
+    scene: "The object's motion is confirmed and its sky position is already measured precisely. Malik needs a plan for the uncertainties still affecting the warning."
     motivation: "The selected measurements determine whether the budget buys complementary range, time-baseline, and size information."
     format: VALUE
-    question: "Submit one observing plan costing at most 100 credits, its total cost, and the remaining reserve."
+    question: "You have 100 observing credits. Cover every required outcome at the lowest total cost within the budget; keep all unused capacity in reserve. Select whole packages, then submit the plan; the board shows its total and remaining reserve for you to check."
     # Converted from the payload's `value`. `budget: 100` becomes the engine's
     # budget object; each option keeps its own id, label, cost and axis. The
     # payload's `recommended` set — its keyed 90-credit plan — is what the engine
@@ -165,7 +165,7 @@
       - { id: radar, label: Range-Doppler block, cost: 35, axis: geometry, decisive: true }
       - { id: thermal, label: Thermal infrared block, cost: 25, axis: size, decisive: true }
       - { id: publicity, label: Live public telescope feed, cost: 20, axis: communication }
-    answerText: "The mixed plan attacks time baseline, range, and size while preserving a small reserve."
+    answerText: "Each funded package supplies a required outcome; an affordable package that leaves one unresolved is insufficient."
     why: "Independent measurement axes reduce different uncertainties; repeated same-night frames mostly refine an already precise direction."
     # wrong-path feedback, one rebuttal per wrong option:
     #   Ask which current uncertainty each option reduces and whether another option measures the same thing.
@@ -240,11 +240,11 @@
     title: "Propagate the error budget"
     concept: 11   # error budget
     reason: "The observing schedule needs a forecast of uncertainty reduction before scarce time is committed."
-    scene: "Because the observing order is fixed, the orbit team can forecast how each block changes the encounter uncertainty. Buy the measurement update that most reduces the b-plane width while preserving size information."
+    scene: "The team compares forecast packages before committing the observing schedule. Thermal size work remains protected while the orbit team tests alternative uses of its forecast budget."
     motivation: "The encounter-width comparison determines which measurement combination most improves the predicted impact region."
     format: PROPAGATE
-    question: "Submit one observing-update plan costing no more than 65 credits and its resulting b-plane width in kilometers."
-    answerText: "Geometry and time baseline together outperform more same-night precision."
+    question: "Select the package costing at most 65 credits with the smallest supplied encounter width. Submit the package and its reported width in kilometres; these are alternative model forecasts, not independent errors to add."
+    answerText: "The joint orbit refit predicts a narrower encounter region than either ingredient alone. The orbit desk supplies these whole-model forecasts; a sum of individual error magnitudes cannot reproduce them."
     why: "Correlated range and along-track uncertainty require complementary measurements."
     # wrong-path feedback, one rebuttal per wrong option:
     #   A single smaller component does not guarantee the smallest propagated encounter width.
@@ -323,10 +323,10 @@
     person: chen
     concept: 20   # observing allocation
     reason: "The expected improvement depends on funding data transfer and analysis as well as instruments."
-    scene: "With the expected error reduction known, allocate 100 coordination points across the proposals that make the mixed plan executable. Fund the chain, not the loudest department, and keep the final fit from losing its inputs."
+    scene: "The observing plan is selected, but the data still need staff and a completed handoff. Mira asks for coordination capacity that makes every funded measurement usable."
     motivation: "The coordination allocation determines whether optical, radar, thermal, and combined-fit work can all be completed."
     format: SCIENCETANK
-    question: "Submit one five-category allocation totaling exactly 100 points."
+    question: "Allocate exactly 100 points. Meet the published staffing minima: optical 25, radar 25, thermal 20 and integration 30. This restricted budget assigns no points to publicity. Submit the allocation; the board checks the total and each requirement."
     # Converted from the payload's `proposals` / `recommended`. The engine keys
     # `recommended` by the proposal's LABEL rather than its id, so the payload's
     # id-keyed map becomes the same five numbers against the same five labels.
@@ -342,7 +342,7 @@
       East-dome thermal link: 20
       Final orbit and covariance handoff: 30
       Public live feed: 0
-    answerText: "The range funds optical, radar, thermal, and the final integration that gives those measurements meaning."
+    answerText: "The accepted plan funds every required capability within the stated limits; extra points may be distributed only as the public rule allows."
     why: "Evidence has value only when acquisition, transfer, and combined inference all survive the resource plan."
     # wrong-path feedback, one rebuttal per wrong option:
     #   A funded instrument without its handoff produces data that cannot change tonight's orbit decision.

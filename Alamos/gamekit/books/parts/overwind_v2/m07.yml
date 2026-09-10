@@ -11,7 +11,7 @@
   objective: "Can the local gravity correction explain the March overrun?"
   stake: "The feed fix works, but two gravity readings in the lift file do not match. A meter can drift while the ground stays the same. At the Gravity Station and Rope Shop, check drift and depth. By the end of the mission, you decide if gravity can explain the March overrun."
   takeaway: "An ideal depth model is different from a measured gravity value. ---"
-  segue: "Mission decision: Correct the survey, but do not blame gravity for March. The weight change is small. It does not explain the delayed cage motion. The power chart still rejects the fastest cruise. Nia signs the drift correction and keeps the March inquiry open. A fault in her reading does not erase the separate evidence of the moving cage."
+  segue: "The gravity claim fails, yet Ewan still needs a speed his motor can sustain. The shaft-power ceiling is 600 kW."
   # The mission card's own "Primer concepts", printed on the plan card.
   terms:
   - {name: "Gravity", def: "the attraction between masses."}

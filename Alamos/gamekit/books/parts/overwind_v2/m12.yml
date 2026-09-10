@@ -11,7 +11,7 @@
   objective: "Which complete profile can be signed for the defined operating range?"
   stake: "The slower speed fits the worst stop, and the last test is ready. The plan must meet each limit for the loads it covers. At the Bank, Rope Shop and Winder House, check the final record. By the end of the mission, you choose the full profile that can open passenger access."
   takeaway: "A signed profile must keep every constraint and its tested range. ---"
-  segue: "Mission decision: Sign the two-metre-per-second plan within its tested range. The slower start and all limits stay attached. The empty test agrees with its prediction. Once the four bars are full, the passenger gate opens. Ruth opens the passenger gate for the signed range. Ewan posts the slower timetable above his crossed-out promise. The crew can reach work again once all checks pass. The extra shifts are gone. Finn takes his tally only after the last gates clear."
+  segue: "Ruth can call the forty-one forward once the last gates clear. But Ewan must keep the posted limits when ore trips fall behind."
   # The mission card's own "Primer concepts", printed on the plan card.
   terms:
   - {name: "Operating range", def: "the loads, lengths and conditions for which a plan has been checked."}

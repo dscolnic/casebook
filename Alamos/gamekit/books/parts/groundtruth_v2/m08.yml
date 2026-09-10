@@ -256,10 +256,10 @@
     title: "Track a Charged Particle"
     concept: 22   # particle motion/mass spectrometer
     reason: "The predicted magnetic field must be translated into particle motion before it is blamed for equipment damage."
-    scene: "At the outstation, an electron enters B=3.0 mT with perpendicular speed 2.0×10^6 m/s and parallel speed 1.0×10^6 m/s. Estimate its helical radius, then use the result card to inspect period, pitch, and the physical justification."
+    scene: "The particle trace curls around the field line. Its sideways motion sets the radius; motion along the field sets the pitch."
     motivation: "The electron's radius and helical motion characterize magnetic deflection without treating the field as a source of kinetic energy."
     format: BALLPARK
-    question: "Using the displayed electron constants, assemble r=mv⊥/(|q|B), convert the result to millimetres, and submit the radius. Then state whether the magnetic field changes the electron's kinetic energy."
+    question: "For an electron, use m=9.11×10⁻³¹ kg, |q|=1.602×10⁻¹⁹ C, B=0.003 T, v⊥=2×10⁶ m/s and v∥=1×10⁶ m/s. Fill m, v⊥, |q| and B in r=mv⊥/(|q|B); report millimetres."
     answerText: "The completed check shows r=3.79 mm, T=11.9 ns, pitch=11.9 mm; K unchanged."
     why: "a magnetic field bends perpendicular motion but leaves parallel speed and kinetic energy unchanged."
     # wrong-path feedback, one rebuttal per wrong option:

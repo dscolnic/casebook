@@ -152,10 +152,10 @@
     title: "Speed squared"
     concept: 14   # Kinetic-energy scaling
     reason: "October's speed was twice the normal test speed, making its long stop worth checking physically."
-    scene: "A normal test runs at 2.0 m/s, while the October log reports 4.0 m/s. Estimate the energy ratio before deciding whether the much longer October stopping distance is physically surprising."
+    scene: "The bumper test is about to run faster. The crew needs to know how much more energy the same brake must absorb."
     motivation: "The energy multiplier shows how much more energy the brake must remove at the higher speed."
     format: BALLPARK
-    question: "Given the same mass at v1 = 2.0 m/s and v2 = 4.0 m/s, use K = 0.5mv^2 and K2/K1 = (v2/v1)^2. Submit one dimensionless numerical energy ratio."
+    question: "The same cart increases from 2 m/s to 4 m/s. Fill new speed and old speed in Knew/Kold=(vnew/vold)²."
     answerText: "Doubling speed quadruples kinetic energy."
     why: "Mass is unchanged and K is proportional to v²."
     # wrong-path feedback, one rebuttal per wrong option:
@@ -187,10 +187,10 @@
     title: "Close the stopping ledger"
     concept: 16   # Work-energy
     reason: "The energy increase is known, but the dry-floor stopping distance still needs a prediction."
-    scene: "With the fourfold increase established, close the car's energy ledger from 4.0 m/s to rest. Use friction as the measured transfer and exclude forces that do no work along the floor."
+    scene: "The cart's brake must turn motion into frictional work before the track ends. The crew checks the stopping distance on a level run."
     motivation: "The energy transferred by friction determines whether the reported stopping distance is plausible."
     format: BALLPARK
-    question: "Given m = 240 kg, v0 = 4.0 m/s, vf = 0 m/s, mu_k = 0.40, and g = 10.0 m/s^2, use K = 0.5mv0^2, f_k = mu_k mg, and f_k d = K. Submit the included energy streams, initial energy in J, friction force in N, and stopping-distance number in m."
+    question: "A 240 kg cart enters at 4 m/s and stops under kinetic friction with μ=0.4. Use g=10 m/s². Fill speed, friction coefficient and g in d=v²/(2μg)."
     answerText: "The dry floor should stop the car in 2.0 m."
     why: "μmgd = 1/2 mv²; mass cancels. The normal force does no work because it is perpendicular to motion."
     # wrong-path feedback, one rebuttal per wrong option:
@@ -284,11 +284,11 @@
     person: chen
     concept: 35   # Value of information
     reason: "The dry-floor result passes, but the disputed speed records still share measuring equipment."
-    scene: "The dry-floor model passes, but the old speed record shares equipment with other rides. Spend the remaining test slot on evidence that can distinguish real car motion from a repeated calibration error."
+    scene: "The dry-floor stop passes, but the disputed speed records share one measuring kit. Linh needs a measurement capable of distinguishing real motion from the kit's calibration error."
     motivation: "An independent motion sensor can separate a genuine speed change from a shared calibration error."
     format: VALUE
-    question: "With 10 test_points, submit one test-slot allocation naming the funded test and its cost; the allocation must distinguish true car motion from a repeated shared-calibration error."
-    answerText: "Fund the independent seat and floor accelerometers."
+    question: "You have 10 test points. Cover every required outcome at the lowest total cost within the budget; keep all unused capacity in reserve. Select whole packages, then submit the plan; the board shows its total and remaining reserve for you to check."
+    answerText: "Each funded package supplies a required outcome; an affordable package that leaves one unresolved is insufficient."
     why: "They measure a different quantity through a different chain and can test the disputed speed-derived stop."
     # wrong-path feedback, one rebuttal per wrong option:
     #   (wheel) Repeating the portable wheel preserves the shared calibration dependency. (paint) Paint thickness is cosmetic and cannot test the motion record. (mass) Reweighing the same car does not independently verify speed or acceleration.

@@ -154,10 +154,10 @@
     title: "Put directions into momentum"
     concept: 19   # Signed momentum
     reason: "The collision test is next, and opposite directions must be distinguished before combining momentum."
-    scene: "A 240 kg car moves right at 4.0 m/s while a 260 kg car moves left at 2.0 m/s. Estimate their signed total momentum before the instrumented test impact begins."
+    scene: "The collision ledger has motion in both directions. The net momentum must keep those signs before the carts are treated as one system."
     motivation: "Signed total momentum predicts the direction of motion that the joined cars should retain."
     format: BALLPARK
-    question: "Given rightward momentum +960 kg m/s and leftward momentum -520 kg m/s, use p_total = p1 + p2. Submit one signed numerical total in kg m/s and state its direction."
+    question: "Taking right as positive, one cart carries +960 kg·m/s and the other −520 kg·m/s. Fill the two signed momenta and add them."
     answerText: "Total momentum before impact is 440 kg m/s to the right."
     why: "Opposite directions receive opposite signs."
     # wrong-path feedback, one rebuttal per wrong option:

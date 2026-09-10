@@ -301,11 +301,11 @@
     person: ortiz
     concept: 14   # bank representation
     reason: "The bank topology is known, but the shot model still lacks measurements needed for a defensible comparison."
-    scene: "With storm capacitance bounded and bank topology known, four possible measurements compete for six setup-hours. Buy the evidence that determines voltage, charge, and timing without pretending the bank matches cloud geometry."
+    scene: "The bank's wiring is known, but its electrical comparison with the storm is incomplete. Ortiz needs measured quantities, with the model's geometric limitation kept explicit."
     motivation: "The selected measurements must constrain the bank's voltage, charge storage, and discharge timing within the setup budget."
     format: VALUE
-    question: "Spend no more than six setup-hours on the listed measurements and submit the evidence set that fixes represented voltage, charge, and timing without claiming matched geometry."
-    answerText: "match V,Q,timing."
+    question: "You have 6 setup-hours. Cover every required outcome at the lowest total cost within the budget; keep all unused capacity in reserve. Select whole packages, then submit the plan; the board shows its total and remaining reserve for you to check."
+    answerText: "Each funded package supplies a required outcome; an affordable package that leaves one unresolved is insufficient."
     why: "a model is useful when its matched variables and limitations are explicit."
     # wrong-path feedback, one rebuttal per wrong option:
     #   A convenient measurement is not valuable unless it can change the representation decision.

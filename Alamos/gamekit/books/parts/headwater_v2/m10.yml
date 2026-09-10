@@ -279,11 +279,11 @@
     person: mehta
     concept: 21   # logistic stability/parameter uncertainty
     reason: "The observed seepage decay still carries rate uncertainty that could change load approval."
-    scene: "The observed decay constant is k=-0.30+-0.05 h^-1, and approval requires excess seepage below 5.0 L/min after 4 h, inclusive. Stress the full interval before approving the load."
+    scene: "The seepage rate is declining, but the decay rate is uncertain. Approval must survive the slowest supported decline."
     motivation: "The slowest allowed decay determines whether excess seepage remains under the required four-hour limit."
     format: STRESS
-    question: "Sweep k from -0.35 through -0.25 h^-1 in 0.01 h^-1 steps using S(4)=12e^(4k); submit the worst-case value in L/min and approve/reject."
-    answerText: "even slowest supported decay stays below 5."
+    question: "Sweep k from −0.35 to −0.25 h⁻¹ in 0.01 steps. With S(4)=12e^(4k) L/min, submit the largest S(4) and approve only if it is at most 5.0 L/min."
+    answerText: "The maximum occurs at k=−0.25: S(4)=4.4146 L/min, below the inclusive 5.0 limit. Approve this tested load."
     why: "even slowest supported decay stays below 5. A safety conclusion should survive the least favorable supported parameter."
     # wrong-path feedback, one rebuttal per wrong option:
     #   Test the least negative k, which decays slowest.

@@ -1067,34 +1067,55 @@ derive:
 
 **Stop reason - exact player copy:** The street diagnosis is ready, but the first official record still contains an unsupported shortage claim.
 
-**Question card story setup - exact player copy:** The supply diagnosis explains today's street pattern but still does not justify a national shortage claim. Verify the records that identify dated quantities, coverage, and tradeoffs, then reject any claim resting only on the plaza crowd.
+**Question card story setup - exact player copy:** The plaza is busy, but a national claim requires a national record. Check what the dated transactions and staffing records actually establish.
 
-**Question card story-science connection - exact player copy:** Verification separates measured transactions and staffing costs from conclusions the plaza crowd cannot establish.
+**Question card prompt - exact player copy:** National conclusions need dated coverage; observations of a queue cannot establish a nationwide cash shortage. Read the displayed source excerpts, then select every supported claim and leave unsupported claims unsigned.
 
-**Question card prompt - exact player copy:** Spend three verification marks; submit the three backed claims and reject the unbacked conclusion.
+**Complete format-specific interaction block - canonical source:**
 
-**Complete format-specific interaction block:** `attest:{limit:3,claims:[{id:"national_tx",backed:true,critical:true},{id:"staff_tradeoff",backed:true},{id:"price_quantity",backed:true},{id:"cash_shortage",backed:false,critical:true}],correct_verified:["national_tx","staff_tradeoff","price_quantity"],reject:["cash_shortage"]}`
-
-**§7 build completion - ATTEST:** This block supplies the panel fields omitted above; the authored prompt, science, and correct result remain authoritative.
-
-```yaml
-attest:
-  checks: 3
-  claims:
-    - {id: primary, label: "primary claim for Page one standard", critical: true, backed: true, verification: "the signed source reproduces the displayed result"}
-    - {id: independent, label: "independent confirmation", critical: true, backed: true, verification: "the independent record agrees within the stated tolerance"}
-    - {id: scope, label: "scope and date", critical: false, backed: true, verification: "the record names the population and time window"}
-    - {id: extension, label: "stronger untested extension", critical: true, backed: false, verification: "no independent check supports the extension; it must be held"}
-  correctAction: "verify primary, independent, and scope; hold extension"
+```json
+{
+  "attest": {
+    "claims": [
+      {
+        "id": "national_tx",
+        "label": "The transaction record supports national coverage",
+        "evidence": "The dated nationwide transaction ledger identifies its reporting coverage and counted transactions."
+      },
+      {
+        "id": "staff_tradeoff",
+        "label": "Staffing involves a documented tradeoff",
+        "evidence": "The staffing record shows that moving workers to one service removes them from the other."
+      },
+      {
+        "id": "price_quantity",
+        "label": "Prices and quantities are paired evidence",
+        "evidence": "The same-period sales record contains both posted price and traded quantity."
+      },
+      {
+        "id": "cash_shortage",
+        "label": "The plaza crowd proves a national cash shortage",
+        "evidence": "The crowd observation has no nationwide cash-supply or cash-demand measurement."
+      }
+    ],
+    "selection_rule": "Support must be present in the displayed source excerpt and within its scope; a signature or repeated copy alone is insufficient.",
+    "correct_signed": [
+      "national_tx",
+      "staff_tradeoff",
+      "price_quantity"
+    ],
+    "checks": 3
+  }
+}
 ```
 
-**Correct result:** The keyed result shown by the completed interaction.
+**Evidence delivery and grading:** The setup, decision evidence, public rules, costs and option descriptions are visible on this card before selection. Render option descriptions beside their controls, once; never replace them with internal axis IDs or a generic earlier-case sentence. Answer keys, accepted examples and feedback stay hidden until submission. Reveal withheld measurements only after the stated commitment. Use the public feasibility/selection rule; an example allocation is not an exclusive key. The displayed person must match this stop’s placement and Call.
 
-**Answer text:** Record dated national transactions, the staffing cost, and the price-quantity pattern; do not claim a cash shortage.
+**Correct result:** Sign national_tx, staff_tradeoff, price_quantity; leave the other claims unsigned.
 
-**Why:** The first page must preserve what is known without turning an incomplete clue into policy.
+**Answer text:** Each signature is limited to what its source establishes. The unsupported claims lack the specific date, physical condition, independence or scope they assert.
 
-**Wrong-path feedback:** A conclusion is not backed because it sounds urgent.
+**Wrong-path feedback:** Identify the unmet public condition or the specific measurement that the selected option cannot provide; keep the original evidence available for retry.
 
 **State/output:** Page 1 signed.
 
@@ -2279,7 +2300,7 @@ One-location PRICES. Lina defends the old basket. S1 prices it, S2 derives infla
 
 **Trigger:** accepted_stop_11.
 
-**World state:** At `basket-table`, the dated accepted-result slip for Stop 11 reads: "The keyed result shown by the completed interaction.". The slip remains in that fixture’s evidence holder.
+**World state:** At `basket-table`, the dated accepted-result slip for Stop 11 reads: "Inflation stays positive but changes with the energy weight.". The slip remains in that fixture’s evidence holder.
 
 **Panel/HUD text:** STOP 11 RECORDED - STOP 12 OPEN
 
@@ -2472,63 +2493,57 @@ derive:
 
 **Stop reason - exact player copy:** The official inflation rate is reproducible, but the basket's energy weight may not fit today's households.
 
-**Question card story setup - exact player copy:** Because the official rate is 5.88%, Lina tests the old 30% imported-energy weight against current household shares of 15% to 25%. Move the weight through that range and watch which inflation conclusions survive.
+**Question card story setup - exact player copy:** The published price index uses an old energy weight. Lina checks how the conclusion changes when the household share changes.
 
-**Question card story-science connection - exact player copy:** Weight sensitivity shows whether the inflation conclusion depends on an unrepresentative spending pattern.
+**Question card prompt - exact player copy:** Inspect the four supplied index recalculations from 15% to 30% energy weight. Select the conclusion true for every recalculation.
 
-**Question card prompt - exact player copy:** Move the weight from 15% through 30%, inspect every displayed inflation rate, and submit the conclusion that survives the full range.
+**Complete format-specific interaction block - canonical source:**
 
-**Complete format-specific interaction block:** `stress:{assumption:"imported-energy weight",min:0.15,max:0.30,step:0.05,candidates:[{id:"broad_5_88",survives:[0.30]},{id:"range",survives:[0.15,0.20,0.25,0.30]},{id:"zero",survives:[]}],readings:{0.15:3.1,0.20:3.7,0.25:4.4,0.30:5.88},correct:"range"}`
-
-**§7 authored-board source - STRESS:** Convert this stop from its authored interaction block below. Do not substitute a format-level template. The panel must state the goal without printing the keyed answer.
-
-```yaml
-authored_board:
-  stop: "Stop 11 - Does the basket represent families?"
-  format: "STRESS"
-  source: "Handback 3 canonical interaction block"
-  question: "Move the weight from 15% through 30%, inspect every displayed inflation rate, and submit the conclusion that survives the full range."
-  payload: "`stress:{assumption:\"imported-energy weight\",min:0.15,max:0.30,step:0.05,candidates:[{id:\"broad_5_88\",survives:[0.30]},{id:\"range\",survives:[0.15,0.20,0.25,0.30]},{id:\"zero\",survives:[]}],readings:{0.15:3.1,0.20:3.7,0.25:4.4,0.30:5.88},correct:\"range\"}`"
-  axis_and_units: "Use only quantities and units named in this question and payload."
-  candidates_and_numbers: "Use only candidates and numbers named in this question and payload."
-  panel_rule: "Print the goal, never the target or keyed answer."
+```json
+{
+  "stress": {
+    "model": {
+      "weight_percent": [
+        15,
+        20,
+        25,
+        30
+      ],
+      "inflation_percent": [
+        3.1,
+        3.7,
+        4.4,
+        5.88
+      ],
+      "criterion": "statement must fit all four supplied readings"
+    },
+    "candidates": [
+      {
+        "id": "fixed",
+        "label": "Inflation is exactly 5.88% for every weight"
+      },
+      {
+        "id": "range",
+        "label": "Inflation stays positive, but its size depends on the weight"
+      },
+      {
+        "id": "zero",
+        "label": "Inflation is zero at current weights"
+      }
+    ],
+    "correct": "range",
+    "public_rule": "Use the displayed model and criterion over the entire stated range; no hidden preference scores."
+  }
+}
 ```
 
-**Handback 3 canonical interaction block - STRESS:**
+**Evidence delivery and grading:** The setup, decision evidence, public rules, costs and option descriptions are visible on this card before selection. Render option descriptions beside their controls, once; never replace them with internal axis IDs or a generic earlier-case sentence. Answer keys, accepted examples and feedback stay hidden until submission. Reveal withheld measurements only after the stated commitment. Use the public feasibility/selection rule; an example allocation is not an exclusive key. The displayed person must match this stop’s placement and Call.
 
-```yaml
-stress:
-  assumption: {label: "imported-energy basket weight", min: 15, max: 30, nominal: 22.5, step: 5, unit: "%"}
-  criteria:
-    - {id: evidence_fit, label: "fit to the stop evidence", direction: maximise}
-    - {id: safety_margin, label: "margin at the adverse end", direction: maximise}
-  optimiseOn: evidence_fit
-  candidates:
-    - id: nominal_only
-      label: "Use only the nominal reading"
-      scores: {evidence_fit: 95, safety_margin: 20}
-      validRange: {min: 22.5, max: 22.5}
-      failsAt: 30
-    - id: common_extreme_mistake
-      label: "Use the favorable extreme as if it were guaranteed"
-      scores: {evidence_fit: 88, safety_margin: 5}
-      validRange: {min: 22.5, max: 30}
-      failsAt: 15
-    - id: robust_plan
-      label: "The keyed result shown by the completed interaction."
-      scores: {evidence_fit: 82, safety_margin: 92}
-      validRange: {min: 15, max: 30}
-  robust: robust_plan
-  question: "Move the weight from 15% through 30%, inspect every displayed inflation rate, and submit the conclusion that survives the full range."
-```
+**Correct result:** All four rates are positive. The size varies from 3.1% to 5.88%, so the historical weight cannot be presented as representative of every household.
 
-**Correct result:** The keyed result shown by the completed interaction.
+**Answer text:** All four rates are positive. The size varies from 3.1% to 5.88%, so the historical weight cannot be presented as representative of every household.
 
-**Answer text:** Inflation is positive, but 5.88% depends strongly on the stale energy weight.
-
-**Why:** Sensitivity to a stale weight requires disclosure and a companion measure, not silent replacement.
-
-**Wrong-path feedback:** A different response does not fit the displayed evidence. Sensitivity to a stale weight requires disclosure and a companion measure, not silent replacement.
+**Wrong-path feedback:** Identify the unmet public condition or the specific measurement that the selected option cannot provide; keep the original evidence available for retry.
 
 **State/output:** revised basket unlocks.
 
@@ -2542,21 +2557,85 @@ stress:
 
 **Stop reason - exact player copy:** The weighting test has exposed a representation problem without invalidating the historical calculation.
 
-**Question card story setup - exact player copy:** The official method is reproducible, yet its energy weight overstates many households' current exposure. Choose the evidence package that preserves the historical series while revealing how a representative current basket changes the result.
+**Question card story setup - exact player copy:** The historical price index is reproducible, but its old energy weight may misrepresent current households. Lina needs a publication plan that preserves comparability and exposes that limitation.
 
-**Question card story-science connection - exact player copy:** The evidence package preserves a comparable series while showing how a current household basket changes the estimate.
+**Decision evidence - exact player copy:** Required outcomes: retain the fixed historical index and publish a current-weight companion; verify and disclose the current weights.
 
-**Question card prompt - exact player copy:** Spend exactly 60 evidence points and submit the publication plan.
+**Question card prompt - exact player copy:** You have 60 evidence points. Cover every required outcome at the lowest total cost within the budget; keep all unused capacity in reserve. Select whole packages, then submit the plan; the board shows its total and remaining reserve for you to check.
 
-**Complete format-specific interaction block:** `value:{budget:60,options:[{id:"parallel",cost:45,required:true,axis:"fixed CPI plus current-weight companion"},{id:"audit",cost:15,required:true,axis:"weight audit"},{id:"ads",cost:30,axis:"publicity"},{id:"erase",cost:25,axis:"replace history"}],correct:["parallel","audit"]}`
+**Complete format-specific interaction block - canonical source:**
 
-**Correct result:** The keyed result shown by the completed interaction.
+```json
+{
+  "value": {
+    "budget": {
+      "value": 60,
+      "unit": "evidence points"
+    },
+    "requirements": [
+      {
+        "id": "r1",
+        "text": "retain the fixed historical index and publish a current-weight companion"
+      },
+      {
+        "id": "r2",
+        "text": "verify and disclose the current weights"
+      }
+    ],
+    "selection_rule": "Cover every required outcome at the lowest total cost within the budget; keep all unused capacity in reserve.",
+    "options": [
+      {
+        "id": "parallel",
+        "label": "Parallel index publication",
+        "cost": 45.0,
+        "information": "Keeps the historical series and adds a separately labelled current-weight series.",
+        "covers": [
+          "r1"
+        ]
+      },
+      {
+        "id": "audit",
+        "label": "Household-weight audit",
+        "cost": 15.0,
+        "information": "Checks the weights used in the new companion and publishes the method.",
+        "covers": [
+          "r2"
+        ]
+      },
+      {
+        "id": "ads",
+        "label": "Publicity campaign",
+        "cost": 30.0,
+        "information": "Increases awareness without checking weights or preserving comparability.",
+        "covers": []
+      },
+      {
+        "id": "erase",
+        "label": "Replace the historical series",
+        "cost": 25.0,
+        "information": "Substitutes new weights into history, losing the original comparable series.",
+        "covers": []
+      }
+    ],
+    "accepted_plans": [
+      [
+        "parallel",
+        "audit"
+      ]
+    ],
+    "example_total": 60.0,
+    "example_reserve": 0.0
+  }
+}
+```
 
-**Answer text:** Keep the fixed CPI and publish a current-weight companion with the weight audit.
+**Evidence delivery and grading:** The setup, decision evidence, public rules, costs and option descriptions are visible on this card before selection. Render option descriptions beside their controls, once; never replace them with internal axis IDs or a generic earlier-case sentence. Answer keys, accepted examples and feedback stay hidden until submission. Reveal withheld measurements only after the stated commitment. Use the public feasibility/selection rule; an example allocation is not an exclusive key. The displayed person must match this stop’s placement and Call.
 
-**Why:** Publishing both measures prevents a convenient revision from erasing history or a stale basket from hiding bias.
+**Correct result:** parallel, audit = 60 evidence points; reserve 0
 
-**Wrong-path feedback:** A different response does not fit the displayed evidence. Publishing both measures prevents a convenient revision from erasing history or a stale basket from hiding bias.
+**Answer text:** Each funded package supplies a required outcome; an affordable package that leaves one unresolved is insufficient.
+
+**Wrong-path feedback:** Identify the unmet public condition or the specific measurement that the selected option cannot provide; keep the original evidence available for retry.
 
 **State/output:** Page 3 signed; port-energy clue logged.
 
@@ -3718,21 +3797,94 @@ derive:
 
 **Stop reason - exact player copy:** The announced package falls short of the measured target, leaving the funding decision open.
 
-**Question card story setup - exact player copy:** The 6-billion announcement would add only 24 billion to demand and leave a 10.8-billion gap. Fund the option that reaches the measured target and preserves an independent supply-shock review before launch.
+**Question card story setup - exact player copy:** The announced purchases are too small for the measured demand gap. Rhea must also preserve a separate review of the supply shock.
 
-**Question card story-science connection - exact player copy:** The allocation identifies a package large enough for the modeled gap while retaining a separate supply-shock review.
+**Decision evidence - exact player copy:** Required outcomes: provide modeled demand support of at least 34.8 billion; retain an independent supply-shock review.
 
-**Question card prompt - exact player copy:** Spend exactly 100 plan points and submit the funded pair.
+**Question card prompt - exact player copy:** You have 100 plan points. Cover every required outcome at the lowest total cost within the budget; keep all unused capacity in reserve. Select whole packages, then submit the plan; the board shows its total and remaining reserve for you to check.
 
-**Complete format-specific interaction block:** `value:{budget:100,options:[{id:"G8_7",cost:65,required:true,axis:"targeted purchases"},{id:"supply_review",cost:35,required:true,axis:"independent shock test"},{id:"G6",cost:45,axis:"fast announcement"},{id:"tax11_6",cost:80,axis:"tax alternative"},{id:"publicity",cost:25,axis:"message"}],correct:["G8_7","supply_review"]}`
+**Complete format-specific interaction block - canonical source:**
 
-**Correct result:** The keyed result shown by the completed interaction.
+```json
+{
+  "value": {
+    "budget": {
+      "value": 100,
+      "unit": "plan points"
+    },
+    "requirements": [
+      {
+        "id": "r1",
+        "text": "provide modeled demand support of at least 34.8 billion"
+      },
+      {
+        "id": "r2",
+        "text": "retain an independent supply-shock review"
+      }
+    ],
+    "selection_rule": "Cover every required outcome at the lowest total cost within the budget; keep all unused capacity in reserve.",
+    "options": [
+      {
+        "id": "G8_7",
+        "label": "8.7-billion purchase package",
+        "cost": 65.0,
+        "information": "With a spending multiplier of 4, adds 4×8.7 billion to demand.",
+        "covers": [
+          "r1"
+        ]
+      },
+      {
+        "id": "supply_review",
+        "label": "Independent supply-shock review",
+        "cost": 35.0,
+        "information": "Tests oil-cost effects separately from demand support.",
+        "covers": [
+          "r2"
+        ]
+      },
+      {
+        "id": "G6",
+        "label": "6-billion purchase package",
+        "cost": 45.0,
+        "information": "With the same multiplier, adds 24 billion to demand.",
+        "covers": []
+      },
+      {
+        "id": "tax11_6",
+        "label": "11.6-billion tax-cut package",
+        "cost": 80.0,
+        "information": "With a tax-cut multiplier magnitude of 3, adds 34.8 billion to demand.",
+        "covers": [
+          "r1"
+        ]
+      },
+      {
+        "id": "publicity",
+        "label": "Announcement campaign",
+        "cost": 25.0,
+        "information": "Publishes the announcement without adding modeled demand or a supply test.",
+        "covers": []
+      }
+    ],
+    "accepted_plans": [
+      [
+        "G8_7",
+        "supply_review"
+      ]
+    ],
+    "example_total": 100.0,
+    "example_reserve": 0.0
+  }
+}
+```
 
-**Answer text:** Prepare 8.7 billion in purchases and preserve the supply-shock review.
+**Evidence delivery and grading:** The setup, decision evidence, public rules, costs and option descriptions are visible on this card before selection. Render option descriptions beside their controls, once; never replace them with internal axis IDs or a generic earlier-case sentence. Answer keys, accepted examples and feedback stay hidden until submission. Reveal withheld measurements only after the stated commitment. Use the public feasibility/selection rule; an example allocation is not an exclusive key. The displayed person must match this stop’s placement and Call.
 
-**Why:** Demand stimulus can close a recessionary gap without proving that it can cure cost-push inflation.
+**Correct result:** G8_7, supply_review = 100 plan points; reserve 0
 
-**Wrong-path feedback:** A different response does not fit the displayed evidence. Demand stimulus can close a recessionary gap without proving that it can cure cost-push inflation.
+**Answer text:** Each funded package supplies a required outcome; an affordable package that leaves one unresolved is insufficient.
+
+**Wrong-path feedback:** Identify the unmet public condition or the specific measurement that the selected option cannot provide; keep the original evidence available for retry.
 
 **State/output:** Page 5 signed.
 
@@ -4275,55 +4427,52 @@ Route PRICES→RATE: S1–S2 at AD-AS wall; the confirmed supply shock unlocks R
 
 **Stop reason - exact player copy:** The shock diagnosis must now be reconciled with the already measured output shortfall.
 
-**Question card story setup - exact player copy:** Because SRAS moved left, current output is 685.2 while Yf remains 720.0 billion, and the price level is elevated. Close the model with one recessionary gap and one supply shock.
+**Question card story setup - exact player copy:** The output report arrives alongside a fuel-cost shock. The policy desk must separate the real production gap from the price disturbance.
 
-**Question card story-science connection - exact player copy:** Locating both effects prevents a recessionary gap and a supply disturbance from being treated as the same problem.
+**Question card prompt - exact player copy:** Real output is 685.2 billion and full-employment output is 720 billion; nominal output is 740 billion. Select the two real quantities and calculate actual minus full-employment output. Oil costs have risen 18 index points.
 
-**Question card prompt - exact player copy:** Toggle relevant readings and submit the model conclusion.
+**Complete format-specific interaction block — canonical BALLPARK:**
 
-**Complete format-specific interaction block:** `balance:{streams:[{id:"actual_output",value:685.2,unit:"billion RATE",counts:true},{id:"full_employment_output",value:720.0,unit:"billion RATE",counts:true},{id:"oil_cost_index",value:18,unit:"index points",counts:true},{id:"nominal_output",value:740,unit:"billion RATE",counts:false,reason:"price-level contaminated nominal measure"}],correct:{output_gap:-34.8,shock:"adverse supply shock"},answerText:"Real output is 34.8 billion below full employment while the oil-cost reading identifies an adverse supply shock; nominal output does not count in the real gap."}`
-
-**§7 authored-board source - BALANCE:** Convert this stop from its authored interaction block below. Do not substitute a format-level template. The panel must state the goal without printing the keyed answer.
-
-```yaml
-authored_board:
-  stop: "Stop 23 - Place both gaps"
-  format: "BALLPARK"
-  source: "Handback 5 canonical interaction block"
-  question: "Toggle relevant readings and submit the model conclusion."
-  payload: "`balance:{streams:[{id:\"actual_output\",value:685.2,unit:\"billion RATE\",counts:true},{id:\"full_employment_output\",value:720.0,unit:\"billion RATE\",counts:true},{id:\"oil_cost_index\",value:18,unit:\"index points\",counts:true},{id:\"nominal_output\",value:740,unit:\"billion RATE\",counts:false,reason:\"price-level contaminated nominal measure\"}],correct:{output_gap:-34.8,shock:\"adverse supply shock\"},answerText:\"Real output is 34.8 billion below full employment while the oil-cost reading identifies an adverse supply shock; nominal output does not count in the real gap.\"}`"
-  axis_and_units: "Use only quantities and units named in this question and payload."
-  candidates_and_numbers: "Use only candidates and numbers named in this question and payload."
-  panel_rule: "Print the goal, never the target or keyed answer."
+```json
+{
+  "estimate": {
+    "quantity": "Place both gaps",
+    "labels": [
+      "685.2",
+      "720",
+      "740",
+      "18"
+    ],
+    "values": [
+      685.2,
+      720,
+      740,
+      18
+    ],
+    "slots": 2,
+    "template": "{a}-{b} = ? billion real-output units",
+    "formula": "a-b",
+    "correct": [
+      0,
+      1
+    ],
+    "target": -34.8,
+    "tolerance": 0.01,
+    "units": "billion real-output units",
+    "correctResult": -34.8
+  },
+  "answerText": "The real output gap is −34.8 billion. The oil-cost increase is an adverse supply shock; it is not another real-output term to subtract from this gap.",
+  "wrongFeedback": [
+    "Nominal output includes price effects and cannot replace real output in this comparison."
+  ]
+}
 ```
 
-**Handback 3 canonical interaction block - BALLPARK:**
+**Rendering and grading contract:** Render every numeric label as a selectable tile. The printed equation supplies the slot roles; do not replace number labels with quantity names. `correct` contains zero-based tile indices for slots a onward. Accept numerically equivalent selections, including equal-valued tiles. Evaluate the formula on submission; tolerance is absolute in the stated output units. Negative and zero results require a signed linear display. The board has one submission; supporting comparisons appear in the result explanation.
 
-**Handback 5 canonical interaction block - BALLPARK:**
+**Correct result:** The real output gap is −34.8 billion. The oil-cost increase is an adverse supply shock; it is not another real-output term to subtract from this gap.
 
-```yaml
-estimate:
-  quantity: "signed real-output gap"
-  unit: "billion RATE"
-  inputs:
-    - {label: "Actual real output", value: 685.2, unit: "billion RATE"}
-    - {label: "Full-employment output", value: 720.0, unit: "billion RATE"}
-    - {label: "Oil-cost change", value: 18, unit: "index points", contextOnly: true}
-  operation: "actual real output minus full-employment output"
-  formula: "output gap=685.2-720.0"
-  start: 0
-  correctResult: -34.8
-  tolerance: 0.1
-  commonMistake: "Mixing a contextual reading into the arithmetic or reversing the subtraction."
-```
-
-**Correct result:** The keyed result shown by the completed interaction.
-
-**Answer text:** “Halvern has a recessionary gap plus an adverse supply shock.”
-
-**Why:** One graph can show why lowering inflation and unemployment together is difficult.
-
-**Wrong-path feedback:** A different response does not fit the displayed evidence. One graph can show why lowering inflation and unemployment together is difficult.
+**Wrong-path feedback:** Nominal output includes price effects and cannot replace real output in this comparison.
 
 **State/output:** Record the result and unlock the next named stop.
 
@@ -4337,63 +4486,55 @@ estimate:
 
 **Stop reason - exact player copy:** Weak demand and cost pressure coexist, so the proposed package needs testing across oil-price outcomes.
 
-**Question card story setup - exact player copy:** The model now contains weak demand and cost-push inflation at once. Stress the 8.7-billion package across oil-cost changes from 0% through 18%, then submit the claim that survives every case.
+**Question card story setup - exact player copy:** Weak demand and an oil-cost shock coexist. The model separates how purchases affect demand from how oil affects costs.
 
-**Question card story-science connection - exact player copy:** The stress test identifies what fiscal expansion can support without promising to eliminate a supply-driven price rise.
+**Question card prompt - exact player copy:** Sweep the oil shock through 0, 6, 12 and 18 index points. In this model ΔAD=4ΔG, ΔG=8.7 billion and the measured demand gap is 34.8 billion; select the claim that survives all settings.
 
-**Question card prompt - exact player copy:** Inspect all four settings and submit one surviving conclusion.
+**Complete format-specific interaction block - canonical source:**
 
-**Complete format-specific interaction block:** `assumption:oil shock 0.18 step6; candidates:[closes_demand_gap survives all,lowers_prices survives none,cures_supply survives none]; correct:closes_demand_gap`.
-
-**§7 authored-board source - STRESS:** Convert this stop from its authored interaction block below. Do not substitute a format-level template. The panel must state the goal without printing the keyed answer.
-
-```yaml
-authored_board:
-  stop: "Stop 24 - Aim fiscal policy"
-  format: "STRESS"
-  source: "Handback 3 canonical interaction block"
-  question: "Inspect all four settings and submit one surviving conclusion."
-  payload: "`assumption:oil shock 0.18 step6; candidates:[closes_demand_gap survives all,lowers_prices survives none,cures_supply survives none]; correct:closes_demand_gap`."
-  axis_and_units: "Use only quantities and units named in this question and payload."
-  candidates_and_numbers: "Use only candidates and numbers named in this question and payload."
-  panel_rule: "Print the goal, never the target or keyed answer."
+```json
+{
+  "stress": {
+    "model": {
+      "oil_cost_index_points": [
+        0,
+        6,
+        12,
+        18
+      ],
+      "G_billion": 8.7,
+      "multiplier": 4,
+      "demand_gap_billion": 34.8,
+      "oil_effect": "changes production costs, not this fixed demand multiplier",
+      "spending_effect": "changes demand; no direct repair of oil supply"
+    },
+    "candidates": [
+      {
+        "id": "demand",
+        "label": "The package supplies the modeled demand-gap amount"
+      },
+      {
+        "id": "prices",
+        "label": "The package guarantees lower prices"
+      },
+      {
+        "id": "supply",
+        "label": "The package repairs oil supply"
+      }
+    ],
+    "correct": "demand",
+    "public_rule": "Use the displayed model and criterion over the entire stated range; no hidden preference scores."
+  }
+}
 ```
 
-**Handback 3 canonical interaction block - STRESS:**
+**Evidence delivery and grading:** The setup, decision evidence, public rules, costs and option descriptions are visible on this card before selection. Render option descriptions beside their controls, once; never replace them with internal axis IDs or a generic earlier-case sentence. Answer keys, accepted examples and feedback stay hidden until submission. Reveal withheld measurements only after the stated commitment. Use the public feasibility/selection rule; an example allocation is not an exclusive key. The displayed person must match this stop’s placement and Call.
 
-```yaml
-stress:
-  assumption: {label: "oil shock", min: 0, max: 18, nominal: 9.0, step: 6, unit: "index points"}
-  criteria:
-    - {id: evidence_fit, label: "fit to the stop evidence", direction: maximise}
-    - {id: safety_margin, label: "margin at the adverse end", direction: maximise}
-  optimiseOn: evidence_fit
-  candidates:
-    - id: nominal_only
-      label: "Use only the nominal reading"
-      scores: {evidence_fit: 95, safety_margin: 20}
-      validRange: {min: 9.0, max: 9.0}
-      failsAt: 18
-    - id: common_extreme_mistake
-      label: "Use the favorable extreme as if it were guaranteed"
-      scores: {evidence_fit: 88, safety_margin: 5}
-      validRange: {min: 9.0, max: 18}
-      failsAt: 0
-    - id: robust_plan
-      label: "The keyed result shown by the completed interaction."
-      scores: {evidence_fit: 82, safety_margin: 92}
-      validRange: {min: 0, max: 18}
-  robust: robust_plan
-  question: "Inspect all four settings and submit one surviving conclusion."
-```
+**Correct result:** 4×8.7=34.8 billion at each setting in this simplified model. This does not promise unchanged equilibrium output, lower prices or a repaired supply curve.
 
-**Correct result:** The keyed result shown by the completed interaction.
+**Answer text:** 4×8.7=34.8 billion at each setting in this simplified model. This does not promise unchanged equilibrium output, lower prices or a repaired supply curve.
 
-**Answer text:** “Use fiscal policy to close the demand gap, not to promise lower supply-driven prices.”
-
-**Why:** Fiscal expansion raises AD; it does not shift damaged SRAS right.
-
-**Wrong-path feedback:** A different response does not fit the displayed evidence. Fiscal expansion raises AD; it does not shift damaged SRAS right.
+**Wrong-path feedback:** Identify the unmet public condition or the specific measurement that the selected option cannot provide; keep the original evidence available for retry.
 
 **State/output:** Page 6 signed.
 
@@ -5722,63 +5863,54 @@ derive:
 
 **Stop reason - exact player copy:** A proposed rate rise faces a recessionary gap and uncertain expected inflation.
 
-**Question card story setup - exact player copy:** The recessionary gap remains 34.8 billion while expected inflation could be 2% to 3%. Stress a one-point nominal hike across that range and select the claim that always survives.
+**Question card story setup - exact player copy:** The economy still has a demand shortfall. Test the borrowing-cost effect of a proposed one-percentage-point nominal rate rise before treating it as a recovery measure.
 
-**Question card story-science connection - exact player copy:** The real-rate sensitivity test shows which effects of tightening persist across the stated inflation expectations.
+**Question card prompt - exact player copy:** Sweep expected inflation from 2% to 3% in 0.25-point steps. Use r=i−πe and compare before and after a one-point rise in i with πe fixed within each run; select the statement that always holds.
 
-**Question card prompt - exact player copy:** Inspect all settings and submit one policy choice: “do not raise now.”
+**Complete format-specific interaction block - canonical source:**
 
-**Complete format-specific interaction block:** `range:2.3 step.25; candidates:[hike tightens survives all,hike closes gap none,hike shifts SRAS none]; correct:hike tightens`.
-
-**§7 authored-board source - STRESS:** Convert this stop from its authored interaction block below. Do not substitute a format-level template. The panel must state the goal without printing the keyed answer.
-
-```yaml
-authored_board:
-  stop: "Stop 32 - Raise now"
-  format: "STRESS"
-  source: "Handback 3 canonical interaction block"
-  question: "Inspect all settings and submit one policy choice: “do not raise now.”"
-  payload: "`range:2.3 step.25; candidates:[hike tightens survives all,hike closes gap none,hike shifts SRAS none]; correct:hike tightens`."
-  axis_and_units: "Use only quantities and units named in this question and payload."
-  candidates_and_numbers: "Use only candidates and numbers named in this question and payload."
-  panel_rule: "Print the goal, never the target or keyed answer."
+```json
+{
+  "stress": {
+    "model": {
+      "expected_inflation_percent": [
+        2,
+        2.25,
+        2.5,
+        2.75,
+        3
+      ],
+      "nominal_change_pp": 1,
+      "formula": "delta_r=delta_i when expectations held fixed",
+      "criterion": "must hold for every expectation setting"
+    },
+    "candidates": [
+      {
+        "id": "tightens",
+        "label": "The hike raises the real rate by one percentage point"
+      },
+      {
+        "id": "closes",
+        "label": "The hike directly closes the demand shortfall"
+      },
+      {
+        "id": "supply",
+        "label": "The hike directly repairs supply capacity"
+      }
+    ],
+    "correct": "tightens",
+    "public_rule": "Use the displayed model and criterion over the entire stated range; no hidden preference scores."
+  }
+}
 ```
 
-**Handback 3 canonical interaction block - STRESS:**
+**Evidence delivery and grading:** The setup, decision evidence, public rules, costs and option descriptions are visible on this card before selection. Render option descriptions beside their controls, once; never replace them with internal axis IDs or a generic earlier-case sentence. Answer keys, accepted examples and feedback stay hidden until submission. Reveal withheld measurements only after the stated commitment. Use the public feasibility/selection rule; an example allocation is not an exclusive key. The displayed person must match this stop’s placement and Call.
 
-```yaml
-stress:
-  assumption: {label: "inflation expectation", min: 2, max: 3, nominal: 2.5, step: 0.25, unit: "%"}
-  criteria:
-    - {id: evidence_fit, label: "fit to the stop evidence", direction: maximise}
-    - {id: safety_margin, label: "margin at the adverse end", direction: maximise}
-  optimiseOn: evidence_fit
-  candidates:
-    - id: nominal_only
-      label: "Use only the nominal reading"
-      scores: {evidence_fit: 95, safety_margin: 20}
-      validRange: {min: 2.5, max: 2.5}
-      failsAt: 3
-    - id: common_extreme_mistake
-      label: "Use the favorable extreme as if it were guaranteed"
-      scores: {evidence_fit: 88, safety_margin: 5}
-      validRange: {min: 2.5, max: 3}
-      failsAt: 2
-    - id: robust_plan
-      label: "The keyed result shown by the completed interaction."
-      scores: {evidence_fit: 82, safety_margin: 92}
-      validRange: {min: 2, max: 3}
-  robust: robust_plan
-  question: "Inspect all settings and submit one policy choice: “do not raise now.”"
-```
+**Correct result:** The real borrowing rate rises by one percentage point in every run. Under the stated weak-demand objective, that is a tightening effect, not evidence that the hike closes the gap.
 
-**Correct result:** The keyed result shown by the completed interaction.
+**Answer text:** The real borrowing rate rises by one percentage point in every run. Under the stated weak-demand objective, that is a tightening effect, not evidence that the hike closes the gap.
 
-**Answer text:** “Do not raise now; the hike tightens real borrowing conditions in every tested case.”
-
-**Why:** A hike raises the real rate across the range and worsens weak demand.
-
-**Wrong-path feedback:** A different response does not fit the displayed evidence. A hike raises the real rate across the range and worsens weak demand.
+**Wrong-path feedback:** Identify the unmet public condition or the specific measurement that the selected option cannot provide; keep the original evidence available for retry.
 
 **State/output:** Page 8 signed.
 
@@ -6855,7 +6987,7 @@ RATE→PRICES, because only the price history can test sustained money growth. T
 
 **Trigger:** accepted_stop_39.
 
-**World state:** At `price-history-board`, the dated accepted-result slip for Stop 39 reads: "The keyed result shown by the completed interaction.". The slip remains in that fixture’s evidence holder.
+**World state:** At `price-history-board`, the dated accepted-result slip for Stop 39 reads: "The temporary model has lower held-out forecast error.". The slip remains in that fixture’s evidence holder.
 
 **Panel/HUD text:** STOP 39 RECORDED - STOP 40 OPEN
 
@@ -7082,55 +7214,55 @@ derive:
 
 **Stop reason - exact player copy:** Two price models fit the visible months and need a test they have not already seen.
 
-**Question card story setup - exact player copy:** Because quantity theory predicts 2% long-run inflation, fit a “persistent money” and a “temporary supply” model through months one to four. Freeze both before months five and six appear today.
+**Question card story setup - exact player copy:** Both inflation models have fixed forecasts for the next two months. Freeze them before opening the withheld readings.
 
-**Question card story-science connection - exact player copy:** Frozen predictions allow the later months to distinguish forecasting performance from fitting past observations.
+**Question card prompt - exact player copy:** Commit the supplied forecasts, reveal months five and six, then select the model with smaller mean absolute error. Forecast accuracy alone does not prove the cause of inflation.
 
-**Question card prompt - exact player copy:** Fit, freeze, reveal both holdout months, and submit the better mechanism.
+**Complete format-specific interaction block - canonical source:**
 
-**Complete format-specific interaction block:** `train:[2.0,2.1,5.9,5.2]; models:[persistent5.5,temporary_to2]; holdout:[3.2,2.4]; correct:temporary_to2`.
-
-**§7 authored-board source - HOLDOUT:** Convert this stop from its authored interaction block below. Do not substitute a format-level template. The panel must state the goal without printing the keyed answer.
-
-```yaml
-authored_board:
-  stop: "Stop 39 - Test unseen prices"
-  format: "HOLDOUT"
-  source: "Handback 5 canonical interaction block"
-  question: "Fit, freeze, reveal both holdout months, and submit the better mechanism."
-  payload: "`train:[2.0,2.1,5.9,5.2]; models:[persistent5.5,temporary_to2]; holdout:[3.2,2.4]; correct:temporary_to2`."
-  axis_and_units: "Use only quantities and units named in this question and payload."
-  candidates_and_numbers: "Use only candidates and numbers named in this question and payload."
-  panel_rule: "Print the goal, never the target or keyed answer."
+```json
+{
+  "holdout": {
+    "freeze_required": true,
+    "training": [
+      2,
+      2.1,
+      5.9,
+      5.2
+    ],
+    "models": [
+      {
+        "id": "persistent",
+        "predictions": [
+          5.5,
+          5.5
+        ]
+      },
+      {
+        "id": "temporary_supply",
+        "predictions": [
+          2,
+          2
+        ]
+      }
+    ],
+    "reveal_after_commit": [
+      3.2,
+      2.4
+    ],
+    "criterion": "smaller mean absolute error",
+    "correctChoice": "temporary_supply"
+  }
+}
 ```
 
-**Handback 3 canonical interaction block - HOLDOUT:**
+**Evidence delivery and grading:** The setup, decision evidence, public rules, costs and option descriptions are visible on this card before selection. Render option descriptions beside their controls, once; never replace them with internal axis IDs or a generic earlier-case sentence. Answer keys, accepted examples and feedback stay hidden until submission. Reveal withheld measurements only after the stated commitment. Use the public feasibility/selection rule; an example allocation is not an exclusive key. The displayed person must match this stop’s placement and Call.
 
-**Handback 5 canonical interaction block - HOLDOUT:**
+**Correct result:** Temporary-supply model: mean absolute error 0.8 percentage point, versus 2.7 for persistent inflation.
 
-```yaml
-holdout:
-  axis: {label: "allowed monthly inflation prediction error", min: 0, max: 2, step: 0.5, unit: "percentage points"}
-  fit: [{at: 0, value: 0.55}, {at: 0.5, value: 0.98}, {at: 1.0, value: 0.84}, {at: 1.5, value: 0.87}, {at: 2.0, value: 0.83}]
-  test: [{at: 0, value: 0.38}, {at: 0.5, value: 0.44}, {at: 1.0, value: 0.76}, {at: 1.5, value: 0.86}, {at: 2.0, value: 0.84}]
-  passScore: 0.80
-  overfitAt: 0.5
-  correctAt: 1.5
-  models:
-    - {id: persistent, prediction: 5.5, unit: "%"}
-    - {id: temporary_supply, prediction: 2.0, unit: "%"}
-  heldOutReadings: [3.2, 2.4]
-  correctChoice: temporary_supply
-  correctConclusion: "The temporary-supply model predicts the decline toward 2%; the persistent 5.5% model does not."
-```
+**Answer text:** The temporary model predicts the withheld observations more closely. Retain it provisionally; this two-observation comparison is not a causal proof.
 
-**Correct result:** The keyed result shown by the completed interaction.
-
-**Answer text:** “The temporary-supply model predicts the holdout; persistent monetary inflation does not.”
-
-**Why:** Unseen normalization can reject a permanent-inflation story.
-
-**Wrong-path feedback:** A different response does not fit the displayed evidence. Unseen normalization can reject a permanent-inflation story.
+**Wrong-path feedback:** Identify the unmet public condition or the specific measurement that the selected option cannot provide; keep the original evidence available for retry.
 
 **State/output:** Record the result and unlock the next named stop.
 
@@ -7144,63 +7276,52 @@ holdout:
 
 **Stop reason - exact player copy:** The unseen-price test is complete, but a permanent tightening commitment still faces uncertainty.
 
-**Question card story setup - exact player copy:** The shock model wins on unseen data, but inflation expectations range from 1.8% to 2.4%. Stress permanent tightening across that range and compare it with a conditional trigger.
+**Question card story setup - exact player copy:** The withheld prices favor a temporary shock, while inflation expectations remain uncertain. The board’s policy requires review before making a permanent commitment.
 
-**Question card story-science connection - exact player copy:** Comparing permanent and conditional responses shows which policy remains justified across the tested inflation range.
+**Question card prompt - exact player copy:** Inspect expectations from 1.8% to 2.4% in 0.2-point steps. Choose the plan that keeps monitoring active, permits reversal and does not claim that these expectations establish a permanent inflation shock.
 
-**Question card prompt - exact player copy:** Inspect all settings and submit “conditional stance.”
+**Complete format-specific interaction block - canonical source:**
 
-**Complete format-specific interaction block:** `range:1.8.2.4 step.2; candidates:[permanent tighten,ignore,conditional]; correct:conditional`.
-
-**§7 authored-board source - STRESS:** Convert this stop from its authored interaction block below. Do not substitute a format-level template. The panel must state the goal without printing the keyed answer.
-
-```yaml
-authored_board:
-  stop: "Stop 40 - Tighten forever"
-  format: "STRESS"
-  source: "Handback 3 canonical interaction block"
-  question: "Inspect all settings and submit “conditional stance.”"
-  payload: "`range:1.8.2.4 step.2; candidates:[permanent tighten,ignore,conditional]; correct:conditional`."
-  axis_and_units: "Use only quantities and units named in this question and payload."
-  candidates_and_numbers: "Use only candidates and numbers named in this question and payload."
-  panel_rule: "Print the goal, never the target or keyed answer."
+```json
+{
+  "stress": {
+    "model": {
+      "expectations_percent": [
+        1.8,
+        2,
+        2.2,
+        2.4
+      ],
+      "evidence": "temporary model has lower held-out forecast error",
+      "policy": "retain monitoring and reversibility until persistence is independently supported"
+    },
+    "candidates": [
+      {
+        "id": "permanent",
+        "label": "Commit permanent tightening from the current print"
+      },
+      {
+        "id": "ignore",
+        "label": "Ignore future inflation evidence"
+      },
+      {
+        "id": "conditional",
+        "label": "Maintain a monitored conditional stance"
+      }
+    ],
+    "correct": "conditional",
+    "public_rule": "Use the displayed model and criterion over the entire stated range; no hidden preference scores."
+  }
+}
 ```
 
-**Handback 3 canonical interaction block - STRESS:**
+**Evidence delivery and grading:** The setup, decision evidence, public rules, costs and option descriptions are visible on this card before selection. Render option descriptions beside their controls, once; never replace them with internal axis IDs or a generic earlier-case sentence. Answer keys, accepted examples and feedback stay hidden until submission. Reveal withheld measurements only after the stated commitment. Use the public feasibility/selection rule; an example allocation is not an exclusive key. The displayed person must match this stop’s placement and Call.
 
-```yaml
-stress:
-  assumption: {label: "inflation persistence", min: 1.8, max: 2.4, nominal: 2.1, step: 0.2, unit: "years"}
-  criteria:
-    - {id: evidence_fit, label: "fit to the stop evidence", direction: maximise}
-    - {id: safety_margin, label: "margin at the adverse end", direction: maximise}
-  optimiseOn: evidence_fit
-  candidates:
-    - id: nominal_only
-      label: "Use only the nominal reading"
-      scores: {evidence_fit: 95, safety_margin: 20}
-      validRange: {min: 2.1, max: 2.1}
-      failsAt: 2.4
-    - id: common_extreme_mistake
-      label: "Use the favorable extreme as if it were guaranteed"
-      scores: {evidence_fit: 88, safety_margin: 5}
-      validRange: {min: 2.1, max: 2.4}
-      failsAt: 1.8
-    - id: robust_plan
-      label: "The keyed result shown by the completed interaction."
-      scores: {evidence_fit: 82, safety_margin: 92}
-      validRange: {min: 1.8, max: 2.4}
-  robust: robust_plan
-  question: "Inspect all settings and submit “conditional stance.”"
-```
+**Correct result:** A monitored conditional stance meets all three published requirements throughout the stated expectations range. This is a decision under the board’s policy, not an unstated numerical welfare optimum.
 
-**Correct result:** The keyed result shown by the completed interaction.
+**Answer text:** A monitored conditional stance meets all three published requirements throughout the stated expectations range. This is a decision under the board’s policy, not an unstated numerical welfare optimum.
 
-**Answer text:** “Do not justify permanent tightening from this temporary print; commit a reversible trigger.”
-
-**Why:** Long-run neutrality does not make short-run output losses disappear.
-
-**Wrong-path feedback:** A different response does not fit the displayed evidence. Long-run neutrality does not make short-run output losses disappear.
+**Wrong-path feedback:** Identify the unmet public condition or the specific measurement that the selected option cannot provide; keep the original evidence available for retry.
 
 **State/output:** Page 10 signed.
 
@@ -7639,7 +7760,7 @@ COUNTER→PRICES→RATE. Wage notices establish six weeks; PRICES tests stabiliz
 
 **Trigger:** accepted_stop_43.
 
-**World state:** At `forecast-table`, the dated accepted-result slip for Stop 43 reads: "The keyed result shown by the completed interaction.". The slip remains in that fixture’s evidence holder.
+**World state:** At `forecast-table`, the dated accepted-result slip for Stop 43 reads: "Clearing, training, port repair and reserve funded within 100 points.". The slip remains in that fixture’s evidence holder.
 
 **Panel/HUD text:** STOP 43 RECORDED - STOP 44 OPEN
 
@@ -7777,49 +7898,106 @@ derive:
 
 **Stop reason - exact player copy:** Stabilizers reduce the immediate shock, leaving a limited fund for the temporary response.
 
-**Question card story setup - exact player copy:** The smaller seven-billion shock leaves a limited bridge fund. Allocate 100 points across household clearing, worker retraining, port repair, publicity, and a protected reserve while preserving all required growth investments.
+**Question card story setup - exact player copy:** The temporary response still needs payments to clear while people and the port recover capacity. The fund cannot cover every proposal.
 
-**Question card story-science connection - exact player copy:** The allocation protects household clearing while retaining training and port capacity needed for future output.
+**Decision evidence - exact player copy:** Required outcomes: keep household payments clearing; fund worker retraining; repair port capacity; protect contingency capacity.
 
-**Question card prompt - exact player copy:** Allocate all 100 and submit the four funded items.
+**Question card prompt - exact player copy:** You have 100 bridge-fund points. Cover every required outcome and allocate the whole budget. Select whole packages, then submit the plan; the board shows its total and remaining reserve for you to check.
 
-**Complete format-specific interaction block:** `allocate:{pool:100,items:[{id:"clearing",label:"payment clearing",cost:30,required:true},{id:"training",label:"worker training",cost:25,required:true},{id:"port",label:"port repair",cost:25,required:true},{id:"reserve",label:"protected contingency reserve",cost:20,required:true,protected:true},{id:"publicity",label:"confidence publicity",cost:20,required:false}],questions:[{id:"payments",text:"Does the plan keep clearing operational?",required:true},{id:"growth",text:"Does it fund training and port capacity?",required:true},{id:"reserve",text:"Does it preserve the restart reserve?",required:true}],correct_allocation:{clearing:30,training:25,port:25,reserve:20},answerText:"Spend all 100 on clearing, training, port repair, and the protected reserve; publicity would crowd out a required growth or safety item."}`
+**Complete format-specific interaction block - canonical source:**
 
-**§7 authored-board source - ALLOCATE:** Convert this stop from its authored interaction block below. Do not substitute a format-level template. The panel must state the goal without printing the keyed answer.
-
-```yaml
-authored_board:
-  stop: "Stop 43 - Protect growth engines"
-  format: "ALLOCATE"
-  source: "Handback 3 canonical interaction block"
-  question: "Allocate all 100 and submit the four funded items."
-  payload: "`allocate:{pool:100,items:[{id:\"clearing\",label:\"payment clearing\",cost:30,required:true},{id:\"training\",label:\"worker training\",cost:25,required:true},{id:\"port\",label:\"port repair\",cost:25,required:true},{id:\"reserve\",label:\"protected contingency reserve\",cost:20,required:true,protected:true},{id:\"publicity\",label:\"confidence publicity\",cost:20,required:false}],questions:[{id:\"payments\",text:\"Does the plan keep clearing operational?\",required:true},{id:\"growth\",text:\"Does it fund training and port capacity?\",required:true},{id:\"reserve\",text:\"Does it preserve the restart reserve?\",required:true}],correct_allocation:{clearing:30,training:25,port:25,reserve:20},answerText:\"Spend all 100 on clearing, training, port repair, and the protected reserve; publicity would crowd out a required growth or safety item.\"}`"
-  axis_and_units: "Use only quantities and units named in this question and payload."
-  candidates_and_numbers: "Use only candidates and numbers named in this question and payload."
-  panel_rule: "Print the goal, never the target or keyed answer."
+```json
+{
+  "allocate": {
+    "budget": {
+      "value": 100,
+      "unit": "bridge-fund points"
+    },
+    "requirements": [
+      {
+        "id": "r1",
+        "text": "keep household payments clearing"
+      },
+      {
+        "id": "r2",
+        "text": "fund worker retraining"
+      },
+      {
+        "id": "r3",
+        "text": "repair port capacity"
+      },
+      {
+        "id": "r4",
+        "text": "protect contingency capacity"
+      }
+    ],
+    "selection_rule": "Cover every required outcome and allocate the whole budget.",
+    "options": [
+      {
+        "id": "clearing",
+        "label": "Payment clearing",
+        "cost": 30.0,
+        "information": "Maintains household payment processing.",
+        "covers": [
+          "r1"
+        ]
+      },
+      {
+        "id": "training",
+        "label": "Worker training",
+        "cost": 25.0,
+        "information": "Funds retraining for changed job requirements.",
+        "covers": [
+          "r2"
+        ]
+      },
+      {
+        "id": "port",
+        "label": "Port repair",
+        "cost": 25.0,
+        "information": "Restores productive port infrastructure.",
+        "covers": [
+          "r3"
+        ]
+      },
+      {
+        "id": "reserve",
+        "label": "Protected contingency reserve",
+        "cost": 20.0,
+        "information": "Keeps capacity for payment or restart failures.",
+        "covers": [
+          "r4"
+        ]
+      },
+      {
+        "id": "publicity",
+        "label": "Confidence publicity",
+        "cost": 20.0,
+        "information": "Changes messaging without providing these services.",
+        "covers": []
+      }
+    ],
+    "accepted_plans": [
+      [
+        "clearing",
+        "training",
+        "port",
+        "reserve"
+      ]
+    ],
+    "example_total": 100.0,
+    "example_reserve": 0.0
+  }
+}
 ```
 
-**Handback 3 canonical interaction block - ALLOCATE:**
+**Evidence delivery and grading:** The setup, decision evidence, public rules, costs and option descriptions are visible on this card before selection. Render option descriptions beside their controls, once; never replace them with internal axis IDs or a generic earlier-case sentence. Answer keys, accepted examples and feedback stay hidden until submission. Reveal withheld measurements only after the stated commitment. Use the public feasibility/selection rule; an example allocation is not an exclusive key. The displayed person must match this stop’s placement and Call.
 
-```yaml
-allocate_patch:
-  questions:
-    - {id: payments, requires: [clearing], required: true}
-    - {id: growth, requires: [training, port], required: true}
-    - {id: reserve, requires: [reserve], required: false}
-  rule: "At least one outcome may be forgone; required outcomes are not pre-protected, so the player must choose a feasible basket."
-  preProtected: []
-  decision_can_fail: true
-  question: "Allocate all 100 and submit the four funded items."
-```
+**Correct result:** clearing, training, port, reserve = 100 bridge-fund points; reserve 0
 
-**Correct result:** The keyed result shown by the completed interaction.
+**Answer text:** Each funded package supplies a required outcome; an affordable package that leaves one unresolved is insufficient.
 
-**Answer text:** “Fund clearing, training, port repair, and reserve.”
-
-**Why:** Human capital, physical capital, and technology shift productive capacity; publicity does not.
-
-**Wrong-path feedback:** A different response does not fit the displayed evidence. Human capital, physical capital, and technology shift productive capacity; publicity does not.
+**Wrong-path feedback:** Identify the unmet public condition or the specific measurement that the selected option cannot provide; keep the original evidence available for retry.
 
 **State/output:** Record the result and unlock the next named stop.
 
@@ -7833,21 +8011,87 @@ allocate_patch:
 
 **Stop reason - exact player copy:** The timing and funding checks are complete and the board must choose the response's duration.
 
-**Question card story setup - exact player copy:** Wage adjustment begins after launch, automatic stabilizers cover part of the loss, and the protected plan preserves growth capacity. Choose whether to wait, make permanent stimulus, or use a temporary bridge with an end date.
+**Question card story setup - exact player copy:** Support is needed before wage adjustment can close the temporary gap. Eli needs an exit rule so a bridge does not become an indefinite commitment.
 
-**Question card story-science connection - exact player copy:** The choice determines whether support bridges the launch delay without becoming an unjustified permanent commitment.
+**Decision evidence - exact player copy:** Required outcomes: provide support during the adjustment delay; set an enforceable end date and review.
 
-**Question card prompt - exact player copy:** Spend 80 and submit the plan.
+**Question card prompt - exact player copy:** You have 80 plan points. Cover every required outcome at the lowest total cost within the budget; keep all unused capacity in reserve. Select whole packages, then submit the plan; the board shows its total and remaining reserve for you to check.
 
-**Complete format-specific interaction block:** `value:{budget:80,options:[{id:"temporary_bridge",axis:"short-run demand support",cost:50,required:true},{id:"sunset_review",axis:"automatic exit discipline",cost:30,required:true},{id:"permanent_stimulus",axis:"permanent demand expansion",cost:80,required:false},{id:"wait",axis:"no immediate support",cost:0,required:false}],total_available_cost:160,correct_purchase:["temporary_bridge","sunset_review"],answerText:"Buy the temporary bridge and sunset review for 80; permanent stimulus outlasts the gap and waiting leaves the lag unaddressed."}`
+**Complete format-specific interaction block - canonical source:**
 
-**Correct result:** The keyed result shown by the completed interaction.
+```json
+{
+  "value": {
+    "budget": {
+      "value": 80,
+      "unit": "plan points"
+    },
+    "requirements": [
+      {
+        "id": "r1",
+        "text": "provide support during the adjustment delay"
+      },
+      {
+        "id": "r2",
+        "text": "set an enforceable end date and review"
+      }
+    ],
+    "selection_rule": "Cover every required outcome at the lowest total cost within the budget; keep all unused capacity in reserve.",
+    "options": [
+      {
+        "id": "temporary_bridge",
+        "label": "Temporary demand bridge",
+        "cost": 50.0,
+        "information": "Provides support during the documented adjustment delay.",
+        "covers": [
+          "r1"
+        ]
+      },
+      {
+        "id": "sunset_review",
+        "label": "Sunset and review clause",
+        "cost": 30.0,
+        "information": "Sets an end date and requires evidence before renewal.",
+        "covers": [
+          "r2"
+        ]
+      },
+      {
+        "id": "permanent_stimulus",
+        "label": "Permanent stimulus",
+        "cost": 80.0,
+        "information": "Supports demand without an end date.",
+        "covers": [
+          "r1"
+        ]
+      },
+      {
+        "id": "wait",
+        "label": "Wait without support",
+        "cost": 0.0,
+        "information": "Commits no temporary support or exit review; this standalone alternative cannot be combined with purchases.",
+        "covers": []
+      }
+    ],
+    "accepted_plans": [
+      [
+        "temporary_bridge",
+        "sunset_review"
+      ]
+    ],
+    "example_total": 80.0,
+    "example_reserve": 0.0
+  }
+}
+```
 
-**Answer text:** “Use a temporary bridge with a sunset review; self-correction alone is too slow.”
+**Evidence delivery and grading:** The setup, decision evidence, public rules, costs and option descriptions are visible on this card before selection. Render option descriptions beside their controls, once; never replace them with internal axis IDs or a generic earlier-case sentence. Answer keys, accepted examples and feedback stay hidden until submission. Reveal withheld measurements only after the stated commitment. Use the public feasibility/selection rule; an example allocation is not an exclusive key. The displayed person must match this stop’s placement and Call.
 
-**Why:** Temporary support can span a lag without becoming a permanent demand expansion.
+**Correct result:** temporary_bridge, sunset_review = 80 plan points; reserve 0
 
-**Wrong-path feedback:** A different response does not fit the displayed evidence. Temporary support can span a lag without becoming a permanent demand expansion.
+**Answer text:** Each funded package supplies a required outcome; an affordable package that leaves one unresolved is insufficient.
+
+**Wrong-path feedback:** Identify the unmet public condition or the specific measurement that the selected option cannot provide; keep the original evidence available for retry.
 
 **State/output:** Page 11.
 
@@ -8390,34 +8634,55 @@ trace:
 
 **Stop reason - exact player copy:** The legal conversion and timing checks pass, but one shop-label claim remains uncorrected.
 
-**Question card story setup - exact player copy:** The tray converts exactly, reserves arrive at the inclusive threshold, and independent customs rejects the shortcut table. Verify those three claims and reject the uncorrected shop-label claim in the Rate Book.
+**Question card story setup - exact player copy:** Conversion, reserve timing and the customs rate have separate records. Check each before signing the first-week file.
 
-**Question card story-science connection - exact player copy:** Attestation separates verified payment readiness from a price-label assertion that still lacks support.
+**Question card prompt - exact player copy:** Use the validated 4.15 crowns/RATE conversion; reserve requirements are inclusive. Read the displayed source excerpts, then select every supported claim and leave unsupported claims unsigned.
 
-**Question card prompt - exact player copy:** Spend three marks and submit certification.
+**Complete format-specific interaction block - canonical source:**
 
-**Complete format-specific interaction block:** `attest:{verification_limit:3,claims:[{id:"tray",label:"tray converts to 10,000 RATE",signed:true,backed:true,critical:true},{id:"reserve",label:"1,000 RATE reserve arrives at minute 6",signed:true,backed:true,critical:true},{id:"customs",label:"customs uses 4.15",signed:true,backed:true,critical:false},{id:"shop_labels",label:"uncorrected shop labels are safe",signed:true,backed:false,critical:true}],correct_verified:["tray","reserve","customs"],critical_unbacked:"shop_labels",answerText:"Verify the tray, reserve, and customs claims; reject the critical shop-label claim because its 4.00 source remains uncorrected."}`
-
-**§7 build completion - ATTEST:** This block supplies the panel fields omitted above; the authored prompt, science, and correct result remain authoritative.
-
-```yaml
-attest:
-  checks: 3
-  claims:
-    - {id: primary, label: "primary claim for Operationally safe", critical: true, backed: true, verification: "the signed source reproduces the displayed result"}
-    - {id: independent, label: "independent confirmation", critical: true, backed: true, verification: "the independent record agrees within the stated tolerance"}
-    - {id: scope, label: "scope and date", critical: false, backed: true, verification: "the record names the population and time window"}
-    - {id: extension, label: "stronger untested extension", critical: true, backed: false, verification: "no independent check supports the extension; it must be held"}
-  correctAction: "verify primary, independent, and scope; hold extension"
+```json
+{
+  "attest": {
+    "claims": [
+      {
+        "id": "tray",
+        "label": "The tray converts to 10,000 RATE",
+        "evidence": "The audited tray contains 41,500 crowns; its conversion rate is 4.15 crowns per RATE."
+      },
+      {
+        "id": "reserve",
+        "label": "The bank can clear at minute 6",
+        "evidence": "The reserve ledger records 1,000 RATE at minute 6 against a requirement of at least 1,000 RATE."
+      },
+      {
+        "id": "customs",
+        "label": "Customs uses the validated conversion",
+        "evidence": "The independent customs rate record states 4.15 crowns per RATE."
+      },
+      {
+        "id": "shop_labels",
+        "label": "The unchanged shop labels are safe",
+        "evidence": "The shop labels still use 4.00 crowns per RATE."
+      }
+    ],
+    "selection_rule": "Support must be present in the displayed source excerpt and within its scope; a signature or repeated copy alone is insufficient.",
+    "correct_signed": [
+      "tray",
+      "reserve",
+      "customs"
+    ],
+    "checks": 3
+  }
+}
 ```
 
-**Correct result:** The keyed result shown by the completed interaction.
+**Evidence delivery and grading:** The setup, decision evidence, public rules, costs and option descriptions are visible on this card before selection. Render option descriptions beside their controls, once; never replace them with internal axis IDs or a generic earlier-case sentence. Answer keys, accepted examples and feedback stay hidden until submission. Reveal withheld measurements only after the stated commitment. Use the public feasibility/selection rule; an example allocation is not an exclusive key. The displayed person must match this stop’s placement and Call.
 
-**Answer text:** “Approve 4.15 after replacing every 4.00 shortcut.”
+**Correct result:** Sign tray, reserve, customs; leave the other claims unsigned.
 
-**Why:** Operational safety requires arithmetic, timing, and independent market evidence.
+**Answer text:** Each signature is limited to what its source establishes. The unsupported claims lack the specific date, physical condition, independence or scope they assert.
 
-**Wrong-path feedback:** A different response does not fit the displayed evidence. Operational safety requires arithmetic, timing, and independent market evidence.
+**Wrong-path feedback:** Identify the unmet public condition or the specific measurement that the selected option cannot provide; keep the original evidence available for retry.
 
 **State/output:** Page 12.
 
@@ -9003,21 +9268,99 @@ derive:
 
 **Stop reason - exact player copy:** Domestic and foreign offsets are now measured, requiring a review of the full bridge package.
 
-**Question card story setup - exact player copy:** Fund a narrower bridge, training, and port repair within 100 points.
+**Question card story setup - exact player copy:** Domestic and foreign offsets weaken the case for a large debt-financed package. Rhea needs temporary support alongside repair of the two remaining capacity constraints.
 
-**Question card story-science connection - exact player copy:** The revised allocation balances immediate support with training and port investment under the fixed budget.
+**Decision evidence - exact player copy:** Required outcomes: supply the narrowed temporary bridge; address worker mismatch; restore port supply capacity. The adopted policy is to fund the remaining gap, not the superseded gross gap; all three outcomes are required.
 
-**Question card prompt - exact player copy:** Spend exactly 100 and submit.
+**Question card prompt - exact player copy:** You have 100 plan points. Cover every required outcome at the lowest total cost within the budget; keep all unused capacity in reserve. Select whole packages, then submit the plan; the board shows its total and remaining reserve for you to check.
 
-**Complete format-specific interaction block:** `value:{budget:100,options:[{id:"narrow_bridge",axis:"temporary demand support",cost:45,required:true},{id:"training",axis:"worker matching",cost:25,required:true},{id:"port",axis:"supply capacity",cost:30,required:true},{id:"full_bridge",axis:"large fiscal expansion",cost:80,required:false},{id:"publicity",axis:"communications",cost:20,required:false}],total_available_cost:200,correct_purchase:["narrow_bridge","training","port"],answerText:"Spend all 100 on the narrow bridge, training, and port capacity; they address demand, structural mismatch, and supply without the crowding out caused by the full bridge."}`
+**Complete format-specific interaction block - canonical source:**
 
-**Correct result:** The keyed result shown by the completed interaction.
+```json
+{
+  "value": {
+    "budget": {
+      "value": 100,
+      "unit": "plan points"
+    },
+    "requirements": [
+      {
+        "id": "r1",
+        "text": "supply the narrowed temporary bridge"
+      },
+      {
+        "id": "r2",
+        "text": "address worker mismatch"
+      },
+      {
+        "id": "r3",
+        "text": "restore port supply capacity"
+      }
+    ],
+    "selection_rule": "Cover every required outcome at the lowest total cost within the budget; keep all unused capacity in reserve.",
+    "options": [
+      {
+        "id": "narrow_bridge",
+        "label": "Narrow temporary bridge",
+        "cost": 45.0,
+        "information": "Targets the remaining demand gap after the measured offsets.",
+        "covers": [
+          "r1"
+        ]
+      },
+      {
+        "id": "training",
+        "label": "Worker training",
+        "cost": 25.0,
+        "information": "Addresses the documented mismatch between skills and jobs.",
+        "covers": [
+          "r2"
+        ]
+      },
+      {
+        "id": "port",
+        "label": "Port repair",
+        "cost": 30.0,
+        "information": "Restores the documented port capacity constraint.",
+        "covers": [
+          "r3"
+        ]
+      },
+      {
+        "id": "full_bridge",
+        "label": "Full debt-financed bridge",
+        "cost": 80.0,
+        "information": "Funds the original larger demand package, with no training or port work.",
+        "covers": []
+      },
+      {
+        "id": "publicity",
+        "label": "Publicity campaign",
+        "cost": 20.0,
+        "information": "Changes messaging without repairing the demand or capacity constraints.",
+        "covers": []
+      }
+    ],
+    "accepted_plans": [
+      [
+        "narrow_bridge",
+        "training",
+        "port"
+      ]
+    ],
+    "example_total": 100.0,
+    "example_reserve": 0.0
+  }
+}
+```
 
-**Answer text:** “Keep the narrower bridge with training and port repair; reject the full debt plan.”
+**Evidence delivery and grading:** The setup, decision evidence, public rules, costs and option descriptions are visible on this card before selection. Render option descriptions beside their controls, once; never replace them with internal axis IDs or a generic earlier-case sentence. Answer keys, accepted examples and feedback stay hidden until submission. Reveal withheld measurements only after the stated commitment. Use the public feasibility/selection rule; an example allocation is not an exclusive key. The displayed person must match this stop’s placement and Call.
 
-**Why:** Targeted temporary support reduces crowding out while preserving long-run growth.
+**Correct result:** narrow_bridge, training, port = 100 plan points; reserve 0
 
-**Wrong-path feedback:** A different response does not fit the displayed evidence. Targeted temporary support reduces crowding out while preserving long-run growth.
+**Answer text:** Each funded package supplies a required outcome; an affordable package that leaves one unresolved is insufficient.
+
+**Wrong-path feedback:** Identify the unmet public condition or the specific measurement that the selected option cannot provide; keep the original evidence available for retry.
 
 **State/output:** Page 13.
 
@@ -9397,7 +9740,7 @@ TRADE→PRICES→RATE. Port evidence identifies shock; index wall quantifies pas
 
 **Trigger:** accepted_stop_55.
 
-**World state:** At `forecast-table`, the dated accepted-result slip for Stop 55 reads: "The keyed result shown by the completed interaction.". The slip remains in that fixture’s evidence holder.
+**World state:** At `forecast-table`, the dated accepted-result slip for Stop 55 reads: "Conversion proceeds with temporary cover and the inflation guard.". The slip remains in that fixture’s evidence holder.
 
 **Panel/HUD text:** STOP 55 RECORDED - STOP 56 OPEN
 
@@ -9518,63 +9861,61 @@ TRADE→PRICES→RATE. Port evidence identifies shock; index wall quantifies pas
 
 **Stop reason - exact player copy:** The fuel estimate is ready and the full plan must withstand the combined disturbances.
 
-**Question card story setup - exact player copy:** Because the direct price effect is bounded, stress delay, unconditional easing, and conversion-plus-cover across fuel shocks of 8%, 12%, and 16%. Submit the plan that preserves payments and limits the output loss.
+**Question card story setup - exact player copy:** The conversion ratio has passed its accounting checks, but a fuel shock can still raise household costs. The board requires payment continuity and temporary cover without abandoning its inflation guard.
 
-**Question card story-science connection - exact player copy:** The model stress test selects a response that keeps payments working while limiting the output loss.
+**Question card prompt - exact player copy:** Sweep fuel prices through increases of 8%, 12% and 16%. With basket weight 20%, compute the direct price contribution and select the plan preserving conversion, temporary cover and the review guard in every case.
 
-**Question card prompt - exact player copy:** Inspect three settings and submit one plan.
+**Complete format-specific interaction block - canonical source:**
 
-**Complete format-specific interaction block:** `range:8.16 step4; candidates:[delay,unconditional_ease,conversion_cover]; correct:conversion_cover`.
-
-**§7 authored-board source - STRESS:** Convert this stop from its authored interaction block below. Do not substitute a format-level template. The panel must state the goal without printing the keyed answer.
-
-```yaml
-authored_board:
-  stop: "Stop 55 - Full model stress"
-  format: "STRESS"
-  source: "Handback 3 canonical interaction block"
-  question: "Inspect three settings and submit one plan."
-  payload: "`range:8.16 step4; candidates:[delay,unconditional_ease,conversion_cover]; correct:conversion_cover`."
-  axis_and_units: "Use only quantities and units named in this question and payload."
-  candidates_and_numbers: "Use only candidates and numbers named in this question and payload."
-  panel_rule: "Print the goal, never the target or keyed answer."
+```json
+{
+  "stress": {
+    "model": {
+      "fuel_percent": [
+        8,
+        12,
+        16
+      ],
+      "weight": 0.2,
+      "direct_CPI_pp": [
+        1.6,
+        2.4,
+        3.2
+      ],
+      "policy": "retain validated conversion; keep payments operating; use temporary cover with an inflation stop rule",
+      "options_effects": {
+        "delay": "postpones conversion and payment clearing",
+        "unconditional_ease": "expands support without a stop rule",
+        "conversion_cover": "retains conversion 4.15, temporary first-week cover and the committed inflation guard"
+      }
+    },
+    "candidates": [
+      {
+        "id": "delay",
+        "label": "Delay conversion and clearing"
+      },
+      {
+        "id": "unconditional_ease",
+        "label": "Ease without a stopping rule"
+      },
+      {
+        "id": "conversion_cover",
+        "label": "Proceed with conversion and temporary guarded cover"
+      }
+    ],
+    "correct": "conversion_cover",
+    "public_rule": "Use the displayed model and criterion over the entire stated range; no hidden preference scores."
+  }
+}
 ```
 
-**Handback 3 canonical interaction block - STRESS:**
+**Evidence delivery and grading:** The setup, decision evidence, public rules, costs and option descriptions are visible on this card before selection. Render option descriptions beside their controls, once; never replace them with internal axis IDs or a generic earlier-case sentence. Answer keys, accepted examples and feedback stay hidden until submission. Reveal withheld measurements only after the stated commitment. Use the public feasibility/selection rule; an example allocation is not an exclusive key. The displayed person must match this stop’s placement and Call.
 
-```yaml
-stress:
-  assumption: {label: "conversion pressure", min: 8, max: 16, nominal: 12.0, step: 4, unit: "index points"}
-  criteria:
-    - {id: evidence_fit, label: "fit to the stop evidence", direction: maximise}
-    - {id: safety_margin, label: "margin at the adverse end", direction: maximise}
-  optimiseOn: evidence_fit
-  candidates:
-    - id: nominal_only
-      label: "Use only the nominal reading"
-      scores: {evidence_fit: 95, safety_margin: 20}
-      validRange: {min: 12.0, max: 12.0}
-      failsAt: 16
-    - id: common_extreme_mistake
-      label: "Use the favorable extreme as if it were guaranteed"
-      scores: {evidence_fit: 88, safety_margin: 5}
-      validRange: {min: 12.0, max: 16}
-      failsAt: 8
-    - id: robust_plan
-      label: "The keyed result shown by the completed interaction."
-      scores: {evidence_fit: 82, safety_margin: 92}
-      validRange: {min: 8, max: 16}
-  robust: robust_plan
-  question: "Inspect three settings and submit one plan."
-```
+**Correct result:** Direct contributions are 1.6, 2.4 and 3.2 percentage points. Conversion with temporary guarded cover meets the stated requirements; this limited model does not quantify total output or establish a universal policy optimum.
 
-**Correct result:** The keyed result shown by the completed interaction.
+**Answer text:** Direct contributions are 1.6, 2.4 and 3.2 percentage points. Conversion with temporary guarded cover meets the stated requirements; this limited model does not quantify total output or establish a universal policy optimum.
 
-**Answer text:** “Proceed at 4.15 with temporary first-week cover.”
-
-**Why:** Robust policy preserves the sound ratio while treating the separate real shock.
-
-**Wrong-path feedback:** A different response does not fit the displayed evidence. Robust policy preserves the sound ratio while treating the separate real shock.
+**Wrong-path feedback:** Identify the unmet public condition or the specific measurement that the selected option cannot provide; keep the original evidence available for retry.
 
 **State/output:** Record the result and unlock the next named stop.
 
@@ -9606,45 +9947,12 @@ stress:
 
 **Question card story-science connection - exact player copy:** Precommitted output and payment thresholds prevent a noisy price reading from triggering an improvised intervention.
 
+**Decision evidence - exact player copy:** Published emergency policy: buy bonds only when real-output nowcast≤680 billion AND payment failures≥2%; CPI companion≥6.5% stops buying and overrides both entry conditions. Freeze the three thresholds before opening the update.
+
 **Question card prompt - exact player copy:** Enter all three numeric thresholds, submit the rule, then reveal the sealed update; expected response is a trigger plan.
 
 **Complete format-specific interaction block:** `rule:"Buy bonds only if real-output nowcast ≤680b AND payment failures ≥2%; stop if CPI companion ≥6.5%"; scale:{min:0,max:10,anchors:[680,2,6.5]}; objective:"protect output/payments"; direction:"buy bonds"; consequence_limit:"CPI 6.5"`.
 
-**§7 authored-board source - TRIGGER:** Convert this stop from its authored interaction block below. Do not substitute a format-level template. The panel must state the goal without printing the keyed answer.
-
-```yaml
-authored_board:
-  stop: "Stop 56 - Write thresholds first"
-  format: "TRIGGER"
-  source: "Handback 3 canonical interaction block"
-  question: "Enter all three numeric thresholds, submit the rule, then reveal the sealed update; expected response is a trigger plan."
-  payload: "`rule:\"Buy bonds only if real-output nowcast ≤680b AND payment failures ≥2%; stop if CPI companion ≥6.5%\"; scale:{min:0,max:10,anchors:[680,2,6.5]}; objective:\"protect output/payments\"; direction:\"buy bonds\"; consequence_limit:\"CPI 6.5\"`."
-  axis_and_units: "Use only quantities and units named in this question and payload."
-  candidates_and_numbers: "Use only candidates and numbers named in this question and payload."
-  panel_rule: "Print the goal, never the target or keyed answer."
-```
-
-**Handback 3 canonical interaction block - TRIGGER:**
-
-```yaml
-trigger:
-  rule: "Commit the threshold before the stream appears; act only when a reading enters the action window with enough lead time."
-  scale: {label: "payment-failure rate", min: 0, max: 10, step: 0.25, unit: "%"}
-  start: 0.5
-  anchors:
-    - {at: 1.5, means: "routine baseline, not the decision threshold"}
-    - {at: 6.5, means: "elevated evidence requiring attention"}
-  direction: rising
-  updates:
-    - {at: "T-48 h", value: 0.8, hoursLeft: 48}
-    - {at: "T-24 h", value: 1.4, hoursLeft: 24}
-    - {at: "T-12 h", value: 2.0, hoursLeft: 12}
-    - {at: "T-6 h", value: 2.6, hoursLeft: 6}
-  stages:
-    - {id: watch, label: "Increase monitoring", window: {min: 0, max: 1.99}, leadHours: 24}
-    - {id: act, label: "Take the protective action", window: {min: 2, max: 10}, leadHours: 12}
-  question: "Enter all three numeric thresholds, submit the rule, then reveal the sealed update; expected response is a trigger plan."
-```
 
 **Correct result:** The keyed result shown by the completed interaction.
 
@@ -10171,56 +10479,54 @@ COUNTER→BANKS→RATE. S1 reads household case, S2 certifies reserves and rates
 
 **Stop reason - exact player copy:** The first-week readings are visible and must be assessed against the signed thresholds.
 
-**Question card story setup - exact player copy:** Launch data show real GDP 682 billion, Yf 720, unemployment 8.2%, companion inflation 3.0%, payment failures 0.5%, and fuel costs easing. Count the readings relevant to the signed stance.
+**Question card story setup - exact player copy:** The final dashboard shows weak output while the fuel shock eases. The team must read the indicators separately before choosing its response.
 
-**Question card story-science connection - exact player copy:** The live output gap and payment evidence determine whether the agreed emergency condition has actually been met.
+**Question card prompt - exact player copy:** Real output is 682 billion against full employment of 720 billion. Unemployment is 8.2%, inflation 3%, payment failures 0.5%, and fuel costs are easing. Calculate actual minus full-employment output using the two output levels.
 
-**Question card prompt - exact player copy:** Select all six readings, calculate gap `682−720`, and submit conclusion.
+**Complete format-specific interaction block — canonical BALLPARK:**
 
-**Complete format-specific interaction block:** `balance:{streams:[{id:"actual_output",value:682,unit:"billion RATE",counts:true},{id:"full_employment_output",value:720,unit:"billion RATE",counts:true},{id:"unemployment",value:8.2,unit:"percent",counts:true},{id:"CPI_inflation",value:3.0,unit:"percent",counts:true},{id:"payment_failures",value:0.5,unit:"percent",counts:true},{id:"fuel_easing",value:1,unit:"status flag",counts:false,reason:"context, not an output-gap stream"}],correct:{gap:-38,trigger:"no joint inflation-payment trigger"},answerText:"The economy has a 38-billion recessionary gap, but the joint trigger is not met; fuel easing is context rather than a counted ledger stream."}`
-
-**§7 authored-board source - BALANCE:** Convert this stop from its authored interaction block below. Do not substitute a format-level template. The panel must state the goal without printing the keyed answer.
-
-```yaml
-authored_board:
-  stop: "Stop 57 - Live economy panel"
-  format: "BALLPARK"
-  source: "Handback 5 canonical interaction block"
-  question: "Select all six readings, calculate gap `682−720`, and submit conclusion."
-  payload: "`balance:{streams:[{id:\"actual_output\",value:682,unit:\"billion RATE\",counts:true},{id:\"full_employment_output\",value:720,unit:\"billion RATE\",counts:true},{id:\"unemployment\",value:8.2,unit:\"percent\",counts:true},{id:\"CPI_inflation\",value:3.0,unit:\"percent\",counts:true},{id:\"payment_failures\",value:0.5,unit:\"percent\",counts:true},{id:\"fuel_easing\",value:1,unit:\"status flag\",counts:false,reason:\"context, not an output-gap stream\"}],correct:{gap:-38,trigger:\"no joint inflation-payment trigger\"},answerText:\"The economy has a 38-billion recessionary gap, but the joint trigger is not met; fuel easing is context rather than a counted ledger stream.\"}`"
-  axis_and_units: "Use only quantities and units named in this question and payload."
-  candidates_and_numbers: "Use only candidates and numbers named in this question and payload."
-  panel_rule: "Print the goal, never the target or keyed answer."
+```json
+{
+  "estimate": {
+    "quantity": "Live economy panel",
+    "labels": [
+      "682",
+      "720",
+      "8.2",
+      "3",
+      "0.5"
+    ],
+    "values": [
+      682,
+      720,
+      8.2,
+      3,
+      0.5
+    ],
+    "slots": 2,
+    "template": "{a}-{b} = ? billion real-output units",
+    "formula": "a-b",
+    "correct": [
+      0,
+      1
+    ],
+    "target": -38,
+    "tolerance": 0.01,
+    "units": "billion real-output units",
+    "correctResult": -38
+  },
+  "answerText": "The output gap is −38 billion. The other readings do not establish a joint inflation-and-payment-failure trigger; the gap alone does not authorize a policy choice.",
+  "wrongFeedback": [
+    "Do not mix a percentage indicator into a difference between output levels."
+  ]
+}
 ```
 
-**Handback 3 canonical interaction block - BALLPARK:**
+**Rendering and grading contract:** Render every numeric label as a selectable tile. The printed equation supplies the slot roles; do not replace number labels with quantity names. `correct` contains zero-based tile indices for slots a onward. Accept numerically equivalent selections, including equal-valued tiles. Evaluate the formula on submission; tolerance is absolute in the stated output units. Negative and zero results require a signed linear display. The board has one submission; supporting comparisons appear in the result explanation.
 
-**Handback 5 canonical interaction block - BALLPARK:**
+**Correct result:** The output gap is −38 billion. The other readings do not establish a joint inflation-and-payment-failure trigger; the gap alone does not authorize a policy choice.
 
-```yaml
-estimate:
-  quantity: "signed real-output gap"
-  unit: "billion RATE"
-  inputs:
-    - {label: "Actual real output", value: 682, unit: "billion RATE"}
-    - {label: "Full-employment output", value: 720, unit: "billion RATE"}
-    - {label: "CPI inflation", value: 3.0, unit: "%", contextOnly: true}
-    - {label: "Payment failures", value: 0.5, unit: "%", contextOnly: true}
-  operation: "actual real output minus full-employment output"
-  formula: "output gap=682-720"
-  start: 0
-  correctResult: -38
-  tolerance: 1
-  commonMistake: "Mixing a contextual reading into the arithmetic or reversing the subtraction."
-```
-
-**Correct result:** −38b; no trigger.
-
-**Answer text:** “The gap is −38 billion; payment failures 0.5% do not meet the 2% trigger.”
-
-**Why:** Output is weak, but the payment trigger has not fired and inflation is below its stop limit.
-
-**Wrong-path feedback:** A different response does not fit the displayed evidence. Output is weak, but the payment trigger has not fired and inflation is below its stop limit.
+**Wrong-path feedback:** Do not mix a percentage indicator into a difference between output levels.
 
 **State/output:** Record the result and unlock the next named stop.
 
@@ -10389,45 +10695,12 @@ trace:
 
 **Question card story-science connection - exact player copy:** The completed signature records whether every required economic and payment condition supports proceeding with conversion.
 
+**Decision evidence - exact player copy:** Signed plan: conversion 4.15 crowns per RATE and policy rate 3.25%. Emergency bond buying requires output≤680 billion AND payment failures≥2%; stop buying at companion CPI≥6.5%. SIGN is available only when all four campaign bars are 100%. These are the adopted institutional settings, not uniquely optimal values derived from the last card.
+
 **Question card prompt - exact player copy:** Submit number pair `(4.15 crowns/RATE, 3.25%)`, then the three numeric conditions, then select SIGN; the panel blocks SIGN unless all four bars equal 100.
 
 **Complete format-specific interaction block:** `rule:"conversion 4.15; policy rate 3.25%; buy bonds if Y≤680 AND failures≥2%; stop if companion CPI≥6.5%"; anchors:[4.15,3.25,680,2,6.5]; objective:"stable conversion with full employment and price guard"; direction:"conditional expansion"; consequence_limit:"CPI"`.
 
-**§7 authored-board source - TRIGGER:** Convert this stop from its authored interaction block below. Do not substitute a format-level template. The panel must state the goal without printing the keyed answer.
-
-```yaml
-authored_board:
-  stop: "Stop 60 - Sign"
-  format: "TRIGGER"
-  source: "Handback 3 canonical interaction block"
-  question: "Submit number pair `(4.15 crowns/RATE, 3.25%)`, then the three numeric conditions, then select SIGN; the panel blocks SIGN unless all four bars equal 100."
-  payload: "`rule:\"conversion 4.15; policy rate 3.25%; buy bonds if Y≤680 AND failures≥2%; stop if companion CPI≥6.5%\"; anchors:[4.15,3.25,680,2,6.5]; objective:\"stable conversion with full employment and price guard\"; direction:\"conditional expansion\"; consequence_limit:\"CPI\"`."
-  axis_and_units: "Use only quantities and units named in this question and payload."
-  candidates_and_numbers: "Use only candidates and numbers named in this question and payload."
-  panel_rule: "Print the goal, never the target or keyed answer."
-```
-
-**Handback 3 canonical interaction block - TRIGGER:**
-
-```yaml
-trigger:
-  rule: "Commit the threshold before the stream appears; act only when a reading enters the action window with enough lead time."
-  scale: {label: "payment-failure rate", min: 0, max: 10, step: 0.25, unit: "%"}
-  start: 0.5
-  anchors:
-    - {at: 1.5, means: "routine baseline, not the decision threshold"}
-    - {at: 6.5, means: "elevated evidence requiring attention"}
-  direction: rising
-  updates:
-    - {at: "T-48 h", value: 0.7, hoursLeft: 48}
-    - {at: "T-24 h", value: 1.3, hoursLeft: 24}
-    - {at: "T-12 h", value: 2.0, hoursLeft: 12}
-    - {at: "T-6 h", value: 2.4, hoursLeft: 6}
-  stages:
-    - {id: watch, label: "Increase monitoring", window: {min: 0, max: 1.99}, leadHours: 24}
-    - {id: act, label: "Take the protective action", window: {min: 2, max: 10}, leadHours: 12}
-  question: "Submit number pair `(4.15 crowns/RATE, 3.25%)`, then the three numeric conditions, then select SIGN; the panel blocks SIGN unless all four bars equal 100."
-```
 
 **Correct result:** The keyed result shown by the completed interaction.
 
@@ -10882,3 +11155,13 @@ All six warm-up run variants must use only the eight shipped characters: Mara Ve
 ## Mental-math number rule for calculated-response cards
 
 This rule is binding for this campaign and for future games built from it. When the player must perform the arithmetic without a supplied calculator or a displayed intermediate result, author inputs as friendly integers or simple ratios. Prefer products and quotients that can be completed mentally and key results to an integer or at most one useful decimal place. Update every dependent prompt, board payload, prediction, measurement, tolerance, correct result, answer text, and feedback together. Preserve more complex real-world values only when the interface supplies the calculator or the intermediate value and the learning target is interpretation rather than arithmetic. Never make arithmetic friction the hidden difficulty of a concept question.
+
+# Decision-card evidence contract
+
+Every decision card must expose the exact evidence and public rule that distinguish its accepted answers from plausible alternatives. Render the local Data/readings/options, Decision evidence, public constraints and option effects before selection; keep them available while the player chooses. Use plain-language descriptions, not internal axis names. Show one speaker header from the stop’s placement and Call, and one coherent setup and prompt. Never substitute a discovery-stage explanation into a later allocation, release or certification task.
+
+Resource tasks distinguish a budget from the goal. Display the required outcomes, each option’s contribution, costs, reserve rules and any priority or tie-breaker. Accept every plan satisfying the published rule. A recommended split is not an exclusive key unless the visible constraints uniquely determine it. Policies are identified as policies; the player must not derive an institutional preference from a scientific formula.
+
+For staged tests, show hypotheses, model inputs and acceptance rules before commitment, but keep held-out results hidden until the specified test or reveal. No grade may depend on guessing a future result. A signed claim requires a readable source excerpt or an explicit inspection, not a hidden backed flag. Copied records retain their shared-source identity.
+
+No importer fallback may borrow another stop’s data, speaker, threshold or generic mission text. Missing required local evidence is an import error. Before release, inspect the rendered card, prove the accepted response from visible information alone, try a plausible wrong answer, and test a different valid answer where the rule admits one. This document revision is source work; rendered-game verification still requires the actual implementation.

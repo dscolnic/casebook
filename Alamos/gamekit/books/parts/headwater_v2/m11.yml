@@ -193,10 +193,10 @@
     title: "Compute average loss"
     concept: 19   # average value/splitting
     reason: "The lost-capacity result needs a per-metre summary without erasing changes along the curve."
-    scene: "With 7.5 million m^3 lost over a 3 m operating interval, compute the average capacity error per metre. Then state why that average cannot replace the full curve near a crossing."
+    scene: "The storage curve has become a loss report. The crew needs one average to describe the interval without pretending the curve is straight."
     motivation: "Average capacity error communicates the survey discrepancy while leaving the full curve necessary near a crossing."
     format: BALLPARK
-    question: "Use f_avg=(1/(5-2))(7.5 million m^3); submit one number in million m^3/m, then submit summary only or replace full curve."
+    question: "Storage falls by 7.5 million m³ as reservoir height changes from 2 m to 5 m. Select the loss magnitude and height interval to calculate the average loss per metre."
     answerText: "average preserves the integral but not pointwise change."
     why: "average preserves the integral but not pointwise change. Average value summarizes total loss but not local sensitivity."
     # wrong-path feedback, one rebuttal per wrong option:
@@ -237,11 +237,11 @@
     person: vale
     concept: 27   # evidence independence
     reason: "The storage discrepancy needs independent survey support before the old curve is replaced."
-    scene: "At least one independent depth record and one calibration record are required."
+    scene: "The revised storage curve needs physical survey evidence and a checked instrument. The older sheet also needs a separate transcription check."
     motivation: "The verified depth and calibration records determine whether the revised capacity curve rests on independent evidence."
     format: ATTEST
-    question: "Spend the three-record verification limit, select exactly three claim IDs including transects and sonar calibration, and submit survey physically backed or survey not physically backed."
-    answerText: "independent transects and calibration support real silt loss."
+    question: "The survey requires a current independent depth record and instrument calibration; historical transcription is a separate, narrower claim. Read the displayed source excerpts, then select every supported claim and leave unsupported claims unsigned."
+    answerText: "Each signature is limited to what its source establishes. The unsupported claims lack the specific date, physical condition, independence or scope they assert."
     why: "independent transects and calibration support real silt loss. Independent physical records decide whether curve disagreement is real or clerical."
     # wrong-path feedback, one rebuttal per wrong option:
     #   A repeated export is not independent measurement.

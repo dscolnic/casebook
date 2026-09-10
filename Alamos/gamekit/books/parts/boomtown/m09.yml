@@ -11,7 +11,7 @@
   objective: "Decide whether the proposed wage floor can raise both pay and employment in the stated model."
   stake: "New stalls bring jobs, but the mine buys most skilled work. To hire one more worker, it may need to raise pay for all. Today you decide if a wage floor can raise pay and jobs here. By the end of the mission, you will test that claim."
   takeaway: "The worker agreement gains support from evidence rather than a blanket claim about regulation."
-  segue: "Mission decision: Support the $30 wage floor for this model. It raises jobs from three to four and raises pay. The offer goes on the board. The mine now points to high freight fees."
+  segue: "But Ruth has unused freight slots; better wages alone will not give rival firms access to them."
   # The mission card's own "Primer concepts", printed on the plan card.
   terms:
   - {name: "Derived demand", def: "Demand for an input comes from the output it helps produce."}

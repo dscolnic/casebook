@@ -11,7 +11,7 @@
   objective: "Today you decide whether to trust the survey and fix the map write."
   stake: "The log is back, but Jonah sees a crack in the wrong map cell. A grid uses a row and a column in a fixed order. Trace the write before the rover moves. By the end of the mission, decide if the map code swaps the two."
   takeaway: "The field survey is correct; one write uses [column][row], transposing the crevasse into the neighboring cell. ---"
-  segue: "Mission decision: The field survey is right; the display swaps row and column. The source marks the crevasse at [0][1], but the broken write shows [1][0]. The crew fixes the grid before releasing the rover. Now Liv needs the right radio record before the next short pass ends."
+  segue: "Now Liv holds the transmitter open while the next satellite pass slips away."
   # The mission card's own "Primer concepts", printed on the plan card.
   terms:
   - {name: "2D array", def: "an array of rows and columns accessed with two indexes. index: the numbered position used to access an element; Java arrays and lists start at index zero."}

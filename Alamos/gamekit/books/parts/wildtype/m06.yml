@@ -11,7 +11,7 @@
   objective: "Resolve whether the unusual tissue tray can join the release stock; unexplained growth could enter release stock."
   stake: "One tray keeps growing when the trays next to it stop. Cells use signals to control when they split. Check cell counts with Mara, then meet Nell at the Genetics Trailer. Today you decide whether the unusual tissue tray can join the release stock."
   takeaway: "Hold the unusual tissue tray for further tests. ---"
-  segue: "Mission decision: Hold the unusual tissue tray for further tests. The held line keeps dividing when the signal is removed."
+  segue: "Now Nell must check the held line’s family. She cannot judge each parent by its looks."
   # The mission card's own "Primer concepts", printed on the plan card.
   terms:
   - {name: "Cell cycle", def: "The sequence of growth, DNA copying and cell division."}
@@ -159,10 +159,10 @@
       tolerance: 0.05
       units: "%"
       labels:
-        - dividing
-        - total
-        - percent scale
-        - control dividing
+        - "18"
+        - "60"
+        - "100"
+        - "6"
       values:
         - 18
         - 60
@@ -174,7 +174,7 @@
         - 2
       slots: 3
       formula: a/b*c
-      template: "{0} {1} {2} → %"
+      template: "{0} / {1} × {2} = ? %"
       solution: "30"
 
   # --- Stop 23: Test the growth signal

@@ -11,7 +11,7 @@
   objective: "Resolve whether the shore seedlings need fresh water or a matched salt rinse; more roots could be damaged during packing."
   stake: "The new feed works, but the rinsed roots lose live cells. Water can cross a cell wall and its thin membrane. Test the rinse with Mara in the Field Clinic. Today you decide whether the shore seedlings need fresh water or a matched salt rinse."
   takeaway: "Use the rinse that matches the root cells. ---"
-  segue: "Mission decision: Use the rinse that matches the root cells. The matched rinse keeps root cells alive."
+  segue: "Yet Ivo finds wilted plants in sealed pots. The new rinse has not solved the night loss."
   # The mission card's own "Primer concepts", printed on the plan card.
   terms:
   - {name: "Membrane", def: "A thin selective barrier around a cell."}
@@ -174,10 +174,10 @@
       tolerance: 0.05
       units: 1/µm
       labels:
-        - faces
-        - side length
-        - surface area
-        - volume
+        - "6"
+        - "3"
+        - "54"
+        - "27"
       values:
         - 6
         - 3
@@ -188,7 +188,7 @@
         - 1
       slots: 2
       formula: a/b
-      template: "{0} {1} → 1/µm"
+      template: "{0} / {1} = ? 1/µm"
       solution: "2"
 
   # --- Stop 7: Explain the swelling

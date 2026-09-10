@@ -11,7 +11,7 @@
   objective: "Decide whether another cook is worth hiring at the current wage."
   stake: "Rooms fill again, but Nico needs more meals from one stove. Each new cook may add less than the last. Today you decide if one more cook is worth the wage. By the end of the mission, you will choose which job to post."
   takeaway: "The diner fills one post while admitting that its offer may shift workers between local firms."
-  segue: "Mission decision: Hire the fourth cook, but not the fifth. The fourth adds more sales than wage cost; the fifth does not. One job is posted. The bakery loses a worker to that offer."
+  segue: "But Nico’s new cook still needs a home; Leila cannot turn a job offer into an available room."
   # The mission card's own "Primer concepts", printed on the plan card.
   terms:
   - {name: "Marginal product", def: "Extra output from one more unit of an input."}

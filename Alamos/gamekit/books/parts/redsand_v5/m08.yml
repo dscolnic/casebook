@@ -184,10 +184,10 @@
     title: "Calculate k"
     concept: 9   # rate constant/units
     reason: "The reaction orders are identified and the temperature intervention needs a quantitative rate baseline."
-    scene: "Trial 1 records rate = 1.20 × 10^-3 M/s, [CO2] = 0.10 M, and [H2] = 0.20 M. The established rate law is rate = k[CO2][H2]^2, where k is the rate constant."
+    scene: "The rate measurements have fixed the reaction orders. The operator now needs the constant that makes the model predict this run."
     motivation: "The rate constant makes the later temperature test comparable with the measured initial-rate trials."
     format: BALLPARK
-    question: "Use Trial 1 and rate = k\\[CO2\\]\\[H2\\]^2 to find k."
+    question: "The rate law is rate=k[A][B]². Measured rate is 1.20×10⁻³ M/s at [A]=0.10 M and [B]=0.20 M. Fill rate,[A],[B] in k=rate/([A][B]²)."
     # CONVERTED from the bible's `data` line, k = 1.20e-3 / [(0.10)(0.20)^2], and
     # its "0.300 M^-2 s^-1; tolerance +/-2%" (2% of 0.300 = 0.006).
     estimate:

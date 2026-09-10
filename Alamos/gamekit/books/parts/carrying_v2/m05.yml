@@ -153,10 +153,10 @@
     title: "Measure catch per unit effort"
     concept: 19   # catch per unit effort | population limits | D1 trace | RETRIEVE | L2 | clue
     reason: "The recovered boat-hour records can test whether unchanged landings conceal a weakening fish stock."
-    scene: "The paper column recovered on Day 1 includes boat-hours that the electronic sales record omitted. Calculate catch per unit effort in two years to test whether steady landings mean a steady stock."
+    scene: "The catch total looks unchanged, but the fleet worked longer to obtain it. The crew compares catch per hour before calling the stock stable."
     motivation: "Catch per boat-hour distinguishes stable extraction from the growing effort required to obtain it."
     format: BALLPARK
-    question: "\"Using 960 t/4,800 boat-h in Year 1 and 960 t/8,000 boat-h in Year 5, submit both rates in kg/boat-h and the percent decline.\""
+    question: "Year 1 catch is 960 tonnes in 4,800 hours; year 5 is 960 tonnes in 8,000 hours. Compute each CPUE in kg/hour and place the two rates in (early−late)/early×100."
     # THE BIBLE'S PAYLOAD, converted. Its `formula=1000*tonnes/hours` is the
     # panel's formula and its first truth, 200 kg/boat-h, the target; its
     # `tolerance=1%` becomes the engine's absolute 2 kg/boat-h. The engine grades
@@ -280,11 +280,11 @@
     title: "Fund an enforceable ceiling"
     concept: 18   # commons governance | policy instruments | 5
     reason: "The measured replacement rate needs an enforceable fishing plan rather than a numerical promise alone."
-    scene: "The recovery test limits annual replacement to about 120 fish at the present stock. Allocate enforcement capacity so catch, effort, habitat, and data all support a ceiling below that replacement."
+    scene: "The current stock replaces about 120 fish each year, and the adopted catch ceiling is 100. Enforcement needs a way to count catch, track effort, protect the nursery and check the stock independently."
     motivation: "The allocation determines whether catch limits, effort checks, habitat protection, and data collection support the same sustainable ceiling."
     format: ALLOCATE
-    question: "\"Allocate 100 points and submit a plan: catch tags 30 required; boat-hour log 20 required; nursery closure 25 protected; independent survey 15; advertising 20; larger dock 25. Fund all required/protected items without exceeding 100.\""
-    answerText: "The completed check shows 90-point four-part plan; catch ceiling 100 fish/year, below 120 replacement."
+    question: "You have 100 enforcement points. Cover every required outcome at the lowest total cost within the budget; keep all unused capacity in reserve. Select whole packages, then submit the plan; the board shows its total and remaining reserve for you to check."
+    answerText: "Each funded package supplies a required outcome; an affordable package that leaves one unresolved is insufficient."
     why: "Shared resources avoid tragedy only when access and compliance are governed"
     # wrong-path feedback, one rebuttal per wrong option:
     #   Feedback identifies the first violated mechanism, unit, limit, or unsupported inference and allows a retry.

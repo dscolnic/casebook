@@ -206,10 +206,10 @@
     title: "Put a speed on the trace"
     concept: 1   # average velocity and scale
     reason: "The braking interval is identified, but its entry speed still needs measuring."
-    scene: "With the direction established, estimate the gondola's speed at the start of the marked braking interval. That speed is the input needed to predict where constant braking should stop it."
+    scene: "Luka marks the gondola's entry into the braking interval. He needs a speed estimate before predicting where it will stop."
     motivation: "The starting speed fixes how far this gondola should travel before the brake brings it to rest."
     format: BALLPARK
-    question: "Given Delta x = 0.70 m and Delta t = 0.50 s, use v_avg = Delta x / Delta t. Submit one starting-speed number in m/s."
+    question: "The gondola moves Δx=0.70 m in Δt=0.50 s. Fill distance and elapsed time in vavg=Δx/Δt to estimate its starting speed."
     answerText: "The first interval gives an average starting speed of 1.4 m/s."
     why: "Velocity is position change divided by time. The first interval is short enough to estimate the starting value used by the constant-acceleration model."
     # wrong-path feedback, one rebuttal per wrong option:

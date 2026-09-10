@@ -421,10 +421,10 @@ missions:
     title: "Mark the Extreme"
     concept: 30   # IQR outlier rule
     reason: "The two long recoveries need an objective flag before anyone removes or dismisses them."
-    scene: "One patient's recorded recovery time is 34 days, much longer than most recoveries in the trial. Calculate the upper fence, the cutoff above which a value is flagged as a possible outlier, to decide whether this record needs review."
+    scene: "An unusually long stay appears in the trial log. The team needs a consistent flag for review without silently deleting an observation."
     motivation: "The upper fence determines whether the recorded recovery warrants source review, not whether it should automatically be deleted."
     format: BALLPARK
-    question: "The recovery times have Q1=10 days and Q3=18 days. Using IQR=Q3-Q1 and upper fence=Q3+1.5(IQR), calculate the upper fence and decide whether the patient's 34-day recovery time should be flagged."
+    question: "Q1=10 days and Q3=18 days. Fill Q3 and the IQR in upper fence=Q3+1.5×IQR. Then compare a 34-day stay with that fence."
     # Every tile and the target are the prompt's own numbers: Q1 10, Q3 18, IQR 8,
     # 1.5 x IQR 12, the 34-day record, and the fence 18 + 12 = 30.
     estimate:
@@ -463,10 +463,10 @@ missions:
     person: wu
     concept: 13   # pre-specification and scope
     reason: "The descriptive review is ready, but the board must separate registered claims from later discoveries."
-    scene: "Lena opens the registry that was locked before the first patient enrolled and places it beside the later analysis notes. Decide which conclusions were planned in advance and which appeared only after the team saw the data."
+    scene: "The registry was locked before enrollment. Compare its contents with the later notes before labeling analyses as planned."
     motivation: "The dated registry evidence determines which conclusions were planned before results and which require an exploratory label."
     format: ATTEST
-    question: "The locked registry lists 30-day improvement, serious-event rate, and mean recovery time. The two-site treatment interaction and lab marker first appear in notes written after data review. Spend three checks on the pre-specified claims, then classify the interaction."
+    question: "Only analyses listed in the pre-enrollment registry qualify as prespecified. Read the displayed source excerpts, then select every supported claim and leave unsupported claims unsigned."
     # MODEL CONVERSION. `verification_limit` is the engine's `checks`; the bible's
     # `backed` and `critical` flags carry over unchanged, and `required_checks`
     # plus `critical_unbacked` are what the flags already encode.
@@ -488,7 +488,7 @@ missions:
       - { id: lab_marker, label: "exploratory lab marker",
           signedBy: "Lena Wu", evidence: "No registry timestamp; the marker was added to the pack later." }
       commit: "Seal the claim list"
-    answerText: "Keep the three timestamped claims as pre-specified and report the two-site pattern transparently as exploratory monitoring evidence."
+    answerText: "Each signature is limited to what its source establishes. The unsupported claims lack the specific date, physical condition, independence or scope they assert."
     why: "A clear sample statistic cannot turn an unregistered observation into a pre-specified population claim."
     # wrong-path feedback, one rebuttal per wrong option:
     #   Timestamp proves truth; separate timing from condition
@@ -653,10 +653,10 @@ missions:
     title: "Which Center Survives"
     concept: 10   # mean, median, skew
     reason: "The verified recovery records still need a center that is not dominated by one long case."
-    scene: "The verified sample contains recovery times of 4, 5, 5, 6, and 20 days. Compare the mean and median to learn which summary stays closer to the experience of most patients."
+    scene: "One long stay pulls on the summary. The trial team compares what the mean and median say about this small set."
     motivation: "The mean-median comparison shows which summary stays closer to most patients' recovery experience."
     format: BALLPARK
-    question: "Submit mean and median in days from values 4,5,5,6,20; formula mean=sum/5. BALLPARK slots sum,mean,median; targets 40,8,5; tolerances 0,0.01,0.01."
+    question: "Recorded stays are 4,5,5,6,20 days. Calculate their sum and select it with the number of observations in mean=sum/count. After submitting, compare the mean with the middle ordered value."
     # MODEL CONVERSION. The bible keys three readouts (sum 40, mean 8, median 5)
     # against three tolerances; the engine's estimate panel builds one number from
     # the tiles. The mean is the one the prompt gives a formula for — mean = sum/5
@@ -1024,10 +1024,10 @@ missions:
     title: "Ask Among the Flagged"
     concept: 24   # conditional probability
     reason: "The unique warning count leaves the shipment-flagged group needing its own risk estimate."
-    scene: "With duplicate reports removed, the shipment flag can become the conditioning group rather than another headline count. Use the two-percent overlap and five-percent flag rate to calculate the serious-event probability among flagged shipments."
+    scene: "The positive-test group is the relevant denominator now. The team must not substitute the whole screened population."
     motivation: "Conditional event probability measures how concentrated serious events are among flagged shipments."
     format: BALLPARK
-    question: "The probability of both a serious event and a shipment flag is 0.02, while the probability of a shipment flag is 0.05. Use P(serious event | shipment flag)=P(serious event and shipment flag)/P(shipment flag) and submit the conditional probability as a percent."
+    question: "P(condition and positive)=0.02 and P(positive)=0.05. Fill joint probability and positive-test probability in P(condition|positive)=joint/positive."
     # The formula, the two visible probabilities, the target 0.40 and the 0.005
     # tolerance are all the prompt's own. The third tile, 0.08, is the marginal
     # rate this mission's other consoles carry (stop 9's P(A)=0.08 and stop 11's
@@ -2040,10 +2040,10 @@ missions:
     title: "How Long Until the First"
     concept: 15   # geometric versus binomial
     reason: "The precision plan requires rural enrollment, whose screening workload remains uncertain."
-    scene: "Precision requires the repaired frame, but each screened rural candidate has success probability p=0.20. Calculate the expected number screened until the first enrollment and distinguish this geometric question from a fixed-trial binomial count."
+    scene: "Recruitment continues until the first eligible candidate. The team needs the expected waiting count for staffing."
     motivation: "Expected trials to first enrollment determines the screening effort implied by the per-candidate success probability."
     format: BALLPARK
-    question: "Each independent rural screening has enrollment probability p=0.20. Using mean screens=1/p, submit the expected number of candidates screened until the first enrollment, then select whether this is a geometric or binomial model. Give the count in candidates. Accepted numerical tolerance is 0.01 candidates."
+    question: "Each independent candidate has eligibility probability p=0.20. For the geometric count including the first eligible candidate, fill 1 and p in E(N)=1/p."
     # The formula, p = 0.20, the target of 5 candidates and the 0.01 tolerance are
     # the prompt's own. The bible's "binomial mean np reminder" has no n on this
     # board, so it is carried in the explanation line rather than as a tile.
@@ -2698,10 +2698,10 @@ missions:
     title: "Size the Confirmation"
     concept: 14   # margin of error/sample size
     reason: "The benchmark result makes a sufficiently precise replacement-kit audit necessary before release."
-    scene: "The exposed cohort exceeds the benchmark, and the replacement audit must be precise before release. Calculate the conservative minimum sample for 95% confidence and margin of error 0.03 using p-star=0.50."
+    scene: "The precision target now determines the kit order. A fractional requirement cannot be rounded down when the margin must be met."
     motivation: "The required sample size determines how many kits must be inspected to meet the planned margin of error."
     format: BALLPARK
-    question: "Use n=(z-star^2)(p-star)(1-p-star)/(margin of error)^2 with z-star=1.96, p-star=0.50, and margin of error 0.03. Calculate the minimum sample size and round up to a whole number of kits."
+    question: "Use n=z²p(1−p)/E² with z=1.96, p=0.5 and margin E=0.03. Fill z,p,E; round the result up to a whole kit."
     # Every tile is one of the prompt's own numbers: z* 1.96, the two 0.50 factors
     # of p-star(1 - p-star), and the 0.03 margin of error.
     # MODEL CONVERSION on the target. The bible keys the answer at 1068 whole kits
@@ -3054,11 +3054,11 @@ missions:
     person: shah
     concept: 31   # practical scope and blinding
     reason: "The detectable guessing gap must be reconciled with intact concealment and uncertain survey response."
-    scene: "The arm difference is statistically detectable, but the sealed-box audit remained intact and both correct-guess rates are low. Stress the conclusion across survey nonresponse from zero to five percentage points and choose the supported claim."
+    scene: "The survey shows different guessing rates, while the independent sealed-box audit remains intact. Test whether the measured gap survives the specified nonresponse adjustment."
     motivation: "The sensitivity analysis determines how strongly the board can interpret unequal guessing without declaring the blind broken."
     format: STRESS
-    question: "Move nonresponse from 0 to 5 percentage points in 1-point steps while holding the sealed-box audit fixed. Submit the conclusion surviving the full range."
-    answerText: "The completed check shows report unequal guessing proportions, not a proven allocation breach. Design, audit, and survey limitations constrain scope."
+    question: "Treatment correct guesses are 30/200 and placebo correct guesses 16/200. Apply a possible 0–5 percentage-point correction that reduces their difference; select the claim supported throughout without claiming that guessing proves an allocation breach."
+    answerText: "The adjusted descriptive gap ranges from 7 to 2 percentage points. It does not prove a concealment breach or guarantee statistical significance under every missing-data model."
     why: "The board must separate evidence of unequal guessing from proof that allocation was exposed."
     # wrong-path feedback, one rebuttal per wrong option:
     #   Difference proves broken concealment
@@ -3532,7 +3532,7 @@ missions:
   - id: after-stop-42
     # After Stop 42 | extraction-map | automatic
     on: { after: [2] }
-    world: "At holdout-safe, the dated accepted-result slip for Stop 42 reads: \"Freeze B before reveal; it stays within expected error on unseen records.\". The slip remains in that fixture's evidence holder."
+    world: "At holdout-safe, the dated accepted-result slip for Stop 42 reads: \"All candidate rules frozen before reveal; B selected afterward at 1.6% error.\". The slip remains in that fixture's evidence holder."
     panel: "STOP 42 RECORDED - STOP 43 OPEN"
     # unlocks: Unlock Stop 43 at extraction-map in Statistics & Analysis.
     bubbles:
@@ -3681,11 +3681,11 @@ missions:
     title: "Freeze Before Revealing"
     concept: 30   # model validation
     reason: "The expected extraction spread allows a fair test of cleaning rules on untouched records."
-    scene: "The expected spread is two units, and three candidate cleaning rules fit the development rows. Freeze one rule before the console reveals 20 previously held-out source records and their errors."
+    scene: "Three cleaning rules fit the development records. The team seals all three rules before using the untouched validation set to compare them."
     motivation: "Held-out errors determine whether the frozen cleaning rule generalizes beyond the development rows."
     format: HOLDOUT
-    question: "Review training errors for rules A, B, and C, then freeze one documented rule before 20 held-out records unlock. Submit the rule with acceptable unseen error."
-    answerText: "The completed check shows freeze B before reveal; it stays within expected error on unseen records."
+    question: "Freeze the three supplied rules, then reveal their held-out error rates. Select a rule only if its held-out error is at most 2.0%; choose the lowest held-out error if more than one passes. Do not tune any rule on this set."
+    answerText: "A and C fail the stated error ceiling. B is selected after reveal from previously frozen candidates; it is not rewarded for being guessed before the data were available."
     why: "A holdout prevents the rule from being rewarded for memorizing the same anomalies it must predict."
     # wrong-path feedback, one rebuttal per wrong option:
     #   Tune on holdout; freeze before reveal
@@ -3805,10 +3805,10 @@ missions:
     person: voss
     concept: 30   # file integrity
     reason: "The independent rerun passes, but the final data lock still needs enforceable controls."
-    scene: "The independent extraction survives its holdout and dependency audit. Verify the source hash, signed timestamp, frozen analysis plan, and read-only archive while rejecting the copied report as genuinely independent support."
+    scene: "The extraction passed its holdout, but the evidence record still needs an audit trail. Sign only what the frozen records and source map establish."
     motivation: "Verified hashes, timestamps, analysis plans, and archive permissions determine whether the locked table is genuinely reproducible and protected."
     format: ATTEST
-    question: "Select exactly four backed controls: source hash, signed timestamp, frozen plan, and read-only permission. Submit the attestation while rejecting copied-report agreement as independent evidence."
+    question: "Require source identity, timing, analysis freeze and read-only preservation; count a shared-source copy only once. Read the displayed source excerpts, then select every supported claim and leave unsupported claims unsigned."
     # MODEL CONVERSION, the same one as M1 S4. `verification_limit` is the engine's
     # `checks`; the bible's `backed` and `critical` flags carry over unchanged, and
     # `correct_verified` plus `critical_unbacked` are what those flags already encode.
@@ -3832,7 +3832,7 @@ missions:
       - { id: copied_reports, label: "three copied reports are independent", critical: true,
           signedBy: "Mara Voss", evidence: "Not backed: all three reports run off the same nightly extraction, so their agreement is not independent support." }
       commit: "Seal the file"
-    answerText: "The completed check shows lock the independently rerun table with four backed controls; matching dependent reports add no independent evidence."
+    answerText: "Each signature is limited to what its source establishes. The unsupported claims lack the specific date, physical condition, independence or scope they assert."
     why: "A lock preserves the analysis boundary only if its evidence and permissions are independently backed."
     # wrong-path feedback, one rebuttal per wrong option:
     #   Copied reports provide three proofs
@@ -4440,10 +4440,10 @@ missions:
     person: reed
     concept: 17   # registered tests
     reason: "The slope finding joins several secondary analyses, so the correction family must be established."
-    scene: "The slope survives its own test, but the registry lists ten secondary analyses sharing one family. Verify all ten timestamps and reject an eleventh biomarker analysis added after results appeared."
+    scene: "The secondary-analysis family must be counted before adjusting its error allowance. The registry distinguishes planned tests from a later exploratory addition."
     motivation: "The timestamps determine which tests belong to the pre-specified family and which results remain exploratory."
     format: ATTEST
-    question: "Verify the ten preregistered secondary-test timestamps and reject the post-result biomarker claim. Submit the ten-test correction family."
+    question: "Use registry timestamps to identify the predeclared family; do not add a later analysis to that original family. Read the displayed source excerpts, then select every supported claim and leave unsupported claims unsigned."
     # MODEL CONVERSION. `verification_limit` (10) is the engine's `checks`, and the
     # payload's backed/critical flags carry over one for one — ten backed and
     # critical, the eleventh critical and unbacked, which is `critical_unbacked`.
@@ -4481,7 +4481,7 @@ missions:
       - { id: late_biomarker, label: "Late biomarker analysis", critical: true,
           signedBy: "Tomas Reed", evidence: "No registry timestamp; the analysis was added after results appeared." }
       commit: "Close the correction family"
-    answerText: "The completed check shows the correction family contains ten pre-specified tests; the added biomarker is exploratory."
+    answerText: "Each signature is limited to what its source establishes. The unsupported claims lack the specific date, physical condition, independence or scope they assert."
     why: "Counting only significant results would hide the number of chances that produced them."
     # wrong-path feedback, one rebuttal per wrong option:
     #   Count only significant tests
@@ -4700,11 +4700,11 @@ missions:
     person: reed
     concept: 25   # interval sensitivity/practical significance
     reason: "The corrected benefit finding does not remove uncertainty about late harm."
-    scene: "The primary benefit interval excludes zero, while late harm ranges from -1 to +5 events per 1,000. Move the missing-outcome assumption through its registered range and watch which actions remain defensible."
+    scene: "The benefit finding survives, but late harm remains uncertain. The board must distinguish planning further evidence from authorizing more enrollment."
     motivation: "The missing-outcome sensitivity range determines whether benefit supports unconditional continuation or only a bounded follow-up."
     format: STRESS
-    question: "Move the missing-outcome assumption from -2 to +2 events per 1,000 in steps of 1 while holding the model fixed. Submit the action defensible throughout."
-    answerText: "The completed check shows the data support benefit, but harm uncertainty rules out unconditional continuation; a bounded follow-up can reduce uncertainty."
+    question: "Shift the harm interval [−1,+5] by each missing-outcome adjustment from −2 to +2 events per 1,000. Choose the conclusion consistent with every interval: no unconditional enrollment while a plausible upper bound crosses the safety line; prepare an evidence review and apply the separate enrollment gate."
+    answerText: "Upper harm bounds range from 3 to 7 events per 1,000. Unconditional enrollment is not justified; prepare the bounded evidence review, with no new enrollment authorized by this card."
     why: "Crossing a safety boundary under plausible assumptions blocks unconditional continuation."
     # wrong-path feedback, one rebuttal per wrong option:
     #   Point estimate alone controls action
@@ -4760,10 +4760,10 @@ missions:
     person: reed
     concept: 32   # value of information
     reason: "The live decision now turns on unresolved harm rather than settled efficacy or file integrity."
-    scene: "The stress test leaves one uncertain harm boundary, while efficacy and file integrity are already locked. Spend a 60-hour budget on evidence that can narrow harm uncertainty without reopening settled analyses."
+    scene: "Benefit and file integrity are already established, but the harm estimate still depends on uncertain late outcomes and exposure records. Tomas needs both gaps checked before the board revisits enrollment."
     motivation: "The selected evidence must narrow the harm boundary enough to inform the next enrollment decision."
     format: VALUE
-    question: "Allocate at most 60 staff-hours among the five evidence options. Submit the combination that narrows harm uncertainty without reopening locked analyses."
+    question: "You have 60 staff-hours. Cover every required outcome at the lowest total cost within the budget; keep all unused capacity in reserve. Select whole packages, then submit the plan; the board shows its total and remaining reserve for you to check."
     # MODEL CONVERSION. The payload marks the two options it wants bought
     # `required: true`; the engine's word for "this one would change the decision"
     # is `decisive`, and the pair it names is the payload's own `correct_purchase`.
@@ -4782,7 +4782,7 @@ missions:
       - { id: staff_survey, label: "Staff survey", axis: "workflow opinion", cost: 15 }
       - { id: biomarker, label: "Biomarker", axis: "new exploratory mechanism", cost: 25 }
       commit: "Order the evidence"
-    answerText: "The completed check shows fund source calls and the independent kit audit; they address the live harm boundary."
+    answerText: "Each funded package supplies a required outcome; an affordable package that leaves one unresolved is insufficient."
     why: "More data are not automatically valuable; useful evidence must alter the stop-or-continue decision."
     # wrong-path feedback, one rebuttal per wrong option:
     #   Any new data are valuable
@@ -4837,11 +4837,11 @@ missions:
     title: "Write the Rule"
     concept: 19   # integrated decision threshold
     reason: "More evidence could help, but the board must limit patient exposure while waiting for it."
-    scene: "The chosen evidence can improve power, but waiting exposes more patients."
+    scene: "The board needs a written harm rule before the next update. A follow-up plan is not permission to enroll patients while a stop condition holds."
     motivation: "The precommitted harm thresholds and enrollment cap determine when follow-up must stop, change, or continue."
     format: TRIGGER
-    question: "rule stop if upper 95% harm bound >=4/1000; modify if 2 to <4; continue if <2; max additional enrollment120; scale 0-6 anchors2,4; inclusive stop at4; objective preserve benefit, consequence limit 4 excess serious events/1000."
-    answerText: "The completed check shows authorize one 120-patient follow-up under the written 2/4 thresholds; stop is inclusive at 4."
+    question: "Commit the board's policy: STOP if the upper 95% harm bound is at least 4 excess events per 1,000; MODIFY from 2 inclusive to below 4; CONTINUE below 2. Record a maximum of 120 additional patients, subject to the stop rule, and submit the complete mapping."
+    answerText: "The cap limits a later eligible follow-up; it does not override an active harm stop. The earlier uncertain harm interval is not silently replaced by a favorable reading."
     why: "Precommitment prevents a favored outcome from moving the safety boundary tomorrow."
     # wrong-path feedback, one rebuttal per wrong option:
     #   numeric threshold pair, enrollment cap, action mapping

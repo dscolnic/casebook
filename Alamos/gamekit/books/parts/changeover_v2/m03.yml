@@ -48,7 +48,7 @@
   - id: after-stop-11
     # After Stop 11 | basket-table | automatic
     on: { after: [3] }
-    world: "At basket-table, the dated accepted-result slip for Stop 11 reads: \"The keyed result shown by the completed interaction.\". The slip remains in that fixture's evidence holder."
+    world: "At basket-table, the dated accepted-result slip for Stop 11 reads: \"Inflation stays positive but changes with the energy weight.\". The slip remains in that fixture's evidence holder."
     panel: "STOP 11 RECORDED - STOP 12 OPEN"
     # unlocks: Unlock Stop 12 at basket-table in PRICES.
     bubbles:
@@ -244,11 +244,11 @@
     person: saye
     concept: 7   # CPI bias/weights
     reason: "The official inflation rate is reproducible, but the basket's energy weight may not fit today's households."
-    scene: "Because the official rate is 5.88%, Lina tests the old 30% imported-energy weight against current household shares of 15% to 25%. Move the weight through that range and watch which inflation conclusions survive."
+    scene: "The published price index uses an old energy weight. Lina checks how the conclusion changes when the household share changes."
     motivation: "Weight sensitivity shows whether the inflation conclusion depends on an unrepresentative spending pattern."
     format: STRESS
-    question: "Move the weight from 15% through 30%, inspect every displayed inflation rate, and submit the conclusion that survives the full range."
-    answerText: "Inflation is positive, but 5.88% depends strongly on the stale energy weight."
+    question: "Inspect the four supplied index recalculations from 15% to 30% energy weight. Select the conclusion true for every recalculation."
+    answerText: "All four rates are positive. The size varies from 3.1% to 5.88%, so the historical weight cannot be presented as representative of every household."
     why: "Sensitivity to a stale weight requires disclosure and a companion measure, not silent replacement."
     # wrong-path feedback, one rebuttal per wrong option:
     #   A different response does not fit the displayed evidence. Sensitivity to a stale weight requires disclosure and a companion measure, not silent replacement.
@@ -304,11 +304,11 @@
     person: saye
     concept: 7   # index publication
     reason: "The weighting test has exposed a representation problem without invalidating the historical calculation."
-    scene: "The official method is reproducible, yet its energy weight overstates many households' current exposure. Choose the evidence package that preserves the historical series while revealing how a representative current basket changes the result."
+    scene: "The historical price index is reproducible, but its old energy weight may misrepresent current households. Lina needs a publication plan that preserves comparability and exposes that limitation."
     motivation: "The evidence package preserves a comparable series while showing how a current household basket changes the estimate."
     format: VALUE
-    question: "Spend exactly 60 evidence points and submit the publication plan."
-    answerText: "Keep the fixed CPI and publish a current-weight companion with the weight audit."
+    question: "You have 60 evidence points. Cover every required outcome at the lowest total cost within the budget; keep all unused capacity in reserve. Select whole packages, then submit the plan; the board shows its total and remaining reserve for you to check."
+    answerText: "Each funded package supplies a required outcome; an affordable package that leaves one unresolved is insufficient."
     why: "Publishing both measures prevents a convenient revision from erasing history or a stale basket from hiding bias."
     # wrong-path feedback, one rebuttal per wrong option:
     #   A different response does not fit the displayed evidence. Publishing both measures prevents a convenient revision from erasing history or a stale basket from hiding bias.

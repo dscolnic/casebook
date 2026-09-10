@@ -144,10 +144,10 @@
     title: "Calculate Reduced Energy"
     concept: 13   # reduced energy
     reason: "The reroute must first be tested at reduced energy before the crew attempts a full shot."
-    scene: "The test uses twelve 100 nF stages at 25.0 kV each rather than 50.0 kV. Estimate total stored energy using U_total=12(½CV²) before the charging control unlocks."
+    scene: "The charging rack carries energy in every stage. The crew needs the combined store before considering a lower charging voltage."
     motivation: "The reduced bank energy establishes the test exposure associated with the lower stage voltage."
     format: BALLPARK
-    question: "Using twelve 100 nF stages at 25.0 kV, assemble U_total=12(½CV²) and submit total energy in joules before the charger unlocks."
+    question: "There are 12 stages, each with C=100 nF and V=25 kV. Fill stage count, capacitance in farads, and voltage in volts in E=N(½CV²)."
     answerText: "The completed check shows reduced bank energy is 375 J. Halving V quarters U."
     why: "halving voltage quarters capacitor energy."
     # wrong-path feedback, one rebuttal per wrong option:
@@ -279,11 +279,11 @@
     person: ortiz
     concept: 26   # uncertainty
     reason: "The reduced-shot success must still survive the stronger pulse and uncertain coupling of a full shot."
-    scene: "The reduced shot measured 92 V, but the full shot has uncertain coupling and rise rate. Vary mutual inductance from 0.50 to 0.70 microH and dI/dt from 2.8 to 3.2×10^8 A/s, then test the 250 V limit."
+    scene: "The full-shot prediction carries uncertainty in both coupling and current rise. Certification uses the largest supported induced voltage."
     motivation: "The worst-case coupled voltage determines whether the reroute remains below the trailer limit throughout the allowed uncertainty range."
     format: STRESS
-    question: "Adjust M and dI/dt through both displayed ranges, submit the numerical worst-case pair and voltage in volts, then select safe or unsafe against the inclusive 250 V limit."
-    answerText: "The completed check shows worst pair gives 224 V, below 250 V."
+    question: "Use |V|=M|dI/dt| with M=0.50–0.70 μH and |dI/dt|=2.8–3.2×10⁸ A/s. Submit the adverse pair and voltage; pass only if the maximum is at most 250 V."
+    answerText: "The adverse pair is 0.70 μH and 3.2×10⁸ A/s, giving 224 V. This passes the 250 V limit for this tested path."
     why: "the repair passes only if every allowed pair stays below the campaign limit."
     # wrong-path feedback, one rebuttal per wrong option:
     #   Submit the numerical pair and worst voltage before selecting the safe plan.

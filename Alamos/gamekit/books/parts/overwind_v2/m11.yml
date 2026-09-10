@@ -11,7 +11,7 @@
   objective: "Does the empty test authorize the faster passenger profile?"
   stake: "March is explained, and the empty cage stops within the marked space. Warm brake pads and more load can change that distance. At the brake house, Bank and Winder House, check those limits before the shift rides. By the end of the mission, you decide if the empty test earns a faster passenger run."
   takeaway: "A test approves only the conditions it actually covers. ---"
-  segue: "Mission decision: The empty test does not clear the faster passenger trip. The loaded warm case needs more space. Keep the two-metre-per-second choice for final review. The last empty test is ready. Ewan crosses out the fast shift sheet. The extra pay he promised is gone. Ada writes the load and pad state on the empty-test pass. Only the slow choice goes to the last check."
+  segue: "The fast plan fails, so Ruth needs one last empty wind and a signed range. The inspector arrives tomorrow."
   # The mission card's own "Primer concepts", printed on the plan card.
   terms:
   - {name: "Braking deceleration", def: "the positive size of acceleration opposite motion."}

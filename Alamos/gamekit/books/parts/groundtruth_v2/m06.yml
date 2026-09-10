@@ -315,11 +315,11 @@
     person: ortiz
     concept: 30   # authorization records
     reason: "Passing energy and timing calculations does not yet establish that the physical hall is ready."
-    scene: "Now energy and gap settings pass, but a calculation alone cannot prove the hall is ready. Verify the critical claims within three checks before signing the reduced-energy shot."
+    scene: "The calculations pass, but the hall cannot be authorized from calculations alone. Three physical records remain unchecked before the reduced-energy shot."
     motivation: "The verified readiness claims determine whether the reduced-energy shot can be authorized without an unchecked critical condition."
     format: ATTEST
-    question: "Use at most three checks to verify the unbacked critical hall claims, then submit AUTHORIZE or HOLD for the reduced-energy shot."
-    answerText: "The completed check shows authorize the reduced shot after three critical checks. Records plus physical inspection establish readiness."
+    question: "Use three checks on the unresolved critical conditions, then authorize only if all three checks pass alongside the already verified prerequisites."
+    answerText: "Previously verified discharge, earthing and gap conditions do not substitute for a current clear area, weather authorization or stage identity."
     why: "identity, timing, and physical condition require independent backing."
     # wrong-path feedback, one rebuttal per wrong option:
     #   A backed calculation cannot substitute for the unverified door or weather condition.

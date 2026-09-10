@@ -147,10 +147,10 @@
     title: "Estimate sampled inflow"
     concept: 14   # L/R/trapezoid sums
     reason: "The selected forecast supplies flow rates, while the storage plan requires the accumulated storm volume."
-    scene: "Forecast flows at hours 0,5,10,15,20 are 100,150,200,250,300 m3/s. Compute left, right, and trapezoidal sums using 5 h=18,000 s, then compare their likely bias from the rise."
+    scene: "The reservoir crew lays the flow readings along the shift chart. The total release must account for the spaces between them."
     motivation: "The three numerical sums bound and estimate incoming water while exposing bias from the rising sampled flow."
     format: BALLPARK
-    question: "Load the five flows in m^3/s, use Delta t=5 h=18000 s, and submit the trapezoidal total in million cubic metres. Then identify the left sum as low and the right sum as high."
+    question: "Flows at equally spaced times are 100,150,200,250,300 m³/s. Each interval lasts 5 h=18,000 s. Select the interval duration and the trapezoidal weighted flow sum, then calculate release in million m³."
     answerText: "for this increasing curve, left underestimates and right overestimates; trapezoids average adjacent endpoints."
     why: "for this increasing curve, left underestimates and right overestimates; trapezoids average adjacent endpoints. Numerical accumulation brackets urgency before an exact model is integrated."
     # wrong-path feedback, one rebuttal per wrong option:

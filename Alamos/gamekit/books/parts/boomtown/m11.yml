@@ -11,7 +11,7 @@
   objective: "Decide whether the firms will keep their low-output pact without enforcement."
   stake: "The gate has spare space, but two firms now offer a pact. Each could gain by breaking its word. Today you decide if the town can trust their joint plan. By the end of the mission, you will test each firm's best move."
   takeaway: "The town must not budget service on an unstable private promise."
-  segue: "Mission decision: Expect both firms to expand in the one-round model. Each gains by expanding under either rival move. The pact loses its guarantee stamp. More freight may raise water costs."
+  segue: "But Owen says more freight sends more harm downstream; the firms’ payoffs leave that bill out."
   # The mission card's own "Primer concepts", printed on the plan card.
   terms:
   - {name: "Dominant strategy", def: "An action that is best regardless of the other player's action."}

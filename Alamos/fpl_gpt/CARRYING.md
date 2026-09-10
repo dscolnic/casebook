@@ -1493,25 +1493,50 @@ Precipitation is divided among evapotranspiration, runoff, soil storage, and gro
 
 **Stop reason - exact player copy:** The rainfall balance is complete, but the council needs recharge as a usable water volume.
 
-**Question card story setup - exact player copy:** With recharge depth established, Nkemdi needs the amount of water entering the usable aquifer area. Convert the depth across the mapped recharge zone without counting paved harbour land.
+**Question card story setup - exact player copy:** The recharge estimate has to match the aquifer’s volume ledger. The catchment map and annual depth use different units.
 
-**Question card story-science connection - exact player copy:** Recharge depth over the mapped aquifer area sets the annual groundwater supply available for withdrawal planning.
+**Question card prompt - exact player copy:** Recharge depth is 150 mm/year across 1.2×10⁶ m². Fill depth in metres and area to calculate annual volume.
 
-**Fixture source record - exact player copy:** With recharge depth established, Nkemdi needs the amount of water entering the usable aquifer area. Convert the depth across the mapped recharge zone without counting paved harbour land.
+**Complete format-specific interaction block — canonical BALLPARK:**
 
-**Input delivery:** Show this record on this stop’s declared fixture before its question opens. Keep the question’s exact givens, units, and comparison limits visible on that same fixture while the player computes. Reveal a live PROBE or VERIFY measurement only at its authored measurement step. Never display Correct result, hidden response data, or the accepted-answer slip as advance evidence. Carry forward prior accepted readings under their stop number, so a copied result is not mistaken for an independent measurement.
+```json
+{
+  "estimate": {
+    "quantity": "Convert depth to volume",
+    "labels": [
+      "0.15",
+      "1200000",
+      "150"
+    ],
+    "values": [
+      0.15,
+      1200000.0,
+      150
+    ],
+    "slots": 2,
+    "template": "{a} × {b} = ? m³/year",
+    "formula": "a*b",
+    "correct": [
+      0,
+      1
+    ],
+    "target": 180000,
+    "tolerance": 1,
+    "units": "m³/year",
+    "correctResult": 180000
+  },
+  "answerText": "0.150×1.2×10⁶=180,000 m³/year. Millimetres must become metres before multiplying by square metres.",
+  "wrongFeedback": [
+    "Using 150 as metres inflates recharge by a factor of one thousand."
+  ]
+}
+```
 
-**Question card prompt - exact player copy:** Assemble and submit annual recharge volume using 150 mm/yr, 0.001 m/mm, and 1.20 km² of recharge area with 1,000,000 m²/km². Answer in m³/yr.
+**Rendering and grading contract:** Render every numeric label as a selectable tile. The printed equation supplies the slot roles; do not replace number labels with quantity names. `correct` contains zero-based tile indices for slots a onward. Accept numerically equivalent selections, including equal-valued tiles. Evaluate the formula on submission; tolerance is absolute in the stated output units. Negative and zero results require a signed linear display. The board has one submission; supporting comparisons appear in the result explanation.
 
-**Complete format-specific interaction block:** `estimate.labels=[depth,mm_to_m,area,km2_to_m2]; values=[150,0.001,1.20,1000000]; slots=4; formula=product; correct=180000; target=180000; tolerance=0.02`.
+**Correct result:** 0.150×1.2×10⁶=180,000 m³/year. Millimetres must become metres before multiplying by square metres.
 
-**Correct result:** `150 x 0.001 x 1.20 x 1,000,000 = 180,000 m³/yr`.
-
-**Answer text:** The completed check shows 150 x 0.001 x 1.20 x 1,000,000 = 180,000 m³/yr.
-
-**Why:** One metre spread over one square metre is one cubic metre; unit tiles remain visible on retry.
-
-**Wrong-path feedback:** Using 150 mm as 150 m or leaving 1.20 km2 unconverted changes the volume by orders of magnitude; paved harbour land is outside the mapped recharge area.
+**Wrong-path feedback:** Using 150 as metres inflates recharge by a factor of one thousand.
 
 **State/output:** Gauge shows 180,000 m³/yr; unlocks Stop 2.3.
 
@@ -1525,60 +1550,45 @@ Precipitation is divided among evapotranspiration, runoff, soil storage, and gro
 
 **Stop reason - exact player copy:** The average recharge estimate must face dry years before it becomes a drinking-water allowance.
 
-**Question card story setup - exact player copy:** The volume calculation fits the first ten years, so the dry years remain hidden. Freeze one planning rule before four unseen years appear and expose whether the mean is safe.
+**Question card story setup - exact player copy:** The long-run average hides dry years. Freeze the candidate withdrawal rules before checking which best limits failure in the withheld record.
 
-**Question card story-science connection - exact player copy:** The held-out years determine whether the planning rule includes restrictions when replenishment falls below demand.
+**Question card prompt - exact player copy:** Freeze all three withdrawal rules, then reveal years 11–14. Select the rule that exceeds annual recharge in the fewest years; if tied, choose the lower total shortfall. Report how many years still fail rather than declaring the plan drought-safe.
 
-**Fixture source record - exact player copy:** The volume calculation fits the first ten years, so the dry years remain hidden. Freeze one planning rule before four unseen years appear and expose whether the mean is safe.
+**Complete format-specific interaction block - canonical source:**
 
-**Input delivery:** Show this record on this stop’s declared fixture before its question opens. Keep the question’s exact givens, units, and comparison limits visible on that same fixture while the player computes. Reveal a live PROBE or VERIFY measurement only at its authored measurement step. Never display Correct result, hidden response data, or the accepted-answer slip as advance evidence. Carry forward prior accepted readings under their stop number, so a copied result is not mistaken for an independent measurement.
-
-**Question card prompt - exact player copy:** Fit either mean recharge, 20th-percentile recharge, or wet-year recharge to years 1-10; click FREEZE; reveal years 11-14; submit the rule that keeps withdrawal below recharge in at least three of four years.
-
-**Complete format-specific interaction block:** `holdout.training={mean:180000,p20:144000,wet:220000}; hidden=[151000,139000,146000,128000]; criteria="withdrawal <= recharge in >=3/4"; correct_rule=p20; frozen_before_reveal=true`.
-
-**§7 authored-board source - HOLDOUT:** Convert this stop from its authored interaction block below. Do not substitute a format-level template. The panel must state the goal without printing the keyed answer.
-
-```yaml
-authored_board:
-  stop: "Stop 7 - Freeze the estimate"
-  format: "HOLDOUT"
-  source: "Handback 5 canonical interaction block"
-  question: "Fit either mean recharge, 20th-percentile recharge, or wet-year recharge to years 1-10; click FREEZE; reveal years 11-14; submit the rule that keeps withdrawal below recharge in at least three of four years."
-  payload: "`holdout.training={mean:180000,p20:144000,wet:220000}; hidden=[151000,139000,146000,128000]; criteria=\"withdrawal <= recharge in >=3/4\"; correct_rule=p20; frozen_before_reveal=true`."
-  axis_and_units: "Use only quantities and units named in this question and payload."
-  candidates_and_numbers: "Use only candidates and numbers named in this question and payload."
-  panel_rule: "Print the goal, never the target or keyed answer."
+```json
+{
+  "holdout": {
+    "training_rules_m3_per_year": {
+      "mean": 180000,
+      "p20": 144000,
+      "wet": 220000
+    },
+    "freeze_required": true,
+    "reveal_after_commit": [
+      151000,
+      139000,
+      146000,
+      128000
+    ],
+    "public_selection_rule": "fewest years with withdrawal greater than recharge, then smallest summed excess",
+    "correctChoice": "p20",
+    "failure_counts": {
+      "mean": 4,
+      "p20": 2,
+      "wet": 4
+    }
+  }
+}
 ```
 
-**Handback 3 canonical interaction block - HOLDOUT:**
+**Evidence delivery and grading:** The setup, decision evidence, public rules, costs and option descriptions are visible on this card before selection. Render option descriptions beside their controls, once; never replace them with internal axis IDs or a generic earlier-case sentence. Answer keys, accepted examples and feedback stay hidden until submission. Reveal withheld measurements only after the stated commitment. Use the public feasibility/selection rule; an example allocation is not an exclusive key. The displayed person must match this stop’s placement and Call.
 
-**Handback 5 canonical interaction block - HOLDOUT:**
+**Correct result:** The 144,000 m³/year rule has the fewest failures, but still exceeds recharge in two of four years.
 
-```yaml
-holdout:
-  axis: {label: "planning margin below estimated recharge", min: 0, max: 20, step: 5, unit: "%"}
-  fit: [{at: 0, value: 0.62}, {at: 5, value: 0.98}, {at: 10, value: 0.84}, {at: 15, value: 0.86}, {at: 20, value: 0.82}]
-  test: [{at: 0, value: 0.45}, {at: 5, value: 0.46}, {at: 10, value: 0.77}, {at: 15, value: 0.86}, {at: 20, value: 0.84}]
-  passScore: 0.80
-  overfitAt: 5
-  correctAt: 15
-  candidates:
-    - {id: mean, prediction: 180000, unit: "m³/yr"}
-    - {id: p20, prediction: 144000, unit: "m³/yr"}
-    - {id: wet, prediction: 220000, unit: "m³/yr"}
-  heldOutReadings: [151000, 139000, 146000, 128000]
-  correctChoice: p20
-  correctConclusion: "Use 144,000 m³/yr and trigger restrictions in the two years below it."
-```
+**Answer text:** The rule passes the 151,000 and 146,000 years, but 144,000 exceeds 139,000 and 128,000. This is the best of the listed candidates, not a guarantee; drought restrictions remain necessary.
 
-**Correct result:** Use 144,000 m³/yr; it passes 151k, 146k, and treats 139k/128k as trigger years requiring restrictions.
-
-**Answer text:** The completed check shows use 144,000 m³/yr; it passes 151k, 146k, and treats 139k/128k as trigger years requiring restrictions.
-
-**Why:** Holdout years test generalization; wet or mean rules overfit favorable conditions.
-
-**Wrong-path feedback:** Choosing the wet-year or mean rule overfits favorable years; choosing a rule that fails more than one hidden dry year violates the stated three-of-four criterion.
+**Wrong-path feedback:** Identify the unmet public condition or the specific measurement that the selected option cannot provide; keep the original evidence available for retry.
 
 **State/output:** Dry-year warnings appear; unlocks Stop 2.4.
 
@@ -1592,67 +1602,56 @@ holdout:
 
 **Stop reason - exact player copy:** The dry-year test leaves measurement bias as an unresolved risk in the withdrawal allowance.
 
-**Question card story setup - exact player copy:** Because 144,000 m³/yr survives most held-out years, only measurement bias can still overturn it. Stress the estimate across the hand-gauge range and choose a ceiling the council can defend.
+**Question card story setup - exact player copy:** The lowest-failure withdrawal rule still fails in two withheld dry years. Test measurement bias separately and retain the drought restrictions.
 
-**Question card story-science connection - exact player copy:** The bias-adjusted recharge ceiling determines how much water the council can promise without using the optimistic end of the range.
+**Question card prompt - exact player copy:** For observed planning recharge 144,000 m³/year, use corrected recharge=144,000(1+b) with b from −0.05 to +0.05. Select the largest listed ceiling never exceeding corrected recharge in this bias test.
 
-**Fixture source record - exact player copy:** Because 144,000 m³/yr survives most held-out years, only measurement bias can still overturn it. Stress the estimate across the hand-gauge range and choose a ceiling the council can defend.
+**Complete format-specific interaction block - canonical source:**
 
-**Input delivery:** Show this record on this stop’s declared fixture before its question opens. Keep the question’s exact givens, units, and comparison limits visible on that same fixture while the player computes. Reveal a live PROBE or VERIFY measurement only at its authored measurement step. Never display Correct result, hidden response data, or the accepted-answer slip as advance evidence. Carry forward prior accepted readings under their stop number, so a copied result is not mistaken for an independent measurement.
-
-**Question card prompt - exact player copy:** Move annual rainfall bias from -5% to +5%; observed planning recharge is 144,000 m³/yr. Submit one ceiling from 136,800, 144,000, 151,200, or 180,000 m³/yr that never exceeds corrected recharge.
-
-**Complete format-specific interaction block:** `stress.assumption=rain_bias; range=[-0.05,0.05]; base=144000; candidates=[136800,144000,151200,180000]; correct=136800; rule="ceiling <= minimum credible recharge"`.
-
-**§7 authored-board source - STRESS:** Convert this stop from its authored interaction block below. Do not substitute a format-level template. The panel must state the goal without printing the keyed answer.
-
-```yaml
-authored_board:
-  stop: "Stop 8 - Set the ceiling"
-  format: "STRESS"
-  source: "Handback 3 canonical interaction block"
-  question: "Move annual rainfall bias from -5% to +5%; observed planning recharge is 144,000 m³/yr. Submit one ceiling from 136,800, 144,000, 151,200, or 180,000 m³/yr that never exceeds corrected recharge."
-  payload: "`stress.assumption=rain_bias; range=[-0.05,0.05]; base=144000; candidates=[136800,144000,151200,180000]; correct=136800; rule=\"ceiling <= minimum credible recharge\"`."
-  axis_and_units: "Use only quantities and units named in this question and payload."
-  candidates_and_numbers: "Use only candidates and numbers named in this question and payload."
-  panel_rule: "Print the goal, never the target or keyed answer."
+```json
+{
+  "stress": {
+    "model": {
+      "base": 144000,
+      "bias": [
+        -0.05,
+        0.05
+      ],
+      "formula": "144000*(1+b)",
+      "units": "m³/year",
+      "criterion": "largest candidate <= minimum corrected recharge"
+    },
+    "candidates": [
+      {
+        "id": "low",
+        "label": "136,800 m³/year"
+      },
+      {
+        "id": "base",
+        "label": "144,000 m³/year"
+      },
+      {
+        "id": "high",
+        "label": "151,200 m³/year"
+      },
+      {
+        "id": "mean",
+        "label": "180,000 m³/year"
+      }
+    ],
+    "correct": "low",
+    "public_rule": "Use the displayed model and criterion over the entire stated range; no hidden preference scores."
+  }
+}
 ```
 
-**Handback 3 canonical interaction block - STRESS:**
+**Evidence delivery and grading:** The setup, decision evidence, public rules, costs and option descriptions are visible on this card before selection. Render option descriptions beside their controls, once; never replace them with internal axis IDs or a generic earlier-case sentence. Answer keys, accepted examples and feedback stay hidden until submission. Reveal withheld measurements only after the stated commitment. Use the public feasibility/selection rule; an example allocation is not an exclusive key. The displayed person must match this stop’s placement and Call.
 
-```yaml
-stress:
-  assumption: {label: "annual rainfall bias", min: -5, max: 5, nominal: 0.0, step: 1, unit: "%"}
-  criteria:
-    - {id: evidence_fit, label: "fit to the stop evidence", direction: maximise}
-    - {id: safety_margin, label: "margin at the adverse end", direction: maximise}
-  optimiseOn: evidence_fit
-  candidates:
-    - id: nominal_only
-      label: "Use only the nominal reading"
-      scores: {evidence_fit: 95, safety_margin: 20}
-      validRange: {min: 0.0, max: 0.0}
-      failsAt: 5
-    - id: common_extreme_mistake
-      label: "Use the favorable extreme as if it were guaranteed"
-      scores: {evidence_fit: 88, safety_margin: 5}
-      validRange: {min: 0.0, max: 5}
-      failsAt: -5
-    - id: robust_plan
-      label: "`144,000 x 0.95 = 136,800 m³/yr`; adopt that conservative ceiling."
-      scores: {evidence_fit: 82, safety_margin: 92}
-      validRange: {min: -5, max: 5}
-  robust: robust_plan
-  question: "Move annual rainfall bias from -5% to +5%; observed planning recharge is 144,000 m³/yr. Submit one ceiling from 136,800, 144,000, 151,200, or 180,000 m³/yr that never exceeds corrected recharge."
-```
+**Correct result:** 136,800 m³/year survives this measurement-bias range. It still exceeds the withheld 128,000 dry year, so passing this test does not remove drought-triggered restrictions.
 
-**Correct result:** `144,000 x 0.95 = 136,800 m³/yr`; adopt that conservative ceiling.
+**Answer text:** 136,800 m³/year survives this measurement-bias range. It still exceeds the withheld 128,000 dry year, so passing this test does not remove drought-triggered restrictions.
 
-**Answer text:** The completed check shows 144,000 x 0.95 = 136,800 m³/yr; adopt that conservative ceiling.
-
-**Why:** Negative bias lowers credible recharge; feedback shows which candidates fail at -5%.
-
-**Wrong-path feedback:** A ceiling of 144,000 m3/year or more ignores the -5% rainfall bias; 180,000 uses the unprotected mean rather than the minimum credible recharge.
+**Wrong-path feedback:** Identify the unmet public condition or the specific measurement that the selected option cannot provide; keep the original evidence available for retry.
 
 **State/output:** Ceiling posted; clue for Day 4; delivery piece 2 posts.
 
@@ -2025,25 +2024,53 @@ GPP is all captured plant energy; NPP is what remains after respiration. About 1
 
 **Stop reason - exact player copy:** The groundwater limit does not establish how many grazing animals the common can feed.
 
-**Question card story setup - exact player copy:** The water ceiling is now fixed, but the common can still be overstocked by counting all captured sunlight. Calculate usable plant production, then follow its loss to grazing animals.
+**Question card story setup - exact player copy:** The food-web budget starts with energy the producers retain. Respiration must be paid before consumer transfer is estimated.
 
-**Question card story-science connection - exact player copy:** Net plant production and transfer to herbivores set the energy available for stocking the common.
+**Question card prompt - exact player copy:** GPP is 18,000 and producer respiration 8,000 kJ/m²/year. At 10% transfer, fill GPP, respiration and transfer fraction in (GPP−R)×fraction.
 
-**Fixture source record - exact player copy:** The water ceiling is now fixed, but the common can still be overstocked by counting all captured sunlight. Calculate usable plant production, then follow its loss to grazing animals.
+**Complete format-specific interaction block — canonical BALLPARK:**
 
-**Input delivery:** Show this record on this stop’s declared fixture before its question opens. Keep the question’s exact givens, units, and comparison limits visible on that same fixture while the player computes. Reveal a live PROBE or VERIFY measurement only at its authored measurement step. Never display Correct result, hidden response data, or the accepted-answer slip as advance evidence. Carry forward prior accepted readings under their stop number, so a copied result is not mistaken for an independent measurement.
+```json
+{
+  "estimate": {
+    "quantity": "Count usable plant energy",
+    "labels": [
+      "18000",
+      "8000",
+      "0.1",
+      "10"
+    ],
+    "values": [
+      18000,
+      8000,
+      0.1,
+      10
+    ],
+    "slots": 3,
+    "template": "({a}-{b}) × {c} = ? kJ/m²/year",
+    "formula": "(a-b)*c",
+    "correct": [
+      0,
+      1,
+      2
+    ],
+    "target": 1000,
+    "tolerance": 1,
+    "units": "kJ/m²/year",
+    "correctResult": 1000
+  },
+  "answerText": "NPP=18,000−8,000=10,000 kJ/m²/year. Primary consumers receive an estimated 1,000 under the simplified ten-percent transfer model.",
+  "wrongFeedback": [
+    "Apply transfer to NPP, not GPP, and express ten percent as 0.1."
+  ]
+}
+```
 
-**Question card prompt - exact player copy:** First calculate NPP from GPP 18,000 kJ/m²/yr and plant respiration 8,000 kJ/m²/yr. Then apply 10% transfer and submit herbivore production in kJ/m²/yr.
+**Rendering and grading contract:** Render every numeric label as a selectable tile. The printed equation supplies the slot roles; do not replace number labels with quantity names. `correct` contains zero-based tile indices for slots a onward. Accept numerically equivalent selections, including equal-valued tiles. Evaluate the formula on submission; tolerance is absolute in the stated output units. Negative and zero results require a signed linear display. The board has one submission; supporting comparisons appear in the result explanation.
 
-**Complete format-specific interaction block:** `estimate.values=[18000,-8000,0.10]; formula="(GPP-R)*0.10"; correct=1000; target=1000; tolerance=0.01`.
+**Correct result:** NPP=18,000−8,000=10,000 kJ/m²/year. Primary consumers receive an estimated 1,000 under the simplified ten-percent transfer model.
 
-**Correct result:** NPP is 10,000 kJ/m²/yr; herbivore production is about 1,000 kJ/m²/yr.
-
-**Answer text:** The completed check shows nPP is 10,000 kJ/m²/yr; herbivore production is about 1,000 kJ/m²/yr.
-
-**Why:** Plants use part of GPP, and most remaining energy is lost as heat between levels.
-
-**Wrong-path feedback:** Using GPP directly skips plant respiration, while applying 10% before finding NPP transfers energy the plants already used; both overstate herbivore production.
+**Wrong-path feedback:** Apply transfer to NPP, not GPP, and express ten percent as 0.1.
 
 **State/output:** Grazing energy cap appears; unlocks Stop 3.2.
 
@@ -2113,25 +2140,55 @@ sequence:
 
 **Stop reason - exact player copy:** The recovery map shows that habitat damage will not affect every island species equally.
 
-**Question card story setup - exact player copy:** Because damaged soils recover at different rates, species using them also face different risk. Sort a broad-diet generalist and a narrow-habitat specialist for monitoring, protection, or routine watch.
+**Question card story setup - exact player copy:** The island survey records different recovery capacities and habitat risks. Iona must prioritize protection using those local observations, not species names alone.
 
-**Question card story-science connection - exact player copy:** Species specialization and breeding vulnerability determine which populations need protection before ferry expansion.
+**Question card prompt - exact player copy:** Assign every species to routine, monitor or protect first. Protect first when breeding depends on the threatened irreplaceable habitat; monitor slow-replacing populations with alternative habitat; use routine watch for the widespread rapidly recovering generalists.
 
-**Fixture source record - exact player copy:** Because damaged soils recover at different rates, species using them also face different risk. Sort a broad-diet generalist and a narrow-habitat specialist for monitoring, protection, or routine watch.
+**Complete format-specific interaction block - canonical source:**
 
-**Input delivery:** Show this record on this stop’s declared fixture before its question opens. Keep the question’s exact givens, units, and comparison limits visible on that same fixture while the player computes. Reveal a live PROBE or VERIFY measurement only at its authored measurement step. Never display Correct result, hidden response data, or the accepted-answer slip as advance evidence. Carry forward prior accepted readings under their stop number, so a copied result is not mistaken for an independent measurement.
+```json
+{
+  "triage": {
+    "options": [
+      "routine",
+      "monitor",
+      "protect first"
+    ],
+    "observations": [
+      {
+        "species": "island rat",
+        "record": "Broad diet, several habitats and rapid replacement."
+      },
+      {
+        "species": "cliff-nesting petrel",
+        "record": "Breeds only on the threatened local cliffs; no alternative nesting site in this survey."
+      },
+      {
+        "species": "fast-growing grass",
+        "record": "Widespread across disturbed ground; rapid recovery."
+      },
+      {
+        "species": "slow-breeding seal",
+        "record": "Slow replacement, but several usable marine sites remain."
+      }
+    ],
+    "correct": {
+      "island rat": "routine",
+      "cliff-nesting petrel": "protect first",
+      "fast-growing grass": "routine",
+      "slow-breeding seal": "monitor"
+    }
+  }
+}
+```
 
-**Question card prompt - exact player copy:** Assign island rat, cliff-nesting petrel, fast-growing grass, and slow-breeding seal to `routine`, `monitor`, or `protect first`; submit one complete triage.
+**Evidence delivery and grading:** The setup, decision evidence, public rules, costs and option descriptions are visible on this card before selection. Render option descriptions beside their controls, once; never replace them with internal axis IDs or a generic earlier-case sentence. Answer keys, accepted examples and feedback stay hidden until submission. Reveal withheld measurements only after the stated commitment. Use the public feasibility/selection rule; an example allocation is not an exclusive key. The displayed person must match this stop’s placement and Call.
 
-**Complete format-specific interaction block:** `choices={rat:routine,grass:routine,petrel:protect_first,seal:monitor}; answer=petrel; why="specialist on small remote island"; rebuttals={rat:"generalist",grass:"rapid recovery",seal:"K-selected but broader marine range"}`.
+**Correct result:** Rat and grass: routine. Petrel: protect first. Seal: monitor.
 
-**Correct result:** Protect the petrel first; monitor the seal; routine watch for the generalists.
+**Answer text:** The petrel has the narrowest threatened breeding requirement in this specific survey. Slow replacement warrants seal monitoring, while the generalists have more recovery routes.
 
-**Answer text:** The completed check shows protect the petrel first; monitor the seal; routine watch for the generalists.
-
-**Why:** Narrow niches and isolation limit recolonization; feedback contrasts niche breadth.
-
-**Wrong-path feedback:** Protecting the rat or grass first favors fast-growing generalists; treating the slow-breeding seal as routine ignores its low replacement rate, while the cliff petrel has the narrowest habitat.
+**Wrong-path feedback:** Identify the unmet public condition or the specific measurement that the selected option cannot provide; keep the original evidence available for retry.
 
 **State/output:** Petrel habitat hatched with text label; unlocks Stop 3.4.
 
@@ -2738,41 +2795,6 @@ probe:
 
 **Complete format-specific interaction block:** `trigger.rule="stop pumping when head <= threshold"; scale=[0,3]; anchors=[0.5,0.9,1.5,2.0]; objective="chloride <=250 mg/L"; direction=lower_is_worse; consequence_limit=250; correct_threshold=1.0; updates=[1.4,1.1,1.0,0.8]`.
 
-**§7 authored-board source - TRIGGER:** Convert this stop from its authored interaction block below. Do not substitute a format-level template. The panel must state the goal without printing the keyed answer.
-
-```yaml
-authored_board:
-  stop: "Stop 16 - Write the aquifer trigger"
-  format: "TRIGGER"
-  source: "Handback 3 canonical interaction block"
-  question: "Set an inclusive stop-pumping rule on freshwater head from 0.0 to 3.0 m; objective is prevent chloride above 250 mg/L, and campaign evidence shows risk begins at head <=1.0 m. Commit 1.0 m, reveal updates, then submit `STOP` when the threshold is met."
-  payload: "`trigger.rule=\"stop pumping when head <= threshold\"; scale=[0,3]; anchors=[0.5,0.9,1.5,2.0]; objective=\"chloride <=250 mg/L\"; direction=lower_is_worse; consequence_limit=250; correct_threshold=1.0; updates=[1.4,1.1,1.0,0.8]`."
-  axis_and_units: "Use only quantities and units named in this question and payload."
-  candidates_and_numbers: "Use only candidates and numbers named in this question and payload."
-  panel_rule: "Print the goal, never the target or keyed answer."
-```
-
-**Handback 3 canonical interaction block - TRIGGER:**
-
-```yaml
-trigger:
-  rule: "Commit the threshold before the stream appears; act only when a reading enters the action window with enough lead time."
-  scale: {label: "freshwater head", min: 0, max: 3, step: 0.1, unit: "m"}
-  start: 0.6
-  anchors:
-    - {at: 0.6, means: "routine baseline, not the decision threshold"}
-    - {at: 1.95, means: "elevated evidence requiring attention"}
-  direction: falling
-  updates:
-    - {at: "T-48 h", value: 1.4, hoursLeft: 48}
-    - {at: "T-24 h", value: 1.1, hoursLeft: 24}
-    - {at: "T-12 h", value: 1.0, hoursLeft: 12}
-    - {at: "T-6 h", value: 0.8, hoursLeft: 6}
-  stages:
-    - {id: watch, label: "Increase monitoring", window: {min: 1.01, max: 3}, leadHours: 24}
-    - {id: act, label: "Take the protective action", window: {min: 0, max: 1}, leadHours: 12}
-  question: "Set an inclusive stop-pumping rule on freshwater head from 0.0 to 3.0 m; objective is prevent chloride above 250 mg/L, and campaign evidence shows risk begins at head <=1.0 m. Commit 1.0 m, reveal updates, then submit `STOP` when the threshold is met."
-```
 
 **Correct result:** Stop at head <=1.0 m; the third update triggers action.
 
@@ -3232,25 +3254,52 @@ Exponential growth assumes no limit; logistic growth slows near K. Type I surviv
 
 **Stop reason - exact player copy:** The recovered boat-hour records can test whether unchanged landings conceal a weakening fish stock.
 
-**Question card story setup - exact player copy:** The paper column recovered on Day 1 includes boat-hours that the electronic sales record omitted. Calculate catch per unit effort in two years to test whether steady landings mean a steady stock.
+**Question card story setup - exact player copy:** The catch total looks unchanged, but the fleet worked longer to obtain it. The crew compares catch per hour before calling the stock stable.
 
-**Question card story-science connection - exact player copy:** Catch per boat-hour distinguishes stable extraction from the growing effort required to obtain it.
+**Question card prompt - exact player copy:** Year 1 catch is 960 tonnes in 4,800 hours; year 5 is 960 tonnes in 8,000 hours. Compute each CPUE in kg/hour and place the two rates in (early−late)/early×100.
 
-**Fixture source record - exact player copy:** The paper column recovered on Day 1 includes boat-hours that the electronic sales record omitted. Calculate catch per unit effort in two years to test whether steady landings mean a steady stock.
+**Complete format-specific interaction block — canonical BALLPARK:**
 
-**Input delivery:** Show this record on this stop’s declared fixture before its question opens. Keep the question’s exact givens, units, and comparison limits visible on that same fixture while the player computes. Reveal a live PROBE or VERIFY measurement only at its authored measurement step. Never display Correct result, hidden response data, or the accepted-answer slip as advance evidence. Carry forward prior accepted readings under their stop number, so a copied result is not mistaken for an independent measurement.
+```json
+{
+  "estimate": {
+    "quantity": "Measure catch per unit effort",
+    "labels": [
+      "200",
+      "120",
+      "80",
+      "960"
+    ],
+    "values": [
+      200,
+      120,
+      80,
+      960
+    ],
+    "slots": 2,
+    "template": "({a}-{b}) / {a} × 100 = ? % decline",
+    "formula": "(a-b)/a*100",
+    "correct": [
+      0,
+      1
+    ],
+    "target": 40,
+    "tolerance": 0.1,
+    "units": "% decline",
+    "correctResult": 40
+  },
+  "answerText": "CPUE falls from 200 to 120 kg/hour, a 40% decline. An unchanged total catch achieved with more effort is not evidence of unchanged abundance.",
+  "wrongFeedback": [
+    "Compare effort-standardized rates, not the identical catch totals."
+  ]
+}
+```
 
-**Question card prompt - exact player copy:** “Using 960 t/4,800 boat-h in Year 1 and 960 t/8,000 boat-h in Year 5, submit both rates in kg/boat-h and the percent decline.”
+**Rendering and grading contract:** Render every numeric label as a selectable tile. The printed equation supplies the slot roles; do not replace number labels with quantity names. `correct` contains zero-based tile indices for slots a onward. Accept numerically equivalent selections, including equal-valued tiles. Evaluate the formula on submission; tolerance is absolute in the stated output units. Negative and zero results require a signed linear display. The board has one submission; supporting comparisons appear in the result explanation.
 
-**Complete format-specific interaction block:** `formula=1000*tonnes/hours; truth=[200,120,40%]; tolerance=1%`
+**Correct result:** CPUE falls from 200 to 120 kg/hour, a 40% decline. An unchanged total catch achieved with more effort is not evidence of unchanged abundance.
 
-**Correct result:** `200 and 120 kg/boat-h; decline=(200-120)/200=40%`
-
-**Answer text:** The completed check shows 200 and 120 kg/boat-h; decline=(200-120)/200=40%.
-
-**Why:** Falling catch per effort signals depletion hidden by added work
-
-**Wrong-path feedback:** dividing tonnes alone misses effort
+**Wrong-path feedback:** Compare effort-standardized rates, not the identical catch totals.
 
 **State/output:** unlock travel, waypoint “Take the effort decline to Reef Station.”
 
@@ -3461,53 +3510,113 @@ choice:
 
 **Stop reason - exact player copy:** The measured replacement rate needs an enforceable fishing plan rather than a numerical promise alone.
 
-**Question card story setup - exact player copy:** The recovery test limits annual replacement to about 120 fish at the present stock. Allocate enforcement capacity so catch, effort, habitat, and data all support a ceiling below that replacement.
+**Question card story setup - exact player copy:** The current stock replaces about 120 fish each year, and the adopted catch ceiling is 100. Enforcement needs a way to count catch, track effort, protect the nursery and check the stock independently.
 
-**Question card story-science connection - exact player copy:** The allocation determines whether catch limits, effort checks, habitat protection, and data collection support the same sustainable ceiling.
+**Decision evidence - exact player copy:** Required outcomes: count permitted landings; record catch and fishing effort; detect nursery-zone fishing; retain an independent stock check.
 
-**Fixture source record - exact player copy:** The recovery test limits annual replacement to about 120 fish at the present stock. Allocate enforcement capacity so catch, effort, habitat, and data all support a ceiling below that replacement.
+**Question card prompt - exact player copy:** You have 100 enforcement points. Cover every required outcome at the lowest total cost within the budget; keep all unused capacity in reserve. Select whole packages, then submit the plan; the board shows its total and remaining reserve for you to check.
 
-**Input delivery:** Show this record on this stop’s declared fixture before its question opens. Keep the question’s exact givens, units, and comparison limits visible on that same fixture while the player computes. Reveal a live PROBE or VERIFY measurement only at its authored measurement step. Never display Correct result, hidden response data, or the accepted-answer slip as advance evidence. Carry forward prior accepted readings under their stop number, so a copied result is not mistaken for an independent measurement.
+**Complete format-specific interaction block - canonical source:**
 
-**Question card prompt - exact player copy:** “Allocate 100 points and submit a plan: catch tags 30 required; boat-hour log 20 required; nursery closure 25 protected; independent survey 15; advertising 20; larger dock 25. Fund all required/protected items without exceeding 100.”
-
-**Complete format-specific interaction block:** `allocate:{pool:100,items:[{id:"landing_tags",label:"numbered landing tags",cost:30,required:true},{id:"landing_log",label:"time-and-mass landing log",cost:20,required:true},{id:"nursery_patrol",label:"nursery-zone patrol",cost:25,required:true},{id:"independent_survey",label:"independent stock survey",cost:15,required:true},{id:"publicity",label:"voluntary-compliance publicity",cost:20,required:false},{id:"boat_subsidy",label:"larger-boat subsidy",cost:30,required:false}],questions:[{id:"replacement",text:"Does the plan keep permitted catch below measured replacement?",required:true},{id:"compliance",text:"Can it detect untagged or nursery-zone catch?",required:true},{id:"independence",text:"Does it preserve an independent stock check?",required:true}],correct_allocation:{landing_tags:30,landing_log:20,nursery_patrol:25,independent_survey:15},reserve:10,answerText:"Fund tags, the landing log, nursery patrol, and an independent survey; do not spend the enforcement pool on publicity or boat expansion."}`
-
-**§7 authored-board source - ALLOCATE:** Convert this stop from its authored interaction block below. Do not substitute a format-level template. The panel must state the goal without printing the keyed answer.
-
-```yaml
-authored_board:
-  stop: "Stop 20 - Fund an enforceable ceiling"
-  format: "ALLOCATE"
-  source: "Handback 3 canonical interaction block"
-  question: "“Allocate 100 points and submit a plan: catch tags 30 required; boat-hour log 20 required; nursery closure 25 protected; independent survey 15; advertising 20; larger dock 25. Fund all required/protected items without exceeding 100.”"
-  payload: "`allocate:{pool:100,items:[{id:\"landing_tags\",label:\"numbered landing tags\",cost:30,required:true},{id:\"landing_log\",label:\"time-and-mass landing log\",cost:20,required:true},{id:\"nursery_patrol\",label:\"nursery-zone patrol\",cost:25,required:true},{id:\"independent_survey\",label:\"independent stock survey\",cost:15,required:true},{id:\"publicity\",label:\"voluntary-compliance publicity\",cost:20,required:false},{id:\"boat_subsidy\",label:\"larger-boat subsidy\",cost:30,required:false}],questions:[{id:\"replacement\",text:\"Does the plan keep permitted catch below measured replacement?\",required:true},{id:\"compliance\",text:\"Can it detect untagged or nursery-zone catch?\",required:true},{id:\"independence\",text:\"Does it preserve an independent stock check?\",required:true}],correct_allocation:{landing_tags:30,landing_log:20,nursery_patrol:25,independent_survey:15},reserve:10,answerText:\"Fund tags, the landing log, nursery patrol, and an independent survey; do not spend the enforcement pool on publicity or boat expansion.\"}`"
-  axis_and_units: "Use only quantities and units named in this question and payload."
-  candidates_and_numbers: "Use only candidates and numbers named in this question and payload."
-  panel_rule: "Print the goal, never the target or keyed answer."
+```json
+{
+  "allocate": {
+    "budget": {
+      "value": 100,
+      "unit": "enforcement points"
+    },
+    "requirements": [
+      {
+        "id": "r1",
+        "text": "count permitted landings"
+      },
+      {
+        "id": "r2",
+        "text": "record catch and fishing effort"
+      },
+      {
+        "id": "r3",
+        "text": "detect nursery-zone fishing"
+      },
+      {
+        "id": "r4",
+        "text": "retain an independent stock check"
+      }
+    ],
+    "selection_rule": "Cover every required outcome at the lowest total cost within the budget; keep all unused capacity in reserve.",
+    "options": [
+      {
+        "id": "landing_tags",
+        "label": "Numbered landing tags",
+        "cost": 30.0,
+        "information": "Identifies permitted landings against the 100-fish ceiling.",
+        "covers": [
+          "r1"
+        ]
+      },
+      {
+        "id": "landing_log",
+        "label": "Time-and-mass landing log",
+        "cost": 20.0,
+        "information": "Records catch with effort so catch per hour can be checked.",
+        "covers": [
+          "r2"
+        ]
+      },
+      {
+        "id": "nursery_patrol",
+        "label": "Nursery-zone patrol",
+        "cost": 25.0,
+        "information": "Observes activity in the closed nursery zone.",
+        "covers": [
+          "r3"
+        ]
+      },
+      {
+        "id": "independent_survey",
+        "label": "Independent stock survey",
+        "cost": 15.0,
+        "information": "Checks replacement without relying on sales or landings.",
+        "covers": [
+          "r4"
+        ]
+      },
+      {
+        "id": "publicity",
+        "label": "Voluntary-compliance publicity",
+        "cost": 20.0,
+        "information": "Encourages compliance without directly verifying it.",
+        "covers": []
+      },
+      {
+        "id": "boat_subsidy",
+        "label": "Larger-boat subsidy",
+        "cost": 30.0,
+        "information": "Expands capacity rather than observing catch or compliance.",
+        "covers": []
+      }
+    ],
+    "accepted_plans": [
+      [
+        "landing_tags",
+        "landing_log",
+        "nursery_patrol",
+        "independent_survey"
+      ]
+    ],
+    "example_total": 90.0,
+    "example_reserve": 10.0
+  }
+}
 ```
 
-**Handback 3 canonical interaction block - ALLOCATE:**
+**Evidence delivery and grading:** The setup, decision evidence, public rules, costs and option descriptions are visible on this card before selection. Render option descriptions beside their controls, once; never replace them with internal axis IDs or a generic earlier-case sentence. Answer keys, accepted examples and feedback stay hidden until submission. Reveal withheld measurements only after the stated commitment. Use the public feasibility/selection rule; an example allocation is not an exclusive key. The displayed person must match this stop’s placement and Call.
 
-```yaml
-allocate_patch:
-  questions:
-    - {id: replacement, requires: [landing_tags, landing_log], required: true}
-    - {id: compliance, requires: [landing_tags, nursery_patrol], required: true}
-    - {id: independence, requires: [independent_survey], required: false}
-  rule: "At least one outcome may be forgone; required outcomes are not pre-protected, so the player must choose a feasible basket."
-  preProtected: []
-  decision_can_fail: true
-  question: "“Allocate 100 points and submit a plan: catch tags 30 required; boat-hour log 20 required; nursery closure 25 protected; independent survey 15; advertising 20; larger dock 25. Fund all required/protected items without exceeding 100.”"
-```
+**Correct result:** landing_tags, landing_log, nursery_patrol, independent_survey = 90 enforcement points; reserve 10
 
-**Correct result:** 90-point four-part plan; catch ceiling 100 fish/year, below 120 replacement
+**Answer text:** Each funded package supplies a required outcome; an affordable package that leaves one unresolved is insufficient.
 
-**Answer text:** The completed check shows 90-point four-part plan; catch ceiling 100 fish/year, below 120 replacement.
-
-**Why:** Shared resources avoid tragedy only when access and compliance are governed
-
-**Wrong-path feedback:** Feedback identifies the first violated mechanism, unit, limit, or unsupported inference and allows a retry.
+**Wrong-path feedback:** Identify the unmet public condition or the specific measurement that the selected option cannot provide; keep the original evidence available for retry.
 
 **State/output:** pieces 5-6 post
 
@@ -3816,7 +3925,7 @@ Harbour evidence tests landing controls, unlocking Common where land practices c
 
 **Trigger:** accepted_stop_22.
 
-**World state:** At `council-table`, the dated accepted-result slip for Stop 22 reads: "tags+checks=35". The slip remains in that fixture’s evidence holder.
+**World state:** At `council-table`, the dated accepted-result slip for Stop 22 reads: "tags+camera=40". The slip remains in that fixture’s evidence holder.
 
 **Panel/HUD text:** STOP 22 RECORDED - STOP 23 OPEN
 
@@ -3890,38 +3999,61 @@ regulation and property rights can limit access; developed lifestyles often use 
 
 **Stop reason - exact player copy:** The posted catch ceiling cannot protect the nursery if a landing's origin is unknown.
 
-**Question card story setup - exact player copy:** The fish ceiling is posted, but four landing claims support the morning catch. Verify identity, time, mass, and nursery-zone origin before any catch receives a legal tag.
+**Question card story setup - exact player copy:** The landing papers establish identity and mass, but the catch location is still disputed. A paid fee cannot establish whether fishing occurred inside the nursery.
 
-**Question card story-science connection - exact player copy:** The verified landing records determine whether this catch can receive a legal tag under the nursery restriction.
+**Question card prompt - exact player copy:** Use the three required checks on license, mass and nursery origin. Authorize the landing only if all three are supported; a missing origin record requires a hold.
 
-**Fixture source record - exact player copy:** The fish ceiling is posted, but four landing claims support the morning catch. Verify identity, time, mass, and nursery-zone origin before any catch receives a legal tag.
+**Complete format-specific interaction block - canonical source:**
 
-**Input delivery:** Show this record on this stop’s declared fixture before its question opens. Keep the question’s exact givens, units, and comparison limits visible on that same fixture while the player computes. Reveal a live PROBE or VERIFY measurement only at its authored measurement step. Never display Correct result, hidden response data, or the accepted-answer slip as advance evidence. Carry forward prior accepted readings under their stop number, so a copied result is not mistaken for an independent measurement.
-
-**Question card prompt - exact player copy:** verify at most 3 of 5 claims and reject any critical unbacked claim
-
-**Complete format-specific interaction block:** `attest:{verification_limit:3,claims:[{id:"license",label:"fishing license",signed:true,backed:true,critical:true},{id:"time",label:"landing time",signed:true,backed:true,critical:false},{id:"mass",label:"landed mass",signed:true,backed:true,critical:true},{id:"zone",label:"nursery-zone origin",signed:true,backed:false,critical:true},{id:"fee",label:"landing fee receipt",signed:true,backed:true,critical:false}],correct_verified:["license","mass","zone"],critical_unbacked:"zone",answerText:"Use the three checks on license, mass, and the unbacked nursery-zone claim; reject the landing if zone origin cannot be verified."}`
-
-**§7 build completion - ATTEST:** This block supplies the panel fields omitted above; the authored prompt, science, and correct result remain authoritative.
-
-```yaml
-attest:
-  checks: 3
-  claims:
-    - {id: primary, label: "primary claim for Audit the landing claim", critical: true, backed: true, verification: "the signed source reproduces the displayed result"}
-    - {id: independent, label: "independent confirmation", critical: true, backed: true, verification: "the independent record agrees within the stated tolerance"}
-    - {id: scope, label: "scope and date", critical: false, backed: true, verification: "the record names the population and time window"}
-    - {id: extension, label: "stronger untested extension", critical: true, backed: false, verification: "no independent check supports the extension; it must be held"}
-  correctAction: "verify primary, independent, and scope; hold extension"
+```json
+{
+  "attest": {
+    "checks": 3,
+    "claims": [
+      {
+        "id": "license",
+        "label": "License valid",
+        "evidence": "License record matches the vessel."
+      },
+      {
+        "id": "mass",
+        "label": "Landed mass verified",
+        "evidence": "Independent dock scale matches the declared mass."
+      },
+      {
+        "id": "zone",
+        "label": "Catch came from outside the nursery",
+        "evidence": "No verified position record accompanies this catch."
+      },
+      {
+        "id": "time",
+        "label": "Landing time recorded",
+        "evidence": "The landing desk timestamps arrival only."
+      },
+      {
+        "id": "fee",
+        "label": "Fee paid",
+        "evidence": "Receipt records payment only."
+      }
+    ],
+    "required_checks": [
+      "license",
+      "mass",
+      "zone"
+    ],
+    "pass_rule": "Authorize only with supported license, mass and origin.",
+    "correct_conclusion": "HOLD"
+  }
+}
 ```
 
-**Correct result:** nursery-zone origin is unbacked; hold catch
+**Evidence delivery and grading:** The setup, decision evidence, public rules, costs and option descriptions are visible on this card before selection. Render option descriptions beside their controls, once; never replace them with internal axis IDs or a generic earlier-case sentence. Answer keys, accepted examples and feedback stay hidden until submission. Reveal withheld measurements only after the stated commitment. Use the public feasibility/selection rule; an example allocation is not an exclusive key. The displayed person must match this stop’s placement and Call.
 
-**Answer text:** The completed check shows nursery-zone origin is unbacked; hold catch.
+**Correct result:** Check license, mass and zone; HOLD because origin is unverified.
 
-**Why:** a receipt proves payment, not ecological compliance
+**Answer text:** A landing timestamp or fee receipt does not locate the fishing activity. The next evidence budget must therefore include direct location coverage.
 
-**Wrong-path feedback:** Feedback identifies the first violated mechanism, unit, limit, or unsupported inference and allows a retry.
+**Wrong-path feedback:** Identify the unmet public condition or the specific measurement that the selected option cannot provide; keep the original evidence available for retry.
 
 **State/output:** inspection station enabled
 
@@ -3948,25 +4080,92 @@ attest:
 
 **Stop reason - exact player copy:** The held landing reveals an origin-checking gap that the monitoring budget must close.
 
-**Question card story setup - exact player copy:** Because the catch cannot prove where it was taken, the council has forty monitoring credits. Buy records that can reveal both total extraction and nursery violations.
+**Question card story setup - exact player copy:** The disputed catch lacks a verified nursery-zone origin. The council needs both a catch total and direct location evidence before treating enforcement as complete.
 
-**Question card story-science connection - exact player copy:** The purchased evidence must reveal both total extraction and nursery violations within the available credits.
+**Decision evidence - exact player copy:** Required outcomes: record total extraction; observe nursery-zone activity.
 
-**Fixture source record - exact player copy:** Because the catch cannot prove where it was taken, the council has forty monitoring credits. Buy records that can reveal both total extraction and nursery violations.
+**Question card prompt - exact player copy:** You have 40 monitoring credits. Cover every required outcome at the lowest total cost within the budget; keep all unused capacity in reserve. Select whole packages, then submit the plan; the board shows its total and remaining reserve for you to check.
 
-**Input delivery:** Show this record on this stop’s declared fixture before its question opens. Keep the question’s exact givens, units, and comparison limits visible on that same fixture while the player computes. Reveal a live PROBE or VERIFY measurement only at its authored measurement step. Never display Correct result, hidden response data, or the accepted-answer slip as advance evidence. Carry forward prior accepted readings under their stop number, so a copied result is not mistaken for an independent measurement.
+**Complete format-specific interaction block - canonical source:**
 
-**Question card prompt - exact player copy:** choose within 40: electronic tags 20 required, random dock checks 15 required, poster 8, fisher survey 12, larger sign 10
+```json
+{
+  "value": {
+    "budget": {
+      "value": 40,
+      "unit": "monitoring credits"
+    },
+    "requirements": [
+      {
+        "id": "r1",
+        "text": "record total extraction"
+      },
+      {
+        "id": "r2",
+        "text": "observe nursery-zone activity"
+      }
+    ],
+    "selection_rule": "Cover every required outcome at the lowest total cost within the budget; keep all unused capacity in reserve.",
+    "options": [
+      {
+        "id": "landing_tags",
+        "label": "Electronic landing tags",
+        "cost": 20.0,
+        "information": "Records the amount landed; does not establish where the fish were caught.",
+        "covers": [
+          "r1"
+        ]
+      },
+      {
+        "id": "dock_checks",
+        "label": "Random dock checks",
+        "cost": 15.0,
+        "information": "Checks identity and mass on arrival but cannot reconstruct catch location.",
+        "covers": []
+      },
+      {
+        "id": "nursery_camera",
+        "label": "Nursery-zone camera",
+        "cost": 20.0,
+        "information": "Records time-stamped activity inside the nursery zone.",
+        "covers": [
+          "r2"
+        ]
+      },
+      {
+        "id": "public_ad",
+        "label": "Public advertisement",
+        "cost": 10.0,
+        "information": "Raises awareness without observing catch or location.",
+        "covers": []
+      },
+      {
+        "id": "seller_survey",
+        "label": "Seller survey",
+        "cost": 15.0,
+        "information": "Collects self-reports rather than independently verified catch location.",
+        "covers": []
+      }
+    ],
+    "accepted_plans": [
+      [
+        "landing_tags",
+        "nursery_camera"
+      ]
+    ],
+    "example_total": 40.0,
+    "example_reserve": 0.0
+  }
+}
+```
 
-**Complete format-specific interaction block:** `value:{budget:40,options:[{id:"landing_tags",axis:"total extraction",cost:20,required:true},{id:"dock_checks",axis:"identity and mass verification",cost:15,required:true},{id:"nursery_camera",axis:"nursery-zone location",cost:20,required:false},{id:"public_ad",axis:"awareness",cost:10,required:false},{id:"seller_survey",axis:"self-reported behavior",cost:15,required:false}],total_available_cost:80,correct_purchase:["landing_tags","dock_checks"],answerText:"Buy tags and dock checks for 35 credits; they can change enforcement by testing total catch and compliance."}`
+**Evidence delivery and grading:** The setup, decision evidence, public rules, costs and option descriptions are visible on this card before selection. Render option descriptions beside their controls, once; never replace them with internal axis IDs or a generic earlier-case sentence. Answer keys, accepted examples and feedback stay hidden until submission. Reveal withheld measurements only after the stated commitment. Use the public feasibility/selection rule; an example allocation is not an exclusive key. The displayed person must match this stop’s placement and Call.
 
-**Correct result:** tags+checks=35
+**Correct result:** landing_tags, nursery_camera = 40 monitoring credits; reserve 0
 
-**Answer text:** The completed check shows tags+checks=35.
+**Answer text:** Each funded package supplies a required outcome; an affordable package that leaves one unresolved is insufficient.
 
-**Why:** evidence has value only if it can change enforcement
-
-**Wrong-path feedback:** Feedback identifies the first violated mechanism, unit, limit, or unsupported inference and allows a retry.
+**Wrong-path feedback:** Identify the unmet public condition or the specific measurement that the selected option cannot provide; keep the original evidence available for retry.
 
 **State/output:** waypoint Common
 
@@ -4012,25 +4211,120 @@ attest:
 
 **Stop reason - exact player copy:** The matched land practices need a funded package before the common can implement them.
 
-**Question card story setup - exact player copy:** With practices matched to mechanisms, the common needs a 100-point package. Balance crop yield, soil health, runoff, and enforcement while rejecting a single-method cure.
+**Question card story setup - exact player copy:** The growing plan has several distinct risks. The council requires nutrient control, efficient irrigation, pest management, runoff protection and monitoring of the proposed modified crop.
 
-**Question card story-science connection - exact player copy:** The allocation determines whether soil, irrigation, pest, buffer, and crop-monitoring needs are covered together.
+**Decision evidence - exact player copy:** Required outcomes: measure soil nutrient needs; reduce irrigation loss; control pests while limiting resistance pressure; intercept field runoff; monitor the proposed modified crop.
 
-**Fixture source record - exact player copy:** With practices matched to mechanisms, the common needs a 100-point package. Balance crop yield, soil health, runoff, and enforcement while rejecting a single-method cure.
+**Question card prompt - exact player copy:** You have 100 planning points. Cover every required outcome and allocate the whole budget. Select whole packages, then submit the plan; the board shows its total and remaining reserve for you to check.
 
-**Input delivery:** Show this record on this stop’s declared fixture before its question opens. Keep the question’s exact givens, units, and comparison limits visible on that same fixture while the player computes. Reveal a live PROBE or VERIFY measurement only at its authored measurement step. Never display Correct result, hidden response data, or the accepted-answer slip as advance evidence. Carry forward prior accepted readings under their stop number, so a copied result is not mistaken for an independent measurement.
+**Complete format-specific interaction block - canonical source:**
 
-**Question card prompt - exact player copy:** Allocate exactly 100 points among soil testing 20, drip irrigation 25, integrated pest management (IPM) 25, buffer strips 20, blanket pesticide 30, and genetically modified organism (GMO) monitoring 10. Submit one workable allocation.
+```json
+{
+  "sciencetank": {
+    "budget": {
+      "value": 100,
+      "unit": "planning points"
+    },
+    "requirements": [
+      {
+        "id": "r1",
+        "text": "measure soil nutrient needs"
+      },
+      {
+        "id": "r2",
+        "text": "reduce irrigation loss"
+      },
+      {
+        "id": "r3",
+        "text": "control pests while limiting resistance pressure"
+      },
+      {
+        "id": "r4",
+        "text": "intercept field runoff"
+      },
+      {
+        "id": "r5",
+        "text": "monitor the proposed modified crop"
+      }
+    ],
+    "selection_rule": "Cover every required outcome and allocate the whole budget.",
+    "options": [
+      {
+        "id": "soil_testing",
+        "label": "Soil testing",
+        "cost": 20.0,
+        "information": "Measures nutrient need before fertilizer is applied.",
+        "covers": [
+          "r1"
+        ]
+      },
+      {
+        "id": "drip_irrigation",
+        "label": "Drip irrigation",
+        "cost": 25.0,
+        "information": "Delivers water near roots with lower irrigation loss.",
+        "covers": [
+          "r2"
+        ]
+      },
+      {
+        "id": "IPM",
+        "label": "Integrated pest management",
+        "cost": 25.0,
+        "information": "Combines pest monitoring and targeted controls rather than routine blanket treatment.",
+        "covers": [
+          "r3"
+        ]
+      },
+      {
+        "id": "buffer_strips",
+        "label": "Buffer strips",
+        "cost": 20.0,
+        "information": "Intercepts soil and nutrient runoff before it reaches water.",
+        "covers": [
+          "r4"
+        ]
+      },
+      {
+        "id": "blanket_pesticide",
+        "label": "Blanket pesticide treatment",
+        "cost": 30.0,
+        "information": "Applies routine broad treatment without the specified pest-monitoring approach.",
+        "covers": []
+      },
+      {
+        "id": "GMO_monitoring",
+        "label": "Modified-crop monitoring",
+        "cost": 10.0,
+        "information": "Tracks the proposed genetically modified crop and its field effects.",
+        "covers": [
+          "r5"
+        ]
+      }
+    ],
+    "accepted_plans": [
+      [
+        "soil_testing",
+        "drip_irrigation",
+        "IPM",
+        "buffer_strips",
+        "GMO_monitoring"
+      ]
+    ],
+    "example_total": 100.0,
+    "example_reserve": 0.0
+  }
+}
+```
 
-**Complete format-specific interaction block:** `sciencetank:{pool:100,proposals:[{id:soil_testing,cost:20},{id:drip_irrigation,cost:25},{id:IPM,cost:25},{id:buffer_strips,cost:20},{id:blanket_pesticide,cost:30},{id:GMO_monitoring,cost:10}],recommended:{soil_testing:20,drip_irrigation:25,IPM:25,buffer_strips:20,GMO_monitoring:10},evidence:[crop_yield,soil_health,nitrate_runoff,pesticide_resistance],truth_total:100}`
+**Evidence delivery and grading:** The setup, decision evidence, public rules, costs and option descriptions are visible on this card before selection. Render option descriptions beside their controls, once; never replace them with internal axis IDs or a generic earlier-case sentence. Answer keys, accepted examples and feedback stay hidden until submission. Reveal withheld measurements only after the stated commitment. Use the public feasibility/selection rule; an example allocation is not an exclusive key. The displayed person must match this stop’s placement and Call.
 
-**Correct result:** Fund soil testing 20, drip irrigation 25, IPM 25, buffer strips 20, and GMO monitoring 10, totaling 100 points.
+**Correct result:** soil_testing, drip_irrigation, IPM, buffer_strips, GMO_monitoring = 100 planning points; reserve 0
 
-**Answer text:** The integrated five-part package protects yield, soil, water, and resistance monitoring without funding blanket pesticide use.
+**Answer text:** Each funded package supplies a required outcome; an affordable package that leaves one unresolved is insufficient.
 
-**Why:** Green Revolution tools raise yield but can increase pollution, resistance, and monoculture
-
-**Wrong-path feedback:** Feedback identifies the first violated mechanism, unit, limit, or unsupported inference and allows a retry.
+**Wrong-path feedback:** Identify the unmet public condition or the specific measurement that the selected option cannot provide; keep the original evidence available for retry.
 
 **State/output:** Post delivery piece 6 and the enforceable land-practice package; unlock the mission outcome.
 
@@ -4596,54 +4890,99 @@ chain:
 
 **Stop reason - exact player copy:** The missing distribution water and the leachate pathway now compete for the same repair budget.
 
-**Question card story setup - exact player copy:** The pipe loses 50 cubic metres each day, while leachate threatens the same aquifer over a longer path. Spend sixty repair credits without abandoning contamination control.
+**Question card story setup - exact player copy:** The main loses water and the waste cell threatens the aquifer. The work order must locate the leak before repair and keep contamination testing funded.
 
-**Question card story-science connection - exact player copy:** The selected repairs determine whether immediate quantity loss is addressed without abandoning aquifer contamination control.
+**Decision evidence - exact player copy:** Required outcomes: locate the main leak; repair the located main; test the leachate barrier.
 
-**Fixture source record - exact player copy:** The pipe loses 50 cubic metres each day, while leachate threatens the same aquifer over a longer path. Spend sixty repair credits without abandoning contamination control.
+**Question card prompt - exact player copy:** You have 60 repair credits. Cover every required outcome at the lowest total cost within the budget; keep all unused capacity in reserve. Select whole packages, then submit the plan; the board shows its total and remaining reserve for you to check.
 
-**Input delivery:** Show this record on this stop’s declared fixture before its question opens. Keep the question’s exact givens, units, and comparison limits visible on that same fixture while the player computes. Reveal a live PROBE or VERIFY measurement only at its authored measurement step. Never display Correct result, hidden response data, or the accepted-answer slip as advance evidence. Carry forward prior accepted readings under their stop number, so a copied result is not mistaken for an independent measurement.
+**Complete format-specific interaction block - canonical source:**
 
-**Question card prompt - exact player copy:** From acoustic leak location 15, main repair 30, leachate liner test 15, cosmetic fence 12, and gas flare study 10, submit a plan costing at most 60 credits
-
-**Complete format-specific interaction block:** `value:{budget:60,options:[{id:acoustic_location,cost:15,required:true},{id:main_repair,cost:30,required:true},{id:liner_test,cost:15,required:true},{id:cosmetic_fence,cost:12},{id:gas_flare_study,cost:10}],correct:[acoustic_location,main_repair,liner_test],total:60}`
-
-**§7 authored-board source - VALUE:** Convert this stop from its authored interaction block below. Do not substitute a format-level template. The panel must state the goal without printing the keyed answer.
-
-```yaml
-authored_board:
-  stop: "Stop 28 - Choose the repair priority"
-  format: "VALUE"
-  source: "Handback 3 canonical interaction block"
-  question: "From acoustic leak location 15, main repair 30, leachate liner test 15, cosmetic fence 12, and gas flare study 10, submit a plan costing at most 60 credits"
-  payload: "`value:{budget:60,options:[{id:acoustic_location,cost:15,required:true},{id:main_repair,cost:30,required:true},{id:liner_test,cost:15,required:true},{id:cosmetic_fence,cost:12},{id:gas_flare_study,cost:10}],correct:[acoustic_location,main_repair,liner_test],total:60}`"
-  axis_and_units: "Use only quantities and units named in this question and payload."
-  candidates_and_numbers: "Use only candidates and numbers named in this question and payload."
-  panel_rule: "Print the goal, never the target or keyed answer."
+```json
+{
+  "value": {
+    "budget": {
+      "value": 60,
+      "unit": "repair credits"
+    },
+    "requirements": [
+      {
+        "id": "r1",
+        "text": "locate the main leak"
+      },
+      {
+        "id": "r2",
+        "text": "repair the located main"
+      },
+      {
+        "id": "r3",
+        "text": "test the leachate barrier"
+      }
+    ],
+    "selection_rule": "Cover every required outcome at the lowest total cost within the budget; keep all unused capacity in reserve.",
+    "options": [
+      {
+        "id": "acoustic_location",
+        "label": "Acoustic leak location",
+        "cost": 15.0,
+        "information": "Locates the leak so the crew can open the correct section.",
+        "covers": [
+          "r1"
+        ]
+      },
+      {
+        "id": "main_repair",
+        "label": "Main repair",
+        "cost": 30.0,
+        "information": "Repairs the located section; requires the location package.",
+        "covers": [
+          "r2"
+        ]
+      },
+      {
+        "id": "liner_test",
+        "label": "Leachate liner test",
+        "cost": 15.0,
+        "information": "Tests whether the waste-cell barrier protects groundwater.",
+        "covers": [
+          "r3"
+        ]
+      },
+      {
+        "id": "cosmetic_fence",
+        "label": "Cosmetic fence",
+        "cost": 12.0,
+        "information": "Changes appearance without locating water loss or testing the barrier.",
+        "covers": []
+      },
+      {
+        "id": "gas_flare_study",
+        "label": "Gas-flare study",
+        "cost": 10.0,
+        "information": "Studies air emissions rather than the current water-loss and leachate questions.",
+        "covers": []
+      }
+    ],
+    "accepted_plans": [
+      [
+        "acoustic_location",
+        "main_repair",
+        "liner_test"
+      ]
+    ],
+    "example_total": 60.0,
+    "example_reserve": 0.0
+  }
+}
 ```
 
-**Handback 4 canonical interaction block - VALUE:**
+**Evidence delivery and grading:** The setup, decision evidence, public rules, costs and option descriptions are visible on this card before selection. Render option descriptions beside their controls, once; never replace them with internal axis IDs or a generic earlier-case sentence. Answer keys, accepted examples and feedback stay hidden until submission. Reveal withheld measurements only after the stated commitment. Use the public feasibility/selection rule; an example allocation is not an exclusive key. The displayed person must match this stop’s placement and Call.
 
-```yaml
-value:
-  budget: 60
-  costUnit: "credits"
-  options:
-    - {id: acoustic_location, label: "Acoustic leak location", axis: "leak evidence", cost: 15}
-    - {id: main_repair, label: "Main repair", axis: "water loss", cost: 30}
-    - {id: liner_test, label: "Leachate liner test", axis: "groundwater protection", cost: 15}
-    - {id: cosmetic_fence, label: "Cosmetic fence", axis: "appearance", cost: 12}
-    - {id: gas_flare_study, label: "Gas flare study", axis: "air emissions", cost: 10}
-  keyedChoice: [acoustic_location, main_repair, liner_test]
-```
+**Correct result:** acoustic_location, main_repair, liner_test = 60 repair credits; reserve 0
 
-**Correct result:** Locate and repair the main and test the leachate liner for exactly 60 credits
+**Answer text:** Each funded package supplies a required outcome; an affordable package that leaves one unresolved is insufficient.
 
-**Answer text:** The completed check shows locate and repair the main and test the leachate liner for exactly 60 credits.
-
-**Why:** Choose the repair priority connects the measured environmental mechanism to the next island condition.
-
-**Wrong-path feedback:** The retry identifies the first incorrect mechanism, unit, unsupported claim, omitted requirement, or violated constraint.
+**Wrong-path feedback:** Identify the unmet public condition or the specific measurement that the selected option cannot provide; keep the original evidence available for retry.
 
 **State/output:** Keep the result visible, record it in the mission log, and unlock the next authored stop.
 
@@ -5056,25 +5395,50 @@ dose-response often forms an S-curve; children can receive larger mass-normalize
 
 **Stop reason - exact player copy:** The school-branch finding makes body-size differences relevant to the exposure decision.
 
-**Question card story setup - exact player copy:** Because the increase begins on the school branch, concentration alone understates who is at risk. Calculate daily nitrate dose for a child and an adult.
+**Question card story setup - exact player copy:** The same water concentration reaches bodies of different size. The exposure comparison has to account for intake and body mass.
 
-**Question card story-science connection - exact player copy:** Dose per kilogram determines whether the same water concentration exposes children more heavily than adults.
+**Question card prompt - exact player copy:** Concentration is 11.2 mg/L. A 20 kg child drinks 1 L/day; a 70 kg adult drinks 2 L/day. Compute each dose C×intake/mass in mg/(kg·day), then place child and adult doses in (child/adult−1)×100.
 
-**Fixture source record - exact player copy:** Because the increase begins on the school branch, concentration alone understates who is at risk. Calculate daily nitrate dose for a child and an adult.
+**Complete format-specific interaction block — canonical BALLPARK:**
 
-**Input delivery:** Show this record on this stop’s declared fixture before its question opens. Keep the question’s exact givens, units, and comparison limits visible on that same fixture while the player computes. Reveal a live PROBE or VERIFY measurement only at its authored measurement step. Never display Correct result, hidden response data, or the accepted-answer slip as advance evidence. Carry forward prior accepted readings under their stop number, so a copied result is not mistaken for an independent measurement.
+```json
+{
+  "estimate": {
+    "quantity": "Compare child and adult dose",
+    "labels": [
+      "0.56",
+      "0.32",
+      "1.12"
+    ],
+    "values": [
+      0.56,
+      0.32,
+      1.12
+    ],
+    "slots": 2,
+    "template": "({a} / {b}-1) × 100 = ? % higher child dose",
+    "formula": "(a/b-1)*100",
+    "correct": [
+      0,
+      1
+    ],
+    "target": 75,
+    "tolerance": 0.1,
+    "units": "% higher child dose",
+    "correctResult": 75
+  },
+  "answerText": "Child dose is 0.56 mg/(kg·day); adult dose is 0.32. The child’s dose per kilogram is 75% higher despite lower water intake.",
+  "wrongFeedback": [
+    "Total milligrams consumed are not dose per kilogram; normalize each intake by body mass."
+  ]
+}
+```
 
-**Question card prompt - exact player copy:** Apply dose=concentration*intake/body mass using 11.2 mg/L, child 1.0 L/day and 20 kg, adult 2.0 L/day and 70 kg; submit the pair in mg/kg/day
+**Rendering and grading contract:** Render every numeric label as a selectable tile. The printed equation supplies the slot roles; do not replace number labels with quantity names. `correct` contains zero-based tile indices for slots a onward. Accept numerically equivalent selections, including equal-valued tiles. Evaluate the formula on submission; tolerance is absolute in the stated output units. Negative and zero results require a signed linear display. The board has one submission; supporting comparisons appear in the result explanation.
 
-**Complete format-specific interaction block:** `estimate:{equation:"dose=C*intake/mass",cases:{child:{C:11.2,intake:1.0,mass:20},adult:{C:11.2,intake:2.0,mass:70}},unit:"mg/kg/day",truth:[0.56,0.32],tolerance:0.01}`
+**Correct result:** Child dose is 0.56 mg/(kg·day); adult dose is 0.32. The child’s dose per kilogram is 75% higher despite lower water intake.
 
-**Correct result:** Child dose is 0.56 and adult dose 0.32 mg/kg/day; the child dose is 75% higher
-
-**Answer text:** The completed check shows child dose is 0.56 and adult dose 0.32 mg/kg/day; the child dose is 75% higher.
-
-**Why:** Compare child and adult dose connects the measured environmental mechanism to the next island condition.
-
-**Wrong-path feedback:** The retry identifies the first incorrect mechanism, unit, unsupported claim, omitted requirement, or violated constraint.
+**Wrong-path feedback:** Total milligrams consumed are not dose per kilogram; normalize each intake by body mass.
 
 **State/output:** s who is at risk. Calculate daily nitrate dose for a child and an adult.” Prompt: Apply dose=concentration*intake/body mass using 11.2 mg/L, child 1.0 L/day and 20 kg, adult 2.0 L/day and 70 kg; submit the pair in mg/kg/day. Payload: `estimate:{equation:"dose=C*intake/mass",cases:{child:{C:11.2,intake:1.0,mass:20},adult:{C:11.2,intake:2.0,mass:70}},unit:"mg/kg/day",truth:[0.56,0.32],tolerance:0.01}`
 
@@ -5170,41 +5534,6 @@ verify:
 
 **Complete format-specific interaction block:** `trigger:{rule:"replacement water when nitrate>=threshold",threshold:10.0,unit:"mg/L",scale:[0,15],anchors:[6,8,10,12],updates:[11.2,9.8,10.0],correct_actions:[act,no_act,act]}`
 
-**§7 authored-board source - TRIGGER:** Convert this stop from its authored interaction block below. Do not substitute a format-level template. The panel must state the goal without printing the keyed answer.
-
-```yaml
-authored_board:
-  stop: "Stop 32 - Set the school action level"
-  format: "TRIGGER"
-  source: "Handback 3 canonical interaction block"
-  question: "Set replacement water when nitrate is greater than or equal to 10.0 mg/L; apply it to 11.2, 9.8, and 10.0 mg/L"
-  payload: "`trigger:{rule:\"replacement water when nitrate>=threshold\",threshold:10.0,unit:\"mg/L\",scale:[0,15],anchors:[6,8,10,12],updates:[11.2,9.8,10.0],correct_actions:[act,no_act,act]}`"
-  axis_and_units: "Use only quantities and units named in this question and payload."
-  candidates_and_numbers: "Use only candidates and numbers named in this question and payload."
-  panel_rule: "Print the goal, never the target or keyed answer."
-```
-
-**Handback 3 canonical interaction block - TRIGGER:**
-
-```yaml
-trigger:
-  rule: "Commit the threshold before the stream appears; act only when a reading enters the action window with enough lead time."
-  scale: {label: "nitrate concentration", min: 0, max: 15, step: 0.1, unit: "mg/L"}
-  start: 3
-  anchors:
-    - {at: 3, means: "routine baseline, not the decision threshold"}
-    - {at: 9.75, means: "elevated evidence requiring attention"}
-  direction: rising
-  updates:
-    - {at: "T-48 h", value: 8, hoursLeft: 48}
-    - {at: "T-24 h", value: 9.8, hoursLeft: 24}
-    - {at: "T-12 h", value: 10, hoursLeft: 12}
-    - {at: "T-6 h", value: 11.2, hoursLeft: 6}
-  stages:
-    - {id: watch, label: "Increase monitoring", window: {min: 0, max: 9.99}, leadHours: 24}
-    - {id: act, label: "Take the protective action", window: {min: 10, max: 15}, leadHours: 12}
-  question: "Set replacement water when nitrate is greater than or equal to 10.0 mg/L; apply it to 11.2, 9.8, and 10.0 mg/L"
-```
 
 **Correct result:** Act at 11.2 and 10.0 mg/L; do not act at 9.8 mg/L
 
@@ -5775,53 +6104,127 @@ belt:
 
 **Stop reason - exact player copy:** The compost test and source map now provide evidence for allocating prevention effort.
 
-**Question card story setup - exact player copy:** The compost test supplies a safer nutrient source, while the casebook locates remaining pathways. Allocate one hundred control points across confirmed sources.
+**Question card story setup - exact player copy:** The source map identifies several routes into the reef’s water. The council must cover each confirmed route rather than rely on one general cleanup.
 
-**Question card story-science connection - exact player copy:** The funded controls determine which confirmed pollutant sources the island will intercept before another exposure occurs.
+**Decision evidence - exact player copy:** Required outcomes: block waste-cell leachate; remove sewage nutrients; reduce pesticide transport; reduce excess irrigation runoff; intercept stormwater.
 
-**Fixture source record - exact player copy:** The compost test supplies a safer nutrient source, while the casebook locates remaining pathways. Allocate one hundred control points across confirmed sources.
+**Question card prompt - exact player copy:** You have 100 control points. Cover every required outcome and allocate the whole budget. Select whole packages, then submit the plan; the board shows its total and remaining reserve for you to check.
 
-**Input delivery:** Show this record on this stop’s declared fixture before its question opens. Keep the question’s exact givens, units, and comparison limits visible on that same fixture while the player computes. Reveal a live PROBE or VERIFY measurement only at its authored measurement step. Never display Correct result, hidden response data, or the accepted-answer slip as advance evidence. Carry forward prior accepted readings under their stop number, so a copied result is not mistaken for an independent measurement.
+**Complete format-specific interaction block - canonical source:**
 
-**Question card prompt - exact player copy:** Fund liner and cap 25, tertiary nutrient removal 25, integrated pest management (IPM) 20, drip irrigation 15, and rain garden 15; reject clearcut subsidy 25 and blanket pesticide 20.
-
-**Complete format-specific interaction block:** `allocate:{pool:100,items:[{id:"liner_cap",cost:25,required:true},{id:"tertiary",cost:25,required:true},{id:"IPM",cost:20,required:true},{id:"drip",cost:15,required:true},{id:"rain_garden",cost:15,required:true},{id:"clearcut_subsidy",cost:25,required:false},{id:"blanket_pesticide",cost:20,required:false}],questions:[{id:"waste",text:"Does the plan block landfill and sewage sources?",required:true},{id:"farm",text:"Does it reduce fertilizer and pesticide transport?",required:true},{id:"runoff",text:"Does it intercept stormwater before the reef?",required:true}],correct_allocation:{liner_cap:25,tertiary:25,IPM:20,drip:15,rain_garden:15},answerText:"Spend all 100 points on the five source controls; the two optional subsidies do not address the confirmed pathways."}`
-
-**§7 authored-board source - ALLOCATE:** Convert this stop from its authored interaction block below. Do not substitute a format-level template. The panel must state the goal without printing the keyed answer.
-
-```yaml
-authored_board:
-  stop: "Stop 36 - Fund source controls"
-  format: "ALLOCATE"
-  source: "Handback 3 canonical interaction block"
-  question: "Fund liner and cap 25, tertiary nutrient removal 25, integrated pest management (IPM) 20, drip irrigation 15, and rain garden 15; reject clearcut subsidy 25 and blanket pesticide 20."
-  payload: "`allocate:{pool:100,items:[{id:\"liner_cap\",cost:25,required:true},{id:\"tertiary\",cost:25,required:true},{id:\"IPM\",cost:20,required:true},{id:\"drip\",cost:15,required:true},{id:\"rain_garden\",cost:15,required:true},{id:\"clearcut_subsidy\",cost:25,required:false},{id:\"blanket_pesticide\",cost:20,required:false}],questions:[{id:\"waste\",text:\"Does the plan block landfill and sewage sources?\",required:true},{id:\"farm\",text:\"Does it reduce fertilizer and pesticide transport?\",required:true},{id:\"runoff\",text:\"Does it intercept stormwater before the reef?\",required:true}],correct_allocation:{liner_cap:25,tertiary:25,IPM:20,drip:15,rain_garden:15},answerText:\"Spend all 100 points on the five source controls; the two optional subsidies do not address the confirmed pathways.\"}`"
-  axis_and_units: "Use only quantities and units named in this question and payload."
-  candidates_and_numbers: "Use only candidates and numbers named in this question and payload."
-  panel_rule: "Print the goal, never the target or keyed answer."
+```json
+{
+  "allocate": {
+    "budget": {
+      "value": 100,
+      "unit": "control points"
+    },
+    "requirements": [
+      {
+        "id": "r1",
+        "text": "block waste-cell leachate"
+      },
+      {
+        "id": "r2",
+        "text": "remove sewage nutrients"
+      },
+      {
+        "id": "r3",
+        "text": "reduce pesticide transport"
+      },
+      {
+        "id": "r4",
+        "text": "reduce excess irrigation runoff"
+      },
+      {
+        "id": "r5",
+        "text": "intercept stormwater"
+      }
+    ],
+    "selection_rule": "Cover every required outcome and allocate the whole budget.",
+    "options": [
+      {
+        "id": "liner_cap",
+        "label": "Waste-cell liner and cap",
+        "cost": 25.0,
+        "information": "Blocks infiltration and leachate from the mapped waste source.",
+        "covers": [
+          "r1"
+        ]
+      },
+      {
+        "id": "tertiary",
+        "label": "Tertiary nutrient removal",
+        "cost": 25.0,
+        "information": "Removes nutrients from the sewage stream.",
+        "covers": [
+          "r2"
+        ]
+      },
+      {
+        "id": "IPM",
+        "label": "Integrated pest management",
+        "cost": 20.0,
+        "information": "Reduces reliance on broad pesticide application at the farm.",
+        "covers": [
+          "r3"
+        ]
+      },
+      {
+        "id": "drip",
+        "label": "Drip irrigation",
+        "cost": 15.0,
+        "information": "Reduces excess irrigation water carrying farm contaminants.",
+        "covers": [
+          "r4"
+        ]
+      },
+      {
+        "id": "rain_garden",
+        "label": "Rain garden",
+        "cost": 15.0,
+        "information": "Intercepts stormwater before it reaches receiving water.",
+        "covers": [
+          "r5"
+        ]
+      },
+      {
+        "id": "clearcut_subsidy",
+        "label": "Clearcut subsidy",
+        "cost": 25.0,
+        "information": "Promotes clearance rather than protecting the mapped soil and water pathways.",
+        "covers": []
+      },
+      {
+        "id": "blanket_pesticide",
+        "label": "Blanket pesticide application",
+        "cost": 20.0,
+        "information": "Adds broad pesticide use rather than reducing transport from the source.",
+        "covers": []
+      }
+    ],
+    "accepted_plans": [
+      [
+        "liner_cap",
+        "tertiary",
+        "IPM",
+        "drip",
+        "rain_garden"
+      ]
+    ],
+    "example_total": 100.0,
+    "example_reserve": 0.0
+  }
+}
 ```
 
-**Handback 3 canonical interaction block - ALLOCATE:**
+**Evidence delivery and grading:** The setup, decision evidence, public rules, costs and option descriptions are visible on this card before selection. Render option descriptions beside their controls, once; never replace them with internal axis IDs or a generic earlier-case sentence. Answer keys, accepted examples and feedback stay hidden until submission. Reveal withheld measurements only after the stated commitment. Use the public feasibility/selection rule; an example allocation is not an exclusive key. The displayed person must match this stop’s placement and Call.
 
-```yaml
-allocate_patch:
-  questions:
-    - {id: waste, requires: [liner_cap, tertiary], required: true}
-    - {id: farm, requires: [IPM, drip], required: true}
-    - {id: runoff, requires: [rain_garden], required: false}
-  rule: "At least one outcome may be forgone; required outcomes are not pre-protected, so the player must choose a feasible basket."
-  preProtected: []
-  decision_can_fail: true
-  question: "Fund liner and cap 25, tertiary nutrient removal 25, integrated pest management (IPM) 20, drip irrigation 15, and rain garden 15; reject clearcut subsidy 25 and blanket pesticide 20."
-```
+**Correct result:** liner_cap, tertiary, IPM, drip, rain_garden = 100 control points; reserve 0
 
-**Correct result:** The five source controls use all 100 points
+**Answer text:** Each funded package supplies a required outcome; an affordable package that leaves one unresolved is insufficient.
 
-**Answer text:** The completed check shows the five source controls use all 100 points.
-
-**Why:** Fund source controls connects the measured environmental mechanism to the next island condition.
-
-**Wrong-path feedback:** The retry identifies the first incorrect mechanism, unit, unsupported claim, omitted requirement, or violated constraint.
+**Wrong-path feedback:** Identify the unmet public condition or the specific measurement that the selected option cannot provide; keep the original evidence available for retry.
 
 **State/output:** Keep the result visible, record it in the mission log, and unlock the next authored stop.
 
@@ -6427,67 +6830,53 @@ choice:
 
 **Stop reason - exact player copy:** The combined reef pressures make the original catch ceiling vulnerable to poor nursery recruitment.
 
-**Question card story setup - exact player copy:** The reef now faces nutrient, heat, fishing, and acidification pressure. Stress the catch ceiling across uncertain nursery recruitment.
+**Question card story setup - exact player copy:** Nursery recruitment may be lower than the earlier estimate. The catch ceiling must remain below replacement across the full supported range.
 
-**Question card story-science connection - exact player copy:** The low-recruitment comparison determines which catch limit remains below replacement in a bad year.
+**Question card prompt - exact player copy:** Sweep replacement from 80 to 130 fish per year. Select the largest listed catch ceiling strictly below replacement throughout; no cap supplies no finite bound.
 
-**Fixture source record - exact player copy:** The reef now faces nutrient, heat, fishing, and acidification pressure. Stress the catch ceiling across uncertain nursery recruitment.
+**Complete format-specific interaction block - canonical source:**
 
-**Input delivery:** Show this record on this stop’s declared fixture before its question opens. Keep the question’s exact givens, units, and comparison limits visible on that same fixture while the player computes. Reveal a live PROBE or VERIFY measurement only at its authored measurement step. Never display Correct result, hidden response data, or the accepted-answer slip as advance evidence. Carry forward prior accepted readings under their stop number, so a copied result is not mistaken for an independent measurement.
-
-**Question card prompt - exact player copy:** Move recruitment from 80 to 130 fish and select among a fixed 100-fish catch, 70-fish precautionary catch, 130-fish catch, or no cap; submit the ceiling that stays below replacement
-
-**Complete format-specific interaction block:** `stress:{assumption:nursery_recruits,range:[80,130],candidates:[{id:fixed_100,value:100},{id:precautionary_70,value:70},{id:catch_130,value:130},{id:no_cap,value:null}],correct:precautionary_70}`
-
-**§7 authored-board source - STRESS:** Convert this stop from its authored interaction block below. Do not substitute a format-level template. The panel must state the goal without printing the keyed answer.
-
-```yaml
-authored_board:
-  stop: "Stop 40 - Stress the catch ceiling"
-  format: "STRESS"
-  source: "Handback 3 canonical interaction block"
-  question: "Move recruitment from 80 to 130 fish and select among a fixed 100-fish catch, 70-fish precautionary catch, 130-fish catch, or no cap; submit the ceiling that stays below replacement"
-  payload: "`stress:{assumption:nursery_recruits,range:[80,130],candidates:[{id:fixed_100,value:100},{id:precautionary_70,value:70},{id:catch_130,value:130},{id:no_cap,value:null}],correct:precautionary_70}`"
-  axis_and_units: "Use only quantities and units named in this question and payload."
-  candidates_and_numbers: "Use only candidates and numbers named in this question and payload."
-  panel_rule: "Print the goal, never the target or keyed answer."
+```json
+{
+  "stress": {
+    "model": {
+      "replacement_range": [
+        80,
+        130
+      ],
+      "criterion": "largest listed catch strictly below every replacement value"
+    },
+    "candidates": [
+      {
+        "id": "fixed_100",
+        "label": "100 fish/year"
+      },
+      {
+        "id": "precautionary_70",
+        "label": "70 fish/year"
+      },
+      {
+        "id": "catch_130",
+        "label": "130 fish/year"
+      },
+      {
+        "id": "no_cap",
+        "label": "No catch cap"
+      }
+    ],
+    "correct": "precautionary_70",
+    "public_rule": "Use the displayed model and criterion over the entire stated range; no hidden preference scores."
+  }
+}
 ```
 
-**Handback 3 canonical interaction block - STRESS:**
+**Evidence delivery and grading:** The setup, decision evidence, public rules, costs and option descriptions are visible on this card before selection. Render option descriptions beside their controls, once; never replace them with internal axis IDs or a generic earlier-case sentence. Answer keys, accepted examples and feedback stay hidden until submission. Reveal withheld measurements only after the stated commitment. Use the public feasibility/selection rule; an example allocation is not an exclusive key. The displayed person must match this stop’s placement and Call.
 
-```yaml
-stress:
-  assumption: {label: "nursery recruitment", min: 80, max: 130, nominal: 105.0, step: 10, unit: "fish"}
-  criteria:
-    - {id: evidence_fit, label: "fit to the stop evidence", direction: maximise}
-    - {id: safety_margin, label: "margin at the adverse end", direction: maximise}
-  optimiseOn: evidence_fit
-  candidates:
-    - id: nominal_only
-      label: "Use only the nominal reading"
-      scores: {evidence_fit: 95, safety_margin: 20}
-      validRange: {min: 105.0, max: 105.0}
-      failsAt: 130
-    - id: common_extreme_mistake
-      label: "Use the favorable extreme as if it were guaranteed"
-      scores: {evidence_fit: 88, safety_margin: 5}
-      validRange: {min: 105.0, max: 130}
-      failsAt: 80
-    - id: robust_plan
-      label: "Use 70 fish in low-recruitment years"
-      scores: {evidence_fit: 82, safety_margin: 92}
-      validRange: {min: 80, max: 130}
-  robust: robust_plan
-  question: "Move recruitment from 80 to 130 fish and select among a fixed 100-fish catch, 70-fish precautionary catch, 130-fish catch, or no cap; submit the ceiling that stays below replacement"
-```
+**Correct result:** 70 fish per year remains below even the 80-fish lower bound. The 100-fish ceiling no longer survives the low-recruitment case.
 
-**Correct result:** Use 70 fish in low-recruitment years
+**Answer text:** 70 fish per year remains below even the 80-fish lower bound. The 100-fish ceiling no longer survives the low-recruitment case.
 
-**Answer text:** The completed check shows use 70 fish in low-recruitment years.
-
-**Why:** Stress the catch ceiling connects the measured environmental mechanism to the next island condition.
-
-**Wrong-path feedback:** The retry identifies the first incorrect mechanism, unit, unsupported claim, omitted requirement, or violated constraint.
+**Wrong-path feedback:** Identify the unmet public condition or the specific measurement that the selected option cannot provide; keep the original evidence available for retry.
 
 **State/output:** Keep the result visible, record it in the mission log, and unlock the next authored stop.
 
@@ -6933,25 +7322,53 @@ coal has highest CO2/SO2/Hg; oil/gas are portable but spill and emit; nuclear is
 
 **Stop reason - exact player copy:** The small evening reserve makes the turbine's nameplate claim insufficient for supply planning.
 
-**Question card story setup - exact player copy:** The peak ledger leaves only fifteen kilowatts, and the turbine plate promises 250 kilowatts. Replace nameplate power with annual performance.
+**Question card story setup - exact player copy:** The turbine’s nameplate describes capacity, not the energy it actually delivered. The annual log is ready for comparison.
 
-**Question card story-science connection - exact player copy:** Annual capacity factor distinguishes rated turbine power from the energy the island actually receives over a year.
+**Question card prompt - exact player copy:** Annual generation is 680,000 kWh. Rated power is 250 kW and the year has 8,760 hours. Fill generation,power,hours in capacity factor=energy/(power×time)×100.
 
-**Fixture source record - exact player copy:** The peak ledger leaves only fifteen kilowatts, and the turbine plate promises 250 kilowatts. Replace nameplate power with annual performance.
+**Complete format-specific interaction block — canonical BALLPARK:**
 
-**Input delivery:** Show this record on this stop’s declared fixture before its question opens. Keep the question’s exact givens, units, and comparison limits visible on that same fixture while the player computes. Reveal a live PROBE or VERIFY measurement only at its authored measurement step. Never display Correct result, hidden response data, or the accepted-answer slip as advance evidence. Carry forward prior accepted readings under their stop number, so a copied result is not mistaken for an independent measurement.
+```json
+{
+  "estimate": {
+    "quantity": "Calculate capacity factor",
+    "labels": [
+      "680000",
+      "250",
+      "8760",
+      "365"
+    ],
+    "values": [
+      680000,
+      250,
+      8760,
+      365
+    ],
+    "slots": 3,
+    "template": "{a} / ({b} × {c}) × 100 = ? %",
+    "formula": "a/(b*c)*100",
+    "correct": [
+      0,
+      1,
+      2
+    ],
+    "target": 31.1,
+    "tolerance": 0.2,
+    "units": "%",
+    "correctResult": 31.1
+  },
+  "answerText": "The capacity factor is about 31.05%, rounded to 31.1%. The denominator is the energy produced by operating at rated power all year.",
+  "wrongFeedback": [
+    "Days cannot replace hours when the numerator is in kilowatt-hours."
+  ]
+}
+```
 
-**Question card prompt - exact player copy:** Apply capacity factor=680000 kWh/(250 kW*8760 h); submit one percent
+**Rendering and grading contract:** Render every numeric label as a selectable tile. The printed equation supplies the slot roles; do not replace number labels with quantity names. `correct` contains zero-based tile indices for slots a onward. Accept numerically equivalent selections, including equal-valued tiles. Evaluate the formula on submission; tolerance is absolute in the stated output units. Negative and zero results require a signed linear display. The board has one submission; supporting comparisons appear in the result explanation.
 
-**Complete format-specific interaction block:** `estimate:{equation:"680000/(250*8760)*100",inputs:{actual_kWh:680000,rated_kW:250,hours:8760},truth:31.1,unit:percent,tolerance:0.2}`
+**Correct result:** The capacity factor is about 31.05%, rounded to 31.1%. The denominator is the energy produced by operating at rated power all year.
 
-**Correct result:** Capacity factor is 31.1%
-
-**Answer text:** The completed check shows capacity factor is 31.1%.
-
-**Why:** Calculate capacity factor connects the measured environmental mechanism to the next island condition.
-
-**Wrong-path feedback:** The retry identifies the first incorrect mechanism, unit, unsupported claim, omitted requirement, or violated constraint.
+**Wrong-path feedback:** Days cannot replace hours when the numerator is in kilowatt-hours.
 
 **State/output:** Keep the result visible, record it in the mission log, and unlock the next authored stop.
 
@@ -7010,25 +7427,127 @@ coal has highest CO2/SO2/Hg; oil/gas are portable but spill and emit; nuclear is
 
 **Stop reason - exact player copy:** The council now has both measured wind performance and backup pollution costs to fund together.
 
-**Question card story setup - exact player copy:** Actual wind output and backup pollution are now counted together. Spend one hundred planning points on firm supply and controls.
+**Question card story setup - exact player copy:** Measured wind output is below its nameplate promise, and backup generation has pollution costs. The council requires a package addressing both demand reductions, storage, repair and exhaust control.
 
-**Question card story-science connection - exact player copy:** The energy portfolio determines whether firm supply and pollutant controls survive the same planning budget.
+**Decision evidence - exact player copy:** Required outcomes: reduce building heat demand; reduce lighting demand; provide energy storage; repair the wind source; control backup pollution.
 
-**Fixture source record - exact player copy:** Actual wind output and backup pollution are now counted together. Spend one hundred planning points on firm supply and controls.
+**Question card prompt - exact player copy:** You have 100 energy-planning points. Cover every required outcome and allocate the whole budget. Select whole packages, then submit the plan; the board shows its total and remaining reserve for you to check.
 
-**Input delivery:** Show this record on this stop’s declared fixture before its question opens. Keep the question’s exact givens, units, and comparison limits visible on that same fixture while the player computes. Reveal a live PROBE or VERIFY measurement only at its authored measurement step. Never display Correct result, hidden response data, or the accepted-answer slip as advance evidence. Carry forward prior accepted readings under their stop number, so a copied result is not mistaken for an independent measurement.
+**Complete format-specific interaction block - canonical source:**
 
-**Question card prompt - exact player copy:** Fund insulation 20, LEDs 10, battery 25, wind repair 25, and backup pollution controls 20; reject diesel expansion 40 and unfirmed solar 35
+```json
+{
+  "sciencetank": {
+    "budget": {
+      "value": 100,
+      "unit": "energy-planning points"
+    },
+    "requirements": [
+      {
+        "id": "r1",
+        "text": "reduce building heat demand"
+      },
+      {
+        "id": "r2",
+        "text": "reduce lighting demand"
+      },
+      {
+        "id": "r3",
+        "text": "provide energy storage"
+      },
+      {
+        "id": "r4",
+        "text": "repair the wind source"
+      },
+      {
+        "id": "r5",
+        "text": "control backup pollution"
+      }
+    ],
+    "selection_rule": "Cover every required outcome and allocate the whole budget.",
+    "options": [
+      {
+        "id": "insulation",
+        "label": "Building insulation",
+        "cost": 20.0,
+        "information": "Reduces heat demand.",
+        "covers": [
+          "r1"
+        ]
+      },
+      {
+        "id": "LED",
+        "label": "Efficient lighting",
+        "cost": 10.0,
+        "information": "Reduces lighting demand.",
+        "covers": [
+          "r2"
+        ]
+      },
+      {
+        "id": "battery",
+        "label": "Battery storage",
+        "cost": 25.0,
+        "information": "Shifts available generation to times it is needed; does not create energy.",
+        "covers": [
+          "r3"
+        ]
+      },
+      {
+        "id": "wind_repair",
+        "label": "Wind repair",
+        "cost": 25.0,
+        "information": "Repairs the wind equipment; it is not counted as firm supply before completion.",
+        "covers": [
+          "r4"
+        ]
+      },
+      {
+        "id": "pollution_controls",
+        "label": "Backup pollution controls",
+        "cost": 20.0,
+        "information": "Controls emissions from the backup source.",
+        "covers": [
+          "r5"
+        ]
+      },
+      {
+        "id": "diesel_expansion",
+        "label": "Diesel expansion",
+        "cost": 40.0,
+        "information": "Adds generation without the required demand reduction and pollution-control package.",
+        "covers": []
+      },
+      {
+        "id": "unfirmed_solar",
+        "label": "Solar without storage",
+        "cost": 35.0,
+        "information": "Adds intermittent daytime supply without assured demand-time delivery.",
+        "covers": []
+      }
+    ],
+    "accepted_plans": [
+      [
+        "insulation",
+        "LED",
+        "battery",
+        "wind_repair",
+        "pollution_controls"
+      ]
+    ],
+    "example_total": 100.0,
+    "example_reserve": 0.0
+  }
+}
+```
 
-**Complete format-specific interaction block:** `sciencetank:{pool:100,proposals:[insulation20,LED10,battery25,wind_repair25,pollution_controls20,diesel_expansion40,unfirmed_solar35],recommended:[insulation20,LED10,battery25,wind_repair25,pollution_controls20]}`
+**Evidence delivery and grading:** The setup, decision evidence, public rules, costs and option descriptions are visible on this card before selection. Render option descriptions beside their controls, once; never replace them with internal axis IDs or a generic earlier-case sentence. Answer keys, accepted examples and feedback stay hidden until submission. Reveal withheld measurements only after the stated commitment. Use the public feasibility/selection rule; an example allocation is not an exclusive key. The displayed person must match this stop’s placement and Call.
 
-**Correct result:** The five-part portfolio totals 100 and preserves firm reserve
+**Correct result:** insulation, LED, battery, wind_repair, pollution_controls = 100 energy-planning points; reserve 0
 
-**Answer text:** The completed check shows the five-part portfolio totals 100 and preserves firm reserve.
+**Answer text:** Each funded package supplies a required outcome; an affordable package that leaves one unresolved is insufficient.
 
-**Why:** Fund the energy portfolio connects the measured environmental mechanism to the next island condition.
-
-**Wrong-path feedback:** The retry identifies the first incorrect mechanism, unit, unsupported claim, omitted requirement, or violated constraint.
+**Wrong-path feedback:** Identify the unmet public condition or the specific measurement that the selected option cannot provide; keep the original evidence available for retry.
 
 **State/output:** Keep the result visible, record it in the mission log, and unlock the next authored stop.
 
@@ -7425,38 +7944,55 @@ CH4 GWP about 28-36 over 100 years and lasts about 12 years; CO2 GWP 1 but lasts
 
 **Stop reason - exact player copy:** The energy portfolio still depends on a gearbox delivery date that has not been verified.
 
-**Question card story setup - exact player copy:** The portfolio assumes repaired wind before ferry day, but the crated gearbox carries several schedule claims. Verify its evidence before counting that power.
+**Question card story setup - exact player copy:** The wind repair is ordered, but the ferry plan needs generation available by the vote. Read the delivery record before counting future power.
 
-**Question card story-science connection - exact player copy:** The schedule evidence determines whether repaired wind can count as firm supply before the ferry vote.
+**Question card prompt - exact player copy:** A purchase, shipment or booked crew does not establish completed installation. Read the displayed source excerpts, then select every supported claim and leave unsupported claims unsigned.
 
-**Fixture source record - exact player copy:** The portfolio assumes repaired wind before ferry day, but the crated gearbox carries several schedule claims. Verify its evidence before counting that power.
+**Complete format-specific interaction block - canonical source:**
 
-**Input delivery:** Show this record on this stop’s declared fixture before its question opens. Keep the question’s exact givens, units, and comparison limits visible on that same fixture while the player computes. Reveal a live PROBE or VERIFY measurement only at its authored measurement step. Never display Correct result, hidden response data, or the accepted-answer slip as advance evidence. Carry forward prior accepted readings under their stop number, so a copied result is not mistaken for an independent measurement.
-
-**Question card prompt - exact player copy:** Verify at most three claims among order date, shipment status, fitting crew, and completion by vote; reject the critical unbacked completion claim
-
-**Complete format-specific interaction block:** `attest:{limit:3,claims:[{id:order,backed:true},{id:shipment,backed:true},{id:crew,backed:true},{id:completion_by_vote,backed:false,critical:true}],correct:reject_completion}`
-
-**§7 build completion - ATTEST:** This block supplies the panel fields omitted above; the authored prompt, science, and correct result remain authoritative.
-
-```yaml
-attest:
-  checks: 3
-  claims:
-    - {id: primary, label: "primary claim for Audit the gearbox schedule", critical: true, backed: true, verification: "the signed source reproduces the displayed result"}
-    - {id: independent, label: "independent confirmation", critical: true, backed: true, verification: "the independent record agrees within the stated tolerance"}
-    - {id: scope, label: "scope and date", critical: false, backed: true, verification: "the record names the population and time window"}
-    - {id: extension, label: "stronger untested extension", critical: true, backed: false, verification: "no independent check supports the extension; it must be held"}
-  correctAction: "verify primary, independent, and scope; hold extension"
+```json
+{
+  "attest": {
+    "claims": [
+      {
+        "id": "order",
+        "label": "A gearbox order exists",
+        "evidence": "The order record identifies the replacement gearbox."
+      },
+      {
+        "id": "shipment",
+        "label": "The gearbox has shipped",
+        "evidence": "The shipping record identifies the ordered gearbox in transit."
+      },
+      {
+        "id": "crew",
+        "label": "A fitting crew is assigned",
+        "evidence": "The work schedule names a crew for the gearbox installation."
+      },
+      {
+        "id": "completion_by_vote",
+        "label": "The wind repair is complete by the vote",
+        "evidence": "The gearbox remains crated and there is no completed installation or generation test."
+      }
+    ],
+    "selection_rule": "Support must be present in the displayed source excerpt and within its scope; a signature or repeated copy alone is insufficient.",
+    "correct_signed": [
+      "order",
+      "shipment",
+      "crew"
+    ],
+    "checks": 3
+  }
+}
 ```
 
-**Correct result:** Wind is not firm power before the vote
+**Evidence delivery and grading:** The setup, decision evidence, public rules, costs and option descriptions are visible on this card before selection. Render option descriptions beside their controls, once; never replace them with internal axis IDs or a generic earlier-case sentence. Answer keys, accepted examples and feedback stay hidden until submission. Reveal withheld measurements only after the stated commitment. Use the public feasibility/selection rule; an example allocation is not an exclusive key. The displayed person must match this stop’s placement and Call.
 
-**Answer text:** The completed check shows wind is not firm power before the vote.
+**Correct result:** Sign order, shipment, crew; leave the other claims unsigned.
 
-**Why:** Audit the gearbox schedule connects the measured environmental mechanism to the next island condition.
+**Answer text:** Each signature is limited to what its source establishes. The unsupported claims lack the specific date, physical condition, independence or scope they assert.
 
-**Wrong-path feedback:** The retry identifies the first incorrect mechanism, unit, unsupported claim, omitted requirement, or violated constraint.
+**Wrong-path feedback:** Identify the unmet public condition or the specific measurement that the selected option cannot provide; keep the original evidence available for retry.
 
 **State/output:** Keep the result visible, record it in the mission log, and unlock the next authored stop.
 
@@ -7547,53 +8083,120 @@ attest:
 
 **Stop reason - exact player copy:** The exhaust repair makes the backup source usable, but protected loads must fit its limited output.
 
-**Question card story setup - exact player copy:** Captured methane can run safely after the exhaust repair, but its output is limited. Allocate 180 kilowatts across protected services.
+**Question card story setup - exact player copy:** The repaired methane system can support only a limited set of simultaneous loads. Water, school, treatment, food refrigeration and household service are all designated essential for this block.
 
-**Question card story-science connection - exact player copy:** The power allocation determines whether every essential service can be supplied without exceeding the firm generation available.
+**Decision evidence - exact player copy:** Required outcomes: supply water pumps; supply the school; supply treatment; keep ferry food refrigerated; supply homes.
 
-**Fixture source record - exact player copy:** Captured methane can run safely after the exhaust repair, but its output is limited. Allocate 180 kilowatts across protected services.
+**Question card prompt - exact player copy:** You have 180 kW. Cover every required outcome and allocate the whole budget. Select whole packages, then submit the plan; the board shows its total and remaining reserve for you to check.
 
-**Input delivery:** Show this record on this stop’s declared fixture before its question opens. Keep the question’s exact givens, units, and comparison limits visible on that same fixture while the player computes. Reveal a live PROBE or VERIFY measurement only at its authored measurement step. Never display Correct result, hidden response data, or the accepted-answer slip as advance evidence. Carry forward prior accepted readings under their stop number, so a copied result is not mistaken for an independent measurement.
+**Complete format-specific interaction block - canonical source:**
 
-**Question card prompt - exact player copy:** Allocate water pumps 55, school 20, treatment 35, ferry refrigeration 30, and homes 40; exclude decorative berth lighting 25
-
-**Complete format-specific interaction block:** `allocate:{pool:180,items:[{id:"water",cost:55,required:true},{id:"school",cost:20,required:true},{id:"treatment",cost:35,required:true},{id:"ferry_refrigeration",cost:30,required:false},{id:"homes",cost:40,required:true,protected:true},{id:"decorative_berth",cost:25,required:false}],questions:[{id:"protected",text:"Are all protected public services powered?",required:true},{id:"food",text:"Can the remaining pool protect refrigerated ferry food?",required:true},{id:"limit",text:"Does the allocation stay within 180 kW?",required:true}],correct_allocation:{water:55,school:20,treatment:35,ferry_refrigeration:30,homes:40},answerText:"Allocate all 180 kW to water, school, treatment, homes, and ferry refrigeration; decorative berth lighting remains off."}`
-
-**§7 authored-board source - ALLOCATE:** Convert this stop from its authored interaction block below. Do not substitute a format-level template. The panel must state the goal without printing the keyed answer.
-
-```yaml
-authored_board:
-  stop: "Stop 48 - Allocate firm power"
-  format: "ALLOCATE"
-  source: "Handback 3 canonical interaction block"
-  question: "Allocate water pumps 55, school 20, treatment 35, ferry refrigeration 30, and homes 40; exclude decorative berth lighting 25"
-  payload: "`allocate:{pool:180,items:[{id:\"water\",cost:55,required:true},{id:\"school\",cost:20,required:true},{id:\"treatment\",cost:35,required:true},{id:\"ferry_refrigeration\",cost:30,required:false},{id:\"homes\",cost:40,required:true,protected:true},{id:\"decorative_berth\",cost:25,required:false}],questions:[{id:\"protected\",text:\"Are all protected public services powered?\",required:true},{id:\"food\",text:\"Can the remaining pool protect refrigerated ferry food?\",required:true},{id:\"limit\",text:\"Does the allocation stay within 180 kW?\",required:true}],correct_allocation:{water:55,school:20,treatment:35,ferry_refrigeration:30,homes:40},answerText:\"Allocate all 180 kW to water, school, treatment, homes, and ferry refrigeration; decorative berth lighting remains off.\"}`"
-  axis_and_units: "Use only quantities and units named in this question and payload."
-  candidates_and_numbers: "Use only candidates and numbers named in this question and payload."
-  panel_rule: "Print the goal, never the target or keyed answer."
+```json
+{
+  "allocate": {
+    "budget": {
+      "value": 180,
+      "unit": "kW"
+    },
+    "requirements": [
+      {
+        "id": "r1",
+        "text": "supply water pumps"
+      },
+      {
+        "id": "r2",
+        "text": "supply the school"
+      },
+      {
+        "id": "r3",
+        "text": "supply treatment"
+      },
+      {
+        "id": "r4",
+        "text": "keep ferry food refrigerated"
+      },
+      {
+        "id": "r5",
+        "text": "supply homes"
+      }
+    ],
+    "selection_rule": "Cover every required outcome and allocate the whole budget.",
+    "options": [
+      {
+        "id": "water",
+        "label": "Water pumps",
+        "cost": 55.0,
+        "information": "Supplies the essential pumping load.",
+        "covers": [
+          "r1"
+        ]
+      },
+      {
+        "id": "school",
+        "label": "School",
+        "cost": 20.0,
+        "information": "Supplies the designated school service.",
+        "covers": [
+          "r2"
+        ]
+      },
+      {
+        "id": "treatment",
+        "label": "Treatment",
+        "cost": 35.0,
+        "information": "Supplies the essential treatment process.",
+        "covers": [
+          "r3"
+        ]
+      },
+      {
+        "id": "ferry_refrigeration",
+        "label": "Ferry refrigeration",
+        "cost": 30.0,
+        "information": "Keeps food refrigerated.",
+        "covers": [
+          "r4"
+        ]
+      },
+      {
+        "id": "homes",
+        "label": "Household supply",
+        "cost": 40.0,
+        "information": "Supplies the designated household service.",
+        "covers": [
+          "r5"
+        ]
+      },
+      {
+        "id": "decorative_berth",
+        "label": "Decorative berth lighting",
+        "cost": 25.0,
+        "information": "Powers decorative lighting outside the essential-service list.",
+        "covers": []
+      }
+    ],
+    "accepted_plans": [
+      [
+        "water",
+        "school",
+        "treatment",
+        "ferry_refrigeration",
+        "homes"
+      ]
+    ],
+    "example_total": 180.0,
+    "example_reserve": 0.0
+  }
+}
 ```
 
-**Handback 3 canonical interaction block - ALLOCATE:**
+**Evidence delivery and grading:** The setup, decision evidence, public rules, costs and option descriptions are visible on this card before selection. Render option descriptions beside their controls, once; never replace them with internal axis IDs or a generic earlier-case sentence. Answer keys, accepted examples and feedback stay hidden until submission. Reveal withheld measurements only after the stated commitment. Use the public feasibility/selection rule; an example allocation is not an exclusive key. The displayed person must match this stop’s placement and Call.
 
-```yaml
-allocate_patch:
-  questions:
-    - {id: protected, requires: [water, school, treatment, homes], required: true}
-    - {id: food, requires: [ferry_refrigeration], required: true}
-    - {id: limit, requires: [water, school, treatment, homes], required: false}
-  rule: "At least one outcome may be forgone; required outcomes are not pre-protected, so the player must choose a feasible basket."
-  preProtected: []
-  decision_can_fail: true
-  question: "Allocate water pumps 55, school 20, treatment 35, ferry refrigeration 30, and homes 40; exclude decorative berth lighting 25"
-```
+**Correct result:** water, school, treatment, ferry_refrigeration, homes = 180 kW; reserve 0
 
-**Correct result:** All five essential/protected loads receive exactly 180 kW
+**Answer text:** Each funded package supplies a required outcome; an affordable package that leaves one unresolved is insufficient.
 
-**Answer text:** The completed check shows all five essential/protected loads receive exactly 180 kW.
-
-**Why:** Allocate firm power connects the measured environmental mechanism to the next island condition.
-
-**Wrong-path feedback:** The retry identifies the first incorrect mechanism, unit, unsupported claim, omitted requirement, or violated constraint.
+**Wrong-path feedback:** Identify the unmet public condition or the specific measurement that the selected option cannot provide; keep the original evidence available for retry.
 
 **State/output:** Keep the result visible, record it in the mission log, and unlock the next authored stop.
 
@@ -8668,25 +9271,53 @@ choice:
 
 **Stop reason - exact player copy:** The age pattern needs confirmation from births and deaths before a growth forecast is used.
 
-**Question card story setup - exact player copy:** The age structure suggests decline, yet births and deaths must test that reading. Calculate natural growth and interpret the Rule of 70.
+**Question card story setup - exact player copy:** The population ledger records more deaths than births. The team checks the sign before applying a growth shortcut.
 
-**Question card story-science connection - exact player copy:** Natural population growth determines whether projecting a future doubling is meaningful for the island.
+**Question card prompt - exact player copy:** In one year a population of 300 has 3 births and 6 deaths, with no migration. Fill births,deaths,population in (births−deaths)/population×100.
 
-**Fixture source record - exact player copy:** The age structure suggests decline, yet births and deaths must test that reading. Calculate natural growth and interpret the Rule of 70.
+**Complete format-specific interaction block — canonical BALLPARK:**
 
-**Input delivery:** Show this record on this stop’s declared fixture before its question opens. Keep the question’s exact givens, units, and comparison limits visible on that same fixture while the player computes. Reveal a live PROBE or VERIFY measurement only at its authored measurement step. Never display Correct result, hidden response data, or the accepted-answer slip as advance evidence. Carry forward prior accepted readings under their stop number, so a copied result is not mistaken for an independent measurement.
+```json
+{
+  "estimate": {
+    "quantity": "Calculate population growth",
+    "labels": [
+      "3",
+      "6",
+      "300",
+      "9"
+    ],
+    "values": [
+      3,
+      6,
+      300,
+      9
+    ],
+    "slots": 3,
+    "template": "({a}-{b}) / {c} × 100 = ? % per year",
+    "formula": "(a-b)/c*100",
+    "correct": [
+      0,
+      1,
+      2
+    ],
+    "target": -1,
+    "tolerance": 0.01,
+    "units": "% per year",
+    "correctResult": -1
+  },
+  "answerText": "The growth rate is −1% per year. A positive-population-growth doubling-time shortcut does not describe this declining population.",
+  "wrongFeedback": [
+    "Do not drop the negative sign or report a positive doubling time for decline."
+  ]
+}
+```
 
-**Question card prompt - exact player copy:** Population growth rate is PGR=(births-deaths)/population*100. Using 3 births, 6 deaths, and 300 people, submit PGR in percent per year and decide whether the Rule of 70 doubling-time estimate, 70 divided by a positive growth rate, applies.
+**Rendering and grading contract:** Render every numeric label as a selectable tile. The printed equation supplies the slot roles; do not replace number labels with quantity names. `correct` contains zero-based tile indices for slots a onward. Accept numerically equivalent selections, including equal-valued tiles. Evaluate the formula on submission; tolerance is absolute in the stated output units. Negative and zero results require a signed linear display. The board has one submission; supporting comparisons appear in the result explanation.
 
-**Complete format-specific interaction block:** `estimate:{equation:"(3-6)/300*100",inputs:{births:3,deaths:6,population:300},truth:-1.0,unit:"percent/year",tolerance:0.1,interpretation:"halving, not doubling"}`
+**Correct result:** The growth rate is −1% per year. A positive-population-growth doubling-time shortcut does not describe this declining population.
 
-**Correct result:** Growth is -1.0%/year; a doubling time is not meaningful
-
-**Answer text:** The completed check shows growth is -1.0%/year; a doubling time is not meaningful.
-
-**Why:** Calculate population growth connects the measured environmental mechanism to the next island condition.
-
-**Wrong-path feedback:** The retry identifies the first incorrect mechanism, unit, unsupported claim, omitted requirement, or violated constraint.
+**Wrong-path feedback:** Do not drop the negative sign or report a positive doubling time for decline.
 
 **State/output:** Keep the result visible, record it in the mission log, and unlock the next authored stop.
 
@@ -8745,67 +9376,50 @@ choice:
 
 **Stop reason - exact player copy:** The combined person-day estimate still needs testing against uncertain per-person resource use.
 
-**Question card story setup - exact player copy:** The common ledger now includes 12,300 July person-days, not just resident head count. Stress per-person footprint and select the correct load definition.
+**Question card story setup - exact player copy:** July demand includes visitors as well as residents. The council must distinguish seasonal service use from long-term school planning.
 
-**Question card story-science connection - exact player copy:** The footprint range determines how the visitor cap must depend on available water and waste capacity.
+**Question card prompt - exact player copy:** Inspect the footprint range 1.8–5.0 ha/person. Select the plan using the recorded July person-days for seasonal services, age structure for school demand, and water/waste triggers for visitor limits; do not convert hectares directly into a water allowance.
 
-**Fixture source record - exact player copy:** The common ledger now includes 12,300 July person-days, not just resident head count. Stress per-person footprint and select the correct load definition.
+**Complete format-specific interaction block - canonical source:**
 
-**Input delivery:** Show this record on this stop’s declared fixture before its question opens. Keep the question’s exact givens, units, and comparison limits visible on that same fixture while the player computes. Reveal a live PROBE or VERIFY measurement only at its authored measurement step. Never display Correct result, hidden response data, or the accepted-answer slip as advance evidence. Carry forward prior accepted readings under their stop number, so a copied result is not mistaken for an independent measurement.
-
-**Question card prompt - exact player copy:** Move footprint from 1.8 to 5 hectares/person; submit person-days for seasonal services, age structure for long-term school demand, and a visitor cap tied to water and waste triggers
-
-**Complete format-specific interaction block:** `stress:{assumption:footprint_ha_person,range:[1.8,5.0],seasonal_unit:person_days,long_term_unit:age_structure,correct_plan:conditional_visitor_cap}`
-
-**§7 authored-board source - STRESS:** Convert this stop from its authored interaction block below. Do not substitute a format-level template. The panel must state the goal without printing the keyed answer.
-
-```yaml
-authored_board:
-  stop: "Stop 56 - Stress the human-demand forecast"
-  format: "STRESS"
-  source: "Handback 3 canonical interaction block"
-  question: "Move footprint from 1.8 to 5 hectares/person; submit person-days for seasonal services, age structure for long-term school demand, and a visitor cap tied to water and waste triggers"
-  payload: "`stress:{assumption:footprint_ha_person,range:[1.8,5.0],seasonal_unit:person_days,long_term_unit:age_structure,correct_plan:conditional_visitor_cap}`"
-  axis_and_units: "Use only quantities and units named in this question and payload."
-  candidates_and_numbers: "Use only candidates and numbers named in this question and payload."
-  panel_rule: "Print the goal, never the target or keyed answer."
+```json
+{
+  "stress": {
+    "model": {
+      "footprint_ha_per_person": [
+        1.8,
+        5
+      ],
+      "July_person_days": 12300,
+      "policy": "seasonal service use follows people times days; long-term school demand depends on age structure; visitor limits require measured water and waste capacity"
+    },
+    "candidates": [
+      {
+        "id": "conditional",
+        "label": "Use person-days, age structure and water/waste-triggered visitor limits"
+      },
+      {
+        "id": "residents",
+        "label": "Ignore visitors and count residents only"
+      },
+      {
+        "id": "hectares",
+        "label": "Derive an exact water cap from hectares alone"
+      }
+    ],
+    "correct": "conditional",
+    "public_rule": "Use the displayed model and criterion over the entire stated range; no hidden preference scores."
+  }
+}
 ```
 
-**Handback 3 canonical interaction block - STRESS:**
+**Evidence delivery and grading:** The setup, decision evidence, public rules, costs and option descriptions are visible on this card before selection. Render option descriptions beside their controls, once; never replace them with internal axis IDs or a generic earlier-case sentence. Answer keys, accepted examples and feedback stay hidden until submission. Reveal withheld measurements only after the stated commitment. Use the public feasibility/selection rule; an example allocation is not an exclusive key. The displayed person must match this stop’s placement and Call.
 
-```yaml
-stress:
-  assumption: {label: "ecological footprint", min: 1.8, max: 5, nominal: 3.4, step: 0.2, unit: "ha/person"}
-  criteria:
-    - {id: evidence_fit, label: "fit to the stop evidence", direction: maximise}
-    - {id: safety_margin, label: "margin at the adverse end", direction: maximise}
-  optimiseOn: evidence_fit
-  candidates:
-    - id: nominal_only
-      label: "Use only the nominal reading"
-      scores: {evidence_fit: 95, safety_margin: 20}
-      validRange: {min: 3.4, max: 3.4}
-      failsAt: 5
-    - id: common_extreme_mistake
-      label: "Use the favorable extreme as if it were guaranteed"
-      scores: {evidence_fit: 88, safety_margin: 5}
-      validRange: {min: 3.4, max: 5}
-      failsAt: 1.8
-    - id: robust_plan
-      label: "Plan for 12,300 July person-days and condition the cap on water and waste"
-      scores: {evidence_fit: 82, safety_margin: 92}
-      validRange: {min: 1.8, max: 5}
-  robust: robust_plan
-  question: "Move footprint from 1.8 to 5 hectares/person; submit person-days for seasonal services, age structure for long-term school demand, and a visitor cap tied to water and waste triggers"
-```
+**Correct result:** Use 12,300 July person-days for seasonal service planning, age structure for school demand, and conditional visitor limits. The footprint range alone cannot yield a numerical visitor cap.
 
-**Correct result:** Plan for 12,300 July person-days and condition the cap on water and waste
+**Answer text:** Use 12,300 July person-days for seasonal service planning, age structure for school demand, and conditional visitor limits. The footprint range alone cannot yield a numerical visitor cap.
 
-**Answer text:** The completed check shows plan for 12,300 July person-days and condition the cap on water and waste.
-
-**Why:** Stress the human-demand forecast connects the measured environmental mechanism to the next island condition.
-
-**Wrong-path feedback:** The retry identifies the first incorrect mechanism, unit, unsupported claim, omitted requirement, or violated constraint.
+**Wrong-path feedback:** Identify the unmet public condition or the specific measurement that the selected option cannot provide; keep the original evidence available for retry.
 
 **State/output:** Keep the result visible, record it in the mission log, and unlock the next authored stop.
 
@@ -9169,7 +9783,7 @@ Common stress test sends exact minimum water condition to Waterworks; passing in
 
 **Trigger:** accepted_stop_58.
 
-**World state:** At `delivery-board`, the dated accepted-result slip for Stop 58 reads: "Submit (200 visitors/day, 20% reserve)". The slip remains in that fixture’s evidence holder.
+**World state:** At `delivery-board`, the dated accepted-result slip for Stop 58 reads: "200 visitors/day with 20% daily service capacity unbooked; check annual water margin separately". The slip remains in that fixture’s evidence holder.
 
 **Panel/HUD text:** STOP 58 RECORDED - STOP 59 OPEN
 
@@ -9263,25 +9877,94 @@ greenhouse effect makes Earth habitable; added CO2, CH4, and N2O enhance warming
 
 **Stop reason - exact player copy:** The climate review leaves multiple visitor-cap and reserve pairs that fit today's water supply.
 
-**Question card story setup - exact player copy:** Climate pathways are identified, yet visitor cap and drought reserve trade off while matching today’s water total. Apply the dry-year constraint to collapse the pair.
+**Question card story setup - exact player copy:** Several visitor-cap and contingency-reserve pairs satisfy the modeled drought limit. The council has published a reserve floor so the final choice is not arbitrary.
 
-**Question card story-science connection - exact player copy:** The dry-year constraint identifies which cap-reserve pair remains feasible when recharge falls.
+**Decision evidence - exact player copy:** The listed loci are supplied outputs of the capacity model, not quantities the player can derive from an absent water-use equation. The annual withdrawal ceiling and the daily service-capacity reserve have different denominators.
 
-**Fixture source record - exact player copy:** Climate pathways are identified, yet visitor cap and drought reserve trade off while matching today’s water total. Apply the dry-year constraint to collapse the pair.
+**Question card prompt - exact player copy:** Use the supplied feasible-pair table for a 15% drought. Keep at least 20% of daily service capacity unbooked, then select the feasible pair allowing the most visitors per day.
 
-**Input delivery:** Show this record on this stop’s declared fixture before its question opens. Keep the question’s exact givens, units, and comparison limits visible on that same fixture while the player computes. Reveal a live PROBE or VERIFY measurement only at its authored measurement step. Never display Correct result, hidden response data, or the accepted-answer slip as advance evidence. Carry forward prior accepted readings under their stop number, so a copied result is not mistaken for an independent measurement.
+**Complete format-specific interaction block - canonical source:**
 
-**Question card prompt - exact player copy:** Use the two controls `visitor cap` and `drought reserve`: adjust visitor cap from 0 to 340 visitors/day in steps of 20 and reserve from 0% to 30% in steps of 5%. Submit the numerical pair satisfying annual withdrawal at or below 136,800 m3/year during a 15% drought before plan choices unlock.
+```json
+{
+  "degeneracy": {
+    "controls": [
+      {
+        "id": "visitor_cap",
+        "min": 0,
+        "max": 340,
+        "step": 20,
+        "unit": "visitors/day"
+      },
+      {
+        "id": "drought_reserve",
+        "min": 0,
+        "max": 30,
+        "step": 5,
+        "unit": "percent of daily service capacity unbooked"
+      }
+    ],
+    "locus_today": [
+      [
+        120,
+        30
+      ],
+      [
+        160,
+        25
+      ],
+      [
+        200,
+        20
+      ],
+      [
+        240,
+        15
+      ],
+      [
+        280,
+        10
+      ],
+      [
+        320,
+        5
+      ]
+    ],
+    "locus_drought": [
+      [
+        160,
+        25
+      ],
+      [
+        200,
+        20
+      ],
+      [
+        240,
+        15
+      ]
+    ],
+    "annual_withdrawal_limit_m3": 136800,
+    "public_rule": "Choose a pair in both supplied loci, reserve>=20; maximize visitors.",
+    "truth": [
+      200,
+      20
+    ],
+    "tolerance": [
+      0,
+      0
+    ]
+  }
+}
+```
 
-**Complete format-specific interaction block:** `degeneracy:{controls:[{id:visitor_cap,label:"visitors/day",min:0,max:340,step:20},{id:drought_reserve,label:"reserve percent",min:0,max:30,step:5}],locus_today:[[120,30],[160,25],[200,20],[240,15],[280,10],[320,5]],locus_drought:[[160,25],[200,20],[240,15]],constraint:"annual withdrawal <=136800 m3/year during 15% drought",truth:[200,20],tolerance:[10,2.5],required_submission:"numerical pair before plan unlock"}`
+**Evidence delivery and grading:** The setup, decision evidence, public rules, costs and option descriptions are visible on this card before selection. Render option descriptions beside their controls, once; never replace them with internal axis IDs or a generic earlier-case sentence. Answer keys, accepted examples and feedback stay hidden until submission. Reveal withheld measurements only after the stated commitment. Use the public feasibility/selection rule; an example allocation is not an exclusive key. The displayed person must match this stop’s placement and Call.
 
-**Correct result:** Submit (200 visitors/day, 20% reserve)
+**Correct result:** (200 visitors/day, 20% unbooked daily service capacity).
 
-**Answer text:** The completed check shows submit (200 visitors/day, 20% reserve).
+**Answer text:** The 240-visitor pair fails the published reserve floor; the 160-visitor pair passes but serves fewer visitors. This daily capacity reserve is not the annual water-volume margin calculated next.
 
-**Why:** Collapse the final degeneracy connects the measured environmental mechanism to the next island condition.
-
-**Wrong-path feedback:** The retry identifies the first incorrect mechanism, unit, unsupported claim, omitted requirement, or violated constraint.
+**Wrong-path feedback:** Identify the unmet public condition or the specific measurement that the selected option cannot provide; keep the original evidence available for retry.
 
 **State/output:** Keep the result visible, record it in the mission log, and unlock the next authored stop.
 
@@ -9295,11 +9978,11 @@ greenhouse effect makes Earth habitable; added CO2, CH4, and N2O enhance warming
 
 **Stop reason - exact player copy:** The selected visitor cap needs an independent water check before the council can approve it.
 
-**Question card story setup - exact player copy:** The dry-year constraint leaves a 200-visitor cap with 20% reserve. Verify final quantity and quality with an independent sample.
+**Question card story setup - exact player copy:** The dry-year plan uses a 200-visitor cap; its annual water margin still needs checking. Verify final quantity and quality with an independent sample.
 
 **Question card story-science connection - exact player copy:** The remaining water margin and measured nitrate and chloride determine whether the cap meets both quantity and quality conditions.
 
-**Fixture source record - exact player copy:** The dry-year constraint leaves a 200-visitor cap with 20% reserve. Verify final quantity and quality with an independent sample.
+**Fixture source record - exact player copy:** The dry-year plan uses a 200-visitor cap; its annual water margin still needs checking. Verify final quantity and quality with an independent sample.
 
 **Input delivery:** Show this record on this stop’s declared fixture before its question opens. Keep the question’s exact givens, units, and comparison limits visible on that same fixture while the player computes. Reveal a live PROBE or VERIFY measurement only at its authored measurement step. Never display Correct result, hidden response data, or the accepted-answer slip as advance evidence. Carry forward prior accepted readings under their stop number, so a copied result is not mistaken for an independent measurement.
 
@@ -9348,45 +10031,12 @@ greenhouse effect makes Earth habitable; added CO2, CH4, and N2O enhance warming
 
 **Input delivery:** Show this record on this stop’s declared fixture before its question opens. Keep the question’s exact givens, units, and comparison limits visible on that same fixture while the player computes. Reveal a live PROBE or VERIFY measurement only at its authored measurement step. Never display Correct result, hidden response data, or the accepted-answer slip as advance evidence. Carry forward prior accepted readings under their stop number, so a copied result is not mistaken for an independent measurement.
 
+**Decision evidence - exact player copy:** Adopted safeguards: annual withdrawal≤136,800 m³; stop pumping at freshwater head≤1.0 m; supply replacement water at nitrate≥10.0 mg/L or chloride≥250 mg/L; catch≤100 fish/year normally and≤70 in low recruitment; firm reserve≥15 kW; inspect each sailing; drought visitor cap 200/day. Waterworks owns head, quantity and quality readings and the pumping/replacement-water response; the fisheries lead owns catch and recruitment checks; the power lead owns reserve and load shedding; the ferry lead owns inspections and visitor bookings. These are published campaign operating conditions, not values to infer from the vote.
+
 **Question card prompt - exact player copy:** Use the locked mission record to build one conditional ferry approval covering water withdrawal, aquifer head, nitrate, chloride, fish catch, power reserve, inspections, and drought visitors. Assign each approved trigger and require an owner, monitor, and response for every condition.
 
 **Complete format-specific interaction block:** `trigger:{conditions:[{withdrawal_max:136800},{head_stop_lte:1.0},{nitrate_action_gte:10.0},{chloride_lt:250},{catch_normal:100},{catch_low_recruit:70},{reserve_gte_kW:15},{inspection:every_sailing},{drought_visitor_cap:200}],decision_rule:"approve only when every condition has owner, monitor, trigger, response",correct:conditional_approve}`
 
-**§7 authored-board source - TRIGGER:** Convert this stop from its authored interaction block below. Do not substitute a format-level template. The panel must state the goal without printing the keyed answer.
-
-```yaml
-authored_board:
-  stop: "Stop 60 - Enact the ferry triggers"
-  format: "TRIGGER"
-  source: "Handback 3 canonical interaction block"
-  question: "Use the locked mission record to build one conditional ferry approval covering water withdrawal, aquifer head, nitrate, chloride, fish catch, power reserve, inspections, and drought visitors. Assign each approved trigger and require an owner, monitor, and response for every condition."
-  payload: "`trigger:{conditions:[{withdrawal_max:136800},{head_stop_lte:1.0},{nitrate_action_gte:10.0},{chloride_lt:250},{catch_normal:100},{catch_low_recruit:70},{reserve_gte_kW:15},{inspection:every_sailing},{drought_visitor_cap:200}],decision_rule:\"approve only when every condition has owner, monitor, trigger, response\",correct:conditional_approve}`"
-  axis_and_units: "Use only quantities and units named in this question and payload."
-  candidates_and_numbers: "Use only candidates and numbers named in this question and payload."
-  panel_rule: "Print the goal, never the target or keyed answer."
-```
-
-**Handback 3 canonical interaction block - TRIGGER:**
-
-```yaml
-trigger:
-  rule: "Commit the threshold before the stream appears; act only when a reading enters the action window with enough lead time."
-  scale: {label: "aquifer head", min: 0, max: 3, step: 0.1, unit: "m"}
-  start: 0.6
-  anchors:
-    - {at: 0.6, means: "routine baseline, not the decision threshold"}
-    - {at: 1.95, means: "elevated evidence requiring attention"}
-  direction: falling
-  updates:
-    - {at: "T-48 h", value: 1.4, hoursLeft: 48}
-    - {at: "T-24 h", value: 1.2, hoursLeft: 24}
-    - {at: "T-12 h", value: 1.0, hoursLeft: 12}
-    - {at: "T-6 h", value: 0.8, hoursLeft: 6}
-  stages:
-    - {id: watch, label: "Increase monitoring", window: {min: 1.01, max: 3}, leadHours: 24}
-    - {id: act, label: "Take the protective action", window: {min: 0, max: 1}, leadHours: 12}
-  question: "Submit one conditional approval containing withdrawal <=136800 m3/year, pumping stop at head <=1.0 m, nitrate action at >=10.0 mg/L, chloride <250 mg/L, catch 100 or 70 in low recruitment, reserve >=15 kW, inspection every sailing, and drought visitor cap 200/day"
-```
 
 **Correct result:** Conditional approval with all eight enforceable safeguards
 
@@ -9834,3 +10484,13 @@ All six warm-up run variants must use only this shipped cast: Nkemdi Okafor at W
 ## Mental-math number rule for calculated-response cards
 
 This rule is binding for this campaign and for future games built from it. When the player must perform the arithmetic without a supplied calculator or a displayed intermediate result, author inputs as friendly integers or simple ratios. Prefer products and quotients that can be completed mentally and key results to an integer or at most one useful decimal place. Update every dependent prompt, board payload, prediction, measurement, tolerance, correct result, answer text, and feedback together. Preserve more complex real-world values only when the interface supplies the calculator or the intermediate value and the learning target is interpretation rather than arithmetic. Never make arithmetic friction the hidden difficulty of a concept question.
+
+# Decision-card evidence contract
+
+Every decision card must expose the exact evidence and public rule that distinguish its accepted answers from plausible alternatives. Render the local Data/readings/options, Decision evidence, public constraints and option effects before selection; keep them available while the player chooses. Use plain-language descriptions, not internal axis names. Show one speaker header from the stop’s placement and Call, and one coherent setup and prompt. Never substitute a discovery-stage explanation into a later allocation, release or certification task.
+
+Resource tasks distinguish a budget from the goal. Display the required outcomes, each option’s contribution, costs, reserve rules and any priority or tie-breaker. Accept every plan satisfying the published rule. A recommended split is not an exclusive key unless the visible constraints uniquely determine it. Policies are identified as policies; the player must not derive an institutional preference from a scientific formula.
+
+For staged tests, show hypotheses, model inputs and acceptance rules before commitment, but keep held-out results hidden until the specified test or reveal. No grade may depend on guessing a future result. A signed claim requires a readable source excerpt or an explicit inspection, not a hidden backed flag. Copied records retain their shared-source identity.
+
+No importer fallback may borrow another stop’s data, speaker, threshold or generic mission text. Missing required local evidence is an import error. Before release, inspect the rendered card, prove the accepted response from visible information alone, try a plausible wrong answer, and test a different valid answer where the rule admits one. This document revision is source work; rendered-game verification still requires the actual implementation.

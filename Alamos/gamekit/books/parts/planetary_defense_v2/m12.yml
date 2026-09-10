@@ -218,11 +218,11 @@
     title: "Allocate limited capacity"
     concept: 16   # emergency resources
     reason: "The response ladder allows preparation before the evidence supports a broad irreversible order."
-    scene: "Allocate transport, shelters, medical teams, and communication capacity to reversible staging first."
+    scene: "The evidence permits reversible staging, not a corridor-wide evacuation. The team can vary the distribution while keeping every service ready."
     motivation: "The capacity allocation determines which targeted staging can be completed while preserving a usable reserve."
     format: ALLOCATE
-    question: "Submit one five-category allocation totaling 100 points that preserves at least 20 points in reserve."
-    answerText: "Staging buys speed without imposing the harms of premature mass movement."
+    question: "Allocate exactly 100 points. Use 5-point increments, with 10–40 points in each operational category and 20–40 in reserve. Do not issue a mass-movement order. Submit the allocation; the board checks the total and each requirement."
+    answerText: "The accepted plan funds every required capability within the stated limits; extra points may be distributed only as the public rule allows."
     why: "ALLOCATE distributes finite resources against expected need, reversibility, and equity."
     # wrong-path feedback, one rebuttal per wrong option:
     #   Spending everything now leaves no capacity when the corridor narrows.
@@ -376,8 +376,8 @@
     scene: "Review five proposed public statements and sign only those supported by the current campaign evidence. Each accepted line must name its condition, intended action, and next update without promising certainty."
     motivation: "The signed statements determine what the public can be told without promising certainty or an unsupported all-clear."
     format: ATTEST
-    question: "Attest the defensible response-plan statements."
-    answerText: "The plan is firm about actions precisely because it is honest about uncertainty."
+    question: "Use the published response ladder and current evidence; no certainty claim follows from a probability below 100%. Read the displayed source excerpts, then select every supported claim and leave unsupported claims unsigned."
+    answerText: "Each signature is limited to what its source establishes. The unsupported claims lack the specific date, physical condition, independence or scope they assert."
     why: "ATTEST requires explicit evidence ownership for public claims."
     # wrong-path feedback, one rebuttal per wrong option:
     #   Confidence in a process is not permission to overstate its inputs.

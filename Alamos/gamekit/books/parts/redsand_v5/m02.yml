@@ -190,10 +190,10 @@
     title: "Could today's air make enough methane?"
     concept: 3   # theoretical yield
     reason: "The production steps are identified and today's captured feed needs a methane-yield estimate."
-    scene: "The intake captured 6.60 × 10^6 g of carbon dioxide. Its molar mass is 44.01 g/mol; the reaction produces one mole of methane per mole of carbon dioxide, and methane has molar mass 16.04 g/mol."
+    scene: "The carbon-dioxide shipment sets one ceiling on methane production. Its mass cannot be copied straight onto the fuel ledger."
     motivation: "The feed-based ceiling determines whether additional compressor power could increase this shift's useful production."
     format: BALLPARK
-    question: "Estimate the theoretical methane from the captured CO2."
+    question: "The reaction yields one mole CH₄ per mole CO₂. Convert 6.60×10⁶ g CO₂ to kg CH₄ using molar masses 44.01 and 16.04 g/mol. Fill feed mass and the two molar masses in that order."
     # CONVERTED from the bible's `data` line below: its four factors become four
     # tiles, and its own "= 2.405 x 10^6 g" is the target with the stated ±3%.
     estimate:
@@ -254,10 +254,10 @@
     title: "Spend the hydrogen you have"
     concept: 3   # limiting reactant under constraints
     reason: "Hydrogen is limited and must cover production, a diagnostic tracer, and protected reserve."
-    scene: "Hydrogen runs out first, so divide the limited release among production, diagnosis, and restart reserve before redirecting the investigation."
+    scene: "The hydrogen release must support a diagnostic pulse without losing restart capacity. The crew can choose how much of the remaining gas to use for production."
     motivation: "The allocation determines whether the crew can investigate the supply problem without disabling the reactor or exhausting reserve."
     format: ALLOCATE
-    question: "With hydrogen identified as the limiting reactant, allocate the 80 kmol across methane production, tracer testing, restart reserve, and purge protection while satisfying both required checks."
+    question: "Allocate no more than 80 kmol H₂ in 4-kmol steps. Reserve at least 8 for the tracer and 16 for restart; production may receive 0–56 and the optional purge upgrade 0–8. Submit any feasible allocation; unassigned gas remains in store."
     # MODEL CONVERSION. The bible splits a pool continuously; the engine funds a
     # subset under a budget. Each item's `cost` is the bible's own share for it —
     # its recommended allocation, or its stated maximum where the recommendation is
@@ -276,7 +276,7 @@
       - { question: "Can the reactor restart safely?", requires: [restart], required: true }
       - { question: "Can this shift still make some methane?", requires: [production] }
       - { question: "Can the diagnostic line be purged safely?", requires: [purge] }
-    answerText: "Choose at least 8 kmol for the tracer and 16 kmol for restart; 56/8/16 is the recommended split."
+    answerText: "The tracer minimum provides a resolvable pulse and the restart minimum preserves recovery. In the example, 56 kmol H₂ supports 14 kmol CH₄ at four H₂ per CH₄; other feasible distributions are allowed."
     why: "No allocation creates hydrogen. The scientific choice is whether a small diagnostic spend is worth the production it displaces. Eight kilomoles gives the meter a resolvable pulse; sixteen preserves a restart. The remaining 56 kmol supports only 14 kmol CH4, a visible cost that makes the evidence meaningful."
     # wrong-path feedback, one rebuttal per wrong option:
     #   Underfunded tracer yields no interpretable test. Underfunded reserve violates the safe-restart constraint. Over-allocation must be blocked with a message naming the missing amount.

@@ -264,11 +264,11 @@
     person: ortiz
     concept: 30   # uncertainty/range
     reason: "The layer prediction is ready, but calibration uncertainty could still explain the difference between channels."
-    scene: "With the predicted field fixed at -4.5 kV/m, four channels read -4.1, -4.2, -4.2, and -4.3 kV/m. Test whether calibration uncertainty can hide an unsafe disagreement."
+    scene: "Four channels disagree slightly. Test their relative agreement under one shared calibration offset before assigning different fields to different channels."
     motivation: "The range of corrected field readings determines whether one physical field can explain all four instruments."
     format: STRESS
-    question: "Move the allowed calibration offset from -0.20 to +0.20 kV/m, inspect both explanations, and submit the conclusion that survives the full range."
-    answerText: "All four readings remain mutually consistent within the campaign's calibration bound, though this does not prove independence."
+    question: "Apply the same offset from −0.20 to +0.20 kV/m to every reading. Submit the maximum pair spread and decide whether it exceeds 0.50 kV/m anywhere in this shared-offset test."
+    answerText: "The pair spread remains 0.20 kV/m under every shared offset; this test finds no excessive channel disagreement. It does not establish absolute calibration or rule out independent channel errors."
     why: "A safe average does not prove that every sensor is consistent with the same field."
     # wrong-path feedback, one rebuttal per wrong option:
     #   Compare the largest and smallest channels; do not compare only each reading with the mean.

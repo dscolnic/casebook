@@ -186,10 +186,10 @@
     title: "How many total moles are in the branch?"
     concept: 4   # ideal gas law
     reason: "The pressure reading cannot establish composition, so the branch first needs a total-mole baseline."
-    scene: "The sealed branch has pressure P = 24.6 atm, volume V = 400 L, and temperature T = 300 K. The ideal gas relationship is n = PV/(RT), where n is total gas amount and R = 0.082 L atm mol^-1 K^-1."
+    scene: "The gas vessel's gauge readings are ready. The crew needs a mole count to compare this store with the reaction demand."
     motivation: "The gas quantity sets the inventory against which the independent composition measurement will be interpreted."
     format: BALLPARK
-    question: "Submit the total amount of gas in moles."
+    question: "Use PV=nRT with P=24.6 atm, V=400 L, R=0.082 L·atm/(mol·K), and T=300 K. Fill P,V,R,T."
     # CONVERTED from the bible's `data` line, n = PV/RT = (20.0 atm)(500 L)/[(0.08206)(300 K)],
     # and its "406 mol total gas; target 406, tolerance ±2%" (2% of 406 = 8.12).
     estimate:
