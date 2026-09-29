@@ -840,7 +840,9 @@ function wireDelete(){
   // A held level is dropped here rather than at each place that reads `games`,
   // so the segments, the subject chips and the campaigns-in-progress note cannot
   // disagree about which games exist.
-  games = (cat?.games ?? []).filter(g => SHOWN.some(l => l.has(g)));
+  // `shelf: false` keeps a game off the shelf while its build stays on the server (the older
+  // gamekit games, hidden when the Concept Lab campaigns shipped); un-hiding is one field.
+  games = (cat?.games ?? []).filter(g => g.shelf !== false && SHOWN.some(l => l.has(g)));
   if(!games.length){
     document.getElementById('note').textContent =
       'No games.json here yet — run `npm run sync-casebook` in the Alamos repo.';

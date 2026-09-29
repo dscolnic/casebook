@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 900" preserveAspectRatio="xMidYMid slice">
+<defs>
+ <linearGradient id="sky" x2="0" y2="1"><stop stop-color="#182d39"/><stop offset=".55" stop-color="#44717a"/><stop offset="1" stop-color="#85a9a5"/></linearGradient>
+ <linearGradient id="sea" x2="0" y2="1"><stop stop-color="#356677"/><stop offset="1" stop-color="#092e42"/></linearGradient>
+ <linearGradient id="land" x2="0" y2="1"><stop stop-color="#536d65"/><stop offset="1" stop-color="#18383e"/></linearGradient>
+ <radialGradient id="pulse"><stop stop-color="#9aefdd" stop-opacity=".88"/><stop offset=".3" stop-color="#52c7c6" stop-opacity=".34"/><stop offset="1" stop-color="#4cb9be" stop-opacity="0"/></radialGradient>
+</defs>
+<rect width="1440" height="900" fill="url(#sky)"/>
+<path d="M0 415Q158 385 294 409T612 401Q821 414 1000 382T1440 404V900H0Z" fill="url(#sea)"/>
+<path d="M0 470Q145 413 287 425T531 451Q644 460 684 493T774 544L600 900H0Z" fill="url(#land)"/>
+<path d="M0 517Q197 444 330 465T670 516" fill="none" stroke="#97b8af" stroke-width="6" opacity=".45"/>
+<g opacity=".38" fill="none" stroke="#a6ded4"><path d="M640 574Q882 528 1100 575T1440 551"/><path d="M711 640Q930 596 1138 623T1440 601"/><path d="M604 710Q963 656 1141 693T1440 666"/><path d="M595 788Q903 741 1190 781T1440 759"/></g>
+<path d="M606 828Q766 770 828 733T1059 713Q1153 700 1330 631" fill="none" stroke="#1d2e39" stroke-width="22"/>
+<path d="M606 828Q766 770 828 733T1059 713Q1153 700 1330 631" fill="none" stroke="#79ded2" stroke-width="3" stroke-dasharray="12 24" opacity=".82"/>
+<circle cx="830" cy="733" r="115" fill="url(#pulse)"/><circle cx="1057" cy="714" r="88" fill="url(#pulse)"/><circle cx="1330" cy="631" r="100" fill="url(#pulse)"/>
+<path d="M204 543H604V724H204Z" fill="#253f48" stroke="#9bb1ad" stroke-width="4"/><path d="M179 541l78-59h289l75 59Z" fill="#334c53" stroke="#8aa8a8" stroke-width="4"/>
+<path d="M254 603h60v51h-60Zm96 0h60v51h-60Zm96 0h60v51h-60Z" fill="#75caca" opacity=".72"/><path d="M254 603h60v51h-60Zm96 0h60v51h-60Zm96 0h60v51h-60Z" fill="none" stroke="#bddbd2" stroke-width="3"/>
+<path d="M556 484V363m-69 133V402m-230 91V392" stroke="#9fc1bc" stroke-width="8"/><circle cx="556" cy="360" r="8" fill="#a8f2db"/><circle cx="257" cy="391" r="6" fill="#8be5d5"/>
+<path d="M0 752q241-23 437-13t271 75v86H0Z" fill="#122d36"/>
+<path d="M0 747q256-35 463-3" fill="none" stroke="#719793" stroke-width="7" opacity=".7"/>
+</svg>

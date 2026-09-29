@@ -1,6 +1,678 @@
 {
   "games": [
     {
+      "id": "ap-physics-c-em-black-start",
+      "title": "Black Start",
+      "course": "AP Physics C: Electricity and Magnetism",
+      "field": "Physics",
+      "accent": "#60e6ff",
+      "place": "Port Mercy · Harbor District",
+      "hero": "shots/ap-physics-c-em-black-start.jpg",
+      "level": "high",
+      "grades": "9–12",
+      "build": "ap-physics-c-em-black-start",
+      "pair": "ap-physics-c-em-black-start",
+      "shotsFrom": "ap-physics-c-em-black-start",
+      "kind": "course",
+      "role": "Physicist who signs off the backup grid",
+      "dayNoun": "Mission",
+      "grade": 6,
+      "drama": "Port Mercy has a new backup grid for when the main power fails. It must run the clinic, the water pumps, the shelter, and the radio tower. In its last storm test, the radio rack reset and a control card burned. Yet four field sensors, the ground check, and the main recorder all said it passed.",
+      "concepts": [
+        "Calibrate the Red Line",
+        "Count the Storm Charge",
+        "Bound the Storm Voltage",
+        "Shield the Crew Vehicle",
+        "Scale the Storm Analog",
+        "Set the Pulse Bank",
+        "Correct the Ground Offset",
+        "Map the Cable Field",
+        "Predict the Induced Pulse",
+        "Separate DC From the Surge",
+        "Find the Hidden Current",
+        "Find What Burned the Card",
+        "Qualify the Recorders",
+        "Run the Full-System Test",
+        "Close the Loop"
+      ],
+      "size": {
+        "days": 15,
+        "stops": 113
+      },
+      "source": "concept-labs",
+      "built": true
+    },
+    {
+      "id": "ap-physics-eleven-days",
+      "title": "Eleven Days",
+      "course": "AP Physics 1 & 2: Planetary Defense",
+      "field": "Physics",
+      "accent": "#67ddff",
+      "place": "Cerro Alto Observatory · 3,180 m",
+      "hero": "shots/ap-physics-eleven-days.jpg",
+      "level": "high",
+      "grades": "9–12",
+      "build": "ap-physics-eleven-days",
+      "pair": "ap-physics-eleven-days",
+      "shotsFrom": "ap-physics-eleven-days",
+      "kind": "course",
+      "role": "Planetary defense analyst",
+      "dayNoun": "Mission",
+      "grade": 6,
+      "drama": "Last night a telescope on Cerro Alto caught a faint moving point. The first orbit guess says it could hit Earth in about eleven days. Its first danger zone, called a corridor, holds nine million people. That zone is far too wide to tell any one town to leave. Every measurement from here decides who gets warned.",
+      "concepts": [
+        "Motion Against the Stars",
+        "Parallax Range and Approach Speed",
+        "Gravity Makes Earth a Bigger Target",
+        "When Will the Radar Echo Be Strong Enough?",
+        "Photons, Pixels and a Faint Target",
+        "Size from Reflected Light and Heat Glow",
+        "Radar Range and Doppler Speed",
+        "Vectors on the Target Plane",
+        "The Energy of Entry",
+        "Spin, Shape and Loose Rock",
+        "Momentum and a Kinetic Impactor",
+        "Locking an Energy Rule Before the Result",
+        "A Clock Error and an Orbit Refit",
+        "A Fragment on Its Own Path",
+        "Fragment Energy and the Protective Order"
+      ],
+      "size": {
+        "days": 15,
+        "stops": 110
+      },
+      "source": "concept-labs",
+      "built": true
+    },
+    {
+      "id": "ap-physics-1-last-span",
+      "title": "Last Span",
+      "course": "AP Physics 1: Algebra-Based",
+      "field": "Physics",
+      "accent": "#f6b94b",
+      "place": "Red Mesa Gorge · Transit Crossing",
+      "hero": "shots/ap-physics-1-last-span.jpg",
+      "level": "high",
+      "grades": "9–12",
+      "build": "ap-physics-1-last-span",
+      "pair": "ap-physics-1-last-span",
+      "shotsFrom": "ap-physics-1-last-span",
+      "kind": "course",
+      "role": "Structural dynamics officer",
+      "dayNoun": "Mission",
+      "grade": 6,
+      "drama": "A hard gust hit Red Mesa Gorge this afternoon. It cracked the west socket, the steel cup that holds the rope to the west tower. Two cable cars stopped over the canyon with 18 people inside. The bridge deck is closed, and the north car has started to slide. The next strong wind reaches the gorge in 48 minutes.",
+      "concepts": [
+        "Motion of a Slipping Carrier",
+        "Launching the Pilot Line",
+        "Free-Body Model of the Hanging Carrier",
+        "Friction and Stopping Distance on the Service Rail",
+        "Counterweight Energy and Drive Power",
+        "Momentum Transfer at the Cradle Latch",
+        "Circular Motion Through the Station Entry",
+        "Torque and Tipping of the Rescue Crane",
+        "Center of Mass of the Hanging Cradle",
+        "Pendulum Period and Resonance",
+        "Hydrostatics and the Station Brake",
+        "Continuity and Bernoulli in the Return Hose",
+        "Angular Momentum Audit of the Governor Brake",
+        "Independent Check of the West Socket",
+        "Energy Budget for the Final Order"
+      ],
+      "size": {
+        "days": 15,
+        "stops": 109
+      },
+      "source": "concept-labs",
+      "built": true
+    },
+    {
+      "id": "ap-physics-2-abyssal",
+      "title": "Abyssal",
+      "course": "AP Physics 2: Algebra-Based",
+      "field": "Physics",
+      "accent": "#62d6e8",
+      "place": "R/V Asteria · Rescue Deck",
+      "hero": "shots/ap-physics-2-abyssal.jpg",
+      "level": "high",
+      "grades": "9–12",
+      "build": "ap-physics-2-abyssal",
+      "pair": "ap-physics-2-abyssal",
+      "shotsFrom": "ap-physics-2-abyssal",
+      "kind": "course",
+      "role": "Asteria's rescue physics officer",
+      "dayNoun": "Mission",
+      "grade": 6,
+      "drama": "The habitat Pelagic is stuck 920 meters below the ship. Six crew are sealed in its small refuge room. Its air is leaking, its power is failing, and its heat is rising. Every step of the lift needs a physics answer first.",
+      "concepts": [
+        "Ideal Gas Check on the Refuge Air",
+        "Electric Field Between Two Charged Parts",
+        "Work and Heat in the Top-Up Compressor",
+        "Heat Engine Limits for Emergency Power",
+        "Energy Stored in a Capacitor Bank",
+        "Resistance and Voltage Drop on the Life-Support Feed",
+        "Kirchhoff's Rules on the Pump Bus",
+        "RC Discharge of the Strobe Bank",
+        "Magnetic Field of the Winch Power Cable",
+        "Faraday's Law and Lenz's Law in the Winch Brake",
+        "Refraction at the Habitat's Viewing Port",
+        "Image from a Curved Hull Mirror",
+        "Sonar Range and Doppler Speed",
+        "Two-Slit Interference at the Beacon",
+        "Photons, Energy Levels and Decay at the Transfer Lock"
+      ],
+      "size": {
+        "days": 15,
+        "stops": 106
+      },
+      "source": "concept-labs",
+      "built": true
+    },
+    {
+      "id": "ap-physics-c-overwind",
+      "title": "Overwind",
+      "course": "AP Physics C: Mechanics",
+      "field": "Physics",
+      "accent": "#f3b64a",
+      "place": "Kerrow Mine No. 3 · The Bank",
+      "hero": "shots/ap-physics-c-overwind.jpg",
+      "level": "high",
+      "grades": "9–12",
+      "build": "ap-physics-c-overwind",
+      "pair": "ap-physics-c-overwind",
+      "shotsFrom": "ap-physics-c-overwind",
+      "kind": "course",
+      "role": "Lift safety engineer",
+      "dayNoun": "Mission",
+      "grade": 6,
+      "drama": "The hoist drum stopped, but the cage kept going. It rode past the March landing, a named stop in the shaft. Forty-one miners now wait below the broken route. Their air will last about fifteen hours.",
+      "concepts": [
+        "Differentiate the March Cage Record",
+        "Build the Cage Free-Body Diagram",
+        "Integrate the Tapered Rope",
+        "Find the Hoist Drum Inertia by Integration",
+        "Balance Load Torque and Acceleration Torque",
+        "Audit the Work of a Full Lift",
+        "Set the Hoist Power Ceiling",
+        "Use Impulse to Bound the Warm Brake",
+        "Slide the Governor Down and Couple It",
+        "Solve the Drag Equation for the Supply Capsules",
+        "Conserve Angular Momentum Through the Clutch",
+        "Model the Rope's Spring Mode",
+        "Predict the Sealed Peak Time",
+        "Build the Loaded Stopping Envelope",
+        "Commit the Safe Winding Plan"
+      ],
+      "size": {
+        "days": 15,
+        "stops": 121
+      },
+      "source": "concept-labs",
+      "built": true
+    },
+    {
+      "id": "ap-chemistry-red-sand",
+      "title": "Red Sand",
+      "course": "AP Chemistry",
+      "field": "Chemistry",
+      "accent": "#f39a53",
+      "place": "Arcadia Rise · Mars Propellant Plant",
+      "hero": "shots/ap-chemistry-red-sand.jpg",
+      "level": "high",
+      "grades": "9–12",
+      "build": "ap-chemistry-red-sand",
+      "pair": "ap-chemistry-red-sand",
+      "shotsFrom": "ap-chemistry-red-sand",
+      "kind": "course",
+      "role": "New propellant lead",
+      "dayNoun": "Mission",
+      "grade": 6,
+      "drama": "This plant turns Mars air and ice into methane fuel and oxygen. The crew needs both to fly home at the end of the fifteenth shift. Methane output is behind, and nobody agrees on why.",
+      "concepts": [
+        "Count What the Plant Actually Has",
+        "Balance the Sabatier Feed",
+        "Separate Total Pressure from Composition",
+        "Identify the Residue by Photoelectron Spectroscopy",
+        "Use Intermolecular Forces to Predict Separation",
+        "Read a Galvanic Cell on a Wet Joint",
+        "Close the Reactor Energy Ledger",
+        "Find the Rate Law from Initial Rates",
+        "Time the Cleaning with a First-Order Law",
+        "Test the Hidden Thermal Record",
+        "Solve the Operating Equilibrium",
+        "Titrate and Buffer the Recycle Water",
+        "Turn Current into Hydrogen",
+        "Assay the Full Methane Batch",
+        "Certify the Ascent Propellant"
+      ],
+      "size": {
+        "days": 15,
+        "stops": 105
+      },
+      "source": "concept-labs",
+      "built": true
+    },
+    {
+      "id": "ap-biology-wildtype",
+      "title": "Wildtype",
+      "course": "AP Biology",
+      "field": "Biology",
+      "accent": "#7be495",
+      "place": "Valle Verde · Crop Emergency",
+      "hero": "shots/ap-biology-wildtype.jpg",
+      "level": "high",
+      "grades": "9–12",
+      "build": "ap-biology-wildtype",
+      "pair": "ap-biology-wildtype",
+      "shotsFrom": "ap-biology-wildtype",
+      "kind": "course",
+      "role": "Junior field biologist in charge of the contained pilot",
+      "dayNoun": "Mission",
+      "grade": 6,
+      "drama": "A fast wilt is killing cassava in the lower valley. Nobody knows yet what is causing it. One river waters every farm. A rushed fix could wipe out the seed families the valley needs.",
+      "concepts": [
+        "Light and Dark Runs on a Sick Cassava Leaf",
+        "Water Potential and a Safe Root Rinse",
+        "Calcium Signals and a Slowing Root Tip",
+        "Same Genome, Different Switch",
+        "A Test Cross and a Self Cross for Resistance",
+        "Map the Marker Against the Resistance Gene",
+        "Trace One Base Change to the Receptor",
+        "Identify the Root-Rot Germ",
+        "Which Line Fights PV-7, and Which Only Survives It",
+        "Count Alleles, Not Bags",
+        "Selection in the PV-7 Population",
+        "Spread Along the Irrigation River",
+        "The Root Partner and Its Thin Threads",
+        "Close the Night Oxygen Budget",
+        "Sign a Pilot That Can Come Home"
+      ],
+      "size": {
+        "days": 15,
+        "stops": 105
+      },
+      "source": "concept-labs",
+      "built": true
+    },
+    {
+      "id": "ap-environmental-science-salt-line",
+      "title": "Salt Line",
+      "course": "AP Environmental Science",
+      "field": "Environmental Science",
+      "accent": "#59d4d0",
+      "place": "Lacroix Estuary",
+      "hero": "shots/ap-environmental-science-salt-line.jpg",
+      "level": "high",
+      "grades": "9–12",
+      "build": "ap-environmental-science-salt-line",
+      "pair": "ap-environmental-science-salt-line",
+      "shotsFrom": "ap-environmental-science-salt-line",
+      "kind": "course",
+      "role": "Estuary response scientist",
+      "dayNoun": "Mission",
+      "grade": 6,
+      "drama": "Hurricane Vela broke through the barrier islands last night. Seawater is pushing up the river toward the city's water intake. Farm runoff, a marina spill and a failing power grid share the same water. The city has stored water for a few days, and not much more.",
+      "concepts": [
+        "Salinity Mixing at Northgate Intake",
+        "Storm Runoff and Nutrient Load",
+        "Eutrophication and the Night Oxygen Sag",
+        "Wetland Services and Storm Protection",
+        "Toxic Release and Dilution",
+        "Biomagnification and Daily Dose",
+        "Logistic Growth and Sustainable Harvest",
+        "Species-Area and Habitat Connection",
+        "Soil Erosion and Salt-Affected Farms",
+        "Generator Exhaust Under a Thermal Inversion",
+        "Human Population Growth and the Water Supply",
+        "Relative Sea-Level Rise and Ocean Change",
+        "Controls, Timing and a Treatment Claim",
+        "Permits, Exposure and Environmental Justice",
+        "The Northgate Reopening Decision"
+      ],
+      "size": {
+        "days": 15,
+        "stops": 119
+      },
+      "source": "concept-labs",
+      "built": true
+    },
+    {
+      "id": "ap-precalculus-tidelock",
+      "title": "Tidelock",
+      "course": "AP Precalculus",
+      "field": "Mathematics",
+      "accent": "#74d8e8",
+      "place": "Sable Reach · Keldhaven Tidal Array",
+      "hero": "shots/ap-precalculus-tidelock.jpg",
+      "level": "high",
+      "grades": "9–12",
+      "build": "ap-precalculus-tidelock",
+      "pair": "ap-precalculus-tidelock",
+      "shotsFrom": "ap-precalculus-tidelock",
+      "kind": "course",
+      "role": "Grid modeling officer for Keldhaven",
+      "dayNoun": "Mission",
+      "grade": 6,
+      "drama": "A North Atlantic storm is pushing the sea over the Sable Reach islands. Fishing crews, two causeways and a loaded power line are in its path. The tidal grid must break away before salt water floods the turbine hall. It cannot break away while boats and trucks are still in the way.",
+      "concepts": [
+        "Average Rate of Change at the Lower Quay",
+        "A Quadratic Model From the Basin Table",
+        "Polynomial Division, Complex Zeros, and End Behavior",
+        "A Rational Flow Model With a Hole and an Asymptote",
+        "Transformations and a Piecewise Wading Rule",
+        "Geometric Sequences and Exponential Growth on the Feeder",
+        "Semi-Log Data and an Exponential Pressure Model",
+        "Composition and Inverse Functions in a Legacy Channel",
+        "Logarithms and an Exponential Equation",
+        "Building a Sinusoidal Tide Model From Data",
+        "A Transformed Sinusoid and a Trig Inequality",
+        "Reciprocal Trig Functions and a Pythagorean Identity",
+        "Tangent, Inverse Tangent, and a Hidden Quadrant Error",
+        "Polar Coordinates and a Polar Function Graph",
+        "Rates of Change in Polar Functions and the Isolation Window"
+      ],
+      "size": {
+        "days": 15,
+        "stops": 105
+      },
+      "source": "concept-labs",
+      "built": true
+    },
+    {
+      "id": "ap-calculus-ab-headwater",
+      "title": "Headwater",
+      "course": "AP Calculus AB",
+      "field": "Mathematics",
+      "accent": "#7fd8e8",
+      "place": "Ashfell Valley",
+      "hero": "shots/ap-calculus-ab-headwater.jpg",
+      "level": "high",
+      "grades": "9–12",
+      "build": "ap-calculus-ab-headwater",
+      "pair": "ap-calculus-ab-headwater",
+      "shotsFrom": "ap-calculus-ab-headwater",
+      "kind": "course",
+      "role": "Ashfell's duty engineer",
+      "dayNoun": "Mission",
+      "grade": 6,
+      "drama": "Snowmelt is filling Ashfell Reservoir faster than anyone planned. A big storm is coming, and the lake needs empty room to hold it. Too little out, and the dam overflows. Too fast, and the valley floods.",
+      "concepts": [
+        "Limits, Continuity, and the Broken Trace",
+        "Derivatives and the Rate Alarm",
+        "Chain Rule, Implicit Slope, and Gate Calibration",
+        "Motion, Related Rates, and the Warning Clock",
+        "Extreme Values and the Overloaded Turbine",
+        "Quotient Rule, Concavity, and L'Hôpital's Rule",
+        "Riemann Sums, the Fundamental Theorem, and the Drawdown Target",
+        "u-Substitution, Accumulation, and the Release Plan",
+        "Slope Fields and Uplift Pressure",
+        "Separable Differential Equations and Seepage",
+        "Area Between Curves and the Corrected Storage Survey",
+        "Volume by Washers and the Surge Shaft",
+        "Linearization, the Mean Value Theorem, and a Hidden Fault",
+        "Optimization and the Dark Siren",
+        "Accumulation and the Final Release Plan"
+      ],
+      "size": {
+        "days": 15,
+        "stops": 105
+      },
+      "source": "concept-labs",
+      "built": true
+    },
+    {
+      "id": "ap-calculus-ab-cold-chain",
+      "title": "Cold Chain",
+      "course": "AP Calculus AB",
+      "field": "Mathematics",
+      "accent": "#f4b969",
+      "place": "Vardon Valley · Heatwave Relief",
+      "hero": "shots/ap-calculus-ab-cold-chain.jpg",
+      "level": "high",
+      "grades": "9–12",
+      "build": "ap-calculus-ab-cold-chain",
+      "pair": "ap-calculus-ab-cold-chain",
+      "shotsFrom": "ap-calculus-ab-cold-chain",
+      "kind": "course",
+      "role": "Convoy's cold-chain engineer",
+      "dayNoun": "Mission",
+      "grade": 6,
+      "drama": "A heatwave hit Vardon, and the valley clinic is out of insulin and vaccines. Three refrigerated trucks, called reefers, wait at the Vardon Relief Depot. The medicine must stay between 2 and 8 °C the whole way. The route crosses an old bridge, a hot ridge and a long descent. Every reading you check decides what the clinic can safely use.",
+      "concepts": [
+        "A Hole in the Temperature Trace",
+        "The Warming Rate at the Loading Hatch",
+        "The Compressor's Control Chain",
+        "How Fast the Gate Camera Must Turn",
+        "The Axle Setting That Strains the Bridge Least",
+        "The Flat Forecast on the Ridge",
+        "The Cooling Ledger at the Freezer Bay",
+        "Heat Stored on the Climb",
+        "Rebuilding the Silent Hour",
+        "Cooling the Spare Trailer",
+        "Usable Coolant in the Depot Tank",
+        "How Far a Probe Can Be Off",
+        "Degree-Hours Above the Limit",
+        "When to Leave for the Clinic",
+        "The Delivery Record at the Clinic"
+      ],
+      "size": {
+        "days": 15,
+        "stops": 117
+      },
+      "source": "concept-labs",
+      "built": true
+    },
+    {
+      "id": "ap-calculus-bc-periapsis",
+      "title": "Periapsis",
+      "course": "AP Calculus BC",
+      "field": "Mathematics",
+      "accent": "#ffb347",
+      "place": "Selene Far-Side Outpost",
+      "hero": "shots/ap-calculus-bc-periapsis.jpg",
+      "level": "high",
+      "grades": "9–12",
+      "build": "ap-calculus-bc-periapsis",
+      "pair": "ap-calculus-bc-periapsis",
+      "shotsFrom": "ap-calculus-bc-periapsis",
+      "kind": "course",
+      "role": "Flight calculus officer at the outpost",
+      "dayNoun": "Mission",
+      "grade": 6,
+      "drama": "The rescue ship Odyssey has lost its main guidance over Daedalus crater. It has one low pass left before the relay link closes. Periapsis is the lowest point of an orbit, and that is where Odyssey must burn. A wrong burn sends it into the crater wall.",
+      "concepts": [
+        "Limits, Continuity and L'Hôpital's Rule at the Relay Handoff",
+        "Parametric Derivatives and the Velocity Vector",
+        "Vector Acceleration: Tangential and Normal Parts",
+        "Integration by Parts and the Delivered Impulse",
+        "Partial Fractions and an Improper Integral",
+        "Accumulation and the Fundamental Theorem of Calculus",
+        "Separable Differential Equations and a Cabin Leak",
+        "Euler's Method on a Logistic Model",
+        "Arc Length of a Parametric Route",
+        "Derivatives of a Polar Curve",
+        "Area Between Polar Curves",
+        "Geometric Series and the Tail",
+        "Interval of Convergence and Conditional Convergence",
+        "Taylor Polynomials and the Lagrange Error Bound",
+        "The Rescue Burn Command"
+      ],
+      "size": {
+        "days": 15,
+        "stops": 107
+      },
+      "source": "concept-labs",
+      "built": true
+    },
+    {
+      "id": "ap-statistics-signal-fires",
+      "title": "Signal Fires",
+      "course": "AP Statistics",
+      "field": "Statistics",
+      "accent": "#ffb14f",
+      "place": "Piedra Seca Valley",
+      "hero": "shots/ap-statistics-signal-fires.jpg",
+      "level": "high",
+      "grades": "9–12",
+      "build": "ap-statistics-signal-fires",
+      "pair": "ap-statistics-signal-fires",
+      "shotsFrom": "ap-statistics-signal-fires",
+      "kind": "course",
+      "role": "Incident statistics lead",
+      "dayNoun": "Mission",
+      "grade": 6,
+      "drama": "The Cañon Lumbre fire is climbing toward Quartz Ridge. Four towns sit in the valley below it. The first forecast gave six hours, but the wind is rising. Smoke reports clash, and two canyons have no phone service.",
+      "concepts": [
+        "Describe the First Smoke Signal",
+        "Sampling Frames and Undercoverage",
+        "Confounding and Experimental Design",
+        "Conditional Probability and Independence",
+        "Simulation and the Binomial Model",
+        "Random Variables and Combined Times",
+        "The Sampling Distribution of a Proportion",
+        "Confidence Interval for a Proportion",
+        "A Test When the Normal Model Fails",
+        "Comparing Two Proportions",
+        "Chi-Square Test for Independence",
+        "Confidence Interval for a Mean",
+        "Errors and Power",
+        "Residuals, Re-expression and Slope Inference",
+        "The Movement Order"
+      ],
+      "size": {
+        "days": 15,
+        "stops": 105
+      },
+      "source": "concept-labs",
+      "built": true
+    },
+    {
+      "id": "ap-csa-whiteout",
+      "title": "Whiteout",
+      "course": "AP Computer Science A",
+      "field": "Computer Science",
+      "accent": "#6de5ff",
+      "place": "Aster Station · Polar Plateau",
+      "hero": "shots/ap-csa-whiteout.jpg",
+      "level": "high",
+      "grades": "9–12",
+      "build": "ap-csa-whiteout",
+      "pair": "ap-csa-whiteout",
+      "shotsFrom": "ap-csa-whiteout",
+      "kind": "course",
+      "role": "Station's Java troubleshooter",
+      "dayNoun": "Mission",
+      "grade": 6,
+      "drama": "A storm has cut Aster Station off from the world. Twenty-eight people are sheltering inside, and two field teams are still out. After a routine software update, heat, air and rover alarms began to disagree. A rescue plane can land in 36 hours if the station is ready.",
+      "concepts": [
+        "Integer Division, Casting and Rounding",
+        "Boolean Logic and if Versus else if",
+        "while Loops and Termination",
+        "Text Files, indexOf and Edge Cases",
+        "Object References, Aliasing and ==",
+        "String Methods: indexOf and substring",
+        "Arrays, Zero-Based Indexes and Traversal",
+        "ArrayList Removal While Traversing",
+        "2D Arrays and Nested Loops",
+        "Linear Search and Binary Search",
+        "Class Design: static and Instance Fields",
+        "Insertion Sort, Stable Merging and Data Ethics",
+        "Recursion: Base Cases and Call Counts",
+        "Hidden Failures: Holdout Tests and ArrayList<Integer>",
+        "A Staged Release You Can Undo"
+      ],
+      "size": {
+        "days": 15,
+        "stops": 105
+      },
+      "source": "concept-labs",
+      "built": true
+    },
+    {
+      "id": "ap-csa-sort-line",
+      "title": "Sort Line",
+      "course": "AP Computer Science A",
+      "field": "Computer Science",
+      "accent": "#f4b969",
+      "place": "Northport Dispatch · Kettle Pass Road",
+      "hero": "shots/ap-csa-sort-line.jpg",
+      "level": "high",
+      "grades": "9–12",
+      "build": "ap-csa-sort-line",
+      "pair": "ap-csa-sort-line",
+      "shotsFrom": "ap-csa-sort-line",
+      "kind": "course",
+      "role": "Northport Dispatch's software troubleshooter",
+      "dayNoun": "Mission",
+      "grade": 6,
+      "drama": "A winter storm will close the road over Kettle Pass in sixteen hours. Four towns past the pass need medicine, food and blankets from this center. Since last night's Java update, the center keeps sending totes the wrong way. The machines may be fine. The code may not be. Every fix you prove gets another truck moving.",
+      "concepts": [
+        "Integer Division and Casting",
+        "Boolean Tests and Exclusive Branches",
+        "While Loops and Termination",
+        "Methods, Testing and Edge Cases",
+        "Objects, References and Aliases",
+        "Strings, indexOf and substring",
+        "Arrays, Indexes and Bounds",
+        "ArrayList Removal While Traversing",
+        "2D Arrays and Nested Loops",
+        "Linear Search and Binary Search",
+        "Classes, Static Fields and Overriding",
+        "Insertion Sort, Stability and a Message Budget",
+        "Recursion, Base Cases and the Call Stack",
+        "Held-Out Tests and Failure Patterns",
+        "Committed Predictions and a Canary Release"
+      ],
+      "size": {
+        "days": 15,
+        "stops": 105
+      },
+      "source": "concept-labs",
+      "built": true
+    },
+    {
+      "id": "ap-csp-black-current",
+      "title": "Black Current",
+      "course": "AP Computer Science Principles",
+      "field": "Computer Science",
+      "accent": "#49d6c8",
+      "place": "Nereid Head · Cable Landing Station",
+      "hero": "shots/ap-csp-black-current.jpg",
+      "level": "high",
+      "grades": "9–12",
+      "build": "ap-csp-black-current",
+      "pair": "ap-csp-black-current",
+      "shotsFrom": "ap-csp-black-current",
+      "kind": "course",
+      "role": "Network recovery analyst",
+      "dayNoun": "Mission",
+      "grade": 6,
+      "drama": "An earthquake at sea has cut emergency calls and alerts on the coast. This cable station can bring back clinics, shelters, dispatch and alerts. But broken gear and stolen logins could turn one fix into a new failure.",
+      "concepts": [
+        "Binary Integrity at the Beach Vault",
+        "Compression for the Surviving Fiber",
+        "Metadata and the Hidden Outage",
+        "Tracing a Fair Scheduler",
+        "Procedures with Parameters and RETURN",
+        "Boolean Logic and a Logic Error",
+        "Packets, Protocols and Routing",
+        "Fault Tolerance and the Trench Crawler",
+        "Parallel Computing and Speedup",
+        "Keys, Phishing and Least Privilege",
+        "Lists, Traversal and Private Data",
+        "Computing Bias and the Digital Divide",
+        "Efficiency, Reasonable Time and Undecidable Problems",
+        "Checksums, Binary Search and an Independent Check",
+        "The Segmented Restoration Gate"
+      ],
+      "size": {
+        "days": 15,
+        "stops": 105
+      },
+      "source": "concept-labs",
+      "built": true
+    },
+    {
       "id": "contamcity",
       "title": "The Contaminated City",
       "course": "AP Chemistry → college analytical",
@@ -29,7 +701,8 @@
         "days": 15,
         "stops": 48
       },
-      "built": true
+      "built": true,
+      "shelf": false
     },
     {
       "id": "contamcity_hs",
@@ -60,7 +733,8 @@
         "days": 15,
         "stops": 48
       },
-      "built": true
+      "built": true,
+      "shelf": false
     },
     {
       "id": "contamcity_ms",
@@ -91,7 +765,8 @@
         "days": 10,
         "stops": 33
       },
-      "built": true
+      "built": true,
+      "shelf": false
     },
     {
       "id": "redsand",
@@ -122,7 +797,8 @@
         "days": 15,
         "stops": 48
       },
-      "built": true
+      "built": true,
+      "shelf": false
     },
     {
       "id": "redsand_ms",
@@ -153,7 +829,8 @@
         "days": 10,
         "stops": 30
       },
-      "built": true
+      "built": true,
+      "shelf": false
     },
     {
       "id": "yellowbay",
@@ -184,7 +861,8 @@
         "days": 15,
         "stops": 45
       },
-      "built": true
+      "built": true,
+      "shelf": false
     },
     {
       "id": "headwater",
@@ -215,7 +893,8 @@
         "days": 15,
         "stops": 48
       },
-      "built": true
+      "built": true,
+      "shelf": false
     },
     {
       "id": "the_trial",
@@ -246,7 +925,8 @@
         "days": 15,
         "stops": 48
       },
-      "built": true
+      "built": true,
+      "shelf": false
     },
     {
       "id": "the_trial_hs",
@@ -277,7 +957,8 @@
         "days": 15,
         "stops": 48
       },
-      "built": true
+      "built": true,
+      "shelf": false
     },
     {
       "id": "the_trial_ms",
@@ -308,7 +989,8 @@
         "days": 10,
         "stops": 30
       },
-      "built": true
+      "built": true,
+      "shelf": false
     },
     {
       "id": "sightline",
@@ -339,7 +1021,8 @@
         "days": 15,
         "stops": 48
       },
-      "built": true
+      "built": true,
+      "shelf": false
     },
     {
       "id": "sightline_ms",
@@ -370,7 +1053,8 @@
         "days": 10,
         "stops": 30
       },
-      "built": true
+      "built": true,
+      "shelf": false
     },
     {
       "id": "quantum",
@@ -401,7 +1085,8 @@
         "days": 15,
         "stops": 48
       },
-      "built": true
+      "built": true,
+      "shelf": false
     },
     {
       "id": "bring_them_home",
@@ -432,7 +1117,8 @@
         "days": 15,
         "stops": 48
       },
-      "built": true
+      "built": true,
+      "shelf": false
     },
     {
       "id": "bring_them_home_ms",
@@ -463,7 +1149,8 @@
         "days": 10,
         "stops": 33
       },
-      "built": true
+      "built": true,
+      "shelf": false
     },
     {
       "id": "deepwatch",
@@ -494,7 +1181,8 @@
         "days": 15,
         "stops": 48
       },
-      "built": true
+      "built": true,
+      "shelf": false
     },
     {
       "id": "deepwatch_hs",
@@ -525,7 +1213,8 @@
         "days": 15,
         "stops": 48
       },
-      "built": true
+      "built": true,
+      "shelf": false
     },
     {
       "id": "deepwatch_ms",
@@ -556,7 +1245,8 @@
         "days": 10,
         "stops": 33
       },
-      "built": true
+      "built": true,
+      "shelf": false
     },
     {
       "id": "projecty",
@@ -587,7 +1277,8 @@
         "days": 15,
         "stops": 52
       },
-      "built": true
+      "built": true,
+      "shelf": false
     },
     {
       "id": "groundtruth",
@@ -618,7 +1309,8 @@
         "days": 15,
         "stops": 48
       },
-      "built": true
+      "built": true,
+      "shelf": false
     },
     {
       "id": "blackout",
@@ -649,7 +1341,8 @@
         "days": 15,
         "stops": 48
       },
-      "built": true
+      "built": true,
+      "shelf": false
     },
     {
       "id": "blackout_ms",
@@ -680,7 +1373,8 @@
         "days": 10,
         "stops": 33
       },
-      "built": true
+      "built": true,
+      "shelf": false
     },
     {
       "id": "aftershock",
@@ -711,7 +1405,8 @@
         "days": 15,
         "stops": 48
       },
-      "built": true
+      "built": true,
+      "shelf": false
     },
     {
       "id": "aftershock_ms",
@@ -742,7 +1437,8 @@
         "days": 10,
         "stops": 33
       },
-      "built": true
+      "built": true,
+      "shelf": false
     },
     {
       "id": "planetary_defense",
@@ -773,7 +1469,8 @@
         "days": 15,
         "stops": 48
       },
-      "built": true
+      "built": true,
+      "shelf": false
     },
     {
       "id": "planetary_defense_ms",
@@ -804,7 +1501,8 @@
         "days": 10,
         "stops": 33
       },
-      "built": true
+      "built": true,
+      "shelf": false
     },
     {
       "id": "midway",
@@ -835,7 +1533,8 @@
         "days": 15,
         "stops": 49
       },
-      "built": true
+      "built": true,
+      "shelf": false
     },
     {
       "id": "icecore",
@@ -866,7 +1565,8 @@
         "days": 15,
         "stops": 48
       },
-      "built": true
+      "built": true,
+      "shelf": false
     },
     {
       "id": "icecore_ms",
@@ -897,7 +1597,8 @@
         "days": 10,
         "stops": 33
       },
-      "built": true
+      "built": true,
+      "shelf": false
     },
     {
       "id": "outbreak_riverton",
@@ -928,7 +1629,8 @@
         "days": 15,
         "stops": 48
       },
-      "built": true
+      "built": true,
+      "shelf": false
     },
     {
       "id": "outbreak_riverton_ms",
@@ -959,7 +1661,8 @@
         "days": 10,
         "stops": 33
       },
-      "built": true
+      "built": true,
+      "shelf": false
     },
     {
       "id": "seedbank",
@@ -990,7 +1693,8 @@
         "days": 15,
         "stops": 48
       },
-      "built": true
+      "built": true,
+      "shelf": false
     },
     {
       "id": "seedbank_ms",
@@ -1021,7 +1725,8 @@
         "days": 10,
         "stops": 33
       },
-      "built": true
+      "built": true,
+      "shelf": false
     },
     {
       "id": "carrying",
@@ -1052,7 +1757,8 @@
         "days": 15,
         "stops": 45
       },
-      "built": true
+      "built": true,
+      "shelf": false
     },
     {
       "id": "ghostlight",
@@ -1083,7 +1789,8 @@
         "days": 15,
         "stops": 45
       },
-      "built": true
+      "built": true,
+      "shelf": false
     },
     {
       "id": "changeover",
@@ -1114,7 +1821,8 @@
         "days": 15,
         "stops": 45
       },
-      "built": true
+      "built": true,
+      "shelf": false
     },
     {
       "id": "slackwater",
@@ -1145,7 +1853,8 @@
         "days": 12,
         "stops": 36
       },
-      "built": true
+      "built": true,
+      "shelf": false
     },
     {
       "id": "overwind",
@@ -1176,7 +1885,8 @@
         "days": 12,
         "stops": 36
       },
-      "built": true
+      "built": true,
+      "shelf": false
     },
     {
       "id": "darkfibre",
@@ -1207,7 +1917,8 @@
         "days": 12,
         "stops": 36
       },
-      "built": true
+      "built": true,
+      "shelf": false
     },
     {
       "id": "qd_accel",
@@ -1238,7 +1949,8 @@
         "days": 3,
         "stops": 9
       },
-      "built": true
+      "built": true,
+      "shelf": false
     },
     {
       "id": "qd_dna",
@@ -1269,7 +1981,8 @@
         "days": 3,
         "stops": 9
       },
-      "built": true
+      "built": true,
+      "shelf": false
     },
     {
       "id": "qd_nucleus",
@@ -1300,7 +2013,8 @@
         "days": 3,
         "stops": 9
       },
-      "built": true
+      "built": true,
+      "shelf": false
     },
     {
       "id": "qd_tectonics",
@@ -1331,7 +2045,8 @@
         "days": 3,
         "stops": 9
       },
-      "built": true
+      "built": true,
+      "shelf": false
     },
     {
       "id": "qd_higgs",
@@ -1362,7 +2077,8 @@
         "days": 3,
         "stops": 9
       },
-      "built": true
+      "built": true,
+      "shelf": false
     },
     {
       "id": "qd_eclipse",
@@ -1393,7 +2109,8 @@
         "days": 3,
         "stops": 9
       },
-      "built": true
+      "built": true,
+      "shelf": false
     },
     {
       "id": "qd_exo",
@@ -1424,7 +2141,8 @@
         "days": 3,
         "stops": 9
       },
-      "built": true
+      "built": true,
+      "shelf": false
     },
     {
       "id": "qd_ligo",
@@ -1455,7 +2173,8 @@
         "days": 3,
         "stops": 9
       },
-      "built": true
+      "built": true,
+      "shelf": false
     },
     {
       "id": "qd_cmb",
@@ -1486,7 +2205,8 @@
         "days": 3,
         "stops": 9
       },
-      "built": true
+      "built": true,
+      "shelf": false
     },
     {
       "id": "qd_hubble",
@@ -1517,7 +2237,8 @@
         "days": 3,
         "stops": 9
       },
-      "built": true
+      "built": true,
+      "shelf": false
     },
     {
       "id": "qd_penicillin",
@@ -1548,7 +2269,8 @@
         "days": 3,
         "stops": 9
       },
-      "built": true
+      "built": true,
+      "shelf": false
     },
     {
       "id": "qd_germ",
@@ -1579,7 +2301,8 @@
         "days": 3,
         "stops": 9
       },
-      "built": true
+      "built": true,
+      "shelf": false
     },
     {
       "id": "qd_mendel",
@@ -1610,7 +2333,8 @@
         "days": 3,
         "stops": 9
       },
-      "built": true
+      "built": true,
+      "shelf": false
     },
     {
       "id": "qd_crispr",
@@ -1641,7 +2365,8 @@
         "days": 3,
         "stops": 9
       },
-      "built": true
+      "built": true,
+      "shelf": false
     },
     {
       "id": "qd_oxygen",
@@ -1672,7 +2397,8 @@
         "days": 3,
         "stops": 9
       },
-      "built": true
+      "built": true,
+      "shelf": false
     },
     {
       "id": "qd_periodic",
@@ -1703,7 +2429,8 @@
         "days": 3,
         "stops": 9
       },
-      "built": true
+      "built": true,
+      "shelf": false
     },
     {
       "id": "qd_stroop",
@@ -1734,7 +2461,8 @@
         "days": 3,
         "stops": 9
       },
-      "built": true
+      "built": true,
+      "shelf": false
     },
     {
       "id": "qd_memory",
@@ -1765,7 +2493,8 @@
         "days": 3,
         "stops": 9
       },
-      "built": true
+      "built": true,
+      "shelf": false
     },
     {
       "id": "qd_keynes",
@@ -1796,7 +2525,8 @@
         "days": 3,
         "stops": 9
       },
-      "built": true
+      "built": true,
+      "shelf": false
     },
     {
       "id": "qd_bankrun",
@@ -1827,7 +2557,8 @@
         "days": 3,
         "stops": 9
       },
-      "built": true
+      "built": true,
+      "shelf": false
     },
     {
       "id": "hospital",
@@ -1858,7 +2589,8 @@
         "days": 15,
         "stops": 45
       },
-      "built": true
+      "built": true,
+      "shelf": false
     }
   ]
 }
