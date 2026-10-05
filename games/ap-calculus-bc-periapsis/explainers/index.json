@@ -1,0 +1,107 @@
+{
+  "m01:room": {
+    "title": "The Signal Integrity Vault",
+    "seconds": 203,
+    "kind": "room",
+    "helper": "Imani Okafor",
+    "job": "Settle whether the altitude step at the relay handoff came from the craft."
+  },
+  "m02:room": {
+    "title": "The Kinematics Calibration Hall",
+    "seconds": 214,
+    "kind": "room",
+    "helper": "Mateo Ruiz",
+    "job": "Work out which way Odyssey is moving at closest approach, and how fast."
+  },
+  "m03:room": {
+    "title": "The Thruster Diagnostics Bay",
+    "seconds": 232,
+    "kind": "room",
+    "helper": "Lian Zhou",
+    "job": "Settle whether a leaking valve is pushing Odyssey off its arc."
+  },
+  "m04:room": {
+    "title": "The Impulse Reconstruction Lab",
+    "seconds": 193,
+    "kind": "room",
+    "helper": "Lian Zhou",
+    "job": "Work out how much push the engine's test pulse actually delivered."
+  },
+  "m05:room": {
+    "title": "The Propellant Systems Gallery",
+    "seconds": 204,
+    "kind": "room",
+    "helper": "Nia Banerjee",
+    "job": "Find where the reserve line's pressure settles once the valve is open."
+  },
+  "m06:room": {
+    "title": "The Mass Flow Metrology Room",
+    "seconds": 180,
+    "kind": "room",
+    "helper": "Nia Banerjee",
+    "job": "Find out how much fuel the transfer actually put into the main tank."
+  },
+  "m07:room": {
+    "title": "The Pressure Decay Observatory",
+    "seconds": 239,
+    "kind": "room",
+    "helper": "Celeste Ward",
+    "job": "Forecast the cabin pressure across the whole coast from two gauge readings."
+  },
+  "m08:room": {
+    "title": "The Thermal Control Workshop",
+    "seconds": 207,
+    "kind": "room",
+    "helper": "Sora Kim",
+    "job": "Work out when the frost will have taken half the star tracker window."
+  },
+  "m09:room": {
+    "title": "The Route Survey Theater",
+    "seconds": 207,
+    "kind": "room",
+    "helper": "Elias Venn",
+    "job": "Find out whether one spool of cable reaches the rim mast along the planned route."
+  },
+  "m10:room": {
+    "title": "The Polar Navigation Rotunda",
+    "seconds": 222,
+    "kind": "room",
+    "helper": "Sora Kim",
+    "job": "Find the heading of the ground track as it passes the relay mast."
+  },
+  "m11:room": {
+    "title": "The Corridor Survey Chamber",
+    "seconds": 259,
+    "kind": "room",
+    "helper": "Sora Kim",
+    "job": "Settle whether the wider aim box still fits inside the safe corridor."
+  },
+  "m12:room": {
+    "title": "The Series Accounting Annex",
+    "seconds": 183,
+    "kind": "room",
+    "helper": "Ren Ito",
+    "job": "Book the whole aim shift the string of corrections will produce."
+  },
+  "m13:room": {
+    "title": "The Residual Analysis Atrium",
+    "seconds": 180,
+    "kind": "room",
+    "helper": "Amara Singh",
+    "job": "Fix the band of gimbal gains the correction series settles inside."
+  },
+  "m14:room": {
+    "title": "The Verification Shield Room",
+    "seconds": 193,
+    "kind": "room",
+    "helper": "Amara Singh",
+    "job": "Fix the band of attitude angles the cubic sine model may be flown in."
+  },
+  "m15:room": {
+    "title": "The Return Burn Control Room",
+    "seconds": 205,
+    "kind": "room",
+    "helper": "Imani Okafor",
+    "job": "Set the command that puts Odyssey on the transfer arc home."
+  }
+}

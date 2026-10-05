@@ -1,0 +1,107 @@
+{
+  "m01:room": {
+    "title": "The Metabolism Glasshouse",
+    "seconds": 224,
+    "kind": "room",
+    "helper": "Ivo Reed",
+    "job": "Find out whether a sick cassava leaf loses carbon over a whole day."
+  },
+  "m02:room": {
+    "title": "The Root Transport House",
+    "seconds": 204,
+    "kind": "room",
+    "helper": "Mara Vale",
+    "job": "Find out which rinse leaves a root cell unchanged."
+  },
+  "m03:room": {
+    "title": "The Signal Imaging Lab",
+    "seconds": 210,
+    "kind": "room",
+    "helper": "Mara Vale",
+    "job": "Find out whether the border roots have slowed, and whether the calcium flash comes first."
+  },
+  "m04:room": {
+    "title": "The Expression Glasshouse",
+    "seconds": 327,
+    "kind": "room",
+    "helper": "Nell Shah",
+    "job": "Find out whether the root turned its defense gene up, or its DNA changed."
+  },
+  "m05:room": {
+    "title": "The Crossing House",
+    "seconds": 288,
+    "kind": "room",
+    "helper": "Nell Shah",
+    "job": "Find out whether resistance in Family 2 travels as one dominant gene."
+  },
+  "m06:room": {
+    "title": "The Linkage Analysis Trailer",
+    "seconds": 307,
+    "kind": "room",
+    "helper": "Nell Shah",
+    "job": "Find out how often marker B parts company with the resistance allele."
+  },
+  "m07:room": {
+    "title": "The Sequence and Protein Lab",
+    "seconds": 339,
+    "kind": "room",
+    "helper": "Nell Shah",
+    "job": "Find out which codon holds the changed base, and what the change does to the receptor."
+  },
+  "m08:room": {
+    "title": "The River Pathology Lab",
+    "seconds": 212,
+    "kind": "room",
+    "helper": "Mara Vale",
+    "job": "Find out how much PV-7 is in the root, and whether the controls show it caused the rot."
+  },
+  "m09:room": {
+    "title": "The Challenge Phenotyping House",
+    "seconds": 236,
+    "kind": "room",
+    "helper": "Ivo Reed",
+    "job": "Find out which line stops PV-7, and what stopping it costs at harvest."
+  },
+  "m10:room": {
+    "title": "The Seed Vault Atrium",
+    "seconds": 265,
+    "kind": "room",
+    "helper": "Nell Shah",
+    "job": "Find out whether the packed crate carries the valley's resistance variety."
+  },
+  "m11:room": {
+    "title": "The Evolution Trial Canopy",
+    "seconds": 187,
+    "kind": "room",
+    "helper": "Tess Rowan",
+    "job": "Find out whether the season's spray selected the resistant strains of PV-7."
+  },
+  "m12:room": {
+    "title": "The River Ecology Station",
+    "seconds": 188,
+    "kind": "room",
+    "helper": "Tess Rowan",
+    "job": "Find how fast the rot is spreading and whether the river is carrying it."
+  },
+  "m13:room": {
+    "title": "The Rhizosphere House",
+    "seconds": 188,
+    "kind": "room",
+    "helper": "Tess Rowan",
+    "job": "Find out whether the screened root partner feeds a plant the way field soil does."
+  },
+  "m14:room": {
+    "title": "The River Mesocosm Hall",
+    "seconds": 223,
+    "kind": "room",
+    "helper": "Ivo Reed",
+    "job": "Find out whether a pilot tank holds enough oxygen through a whole night."
+  },
+  "m15:room": {
+    "title": "The Harvest Decision Room",
+    "seconds": 184,
+    "kind": "room",
+    "helper": "Ada Penn",
+    "job": "Find out whether the pilot can leave the valley without carrying PV-7 or losing variety."
+  }
+}

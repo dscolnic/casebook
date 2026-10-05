@@ -1,0 +1,107 @@
+{
+  "m01:room": {
+    "title": "The Bank Motion Archive",
+    "seconds": 224,
+    "kind": "room",
+    "helper": "Ruth Bell",
+    "job": "Say whether the cage was still moving when the drum stopped."
+  },
+  "m02:room": {
+    "title": "The Brake House Analysis Bay",
+    "seconds": 174,
+    "kind": "room",
+    "helper": "Ada Kerr",
+    "job": "Say how hard an upward trip may stop the cage without unloading the rope."
+  },
+  "m03:room": {
+    "title": "The Rope Shop Metrology Room",
+    "seconds": 157,
+    "kind": "room",
+    "helper": "Mara Shaw",
+    "job": "Find the load the drive model carries, with the rope's weight in it."
+  },
+  "m04:room": {
+    "title": "The Winder Geometry Loft",
+    "seconds": 178,
+    "kind": "room",
+    "helper": "Ivo Reed",
+    "job": "Find the hoist drum's rotational inertia from its mass and its shape."
+  },
+  "m05:room": {
+    "title": "The Winding Drive Hall",
+    "seconds": 198,
+    "kind": "room",
+    "helper": "Ewan Price",
+    "job": "Say whether the planned start stays inside the winding motor's torque rating."
+  },
+  "m06:room": {
+    "title": "The Energy Audit Workshop",
+    "seconds": 192,
+    "kind": "room",
+    "helper": "Nia Cole",
+    "job": "Find the energy one full lift takes out of the stores."
+  },
+  "m07:room": {
+    "title": "The Ventilation Power Gallery",
+    "seconds": 262,
+    "kind": "room",
+    "helper": "Ruth Bell",
+    "job": "Set the cruise speed the hoist may use beside the ventilation fans."
+  },
+  "m08:room": {
+    "title": "The Brake Impulse Cell",
+    "seconds": 188,
+    "kind": "room",
+    "helper": "Ada Kerr",
+    "job": "Say whether the warm brake stops a loaded cage inside the trip limit."
+  },
+  "m09:room": {
+    "title": "The Cable Rail Workshop",
+    "seconds": 229,
+    "kind": "room",
+    "helper": "Mara Shaw",
+    "job": "Say what the latch does to the governor's speed."
+  },
+  "m10:room": {
+    "title": "The Capsule Drop Station",
+    "seconds": 192,
+    "kind": "room",
+    "helper": "Nia Cole",
+    "job": "Find the speed a supply capsule settles at in the borehole."
+  },
+  "m11:room": {
+    "title": "The Coupling Test Shed",
+    "seconds": 227,
+    "kind": "room",
+    "helper": "Ivo Reed",
+    "job": "Find the speed the clutch settles at, and the pull it puts on the trip latch."
+  },
+  "m12:room": {
+    "title": "The Rope Dynamics Laboratory",
+    "seconds": 196,
+    "kind": "room",
+    "helper": "Mara Shaw",
+    "job": "Model the hoisting rope as a spring, with its own mass counted."
+  },
+  "m13:room": {
+    "title": "The March Landing Replay Room",
+    "seconds": 281,
+    "kind": "room",
+    "helper": "Ruth Bell",
+    "job": "File a peak time before the sealed trace is opened."
+  },
+  "m14:room": {
+    "title": "The Warm Brake Certification Cell",
+    "seconds": 180,
+    "kind": "room",
+    "helper": "Ada Kerr",
+    "job": "Bound the worst-case stop above the bank landing."
+  },
+  "m15:room": {
+    "title": "The Emergency Winding Control",
+    "seconds": 276,
+    "kind": "room",
+    "helper": "Ruth Bell",
+    "job": "Put every signed limit into one winding plan and time it."
+  }
+}

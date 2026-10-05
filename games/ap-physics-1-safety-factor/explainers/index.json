@@ -1,0 +1,107 @@
+{
+  "m01:room": {
+    "title": "The Wheel Timing Shop",
+    "seconds": 146,
+    "kind": "room",
+    "helper": "Maya Hart",
+    "job": "Find out whether three stop slips are three facts or one."
+  },
+  "m02:room": {
+    "title": "The Ship Load Room",
+    "seconds": 197,
+    "kind": "room",
+    "helper": "Luka Chen",
+    "job": "Work out what the Narwhal's arm supplies at the bottom of the swing."
+  },
+  "m03:room": {
+    "title": "The Carousel Drive House",
+    "seconds": 203,
+    "kind": "room",
+    "helper": "Linh Tran",
+    "job": "Find the circle a hanging chair really rides, and the speed its lean allows."
+  },
+  "m04:room": {
+    "title": "The Impact Test Bay",
+    "seconds": 184,
+    "kind": "room",
+    "helper": "Ana Ruiz",
+    "job": "Find what the floor took out of a loaded bumper car, and what the harness did to the dummy."
+  },
+  "m05:room": {
+    "title": "The Brennan Metrology Room",
+    "seconds": 191,
+    "kind": "room",
+    "helper": "Ruth Brennan",
+    "job": "Decide whether speeds measured with an uncalibrated wheel can stand."
+  },
+  "m06:room": {
+    "title": "The Independent Timing Annex",
+    "seconds": 147,
+    "kind": "room",
+    "helper": "Maya Hart",
+    "job": "Count how many independent pieces of evidence three matching slips are."
+  },
+  "m07:room": {
+    "title": "The Impulse Review Room",
+    "seconds": 198,
+    "kind": "room",
+    "helper": "Ana Ruiz",
+    "job": "Establish what the October brake pulse and the operator card each prove."
+  },
+  "m08:room": {
+    "title": "The Period Trace Cabin",
+    "seconds": 156,
+    "kind": "room",
+    "helper": "Linh Tran",
+    "job": "Compare the motor's push rate with the Narwhal's own swing period."
+  },
+  "m09:room": {
+    "title": "The Arm Inspection Loft",
+    "seconds": 217,
+    "kind": "room",
+    "helper": "Tunde Bello",
+    "job": "Work out the twisting the tested gust puts on arm nine's root pin."
+  },
+  "m10:room": {
+    "title": "The Loop Dynamics Office",
+    "seconds": 185,
+    "kind": "room",
+    "helper": "Ruth Brennan",
+    "job": "Find out whether the drawing's crown radius gives the coaster its margin."
+  },
+  "m11:room": {
+    "title": "The Flume Hydraulic Lab",
+    "seconds": 193,
+    "kind": "room",
+    "helper": "Priya Raman",
+    "job": "Work out what the Otter Flume draws from the shared motor plant."
+  },
+  "m12:room": {
+    "title": "The Tower Witness Cabin",
+    "seconds": 190,
+    "kind": "room",
+    "helper": "Mateo Silva",
+    "job": "Bound what the witnessed drop-tower stop proves."
+  },
+  "m13:room": {
+    "title": "The Capacity Schedule Office",
+    "seconds": 178,
+    "kind": "room",
+    "helper": "Priya Raman",
+    "job": "Add the park's rides up for one moment in the day."
+  },
+  "m14:room": {
+    "title": "The Geometry Verification Room",
+    "seconds": 192,
+    "kind": "room",
+    "helper": "Luka Chen",
+    "job": "Settle what the real crown radius leaves the coaster."
+  },
+  "m15:room": {
+    "title": "The Park Evidence Board",
+    "seconds": 184,
+    "kind": "room",
+    "helper": "Maya Hart",
+    "job": "Settle what one park certificate can honestly carry."
+  }
+}

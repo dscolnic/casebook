@@ -1,0 +1,107 @@
+{
+  "m01:room": {
+    "title": "The Intake Chemistry House",
+    "seconds": 228,
+    "kind": "room",
+    "helper": "Dr. Mara Reyes",
+    "job": "Say whether the water at the pumps goes over the closure setpoint at high tide."
+  },
+  "m02:room": {
+    "title": "The Watershed Routing Shed",
+    "seconds": 162,
+    "kind": "room",
+    "helper": "Eli Marchand",
+    "job": "Find the mass of nitrate the first flush would carry into the nursery marsh."
+  },
+  "m03:room": {
+    "title": "The Oxygen Process Hall",
+    "seconds": 166,
+    "kind": "room",
+    "helper": "Dr. Nadia Fontenot",
+    "job": "Say how far the oxygen in the refuge channel falls before dawn."
+  },
+  "m04:room": {
+    "title": "The Marsh Hydraulics Pavilion",
+    "seconds": 217,
+    "kind": "room",
+    "helper": "June Park",
+    "job": "Say which repair keeps the waves below the levee's freeboard."
+  },
+  "m05:room": {
+    "title": "The Contaminant Analysis Lab",
+    "seconds": 158,
+    "kind": "room",
+    "helper": "Lila Chen",
+    "job": "Say what the benzene in Heron Creek would come to in the main channel."
+  },
+  "m06:room": {
+    "title": "The Food Web Field House",
+    "seconds": 340,
+    "kind": "room",
+    "helper": "Remy Thibodeaux",
+    "job": "Say which crab beds are safe for children to eat from."
+  },
+  "m07:room": {
+    "title": "The Population Dynamics Station",
+    "seconds": 201,
+    "kind": "room",
+    "helper": "Sade Williams",
+    "job": "Say whether this week's catch on Grand Reef is more than the reef can replace."
+  },
+  "m08:room": {
+    "title": "The Barrier Ecology Observatory",
+    "seconds": 178,
+    "kind": "room",
+    "helper": "Amara Oduya",
+    "job": "Say which habitat link brings the most species back."
+  },
+  "m09:room": {
+    "title": "The Soil Recovery Barn",
+    "seconds": 222,
+    "kind": "room",
+    "helper": "Rafael Ortiz",
+    "job": "Say which replanting plan keeps soil loss under the tolerance."
+  },
+  "m10:room": {
+    "title": "The Pump Energy Control Room",
+    "seconds": 220,
+    "kind": "room",
+    "helper": "Rosa Alvarez",
+    "job": "Say which power plan keeps Canal Row under the fine-particle standard."
+  },
+  "m11:room": {
+    "title": "The Aquifer Operations Vault",
+    "seconds": 217,
+    "kind": "room",
+    "helper": "Dr. Celeste Arnaud",
+    "job": "Say whether the river and the wells can supply a city twice this size."
+  },
+  "m12:room": {
+    "title": "The Climate Projection Room",
+    "seconds": 236,
+    "kind": "room",
+    "helper": "Theo Landry",
+    "job": "Say whether the old pump floor stands high enough for the next thirty years."
+  },
+  "m13:room": {
+    "title": "The Field Methods Annex",
+    "seconds": 230,
+    "kind": "room",
+    "helper": "Dr. Paul Mouton",
+    "job": "Say whether the treatment marsh itself earned the contractor's bonus."
+  },
+  "m14:room": {
+    "title": "The Estuary Decision Forum",
+    "seconds": 213,
+    "kind": "room",
+    "helper": "Dana Foster",
+    "job": "Say which drainage route meets the permit's exposure cap."
+  },
+  "m15:room": {
+    "title": "The Northgate Command Center",
+    "seconds": 230,
+    "kind": "room",
+    "helper": "Dr. Mara Reyes",
+    "job": "Say at what rate Northgate can reopen, and under which controls."
+  }
+}

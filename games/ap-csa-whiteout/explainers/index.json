@@ -1,0 +1,107 @@
+{
+  "m01:room": {
+    "title": "The Thermal Code Annex",
+    "seconds": 184,
+    "kind": "room",
+    "helper": "Mei Alvarez",
+    "job": "Find out what the heat screen's percent is built from."
+  },
+  "m02:room": {
+    "title": "The Air Logic Gallery",
+    "seconds": 195,
+    "kind": "room",
+    "helper": "Jonah Reyes",
+    "job": "Find out why one reading produced two orders."
+  },
+  "m03:room": {
+    "title": "The Mobility Test Hall",
+    "seconds": 189,
+    "kind": "room",
+    "helper": "Malik Okafor",
+    "job": "Find out whether Rover Three's loop can end."
+  },
+  "m04:room": {
+    "title": "The Regression Vault",
+    "seconds": 197,
+    "kind": "room",
+    "helper": "Priya Nair",
+    "job": "Find out whether three systems are failing or one shared part is."
+  },
+  "m05:room": {
+    "title": "The Object Identity Workshop",
+    "seconds": 158,
+    "kind": "room",
+    "helper": "Dr. Elena Park",
+    "job": "Find out which object the patch has been raising."
+  },
+  "m06:room": {
+    "title": "The Packet Parsing Bay",
+    "seconds": 180,
+    "kind": "room",
+    "helper": "Priya Nair",
+    "job": "Find out where a character goes missing between the packet and the screen."
+  },
+  "m07:room": {
+    "title": "The Habitat Sensor Gallery",
+    "seconds": 184,
+    "kind": "room",
+    "helper": "Jonah Reyes",
+    "job": "Find out whether the gallery screen is reading the room it names."
+  },
+  "m08:room": {
+    "title": "The Incident Archive Room",
+    "seconds": 162,
+    "kind": "room",
+    "helper": "Mei Alvarez",
+    "job": "Find out what the cleanup loop does to the alert list while it runs."
+  },
+  "m09:room": {
+    "title": "The Ice Route Mapping Room",
+    "seconds": 197,
+    "kind": "room",
+    "helper": "Malik Okafor",
+    "job": "Find out which cell the rover's copy of the survey grid actually wrote."
+  },
+  "m10:room": {
+    "title": "The Frequency Search Deck",
+    "seconds": 167,
+    "kind": "room",
+    "helper": "Liv Andersen",
+    "job": "Find which search reaches the rescue channel inside the pass."
+  },
+  "m11:room": {
+    "title": "The Controller Class Lab",
+    "seconds": 160,
+    "kind": "room",
+    "helper": "Dr. Elena Park",
+    "job": "Find out whether two controllers share one alarm."
+  },
+  "m12:room": {
+    "title": "The Rescue Queue Studio",
+    "seconds": 171,
+    "kind": "room",
+    "helper": "Mei Alvarez",
+    "job": "Find out what fixes the order of two records carrying the same priority."
+  },
+  "m13:room": {
+    "title": "The Relay Route Lab",
+    "seconds": 198,
+    "kind": "room",
+    "helper": "Malik Okafor",
+    "job": "Find out how a planner that calls itself decides when to stop."
+  },
+  "m14:room": {
+    "title": "The Rollback Proving Room",
+    "seconds": 155,
+    "kind": "room",
+    "helper": "Priya Nair",
+    "job": "Find what the rollback leaves behind in logs it has never seen."
+  },
+  "m15:room": {
+    "title": "The Recovery Control Room",
+    "seconds": 191,
+    "kind": "room",
+    "helper": "Dr. Elena Park",
+    "job": "Settle which build the staged release can carry to every controller."
+  }
+}
