@@ -1,0 +1,137 @@
+{
+ "m01": {
+  "speaker": "Mara Chen",
+  "role": "State audit director",
+  "voice": "af_kore",
+  "paragraphs": [
+   "m01-0.webm",
+   "m01-1.webm"
+  ]
+ },
+ "m15": {
+  "speaker": "Mara Chen",
+  "role": "State audit director",
+  "voice": "af_kore",
+  "paragraphs": [
+   "m15-0.webm",
+   "m15-1.webm"
+  ]
+ },
+ "m02": {
+  "speaker": "Rowan Singh",
+  "role": "East wing records clerk",
+  "voice": "af_jessica",
+  "paragraphs": [
+   "m02-0.webm",
+   "m02-1.webm"
+  ]
+ },
+ "m11": {
+  "speaker": "Rowan Singh",
+  "role": "East wing records clerk",
+  "voice": "af_jessica",
+  "paragraphs": [
+   "m11-0.webm",
+   "m11-1.webm"
+  ]
+ },
+ "m03": {
+  "speaker": "Amina Bell",
+  "role": "Scanning technician",
+  "voice": "af_bella",
+  "paragraphs": [
+   "m03-0.webm",
+   "m03-1.webm"
+  ]
+ },
+ "m10": {
+  "speaker": "Amina Bell",
+  "role": "Scanning technician",
+  "voice": "af_bella",
+  "paragraphs": [
+   "m10-0.webm",
+   "m10-1.webm"
+  ]
+ },
+ "m04": {
+  "speaker": "Nico Patel",
+  "role": "Scanner line operator",
+  "voice": "am_michael",
+  "paragraphs": [
+   "m04-0.webm",
+   "m04-1.webm"
+  ]
+ },
+ "m05": {
+  "speaker": "Jules Navarro",
+  "role": "West wing register clerk",
+  "voice": "am_onyx",
+  "paragraphs": [
+   "m05-0.webm",
+   "m05-1.webm"
+  ]
+ },
+ "m06": {
+  "speaker": "Iris Shah",
+  "role": "Resident observer",
+  "voice": "af_sarah",
+  "paragraphs": [
+   "m06-0.webm",
+   "m06-1.webm"
+  ]
+ },
+ "m14": {
+  "speaker": "Iris Shah",
+  "role": "Resident observer",
+  "voice": "af_sarah",
+  "paragraphs": [
+   "m14-0.webm",
+   "m14-1.webm"
+  ]
+ },
+ "m07": {
+  "speaker": "Elena Cruz",
+  "role": "Hand-check crew supervisor",
+  "voice": "af_heart",
+  "paragraphs": [
+   "m07-0.webm",
+   "m07-1.webm"
+  ]
+ },
+ "m13": {
+  "speaker": "Elena Cruz",
+  "role": "Hand-check crew supervisor",
+  "voice": "af_heart",
+  "paragraphs": [
+   "m13-0.webm",
+   "m13-1.webm"
+  ]
+ },
+ "m08": {
+  "speaker": "Tessa Cole",
+  "role": "Front hall supervisor",
+  "voice": "af_river",
+  "paragraphs": [
+   "m08-0.webm",
+   "m08-1.webm"
+  ]
+ },
+ "m09": {
+  "speaker": "Ada Mensah",
+  "role": "Mailback survey planner",
+  "voice": "bf_alice",
+  "paragraphs": [
+   "m09-0.webm",
+   "m09-1.webm"
+  ]
+ },
+ "m12": {
+  "speaker": "Ada Mensah",
+  "role": "Mailback survey planner",
+  "voice": "bf_alice",
+  "paragraphs": [
+   "m12-0.webm",
+   "m12-1.webm"
+  ]
+ }
+}
