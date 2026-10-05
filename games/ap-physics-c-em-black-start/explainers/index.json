@@ -1,0 +1,107 @@
+{
+  "m01:room": {
+    "title": "The Charge Mapping Annex",
+    "seconds": 134,
+    "kind": "room",
+    "helper": "Dr. Lena Ortiz",
+    "job": "Check the harbour relay's field sensor before the storm test."
+  },
+  "m02:room": {
+    "title": "The Flux Survey Station",
+    "seconds": 166,
+    "kind": "room",
+    "helper": "Dr. Amina Shah",
+    "job": "Find out how much charge the storm's layer is holding over Port Mercy."
+  },
+  "m03:room": {
+    "title": "The Atmospheric Potential Observatory",
+    "seconds": 156,
+    "kind": "room",
+    "helper": "Dr. Elias Park",
+    "job": "Put bounds on the voltage between the storm layer and the ground."
+  },
+  "m04:room": {
+    "title": "The Conductor Safety Garage",
+    "seconds": 170,
+    "kind": "room",
+    "helper": "Camila Reyes",
+    "job": "Predict the field at the command van's mast tip."
+  },
+  "m05:room": {
+    "title": "The Storm Capacitance Office",
+    "seconds": 194,
+    "kind": "room",
+    "helper": "Dr. Nia Okafor",
+    "job": "Put a range on the capacitance between the storm layer and the ground."
+  },
+  "m06:room": {
+    "title": "The Pulse Bank House",
+    "seconds": 167,
+    "kind": "room",
+    "helper": "Victor Hale",
+    "job": "Work out what the twelve-module bank stores and how fast it lets go."
+  },
+  "m07:room": {
+    "title": "The Grounding and Metering Bay",
+    "seconds": 174,
+    "kind": "room",
+    "helper": "Sora Kim",
+    "job": "Find out whether the recorder's alarming reading came from the signal or from its own ground."
+  },
+  "m08:room": {
+    "title": "The Magnetic Right-of-Way Depot",
+    "seconds": 220,
+    "kind": "room",
+    "helper": "Mateo Alvarez",
+    "job": "Find the field the start cable puts on the control harness, and the push that comes with it."
+  },
+  "m09:room": {
+    "title": "The Induction Survey Shed",
+    "seconds": 183,
+    "kind": "room",
+    "helper": "Dr. Imani Cole",
+    "job": "Work out how big a voltage the rising feeder current puts on the control loop beside it."
+  },
+  "m10:room": {
+    "title": "The Feeder Dynamics Room",
+    "seconds": 187,
+    "kind": "room",
+    "helper": "Petra Novak",
+    "job": "Find how much voltage the feeder really needs while its current is ramping."
+  },
+  "m11:room": {
+    "title": "The Conduit Current Audit",
+    "seconds": 192,
+    "kind": "room",
+    "helper": "Ada Mensah",
+    "job": "Account for the current the feeder carries, and find the path nobody metered."
+  },
+  "m12:room": {
+    "title": "The Radio Filter Test Bay",
+    "seconds": 167,
+    "kind": "room",
+    "helper": "Hana Mori",
+    "job": "Find how hard the surge filter's ringing pushed the radio control card."
+  },
+  "m13:room": {
+    "title": "The Recorder Bandwidth Lab",
+    "seconds": 177,
+    "kind": "room",
+    "helper": "Dr. Elise Laurent",
+    "job": "Find which recorder can follow the test pulse without shrinking it."
+  },
+  "m14:room": {
+    "title": "The Full-System Induction Deck",
+    "seconds": 235,
+    "kind": "room",
+    "helper": "Marcus Reed",
+    "job": "Predict each rack's loop voltage from one full-system pulse, then check it."
+  },
+  "m15:room": {
+    "title": "The Control Experiment Workshop",
+    "seconds": 194,
+    "kind": "room",
+    "helper": "Cora Bennett",
+    "job": "Test whether the smaller cable loop is what brought Rack E's voltage down."
+  }
+}

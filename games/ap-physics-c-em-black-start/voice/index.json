@@ -1,0 +1,137 @@
+{
+ "m01": {
+  "speaker": "Dr. Lena Ortiz",
+  "role": "Incident lead",
+  "voice": "af_aoede",
+  "paragraphs": [
+   "m01-0.webm",
+   "m01-1.webm"
+  ]
+ },
+ "m02": {
+  "speaker": "Dr. Amina Shah",
+  "role": "Storm-field engineer",
+  "voice": "bf_lily",
+  "paragraphs": [
+   "m02-0.webm",
+   "m02-1.webm"
+  ]
+ },
+ "m03": {
+  "speaker": "Dr. Elias Park",
+  "role": "Atmospheric electricity lead",
+  "voice": "bm_daniel",
+  "paragraphs": [
+   "m03-0.webm",
+   "m03-1.webm"
+  ]
+ },
+ "m04": {
+  "speaker": "Camila Reyes",
+  "role": "Mobile-systems safety lead",
+  "voice": "af_nova",
+  "paragraphs": [
+   "m04-0.webm",
+   "m04-1.webm"
+  ]
+ },
+ "m05": {
+  "speaker": "Dr. Nia Okafor",
+  "role": "Storm-analog designer",
+  "voice": "af_bella",
+  "paragraphs": [
+   "m05-0.webm",
+   "m05-1.webm"
+  ]
+ },
+ "m06": {
+  "speaker": "Victor Hale",
+  "role": "Pulse-bank supervisor",
+  "voice": "am_liam",
+  "paragraphs": [
+   "m06-0.webm",
+   "m06-1.webm"
+  ]
+ },
+ "m07": {
+  "speaker": "Sora Kim",
+  "role": "Recorder systems lead",
+  "voice": "bm_fable",
+  "paragraphs": [
+   "m07-0.webm",
+   "m07-1.webm"
+  ]
+ },
+ "m08": {
+  "speaker": "Mateo Alvarez",
+  "role": "Cable-routing lead",
+  "voice": "am_michael",
+  "paragraphs": [
+   "m08-0.webm",
+   "m08-1.webm"
+  ]
+ },
+ "m09": {
+  "speaker": "Dr. Imani Cole",
+  "role": "Induction survey lead",
+  "voice": "af_sky",
+  "paragraphs": [
+   "m09-0.webm",
+   "m09-1.webm"
+  ]
+ },
+ "m10": {
+  "speaker": "Petra Novak",
+  "role": "Feeder commissioning lead",
+  "voice": "bf_emma",
+  "paragraphs": [
+   "m10-0.webm",
+   "m10-1.webm"
+  ]
+ },
+ "m11": {
+  "speaker": "Ada Mensah",
+  "role": "Power-distribution auditor",
+  "voice": "af_alloy",
+  "paragraphs": [
+   "m11-0.webm",
+   "m11-1.webm"
+  ]
+ },
+ "m12": {
+  "speaker": "Hana Mori",
+  "role": "Radio systems lead",
+  "voice": "bf_isabella",
+  "paragraphs": [
+   "m12-0.webm",
+   "m12-1.webm"
+  ]
+ },
+ "m13": {
+  "speaker": "Dr. Elise Laurent",
+  "role": "Recorder calibration lead",
+  "voice": "bf_alice",
+  "paragraphs": [
+   "m13-0.webm",
+   "m13-1.webm"
+  ]
+ },
+ "m14": {
+  "speaker": "Marcus Reed",
+  "role": "Full-system test director",
+  "voice": "am_santa",
+  "paragraphs": [
+   "m14-0.webm",
+   "m14-1.webm"
+  ]
+ },
+ "m15": {
+  "speaker": "Cora Bennett",
+  "role": "Restoration test lead",
+  "voice": "af_sarah",
+  "paragraphs": [
+   "m15-0.webm",
+   "m15-1.webm"
+  ]
+ }
+}
