@@ -43,7 +43,7 @@
   },
   "m07:room": {
     "title": "The Pressure Decay Observatory",
-    "seconds": 157,
+    "seconds": 164,
     "kind": "room",
     "helper": "Celeste Ward",
     "job": "Forecast the cabin pressure across the whole coast from two gauge readings."

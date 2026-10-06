@@ -22,28 +22,28 @@
   },
   "m04:room": {
     "title": "The Expression Glasshouse",
-    "seconds": 212,
+    "seconds": 209,
     "kind": "room",
     "helper": "Nell Shah",
     "job": "Find out whether the root turned its defense gene up, or its DNA changed."
   },
   "m05:room": {
     "title": "The Crossing House",
-    "seconds": 188,
+    "seconds": 192,
     "kind": "room",
     "helper": "Nell Shah",
     "job": "Find out whether resistance in Family 2 travels as one dominant gene."
   },
   "m06:room": {
     "title": "The Linkage Analysis Trailer",
-    "seconds": 201,
+    "seconds": 200,
     "kind": "room",
     "helper": "Nell Shah",
     "job": "Find out how often marker B parts company with the resistance allele."
   },
   "m07:room": {
     "title": "The Sequence and Protein Lab",
-    "seconds": 220,
+    "seconds": 221,
     "kind": "room",
     "helper": "Nell Shah",
     "job": "Find out which codon holds the changed base, and what the change does to the receptor."
@@ -64,7 +64,7 @@
   },
   "m10:room": {
     "title": "The Seed Vault Atrium",
-    "seconds": 173,
+    "seconds": 176,
     "kind": "room",
     "helper": "Nell Shah",
     "job": "Find out whether the packed crate carries the valley's resistance variety."

@@ -1,7 +1,7 @@
 {
   "m01:room": {
     "title": "The Molar Accounting Lab",
-    "seconds": 207,
+    "seconds": 200,
     "kind": "room",
     "helper": "Laila Abiola",
     "job": "Count the carbon the plant holds, in the units the shift plan is written in."
@@ -36,7 +36,7 @@
   },
   "m06:room": {
     "title": "The Corrosion Test Lab",
-    "seconds": 193,
+    "seconds": 191,
     "kind": "room",
     "helper": "Laila Abiola",
     "job": "Find out what is happening at joint J-7, where two metals meet under a wet salt film."
@@ -99,7 +99,7 @@
   },
   "m15:room": {
     "title": "The Launch Certification Office",
-    "seconds": 213,
+    "seconds": 209,
     "kind": "room",
     "helper": "Laila Abiola",
     "job": "Sign off the methane and the oxygen the ascent engine is loaded with."

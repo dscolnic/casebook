@@ -1,7 +1,7 @@
 {
   "m01:room": {
     "title": "The Bank Motion Archive",
-    "seconds": 148,
+    "seconds": 153,
     "kind": "room",
     "helper": "Ruth Bell",
     "job": "Say whether the cage was still moving when the drum stopped."
@@ -43,7 +43,7 @@
   },
   "m07:room": {
     "title": "The Ventilation Power Gallery",
-    "seconds": 172,
+    "seconds": 173,
     "kind": "room",
     "helper": "Ruth Bell",
     "job": "Set the cruise speed the hoist may use beside the ventilation fans."
@@ -85,7 +85,7 @@
   },
   "m13:room": {
     "title": "The March Landing Replay Room",
-    "seconds": 184,
+    "seconds": 185,
     "kind": "room",
     "helper": "Ruth Bell",
     "job": "File a peak time before the sealed trace is opened."
@@ -99,7 +99,7 @@
   },
   "m15:room": {
     "title": "The Emergency Winding Control",
-    "seconds": 181,
+    "seconds": 184,
     "kind": "room",
     "helper": "Ruth Bell",
     "job": "Put every signed limit into one winding plan and time it."
