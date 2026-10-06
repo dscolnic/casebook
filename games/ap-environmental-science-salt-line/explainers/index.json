@@ -36,7 +36,7 @@
   },
   "m06:room": {
     "title": "The Food Web Field House",
-    "seconds": 340,
+    "seconds": 220,
     "kind": "room",
     "helper": "Remy Thibodeaux",
     "job": "Say which crab beds are safe for children to eat from."
