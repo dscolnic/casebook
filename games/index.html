@@ -228,6 +228,15 @@
      syllabus, and killing pointers on the card kills the button that shows it.
      There is simply no link element to press. */
   .card--unbuilt{opacity:.62}
+  /* A campaign whose room films have not shipped is not ready to play. Its shot goes
+     grey and it loses its link, the same way an unbuilt one does — the card stays
+     readable, and the concepts button still works, because the syllabus is real even
+     when the films are not. The greyscale sits on the image rather than the card so
+     the accent, the subject tag and the title keep their colour and the card still
+     reads as one of the set rather than as a broken tile. */
+  .card--nofilms .shot img{filter:grayscale(1); opacity:.55}
+  .card--nofilms:hover .shot img{transform:none}
+  .card--nofilms .body{opacity:.72}
 
   .shot{position:relative; aspect-ratio:16/9; background:#080a0e; overflow:hidden}
   .shot img{
@@ -263,7 +272,7 @@
     opacity:0; transform:scale(.8); transition:opacity .18s, transform .18s;
   }
   .card:hover .play, .card:focus-visible .play{opacity:1; transform:scale(1)}
-  .unbuilt{
+  .unbuilt, .nofilms{
     position:absolute; top:12px; right:12px; z-index:1;
     font:600 10px/1 var(--mono); letter-spacing:.1em; text-transform:uppercase;
     color:var(--dim); border:1px solid var(--line); background:#0d0f13cc;
@@ -593,19 +602,24 @@ const CONCEPTS_MARK = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor
 function cardHTML(g, i){
   const p = progressOf(g);
   const built = g.built !== false;
+  // `films` is written by the sync off the shipped folder. A campaign without its room
+  // films is not ready for a player, so it is shown but not opened — same treatment as
+  // an unbuilt one, and it comes back on its own once the films are synced.
+  const ready = built && g.films !== false;
   const panel = `concepts-${i}`;
   return `
-  <div class="card${built ? '' : ' card--unbuilt'}${p && !p.done ? ' card--started' : ''}"
+  <div class="card${built ? '' : ' card--unbuilt'}${built && !ready ? ' card--nofilms' : ''}${p && !p.done ? ' card--started' : ''}"
      style="--accent:${esc(g.accent)}">
-    ${built ? `<a class="card__link" href="./${esc(g.id)}/index.html"
+    ${ready ? `<a class="card__link" href="./${esc(g.id)}/index.html"
                   aria-label="Play ${esc(g.title)}"></a>` : ''}
     <div class="shot">
       ${g.hero ? `<img src="${esc(g.hero)}" alt="" loading="lazy">`
                : `<div class="shot__none" aria-hidden="true"><span>no snapshot yet</span></div>`}
       <div class="shot__veil"></div>
       <span class="field">${esc(g.field)}</span>
-      ${built ? '<span class="play" aria-hidden="true">▶</span>'
-              : '<span class="unbuilt">not built</span>'}
+      ${ready ? '<span class="play" aria-hidden="true">▶</span>'
+              : built ? '<span class="nofilms">coming soon</span>'
+                      : '<span class="unbuilt">not built</span>'}
       ${p ? `<span class="resume${p.done ? ' resume--done' : ''}">${esc(p.pill)}</span>` : ''}
       <h3>${esc(g.title)}</h3>
     </div>
