@@ -1,105 +1,105 @@
 {
   "m01:room": {
     "title": "The Harbor Hydrometry Shed",
-    "seconds": 177,
+    "seconds": 73,
     "kind": "room",
     "helper": "Elian Rook",
-    "job": "Settle the true rate of rise at the lower quay, and the hour it reaches the deck."
+    "job": "Find how fast the water is rising, and when it reaches the quay deck."
   },
   "m02:room": {
     "title": "The Basin Forecast Workshop",
-    "seconds": 186,
+    "seconds": 65,
     "kind": "room",
     "helper": "Sora Adeyemi",
-    "job": "Settle what kind of climb the basin is on, and the hour it reaches the market road line."
+    "job": "Fit a curve to the basin levels, and find when it reaches the market road."
   },
   "m03:room": {
     "title": "The Gauge Integrity Loft",
-    "seconds": 167,
+    "seconds": 66,
     "kind": "room",
     "helper": "Mikkel Orr",
-    "job": "Settle whether the north fit's early crest is in the water or in the curve."
+    "job": "Check whether the north gauge's forecast comes from the water or from the maths."
   },
   "m04:room": {
     "title": "The Sluice Calibration House",
-    "seconds": 203,
+    "seconds": 71,
     "kind": "room",
     "helper": "Mara Venn",
-    "job": "Settle which Gate C settings the flow model can be trusted at, and where the hard stop belongs."
+    "job": "Find which Gate C openings the flow formula works at, and the widest safe one."
   },
   "m05:room": {
     "title": "The Road Control Garage",
-    "seconds": 178,
+    "seconds": 61,
     "kind": "room",
     "helper": "Nessa Kerr",
-    "job": "Post the hour each class of vehicle loses the raised causeway."
+    "job": "Find when cars and when rescue trucks must leave the raised causeway."
   },
   "m06:room": {
     "title": "The Island Dispatch Hall",
-    "seconds": 179,
+    "seconds": 64,
     "kind": "room",
     "helper": "Ivo Lund",
-    "job": "Settle what kind of growth the north feeder is on, and how close to the breaker it comes by noon."
+    "job": "Find what kind of growth the north feeder is on, and its load by noon."
   },
   "m07:room": {
     "title": "The Weather Relay Block",
-    "seconds": 181,
+    "seconds": 62,
     "kind": "room",
     "helper": "Sora Adeyemi",
-    "job": "Read the growth of the pressure shortfall off the log wall, and the lift it puts on the sea by noon."
+    "job": "Read the pressure model off the log wall, and the sea lift it brings by noon."
   },
   "m08:room": {
     "title": "The Signal Conversion Annex",
-    "seconds": 181,
+    "seconds": 67,
     "kind": "room",
     "helper": "Lena Tor",
-    "job": "Turn the legacy channel's counts back into water level, and name the counts that reversal covers."
+    "job": "Turn the old sensor's counts back into a water level."
   },
   "m09:room": {
     "title": "The Warning Time Office",
-    "seconds": 188,
+    "seconds": 58,
     "kind": "room",
     "helper": "Ivo Lund",
-    "job": "Name the hour the feeder reaches its trip level, and the hour shed staging has to begin."
+    "job": "Find when the feeder load reaches the breaker limit, and when shed staging must start."
   },
   "m10:room": {
     "title": "The Tide Harmonics Hall",
-    "seconds": 192,
+    "seconds": 72,
     "kind": "room",
     "helper": "Aila Moss",
-    "job": "Fix the tide's midline, swing and period, and the hour the next high water lands."
+    "job": "Build a cosine model of the plain tide, and find when high water comes."
   },
   "m11:room": {
     "title": "The Phase Analysis Cabin",
-    "seconds": 160,
+    "seconds": 60,
     "kind": "room",
     "helper": "Nessa Kerr",
-    "job": "Fix the window when the storm tide stands on the causeway deck."
+    "job": "Find when the storm tide stands on the causeway deck, and when it clears."
   },
   "m12:room": {
     "title": "The Breakwater Model Room",
-    "seconds": 187,
+    "seconds": 70,
     "kind": "room",
     "helper": "Rune Calder",
-    "job": "Settle whether the storm crest carries waves over the top of the outer breakwater."
+    "job": "Find how high storm waves climb the breakwater face."
   },
   "m13:room": {
     "title": "The Pilotage Chart Room",
-    "seconds": 198,
+    "seconds": 70,
     "kind": "room",
     "helper": "Tomas Vale",
-    "job": "Set both headings for one run out to the turbine nacelle and home again."
+    "job": "Check both autopilot headings for one run out to the turbine and home again."
   },
   "m14:room": {
     "title": "The Lock Radar Station",
-    "seconds": 181,
+    "seconds": 75,
     "kind": "room",
     "helper": "Elian Rook",
-    "job": "Settle whether the service vessel stands outside the true outflow zone."
+    "job": "Find whether the service vessel is outside the real jet zone."
   },
   "m15:room": {
     "title": "The Grid Isolation House",
-    "seconds": 190,
+    "seconds": 66,
     "kind": "room",
     "helper": "Mara Venn",
     "job": "Find the window between the vessel clearing the jet zone and the causeway flooding."

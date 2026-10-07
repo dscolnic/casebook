@@ -1,0 +1,137 @@
+{
+ "m01": {
+  "speaker": "Maya Hart",
+  "role": "Chief ride inspector",
+  "voice": "af_heart",
+  "paragraphs": [
+   "m01-0.webm",
+   "m01-1.webm"
+  ]
+ },
+ "m06": {
+  "speaker": "Maya Hart",
+  "role": "Chief ride inspector",
+  "voice": "af_heart",
+  "paragraphs": [
+   "m06-0.webm",
+   "m06-1.webm"
+  ]
+ },
+ "m15": {
+  "speaker": "Maya Hart",
+  "role": "Chief ride inspector",
+  "voice": "af_heart",
+  "paragraphs": [
+   "m15-0.webm",
+   "m15-1.webm"
+  ]
+ },
+ "m02": {
+  "speaker": "Luka Chen",
+  "role": "Ride structures engineer",
+  "voice": "bm_fable",
+  "paragraphs": [
+   "m02-0.webm",
+   "m02-1.webm"
+  ]
+ },
+ "m14": {
+  "speaker": "Luka Chen",
+  "role": "Ride structures engineer",
+  "voice": "bm_fable",
+  "paragraphs": [
+   "m14-0.webm",
+   "m14-1.webm"
+  ]
+ },
+ "m03": {
+  "speaker": "Linh Tran",
+  "role": "Drive and controls technician",
+  "voice": "bf_alice",
+  "paragraphs": [
+   "m03-0.webm",
+   "m03-1.webm"
+  ]
+ },
+ "m08": {
+  "speaker": "Linh Tran",
+  "role": "Drive and controls technician",
+  "voice": "bf_alice",
+  "paragraphs": [
+   "m08-0.webm",
+   "m08-1.webm"
+  ]
+ },
+ "m04": {
+  "speaker": "Ana Ruiz",
+  "role": "Ride operations supervisor",
+  "voice": "bf_emma",
+  "paragraphs": [
+   "m04-0.webm",
+   "m04-1.webm"
+  ]
+ },
+ "m07": {
+  "speaker": "Ana Ruiz",
+  "role": "Ride operations supervisor",
+  "voice": "bf_emma",
+  "paragraphs": [
+   "m07-0.webm",
+   "m07-1.webm"
+  ]
+ },
+ "m05": {
+  "speaker": "Ruth Brennan",
+  "role": "Metrology technician",
+  "voice": "af_nova",
+  "paragraphs": [
+   "m05-0.webm",
+   "m05-1.webm"
+  ]
+ },
+ "m10": {
+  "speaker": "Ruth Brennan",
+  "role": "Metrology technician",
+  "voice": "af_nova",
+  "paragraphs": [
+   "m10-0.webm",
+   "m10-1.webm"
+  ]
+ },
+ "m09": {
+  "speaker": "Tunde Bello",
+  "role": "Materials scientist",
+  "voice": "am_santa",
+  "paragraphs": [
+   "m09-0.webm",
+   "m09-1.webm"
+  ]
+ },
+ "m11": {
+  "speaker": "Priya Raman",
+  "role": "Water plant engineer",
+  "voice": "bf_lily",
+  "paragraphs": [
+   "m11-0.webm",
+   "m11-1.webm"
+  ]
+ },
+ "m13": {
+  "speaker": "Priya Raman",
+  "role": "Water plant engineer",
+  "voice": "bf_lily",
+  "paragraphs": [
+   "m13-0.webm",
+   "m13-1.webm"
+  ]
+ },
+ "m12": {
+  "speaker": "Mateo Silva",
+  "role": "Drop tower operator",
+  "voice": "am_echo",
+  "paragraphs": [
+   "m12-0.webm",
+   "m12-1.webm"
+  ]
+ }
+}

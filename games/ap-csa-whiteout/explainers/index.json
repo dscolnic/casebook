@@ -1,107 +1,107 @@
 {
   "m01:room": {
     "title": "The Thermal Code Annex",
-    "seconds": 184,
+    "seconds": 84,
     "kind": "room",
     "helper": "Mei Alvarez",
-    "job": "Find out what the heat screen's percent is built from."
+    "job": "Find out how the heat screen works out its percent."
   },
   "m02:room": {
     "title": "The Air Logic Gallery",
-    "seconds": 195,
+    "seconds": 83,
     "kind": "room",
     "helper": "Jonah Reyes",
-    "job": "Find out why one reading produced two orders."
+    "job": "Find out why one reading sent two orders."
   },
   "m03:room": {
     "title": "The Mobility Test Hall",
-    "seconds": 189,
+    "seconds": 76,
     "kind": "room",
     "helper": "Malik Okafor",
-    "job": "Find out whether Rover Three's loop can end."
+    "job": "Find out why Rover Three's loop keeps going."
   },
   "m04:room": {
     "title": "The Regression Vault",
-    "seconds": 197,
+    "seconds": 70,
     "kind": "room",
     "helper": "Priya Nair",
-    "job": "Find out whether three systems are failing or one shared part is."
+    "job": "Find out if three systems are broken, or one shared part."
   },
   "m05:room": {
     "title": "The Object Identity Workshop",
-    "seconds": 158,
+    "seconds": 63,
     "kind": "room",
     "helper": "Dr. Elena Park",
     "job": "Find out which object the patch has been raising."
   },
   "m06:room": {
     "title": "The Packet Parsing Bay",
-    "seconds": 180,
+    "seconds": 71,
     "kind": "room",
     "helper": "Priya Nair",
-    "job": "Find out where a character goes missing between the packet and the screen."
+    "job": "Find out where the send time loses a character."
   },
   "m07:room": {
     "title": "The Habitat Sensor Gallery",
-    "seconds": 184,
+    "seconds": 77,
     "kind": "room",
     "helper": "Jonah Reyes",
-    "job": "Find out whether the gallery screen is reading the room it names."
+    "job": "Find out which room the gallery screen is really reading."
   },
   "m08:room": {
     "title": "The Incident Archive Room",
-    "seconds": 162,
+    "seconds": 70,
     "kind": "room",
     "helper": "Mei Alvarez",
-    "job": "Find out what the cleanup loop does to the alert list while it runs."
+    "job": "Find out what the cleanup loop does to the alert list."
   },
   "m09:room": {
     "title": "The Ice Route Mapping Room",
-    "seconds": 197,
+    "seconds": 70,
     "kind": "room",
     "helper": "Malik Okafor",
-    "job": "Find out which cell the rover's copy of the survey grid actually wrote."
+    "job": "Find out which cell the rover's copy of the grid wrote."
   },
   "m10:room": {
     "title": "The Frequency Search Deck",
-    "seconds": 167,
+    "seconds": 67,
     "kind": "room",
     "helper": "Liv Andersen",
-    "job": "Find which search reaches the rescue channel inside the pass."
+    "job": "Find which search reaches the rescue channel in time."
   },
   "m11:room": {
     "title": "The Controller Class Lab",
-    "seconds": 160,
+    "seconds": 63,
     "kind": "room",
     "helper": "Dr. Elena Park",
-    "job": "Find out whether two controllers share one alarm."
+    "job": "Find out if two controllers share one alarm."
   },
   "m12:room": {
     "title": "The Rescue Queue Studio",
-    "seconds": 171,
+    "seconds": 72,
     "kind": "room",
     "helper": "Mei Alvarez",
-    "job": "Find out what fixes the order of two records carrying the same priority."
+    "job": "Find out how to put five records in order for one short burst."
   },
   "m13:room": {
     "title": "The Relay Route Lab",
-    "seconds": 198,
+    "seconds": 75,
     "kind": "room",
     "helper": "Malik Okafor",
-    "job": "Find out how a planner that calls itself decides when to stop."
+    "job": "Find out how many relays the planner really needs."
   },
   "m14:room": {
     "title": "The Rollback Proving Room",
-    "seconds": 155,
+    "seconds": 67,
     "kind": "room",
     "helper": "Priya Nair",
-    "job": "Find what the rollback leaves behind in logs it has never seen."
+    "job": "Find out what the rollback leaves in logs it has never seen."
   },
   "m15:room": {
     "title": "The Recovery Control Room",
-    "seconds": 191,
+    "seconds": 63,
     "kind": "room",
     "helper": "Dr. Elena Park",
-    "job": "Settle which build the staged release can carry to every controller."
+    "job": "Find which build the staged release can send to every controller."
   }
 }

@@ -1,107 +1,107 @@
 {
   "m01:room": {
     "title": "The Signal Integrity Vault",
-    "seconds": 203,
+    "seconds": 78,
     "kind": "room",
     "helper": "Imani Okafor",
-    "job": "Settle whether the altitude step at the relay handoff came from the craft."
+    "job": "Find the height Odyssey's trace was heading for at the relay handoff."
   },
   "m02:room": {
     "title": "The Kinematics Calibration Hall",
-    "seconds": 214,
+    "seconds": 63,
     "kind": "room",
     "helper": "Mateo Ruiz",
-    "job": "Work out which way Odyssey is moving at closest approach, and how fast."
+    "job": "Find how fast Odyssey is moving at its closest point, and which way."
   },
   "m03:room": {
     "title": "The Thruster Diagnostics Bay",
-    "seconds": 232,
+    "seconds": 69,
     "kind": "room",
     "helper": "Lian Zhou",
-    "job": "Settle whether a leaking valve is pushing Odyssey off its arc."
+    "job": "Split Odyssey's acceleration into a part along its path and a part across it."
   },
   "m04:room": {
     "title": "The Impulse Reconstruction Lab",
-    "seconds": 193,
+    "seconds": 66,
     "kind": "room",
     "helper": "Lian Zhou",
-    "job": "Work out how much push the engine's test pulse actually delivered."
+    "job": "Work out how much push the engine's test pulse really gave."
   },
   "m05:room": {
     "title": "The Propellant Systems Gallery",
-    "seconds": 204,
+    "seconds": 61,
     "kind": "room",
     "helper": "Nia Banerjee",
-    "job": "Find where the reserve line's pressure settles once the valve is open."
+    "job": "Find how much the reserve line's pressure rises once the valve opens."
   },
   "m06:room": {
     "title": "The Mass Flow Metrology Room",
-    "seconds": 180,
+    "seconds": 60,
     "kind": "room",
     "helper": "Nia Banerjee",
-    "job": "Find out how much fuel the transfer actually put into the main tank."
+    "job": "Find how much fuel the transfer put into the main tank."
   },
   "m07:room": {
     "title": "The Pressure Decay Observatory",
-    "seconds": 164,
+    "seconds": 60,
     "kind": "room",
     "helper": "Celeste Ward",
-    "job": "Forecast the cabin pressure across the whole coast from two gauge readings."
+    "job": "Forecast the cabin pressure at the end of the coast from two gauge readings."
   },
   "m08:room": {
     "title": "The Thermal Control Workshop",
-    "seconds": 207,
+    "seconds": 64,
     "kind": "room",
     "helper": "Sora Kim",
-    "job": "Work out when the frost will have taken half the star tracker window."
+    "job": "Work out when frost will cover half the star tracker window."
   },
   "m09:room": {
     "title": "The Route Survey Theater",
-    "seconds": 207,
+    "seconds": 67,
     "kind": "room",
     "helper": "Elias Venn",
-    "job": "Find out whether one spool of cable reaches the rim mast along the planned route."
+    "job": "Find how long the cable route to the rim mast is."
   },
   "m10:room": {
     "title": "The Polar Navigation Rotunda",
-    "seconds": 222,
+    "seconds": 65,
     "kind": "room",
     "helper": "Sora Kim",
-    "job": "Find the heading of the ground track as it passes the relay mast."
+    "job": "Find the slope of Odyssey's track as it passes the rim."
   },
   "m11:room": {
     "title": "The Corridor Survey Chamber",
-    "seconds": 259,
+    "seconds": 66,
     "kind": "room",
     "helper": "Sora Kim",
-    "job": "Settle whether the wider aim box still fits inside the safe corridor."
+    "job": "Find the area of the safe corridor between two polar curves."
   },
   "m12:room": {
     "title": "The Series Accounting Annex",
-    "seconds": 183,
+    "seconds": 57,
     "kind": "room",
     "helper": "Ren Ito",
-    "job": "Book the whole aim shift the string of corrections will produce."
+    "job": "Add up the whole string of aim corrections."
   },
   "m13:room": {
     "title": "The Residual Analysis Atrium",
-    "seconds": 180,
+    "seconds": 58,
     "kind": "room",
     "helper": "Amara Singh",
-    "job": "Fix the band of gimbal gains the correction series settles inside."
+    "job": "Find which gimbal gains the correction series is safe at."
   },
   "m14:room": {
     "title": "The Verification Shield Room",
-    "seconds": 193,
+    "seconds": 57,
     "kind": "room",
     "helper": "Amara Singh",
-    "job": "Fix the band of attitude angles the cubic sine model may be flown in."
+    "job": "Prove how far the short sine formula can be off."
   },
   "m15:room": {
     "title": "The Return Burn Control Room",
-    "seconds": 205,
+    "seconds": 63,
     "kind": "room",
     "helper": "Imani Okafor",
-    "job": "Set the command that puts Odyssey on the transfer arc home."
+    "job": "Set the engine command for the burn that sends Odyssey home."
   }
 }

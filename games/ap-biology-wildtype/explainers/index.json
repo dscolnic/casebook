@@ -1,107 +1,107 @@
 {
   "m01:room": {
     "title": "The Metabolism Glasshouse",
-    "seconds": 224,
+    "seconds": 69,
     "kind": "room",
     "helper": "Ivo Reed",
-    "job": "Find out whether a sick cassava leaf loses carbon over a whole day."
+    "job": "Find out if a sick cassava leaf loses carbon over a whole day."
   },
   "m02:room": {
     "title": "The Root Transport House",
-    "seconds": 204,
+    "seconds": 65,
     "kind": "room",
     "helper": "Mara Vale",
-    "job": "Find out which rinse leaves a root cell unchanged."
+    "job": "Find a rinse that leaves a root cell the way it is."
   },
   "m03:room": {
     "title": "The Signal Imaging Lab",
-    "seconds": 210,
+    "seconds": 69,
     "kind": "room",
     "helper": "Mara Vale",
-    "job": "Find out whether the border roots have slowed, and whether the calcium flash comes first."
+    "job": "Find out if the border roots have slowed, and what they react to."
   },
   "m04:room": {
     "title": "The Expression Glasshouse",
-    "seconds": 209,
+    "seconds": 79,
     "kind": "room",
     "helper": "Nell Shah",
-    "job": "Find out whether the root turned its defense gene up, or its DNA changed."
+    "job": "Find out how much more defense RNA the dosed root makes, and if its DNA changed."
   },
   "m05:room": {
     "title": "The Crossing House",
-    "seconds": 192,
+    "seconds": 73,
     "kind": "room",
     "helper": "Nell Shah",
-    "job": "Find out whether resistance in Family 2 travels as one dominant gene."
+    "job": "Find out how Family 2 passes on its resistance."
   },
   "m06:room": {
     "title": "The Linkage Analysis Trailer",
-    "seconds": 200,
+    "seconds": 76,
     "kind": "room",
     "helper": "Nell Shah",
-    "job": "Find out how often marker B parts company with the resistance allele."
+    "job": "Find out how often marker B splits from the resistance gene."
   },
   "m07:room": {
     "title": "The Sequence and Protein Lab",
-    "seconds": 221,
+    "seconds": 76,
     "kind": "room",
     "helper": "Nell Shah",
-    "job": "Find out which codon holds the changed base, and what the change does to the receptor."
+    "job": "Find which codon holds the changed base, and what it now codes for."
   },
   "m08:room": {
     "title": "The River Pathology Lab",
-    "seconds": 212,
+    "seconds": 73,
     "kind": "room",
     "helper": "Mara Vale",
-    "job": "Find out how much PV-7 is in the root, and whether the controls show it caused the rot."
+    "job": "Find how much PV-7 is in the root, and test whether it causes the rot."
   },
   "m09:room": {
     "title": "The Challenge Phenotyping House",
-    "seconds": 236,
+    "seconds": 76,
     "kind": "room",
     "helper": "Ivo Reed",
-    "job": "Find out which line stops PV-7, and what stopping it costs at harvest."
+    "job": "Find how much each line blocks the germ's enzyme, and how well each yields."
   },
   "m10:room": {
     "title": "The Seed Vault Atrium",
-    "seconds": 176,
+    "seconds": 75,
     "kind": "room",
     "helper": "Nell Shah",
-    "job": "Find out whether the packed crate carries the valley's resistance variety."
+    "job": "Find how common the R1 allele is in the crate, and what Hardy-Weinberg predicts."
   },
   "m11:room": {
     "title": "The Evolution Trial Canopy",
-    "seconds": 187,
+    "seconds": 67,
     "kind": "room",
     "helper": "Tess Rowan",
-    "job": "Find out whether the season's spray selected the resistant strains of PV-7."
+    "job": "Find how fit the ordinary strains are under the spray, and the new resistant share."
   },
   "m12:room": {
     "title": "The River Ecology Station",
-    "seconds": 188,
+    "seconds": 71,
     "kind": "room",
     "helper": "Tess Rowan",
-    "job": "Find how fast the rot is spreading and whether the river is carrying it."
+    "job": "Find how fast the rot is spreading in one block, and where PV-7 is in the water."
   },
   "m13:room": {
     "title": "The Rhizosphere House",
-    "seconds": 188,
+    "seconds": 69,
     "kind": "room",
     "helper": "Tess Rowan",
-    "job": "Find out whether the screened root partner feeds a plant the way field soil does."
+    "job": "Find how much of the root the fungus reaches, and a thread's surface for its size."
   },
   "m14:room": {
     "title": "The River Mesocosm Hall",
-    "seconds": 223,
+    "seconds": 75,
     "kind": "room",
     "helper": "Ivo Reed",
-    "job": "Find out whether a pilot tank holds enough oxygen through a whole night."
+    "job": "Find what oxygen a tank makes, and how much is left at dawn."
   },
   "m15:room": {
     "title": "The Harvest Decision Room",
-    "seconds": 184,
+    "seconds": 69,
     "kind": "room",
     "helper": "Ada Penn",
-    "job": "Find out whether the pilot can leave the valley without carrying PV-7 or losing variety."
+    "job": "Find how many seedlings truly carry R, and how much oxygen the aerators must add."
   }
 }

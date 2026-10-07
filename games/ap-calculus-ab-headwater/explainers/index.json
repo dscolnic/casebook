@@ -1,107 +1,107 @@
 {
   "m01:room": {
     "title": "The Storage Survey Gallery",
-    "seconds": 163,
+    "seconds": 68,
     "kind": "room",
     "helper": "Mara Vale",
-    "job": "Decide what to do with one strange point in last night's lake trace."
+    "job": "Look at one strange dot in last night's lake trace."
   },
   "m02:room": {
     "title": "The Catchment Instrument House",
-    "seconds": 166,
+    "seconds": 65,
     "kind": "room",
     "helper": "Imani Okafor",
-    "job": "Build an alarm that reacts to how fast the lake is rising and not only to how high it is."
+    "job": "Find how fast the lake is rising right now."
   },
   "m03:room": {
     "title": "The Gate Calibration Bay",
-    "seconds": 187,
+    "seconds": 66,
     "kind": "room",
     "helper": "Tomas Rhee",
-    "job": "Work out how far the gate arm must swing back to cut the flow by 6 cubic metres per second."
+    "job": "Find how much the flow changes when the gate arm turns."
   },
   "m04:room": {
     "title": "The Valley Warning Office",
-    "seconds": 188,
+    "seconds": 65,
     "kind": "room",
     "helper": "Elise Navarro",
-    "job": "Work out the latest minute the school road closure can be called."
+    "job": "Find the latest time to close the school road."
   },
   "m05:room": {
     "title": "The Power Dispatch Hall",
-    "seconds": 180,
+    "seconds": 60,
     "kind": "room",
     "helper": "Nia Mensah",
-    "job": "Find the highest power the old ramp plan reaches anywhere in its run."
+    "job": "Find the highest power in Unit One's old plan."
   },
   "m06:room": {
     "title": "The Forecast Archive",
-    "seconds": 193,
+    "seconds": 69,
     "kind": "room",
     "helper": "Imani Okafor",
-    "job": "Decide which of two storm forecasts goes into the plan."
+    "job": "Pick the storm forecast we can trust."
   },
   "m07:room": {
     "title": "The Water Ledger Room",
-    "seconds": 153,
+    "seconds": 65,
     "kind": "room",
     "helper": "Mara Vale",
-    "job": "Add up the rain inflow to a total, and find how much water must leave the lake before it arrives."
+    "job": "Add up how much water the storm will bring."
   },
   "m08:room": {
     "title": "The Turbine Passage",
-    "seconds": 143,
+    "seconds": 61,
     "kind": "room",
     "helper": "Nia Mensah",
-    "job": "Check whether an eight-hour gate release removes enough water, with the turbine and snowmelt counted."
+    "job": "Check the eight-hour plan for letting water out."
   },
   "m09:room": {
     "title": "The Uplift Gallery",
-    "seconds": 214,
+    "seconds": 67,
     "kind": "room",
     "helper": "Arun Das",
-    "job": "Decide whether two silent gauges mean rising uplift or a shared cable fault."
+    "job": "Find out if the push under the dam is really rising."
   },
   "m10:room": {
     "title": "The Drainage Control Room",
-    "seconds": 221,
+    "seconds": 74,
     "kind": "room",
     "helper": "Arun Das",
-    "job": "Find the first hour when the next gate step can go ahead under the seepage limit."
+    "job": "Find when the next gate step can safely go ahead."
   },
   "m11:room": {
     "title": "The Reservoir Survey Archive",
-    "seconds": 188,
+    "seconds": 58,
     "kind": "room",
     "helper": "Mara Vale",
     "job": "Find how much storm room the silt has taken."
   },
   "m12:room": {
     "title": "The Machine Hall",
-    "seconds": 216,
+    "seconds": 66,
     "kind": "room",
     "helper": "Tomas Rhee",
-    "job": "Find the room the surge shaft has for a trip at full flow."
+    "job": "Find how much water the surge shaft can hold."
   },
   "m13:room": {
     "title": "The Independent Review Gallery",
-    "seconds": 195,
+    "seconds": 56,
     "kind": "room",
     "helper": "Leila Haddad",
-    "job": "Price the level error, and test whether the recorder's rate channel can be trusted."
+    "job": "Price a small level error, and test the rate channel."
   },
   "m14:room": {
     "title": "The Emergency Communications Hall",
-    "seconds": 187,
+    "seconds": 62,
     "kind": "room",
     "helper": "Elise Navarro",
-    "job": "Find the fastest route to the siren that stayed dark."
+    "job": "Find the fastest way to reach the dark siren."
   },
   "m15:room": {
     "title": "The Release Command Gallery",
-    "seconds": 179,
+    "seconds": 60,
     "kind": "room",
     "helper": "Mara Vale",
-    "job": "Pick the release plan that clears the corrected target inside every limit."
+    "job": "Pick the release plan that fits every limit."
   }
 }

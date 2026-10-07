@@ -1,105 +1,105 @@
 {
   "m01:room": {
     "title": "The Molar Accounting Lab",
-    "seconds": 200,
+    "seconds": 72,
     "kind": "room",
     "helper": "Laila Abiola",
     "job": "Count the carbon the plant holds, in the units the shift plan is written in."
   },
   "m02:room": {
     "title": "The Feed Stoichiometry Annex",
-    "seconds": 224,
+    "seconds": 74,
     "kind": "room",
     "helper": "Ingrid Sundqvist",
     "job": "Find which feed runs out first in the Sabatier reactor."
   },
   "m03:room": {
     "title": "The Gas Systems Qualification Bay",
-    "seconds": 203,
+    "seconds": 70,
     "kind": "room",
     "helper": "Tomás Herrera",
     "job": "Work out whether the hydrogen line delivers what its gauge suggests."
   },
   "m04:room": {
     "title": "The Surface Spectroscopy Lab",
-    "seconds": 232,
+    "seconds": 81,
     "kind": "room",
     "helper": "Mei-Ling Cho",
     "job": "Name the element in the crust on the catalyst inlet."
   },
   "m05:room": {
     "title": "The Phase Separation Lab",
-    "seconds": 228,
+    "seconds": 71,
     "kind": "room",
     "helper": "Rosalind Achebe",
     "job": "Work out what can cross the cold trap between the water loop and the reactor."
   },
   "m06:room": {
     "title": "The Corrosion Test Lab",
-    "seconds": 191,
+    "seconds": 75,
     "kind": "room",
     "helper": "Laila Abiola",
     "job": "Find out what is happening at joint J-7, where two metals meet under a wet salt film."
   },
   "m07:room": {
     "title": "The Thermal Systems Lab",
-    "seconds": 253,
+    "seconds": 89,
     "kind": "room",
     "helper": "Yusuf Demir",
     "job": "Set the heat the Sabatier reaction makes against the heat the coolant takes away."
   },
   "m08:room": {
     "title": "The Kinetics Control Lab",
-    "seconds": 218,
+    "seconds": 69,
     "kind": "room",
     "helper": "Tomás Herrera",
     "job": "Find what the lower set point actually changed in the reaction."
   },
   "m09:room": {
     "title": "The Catalyst Diagnostics Bay",
-    "seconds": 170,
+    "seconds": 77,
     "kind": "room",
     "helper": "Mei-Ling Cho",
     "job": "Work out how long the hot hydrogen purge must run to clean chloride off the inlet nickel."
   },
   "m10:room": {
     "title": "The Thermodynamics Records Vault",
-    "seconds": 241,
+    "seconds": 73,
     "kind": "room",
     "helper": "Tomás Herrera",
     "job": "Test whether the lower set point harmed the bed or protected it."
   },
   "m11:room": {
     "title": "The Equilibrium Operations Lab",
-    "seconds": 242,
+    "seconds": 71,
     "kind": "room",
     "helper": "Ingrid Sundqvist",
     "job": "Find where the Sabatier balance sits, and which knob moves it toward methane."
   },
   "m12:room": {
     "title": "The Water Recovery Pilot Hall",
-    "seconds": 224,
+    "seconds": 77,
     "kind": "room",
     "helper": "Rosalind Achebe",
     "job": "Hold the recycle water at pH 7.00 for the electrolyzers."
   },
   "m13:room": {
     "title": "The Electrolysis Qualification Hall",
-    "seconds": 249,
+    "seconds": 74,
     "kind": "room",
     "helper": "Yusuf Demir",
     "job": "Work out how the stack makes the missing hydrogen on the power the arrays can spare."
   },
   "m14:room": {
     "title": "The Independent Propellant Assay",
-    "seconds": 175,
+    "seconds": 82,
     "kind": "room",
     "helper": "Mei-Ling Cho",
     "job": "Count the CO₂ in Tank C independently, by catching it as a solid and weighing it."
   },
   "m15:room": {
     "title": "The Launch Certification Office",
-    "seconds": 209,
+    "seconds": 76,
     "kind": "room",
     "helper": "Laila Abiola",
     "job": "Sign off the methane and the oxygen the ascent engine is loaded with."

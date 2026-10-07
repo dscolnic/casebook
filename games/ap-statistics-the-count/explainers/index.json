@@ -1,105 +1,105 @@
 {
   "m01:room": {
     "title": "The Sampling Office",
-    "seconds": 135,
+    "seconds": 84,
     "kind": "room",
     "helper": "Mara Chen",
     "job": "Settle what confirmed share the register can put on the record."
   },
   "m02:room": {
     "title": "The Check Timing Office",
-    "seconds": 88,
+    "seconds": 67,
     "kind": "room",
     "helper": "Rowan Singh",
     "job": "Say how long a typical check takes, and where normal ends."
   },
   "m03:room": {
     "title": "The Scanner Trial Room",
-    "seconds": 100,
+    "seconds": 70,
     "kind": "room",
     "helper": "Amina Bell",
     "job": "Work out what the trial says about the scanner's error rate."
   },
   "m04:room": {
     "title": "The Queue Planning Office",
-    "seconds": 126,
+    "seconds": 97,
     "kind": "room",
     "helper": "Nico Patel",
     "job": "Turn the queue on the belt into a finish time for tonight."
   },
   "m05:room": {
     "title": "The Flag Sorting Room",
-    "seconds": 99,
+    "seconds": 75,
     "kind": "room",
     "helper": "Jules Navarro",
     "job": "Find the share of records with at least one flag, and the share with none."
   },
   "m06:room": {
     "title": "The Mailback Office",
-    "seconds": 93,
+    "seconds": 66,
     "kind": "room",
     "helper": "Iris Shah",
     "job": "Say whether the East wing loses households more often than the rest."
   },
   "m07:room": {
     "title": "The Hand-Check Room",
-    "seconds": 100,
+    "seconds": 70,
     "kind": "room",
     "helper": "Elena Cruz",
     "job": "Say what opening only a few batches would leave behind."
   },
   "m08:room": {
     "title": "The Front Hall",
-    "seconds": 86,
+    "seconds": 62,
     "kind": "room",
     "helper": "Tessa Cole",
     "job": "Say how rare a 25-minute wait is."
   },
   "m09:room": {
     "title": "The Postcard Trial Office",
-    "seconds": 95,
+    "seconds": 68,
     "kind": "room",
     "helper": "Ada Mensah",
     "job": "Say whether the postcard group's extra replies are more than chance would make."
   },
   "m10:room": {
     "title": "The Trial Review Room",
-    "seconds": 119,
+    "seconds": 68,
     "kind": "room",
     "helper": "Amina Bell",
     "job": "Test whether the scanner's lower error rate is more than chance."
   },
   "m11:room": {
     "title": "The Binder Repair Room",
-    "seconds": 90,
+    "seconds": 63,
     "kind": "room",
     "helper": "Rowan Singh",
     "job": "Say whether missing pages and the flooded wing travel together."
   },
   "m12:room": {
     "title": "The Survey Office",
-    "seconds": 118,
+    "seconds": 82,
     "kind": "room",
     "helper": "Ada Mensah",
     "job": "Put a range on the share of East wing households the register missed."
   },
   "m13:room": {
     "title": "The Field Crew Office",
-    "seconds": 106,
+    "seconds": 73,
     "kind": "room",
     "helper": "Elena Cruz",
     "job": "Put a range on the mean time a door visit takes."
   },
   "m14:room": {
     "title": "The Block Count Office",
-    "seconds": 96,
+    "seconds": 66,
     "kind": "room",
     "helper": "Iris Shah",
     "job": "Say whether the register falls short of the people found at the doors."
   },
   "m15:room": {
     "title": "The Certification Chamber",
-    "seconds": 112,
+    "seconds": 84,
     "kind": "room",
     "helper": "Mara Chen",
     "job": "Say what the one block far above the line means for the seal."
