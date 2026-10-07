@@ -3,7 +3,7 @@
     {
       "id": "ap-physics-c-em-black-start",
       "title": "Black Start",
-      "course": "AP Physics C: Electricity and Magnetism",
+      "course": "Physics C: Electricity and Magnetism",
       "field": "Physics",
       "accent": "#60e6ff",
       "place": "Port Mercy · Harbor District",
@@ -46,7 +46,7 @@
     {
       "id": "ap-physics-c-em-gridlock",
       "title": "Gridlock",
-      "course": "AP Physics C: Electricity and Magnetism",
+      "course": "Physics C: Electricity and Magnetism",
       "field": "Physics",
       "accent": "#7fc6e8",
       "place": "Brantmoor · North Distribution District",
@@ -89,7 +89,7 @@
     {
       "id": "ap-physics-eleven-days",
       "title": "Eleven Days",
-      "course": "AP Physics 1 & 2: Planetary Defense",
+      "course": "Physics 1 & 2: Planetary Defense",
       "field": "Physics",
       "accent": "#67ddff",
       "place": "Cerro Alto Observatory · 3,180 m",
@@ -132,8 +132,8 @@
     {
       "id": "ap-level-astronomy-farlight",
       "title": "Farlight",
-      "course": "Astronomy, on AP Physics 1 & 2 methods",
-      "field": "Mathematics",
+      "course": "Astronomy, on Physics 1 & 2 methods",
+      "field": "Physics",
       "accent": "#81d9e6",
       "place": "Farlight Station · 412 km Orbit",
       "hero": "shots/ap-level-astronomy-farlight.jpg",
@@ -175,7 +175,7 @@
     {
       "id": "ap-physics-1-last-span",
       "title": "Last Span",
-      "course": "AP Physics 1: Algebra-Based",
+      "course": "Physics 1: Algebra-Based",
       "field": "Physics",
       "accent": "#f6b94b",
       "place": "Red Mesa Gorge · Transit Crossing",
@@ -218,7 +218,7 @@
     {
       "id": "ap-physics-1-safety-factor",
       "title": "Safety Factor",
-      "course": "AP Physics 1: Algebra-Based",
+      "course": "Physics 1: Algebra-Based",
       "field": "Physics",
       "accent": "#f4b969",
       "place": "Corbin Park · Corbin Bay · Ride Safety Review",
@@ -261,7 +261,7 @@
     {
       "id": "ap-physics-2-abyssal",
       "title": "Abyssal",
-      "course": "AP Physics 2: Algebra-Based",
+      "course": "Physics 2: Algebra-Based",
       "field": "Physics",
       "accent": "#62d6e8",
       "place": "Halcyon Rescue Platform · Asteria Alongside",
@@ -304,7 +304,7 @@
     {
       "id": "ap-physics-2-updraft",
       "title": "Updraft",
-      "course": "AP Physics 2: Algebra-Based",
+      "course": "Physics 2: Algebra-Based",
       "field": "Physics",
       "accent": "#f4b969",
       "place": "Windlass Mooring Basin · Plateau Airship Field",
@@ -347,7 +347,7 @@
     {
       "id": "ap-physics-c-overwind",
       "title": "Overwind",
-      "course": "AP Physics C: Mechanics",
+      "course": "Physics C: Mechanics",
       "field": "Physics",
       "accent": "#f3b64a",
       "place": "Kerrow Mine No. 3 · The Bank",
@@ -390,7 +390,7 @@
     {
       "id": "ap-physics-c-ascent",
       "title": "Ascent",
-      "course": "AP Physics C: Mechanics",
+      "course": "Physics C: Mechanics",
       "field": "Physics",
       "accent": "#f4b969",
       "place": "Morrow Flats Range · Flight 7 Review",
@@ -433,7 +433,7 @@
     {
       "id": "ap-chemistry-red-sand",
       "title": "Red Sand",
-      "course": "AP Chemistry",
+      "course": "Chemistry",
       "field": "Chemistry",
       "accent": "#f39a53",
       "place": "Arcadia Rise · Mars Propellant Plant",
@@ -476,7 +476,7 @@
     {
       "id": "ap-chemistry-the-glassworks",
       "title": "The Glassworks",
-      "course": "AP Chemistry",
+      "course": "Chemistry",
       "field": "Chemistry",
       "accent": "#f4b969",
       "place": "Hollin Canal · Glassworks Shutdown",
@@ -519,7 +519,7 @@
     {
       "id": "ap-biology-wildtype",
       "title": "Wildtype",
-      "course": "AP Biology",
+      "course": "Biology",
       "field": "Biology",
       "accent": "#7be495",
       "place": "Valle Verde · Crop Emergency",
@@ -562,7 +562,7 @@
     {
       "id": "ap-biology-ward-nine",
       "title": "Ward Nine",
-      "course": "AP Biology",
+      "course": "Biology",
       "field": "Biology",
       "accent": "#7fd8c4",
       "place": "Ashgrove General Hospital · East Tower",
@@ -605,7 +605,7 @@
     {
       "id": "ap-environmental-science-salt-line",
       "title": "Salt Line",
-      "course": "AP Environmental Science",
+      "course": "Environmental Science",
       "field": "Environmental Science",
       "accent": "#59d4d0",
       "place": "Lacroix Estuary",
@@ -648,7 +648,7 @@
     {
       "id": "ap-environmental-science-dry-season",
       "title": "Dry Season",
-      "course": "AP Environmental Science",
+      "course": "Environmental Science",
       "field": "Environmental Science",
       "accent": "#f4b969",
       "place": "Cottonwood Basin · Third Dry Year",
@@ -691,7 +691,7 @@
     {
       "id": "ap-precalculus-tidelock",
       "title": "Tidelock",
-      "course": "AP Precalculus",
+      "course": "Precalculus",
       "field": "Mathematics",
       "accent": "#74d8e8",
       "place": "Sable Reach · Keldhaven Tidal Array",
@@ -734,7 +734,7 @@
     {
       "id": "ap-precalculus-platform-zero",
       "title": "Platform Zero",
-      "course": "AP Precalculus",
+      "course": "Precalculus",
       "field": "Mathematics",
       "accent": "#f4b969",
       "place": "Platform Zero Interchange · Westgate Line",
@@ -777,7 +777,7 @@
     {
       "id": "ap-calculus-ab-headwater",
       "title": "Headwater",
-      "course": "AP Calculus AB",
+      "course": "Calculus AB",
       "field": "Mathematics",
       "accent": "#7fd8e8",
       "place": "Ashfell Valley",
@@ -820,7 +820,7 @@
     {
       "id": "ap-calculus-ab-cold-chain",
       "title": "Cold Chain",
-      "course": "AP Calculus AB",
+      "course": "Calculus AB",
       "field": "Mathematics",
       "accent": "#f4b969",
       "place": "Vardon Valley · Heatwave Relief",
@@ -863,7 +863,7 @@
     {
       "id": "ap-calculus-bc-periapsis",
       "title": "Periapsis",
-      "course": "AP Calculus BC",
+      "course": "Calculus BC",
       "field": "Mathematics",
       "accent": "#ffb347",
       "place": "Selene Far-Side Outpost",
@@ -906,7 +906,7 @@
     {
       "id": "ap-calculus-bc-night-flight",
       "title": "Night Flight",
-      "course": "AP Calculus BC",
+      "course": "Calculus BC",
       "field": "Mathematics",
       "accent": "#f2b967",
       "place": "Sarn Island · Night Medical Flight",
@@ -949,7 +949,7 @@
     {
       "id": "ap-statistics-signal-fires",
       "title": "Signal Fires",
-      "course": "AP Statistics",
+      "course": "Statistics",
       "field": "Statistics",
       "accent": "#ffb14f",
       "place": "Piedra Seca Valley",
@@ -992,7 +992,7 @@
     {
       "id": "ap-statistics-the-count",
       "title": "The Count",
-      "course": "AP Statistics",
+      "course": "Statistics",
       "field": "Statistics",
       "accent": "#8fd18a",
       "place": "Wrenfield Civic Records Hall",
@@ -1035,7 +1035,7 @@
     {
       "id": "ap-csa-whiteout",
       "title": "Whiteout",
-      "course": "AP Computer Science A",
+      "course": "Computer Science A",
       "field": "Computer Science",
       "accent": "#6de5ff",
       "place": "Aster Station · Polar Plateau",
@@ -1078,7 +1078,7 @@
     {
       "id": "ap-csa-sort-line",
       "title": "Sort Line",
-      "course": "AP Computer Science A",
+      "course": "Computer Science A",
       "field": "Computer Science",
       "accent": "#f4b969",
       "place": "Northport Dispatch · Kettle Pass Road",
@@ -1121,7 +1121,7 @@
     {
       "id": "ap-csp-second-copy",
       "title": "Second Copy",
-      "course": "AP Computer Science Principles",
+      "course": "Computer Science Principles",
       "field": "Computer Science",
       "accent": "#f4b969",
       "place": "Thornwell Archive · Calder Civic Records",
@@ -1164,7 +1164,7 @@
     {
       "id": "ap-csp-black-current",
       "title": "Black Current",
-      "course": "AP Computer Science Principles",
+      "course": "Computer Science Principles",
       "field": "Computer Science",
       "accent": "#49d6c8",
       "place": "Nereid Head · Cable Landing Station",

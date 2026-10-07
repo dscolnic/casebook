@@ -666,7 +666,10 @@ function render(){
   const subjects = [...new Set(shown.map(g => g.field))].sort((a, b) => a.localeCompare(b));
   let n = 0;
   document.getElementById('grid').innerHTML = subjects.map(f => {
-    const here = shown.filter(g => g.field === f);
+    // Playable campaigns first, then the ones still waiting on films or a build; the
+    // catalogue's own order is kept within each of those two runs (sort is stable).
+    const playable = (g) => g.built !== false && g.films !== false;
+    const here = shown.filter(g => g.field === f).sort((a, b) => Number(playable(b)) - Number(playable(a)));
     return `<section class="group">
       <h2 class="grouptag"><span>${esc(f)}</span><small>${here.length}</small></h2>
       <div class="groupgrid">${here.map(g => cardHTML(g, n++)).join('')}</div>
