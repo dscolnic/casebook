@@ -170,7 +170,7 @@
       },
       "source": "concept-labs",
       "built": true,
-      "films": false
+      "films": true
     },
     {
       "id": "ap-physics-1-last-span",
@@ -1202,7 +1202,7 @@
       },
       "source": "concept-labs",
       "built": true,
-      "films": false
+      "films": true
     },
     {
       "id": "contamcity",

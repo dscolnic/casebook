@@ -1,0 +1,137 @@
+{
+ "m01": {
+  "speaker": "Imani Reyes",
+  "role": "Incident commander, network operator",
+  "voice": "bf_alice",
+  "paragraphs": [
+   "m01-0.webm",
+   "m01-1.webm"
+  ]
+ },
+ "m02": {
+  "speaker": "Jules Park",
+  "role": "Emergency media operator",
+  "voice": "am_onyx",
+  "paragraphs": [
+   "m02-0.webm",
+   "m02-1.webm"
+  ]
+ },
+ "m03": {
+  "speaker": "Sol Okafor",
+  "role": "Network data scientist",
+  "voice": "bm_daniel",
+  "paragraphs": [
+   "m03-0.webm",
+   "m03-1.webm"
+  ]
+ },
+ "m04": {
+  "speaker": "Rina Shah",
+  "role": "Dispatch systems engineer",
+  "voice": "af_nova",
+  "paragraphs": [
+   "m04-0.webm",
+   "m04-1.webm"
+  ]
+ },
+ "m11": {
+  "speaker": "Dr. Evelyn Park",
+  "role": "Hospital continuity medic",
+  "voice": "af_nova",
+  "paragraphs": [
+   "m11-0.webm",
+   "m11-1.webm"
+  ]
+ },
+ "m05": {
+  "speaker": "Mateo Ruiz",
+  "role": "Relay software engineer",
+  "voice": "bm_lewis",
+  "paragraphs": [
+   "m05-0.webm",
+   "m05-1.webm"
+  ]
+ },
+ "m06": {
+  "speaker": "Keira Moss",
+  "role": "Verification engineer",
+  "voice": "af_sky",
+  "paragraphs": [
+   "m06-0.webm",
+   "m06-1.webm"
+  ]
+ },
+ "m07": {
+  "speaker": "Anwar Haddad",
+  "role": "Internet routing engineer",
+  "voice": "am_fenrir",
+  "paragraphs": [
+   "m07-0.webm",
+   "m07-1.webm"
+  ]
+ },
+ "m08": {
+  "speaker": "Priya Nwosu",
+  "role": "Resilience engineer",
+  "voice": "af_jessica",
+  "paragraphs": [
+   "m08-0.webm",
+   "m08-1.webm"
+  ]
+ },
+ "m14": {
+  "speaker": "Noor Patel",
+  "role": "Independent verification engineer",
+  "voice": "af_jessica",
+  "paragraphs": [
+   "m14-0.webm",
+   "m14-1.webm"
+  ]
+ },
+ "m09": {
+  "speaker": "Hana Mori",
+  "role": "Distributed systems engineer",
+  "voice": "af_bella",
+  "paragraphs": [
+   "m09-0.webm",
+   "m09-1.webm"
+  ]
+ },
+ "m10": {
+  "speaker": "Leila Haddad",
+  "role": "Cybersecurity engineer",
+  "voice": "bf_emma",
+  "paragraphs": [
+   "m10-0.webm",
+   "m10-1.webm"
+  ]
+ },
+ "m12": {
+  "speaker": "Jordan Hale",
+  "role": "Emergency alert operator",
+  "voice": "af_heart",
+  "paragraphs": [
+   "m12-0.webm",
+   "m12-1.webm"
+  ]
+ },
+ "m13": {
+  "speaker": "Ravi Singh",
+  "role": "Performance engineer",
+  "voice": "am_liam",
+  "paragraphs": [
+   "m13-0.webm",
+   "m13-1.webm"
+  ]
+ },
+ "m15": {
+  "speaker": "Director Imani Reyes",
+  "role": "Incident commander, network operator",
+  "voice": "af_aoede",
+  "paragraphs": [
+   "m15-0.webm",
+   "m15-1.webm"
+  ]
+ }
+}

@@ -1,0 +1,137 @@
+{
+ "m01": {
+  "speaker": "Mira Sandoval",
+  "role": "Optical engineer",
+  "voice": "bf_lily",
+  "paragraphs": [
+   "m01-0.webm",
+   "m01-1.webm"
+  ]
+ },
+ "m06": {
+  "speaker": "Mira Sandoval",
+  "role": "Optical engineer",
+  "voice": "bf_lily",
+  "paragraphs": [
+   "m06-0.webm",
+   "m06-1.webm"
+  ]
+ },
+ "m02": {
+  "speaker": "Reva Nandi",
+  "role": "Detector scientist",
+  "voice": "af_sarah",
+  "paragraphs": [
+   "m02-0.webm",
+   "m02-1.webm"
+  ]
+ },
+ "m05": {
+  "speaker": "Reva Nandi",
+  "role": "Detector scientist",
+  "voice": "af_sarah",
+  "paragraphs": [
+   "m05-0.webm",
+   "m05-1.webm"
+  ]
+ },
+ "m09": {
+  "speaker": "Reva Nandi",
+  "role": "Detector scientist",
+  "voice": "af_sarah",
+  "paragraphs": [
+   "m09-0.webm",
+   "m09-1.webm"
+  ]
+ },
+ "m11": {
+  "speaker": "Reva Nandi",
+  "role": "Detector scientist",
+  "voice": "af_sarah",
+  "paragraphs": [
+   "m11-0.webm",
+   "m11-1.webm"
+  ]
+ },
+ "m03": {
+  "speaker": "Soren Idris",
+  "role": "Stellar astronomer",
+  "voice": "bm_daniel",
+  "paragraphs": [
+   "m03-0.webm",
+   "m03-1.webm"
+  ]
+ },
+ "m04": {
+  "speaker": "Soren Idris",
+  "role": "Stellar astronomer",
+  "voice": "bm_daniel",
+  "paragraphs": [
+   "m04-0.webm",
+   "m04-1.webm"
+  ]
+ },
+ "m08": {
+  "speaker": "Soren Idris",
+  "role": "Stellar astronomer",
+  "voice": "bm_daniel",
+  "paragraphs": [
+   "m08-0.webm",
+   "m08-1.webm"
+  ]
+ },
+ "m12": {
+  "speaker": "Soren Idris",
+  "role": "Stellar astronomer",
+  "voice": "bm_daniel",
+  "paragraphs": [
+   "m12-0.webm",
+   "m12-1.webm"
+  ]
+ },
+ "m13": {
+  "speaker": "Soren Idris",
+  "role": "Stellar astronomer",
+  "voice": "bm_daniel",
+  "paragraphs": [
+   "m13-0.webm",
+   "m13-1.webm"
+  ]
+ },
+ "m07": {
+  "speaker": "Jo Alvarez",
+  "role": "Flight dynamics officer",
+  "voice": "bm_fable",
+  "paragraphs": [
+   "m07-0.webm",
+   "m07-1.webm"
+  ]
+ },
+ "m14": {
+  "speaker": "Jo Alvarez",
+  "role": "Flight dynamics officer",
+  "voice": "bm_fable",
+  "paragraphs": [
+   "m14-0.webm",
+   "m14-1.webm"
+  ]
+ },
+ "m10": {
+  "speaker": "Imani Vale",
+  "role": "Station commander",
+  "voice": "af_river",
+  "paragraphs": [
+   "m10-0.webm",
+   "m10-1.webm"
+  ]
+ },
+ "m15": {
+  "speaker": "Imani Vale",
+  "role": "Station commander",
+  "voice": "af_river",
+  "paragraphs": [
+   "m15-0.webm",
+   "m15-1.webm"
+  ]
+ }
+}

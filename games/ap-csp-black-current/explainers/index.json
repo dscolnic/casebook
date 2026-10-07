@@ -1,0 +1,107 @@
+{
+  "m01:room": {
+    "title": "Bit Integrity Bay",
+    "seconds": 69,
+    "kind": "room",
+    "helper": "Imani Reyes",
+    "job": "Read the vault's status word, and check that it came through clean."
+  },
+  "m02:room": {
+    "title": "Compression Workshop",
+    "seconds": 74,
+    "kind": "room",
+    "helper": "Jules Park",
+    "job": "Pick how to shrink each file, and time the send over the last cable."
+  },
+  "m03:room": {
+    "title": "Telemetry Audit Loft",
+    "seconds": 67,
+    "kind": "room",
+    "helper": "Sol Okafor",
+    "job": "Work out how often calls fail, and sort the call records into groups."
+  },
+  "m04:room": {
+    "title": "Algorithm Control Room",
+    "seconds": 71,
+    "kind": "room",
+    "helper": "Rina Shah",
+    "job": "Trace the new scheduler by hand, one time slot at a time."
+  },
+  "m05:room": {
+    "title": "Abstraction Foundry",
+    "seconds": 72,
+    "kind": "room",
+    "helper": "Mateo Ruiz",
+    "job": "Trace the shared power-limit procedure, and see how each tower should call it."
+  },
+  "m06:room": {
+    "title": "Logic Validation Hall",
+    "seconds": 63,
+    "kind": "room",
+    "helper": "Keira Moss",
+    "job": "Find out what the clinic gate's test really does, and pick a fix."
+  },
+  "m07:room": {
+    "title": "Protocol Exchange",
+    "seconds": 64,
+    "kind": "room",
+    "helper": "Anwar Haddad",
+    "job": "Split dispatch's message into packets, and send it over paths that keep changing."
+  },
+  "m08:room": {
+    "title": "Redundancy Switchhouse",
+    "seconds": 62,
+    "kind": "room",
+    "helper": "Priya Nwosu",
+    "job": "Find out if the clinic stays connected when one piece of gear fails."
+  },
+  "m09:room": {
+    "title": "Compute Dispatch Shed",
+    "seconds": 67,
+    "kind": "room",
+    "helper": "Hana Mori",
+    "job": "Find how much faster four workers sort the damage reports, with the security step kept."
+  },
+  "m10:room": {
+    "title": "Security Operations Vault",
+    "seconds": 65,
+    "kind": "room",
+    "helper": "Leila Haddad",
+    "job": "Decide how much to trust a login, and what it should be allowed to do."
+  },
+  "m11:room": {
+    "title": "Clinical Data Exchange",
+    "seconds": 76,
+    "kind": "room",
+    "helper": "Dr. Evelyn Park",
+    "job": "Trace the dispatch list, then choose what private data dispatch should get."
+  },
+  "m12:room": {
+    "title": "Service Equity Observatory",
+    "seconds": 67,
+    "kind": "room",
+    "helper": "Jordan Hale",
+    "job": "Find each group's delivery rate, and check every group against the floor."
+  },
+  "m13:room": {
+    "title": "Runtime Diagnostics Annex",
+    "seconds": 67,
+    "kind": "room",
+    "helper": "Ravi Singh",
+    "job": "Count the duplicate filter's checks, and pick a filter that fits the window."
+  },
+  "m14:room": {
+    "title": "North Head Verification House",
+    "seconds": 63,
+    "kind": "room",
+    "helper": "Noor Patel",
+    "job": "Check records with a checksum, and find one record fast in the sorted log."
+  },
+  "m15:room": {
+    "title": "Coastal Network Command",
+    "seconds": 65,
+    "kind": "room",
+    "helper": "Director Imani Reyes",
+    "job": "Trace the restoration gate, and test the alert floor with text backup."
+  }
+}

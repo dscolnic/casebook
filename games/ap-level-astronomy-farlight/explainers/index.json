@@ -1,0 +1,107 @@
+{
+  "m01:room": {
+    "title": "Guide-Star Metrology Rack",
+    "seconds": 69,
+    "kind": "room",
+    "helper": "Mira Sandoval",
+    "job": "Find how far the roll moved the star's image, and whether it still fits the slit."
+  },
+  "m02:room": {
+    "title": "Photometric Standards Cell",
+    "seconds": 67,
+    "kind": "room",
+    "helper": "Reva Nandi",
+    "job": "Find what share of the lamp's photons channel B really counts."
+  },
+  "m03:room": {
+    "title": "Astrometry Plate Room",
+    "seconds": 67,
+    "kind": "room",
+    "helper": "Soren Idris",
+    "job": "Measure Earth's orbit, then turn a nearby star's yearly shift into a distance."
+  },
+  "m04:room": {
+    "title": "Stellar Radiation Workroom",
+    "seconds": 69,
+    "kind": "room",
+    "helper": "Soren Idris",
+    "job": "Find a red star's surface heat from its colour, then its size from its power."
+  },
+  "m05:room": {
+    "title": "Transit Photometry Bay",
+    "seconds": 66,
+    "kind": "room",
+    "helper": "Reva Nandi",
+    "job": "Find the size of the body crossing our star, and the size of its orbit."
+  },
+  "m06:room": {
+    "title": "The Echelle Reference Room",
+    "seconds": 71,
+    "kind": "room",
+    "helper": "Mira Sandoval",
+    "job": "Turn a star's tiny wobble into the mass of whatever is pulling it."
+  },
+  "m07:room": {
+    "title": "The Foreground Rejection Lab",
+    "seconds": 67,
+    "kind": "room",
+    "helper": "Jo Alvarez",
+    "job": "Find how far away a moving speck is, and how fast it really goes."
+  },
+  "m08:room": {
+    "title": "The Cluster Age Workroom",
+    "seconds": 60,
+    "kind": "room",
+    "helper": "Soren Idris",
+    "job": "Work out how long a heavy star can keep shining."
+  },
+  "m09:room": {
+    "title": "The Extinction Correction Room",
+    "seconds": 60,
+    "kind": "room",
+    "helper": "Reva Nandi",
+    "job": "Work out how much light the dust took, and put it back."
+  },
+  "m10:room": {
+    "title": "The Transient Light-Curve Bay",
+    "seconds": 67,
+    "kind": "room",
+    "helper": "Imani Vale",
+    "job": "Find how far away a bright flash is, and how much power it gives off."
+  },
+  "m11:room": {
+    "title": "X-ray Timing Cell",
+    "seconds": 66,
+    "kind": "room",
+    "helper": "Reva Nandi",
+    "job": "Find how big a fast-flickering X-ray source can be, and what powers it."
+  },
+  "m12:room": {
+    "title": "Rotation-Curve Room",
+    "seconds": 66,
+    "kind": "room",
+    "helper": "Soren Idris",
+    "job": "Weigh a galaxy from how fast its gas goes round."
+  },
+  "m13:room": {
+    "title": "Redshift Standards Lab",
+    "seconds": 59,
+    "kind": "room",
+    "helper": "Soren Idris",
+    "job": "Measure how much a galaxy's light is stretched, and turn that into a distance."
+  },
+  "m14:room": {
+    "title": "Foreground Separation Chamber",
+    "seconds": 68,
+    "kind": "room",
+    "helper": "Jo Alvarez",
+    "job": "Turn the receiver's volts into a sky temperature, and see how warm one patch is."
+  },
+  "m15:room": {
+    "title": "Crew Safety Room",
+    "seconds": 68,
+    "kind": "room",
+    "helper": "Imani Vale",
+    "job": "Check two budgets for the observing window: the battery and the hot arm."
+  }
+}
